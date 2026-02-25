@@ -4978,6 +4978,10 @@ function setupStickyNotes() {
                                 <span class="material-symbols-rounded" style="font-size: 1rem;">cloud_download</span>
                                 Download Pool
                             </button>
+                            <button id="sticky-sync-nlm-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600; background: rgba(99,102,241,0.35);" title="Sync with NotebookLM Notes">
+                                <span class="material-symbols-rounded" style="font-size: 1rem;">sync</span>
+                                Sync NLM
+                            </button>
                             <button id="sticky-clear-all-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600;" title="Delete all sticky notes">
                                 <span class="material-symbols-rounded" style="font-size: 1rem;">delete_sweep</span>
                                 Clear All
@@ -5324,6 +5328,24 @@ function setupStickyNotes() {
                     alert('Download failed: ' + err.message);
                     downloadPoolBtn.innerHTML = '<span class="material-symbols-rounded">error</span> Failed';
                 }
+            };
+        }
+
+        // Sync with NotebookLM Notes
+        const syncNLMBtn = modal.querySelector('#sticky-sync-nlm-btn');
+        if (syncNLMBtn) {
+            syncNLMBtn.onclick = () => {
+                syncNLMBtn.innerHTML = '<span class="material-symbols-rounded rotating" style="font-size: 1rem;">sync</span> Syncing...';
+                setTimeout(() => {
+                    const result = syncNLMWithStickyNotes();
+                    const msg = result.addedToNLM + result.addedToSticky > 0
+                        ? `Synced! +${result.addedToNLM} to NLM, +${result.addedToSticky} to Sticky (NLM: ${result.totalNLM}, Sticky: ${result.totalSticky})`
+                        : `Already in sync! (NLM: ${result.totalNLM}, Sticky: ${result.totalSticky})`;
+                    alert(msg);
+                    // Reload sticky notes UI
+                    modal.classList.remove('active');
+                    setTimeout(() => stickyBtn.click(), 50);
+                }, 300);
             };
         }
 
@@ -11469,6 +11491,23 @@ async function findMatchingNotes(infographicTitle, sections) {
         syncBtn.addEventListener('click', () => syncNLMFromGist());
     }
 
+    // Sync with Sticky Notes
+    const syncStickyBtn = document.getElementById('nlm-sync-sticky-btn');
+    if (syncStickyBtn) {
+        syncStickyBtn.addEventListener('click', () => {
+            syncStickyBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span>';
+            setTimeout(() => {
+                const result = syncNLMWithStickyNotes();
+                renderNLMPanel();
+                const msg = result.addedToNLM + result.addedToSticky > 0
+                    ? `Synced! +${result.addedToNLM} to NotebookLM, +${result.addedToSticky} to Sticky Notes (NLM: ${result.totalNLM}, Sticky: ${result.totalSticky})`
+                    : `Already in sync! (NLM: ${result.totalNLM}, Sticky: ${result.totalSticky})`;
+                alert(msg);
+                syncStickyBtn.innerHTML = '<span class="material-symbols-rounded">sync</span>';
+            }, 300);
+        });
+    }
+
     // Search
     const searchInput = document.getElementById('nlm-search-input');
     if (searchInput) {
@@ -11482,3 +11521,50 @@ async function findMatchingNotes(infographicTitle, sections) {
     // Initialize badge
     updateNLMBadge(loadNLMNotes().length);
 })();
+
+/**
+ * Bidirectional sync between NotebookLM Notes and Sticky Notes
+ * Merges all unique notes (by text) into both stores
+ */
+function syncNLMWithStickyNotes() {
+    const nlmNotes = loadNLMNotes();
+    const stickyNotes = JSON.parse(localStorage.getItem(STICKY_NOTES_KEY) || '[]');
+
+    let addedToNLM = 0;
+    let addedToSticky = 0;
+
+    // Copy sticky notes → NLM (that don't exist in NLM)
+    stickyNotes.forEach(sn => {
+        const exists = nlmNotes.find(nn => nn.text === sn.text);
+        if (!exists) {
+            nlmNotes.push({
+                id: Date.now().toString() + '_s' + Math.random().toString(36).substr(2, 5),
+                text: sn.text,
+                source: sn.source || 'Sticky Notes',
+                createdAt: sn.createdAt || new Date().toISOString()
+            });
+            addedToNLM++;
+        }
+    });
+
+    // Copy NLM notes → Sticky (that don't exist in sticky)
+    nlmNotes.forEach(nn => {
+        const exists = stickyNotes.find(sn => sn.text === nn.text);
+        if (!exists) {
+            stickyNotes.push({
+                id: Date.now() + Math.floor(Math.random() * 10000),
+                text: nn.text,
+                source: nn.source || 'NotebookLM',
+                createdAt: nn.createdAt || new Date().toISOString()
+            });
+            addedToSticky++;
+        }
+    });
+
+    // Save both
+    saveNLMNotes(nlmNotes);
+    localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(stickyNotes));
+    if (typeof updateStickyNotesBadge === 'function') updateStickyNotesBadge();
+
+    return { addedToNLM, addedToSticky, totalNLM: nlmNotes.length, totalSticky: stickyNotes.length };
+}

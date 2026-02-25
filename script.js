@@ -6386,13 +6386,34 @@ function renderInfographic(data) {
 
     header.innerHTML = `
         <div class="header-decoration"></div>
-        <h1 class="poster-title" style="display: flex; align-items: center; flex-wrap: wrap;">${escapeHtml(data.title)}${categoryBadgeHtml}</h1>
+        <h1 class="poster-title" style="display: flex; align-items: center; flex-wrap: wrap;">${escapeHtml(data.title)}${categoryBadgeHtml}
+            <button class="find-notes-btn" id="find-matching-notes-btn" title="Find matching NotebookLM notes">
+                <span class="material-symbols-rounded">book</span>
+                Find Notes
+            </button>
+        </h1>
         <div class="header-content-wrapper" style="display: flex; gap: 2rem; align-items: start;">
             <p class="poster-summary" style="flex: 1;">${escapeHtml(data.summary)}</p>
             ${illustrationHtml}
         </div>
     `;
     posterSheet.appendChild(header);
+
+    // Wire the Find Matching Notes button
+    const findNotesBtn = header.querySelector('#find-matching-notes-btn');
+    if (findNotesBtn) {
+        findNotesBtn.addEventListener('click', async () => {
+            findNotesBtn.classList.add('loading');
+            findNotesBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Matching...';
+            try {
+                await findMatchingNotes(data.title, data.sections);
+            } catch (err) {
+                console.error('[Find Notes]', err);
+            }
+            findNotesBtn.classList.remove('loading');
+            findNotesBtn.innerHTML = '<span class="material-symbols-rounded">book</span> Find Notes';
+        });
+    }
 
     // Grid (Inside the sheet)
     const grid = document.createElement('div');
@@ -10946,40 +10967,518 @@ function setupNarrator() {
 }
 
 // ==========================================
-// NOTEBOOKLM PORTAL TOGGLE LOGIC
 // ==========================================
-const notebooklmToggleBtn = document.getElementById('notebooklm-toggle-btn');
-const closeNotebooklmBtn = document.getElementById('close-notebooklm-btn');
-const appContainerVal = document.querySelector('.app-container');
-const launchNotebooklmPopupBtn = document.getElementById('launch-notebooklm-popup');
+// NOTEBOOKLM NOTES MIRROR — Full System
+// ==========================================
+const NLM_NOTES_KEY = 'notebooklm_mirror_notes';
+const NLM_GIST_ID = '3b43030a808541a28d6b125847567f66';
+const NLM_POOL_FILENAME = 'notebooklm_notes.json';
 
-if (notebooklmToggleBtn && appContainerVal) {
-    notebooklmToggleBtn.addEventListener('click', () => {
-        appContainerVal.classList.toggle('notebooklm-open');
-    });
+function loadNLMNotes() {
+    try {
+        return JSON.parse(localStorage.getItem(NLM_NOTES_KEY) || '[]');
+    } catch { return []; }
 }
 
-if (closeNotebooklmBtn && appContainerVal) {
-    closeNotebooklmBtn.addEventListener('click', () => {
-        appContainerVal.classList.remove('notebooklm-open');
-    });
+function saveNLMNotes(notes) {
+    localStorage.setItem(NLM_NOTES_KEY, JSON.stringify(notes));
+    updateNLMBadge(notes.length);
 }
 
-if (launchNotebooklmPopupBtn) {
-    launchNotebooklmPopupBtn.addEventListener('click', () => {
-        const width = 450;
-        const height = window.screen.availHeight;
-        const left = window.screen.availWidth - width;
+function updateNLMBadge(count) {
+    const badge = document.getElementById('nlm-count-badge');
+    if (!badge) return;
+    if (count > 0) {
+        badge.textContent = count > 99 ? '99+' : count;
+        badge.style.display = '';
+    } else {
+        badge.style.display = 'none';
+    }
+}
 
-        window.open(
-            'https://notebooklm.google.com/notebook/07d17136-d624-417d-8b82-6977f9674f71?pli=1&authuser=0&pageId=none',
-            'NotebookLMPopup',
-            `width=${width},height=${height},left=${left},top=0,menubar=no,toolbar=no,location=no,status=no,resizable=yes`
-        );
-
-        // Optionally close the side panel after launching
-        if (appContainerVal) {
-            appContainerVal.classList.remove('notebooklm-open');
+/**
+ * Import bulk text into individual notes
+ * Splits by '---' delimiters or double-newlines
+ */
+function importBulkNotes(text) {
+    if (!text || !text.trim()) return 0;
+    const notes = loadNLMNotes();
+    let chunks;
+    // Split by --- delimiter first
+    if (text.includes('---')) {
+        chunks = text.split(/\n?---+\n?/).map(c => c.trim()).filter(c => c.length > 5);
+    } else {
+        // Split by double-newline
+        chunks = text.split(/\n\s*\n/).map(c => c.trim()).filter(c => c.length > 5);
+    }
+    if (chunks.length === 0) {
+        // Treat entire text as one note
+        chunks = [text.trim()];
+    }
+    let added = 0;
+    chunks.forEach(chunk => {
+        const exists = notes.find(n => n.text === chunk);
+        if (!exists) {
+            notes.unshift({
+                id: Date.now().toString() + '_' + Math.random().toString(36).substr(2, 5),
+                text: chunk,
+                source: 'NotebookLM Import',
+                createdAt: new Date().toISOString()
+            });
+            added++;
         }
     });
+    if (added > 0) saveNLMNotes(notes);
+    return added;
 }
+
+/**
+ * Render the NLM notes list in the side panel
+ */
+function renderNLMPanel(filterText) {
+    const listEl = document.getElementById('nlm-notes-list');
+    if (!listEl) return;
+    const notes = loadNLMNotes();
+    updateNLMBadge(notes.length);
+
+    if (notes.length === 0) {
+        listEl.innerHTML = `
+            <div class="nlm-empty-state" id="nlm-empty-state">
+                <span class="material-symbols-rounded">note_stack</span>
+                <p>No notes imported yet</p>
+                <small>Paste notes from NotebookLM or sync from the pool</small>
+            </div>
+        `;
+        return;
+    }
+
+    const q = (filterText || '').toLowerCase().trim();
+    const filtered = q
+        ? notes.filter(n => n.text.toLowerCase().includes(q) || (n.source || '').toLowerCase().includes(q))
+        : notes;
+
+    if (filtered.length === 0) {
+        listEl.innerHTML = `
+            <div class="nlm-empty-state">
+                <span class="material-symbols-rounded">search_off</span>
+                <p>No matching notes</p>
+                <small>Try a different search term</small>
+            </div>
+        `;
+        return;
+    }
+
+    listEl.innerHTML = filtered.map(note => {
+        const date = new Date(note.createdAt);
+        const timeStr = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: '2-digit' }) + ' ' +
+            date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+        const matchHtml = note._matchScore
+            ? `<span class="nlm-match-score"><span class="material-symbols-rounded" style="font-size:0.7rem;">trending_up</span>${note._matchScore}%</span>`
+            : '';
+        const matchClass = note._matchScore ? ' matched' : '';
+        const noteTextDisplay = note._highlightedText || escapeHtml(note.text);
+        return `
+            <div class="nlm-note-card${matchClass}" data-note-id="${note.id}">
+                <div class="nlm-note-meta">
+                    <span class="nlm-note-date">${timeStr} ${matchHtml}</span>
+                    <div class="nlm-note-actions">
+                        <button class="nlm-note-action nlm-use-btn" data-note-id="${note.id}" title="Use as topic input">
+                            <span class="material-symbols-rounded">input</span>
+                        </button>
+                        <button class="nlm-note-action nlm-copy-btn" data-note-id="${note.id}" title="Copy">
+                            <span class="material-symbols-rounded">content_copy</span>
+                        </button>
+                        <button class="nlm-note-action delete nlm-delete-btn" data-note-id="${note.id}" title="Delete">
+                            <span class="material-symbols-rounded">close</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="nlm-note-text">${noteTextDisplay}</div>
+                ${note.source ? `<div class="nlm-note-source"><span class="material-symbols-rounded">description</span>${escapeHtml((note.source || '').substring(0, 60))}</div>` : ''}
+            </div>
+        `;
+    }).join('');
+
+    // Attach event listeners
+    listEl.querySelectorAll('.nlm-delete-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const id = btn.dataset.noteId;
+            const updated = loadNLMNotes().filter(n => n.id !== id);
+            saveNLMNotes(updated);
+            const card = btn.closest('.nlm-note-card');
+            if (card) {
+                card.style.transition = 'opacity 0.3s, transform 0.3s';
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.9)';
+                setTimeout(() => { card.remove(); updateNLMBadge(updated.length); }, 300);
+            }
+        });
+    });
+
+    listEl.querySelectorAll('.nlm-copy-btn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            const id = btn.dataset.noteId;
+            const note = loadNLMNotes().find(n => n.id === id);
+            if (note) {
+                try {
+                    await navigator.clipboard.writeText(note.text);
+                    btn.innerHTML = '<span class="material-symbols-rounded">check</span>';
+                    setTimeout(() => btn.innerHTML = '<span class="material-symbols-rounded">content_copy</span>', 1500);
+                } catch { /* ignore */ }
+            }
+        });
+    });
+
+    listEl.querySelectorAll('.nlm-use-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const id = btn.dataset.noteId;
+            const note = loadNLMNotes().find(n => n.id === id);
+            if (note) {
+                const topicArea = document.getElementById('topic-input');
+                if (topicArea) {
+                    topicArea.value = note.text;
+                    topicArea.scrollIntoView({ behavior: 'smooth' });
+                    topicArea.focus();
+                }
+            }
+        });
+    });
+}
+
+/**
+ * Sync NLM notes from Gist pool
+ */
+async function syncNLMFromGist() {
+    const syncBtn = document.getElementById('nlm-sync-gist-btn');
+    if (syncBtn) syncBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span>';
+
+    try {
+        const resp = await fetch(`https://api.github.com/gists/${NLM_GIST_ID}`);
+        if (!resp.ok) throw new Error('Failed to reach pool');
+        const gist = await resp.json();
+        const file = gist.files[NLM_POOL_FILENAME];
+
+        let poolData = [];
+        if (file) {
+            const rawResp = await fetch(file.raw_url);
+            poolData = JSON.parse(await rawResp.text());
+        }
+
+        // Also try sticky notes pool as fallback
+        const stickyFile = gist.files['pool_sticky_notes.json'];
+        if (stickyFile) {
+            try {
+                const stickyResp = await fetch(stickyFile.raw_url);
+                const stickyData = JSON.parse(await stickyResp.text());
+                poolData = poolData.concat(stickyData);
+            } catch { /* ignore */ }
+        }
+
+        if (poolData.length === 0) {
+            alert('No notes found in pool.');
+            if (syncBtn) syncBtn.innerHTML = '<span class="material-symbols-rounded">cloud_download</span>';
+            return;
+        }
+
+        const notes = loadNLMNotes();
+        let added = 0;
+        poolData.forEach(pn => {
+            const exists = notes.find(nn => nn.text === pn.text);
+            if (!exists) {
+                notes.unshift({
+                    id: Date.now().toString() + '_' + Math.random().toString(36).substr(2, 5),
+                    text: pn.text,
+                    source: pn.source || 'Pool Sync',
+                    createdAt: pn.createdAt || new Date().toISOString()
+                });
+                added++;
+            }
+        });
+
+        if (added > 0) {
+            saveNLMNotes(notes);
+            renderNLMPanel();
+            alert(`Synced ${added} new notes from pool!`);
+        } else {
+            alert('All pool notes already imported.');
+        }
+    } catch (err) {
+        console.error('[NLM Sync]', err);
+        alert('Sync failed: ' + err.message);
+    }
+
+    if (syncBtn) syncBtn.innerHTML = '<span class="material-symbols-rounded">cloud_download</span>';
+}
+
+/**
+ * Find matching NLM notes for the current infographic topic
+ * Uses keyword matching + Gemini AI ranking if available
+ */
+async function findMatchingNotes(infographicTitle, sections) {
+    const notes = loadNLMNotes();
+    if (notes.length === 0) {
+        alert('No NotebookLM notes imported yet. Open the NotebookLM panel and import notes first.');
+        return;
+    }
+
+    // Extract keywords from infographic
+    const titleWords = (infographicTitle || '').toLowerCase().split(/\W+/).filter(w => w.length > 3);
+    const sectionTitles = (sections || []).map(s => (s.title || '').toLowerCase()).join(' ');
+    const sectionWords = sectionTitles.split(/\W+/).filter(w => w.length > 3);
+    const allKeywords = [...new Set([...titleWords, ...sectionWords])];
+
+    // Score each note by keyword overlap
+    const scored = notes.map(note => {
+        const noteText = note.text.toLowerCase();
+        let score = 0;
+        const matchedKeywords = [];
+        allKeywords.forEach(kw => {
+            if (noteText.includes(kw)) {
+                score += 10;
+                matchedKeywords.push(kw);
+            }
+        });
+        // Bonus for title match
+        if (noteText.includes(infographicTitle.toLowerCase().substring(0, 20))) {
+            score += 30;
+        }
+        return { ...note, _matchScore: Math.min(100, score), _matchedKeywords: matchedKeywords };
+    });
+
+    // Sort by score descending
+    scored.sort((a, b) => b._matchScore - a._matchScore);
+
+    // Take top results with score > 0
+    let results = scored.filter(n => n._matchScore > 0).slice(0, 10);
+
+    // If Gemini API is available, refine ranking
+    const apiKey = document.getElementById('api-key')?.value?.trim();
+    if (apiKey && results.length > 1) {
+        try {
+            const { GoogleGenerativeAI } = await import("@google/generative-ai");
+            const genAI = new GoogleGenerativeAI(apiKey);
+            const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+
+            const notesSummary = results.slice(0, 8).map((n, i) =>
+                `Note ${i + 1}: "${n.text.substring(0, 200)}..."`
+            ).join('\n');
+
+            const prompt = `Given an ophthalmology infographic titled "${infographicTitle}", rank these notes by relevance (most relevant first). Return ONLY a JSON array of note indices (1-based), e.g. [3,1,5,2,4]. Notes:\n${notesSummary}`;
+
+            const result = await model.generateContent(prompt);
+            const responseText = result.response.text().trim();
+            const match = responseText.match(/\[[\d,\s]+\]/);
+            if (match) {
+                const ranking = JSON.parse(match[0]);
+                const reordered = [];
+                ranking.forEach(idx => {
+                    const note = results[idx - 1];
+                    if (note) {
+                        note._matchScore = Math.min(100, note._matchScore + 20); // Boost AI-confirmed matches
+                        reordered.push(note);
+                    }
+                });
+                // Add any unranked notes at the end
+                results.forEach(n => {
+                    if (!reordered.find(r => r.id === n.id)) reordered.push(n);
+                });
+                results = reordered;
+            }
+        } catch (err) {
+            console.warn('[NLM Match] Gemini ranking failed, using keyword-only:', err.message);
+        }
+    }
+
+    // If no keyword matches, show top 5 with minimal score
+    if (results.length === 0) {
+        results = scored.slice(0, 5).map(n => ({ ...n, _matchScore: 5 }));
+    }
+
+    // Highlight matched keywords in text
+    results.forEach(note => {
+        let html = escapeHtml(note.text);
+        (note._matchedKeywords || []).forEach(kw => {
+            const regex = new RegExp(`(${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            html = html.replace(regex, '<span class="nlm-highlight">$1</span>');
+        });
+        note._highlightedText = html;
+    });
+
+    // Open the NLM panel and display results
+    const appContainer = document.querySelector('.app-container');
+    if (appContainer) appContainer.classList.add('notebooklm-open');
+
+    // Render matched notes in the panel
+    const listEl = document.getElementById('nlm-notes-list');
+    if (listEl) {
+        // Temporarily replace the notes list with match results
+        const originalNotes = loadNLMNotes();
+        // Clear match scores from saved notes
+        originalNotes.forEach(n => { delete n._matchScore; delete n._highlightedText; delete n._matchedKeywords; });
+
+        // Render with match scores
+        const matchHeader = document.createElement('div');
+        matchHeader.style.cssText = 'padding: 0.5rem 0.25rem; font-size: 0.8rem; font-weight: 600; color: #4f46e5; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid #e0e7ff; margin-bottom: 0.5rem;';
+        matchHeader.innerHTML = `<span class="material-symbols-rounded" style="font-size:1.1rem;">auto_awesome</span> ${results.length} notes matched for "${escapeHtml(infographicTitle.substring(0, 40))}"
+            <button id="nlm-clear-match" style="margin-left:auto; background:none; border:none; cursor:pointer; color:#94a3b8; font-size:0.75rem; display:flex; align-items:center; gap:2px;">
+                <span class="material-symbols-rounded" style="font-size:0.9rem;">close</span> Show all
+            </button>`;
+
+        listEl.innerHTML = '';
+        listEl.appendChild(matchHeader);
+
+        // Re-render with match data
+        results.forEach(note => {
+            const date = new Date(note.createdAt);
+            const timeStr = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: '2-digit' }) + ' ' +
+                date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+            const scoreColor = note._matchScore >= 50 ? '#22c55e' : note._matchScore >= 20 ? '#f59e0b' : '#94a3b8';
+            const card = document.createElement('div');
+            card.className = 'nlm-note-card' + (note._matchScore >= 20 ? ' matched' : '');
+            card.dataset.noteId = note.id;
+            card.innerHTML = `
+                <div class="nlm-note-meta">
+                    <span class="nlm-note-date">${timeStr}
+                        <span class="nlm-match-score" style="background:${scoreColor};">
+                            <span class="material-symbols-rounded" style="font-size:0.7rem;">trending_up</span>${note._matchScore}%
+                        </span>
+                    </span>
+                    <div class="nlm-note-actions">
+                        <button class="nlm-note-action nlm-use-btn" data-note-id="${note.id}" title="Use as topic input">
+                            <span class="material-symbols-rounded">input</span>
+                        </button>
+                        <button class="nlm-note-action nlm-copy-btn" data-note-id="${note.id}" title="Copy">
+                            <span class="material-symbols-rounded">content_copy</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="nlm-note-text">${note._highlightedText || escapeHtml(note.text)}</div>
+                ${note.source ? `<div class="nlm-note-source"><span class="material-symbols-rounded">description</span>${escapeHtml((note.source || '').substring(0, 60))}</div>` : ''}
+            `;
+            listEl.appendChild(card);
+        });
+
+        // Clear match button
+        const clearMatchBtn = listEl.querySelector('#nlm-clear-match');
+        if (clearMatchBtn) {
+            clearMatchBtn.addEventListener('click', () => renderNLMPanel());
+        }
+
+        // Re-attach event listeners for match results
+        listEl.querySelectorAll('.nlm-copy-btn').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                e.stopPropagation();
+                const note = results.find(n => n.id === btn.dataset.noteId);
+                if (note) {
+                    try {
+                        await navigator.clipboard.writeText(note.text);
+                        btn.innerHTML = '<span class="material-symbols-rounded">check</span>';
+                        setTimeout(() => btn.innerHTML = '<span class="material-symbols-rounded">content_copy</span>', 1500);
+                    } catch { /* ignore */ }
+                }
+            });
+        });
+        listEl.querySelectorAll('.nlm-use-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const note = results.find(n => n.id === btn.dataset.noteId);
+                if (note) {
+                    const topicArea = document.getElementById('topic-input');
+                    if (topicArea) {
+                        topicArea.value = note.text;
+                        topicArea.scrollIntoView({ behavior: 'smooth' });
+                        topicArea.focus();
+                    }
+                }
+            });
+        });
+    }
+}
+
+// ── NLM Panel Initialization & Toggle ──
+(function initNLMPanel() {
+    const notebooklmToggleBtn = document.getElementById('notebooklm-toggle-btn');
+    const closeNotebooklmBtn = document.getElementById('close-notebooklm-btn');
+    const appContainerVal = document.querySelector('.app-container');
+
+    // Toggle panel
+    if (notebooklmToggleBtn && appContainerVal) {
+        notebooklmToggleBtn.addEventListener('click', () => {
+            const isOpening = !appContainerVal.classList.contains('notebooklm-open');
+            appContainerVal.classList.toggle('notebooklm-open');
+            if (isOpening) renderNLMPanel();
+        });
+    }
+
+    // Close panel
+    if (closeNotebooklmBtn && appContainerVal) {
+        closeNotebooklmBtn.addEventListener('click', () => {
+            appContainerVal.classList.remove('notebooklm-open');
+        });
+    }
+
+    // Import toggle (collapsible)
+    const importToggle = document.getElementById('nlm-import-toggle');
+    const importBody = document.getElementById('nlm-import-body');
+    if (importToggle && importBody) {
+        importToggle.addEventListener('click', () => {
+            const isExpanded = importBody.style.display !== 'none';
+            importBody.style.display = isExpanded ? 'none' : 'block';
+            importToggle.classList.toggle('expanded', !isExpanded);
+        });
+    }
+
+    // Add pasted notes
+    const addPastedBtn = document.getElementById('nlm-add-pasted-btn');
+    const pasteArea = document.getElementById('nlm-paste-area');
+    if (addPastedBtn && pasteArea) {
+        addPastedBtn.addEventListener('click', () => {
+            const text = pasteArea.value.trim();
+            if (!text) return;
+            const added = importBulkNotes(text);
+            pasteArea.value = '';
+            if (added > 0) {
+                renderNLMPanel();
+                // Quick feedback
+                addPastedBtn.innerHTML = '<span class="material-symbols-rounded">check</span> Added ' + added + '!';
+                setTimeout(() => addPastedBtn.innerHTML = '<span class="material-symbols-rounded">add</span> Add Notes', 2000);
+            } else {
+                alert('All notes already imported (no duplicates found).');
+            }
+        });
+    }
+
+    // Clear all
+    const clearAllBtn = document.getElementById('nlm-clear-all-btn');
+    if (clearAllBtn) {
+        clearAllBtn.addEventListener('click', () => {
+            const notes = loadNLMNotes();
+            if (notes.length === 0) return;
+            if (!confirm(`Delete all ${notes.length} NotebookLM notes? This cannot be undone.`)) return;
+            saveNLMNotes([]);
+            renderNLMPanel();
+        });
+    }
+
+    // Sync from Gist
+    const syncBtn = document.getElementById('nlm-sync-gist-btn');
+    if (syncBtn) {
+        syncBtn.addEventListener('click', () => syncNLMFromGist());
+    }
+
+    // Search
+    const searchInput = document.getElementById('nlm-search-input');
+    if (searchInput) {
+        let searchTimer;
+        searchInput.addEventListener('input', () => {
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(() => renderNLMPanel(searchInput.value), 250);
+        });
+    }
+
+    // Initialize badge
+    updateNLMBadge(loadNLMNotes().length);
+})();

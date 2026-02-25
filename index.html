@@ -224,35 +224,67 @@
             <div id="text-report-container" class="text-report-wrapper" style="display: none;"></div>
         </main>
 
-        <!-- NotebookLM Portal Panel -->
+        <!-- NotebookLM Notes Mirror Panel -->
         <aside class="notebooklm-panel" id="notebooklm-panel">
-            <div class="panel-header"
-                style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 1px solid #e5e7eb; background: #f8f9fa;">
-                <h2
-                    style="font-size: 1.1rem; color: #4f46e5; display: flex; gap: 0.5rem; align-items: center; margin: 0;">
-                    <span class="material-symbols-rounded" style="vertical-align: middle;">book</span> NotebookLM
-                </h2>
-                <button class="icon-btn-ghost" id="close-notebooklm-btn" title="Close Portal"
-                    style="background: none; border: none; cursor: pointer; color: #6b7280; display: flex; align-items: center; justify-content: center; padding: 4px; border-radius: 4px;">
-                    <span class="material-symbols-rounded">close</span>
-                </button>
-                <div
-                    style="flex: 1; padding: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: #fff;">
-                    <div
-                        style="width: 64px; height: 64px; background: #e0e7ff; color: #4f46e5; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                        <span class="material-symbols-rounded" style="font-size: 2rem;">security</span>
+            <!-- Panel Header -->
+            <div class="nlm-panel-header">
+                <div class="nlm-title-row">
+                    <h2 class="nlm-title">
+                        <span class="material-symbols-rounded">book</span>
+                        NotebookLM Notes
+                        <span class="nlm-count-badge" id="nlm-count-badge" style="display:none;">0</span>
+                    </h2>
+                    <div class="nlm-header-actions">
+                        <a href="https://notebooklm.google.com/notebook/07d17136-d624-417d-8b82-6977f9674f71?pli=1&authuser=0&pageId=none"
+                            target="_blank" class="nlm-action-btn" title="Open NotebookLM">
+                            <span class="material-symbols-rounded">open_in_new</span>
+                        </a>
+                        <button class="nlm-action-btn" id="nlm-sync-gist-btn" title="Sync Notes from Pool">
+                            <span class="material-symbols-rounded">cloud_download</span>
+                        </button>
+                        <button class="nlm-action-btn" id="close-notebooklm-btn" title="Close Panel">
+                            <span class="material-symbols-rounded">close</span>
+                        </button>
                     </div>
-                    <h3 style="margin-bottom: 1rem; color: #1f2937;">Popup Required</h3>
-                    <p
-                        style="color: #6b7280; font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem; max-width: 280px;">
-                        Google's security policies prevent NotebookLM from being embedded directly inside this page.
-                    </p>
-                    <button id="launch-notebooklm-popup" class="primary-btn"
-                        style="width: auto; padding: 0.75rem 1.5rem; border-radius: 8px;">
-                        <span class="material-symbols-rounded" style="font-size: 1.2rem;">open_in_new</span>
-                        Launch in Side Window
-                    </button>
                 </div>
+                <!-- Search -->
+                <div class="nlm-search-row">
+                    <span class="material-symbols-rounded nlm-search-icon">search</span>
+                    <input type="text" id="nlm-search-input" class="nlm-search-input" placeholder="Search notes...">
+                </div>
+            </div>
+
+            <!-- Bulk Import Area (collapsible) -->
+            <div class="nlm-import-area" id="nlm-import-area">
+                <button class="nlm-import-toggle" id="nlm-import-toggle">
+                    <span class="material-symbols-rounded">add_notes</span>
+                    Import Notes
+                    <span class="material-symbols-rounded nlm-toggle-chevron">expand_more</span>
+                </button>
+                <div class="nlm-import-body" id="nlm-import-body" style="display:none;">
+                    <textarea id="nlm-paste-area" class="nlm-paste-area"
+                        placeholder="Paste notes from NotebookLM here...&#10;&#10;Separate multiple notes with '---' or leave a blank line between them."></textarea>
+                    <div class="nlm-import-actions">
+                        <button class="nlm-btn-import" id="nlm-add-pasted-btn">
+                            <span class="material-symbols-rounded">add</span>
+                            Add Notes
+                        </button>
+                        <button class="nlm-btn-clear-all" id="nlm-clear-all-btn">
+                            <span class="material-symbols-rounded">delete_sweep</span>
+                            Clear All
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes List -->
+            <div class="nlm-notes-list" id="nlm-notes-list">
+                <div class="nlm-empty-state" id="nlm-empty-state">
+                    <span class="material-symbols-rounded">note_stack</span>
+                    <p>No notes imported yet</p>
+                    <small>Paste notes from NotebookLM or sync from the pool</small>
+                </div>
+            </div>
         </aside>
     </div>
 

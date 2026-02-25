@@ -5172,8 +5172,11 @@ function setupStickyNotes() {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const noteId = btn.dataset.noteId;
-                    const updatedNotes = notes.filter(n => n.id != noteId);
-                    localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(updatedNotes));
+                    const deletedNote = notes.find(n => n.id == noteId);
+                    if (deletedNote) deleteNoteEverywhere(deletedNote.text);
+                    // Update local reference
+                    const idx = notes.findIndex(n => n.id == noteId);
+                    if (idx !== -1) notes.splice(idx, 1);
                     updateStickyNotesBadge();
                     // Remove the card from DOM
                     const card = btn.closest('.sticky-note-card');
@@ -5186,7 +5189,7 @@ function setupStickyNotes() {
                     // Update count
                     const countEl = body.querySelector('p');
                     if (countEl) {
-                        countEl.textContent = `${updatedNotes.length} note${updatedNotes.length !== 1 ? 's' : ''} saved`;
+                        countEl.textContent = `${notes.length} note${notes.length !== 1 ? 's' : ''} saved`;
                     }
                 });
             });
@@ -5196,8 +5199,9 @@ function setupStickyNotes() {
         const clearBtn = modal.querySelector('#sticky-clear-all-btn');
         clearBtn.onclick = () => {
             if (notes.length === 0) return;
-            if (!confirm(`Delete all ${notes.length} sticky notes? This cannot be undone.`)) return;
-            localStorage.setItem(STICKY_NOTES_KEY, '[]');
+            if (!confirm(`Delete all ${notes.length} sticky notes? This will also remove them from NotebookLM Notes.`)) return;
+            // Tombstone all notes so they don't re-appear
+            notes.forEach(n => deleteNoteEverywhere(n.text));
             updateStickyNotesBadge();
             body.innerHTML = `
                 <div style="text-align: center; padding: 3rem 1rem; color: #92400e;">
@@ -5301,6 +5305,7 @@ function setupStickyNotes() {
 
                     let added = 0;
                     poolData.forEach(pn => {
+                        if (isInTombstone(pn.text)) return; // Skip deleted notes
                         const exists = notes.find(nn => nn.text === pn.text);
                         if (!exists) {
                             notes.push({
@@ -10995,6 +11000,58 @@ function setupNarrator() {
 const NLM_NOTES_KEY = 'notebooklm_mirror_notes';
 const NLM_GIST_ID = '3b43030a808541a28d6b125847567f66';
 const NLM_POOL_FILENAME = 'notebooklm_notes.json';
+const NOTES_TOMBSTONE_KEY = 'notes_deletion_tombstone';
+
+/**
+ * Tombstone system — tracks deleted note text signatures to prevent re-import.
+ * When a note is deleted from either store, its text is hashed and stored here.
+ */
+function getNoteSignature(text) {
+    // Simple hash of first 100 chars + length for fast dedup
+    const t = (text || '').trim();
+    return t.substring(0, 100) + '::' + t.length;
+}
+
+function getTombstones() {
+    try { return JSON.parse(localStorage.getItem(NOTES_TOMBSTONE_KEY) || '[]'); }
+    catch { return []; }
+}
+
+function addToTombstone(text) {
+    if (!text || !text.trim()) return;
+    const tombstones = getTombstones();
+    const sig = getNoteSignature(text);
+    if (!tombstones.includes(sig)) {
+        tombstones.push(sig);
+        // Keep max 5000 tombstones
+        if (tombstones.length > 5000) tombstones.splice(0, tombstones.length - 5000);
+        localStorage.setItem(NOTES_TOMBSTONE_KEY, JSON.stringify(tombstones));
+    }
+}
+
+function isInTombstone(text) {
+    const sig = getNoteSignature(text);
+    return getTombstones().includes(sig);
+}
+
+/**
+ * Delete a note from BOTH stores and add to tombstone.
+ * Call this instead of deleting from a single store.
+ */
+function deleteNoteEverywhere(noteText) {
+    if (!noteText) return;
+    addToTombstone(noteText);
+
+    // Remove from NLM notes
+    const nlmNotes = loadNLMNotes().filter(n => n.text !== noteText);
+    saveNLMNotes(nlmNotes);
+
+    // Remove from Sticky Notes
+    const stickyNotes = JSON.parse(localStorage.getItem(STICKY_NOTES_KEY) || '[]');
+    const updatedSticky = stickyNotes.filter(n => n.text !== noteText);
+    localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(updatedSticky));
+    if (typeof updateStickyNotesBadge === 'function') updateStickyNotesBadge();
+}
 
 function loadNLMNotes() {
     try {
@@ -11039,6 +11096,7 @@ function importBulkNotes(text) {
     }
     let added = 0;
     chunks.forEach(chunk => {
+        if (isInTombstone(chunk)) return; // Skip deleted notes
         const exists = notes.find(n => n.text === chunk);
         if (!exists) {
             notes.unshift({
@@ -11126,14 +11184,15 @@ function renderNLMPanel(filterText) {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             const id = btn.dataset.noteId;
-            const updated = loadNLMNotes().filter(n => n.id !== id);
-            saveNLMNotes(updated);
+            const allNotes = loadNLMNotes();
+            const deletedNote = allNotes.find(n => n.id === id);
+            if (deletedNote) deleteNoteEverywhere(deletedNote.text);
             const card = btn.closest('.nlm-note-card');
             if (card) {
                 card.style.transition = 'opacity 0.3s, transform 0.3s';
                 card.style.opacity = '0';
                 card.style.transform = 'scale(0.9)';
-                setTimeout(() => { card.remove(); updateNLMBadge(updated.length); }, 300);
+                setTimeout(() => { card.remove(); updateNLMBadge(loadNLMNotes().length); }, 300);
             }
         });
     });
@@ -11208,6 +11267,7 @@ async function syncNLMFromGist() {
         const notes = loadNLMNotes();
         let added = 0;
         poolData.forEach(pn => {
+            if (isInTombstone(pn.text)) return; // Skip deleted notes
             const exists = notes.find(nn => nn.text === pn.text);
             if (!exists) {
                 notes.unshift({
@@ -11479,8 +11539,9 @@ async function findMatchingNotes(infographicTitle, sections) {
         clearAllBtn.addEventListener('click', () => {
             const notes = loadNLMNotes();
             if (notes.length === 0) return;
-            if (!confirm(`Delete all ${notes.length} NotebookLM notes? This cannot be undone.`)) return;
-            saveNLMNotes([]);
+            if (!confirm(`Delete all ${notes.length} NotebookLM notes? This will also remove them from Sticky Notes.`)) return;
+            // Tombstone all so they don't re-appear
+            notes.forEach(n => deleteNoteEverywhere(n.text));
             renderNLMPanel();
         });
     }
@@ -11535,6 +11596,7 @@ function syncNLMWithStickyNotes() {
 
     // Copy sticky notes → NLM (that don't exist in NLM)
     stickyNotes.forEach(sn => {
+        if (isInTombstone(sn.text)) return; // Skip deleted notes
         const exists = nlmNotes.find(nn => nn.text === sn.text);
         if (!exists) {
             nlmNotes.push({
@@ -11549,6 +11611,7 @@ function syncNLMWithStickyNotes() {
 
     // Copy NLM notes → Sticky (that don't exist in sticky)
     nlmNotes.forEach(nn => {
+        if (isInTombstone(nn.text)) return; // Skip deleted notes
         const exists = stickyNotes.find(sn => sn.text === nn.text);
         if (!exists) {
             stickyNotes.push({

@@ -1535,7 +1535,7 @@ function setupKnowledgeBase() {
 
     let currentChapterFilter = 'all';
     let currentSearchTerm = ''; // NEW: Search state
-    let currentSortMode = 'date'; // NEW: Sort state
+    let currentSortMode = 'created_date'; // 'date', 'name', 'chapter', 'created_date'
     let showBookmarkedOnly = false; // NEW: Bookmark filter state
     let currentContentFilter = 'all'; // Content-type filter: tables, causes, etc.
     let selectionMode = false;
@@ -2997,8 +2997,6 @@ function setupKnowledgeBase() {
                 // Secondary sort by date
                 return new Date(b.date) - new Date(a.date);
             });
-        } else if (currentSortMode === 'newly_added') {
-            // Sort by _newlyImported timestamp (most recent first), then by date
             filteredLibrary.sort((a, b) => {
                 const aNew = a._newlyImported || 0;
                 const bNew = b._newlyImported || 0;
@@ -3076,7 +3074,7 @@ function setupKnowledgeBase() {
                         <option value="date" ${currentSortMode === 'date' ? 'selected' : ''}>Sort by Date</option>
                         <option value="name" ${currentSortMode === 'name' ? 'selected' : ''}>Sort by Name</option>
                         <option value="chapter" ${currentSortMode === 'chapter' ? 'selected' : ''}>Sort by Chapter</option>
-                        <option value="newly_added" ${currentSortMode === 'newly_added' ? 'selected' : ''}>Sort by Newly Added</option>
+                        <option value="created_date" ${currentSortMode === 'created_date' ? 'selected' : ''}>Sort by Created Date</option>
                     </select>
                 </div>
                 <div class="content-filter-wrapper">
@@ -5172,11 +5170,11 @@ function setupStickyNotes() {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const noteId = btn.dataset.noteId;
-                    const deletedNote = notes.find(n => n.id == noteId);
-                    if (deletedNote) deleteNoteEverywhere(deletedNote.text);
-                    // Update local reference
                     const idx = notes.findIndex(n => n.id == noteId);
-                    if (idx !== -1) notes.splice(idx, 1);
+                    if (idx !== -1) {
+                        notes.splice(idx, 1);
+                        localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
+                    }
                     updateStickyNotesBadge();
                     // Remove the card from DOM
                     const card = btn.closest('.sticky-note-card');
@@ -5200,8 +5198,9 @@ function setupStickyNotes() {
         clearBtn.onclick = () => {
             if (notes.length === 0) return;
             if (!confirm(`Delete all ${notes.length} sticky notes? This will also remove them from NotebookLM Notes.`)) return;
-            // Tombstone all notes so they don't re-appear
-            notes.forEach(n => deleteNoteEverywhere(n.text));
+            // Delete notes from sticky notes completely (don't retain tombstone if user wants it gone forever from sticky notes pool)
+            notes.length = 0;
+            localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
             updateStickyNotesBadge();
             body.innerHTML = `
                 <div style="text-align: center; padding: 3rem 1rem; color: #92400e;">
@@ -5359,7 +5358,8 @@ function setupStickyNotes() {
         const pasteArea = modal.querySelector('#sticky-paste-area');
         if (pasteBtn && pasteArea) {
             pasteBtn.onclick = () => {
-                const text = pasteArea.value.trim();
+                let text = pasteArea.value.trim();
+                text = text.replace(/<[^>]*>?/gm, ''); // Strip rich HTML formatting
                 if (!text) return;
                 const newNote = {
                     id: Date.now().toString(),
@@ -5483,6 +5483,7 @@ async function generateInfographicData(apiKey, topic) {
                 5. Use "plain_text" blocks to preserve large chunks of text verbatim if they don't fit into charts/lists.
                 6. **RESTRICTED SCOPE**: You must NOT add any information, facts, or context that is not explicitly present in the provided input text. Do not hallucinate or fetch outside knowledge.
                 7. **VERIFICATION**: Before outputting, verify that n% of the input text is present in the output JSON.
+                8. **DIFFERENTIAL DIAGNOSIS**: If the input pertains to a disease or condition, explicitly look for and format "Differential Diagnosis" prominently within the infographic output, preferably as a "table" or "mindmap".
                 
                 Guidelines:
                 1. **Visual Variety**: Use charts, warning boxes, mindmaps, mnemonics, and lists.
@@ -11518,7 +11519,8 @@ async function findMatchingNotes(infographicTitle, sections) {
     const pasteArea = document.getElementById('nlm-paste-area');
     if (addPastedBtn && pasteArea) {
         addPastedBtn.addEventListener('click', () => {
-            const text = pasteArea.value.trim();
+            let text = pasteArea.value.trim();
+            text = text.replace(/<[^>]*>?/gm, ''); // Strip rich HTML formatting
             if (!text) return;
             const added = importBulkNotes(text);
             pasteArea.value = '';

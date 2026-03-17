@@ -1678,7 +1678,7 @@ function setupKnowledgeBase() {
 
     let currentChapterFilter = 'all';
     let currentSearchTerm = ''; // NEW: Search state
-    let currentSortMode = 'vip'; // 'date', 'name', 'chapter', 'vip'
+    let currentSortMode = 'date'; // 'date', 'name', 'chapter', 'vip'
     let showBookmarkedOnly = false; // NEW: Bookmark filter state
     let currentContentFilter = 'all'; // Content-type filter: tables, causes, etc.
     let selectionMode = false;
@@ -3218,7 +3218,7 @@ function setupKnowledgeBase() {
                 </div>
                 <div class="sort-wrapper">
                     <select id="sort-select" style="padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; background-color: white; cursor: pointer;">
-                        <option value="date" ${currentSortMode === 'date' ? 'selected' : ''}>Sort by Date</option>
+                        <option value="date" ${currentSortMode === 'date' ? 'selected' : ''}>Sort by Date (Created)</option>
                         <option value="name" ${currentSortMode === 'name' ? 'selected' : ''}>Sort by Name</option>
                         <option value="chapter" ${currentSortMode === 'chapter' ? 'selected' : ''}>Sort by Chapter</option>
                         <option value="vip" ${currentSortMode === 'vip' ? 'selected' : ''}>Sort by Bookmarked</option>
@@ -3249,6 +3249,12 @@ function setupKnowledgeBase() {
                     </button>
                 ` : ''}
                 ${selectionMode && selectedItems.size > 0 ? `
+                    ${selectedItems.size >= 2 ? `
+                    <button class="btn-small btn-merge-selected" id="merge-selected-btn" style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); color: white; border: none;">
+                        <span class="material-symbols-rounded">merge</span>
+                        Merge (${selectedItems.size})
+                    </button>
+                    ` : ''}
                     <button class="btn-small btn-bookmark-all" id="bookmark-selected-btn" style="background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); color: white; border: none;">
                         <span class="material-symbols-rounded">bookmarks</span>
                         Bookmark All (${selectedItems.size})
@@ -3540,6 +3546,101 @@ function setupKnowledgeBase() {
                         updateExportButtonVisibility();
                     }, 100);
                 }
+            });
+        }
+
+        // MERGE SELECTED HANDLER
+        const mergeSelectedBtn = toolbar.querySelector('#merge-selected-btn');
+        if (mergeSelectedBtn) {
+            mergeSelectedBtn.addEventListener('click', () => {
+                if (selectedItems.size < 2) {
+                    alert('Select at least 2 infographics to merge.');
+                    return;
+                }
+
+                const itemsToMerge = library.filter(item => selectedItems.has(item.id));
+                const titles = itemsToMerge.map(i => i.title).join(' + ');
+                const defaultTitle = titles.length > 80 ? titles.substring(0, 77) + '...' : titles;
+                const mergedTitle = prompt('Enter a title for the merged infographic:', defaultTitle);
+                if (!mergedTitle || !mergedTitle.trim()) return;
+
+                // Collect all sections, deduplicating by normalized title
+                const seenSectionTitles = new Set();
+                const mergedSections = [];
+
+                for (const item of itemsToMerge) {
+                    const sections = item.data?.sections || [];
+                    for (const section of sections) {
+                        if (!section) continue;
+                        const normSectionTitle = (section.title || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+                        if (normSectionTitle && seenSectionTitles.has(normSectionTitle)) continue;
+                        if (normSectionTitle) seenSectionTitles.add(normSectionTitle);
+
+                        // Deep-deduplicate list content within each section
+                        let dedupedSection = { ...section };
+                        if (Array.isArray(section.content)) {
+                            const seenItems = new Set();
+                            dedupedSection.content = section.content.filter(c => {
+                                const key = typeof c === 'string'
+                                    ? c.toLowerCase().trim()
+                                    : (c && c.label ? c.label.toLowerCase().trim() : JSON.stringify(c));
+                                if (seenItems.has(key)) return false;
+                                seenItems.add(key);
+                                return true;
+                            });
+                        }
+                        mergedSections.push(dedupedSection);
+                    }
+                }
+
+                // Build merged summary from unique sentences
+                const summaryParts = new Set();
+                for (const item of itemsToMerge) {
+                    const s = (item.data?.summary || item.summary || '').trim();
+                    if (s) summaryParts.add(s);
+                }
+                const mergedSummary = Array.from(summaryParts).join(' ');
+
+                // Determine the most common chapterId
+                const chapterCounts = {};
+                for (const item of itemsToMerge) {
+                    const ch = item.chapterId || 'uncategorized';
+                    chapterCounts[ch] = (chapterCounts[ch] || 0) + 1;
+                }
+                const majorityChapter = Object.entries(chapterCounts).sort((a, b) => b[1] - a[1])[0][0];
+
+                const mergedData = {
+                    title: mergedTitle.trim(),
+                    summary: mergedSummary,
+                    sections: mergedSections,
+                    chapterId: majorityChapter,
+                    mergedFrom: itemsToMerge.map(i => i.title)
+                };
+
+                const newItem = {
+                    id: Date.now(),
+                    seqId: 1,
+                    title: mergedTitle.trim(),
+                    summary: mergedSummary,
+                    date: new Date().toISOString(),
+                    data: mergedData,
+                    chapterId: majorityChapter
+                };
+
+                library.unshift(newItem);
+                reassignSequentialIds(library);
+                saveLibraryToIDB(library);
+
+                // Load the merged infographic
+                currentInfographicData = mergedData;
+                renderInfographic(mergedData);
+
+                selectionMode = false;
+                selectedItems.clear();
+                renderLibraryList();
+                updateExportButtonVisibility();
+
+                alert(`Merged ${itemsToMerge.length} infographics into "${mergedTitle.trim()}" with ${mergedSections.length} unique sections.`);
             });
         }
 

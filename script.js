@@ -5184,6 +5184,9 @@ function setupStickyNotes() {
     // Show badge on load
     updateStickyNotesBadge();
 
+    let stickySelectionMode = false;
+    let stickySelectedIds = new Set();
+
     // Sticky notes colors for visual variety
     const STICKY_COLORS = [
         { bg: '#fef9c3', border: '#fde047', accent: '#854d0e' },
@@ -5228,6 +5231,10 @@ function setupStickyNotes() {
                             <button id="sticky-sync-nlm-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600; background: rgba(99,102,241,0.35);" title="Sync with NotebookLM Notes">
                                 <span class="material-symbols-rounded" style="font-size: 1rem;">sync</span>
                                 Sync NLM
+                            </button>
+                            <button id="sticky-select-merge-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600; background: ${stickySelectionMode ? 'rgba(255,255,255,0.35)' : 'transparent'};" title="Select notes to merge">
+                                <span class="material-symbols-rounded" style="font-size: 1rem;">checklist</span>
+                                ${stickySelectionMode ? 'Cancel' : 'Select & Merge'}
                             </button>
                             <button id="sticky-clear-all-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600;" title="Delete all sticky notes">
                                 <span class="material-symbols-rounded" style="font-size: 1rem;">delete_sweep</span>
@@ -5282,16 +5289,31 @@ function setupStickyNotes() {
                     <input id="sticky-search" type="text" placeholder="Search notes..." 
                         style="padding: 6px 12px; border: 1px solid #fde047; border-radius: 6px; font-size: 0.85rem; min-width: 200px; background: white;">
                 </div>
+                ${stickySelectionMode ? `
+                <div id="sticky-merge-bar" style="display: flex; align-items: center; gap: 10px; padding: 0.75rem 1rem; background: linear-gradient(135deg, #0ea5e9, #0284c7); border-radius: 10px; margin-bottom: 0.75rem;">
+                    <span style="color: white; font-size: 0.9rem; font-weight: 600;" id="sticky-merge-count">0 selected</span>
+                    <button id="sticky-select-all-notes-btn" style="background: rgba(255,255,255,0.2); color: white; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.8rem; display: flex; align-items: center; gap: 4px;">
+                        <span class="material-symbols-rounded" style="font-size: 1rem;">select_all</span> Select All
+                    </button>
+                    <button id="sticky-do-merge-btn" style="background: white; color: #0284c7; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 4px; opacity: 0.5; pointer-events: none;">
+                        <span class="material-symbols-rounded" style="font-size: 1rem;">merge</span> Merge Selected
+                    </button>
+                </div>
+                ` : ''}
                 <div id="sticky-notes-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0.75rem;">
                     ${notes.map((note, idx) => {
                 const color = STICKY_COLORS[idx % STICKY_COLORS.length];
                 const date = new Date(note.createdAt);
                 const timeStr = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: '2-digit' }) + ' ' + date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+                const isSelected = stickySelectedIds.has(String(note.id));
                 return `
                         <div class="sticky-note-card" data-note-id="${note.id}" data-searchable="${note.text.toLowerCase()} ${(note.source || '').toLowerCase()}"
-                            style="background: ${color.bg}; border: 1px solid ${color.border}; border-radius: 8px; padding: 0.75rem; position: relative; box-shadow: 2px 2px 8px rgba(0,0,0,0.06); transition: transform 0.15s; cursor: default;">
+                            style="background: ${color.bg}; border: ${isSelected ? '2px solid #0ea5e9' : '1px solid ' + color.border}; border-radius: 8px; padding: 0.75rem; position: relative; box-shadow: ${isSelected ? '0 0 0 2px rgba(14,165,233,0.3)' : '2px 2px 8px rgba(0,0,0,0.06)'}; transition: transform 0.15s, border 0.15s, box-shadow 0.15s; cursor: ${stickySelectionMode ? 'pointer' : 'default'};">
                             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.4rem;">
-                                <span style="font-size: 0.7rem; color: ${color.accent}; font-weight: 600; opacity: 0.7;">${timeStr}</span>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    ${stickySelectionMode ? `<input type="checkbox" class="sticky-select-cb" data-note-id="${note.id}" ${isSelected ? 'checked' : ''} style="width: 16px; height: 16px; cursor: pointer; accent-color: #0ea5e9;">` : ''}
+                                    <span style="font-size: 0.7rem; color: ${color.accent}; font-weight: 600; opacity: 0.7;">${timeStr}</span>
+                                </div>
                                 <div style="display: flex; gap: 2px;">
                                     <button class="sticky-edit-btn" data-note-id="${note.id}" title="Edit note"
                                         style="background: none; border: none; cursor: pointer; padding: 2px; color: #10b981; opacity: 0.8; transition: opacity 0.15s;">
@@ -5445,6 +5467,142 @@ function setupStickyNotes() {
                     }
                 });
             });
+
+            // Selection mode: clicking a card toggles its selection
+            if (stickySelectionMode) {
+                const updateMergeBar = () => {
+                    const countEl = body.querySelector('#sticky-merge-count');
+                    const mergeBtn = body.querySelector('#sticky-do-merge-btn');
+                    if (countEl) countEl.textContent = `${stickySelectedIds.size} selected`;
+                    if (mergeBtn) {
+                        const canMerge = stickySelectedIds.size >= 2;
+                        mergeBtn.style.opacity = canMerge ? '1' : '0.5';
+                        mergeBtn.style.pointerEvents = canMerge ? 'auto' : 'none';
+                    }
+                };
+
+                body.querySelectorAll('.sticky-note-card').forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        if (e.target.closest('.sticky-delete-btn') || e.target.closest('.sticky-copy-btn') ||
+                            e.target.closest('.sticky-edit-btn') || e.target.closest('.sticky-generate-btn')) return;
+                        const noteId = String(card.dataset.noteId);
+                        const cb = card.querySelector('.sticky-select-cb');
+                        if (stickySelectedIds.has(noteId)) {
+                            stickySelectedIds.delete(noteId);
+                            if (cb) cb.checked = false;
+                            card.style.border = '1px solid ' + (STICKY_COLORS[0].border);
+                            card.style.boxShadow = '2px 2px 8px rgba(0,0,0,0.06)';
+                        } else {
+                            stickySelectedIds.add(noteId);
+                            if (cb) cb.checked = true;
+                            card.style.border = '2px solid #0ea5e9';
+                            card.style.boxShadow = '0 0 0 2px rgba(14,165,233,0.3)';
+                        }
+                        updateMergeBar();
+                    });
+                });
+
+                body.querySelectorAll('.sticky-select-cb').forEach(cb => {
+                    cb.addEventListener('change', (e) => {
+                        e.stopPropagation();
+                        const noteId = String(cb.dataset.noteId);
+                        if (cb.checked) {
+                            stickySelectedIds.add(noteId);
+                        } else {
+                            stickySelectedIds.delete(noteId);
+                        }
+                        const card = cb.closest('.sticky-note-card');
+                        if (card) {
+                            card.style.border = cb.checked ? '2px solid #0ea5e9' : '1px solid ' + STICKY_COLORS[0].border;
+                            card.style.boxShadow = cb.checked ? '0 0 0 2px rgba(14,165,233,0.3)' : '2px 2px 8px rgba(0,0,0,0.06)';
+                        }
+                        updateMergeBar();
+                    });
+                });
+
+                // Select All
+                const selectAllNotesBtn = body.querySelector('#sticky-select-all-notes-btn');
+                if (selectAllNotesBtn) {
+                    selectAllNotesBtn.addEventListener('click', () => {
+                        notes.forEach(n => stickySelectedIds.add(String(n.id)));
+                        body.querySelectorAll('.sticky-select-cb').forEach(cb => { cb.checked = true; });
+                        body.querySelectorAll('.sticky-note-card').forEach(card => {
+                            card.style.border = '2px solid #0ea5e9';
+                            card.style.boxShadow = '0 0 0 2px rgba(14,165,233,0.3)';
+                        });
+                        updateMergeBar();
+                    });
+                }
+
+                // Merge Selected
+                const doMergeBtn = body.querySelector('#sticky-do-merge-btn');
+                if (doMergeBtn) {
+                    doMergeBtn.addEventListener('click', () => {
+                        if (stickySelectedIds.size < 2) return;
+
+                        const selectedNotes = notes.filter(n => stickySelectedIds.has(String(n.id)));
+
+                        // Deduplicate: collect unique lines across all selected notes
+                        const seenLines = new Set();
+                        const mergedLines = [];
+                        for (const note of selectedNotes) {
+                            const lines = note.text.split('\n');
+                            for (const line of lines) {
+                                const trimmed = line.trim();
+                                if (!trimmed) continue;
+                                const key = trimmed.toLowerCase().replace(/[^a-z0-9]/g, '');
+                                if (key && seenLines.has(key)) continue;
+                                if (key) seenLines.add(key);
+                                mergedLines.push(trimmed);
+                            }
+                        }
+
+                        const mergedText = mergedLines.join('\n');
+                        const sources = [...new Set(selectedNotes.map(n => n.source).filter(Boolean))].join(', ');
+
+                        const newNote = {
+                            id: Date.now().toString(),
+                            text: mergedText,
+                            source: sources ? `Merged: ${sources}` : 'Merged Notes',
+                            createdAt: new Date().toISOString()
+                        };
+
+                        // Remove originals
+                        const idsToRemove = new Set(stickySelectedIds);
+                        const updatedNotes = notes.filter(n => !idsToRemove.has(String(n.id)));
+                        updatedNotes.unshift(newNote);
+
+                        // Replace notes array in-place
+                        notes.length = 0;
+                        updatedNotes.forEach(n => notes.push(n));
+
+                        localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
+                        updateStickyNotesBadge();
+
+                        stickySelectionMode = false;
+                        stickySelectedIds.clear();
+
+                        // Reload UI
+                        modal.classList.remove('active');
+                        setTimeout(() => stickyBtn.click(), 50);
+
+                        alert(`Merged ${selectedNotes.length} notes into one (${mergedLines.length} unique lines).`);
+                    });
+                }
+
+                updateMergeBar();
+            }
+        }
+
+        // Select & Merge toggle
+        const selectMergeBtn = modal.querySelector('#sticky-select-merge-btn');
+        if (selectMergeBtn) {
+            selectMergeBtn.onclick = () => {
+                stickySelectionMode = !stickySelectionMode;
+                if (!stickySelectionMode) stickySelectedIds.clear();
+                modal.classList.remove('active');
+                setTimeout(() => stickyBtn.click(), 50);
+            };
         }
 
         // Clear All button

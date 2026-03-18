@@ -6194,6 +6194,14 @@ function updateInfographicCategoryBadge(newChapterId) {
 // to their closest valid equivalents. Prevents broken/empty icon boxes.
 // ═══════════════════════════════════════════════════════════════════════
 const ICON_FALLBACK_MAP = {
+    // Custom requested additions
+    'mindmap': 'account_tree',
+    'remember': 'lightbulb',
+    'knife_slicer': 'content_cut',
+    'slicer': 'content_cut',
+    'knife': 'content_cut',
+    'scalpel': 'content_cut',
+
     // Science & Medical - common AI-generated invalid names
     'microscope': 'biotech',
     'dna': 'genetics',

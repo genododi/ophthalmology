@@ -2472,6 +2472,152 @@ function setupKnowledgeBase() {
         });
     }
 
+    // MERGE SIMILAR TOPICS
+    const mergeSimilarBtn = document.getElementById('merge-similar-btn');
+    if (mergeSimilarBtn) {
+        mergeSimilarBtn.addEventListener('click', async () => {
+            const library = getLibraryCache();
+
+            if (library.length < 2) {
+                alert('Library needs at least 2 items to find similar topics.');
+                return;
+            }
+
+            // Simple stop words for keyword extraction
+            const stopWords = new Set(['the', 'and', 'or', 'of', 'to', 'in', 'a', 'an', 'is', 'for', 'on', 'with', 'as', 'by', 'at', 'from']);
+            const getKeywords = (text) => {
+                if (!text) return new Set();
+                const words = String(text).toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/);
+                return new Set(words.filter(w => w.length > 2 && !stopWords.has(w)));
+            };
+
+            const computeJaccard = (setA, setB) => {
+                const intersection = new Set([...setA].filter(x => setB.has(x)));
+                const union = new Set([...setA, ...setB]);
+                return union.size === 0 ? 0 : intersection.size / union.size;
+            };
+
+            // Pre-calculate keywords for all items
+            const itemKeywords = library.map(item => ({
+                id: item.id,
+                keywords: getKeywords((item.title || '') + ' ' + (item.summary || ''))
+            }));
+
+            // Find clusters of similar infographics
+            const processedIndices = new Set();
+            const clusters = [];
+            const SIMILARITY_THRESHOLD = 0.35; // Fine-tune as needed (0 to 1)
+
+            for (let i = 0; i < library.length; i++) {
+                if (processedIndices.has(i)) continue;
+
+                const currentCluster = [i];
+                for (let j = i + 1; j < library.length; j++) {
+                    if (processedIndices.has(j)) continue;
+
+                    const sim = computeJaccard(itemKeywords[i].keywords, itemKeywords[j].keywords);
+                    if (sim >= SIMILARITY_THRESHOLD) {
+                        currentCluster.push(j);
+                        processedIndices.add(j);
+                    }
+                }
+                
+                if (currentCluster.length > 1) {
+                    clusters.push(currentCluster);
+                }
+                // Mark initial item as processed whether it formed a cluster or not
+                processedIndices.add(i);
+                // Also mark all items in cluster as processed just to be sure
+                currentCluster.forEach(idx => processedIndices.add(idx));
+            }
+
+            if (clusters.length === 0) {
+                alert('✅ No similar topics found! Your library is distinct.');
+                return;
+            }
+
+            let msg = `Found ${clusters.length} group(s) of similar topics:\n\n`;
+            clusters.forEach((cluster, idx) => {
+                msg += `Group ${idx + 1}:\n`;
+                cluster.forEach(itemIdx => {
+                    msg += ` - ${library[itemIdx].title}\n`;
+                });
+                msg += '\n';
+            });
+            msg += 'Do you want to merge these groups into combined infographics?';
+
+            if (confirm(msg)) {
+                const deleteOriginals = confirm('Do you want to delete the original infographics after merging? Select OK to delete them, Cancel to keep them alongside the merged version.');
+
+                let mergedCount = 0;
+                let idsToDelete = new Set();
+                const newItems = [];
+
+                clusters.forEach(cluster => {
+                    // Base item is the first one in the cluster
+                    const baseItem = JSON.parse(JSON.stringify(library[cluster[0]]));
+                    baseItem.id = Date.now() + Math.floor(Math.random() * 1000) + mergedCount; // Ensure unique new ID
+                    baseItem.title = "Merged: " + baseItem.title;
+                    baseItem.date = new Date().toISOString();
+                    
+                    if (!baseItem.data) baseItem.data = {};
+                    if (!baseItem.data.sections) baseItem.data.sections = [];
+                    
+                    if (deleteOriginals) idsToDelete.add(library[cluster[0]].id);
+
+                    // Append sections from the other similar items
+                    for (let i = 1; i < cluster.length; i++) {
+                        const otherItem = library[cluster[i]];
+                        if (otherItem.data && otherItem.data.sections) {
+                            // Add a separator or section header if needed, but array concat is safest
+                            baseItem.data.sections.push({
+                                title: `--- Sub-topics from: ${otherItem.title} ---`,
+                                icon: "merge",
+                                type: "plain_text",
+                                layout: "full_width",
+                                color_theme: "blue",
+                                content: otherItem.summary || "Additional merged content."
+                            });
+                            baseItem.data.sections.push(...otherItem.data.sections);
+                        }
+                        if (deleteOriginals) idsToDelete.add(otherItem.id);
+                    }
+
+                    newItems.push(baseItem);
+                    mergedCount++;
+                });
+
+                let cleanedLibrary = library;
+                if (deleteOriginals) {
+                    cleanedLibrary = library.filter(item => !idsToDelete.has(item.id));
+                }
+                
+                // Add the newly merged items back into the library
+                cleanedLibrary = [...cleanedLibrary, ...newItems];
+
+                reassignSequentialIds(cleanedLibrary);
+                saveLibraryToIDB(cleanedLibrary);
+
+                alert(`✅ Merged ${mergedCount} group(s). Library updated.`);
+                renderLibraryList();
+                syncLibraryToServer();
+
+                // Delete originals from server as well if chosen
+                if (deleteOriginals && idsToDelete.size > 0) {
+                    try {
+                        await fetch('/api/library/delete', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ ids: Array.from(idsToDelete) })
+                        });
+                    } catch (e) {
+                        console.error('Failed to notify server of deleted originals', e);
+                    }
+                }
+            }
+        });
+    }
+
     // AUTO-CHAPTERIZE
     const autoChapterBtn = document.getElementById('auto-chapter-btn');
     if (autoChapterBtn) {

@@ -2565,10 +2565,7 @@ function setupKnowledgeBase() {
                     
                     if (deleteOriginals) idsToDelete.add(library[cluster[0]].id);
 
-                    // Tracking existing sections to avoid duplicates
-                    const existingSectionTitles = new Set(
-                        baseItem.data.sections.map(s => String(s.title).trim().toLowerCase())
-                    );
+                    // Tracking existing sections to avoid duplicates based on CONTENT only
                     const existingContents = new Set(
                         baseItem.data.sections.map(s => JSON.stringify(s.content))
                     );
@@ -2579,14 +2576,13 @@ function setupKnowledgeBase() {
                         if (otherItem.data && otherItem.data.sections) {
                             // Filter out sections that already exist in the baseItem
                             const uniqueSections = otherItem.data.sections.filter(section => {
-                                const secTitle = String(section.title).trim().toLowerCase();
                                 const secContentStr = JSON.stringify(section.content);
                                 
-                                if (existingSectionTitles.has(secTitle) || existingContents.has(secContentStr)) {
+                                // Only deduplicate based on actual content, not generic titles
+                                if (existingContents.has(secContentStr)) {
                                     return false; // It's a duplicate, skip it
                                 }
                                 
-                                existingSectionTitles.add(secTitle);
                                 existingContents.add(secContentStr);
                                 return true;
                             });

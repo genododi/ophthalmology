@@ -64,6 +64,34 @@ async function extractTXTText(file) {
 }
 
 /**
+ * Extract text from DOCX file using Mammoth.js
+ */
+async function extractDOCXText(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = async function (e) {
+            try {
+                if (typeof mammoth === 'undefined') {
+                    reject(new Error('Mammoth.js library not loaded'));
+                    return;
+                }
+                const arrayBuffer = e.target.result;
+                const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+                if (result.value) {
+                    resolve(result.value.trim());
+                } else {
+                    resolve('');
+                }
+            } catch (err) {
+                reject(err);
+            }
+        };
+        reader.onerror = () => reject(new Error('Failed to read file'));
+        reader.readAsArrayBuffer(file);
+    });
+}
+
+/**
  * Format file size for display
  */
 function formatFileSize(bytes) {
@@ -86,7 +114,7 @@ function renderUploadedFiles() {
     uploadedFilesList.innerHTML = uploadedResourcesText.map((item, index) => `
         <div class="uploaded-file-item ${item.status}" data-index="${index}">
             <div class="uploaded-file-info">
-                <span class="material-symbols-rounded">${item.type === 'pdf' ? 'picture_as_pdf' : 'description'}</span>
+                <span class="material-symbols-rounded">${item.type === 'pdf' ? 'picture_as_pdf' : (item.type === 'docx' || item.type === 'doc' ? 'article' : 'description')}</span>
                 <span class="uploaded-file-name" title="${item.name}">${item.name}</span>
                 <span class="uploaded-file-size">(${formatFileSize(item.size)})</span>
             </div>
@@ -112,7 +140,15 @@ window.removeUploadedFile = function (index) {
  */
 async function handleFileUpload(files) {
     for (const file of files) {
-        const fileType = file.name.toLowerCase().endsWith('.pdf') ? 'pdf' : 'txt';
+        let fileType = 'txt';
+        const lowerName = file.name.toLowerCase();
+        if (lowerName.endsWith('.pdf')) {
+            fileType = 'pdf';
+        } else if (lowerName.endsWith('.docx')) {
+            fileType = 'docx';
+        } else if (lowerName.endsWith('.doc')) {
+            fileType = 'doc';
+        }
 
         // Add to list with processing status
         const fileEntry = {
@@ -129,6 +165,10 @@ async function handleFileUpload(files) {
             let text;
             if (fileType === 'pdf') {
                 text = await extractPDFText(file);
+            } else if (fileType === 'docx') {
+                text = await extractDOCXText(file);
+            } else if (fileType === 'doc') {
+                throw new Error('.doc format is not fully supported in the browser. Please save as .docx and try again.');
             } else {
                 text = await extractTXTText(file);
             }

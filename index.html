@@ -41,6 +41,8 @@
             pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
         }
     </script>
+    <!-- Mammoth.js for client-side DOCX text extraction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
     <!-- Firebase SDK for alternative storage (no size limits) -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
@@ -104,14 +106,14 @@
             <div class="control-group resource-upload-group">
                 <label>Attach Resources (Optional)</label>
                 <div class="file-upload-wrapper">
-                    <input type="file" id="resource-upload" accept=".pdf,.txt" multiple hidden>
+                    <input type="file" id="resource-upload" accept=".pdf,.txt,.doc,.docx" multiple hidden>
                     <button type="button" class="file-upload-btn" id="upload-trigger-btn">
                         <span class="material-symbols-rounded">upload_file</span>
-                        Upload PDF or TXT
+                        Upload File
                     </button>
                 </div>
                 <div id="uploaded-files-list" class="uploaded-files"></div>
-                <small class="hint">Upload PDF or TXT files to use as source material for generation</small>
+                <small class="hint">Upload PDF, TXT, or DOCX files to use as source material for generation</small>
             </div>
 
             <button id="generate-btn" class="primary-btn">

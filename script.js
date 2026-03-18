@@ -2565,20 +2565,44 @@ function setupKnowledgeBase() {
                     
                     if (deleteOriginals) idsToDelete.add(library[cluster[0]].id);
 
+                    // Tracking existing sections to avoid duplicates
+                    const existingSectionTitles = new Set(
+                        baseItem.data.sections.map(s => String(s.title).trim().toLowerCase())
+                    );
+                    const existingContents = new Set(
+                        baseItem.data.sections.map(s => JSON.stringify(s.content))
+                    );
+
                     // Append sections from the other similar items
                     for (let i = 1; i < cluster.length; i++) {
                         const otherItem = library[cluster[i]];
                         if (otherItem.data && otherItem.data.sections) {
-                            // Add a separator or section header if needed, but array concat is safest
-                            baseItem.data.sections.push({
-                                title: `--- Sub-topics from: ${otherItem.title} ---`,
-                                icon: "merge",
-                                type: "plain_text",
-                                layout: "full_width",
-                                color_theme: "blue",
-                                content: otherItem.summary || "Additional merged content."
+                            // Filter out sections that already exist in the baseItem
+                            const uniqueSections = otherItem.data.sections.filter(section => {
+                                const secTitle = String(section.title).trim().toLowerCase();
+                                const secContentStr = JSON.stringify(section.content);
+                                
+                                if (existingSectionTitles.has(secTitle) || existingContents.has(secContentStr)) {
+                                    return false; // It's a duplicate, skip it
+                                }
+                                
+                                existingSectionTitles.add(secTitle);
+                                existingContents.add(secContentStr);
+                                return true;
                             });
-                            baseItem.data.sections.push(...otherItem.data.sections);
+
+                            if (uniqueSections.length > 0) {
+                                // Add a separator only if there are unique sections to add
+                                baseItem.data.sections.push({
+                                    title: `--- Sub-topics from: ${otherItem.title} ---`,
+                                    icon: "merge",
+                                    type: "plain_text",
+                                    layout: "full_width",
+                                    color_theme: "blue",
+                                    content: otherItem.summary || "Additional merged content."
+                                });
+                                baseItem.data.sections.push(...uniqueSections);
+                            }
                         }
                         if (deleteOriginals) idsToDelete.add(otherItem.id);
                     }

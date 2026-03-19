@@ -2844,6 +2844,14 @@ function setupKnowledgeBase() {
 
         renderLibraryList();
         modal.classList.add('active');
+        
+        // Auto-scroll to last opened item
+        setTimeout(() => {
+            const highlightedItem = document.querySelector('.last-opened-highlight');
+            if (highlightedItem) {
+                highlightedItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 100);
     };
 
     if (libraryBtn) {
@@ -3874,8 +3882,11 @@ function setupKnowledgeBase() {
                 const hashtagColor = isNew ? '#22c55e' : '#94a3b8'; // Green for new/updated, gray for regular
                 const hashtagTitle = isNewlyImported ? 'Newly synced' : (isChapterUpdated ? 'Chapter updated' : '');
 
+                const lastOpenedId = localStorage.getItem('opth_last_opened_infograph_id');
+                const isLastOpened = lastOpenedId && item.id === parseInt(lastOpenedId);
+
                 const el = document.createElement('div');
-                el.className = `saved-item ${isSelected ? 'selected' : ''} ${isNew ? 'newly-imported' : ''}`;
+                el.className = `saved-item ${isSelected ? 'selected' : ''} ${isNew ? 'newly-imported' : ''} ${isLastOpened ? 'last-opened-highlight' : ''}`;
                 el.innerHTML = `
                     ${selectionMode ? `
                         <input type="checkbox" class="item-checkbox" data-id="${item.id}" ${isSelected ? 'checked' : ''}>
@@ -3886,12 +3897,17 @@ function setupKnowledgeBase() {
                         <div class="saved-title-row">
                             <span class="chapter-badge" style="background: ${chapter.color}">${chapter.name}</span>
                             <span class="saved-title">${item.title}</span>
+                            ${item.read ? '<span class="read-status-badge" style="background:#dcfce7; color:#166534; padding:2px 6px; border-radius:4px; font-size:0.75rem; margin-left:8px; display:inline-flex; align-items:center; gap:3px;"><span class="material-symbols-rounded" style="font-size:12px;">check_circle</span>Read</span>' : ''}
                         </div>
                         <div class="saved-date">${new Date(item.date).toLocaleString()}</div>
                     </div>
                     <div class="saved-actions">
                         <button class="btn-small btn-bookmark" data-id="${item.id}" title="${item.bookmarked ? 'Remove Bookmark' : 'Add Bookmark'}">
                             <span class="material-symbols-rounded" style="font-size: 1.1rem; color: ${item.bookmarked ? '#eab308' : '#94a3b8'};">${item.bookmarked ? 'bookmark' : 'bookmark_border'}</span>
+                        </button>
+                        <button class="btn-small btn-read-toggle" data-id="${item.id}" title="${item.read ? 'Mark as Unread' : 'Mark as Read'}" style="color: ${item.read ? '#ef4444' : '#22c55e'};">
+                            <span class="material-symbols-rounded" style="font-size: 1.1rem;">${item.read ? 'mark_email_unread' : 'mark_email_read'}</span>
+                            <span style="font-size: 0.75rem; font-weight: 600;">${item.read ? 'Unread' : 'Read'}</span>
                         </button>
                         <button class="btn-small btn-rename" data-id="${item.id}" title="Rename">
                             <span class="material-symbols-rounded" style="font-size: 1rem;">edit</span>
@@ -3933,6 +3949,20 @@ function setupKnowledgeBase() {
                 });
             });
 
+            // Read/Unread toggle handlers
+            listContainer.querySelectorAll('.btn-read-toggle').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const button = e.target.closest('.btn-read-toggle');
+                    const id = parseInt(button.dataset.id);
+                    const targetItem = library.find(i => i.id === id);
+                    if (targetItem) {
+                        targetItem.read = !targetItem.read;
+                        saveLibraryToIDB(library);
+                        renderLibraryList();
+                    }
+                });
+            });
+
             // Rename handlers - unrestricted for all users
             listContainer.querySelectorAll('.btn-rename').forEach(btn => {
                 btn.addEventListener('click', (e) => {
@@ -3967,6 +3997,14 @@ function setupKnowledgeBase() {
                     const freshLibrary = getLibraryCache();
                     const targetItem = freshLibrary.find(i => i.id === id);
                     if (targetItem) {
+                        // Highlight as last opened
+                        localStorage.setItem('opth_last_opened_infograph_id', id);
+
+                        // Also auto-mark as read when opened
+                        if (!targetItem.read) {
+                            targetItem.read = true;
+                            saveLibraryToIDB(freshLibrary);
+                        }
                         if (!targetItem.data || (typeof targetItem.data === 'object' && !targetItem.data.sections)) {
                             // Data is missing or corrupt - show resubmission prompt
                             const authorInfo = targetItem.communityAuthor
@@ -6407,6 +6445,8 @@ const ICON_FALLBACK_MAP = {
     'slicer': 'content_cut',
     'knife': 'content_cut',
     'scalpel': 'content_cut',
+    'instruments': 'content_cut',
+    'surgical_instruments': 'content_cut',
 
     // Science & Medical - common AI-generated invalid names
     'microscope': 'biotech',
@@ -6454,6 +6494,8 @@ const ICON_FALLBACK_MAP = {
     'stomach': 'gastroenterology',
     'kidney': 'nephrology',
     'liver': 'hepatology',
+    'sickle_cell': 'bloodtype',
+    'sickle': 'bloodtype',
     'blood': 'bloodtype',
     'blood_drop': 'bloodtype',
     'virus': 'coronavirus',

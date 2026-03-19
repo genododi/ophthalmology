@@ -83,11 +83,11 @@ def generate_library_index():
     all_items.sort(key=lambda x: x.get('date', ''), reverse=True)
     
     # Assign sequential IDs if missing
-    max_seq = max((item.get('seqId', 0) for item in all_items), default=0)
+    max_seq_val: int = int(max((item.get('seqId', 0) for item in all_items), default=0))
     for item in all_items:
         if not item.get('seqId'):
-            max_seq += 1
-            item['seqId'] = max_seq
+            max_seq_val += 1  # type: ignore
+            item['seqId'] = max_seq_val
     
     # Write the index file
     with open(INDEX_FILE, 'w', encoding='utf-8') as f:
@@ -235,7 +235,7 @@ def main():
     print("  Ophthalmic Infographic Library Sync")
     print("="*50 + "\n")
     
-    args = sys.argv[1:]
+    args = sys.argv[1:] # type: ignore
     
     if '--index' in args:
         # Only generate index

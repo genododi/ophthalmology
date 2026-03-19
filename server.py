@@ -14,6 +14,8 @@ import socketserver
 import webbrowser
 import os
 import sys
+import time
+import datetime
 from pathlib import Path
 
 # Configuration
@@ -71,14 +73,14 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         # Handle health check endpoint
         if self.path == '/health':
             # Log health check requests with headers for debugging
-            user_agent = self.headers.get('User-Agent', 'Unknown')
-            origin = self.headers.get('Origin', 'None')
-            print(f"[HEALTH] Request from User-Agent: {user_agent[:50]}... Origin: {origin}")
+            user_agent: str = str(self.headers.get('User-Agent', 'Unknown'))
+            origin: str = str(self.headers.get('Origin', 'None'))
+            print(f"[HEALTH] Request from User-Agent: {user_agent[:50]}... Origin: {origin}") # type: ignore
             
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            response = '{"status": "ok", "service": "FRCS Simulator", "timestamp": "' + str(int(__import__('time').time())) + '"}'
+            response = '{"status": "ok", "service": "FRCS Simulator", "timestamp": "' + str(int(time.time())) + '"}'
             self.wfile.write(response.encode())
             return
         
@@ -112,7 +114,7 @@ Disallow: /
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             # Get the current port from the server
-            current_port = self.server.server_address[1]
+            current_port = int(self.server.server_address[1]) # type: ignore
             status_html = f"""<!DOCTYPE html>
 <html>
 <head>
@@ -137,7 +139,7 @@ Disallow: /
         <div class="info">Port: <strong>{current_port}</strong></div>
         <div class="info">Host: {HOST}</div>
         <div class="info">Directory: {os.getcwd()}</div>
-        <div class="info">Server Time: {__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</div>
+        <div class="info">Server Time: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</div>
         
         <div class="links">
             <a href="/FRCS%20simulator.html">📄 Open FRCS Simulator</a>
@@ -266,7 +268,7 @@ def main():
     print(f"📁 Serving files from: {script_dir}")
     
     # Check command line arguments for port
-    port = DEFAULT_PORT
+    port: int = DEFAULT_PORT
     if len(sys.argv) > 1:
         try:
             port = int(sys.argv[1])
@@ -277,29 +279,30 @@ def main():
             port = DEFAULT_PORT
     
     # Try to start on the requested port first
-    original_port = port
+    port_val: int = port
+    original_port: int = port_val
     server_started = False
     
     while not server_started:
         try:
             # Create server
-            with socketserver.TCPServer((HOST, port), CORSHTTPRequestHandler) as httpd:
-                print(f"🌐 Server URL: http://{HOST}:{port}")
-                print(f"📄 Main App: http://{HOST}:{port}/FRCS%20simulator.html")
-                print(f"📊 Status Page: http://{HOST}:{port}/status")
-                print(f"🏥 Health Check: http://{HOST}:{port}/health")
+            with socketserver.TCPServer((HOST, port_val), CORSHTTPRequestHandler) as httpd:
+                print(f"🌐 Server URL: http://{HOST}:{port_val}")
+                print(f"📄 Main App: http://{HOST}:{port_val}/FRCS%20simulator.html")
+                print(f"📊 Status Page: http://{HOST}:{port_val}/status")
+                print(f"🏥 Health Check: http://{HOST}:{port_val}/health")
                 print(f"⏹️  Press Ctrl+C to stop the server")
                 print("-" * 60)
-                print(f"✅ Server started successfully on port {port}")
+                print(f"✅ Server started successfully on port {port_val}")
                 
                 # Try to open the browser automatically
                 try:
-                    url = f"http://{HOST}:{port}/FRCS%20simulator.html"
+                    url = f"http://{HOST}:{port_val}/FRCS%20simulator.html"
                     print(f"🔗 Opening browser to: {url}")
                     webbrowser.open(url)
                 except Exception as e:
                     print(f"⚠️  Could not open browser automatically: {e}")
-                    print(f"📝 Please manually open: http://{HOST}:{port}/FRCS%20simulator.html")
+                    print(f"📝 Please manually open: http://{HOST}:{port_val}/FRCS%20simulator.html")
                 
                 print(f"🔄 Server running... (use Ctrl+C to stop)")
                 server_started = True
@@ -311,19 +314,19 @@ def main():
             
         except OSError as e:
             if e.errno == 48:  # Address already in use
-                print(f"❌ Port {port} is already in use")
+                print(f"❌ Port {port_val} is already in use")
                 
-                if port == original_port:
+                if port_val == original_port:
                     # First attempt failed, offer options
                     print(f"🔧 Options:")
-                    print(f"   1. Kill existing server on port {port}")
+                    print(f"   1. Kill existing server on port {port_val}")
                     print(f"   2. Find alternative port automatically")
                     print(f"   3. Exit")
                     
                     choice = input(f"❓ Choose option (1/2/3): ").strip()
                     
                     if choice == '1':
-                        if kill_existing_server(port):
+                        if kill_existing_server(port_val):
                             continue  # Try again with same port
                         else:
                             print(f"❌ Could not kill existing server")
@@ -331,10 +334,10 @@ def main():
                     
                     if choice == '2':
                         # Find alternative port
-                        alt_port = find_available_port(port + 1)
+                        alt_port = find_available_port(port_val + 1) # type: ignore
                         if alt_port:
                             print(f"🔄 Trying alternative port: {alt_port}")
-                            port = alt_port
+                            port_val = int(alt_port)
                             continue
                         else:
                             print(f"❌ No available ports found")
@@ -345,10 +348,10 @@ def main():
                         sys.exit(0)
                 else:
                     # We already tried an alternative port and it failed
-                    alt_port = find_available_port(port + 1)
+                    alt_port = find_available_port(port_val + 1) # type: ignore
                     if alt_port:
                         print(f"🔄 Trying next available port: {alt_port}")
-                        port = alt_port
+                        port_val = int(alt_port)
                         continue
                     else:
                         print(f"❌ No available ports found")

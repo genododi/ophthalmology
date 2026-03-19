@@ -1321,12 +1321,18 @@ textarea:focus {
     position: relative;
 }
 
-.saved-item.selected {
-    background: #eff6ff;
-    border-left: 3px solid var(--primary-color);
+.library-modal .saved-item.selected {
+    background: #e0f2fe;
+    border-color: #3b82f6;
 }
 
-.saved-item.newly-imported {
+.library-modal .saved-item.last-opened-highlight {
+    background: #fdf4ff;
+    border-color: #d946ef;
+    box-shadow: 0 0 0 2px rgba(217, 70, 239, 0.2);
+}
+
+.library-modal .saved-item.newly-imported {
     background: linear-gradient(90deg, #f0fdf4 0%, white 100%);
     border-left: 3px solid #22c55e;
     animation: newItemGlow 2s ease-out;

@@ -7320,10 +7320,13 @@ function renderInfographic(data) {
             case 'red_flag':
                 const flags = Array.isArray(section.content) ? section.content : [section.content];
                 contentHtml = `<ul class="warning-list">
-                    ${flags.map(item => `<li>
+                    ${flags.map(item => {
+                        const text = typeof item === 'object' && item !== null ? (item.title || item.text || item.description || item.content || Object.values(item).join(': ')) : item;
+                        return `<li>
                         <span class="material-symbols-rounded warning-icon">warning</span>
-                        ${item}
-                    </li>`).join('')}
+                        ${text}
+                        </li>`;
+                    }).join('')}
                 </ul>`;
                 break;
 
@@ -7353,11 +7356,15 @@ function renderInfographic(data) {
 
             case 'mindmap':
                 const map = section.content || {};
+                const centerText = typeof map.center === 'object' && map.center !== null ? (map.center.title || map.center.text || Object.values(map.center).join(' ')) : (map.center || 'Central Topic');
                 const branches = map.branches || [];
                 contentHtml = `<div class="mindmap-container">
-                    <div class="mindmap-center">${map.center}</div>
+                    <div class="mindmap-center">${centerText}</div>
                     <div class="mindmap-branches">
-                        ${branches.map(b => `<div class="mindmap-branch">${b}</div>`).join('')}
+                        ${branches.map(b => {
+                            const bText = typeof b === 'object' && b !== null ? (b.title || b.text || b.name || b.branch || Object.values(b).join(': ')) : b;
+                            return `<div class="mindmap-branch">${bText}</div>`;
+                        }).join('')}
                     </div>
                 </div>`;
                 break;
@@ -7366,7 +7373,10 @@ function renderInfographic(data) {
             case 'process':
                 const points = Array.isArray(section.content) ? section.content : [section.content];
                 contentHtml = `<ul class="card-list">
-                    ${points.map(item => `<li>${item}</li>`).join('')}
+                    ${points.map(item => {
+                        const text = typeof item === 'object' && item !== null ? (item.title || item.text || item.description || item.content || Object.values(item).join(': ')) : item;
+                        return `<li>${text}</li>`;
+                    }).join('')}
                 </ul>`;
                 break;
 
@@ -7397,7 +7407,10 @@ function renderInfographic(data) {
                 break;
 
             default:
-                contentHtml = `<p class="plain-text">${section.content}</p>`;
+                const defaultContent = typeof section.content === 'object' && section.content !== null ? 
+                    (Array.isArray(section.content) ? section.content.map(i => typeof i === 'object' && i !== null ? Object.values(i).join(': ') : i).join('<br>') : Object.values(section.content).join(': ')) 
+                    : section.content;
+                contentHtml = `<p class="plain-text">${defaultContent}</p>`;
         }
 
         const titleHtml = `

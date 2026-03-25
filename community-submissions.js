@@ -624,6 +624,52 @@ async function rejectSubmission(submissionId, pin) {
     }
 }
 
+/**
+ * Deduplicate approved submissions (admin only)
+ * @param {string} pin - Admin PIN for verification
+ */
+async function deduplicateApprovedSubmissions(pin) {
+    if (!verifyAdminPIN(pin)) {
+        return { success: false, message: 'Invalid admin PIN.' };
+    }
+
+    try {
+        const data = await fetchSubmissions();
+        const approved = data.approved || [];
+        const unique = [];
+        const seenTitles = new Set();
+        let deletedCount = 0;
+
+        for (const item of approved) {
+            const normalizedTitle = (item.title || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+            if (seenTitles.has(normalizedTitle) && normalizedTitle.length > 0) {
+                deletedCount++;
+                data.deleted = data.deleted || [];
+                data.deleted.push(item.id);
+            } else {
+                seenTitles.add(normalizedTitle);
+                unique.push(item);
+            }
+        }
+
+        if (deletedCount === 0) {
+            return { success: true, message: 'No duplicates found.' };
+        }
+
+        data.approved = unique;
+        const result = await updateSubmissions(data);
+
+        if (result.success) {
+            return { success: true, message: `Removed ${deletedCount} duplicate(s).` };
+        } else {
+            return { success: false, message: `Failed to remove duplicates: ${result.message}` };
+        }
+    } catch (err) {
+        console.error('Deduplicate error:', err);
+        return { success: false, message: 'An error occurred during deduplication.' };
+    }
+}
+
 // ============================================
 // DOWNLOAD FUNCTIONS
 // ============================================
@@ -1021,6 +1067,7 @@ window.CommunitySubmissions = {
     verifyAdmin: verifyAdminPIN,
     approve: approveSubmission,
     reject: rejectSubmission,
+    deduplicateApproved: deduplicateApprovedSubmissions,
 
     // Deletion sync
     trackDeletion: trackDeletion,

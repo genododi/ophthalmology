@@ -3341,7 +3341,14 @@ function setupKnowledgeBase() {
 
         // 3. Apply Sorting
         if (currentSortMode === 'date') {
-            filteredLibrary.sort((a, b) => new Date(b.date) - new Date(a.date));
+            filteredLibrary.sort((a, b) => new Date(b.communityDate || b.date) - new Date(a.communityDate || a.date));
+        } else if (currentSortMode === 'read') {
+            filteredLibrary.sort((a, b) => {
+                const aVal = a.read ? 1 : 0;
+                const bVal = b.read ? 1 : 0;
+                if (aVal !== bVal) return aVal - bVal; // Unread (0) before Read (1)
+                return new Date(b.communityDate || b.date) - new Date(a.communityDate || a.date);
+            });
         } else if (currentSortMode === 'name') {
             filteredLibrary.sort((a, b) => {
                 const nameA = (a.title || '').toLowerCase();
@@ -3432,8 +3439,9 @@ function setupKnowledgeBase() {
                 </div>
                 <div class="sort-wrapper">
                     <select id="sort-select" style="padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; background-color: white; cursor: pointer;">
-                        <option value="date" ${currentSortMode === 'date' ? 'selected' : ''}>Sort by Date (Created)</option>
+                        <option value="date" ${currentSortMode === 'date' ? 'selected' : ''}>Sort by Date Added</option>
                         <option value="name" ${currentSortMode === 'name' ? 'selected' : ''}>Sort by Name</option>
+                        <option value="read" ${currentSortMode === 'read' ? 'selected' : ''}>Sort by Read/Unread</option>
                         <option value="chapter" ${currentSortMode === 'chapter' ? 'selected' : ''}>Sort by Chapter</option>
                         <option value="vip" ${currentSortMode === 'vip' ? 'selected' : ''}>Sort by Bookmarked</option>
                     </select>
@@ -6283,7 +6291,9 @@ async function generateInfographicData(apiKey, topic) {
             const response = await result.response;
             let text = response.text();
             text = text.replace(/```json/g, '').replace(/```/g, '').trim();
-            return JSON.parse(text);
+            const parsed = JSON.parse(text);
+            parsed.generationPrompt = topic;
+            return parsed;
 
         } catch (error) {
             console.warn(`Failed with model ${modelName}:`, error);
@@ -6440,6 +6450,7 @@ function updateInfographicCategoryBadge(newChapterId) {
 const ICON_FALLBACK_MAP = {
     // Custom requested additions
     'mindmap': 'account_tree',
+    'mind_map': 'account_tree',
     'remember': 'lightbulb',
     'knife_slicer': 'content_cut',
     'slicer': 'content_cut',
@@ -6447,6 +6458,9 @@ const ICON_FALLBACK_MAP = {
     'scalpel': 'content_cut',
     'instruments': 'content_cut',
     'surgical_instruments': 'content_cut',
+    'surgical_mask': 'masks',
+    'emergency': 'emergency',
+    'heart': 'favorite',
 
     // Science & Medical - common AI-generated invalid names
     'microscope': 'biotech',
@@ -7277,8 +7291,11 @@ function renderInfographic(data) {
                 Find Notes
             </button>
         </h1>
-        <div class="header-content-wrapper" style="display: flex; gap: 2rem; align-items: start;">
-            <p class="poster-summary" style="flex: 1;">${escapeHtml(data.summary)}</p>
+        <div class="header-content-wrapper" style="display: flex; gap: 2rem; align-items: start; flex-wrap: wrap;">
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 0.5rem;">
+                <p class="poster-summary" style="margin: 0; font-size: 1.1rem; line-height: 1.6; color: #475569;">${escapeHtml(data.summary)}</p>
+                ${data.generationPrompt ? `<div class="prompt-tag" style="display:inline-flex; align-items:center; gap:4px; background-color:#f1f5f9; color:#64748b; font-size:0.8rem; padding:4px 10px; border-radius:12px; max-width: fit-content; border: 1px solid #e2e8f0; margin-top: 4px;"><span class="material-symbols-rounded" style="font-size:14px;">smart_toy</span> <strong>Prompt:</strong> ${escapeHtml(data.generationPrompt)}</div>` : ''}
+            </div>
             ${illustrationHtml}
         </div>
     `;
@@ -9580,6 +9597,7 @@ function setupCommunityHub() {
     const pendingCount = document.getElementById('pending-count');
     const approvedCount = document.getElementById('approved-count');
     const communityCountBadge = document.getElementById('community-count-badge');
+    const deduplicateCommunityBtn = document.getElementById('deduplicate-community-btn');
 
     // Submit form elements
     const submitterNameInput = document.getElementById('submitter-name');
@@ -9673,6 +9691,35 @@ function setupCommunityHub() {
             }
         });
     });
+
+    // Deduplicate Approved
+    if (deduplicateCommunityBtn) {
+        deduplicateCommunityBtn.addEventListener('click', async () => {
+            const adminPIN = prompt('Enter admin PIN to deduplicate the gallery:');
+            if (adminPIN && CommunitySubmissions.verifyAdmin(adminPIN)) {
+                
+                const originalText = deduplicateCommunityBtn.innerHTML;
+                deduplicateCommunityBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Processing...';
+                deduplicateCommunityBtn.disabled = true;
+
+                try {
+                    const result = await CommunitySubmissions.deduplicateApproved(adminPIN);
+                    alert(result.message);
+                    if (result.success) {
+                        await loadCommunitySubmissions();
+                    }
+                } catch (err) {
+                    console.error('Failed to deduplicate:', err);
+                    alert('Error: ' + err.message);
+                } finally {
+                    deduplicateCommunityBtn.innerHTML = originalText;
+                    deduplicateCommunityBtn.disabled = false;
+                }
+            } else if (adminPIN) {
+                alert('Invalid admin PIN.');
+            }
+        });
+    }
 
     // Open Submit Modal
     function openSubmitModal() {

@@ -11748,7 +11748,36 @@ function setupKanskiPics() {
         return null;
     }
 
-    kanskiBtn.addEventListener('click', async () => {
+    /**
+     * CRITICAL: the click handler MUST invoke the file picker SYNCHRONOUSLY
+     * (no `await` before the picker) — otherwise Safari/Chrome/Firefox all
+     * treat the user gesture as expired and silently refuse to open a file
+     * dialog. The page-load IIFE pre-warms `kanskiPdfDoc` from cache, so by
+     * the time the user clicks we already know if we can skip the picker.
+     */
+    /**
+     * Open the File System Access picker, preserving the user gesture.
+     * IMPORTANT: this must be called WITHOUT `await` in front of it so the
+     * showOpenFilePicker() call itself runs in the same synchronous task
+     * as the click event. Handling is chained via .then().
+     */
+    function openModernPicker() {
+        window.showOpenFilePicker({
+            types: [{ description: 'PDF Document', accept: { 'application/pdf': ['.pdf'] } }],
+            multiple: false,
+            excludeAcceptAllOption: false
+        }).then(async ([handle]) => {
+            if (!handle) return;
+            const file = await handle.getFile();
+            await handleKanskiFileLoad(file, handle);
+        }).catch((err) => {
+            if (err && err.name === 'AbortError') return; // user cancelled
+            console.warn('[Kanski] showOpenFilePicker failed:', err);
+            showKanskiToast('File picker failed — please click "Kanski Pics" again.', '#7c2d12');
+        });
+    }
+
+    kanskiBtn.addEventListener('click', () => {
         if (!currentInfographicData) {
             alert('Please generate or load an infographic first, then use Kanski Pics to find matching clinical photos.');
             return;
@@ -11756,54 +11785,42 @@ function setupKanskiPics() {
 
         // ── FAST PATH: PDF already loaded this session ──
         if (kanskiPdfDoc && kanskiPageTexts.length > 0) {
-            await promptAndRunKanskiMode();
+            promptAndRunKanskiMode();
             return;
         }
 
-        // ── Detect mobile devices ──
-        // On iOS/Android, ANY await before input.click() kills the user gesture,
-        // so we must trigger the file picker FIRST, then check cache in background.
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-            || ('ontouchstart' in window && window.innerWidth < 1024);
-
-        if (isMobile) {
-            // MOBILE PATH: trigger file picker synchronously FIRST
-            showKanskiToast(kanskiPromptMessage());
-
-            // Click file input immediately — user gesture is still alive
-            kanskiInput.click();
-
-            // On MOBILE: only try loading the lightweight TEXT INDEX from cache
-            loadCachedIndex().then(async (cachedIndex) => {
-                if (cachedIndex && cachedIndex.length > 0) {
-                    kanskiPageTexts = cachedIndex;
-                    console.log(`[Kanski Mobile] Using cached text index (${cachedIndex.length} pages)`);
-                }
-            }).catch(err => console.warn('[Kanski Mobile] No cached index:', err));
-            return;
-        }
-
-        // ── DESKTOP PATH: try cache first, fall back to file picker ──
-        const cachedReady = await ensureKanskiReady();
-        if (cachedReady) {
-            await promptAndRunKanskiMode();
-            return;
-        }
-
-        // ── Try the modern picker (File System Access API) to persist a file handle ──
-        if (hasFileSystemAccess) {
-            showKanskiToast(kanskiPromptMessage());
-            const picked = await pickKanskiFile();
-            if (picked && picked.file) {
-                await handleKanskiFileLoad(picked.file, picked.handle);
-                return;
-            }
-            // If the user cancelled the modern picker, fall through to <input>.
-        }
-
-        // Legacy fallback: classic <input type=file>
+        // ── SLOW PATH: need a file. Open the picker synchronously. ──
+        // Do NOT `await` anything before opening the picker — doing so
+        // expires the user-gesture flag and the dialog silently refuses to open.
         showKanskiToast(kanskiPromptMessage());
-        kanskiInput.click();
+
+        if (hasFileSystemAccess) {
+            // First try to reopen from a persisted file handle (returning users).
+            // We run the IDB read + permission request inside microtasks, which
+            // preserve transient user activation long enough for requestPermission().
+            loadKanskiFileHandle().then((handle) => {
+                if (!handle || typeof handle.requestPermission !== 'function') {
+                    openModernPicker();
+                    return;
+                }
+                return handle.requestPermission({ mode: 'read' }).then(async (perm) => {
+                    if (perm !== 'granted') {
+                        openModernPicker();
+                        return;
+                    }
+                    try {
+                        const file = await handle.getFile();
+                        await handleKanskiFileLoad(file, handle);
+                    } catch (err) {
+                        console.warn('[Kanski] Handle reopen failed, falling back to picker:', err);
+                        openModernPicker();
+                    }
+                });
+            }).catch(() => openModernPicker());
+        } else {
+            // Safari / Firefox / mobile: classic <input type=file> in the same gesture.
+            kanskiInput.click();
+        }
     });
 
     async function handleKanskiFileLoad(file, fileHandle = null, opts = {}) {

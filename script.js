@@ -11387,7 +11387,8 @@ function setupKanskiPics() {
     // so the user only needs to select the file ONCE ever.
     // ═══════════════════════════════════════════════════════════════
     const KANSKI_INDEX_DB = 'KanskiIndexDB';
-    const KANSKI_INDEX_VERSION = 2; // Bumped to add pdfData store
+    const KANSKI_INDEX_VERSION = 3; // Bumped to add fileHandles store
+    const KANSKI_UPLOADED_FLAG = 'kanski_pdf_uploaded_v2'; // localStorage flag
 
     function openKanskiIndexDB() {
         return new Promise((resolve, reject) => {
@@ -11400,10 +11401,59 @@ function setupKanskiPics() {
                 if (!db.objectStoreNames.contains('pdfData')) {
                     db.createObjectStore('pdfData', { keyPath: 'id' });
                 }
+                if (!db.objectStoreNames.contains('fileHandles')) {
+                    db.createObjectStore('fileHandles', { keyPath: 'id' });
+                }
             };
             req.onsuccess = () => resolve(req.result);
             req.onerror = () => reject(req.error);
         });
+    }
+
+    // ── File System Access API helpers (Chromium-only; graceful no-op elsewhere) ──
+    const hasFileSystemAccess = typeof window !== 'undefined'
+        && typeof window.showOpenFilePicker === 'function';
+
+    async function saveKanskiFileHandle(handle) {
+        if (!handle) return;
+        try {
+            const db = await openKanskiIndexDB();
+            const tx = db.transaction('fileHandles', 'readwrite');
+            tx.objectStore('fileHandles').put({ id: 'kanski_pdf_handle', handle, savedAt: Date.now() });
+            await new Promise(r => { tx.oncomplete = r; });
+            db.close();
+            console.log('[Kanski] File handle persisted — next session will auto-reopen.');
+        } catch (err) { console.warn('[Kanski] Failed to save file handle:', err); }
+    }
+
+    async function loadKanskiFileHandle() {
+        try {
+            const db = await openKanskiIndexDB();
+            const tx = db.transaction('fileHandles', 'readonly');
+            const result = await new Promise((resolve, reject) => {
+                const req = tx.objectStore('fileHandles').get('kanski_pdf_handle');
+                req.onsuccess = () => resolve(req.result);
+                req.onerror = () => reject(req.error);
+            });
+            db.close();
+            return result ? result.handle : null;
+        } catch (err) { return null; }
+    }
+
+    async function tryReopenFromHandle(handle) {
+        if (!handle || typeof handle.queryPermission !== 'function') return null;
+        try {
+            let perm = await handle.queryPermission({ mode: 'read' });
+            if (perm === 'prompt') {
+                perm = await handle.requestPermission({ mode: 'read' });
+            }
+            if (perm !== 'granted') return null;
+            const file = await handle.getFile();
+            return await file.arrayBuffer();
+        } catch (err) {
+            console.warn('[Kanski] Handle reopen failed:', err);
+            return null;
+        }
     }
 
     async function saveCachedIndex(pageTexts) {
@@ -11435,14 +11485,42 @@ function setupKanskiPics() {
     }
 
     async function saveCachedPdf(arrayBuffer) {
+        // Returns { ok: boolean, reason?: string } so callers can react
         try {
+            // Try to persist storage so the browser is less likely to evict us
+            if (navigator.storage && navigator.storage.persist) {
+                try { await navigator.storage.persist(); } catch {}
+            }
             const db = await openKanskiIndexDB();
             const tx = db.transaction('pdfData', 'readwrite');
-            tx.objectStore('pdfData').put({ id: 'kanski_pdf', data: arrayBuffer, savedAt: Date.now() });
-            await new Promise(r => { tx.oncomplete = r; });
+            const store = tx.objectStore('pdfData');
+            store.put({ id: 'kanski_pdf', data: arrayBuffer, savedAt: Date.now(), size: arrayBuffer.byteLength });
+            await new Promise((resolve, reject) => {
+                tx.oncomplete = () => resolve();
+                tx.onerror = () => reject(tx.error || new Error('Transaction error'));
+                tx.onabort = () => reject(tx.error || new Error('Transaction aborted'));
+            });
+
+            // Verify by reading back the record size
+            const verifyTx = db.transaction('pdfData', 'readonly');
+            const verified = await new Promise((resolve) => {
+                const req = verifyTx.objectStore('pdfData').get('kanski_pdf');
+                req.onsuccess = () => resolve(req.result);
+                req.onerror = () => resolve(null);
+            });
             db.close();
-            console.log('[Kanski] PDF binary cached in IndexedDB');
-        } catch (err) { console.warn('[Kanski] Failed to cache PDF:', err); }
+
+            if (!verified || !verified.data || verified.size !== arrayBuffer.byteLength) {
+                console.warn('[Kanski] Cache write verification failed.');
+                return { ok: false, reason: 'verification_failed' };
+            }
+            console.log(`[Kanski] PDF binary cached in IndexedDB (${(arrayBuffer.byteLength / 1048576).toFixed(1)} MB).`);
+            return { ok: true };
+        } catch (err) {
+            const quota = err && (err.name === 'QuotaExceededError' || String(err).includes('quota'));
+            console.warn('[Kanski] Failed to cache PDF:', err);
+            return { ok: false, reason: quota ? 'quota' : (err?.name || 'unknown') };
+        }
     }
 
     async function loadCachedPdf() {
@@ -11502,7 +11580,21 @@ function setupKanskiPics() {
         kanskiBtn.innerHTML = '<span class="material-symbols-rounded">hourglass_top</span><span class="tool-label">Loading...</span>';
 
         try {
-            // 2. Try cached PDF from IndexedDB
+            // 2a. Preferred path (Chromium): reopen via stored File System Access handle.
+            if (!kanskiPdfDoc && hasFileSystemAccess) {
+                const handle = await loadKanskiFileHandle();
+                if (handle) {
+                    kanskiBtn.querySelector('.tool-label').textContent = 'Reopening Kanski PDF...';
+                    const buf = await tryReopenFromHandle(handle);
+                    if (buf) {
+                        kanskiPdfDoc = await loadPdfFromBuffer(buf);
+                        kanskiFileName = handle.name || 'Kanski (linked file)';
+                        console.log('[Kanski] Reopened from persisted file handle.');
+                    }
+                }
+            }
+
+            // 2b. Try cached PDF binary from IndexedDB
             if (!kanskiPdfDoc) {
                 const cachedPdf = await loadCachedPdf();
                 if (cachedPdf) {
@@ -11537,6 +11629,7 @@ function setupKanskiPics() {
 
             kanskiBtn.disabled = false;
             kanskiBtn.innerHTML = originalHTML;
+            updateKanskiReadyIndicator();
             return true;
 
         } catch (err) {
@@ -11546,6 +11639,24 @@ function setupKanskiPics() {
             kanskiBtn.innerHTML = originalHTML;
             return false;
         }
+    }
+
+    // Small visual indicator on the Kanski button when the PDF is ready this session
+    function updateKanskiReadyIndicator() {
+        try {
+            const ready = !!kanskiPdfDoc;
+            let dot = kanskiBtn.querySelector('.kanski-ready-dot');
+            if (ready && !dot) {
+                dot = document.createElement('span');
+                dot.className = 'kanski-ready-dot';
+                dot.title = `Kanski PDF ready: ${kanskiFileName}`;
+                dot.style.cssText = 'position:absolute;top:6px;right:6px;width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 0 2px white, 0 0 6px rgba(16,185,129,0.7);pointer-events:none;';
+                kanskiBtn.style.position = 'relative';
+                kanskiBtn.appendChild(dot);
+            } else if (!ready && dot) {
+                dot.remove();
+            }
+        } catch {}
     }
 
     // ═══════════════════════════════════════════════════════════════
@@ -11569,6 +11680,54 @@ function setupKanskiPics() {
         }
     }
 
+    function showKanskiToast(message, color = '#1e293b') {
+        const toast = document.createElement('div');
+        toast.textContent = message;
+        toast.style.cssText = `position:fixed;top:20px;left:50%;transform:translateX(-50%);background:${color};color:#f1f5f9;padding:14px 28px;border-radius:12px;z-index:100000;font-size:0.95rem;box-shadow:0 8px 32px rgba(0,0,0,0.3);max-width:90vw;text-align:center;`;
+        document.body.appendChild(toast);
+        setTimeout(() => {
+            toast.style.transition = 'opacity 0.5s';
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 500);
+        }, 4000);
+        return toast;
+    }
+
+    // Compose the message based on whether we've seen an upload before
+    function kanskiPromptMessage() {
+        const uploadedBefore = localStorage.getItem(KANSKI_UPLOADED_FLAG) === 'true';
+        const hasIndex = kanskiPageTexts.length > 0;
+        if (uploadedBefore && hasIndex) {
+            return '🔗 Reconnect your Kanski PDF (your browser cleared the cached file — the index is still here).';
+        }
+        if (uploadedBefore) {
+            return '🔗 Reconnect your Kanski PDF (cache was cleared by the browser).';
+        }
+        return 'Please select the Kanski PDF file — you only need to do this once.';
+    }
+
+    // Unified picker: use File System Access API on Chromium, fall back to <input type=file>
+    async function pickKanskiFile() {
+        if (hasFileSystemAccess) {
+            try {
+                const [handle] = await window.showOpenFilePicker({
+                    types: [{ description: 'PDF', accept: { 'application/pdf': ['.pdf'] } }],
+                    multiple: false,
+                });
+                if (!handle) return null;
+                const file = await handle.getFile();
+                return { file, handle };
+            } catch (err) {
+                // User cancelled or API not allowed — fall back to <input>
+                if (err && err.name !== 'AbortError') {
+                    console.warn('[Kanski] showOpenFilePicker failed, falling back:', err);
+                }
+                return null;
+            }
+        }
+        return null;
+    }
+
     kanskiBtn.addEventListener('click', async () => {
         if (!currentInfographicData) {
             alert('Please generate or load an infographic first, then use Kanski Pics to find matching clinical photos.');
@@ -11589,22 +11748,16 @@ function setupKanskiPics() {
 
         if (isMobile) {
             // MOBILE PATH: trigger file picker synchronously FIRST
-            const toast = document.createElement('div');
-            toast.textContent = 'Select the Kanski PDF file — you only need to do this once.';
-            toast.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#f1f5f9;padding:14px 28px;border-radius:12px;z-index:100000;font-size:0.95rem;box-shadow:0 8px 32px rgba(0,0,0,0.3);max-width:90vw;text-align:center;';
-            document.body.appendChild(toast);
-            setTimeout(() => { toast.style.opacity = '0'; toast.style.transition = 'opacity 0.5s'; setTimeout(() => toast.remove(), 500); }, 4000);
+            showKanskiToast(kanskiPromptMessage());
 
             // Click file input immediately — user gesture is still alive
             kanskiInput.click();
 
             // On MOBILE: only try loading the lightweight TEXT INDEX from cache
-            // (NOT the PDF binary, which is too large for iOS memory)
             loadCachedIndex().then(async (cachedIndex) => {
                 if (cachedIndex && cachedIndex.length > 0) {
                     kanskiPageTexts = cachedIndex;
                     console.log(`[Kanski Mobile] Using cached text index (${cachedIndex.length} pages)`);
-                    toast.textContent = `✅ Text index loaded (${cachedIndex.length} pages). Select the PDF to render images.`;
                 }
             }).catch(err => console.warn('[Kanski Mobile] No cached index:', err));
             return;
@@ -11617,22 +11770,24 @@ function setupKanskiPics() {
             return;
         }
 
-        // No cache — trigger file picker (gesture should still be alive on desktop)
-        const toast = document.createElement('div');
-        toast.textContent = 'Please select the Kanski PDF file — you only need to do this once.';
-        toast.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#f1f5f9;padding:14px 28px;border-radius:12px;z-index:100000;font-size:0.95rem;box-shadow:0 8px 32px rgba(0,0,0,0.3);max-width:90vw;text-align:center;';
-        document.body.appendChild(toast);
-        setTimeout(() => { toast.style.opacity = '0'; toast.style.transition = 'opacity 0.5s'; setTimeout(() => toast.remove(), 500); }, 4000);
+        // ── Try the modern picker (File System Access API) to persist a file handle ──
+        if (hasFileSystemAccess) {
+            showKanskiToast(kanskiPromptMessage());
+            const picked = await pickKanskiFile();
+            if (picked && picked.file) {
+                await handleKanskiFileLoad(picked.file, picked.handle);
+                return;
+            }
+            // If the user cancelled the modern picker, fall through to <input>.
+        }
 
+        // Legacy fallback: classic <input type=file>
+        showKanskiToast(kanskiPromptMessage());
         kanskiInput.click();
     });
 
-    kanskiInput.addEventListener('change', async (e) => {
-        const file = e.target.files[0];
-        if (!file) {
-            kanskiAutoMode = false;
-            return;
-        }
+    async function handleKanskiFileLoad(file, fileHandle = null) {
+        if (!file) { kanskiAutoMode = false; return; }
 
         if (!file.name.toLowerCase().endsWith('.pdf')) {
             alert('Please select a PDF file.');
@@ -11653,11 +11808,20 @@ function setupKanskiPics() {
             const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
                 || ('ontouchstart' in window && window.innerWidth < 1024);
 
+            // Persist handle first — lightweight and guarantees next-session auto-reopen on Chromium
+            if (fileHandle) {
+                await saveKanskiFileHandle(fileHandle);
+            }
+
             // Cache the PDF binary for future sessions (skip on mobile to avoid memory crash)
+            let cacheResult = { ok: false, reason: 'skipped' };
             if (!isMobileDevice) {
                 kanskiBtn.querySelector('.tool-label').textContent = 'Caching PDF...';
-                await saveCachedPdf(arrayBuffer);
+                cacheResult = await saveCachedPdf(arrayBuffer);
             }
+
+            // Remember the upload regardless of cache success — so re-prompt messaging is accurate
+            try { localStorage.setItem(KANSKI_UPLOADED_FLAG, 'true'); } catch {}
 
             // Load the PDF document
             kanskiPdfDoc = await loadPdfFromBuffer(arrayBuffer);
@@ -11671,6 +11835,19 @@ function setupKanskiPics() {
 
             console.log(`[Kanski] Ready: ${kanskiPageTexts.length} pages from "${kanskiFileName}"`);
 
+            // Inform user about persistence outcome (once, quickly)
+            if (!isMobileDevice) {
+                if (cacheResult.ok) {
+                    showKanskiToast(`✓ Kanski PDF cached — you won't be asked again.`, '#065f46');
+                } else if (fileHandle) {
+                    showKanskiToast(`✓ Kanski PDF linked — next session reopens it with one click.`, '#065f46');
+                } else if (cacheResult.reason === 'quota') {
+                    showKanskiToast(`PDF too large to cache in this browser. Use Chrome/Edge for one-click reopen.`, '#7c2d12');
+                }
+            }
+
+            updateKanskiReadyIndicator();
+
             // Ask Auto/Manual mode now that PDF is ready
             await promptAndRunKanskiMode();
 
@@ -11683,7 +11860,44 @@ function setupKanskiPics() {
             kanskiInput.value = '';
             kanskiAutoMode = false;
         }
+    }
+
+    kanskiInput.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) { kanskiAutoMode = false; return; }
+        await handleKanskiFileLoad(file, null);
     });
+
+    // On page load, try reopening silently from persistent handle/cache so the ready-dot appears.
+    (async () => {
+        try {
+            if (hasFileSystemAccess) {
+                const handle = await loadKanskiFileHandle();
+                if (handle && typeof handle.queryPermission === 'function') {
+                    const perm = await handle.queryPermission({ mode: 'read' });
+                    if (perm === 'granted') {
+                        const buf = await tryReopenFromHandle(handle);
+                        if (buf) {
+                            kanskiPdfDoc = await loadPdfFromBuffer(buf);
+                            kanskiFileName = handle.name || 'Kanski (linked file)';
+                        }
+                    }
+                }
+            }
+            if (!kanskiPdfDoc) {
+                const cachedPdf = await loadCachedPdf();
+                if (cachedPdf) {
+                    kanskiPdfDoc = await loadPdfFromBuffer(cachedPdf);
+                    kanskiFileName = 'Kanski (cached)';
+                }
+            }
+            if (kanskiPageTexts.length === 0) {
+                const cachedIndex = await loadCachedIndex();
+                if (cachedIndex && cachedIndex.length > 0) kanskiPageTexts = cachedIndex;
+            }
+            if (kanskiPdfDoc) updateKanskiReadyIndicator();
+        } catch {}
+    })();
 
     // ═══════════════════════════════════════════════════════════════
     // AUTO MODE — match, render, and insert automatically (no modal)
@@ -12539,12 +12753,26 @@ function setupKanskiPics() {
                 if (cachedIndex && cachedIndex.length > 0) {
                     kanskiPageTexts = cachedIndex;
                 }
+                // Try IDB binary cache first
                 if (!kanskiPdfDoc) {
                     const cachedPdf = await loadCachedPdf();
                     if (cachedPdf) {
                         try { kanskiPdfDoc = await loadPdfFromBuffer(cachedPdf); }
                         catch (e) { console.warn('[Kanski Auto-Adhere] PDF buffer load failed:', e); }
                     }
+                }
+                // Fallback: persistent File System Access handle (Chromium, permission must already be granted)
+                if (!kanskiPdfDoc && hasFileSystemAccess) {
+                    try {
+                        const handle = await loadKanskiFileHandle();
+                        if (handle && typeof handle.queryPermission === 'function') {
+                            const perm = await handle.queryPermission({ mode: 'read' });
+                            if (perm === 'granted') {
+                                const buf = await tryReopenFromHandle(handle);
+                                if (buf) kanskiPdfDoc = await loadPdfFromBuffer(buf);
+                            }
+                        }
+                    } catch (e) { console.warn('[Kanski Auto-Adhere] Handle reopen failed:', e); }
                 }
                 if (!kanskiPdfDoc || kanskiPageTexts.length === 0) {
                     console.log('[Kanski Auto-Adhere] No cached Kanski PDF/index available — skipping.');

@@ -8378,6 +8378,27 @@ ${videoSlides.map((slide, i) => `
    ======================================== */
 
 let mindmapZoom = 1;
+let mindmapPan = { x: 0, y: 0 };
+
+const MINDMAP_PALETTE = [
+    { fill: '#2563eb', gradient: ['#3b82f6', '#1d4ed8'] },  // blue
+    { fill: '#dc2626', gradient: ['#ef4444', '#b91c1c'] },  // red
+    { fill: '#059669', gradient: ['#10b981', '#047857'] },  // green
+    { fill: '#d97706', gradient: ['#f59e0b', '#b45309'] },  // amber
+    { fill: '#7c3aed', gradient: ['#8b5cf6', '#6d28d9'] },  // purple
+    { fill: '#0891b2', gradient: ['#06b6d4', '#0e7490'] },  // cyan
+    { fill: '#db2777', gradient: ['#ec4899', '#be185d'] },  // pink
+    { fill: '#0d9488', gradient: ['#14b8a6', '#0f766e'] },  // teal
+];
+
+function pickBranchColor(section, idx) {
+    const byTheme = {
+        blue: MINDMAP_PALETTE[0], red: MINDMAP_PALETTE[1], green: MINDMAP_PALETTE[2],
+        yellow: MINDMAP_PALETTE[3], amber: MINDMAP_PALETTE[3], purple: MINDMAP_PALETTE[4],
+        cyan: MINDMAP_PALETTE[5], pink: MINDMAP_PALETTE[6], teal: MINDMAP_PALETTE[7]
+    };
+    return byTheme[section?.color_theme] || MINDMAP_PALETTE[idx % MINDMAP_PALETTE.length];
+}
 
 function setupMindMap() {
     const mindmapBtn = document.getElementById('mindmap-view-btn');
@@ -8396,6 +8417,8 @@ function setupMindMap() {
             return;
         }
         mindmapModal.classList.add('active');
+        mindmapZoom = 1;
+        mindmapPan = { x: 0, y: 0 };
         generateMindMap();
     });
 
@@ -8405,21 +8428,53 @@ function setupMindMap() {
     });
 
     zoomInBtn?.addEventListener('click', () => {
-        mindmapZoom = Math.min(mindmapZoom + 0.2, 2);
+        mindmapZoom = Math.min(mindmapZoom + 0.15, 3);
         applyMindmapZoom();
     });
 
     zoomOutBtn?.addEventListener('click', () => {
-        mindmapZoom = Math.max(mindmapZoom - 0.2, 0.5);
+        mindmapZoom = Math.max(mindmapZoom - 0.15, 0.4);
         applyMindmapZoom();
     });
 
     resetBtn?.addEventListener('click', () => {
         mindmapZoom = 1;
+        mindmapPan = { x: 0, y: 0 };
         applyMindmapZoom();
     });
 
     exportBtn?.addEventListener('click', exportMindMapAsPNG);
+
+    // Wheel to zoom, drag to pan
+    const canvas = document.getElementById('mindmap-canvas');
+    if (canvas) {
+        canvas.addEventListener('wheel', (e) => {
+            if (!mindmapModal.classList.contains('active')) return;
+            e.preventDefault();
+            const delta = e.deltaY < 0 ? 0.1 : -0.1;
+            mindmapZoom = Math.min(3, Math.max(0.4, mindmapZoom + delta));
+            applyMindmapZoom();
+        }, { passive: false });
+
+        let dragging = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
+        canvas.addEventListener('mousedown', (e) => {
+            dragging = true;
+            startX = e.clientX; startY = e.clientY;
+            startPanX = mindmapPan.x; startPanY = mindmapPan.y;
+            canvas.style.cursor = 'grabbing';
+        });
+        window.addEventListener('mousemove', (e) => {
+            if (!dragging) return;
+            mindmapPan.x = startPanX + (e.clientX - startX);
+            mindmapPan.y = startPanY + (e.clientY - startY);
+            applyMindmapZoom();
+        });
+        window.addEventListener('mouseup', () => {
+            dragging = false;
+            canvas.style.cursor = 'grab';
+        });
+        canvas.style.cursor = 'grab';
+    }
 }
 
 function generateMindMap() {
@@ -8427,105 +8482,179 @@ function generateMindMap() {
     if (!canvas || !currentInfographicData) return;
 
     const data = currentInfographicData;
-    const centerX = 450;
-    const centerY = 300;
-    const radius = 180;
-
-    let svg = `<svg class="mindmap-svg" viewBox="0 0 900 600" style="transform: scale(${mindmapZoom})">`;
-
-    // Draw connections first (behind nodes)
     const sections = data.sections || [];
-    const angleStep = (2 * Math.PI) / Math.max(sections.length, 1);
 
+    // Dynamic canvas sizing based on section count
+    const W = 1200;
+    const H = 800;
+    const centerX = W / 2;
+    const centerY = H / 2;
+    const radius = Math.min(260, 160 + sections.length * 8);
+
+    const angleStep = (2 * Math.PI) / Math.max(sections.length, 1);
+    const MAX_LEAVES = 6;
+    const LEAF_DIST = 120;
+    const LEAF_SPREAD = Math.PI / 2.5; // total angular span for leaves
+
+    let defs = `<defs>
+        <filter id="mm-shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+            <feOffset dx="0" dy="2"/>
+            <feComponentTransfer><feFuncA type="linear" slope="0.25"/></feComponentTransfer>
+            <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <radialGradient id="mm-center-grad"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1e3a8a"/></radialGradient>`;
+    sections.forEach((section, i) => {
+        const c = pickBranchColor(section, i);
+        defs += `<linearGradient id="mm-grad-${i}" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${c.gradient[0]}"/><stop offset="100%" stop-color="${c.gradient[1]}"/></linearGradient>`;
+    });
+    defs += `</defs>`;
+
+    let svg = `<svg class="mindmap-svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">${defs}`;
+
+    // Curved connectors from center to each branch (drawn first, behind nodes)
     sections.forEach((section, i) => {
         const angle = i * angleStep - Math.PI / 2;
         const x = centerX + radius * Math.cos(angle);
         const y = centerY + radius * Math.sin(angle);
-
-        // Draw line from center to branch
-        svg += `<line class="mindmap-line" x1="${centerX}" y1="${centerY}" x2="${x}" y2="${y}"/>`;
+        const c = pickBranchColor(section, i);
+        // Smooth bezier curve from center toward branch
+        const midX = centerX + (x - centerX) * 0.5;
+        const midY = centerY + (y - centerY) * 0.5;
+        svg += `<path d="M ${centerX} ${centerY} Q ${midX} ${midY} ${x} ${y}" fill="none" stroke="${c.fill}" stroke-width="3" stroke-opacity="0.35" stroke-linecap="round"/>`;
     });
 
-    // Draw center node
-    svg += `<g class="mindmap-node">
-        <circle class="mindmap-node-center" cx="${centerX}" cy="${centerY}" r="60"/>
-        <text class="mindmap-text" x="${centerX}" y="${centerY}">${truncateText(data.title, 20)}</text>
-    </g>`;
-
-    // Draw branch nodes
+    // Leaf nodes first, then branches (so branches cover leaf line origins)
     sections.forEach((section, i) => {
         const angle = i * angleStep - Math.PI / 2;
         const x = centerX + radius * Math.cos(angle);
         const y = centerY + radius * Math.sin(angle);
+        const c = pickBranchColor(section, i);
 
-        const colors = {
-            blue: '#3b82f6',
-            red: '#ef4444',
-            green: '#10b981',
-            yellow: '#f59e0b',
-            purple: '#8b5cf6'
-        };
-        const color = colors[section.color_theme] || '#3b82f6';
+        // Collect leaf items from whatever content shape we have
+        let leafItems = [];
+        const content = section.content;
+        if (Array.isArray(content)) {
+            leafItems = content.slice(0, MAX_LEAVES).map(String);
+        } else if (content && typeof content === 'object') {
+            if (Array.isArray(content.branches)) leafItems = content.branches.slice(0, MAX_LEAVES).map(String);
+            else if (content.mnemonic) leafItems = [String(content.mnemonic)];
+            else if (content.headers) leafItems = content.headers.slice(0, MAX_LEAVES).map(String);
+        } else if (typeof content === 'string' && content.length > 0) {
+            leafItems = [content.split(/[.\n]/)[0].trim()].filter(Boolean);
+        }
 
-        svg += `<g class="mindmap-node">
-            <circle cx="${x}" cy="${y}" r="45" fill="${color}"/>
-            <text class="mindmap-text" x="${x}" y="${y}">${truncateText(section.title, 15)}</text>
-        </g>`;
-
-        // Draw leaf nodes for content
-        if (Array.isArray(section.content)) {
-            const leafRadius = 60;
-            const leafCount = Math.min(section.content.length, 4);
-            const leafAngleStep = Math.PI / 3 / Math.max(leafCount - 1, 1);
-            const startLeafAngle = angle - Math.PI / 6;
-
-            section.content.slice(0, 4).forEach((item, j) => {
-                const leafAngle = startLeafAngle + j * leafAngleStep;
-                const lx = x + leafRadius * Math.cos(leafAngle);
-                const ly = y + leafRadius * Math.sin(leafAngle);
-
-                svg += `<line class="mindmap-line" x1="${x}" y1="${y}" x2="${lx}" y2="${ly}" style="stroke-width: 1; opacity: 0.5"/>`;
+        const leafCount = leafItems.length;
+        if (leafCount > 0) {
+            const startLeafAngle = angle - LEAF_SPREAD / 2;
+            const stepLeaf = leafCount === 1 ? 0 : LEAF_SPREAD / (leafCount - 1);
+            leafItems.forEach((item, j) => {
+                const leafAngle = startLeafAngle + j * stepLeaf;
+                const lx = x + LEAF_DIST * Math.cos(leafAngle);
+                const ly = y + LEAF_DIST * Math.sin(leafAngle);
+                // connector
+                svg += `<path d="M ${x} ${y} Q ${(x + lx) / 2} ${(y + ly) / 2} ${lx} ${ly}" fill="none" stroke="${c.fill}" stroke-width="1.5" stroke-opacity="0.45" stroke-linecap="round"/>`;
+                // pill
+                const label = truncateText(item, 22);
+                const pillW = Math.max(110, Math.min(220, label.length * 7.5 + 22));
                 svg += `<g class="mindmap-node">
-                    <rect class="mindmap-node-leaf" x="${lx - 40}" y="${ly - 12}" width="80" height="24" rx="4"/>
-                    <text class="mindmap-text mindmap-text-leaf" x="${lx}" y="${ly}">${truncateText(item, 12)}</text>
+                    <rect x="${lx - pillW / 2}" y="${ly - 16}" width="${pillW}" height="32" rx="16" fill="white" stroke="${c.fill}" stroke-width="2" filter="url(#mm-shadow)"/>
+                    <text class="mindmap-text mindmap-text-leaf" x="${lx}" y="${ly}" dominant-baseline="central" text-anchor="middle" font-size="12" fill="#0f172a" font-weight="500">${label}</text>
                 </g>`;
             });
         }
     });
 
+    // Branches on top of leaves so the line origins stay clean
+    sections.forEach((section, i) => {
+        const angle = i * angleStep - Math.PI / 2;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        const c = pickBranchColor(section, i);
+        const label = truncateText(section.title || `#${i + 1}`, 20);
+        svg += `<g class="mindmap-node mindmap-branch-node">
+            <circle cx="${x}" cy="${y}" r="52" fill="url(#mm-grad-${i})" stroke="white" stroke-width="3" filter="url(#mm-shadow)"/>
+            <text class="mindmap-text" x="${x}" y="${y}" dominant-baseline="central" text-anchor="middle" fill="white" font-weight="700" font-size="14">${label}</text>
+        </g>`;
+    });
+
+    // Center node on top
+    svg += `<g class="mindmap-node mindmap-center-node">
+        <circle cx="${centerX}" cy="${centerY}" r="72" fill="url(#mm-center-grad)" stroke="white" stroke-width="4" filter="url(#mm-shadow)"/>
+        <text class="mindmap-text mindmap-text-center" x="${centerX}" y="${centerY}" dominant-baseline="central" text-anchor="middle" fill="white" font-weight="800" font-size="16">${truncateText(data.title || 'Topic', 22)}</text>
+    </g>`;
+
     svg += '</svg>';
     canvas.innerHTML = svg;
+    applyMindmapZoom();
 }
 
 function truncateText(text, maxLength) {
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength - 2) + '...';
+    if (text == null) return '';
+    const s = String(text);
+    if (s.length <= maxLength) return s;
+    return s.substring(0, maxLength - 1) + '…';
 }
 
 function applyMindmapZoom() {
     const svg = document.querySelector('.mindmap-svg');
     if (svg) {
-        svg.style.transform = `scale(${mindmapZoom})`;
+        svg.style.transform = `translate(${mindmapPan.x}px, ${mindmapPan.y}px) scale(${mindmapZoom})`;
+        svg.style.transformOrigin = 'center center';
+        svg.style.transition = 'transform 0.15s ease';
     }
 }
 
-function exportMindMapAsPNG() {
+async function exportMindMapAsPNG() {
     const canvas = document.getElementById('mindmap-canvas');
     if (!canvas) return;
 
-    // Create a canvas element and draw the SVG
     const svg = canvas.querySelector('svg');
     if (!svg) return;
 
-    const svgData = new XMLSerializer().serializeToString(svg);
-    const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
-    const url = URL.createObjectURL(svgBlob);
+    // Rasterize the SVG to a real PNG via an <img> → canvas round-trip
+    try {
+        const clone = svg.cloneNode(true);
+        clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        clone.style.transform = ''; // no pan/zoom in export
+        const serialized = new XMLSerializer().serializeToString(clone);
+        const svgBlob = new Blob([serialized], { type: 'image/svg+xml;charset=utf-8' });
+        const url = URL.createObjectURL(svgBlob);
 
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${currentInfographicData?.title || 'mindmap'}_mindmap.svg`;
-    a.click();
-    URL.revokeObjectURL(url);
+        const img = new Image();
+        img.src = url;
+        await new Promise((res, rej) => { img.onload = res; img.onerror = rej; });
+
+        const vb = svg.viewBox.baseVal;
+        const W = vb && vb.width ? vb.width : 1200;
+        const H = vb && vb.height ? vb.height : 800;
+        const SCALE = 2; // 2x for retina-quality export
+
+        const out = document.createElement('canvas');
+        out.width = W * SCALE;
+        out.height = H * SCALE;
+        const ctx = out.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, out.width, out.height);
+        ctx.drawImage(img, 0, 0, out.width, out.height);
+
+        URL.revokeObjectURL(url);
+
+        const a = document.createElement('a');
+        a.href = out.toDataURL('image/png');
+        a.download = `${(currentInfographicData?.title || 'mindmap').replace(/[^\w\-]+/g, '_')}_mindmap.png`;
+        a.click();
+    } catch (err) {
+        console.warn('[Mindmap] PNG export failed, falling back to SVG:', err);
+        const svgData = new XMLSerializer().serializeToString(svg);
+        const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+        const url = URL.createObjectURL(svgBlob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${currentInfographicData?.title || 'mindmap'}_mindmap.svg`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }
 }
 
 /* ========================================
@@ -8762,6 +8891,8 @@ function formatSectionAsBulletsText(section) {
 
 let flashcards = [];
 let currentFlashcardIndex = 0;
+let flashcardStatus = {}; // { index: 'known' | 'review' }
+let flashcardStudyMode = false; // when true, cycles only through 'review' cards
 
 function setupFlashcards() {
     const flashcardsBtn = document.getElementById('flashcards-btn');
@@ -8793,9 +8924,49 @@ function setupFlashcards() {
     nextBtn?.addEventListener('click', () => navigateFlashcard(1));
     shuffleBtn?.addEventListener('click', shuffleFlashcards);
 
-    flashcard?.addEventListener('click', () => {
+    flashcard?.addEventListener('click', (e) => {
+        // Ignore clicks on the study-action buttons we inject inside the card
+        if (e.target.closest('.flashcard-study-btn')) return;
         flashcard.classList.toggle('flipped');
     });
+
+    // Touch swipe on the flashcard for mobile
+    let touchStartX = null;
+    flashcard?.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    flashcard?.addEventListener('touchend', (e) => {
+        if (touchStartX == null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 60) {
+            navigateFlashcard(dx < 0 ? 1 : -1);
+        }
+        touchStartX = null;
+    }, { passive: true });
+
+    // Keyboard shortcuts while flashcards modal is open
+    document.addEventListener('keydown', (e) => {
+        if (!flashcardsModal.classList.contains('active')) return;
+        if (document.activeElement && ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+        if (e.key === 'ArrowRight') { navigateFlashcard(1); e.preventDefault(); }
+        else if (e.key === 'ArrowLeft') { navigateFlashcard(-1); e.preventDefault(); }
+        else if (e.key === ' ' || e.key === 'Spacebar') {
+            if (flashcard) flashcard.classList.toggle('flipped');
+            e.preventDefault();
+        } else if (e.key === 's' || e.key === 'S') {
+            shuffleFlashcards(); e.preventDefault();
+        } else if (e.key === 'k' || e.key === 'K' || e.key === '1') {
+            markFlashcard('known'); e.preventDefault();
+        } else if (e.key === 'r' || e.key === 'R' || e.key === '2') {
+            markFlashcard('review'); e.preventDefault();
+        }
+    });
+}
+
+function markFlashcard(status) {
+    if (flashcards.length === 0) return;
+    flashcardStatus[currentFlashcardIndex] = status;
+    updateFlashcardCounter();
+    // Auto-advance for flow
+    setTimeout(() => navigateFlashcard(1), 160);
 }
 
 async function generateFlashcards() {
@@ -8818,6 +8989,7 @@ async function generateFlashcards() {
 
     if (aiFlashcards && aiFlashcards.length > 0) {
         flashcards = aiFlashcards;
+        flashcardStatus = {};
         currentFlashcardIndex = 0;
         renderFlashcard();
         updateFlashcardCounter();
@@ -8832,6 +9004,7 @@ async function generateFlashcards() {
     console.log('Using fallback flashcard generation');
     const data = currentInfographicData;
     flashcards = [];
+    flashcardStatus = {};
 
     // Create flashcards from sections
     if (data.sections) {
@@ -8899,9 +9072,45 @@ function renderFlashcard() {
     const questionEl = document.getElementById('flashcard-question');
     const answerEl = document.getElementById('flashcard-answer');
     const flashcard = document.getElementById('current-flashcard');
+    const status = flashcardStatus[currentFlashcardIndex];
 
-    if (questionEl) questionEl.textContent = card.question;
-    if (answerEl) answerEl.textContent = card.answer;
+    const statusBadge = status === 'known'
+        ? '<span style="position:absolute;top:12px;right:12px;background:#10b981;color:white;padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;display:inline-flex;align-items:center;gap:4px;"><span class="material-symbols-rounded" style="font-size:0.9rem;">check</span>Mastered</span>'
+        : status === 'review'
+        ? '<span style="position:absolute;top:12px;right:12px;background:#f59e0b;color:white;padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;display:inline-flex;align-items:center;gap:4px;"><span class="material-symbols-rounded" style="font-size:0.9rem;">refresh</span>Review</span>'
+        : '';
+
+    if (questionEl) {
+        questionEl.innerHTML = `
+            ${statusBadge}
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:1rem;">Question</div>
+            <div style="font-size:1.4rem;color:white;line-height:1.6;font-weight:500;">${card.question}</div>
+            <div style="position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:0.8rem;color:rgba(255,255,255,0.7);">
+                <span class="material-symbols-rounded" style="font-size:1rem;vertical-align:middle;">touch_app</span>
+                Click or press <kbd style="background:rgba(255,255,255,0.15);padding:1px 6px;border-radius:3px;font-family:monospace;border:1px solid rgba(255,255,255,0.3);color:white;">Space</kbd> to flip
+            </div>
+        `;
+    }
+    if (answerEl) {
+        answerEl.innerHTML = `
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:1rem;">Answer</div>
+            <div style="font-size:1.25rem;color:white;line-height:1.6;font-weight:500;margin-bottom:1.5rem;white-space:pre-wrap;">${card.answer}</div>
+            <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+                <button class="flashcard-study-btn" data-action="review" style="background:rgba(245,158,11,0.9);color:white;border:none;padding:10px 20px;border-radius:999px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;gap:6px;font-size:0.9rem;">
+                    <span class="material-symbols-rounded" style="font-size:1.1rem;">refresh</span>Review again
+                </button>
+                <button class="flashcard-study-btn" data-action="known" style="background:rgba(16,185,129,0.95);color:white;border:none;padding:10px 20px;border-radius:999px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;gap:6px;font-size:0.9rem;">
+                    <span class="material-symbols-rounded" style="font-size:1.1rem;">check_circle</span>Got it
+                </button>
+            </div>
+        `;
+        answerEl.querySelectorAll('.flashcard-study-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                markFlashcard(btn.dataset.action);
+            });
+        });
+    }
     if (flashcard) flashcard.classList.remove('flipped');
 }
 
@@ -8918,18 +9127,27 @@ function navigateFlashcard(direction) {
 
 function updateFlashcardCounter() {
     const counter = document.getElementById('flashcard-counter');
-    if (counter) {
-        counter.textContent = flashcards.length > 0
-            ? `${currentFlashcardIndex + 1} / ${flashcards.length}`
-            : '0 / 0';
-    }
+    if (!counter) return;
+    if (flashcards.length === 0) { counter.textContent = '0 / 0'; return; }
+    const known = Object.values(flashcardStatus).filter(s => s === 'known').length;
+    const review = Object.values(flashcardStatus).filter(s => s === 'review').length;
+    counter.innerHTML = `
+        <span>${currentFlashcardIndex + 1} / ${flashcards.length}</span>
+        ${known > 0 ? `<span style="margin-left:12px;color:#10b981;font-weight:600;"><span class="material-symbols-rounded" style="font-size:1rem;vertical-align:middle;">check_circle</span> ${known}</span>` : ''}
+        ${review > 0 ? `<span style="margin-left:8px;color:#f59e0b;font-weight:600;"><span class="material-symbols-rounded" style="font-size:1rem;vertical-align:middle;">refresh</span> ${review}</span>` : ''}
+    `;
 }
 
 function shuffleFlashcards() {
-    for (let i = flashcards.length - 1; i > 0; i--) {
+    // Reset status on shuffle so the pile feels fresh
+    const pairs = flashcards.map((c, i) => ({ c, s: flashcardStatus[i] }));
+    for (let i = pairs.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        [pairs[i], pairs[j]] = [pairs[j], pairs[i]];
     }
+    flashcards = pairs.map(p => p.c);
+    flashcardStatus = {};
+    pairs.forEach((p, i) => { if (p.s) flashcardStatus[i] = p.s; });
     currentFlashcardIndex = 0;
     renderFlashcard();
     updateFlashcardCounter();
@@ -8943,6 +9161,8 @@ let quizQuestions = [];
 let currentQuestionIndex = 0;
 let quizScore = 0;
 let quizAnswered = false;
+let quizStreak = 0;
+let quizBestStreak = 0;
 
 function setupQuiz() {
     const quizBtn = document.getElementById('quiz-btn');
@@ -8971,6 +9191,24 @@ function setupQuiz() {
     startBtn?.addEventListener('click', startQuiz);
     nextBtn?.addEventListener('click', nextQuestion);
     retakeBtn?.addEventListener('click', startQuiz);
+
+    // Keyboard shortcuts when quiz modal is open
+    document.addEventListener('keydown', (e) => {
+        if (!quizModal.classList.contains('active')) return;
+        if (document.activeElement && ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+        const key = e.key.toUpperCase();
+        if (['A', 'B', 'C', 'D', 'E'].includes(key) && !quizAnswered) {
+            const idx = key.charCodeAt(0) - 65;
+            const opts = document.querySelectorAll('#quiz-options .quiz-option');
+            if (opts[idx]) { opts[idx].click(); e.preventDefault(); }
+        } else if (e.key === 'Enter') {
+            if (quizAnswered && document.getElementById('next-question-btn').style.display !== 'none') {
+                nextQuestion(); e.preventDefault();
+            } else if (!quizAnswered && document.getElementById('start-quiz-btn').style.display !== 'none') {
+                startQuiz(); e.preventDefault();
+            }
+        }
+    });
 }
 
 function generateQuizQuestions() {
@@ -9057,13 +9295,21 @@ function resetQuiz() {
     currentQuestionIndex = 0;
     quizScore = 0;
     quizAnswered = false;
+    quizStreak = 0;
+    quizBestStreak = 0;
 
     document.getElementById('quiz-container').style.display = 'block';
     document.getElementById('quiz-results').style.display = 'none';
     document.getElementById('start-quiz-btn').style.display = 'flex';
     document.getElementById('next-question-btn').style.display = 'none';
     document.getElementById('quiz-feedback').style.display = 'none';
-    document.getElementById('quiz-question').textContent = 'Click "Start Quiz" to begin';
+    document.getElementById('quiz-question').innerHTML = `
+        <div style="text-align:center;padding:2rem 1rem;">
+            <span class="material-symbols-rounded" style="font-size:4rem;color:#3b82f6;margin-bottom:1rem;display:inline-block;">quiz</span>
+            <div style="font-size:1.4rem;color:#0f172a;font-weight:600;margin-bottom:0.5rem;">Ready to test your knowledge?</div>
+            <div style="font-size:0.9rem;color:#64748b;margin-bottom:0.5rem;">Click <strong>Start Quiz</strong> or press <kbd style="background:#f1f5f9;padding:2px 8px;border-radius:4px;font-family:monospace;border:1px solid #cbd5e1;">Enter</kbd></div>
+            <div style="font-size:0.8rem;color:#94a3b8;">Use <kbd style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-family:monospace;border:1px solid #cbd5e1;">A</kbd> <kbd style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-family:monospace;border:1px solid #cbd5e1;">B</kbd> <kbd style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-family:monospace;border:1px solid #cbd5e1;">C</kbd> <kbd style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-family:monospace;border:1px solid #cbd5e1;">D</kbd> to answer</div>
+        </div>`;
     document.getElementById('quiz-options').innerHTML = '';
     document.getElementById('quiz-progress-bar').style.width = '0%';
     updateQuizScore();
@@ -9120,7 +9366,13 @@ function renderQuizQuestion() {
     const progressBar = document.getElementById('quiz-progress-bar');
     const feedback = document.getElementById('quiz-feedback');
 
-    questionEl.textContent = question.question;
+    questionEl.innerHTML = `
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:0.75rem;flex-wrap:wrap;">
+            <span style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:white;padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:700;letter-spacing:1px;">Q${currentQuestionIndex + 1} / ${quizQuestions.length}</span>
+            ${quizStreak >= 2 ? `<span style="background:linear-gradient(135deg,#f59e0b,#d97706);color:white;padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:700;display:inline-flex;align-items:center;gap:4px;"><span class="material-symbols-rounded" style="font-size:1rem;">local_fire_department</span> ${quizStreak} streak</span>` : ''}
+        </div>
+        <div style="font-size:1.3rem;color:#0f172a;line-height:1.5;font-weight:500;">${question.question}</div>
+    `;
     feedback.style.display = 'none';
     quizAnswered = false;
 
@@ -9128,13 +9380,12 @@ function renderQuizQuestion() {
     progressBar.style.width = `${progress}%`;
 
     optionsEl.innerHTML = question.options.map((opt, i) => `
-        <div class="quiz-option" data-answer="${opt}">
+        <div class="quiz-option" data-answer="${opt}" data-index="${i}">
             <span class="quiz-option-letter">${String.fromCharCode(65 + i)}</span>
-            <span>${truncateText(opt, 100)}</span>
+            <span style="flex:1;">${truncateText(opt, 200)}</span>
         </div>
     `).join('');
 
-    // Add click handlers
     optionsEl.querySelectorAll('.quiz-option').forEach(option => {
         option.addEventListener('click', () => selectQuizAnswer(option, question.correctAnswer));
     });
@@ -9151,34 +9402,39 @@ function selectQuizAnswer(optionEl, correctAnswer) {
     const feedbackText = document.getElementById('feedback-text');
     const nextBtn = document.getElementById('next-question-btn');
 
-    // Mark selected option
     optionEl.classList.add(isCorrect ? 'correct' : 'incorrect');
 
-    // Show correct answer if wrong
     if (!isCorrect) {
         document.querySelectorAll('.quiz-option').forEach(opt => {
             if (opt.dataset.answer === correctAnswer) {
                 opt.classList.add('correct');
             }
+            opt.style.pointerEvents = 'none';
         });
+        quizStreak = 0;
     } else {
         quizScore++;
+        quizStreak++;
+        if (quizStreak > quizBestStreak) quizBestStreak = quizStreak;
+        document.querySelectorAll('.quiz-option').forEach(opt => { opt.style.pointerEvents = 'none'; });
     }
 
-    // Show feedback with explanation if available
     feedback.style.display = 'flex';
     feedback.className = `quiz-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
     feedbackIcon.textContent = isCorrect ? 'check_circle' : 'cancel';
 
     const currentQuestion = quizQuestions[currentQuestionIndex];
-    let feedbackMessage = isCorrect ? 'Correct!' : `Incorrect. The correct answer was: "${truncateText(correctAnswer, 50)}"`;
-
-    // Add explanation if available (from AI-generated questions)
-    if (currentQuestion.explanation) {
-        feedbackMessage += `\n\n💡 ${currentQuestion.explanation}`;
-    }
-
-    feedbackText.textContent = feedbackMessage;
+    const heading = isCorrect ? 'Correct!' : 'Not quite.';
+    const correctPart = isCorrect ? '' : `<div style="margin-top:0.5rem;font-size:0.95rem;"><strong>Correct answer:</strong> ${correctAnswer}</div>`;
+    const explanationPart = currentQuestion.explanation
+        ? `<div style="margin-top:0.75rem;padding:0.75rem 1rem;background:rgba(255,255,255,0.65);border-radius:8px;border-left:4px solid ${isCorrect ? '#059669' : '#dc2626'};font-size:0.9rem;color:#334155;line-height:1.5;"><strong style="color:#0f172a;">Why:</strong> ${currentQuestion.explanation}</div>`
+        : '';
+    feedbackText.innerHTML = `
+        <div style="font-size:1.1rem;font-weight:700;margin-bottom:0.25rem;">${heading}</div>
+        ${correctPart}
+        ${explanationPart}
+        <div style="margin-top:0.75rem;font-size:0.8rem;color:#64748b;">Press <kbd style="background:#f1f5f9;padding:2px 8px;border-radius:4px;font-family:monospace;border:1px solid #cbd5e1;">Enter</kbd> for next question</div>
+    `;
 
     nextBtn.style.display = 'flex';
     updateQuizScore();
@@ -9197,18 +9453,59 @@ function nextQuestion() {
 
 function showQuizResults() {
     document.getElementById('quiz-container').style.display = 'none';
-    document.getElementById('quiz-results').style.display = 'flex';
+    const resultsEl = document.getElementById('quiz-results');
+    resultsEl.style.display = 'flex';
 
     const percentage = Math.round((quizScore / quizQuestions.length) * 100);
-    document.getElementById('results-percentage').textContent = `${percentage}%`;
+    const percEl = document.getElementById('results-percentage');
+    percEl.textContent = `${percentage}%`;
 
-    let message = '';
-    if (percentage >= 90) message = '🌟 Excellent! You\'ve mastered this topic!';
-    else if (percentage >= 70) message = '👍 Great job! Keep studying to perfect your knowledge.';
-    else if (percentage >= 50) message = '📚 Good effort! Review the material and try again.';
-    else message = '💪 Keep practicing! Review the infographic and retake the quiz.';
+    // Ring gradient color tiered to score
+    let ringColor, icon, heading, sub;
+    if (percentage >= 90)      { ringColor = '#10b981'; icon = 'emoji_events';  heading = 'Outstanding!';      sub = "You've mastered this topic."; }
+    else if (percentage >= 70) { ringColor = '#3b82f6'; icon = 'military_tech'; heading = 'Great job!';        sub = 'Keep studying to perfect it.'; }
+    else if (percentage >= 50) { ringColor = '#f59e0b'; icon = 'school';        heading = 'Good effort.';      sub = 'Review the material and retry.'; }
+    else                       { ringColor = '#ef4444'; icon = 'psychology';    heading = 'Keep practicing.';  sub = 'Review the infographic, then retake.'; }
 
-    document.getElementById('results-message').textContent = message;
+    // Paint a conic-gradient ring around the percentage
+    percEl.style.cssText = `
+        width:180px;height:180px;border-radius:50%;
+        background:conic-gradient(${ringColor} ${percentage * 3.6}deg, #e2e8f0 0);
+        display:flex;align-items:center;justify-content:center;
+        font-size:2.5rem;font-weight:800;color:#0f172a;margin:0 auto 1rem;
+        position:relative;
+    `;
+    // Inner white disc so the number appears floating in the ring
+    if (!percEl.querySelector('.ring-inner')) {
+        const inner = document.createElement('div');
+        inner.className = 'ring-inner';
+        inner.style.cssText = 'position:absolute;inset:12px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 12px rgba(0,0,0,0.04);';
+        const pct = document.createElement('span');
+        pct.style.cssText = `font-size:2.5rem;font-weight:800;color:${ringColor};`;
+        pct.textContent = `${percentage}%`;
+        inner.appendChild(pct);
+        percEl.textContent = '';
+        percEl.appendChild(inner);
+    }
+
+    const msgEl = document.getElementById('results-message');
+    msgEl.innerHTML = `
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
+            <span class="material-symbols-rounded" style="font-size:3rem;color:${ringColor};">${icon}</span>
+            <div style="font-size:1.4rem;font-weight:700;color:#0f172a;">${heading}</div>
+            <div style="font-size:0.95rem;color:#64748b;">${sub}</div>
+            <div style="display:flex;gap:2rem;margin-top:1rem;flex-wrap:wrap;justify-content:center;">
+                <div style="text-align:center;">
+                    <div style="font-size:2rem;font-weight:800;color:${ringColor};">${quizScore}/${quizQuestions.length}</div>
+                    <div style="font-size:0.75rem;color:#94a3b8;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">Correct</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:2rem;font-weight:800;color:${ringColor};display:inline-flex;align-items:center;gap:4px;"><span class="material-symbols-rounded" style="font-size:1.6rem;">local_fire_department</span>${quizBestStreak}</div>
+                    <div style="font-size:0.75rem;color:#94a3b8;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">Best streak</div>
+                </div>
+            </div>
+        </div>
+    `;
 }
 
 function updateQuizScore() {
@@ -9280,6 +9577,75 @@ function setupSlideDeck() {
     slideModal.addEventListener('mouseenter', () => slideModal.focus({ preventScroll: true }));
 }
 
+// ═══════════════════════════════════════════════════════════════════════
+// SLIDE TEMPLATE SYSTEM
+// Classifies a section (by title/type) into a specialized visual template
+// with theme colors, icon, and layout hints for slide rendering.
+// ═══════════════════════════════════════════════════════════════════════
+const SLIDE_TEMPLATES = {
+    pearls:           { key: 'pearls',           label: 'Clinical Pearls',   icon: 'stars',             accent: '#10b981', bg: 'linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%)', border: '#10b981', bullet: 'lightbulb' },
+    pitfalls:         { key: 'pitfalls',         label: 'Pitfalls',          icon: 'report_problem',    accent: '#f59e0b', bg: 'linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%)', border: '#f59e0b', bullet: 'warning' },
+    red_flags:        { key: 'red_flags',        label: 'Red Flags',         icon: 'flag',              accent: '#dc2626', bg: 'linear-gradient(135deg,#fef2f2 0%,#fee2e2 100%)', border: '#dc2626', bullet: 'priority_high' },
+    complications:    { key: 'complications',    label: 'Complications',     icon: 'warning',           accent: '#ea580c', bg: 'linear-gradient(135deg,#fff7ed 0%,#ffedd5 100%)', border: '#ea580c', bullet: 'error' },
+    indications:      { key: 'indications',      label: 'Indications',       icon: 'task_alt',          accent: '#059669', bg: 'linear-gradient(135deg,#ecfdf5 0%,#a7f3d0 40%)', border: '#059669', bullet: 'check_circle' },
+    contraindications:{ key: 'contraindications',label: 'Contraindications', icon: 'block',             accent: '#b91c1c', bg: 'linear-gradient(135deg,#fef2f2 0%,#fecaca 100%)', border: '#b91c1c', bullet: 'do_not_disturb_on' },
+    differential:     { key: 'differential',     label: 'Differential Dx',   icon: 'account_tree',      accent: '#7c3aed', bg: 'linear-gradient(135deg,#faf5ff 0%,#e9d5ff 100%)', border: '#7c3aed', bullet: 'compare_arrows' },
+    investigations:   { key: 'investigations',   label: 'Investigations',    icon: 'biotech',           accent: '#0891b2', bg: 'linear-gradient(135deg,#ecfeff 0%,#cffafe 100%)', border: '#0891b2', bullet: 'labs' },
+    management:       { key: 'management',       label: 'Management',        icon: 'medical_services',  accent: '#2563eb', bg: 'linear-gradient(135deg,#eff6ff 0%,#dbeafe 100%)', border: '#2563eb', bullet: 'medication' },
+    surgery:          { key: 'surgery',          label: 'Surgical',          icon: 'surgical',          accent: '#db2777', bg: 'linear-gradient(135deg,#fdf2f8 0%,#fce7f3 100%)', border: '#db2777', bullet: 'cut' },
+    etiology:         { key: 'etiology',         label: 'Etiology',          icon: 'biotech',           accent: '#7c3aed', bg: 'linear-gradient(135deg,#faf5ff 0%,#ede9fe 100%)', border: '#7c3aed', bullet: 'science' },
+    epidemiology:     { key: 'epidemiology',     label: 'Epidemiology',      icon: 'public',            accent: '#0e7490', bg: 'linear-gradient(135deg,#ecfeff 0%,#cffafe 100%)', border: '#0e7490', bullet: 'trending_up' },
+    pathophysiology:  { key: 'pathophysiology',  label: 'Pathophysiology',   icon: 'genetics',          accent: '#7c3aed', bg: 'linear-gradient(135deg,#faf5ff 0%,#e9d5ff 100%)', border: '#7c3aed', bullet: 'bubble_chart' },
+    symptoms:         { key: 'symptoms',         label: 'Symptoms',          icon: 'sick',              accent: '#f59e0b', bg: 'linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%)', border: '#f59e0b', bullet: 'thermostat' },
+    signs:            { key: 'signs',            label: 'Clinical Signs',    icon: 'visibility',        accent: '#2563eb', bg: 'linear-gradient(135deg,#eff6ff 0%,#dbeafe 100%)', border: '#2563eb', bullet: 'search' },
+    anatomy:          { key: 'anatomy',          label: 'Anatomy',           icon: 'human_greeting_proximity', accent: '#0d9488', bg: 'linear-gradient(135deg,#f0fdfa 0%,#ccfbf1 100%)', border: '#0d9488', bullet: 'category' },
+    prognosis:        { key: 'prognosis',        label: 'Prognosis',         icon: 'trending_up',       accent: '#059669', bg: 'linear-gradient(135deg,#ecfdf5 0%,#a7f3d0 100%)', border: '#059669', bullet: 'timeline' },
+    framework:        { key: 'framework',        label: 'Framework',         icon: 'dashboard',         accent: '#6366f1', bg: 'linear-gradient(135deg,#eef2ff 0%,#e0e7ff 100%)', border: '#6366f1', bullet: 'hexagon' },
+    mnemonic:         { key: 'mnemonic',         label: 'Mnemonic',          icon: 'psychology',        accent: '#8b5cf6', bg: 'linear-gradient(135deg,#f5f3ff 0%,#ede9fe 100%)', border: '#8b5cf6', bullet: 'bookmark' },
+    default:          { key: 'default',          label: 'Key Points',        icon: 'auto_awesome',      accent: '#3b82f6', bg: 'linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%)', border: '#3b82f6', bullet: 'arrow_forward_ios' }
+};
+
+function classifySlideTemplate(title, type) {
+    const t = String(title || '').toLowerCase();
+    const y = String(type || '').toLowerCase();
+    if (/pearl|clinical\s*pearl|tips?\b|take[\s-]*home/.test(t)) return SLIDE_TEMPLATES.pearls;
+    if (/pitfall|common\s*mistake|caveat|beware/.test(t)) return SLIDE_TEMPLATES.pitfalls;
+    if (/red\s*flag|alarm|urgent|emergenc/.test(t)) return SLIDE_TEMPLATES.red_flags;
+    if (/complication|adverse|side[\s-]*effect/.test(t)) return SLIDE_TEMPLATES.complications;
+    if (/contra[\s-]?indication|contraindicat/.test(t)) return SLIDE_TEMPLATES.contraindications;
+    if (/^indication|^\s*indication|indication(s)?\b/.test(t)) return SLIDE_TEMPLATES.indications;
+    if (/differential|ddx|diff\.?\s*dx/.test(t)) return SLIDE_TEMPLATES.differential;
+    if (/investigation|workup|work[\s-]*up|lab|imaging|diagnos(tic|is)/.test(t)) return SLIDE_TEMPLATES.investigations;
+    if (/surg(ery|ical)|operative|procedure|technique/.test(t)) return SLIDE_TEMPLATES.surgery;
+    if (/manage|treatment|therapy|rx\b/.test(t)) return SLIDE_TEMPLATES.management;
+    if (/etiolog|aetiolog|cause|risk\s*factor/.test(t)) return SLIDE_TEMPLATES.etiology;
+    if (/epidemiolog|prevalence|incidence/.test(t)) return SLIDE_TEMPLATES.epidemiology;
+    if (/pathophys|mechanism|pathway|patholog/.test(t)) return SLIDE_TEMPLATES.pathophysiology;
+    if (/symptom|present(ation|ing)|complaint/.test(t)) return SLIDE_TEMPLATES.symptoms;
+    if (/^sign|exam(ination)?|finding/.test(t)) return SLIDE_TEMPLATES.signs;
+    if (/anatom|structure/.test(t)) return SLIDE_TEMPLATES.anatomy;
+    if (/prognos|outcome|follow[\s-]*up/.test(t)) return SLIDE_TEMPLATES.prognosis;
+    if (/framework|approach|algorithm|scheme|pillar/.test(t)) return SLIDE_TEMPLATES.framework;
+    if (y === 'mnemonic' || /mnemonic|remember/.test(t)) return SLIDE_TEMPLATES.mnemonic;
+    return SLIDE_TEMPLATES.default;
+}
+
+// Produce a themed bullet list given an array of strings and a template.
+function renderTemplatedBullets(items, tpl, opts = {}) {
+    const fontSize = opts.fontSize || '1.25rem';
+    const numbered = !!opts.numbered;
+    return `<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.85rem;width:100%;">
+        ${items.map((it, i) => `
+            <li style="display:flex;align-items:flex-start;gap:14px;padding:1rem 1.25rem;background:${tpl.bg};border-left:5px solid ${tpl.border};border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.04);">
+                <span ${numbered ? '' : 'class="material-symbols-rounded"'} style="${numbered
+                    ? `min-width:36px;height:36px;border-radius:50%;background:${tpl.accent};color:white;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;flex-shrink:0;`
+                    : `color:${tpl.accent};font-size:1.5rem;flex-shrink:0;margin-top:2px;`}">${numbered ? (i + 1) : tpl.bullet}</span>
+                <span style="flex:1;font-size:${fontSize};line-height:1.6;color:#0f172a;">${it}</span>
+            </li>
+        `).join('')}
+    </ul>`;
+}
+
 function generateSlides() {
     if (!currentInfographicData) return;
 
@@ -9324,9 +9690,13 @@ function generateSlides() {
         data.sections.forEach((section, sIdx) => {
             const sectionTitle = stripReferences(section.title || `Section ${sIdx + 1}`);
             const sectionType = section.type || 'plain_text';
-            const sectionIcon = typeof sanitizeMaterialIcon === 'function'
-                ? sanitizeMaterialIcon(section.icon || 'auto_awesome')
-                : (section.icon || 'auto_awesome');
+            const template = classifySlideTemplate(sectionTitle, sectionType);
+            // Prefer the template's curated icon; fall back to model-supplied + sanitizer
+            const sectionIcon = template.key === 'default'
+                ? (typeof sanitizeMaterialIcon === 'function'
+                    ? sanitizeMaterialIcon(section.icon || 'auto_awesome')
+                    : (section.icon || 'auto_awesome'))
+                : template.icon;
             const colorTheme = section.color_theme || 'blue';
 
             // Section divider slide
@@ -9334,7 +9704,8 @@ function generateSlides() {
                 type: 'section',
                 title: sectionTitle,
                 icon: sectionIcon,
-                colorTheme
+                colorTheme,
+                template
             });
 
             const content = stripReferences(section.content);
@@ -9352,7 +9723,8 @@ function generateSlides() {
                         content: chunk,
                         contentType: sectionType,
                         icon: sectionIcon,
-                        colorTheme
+                        colorTheme,
+                        template
                     });
                 }
             } else {
@@ -9362,7 +9734,8 @@ function generateSlides() {
                     content,
                     contentType: sectionType,
                     icon: sectionIcon,
-                    colorTheme
+                    colorTheme,
+                    template
                 });
             }
         });
@@ -9402,9 +9775,14 @@ function renderSlide() {
         `;
     } else if (slide.type === 'section') {
         slideContent.classList.add('section-slide');
+        const tpl = slide.template || SLIDE_TEMPLATES.default;
+        slideContent.style.background = tpl.bg;
         slideContent.innerHTML = `
-            <span class="material-symbols-rounded" style="font-size:4rem;margin-bottom:1rem;opacity:0.85;">${slide.icon || 'auto_awesome'}</span>
-            <h2>${slide.title}</h2>
+            <div style="display:inline-flex;align-items:center;justify-content:center;width:120px;height:120px;border-radius:50%;background:${tpl.accent};color:white;margin-bottom:1.5rem;box-shadow:0 12px 24px rgba(0,0,0,0.15);">
+                <span class="material-symbols-rounded" style="font-size:4rem;">${slide.icon || tpl.icon}</span>
+            </div>
+            <div style="font-size:0.9rem;text-transform:uppercase;letter-spacing:3px;color:${tpl.accent};font-weight:700;margin-bottom:0.5rem;">${tpl.label}</div>
+            <h2 style="color:#0f172a;">${slide.title}</h2>
         `;
     } else if (slide.type === 'agenda') {
         slideContent.classList.add('content-slide');
@@ -9439,18 +9817,14 @@ function renderSlide() {
         `;
     } else {
         slideContent.classList.add('content-slide');
+        slideContent.style.background = '';
+        const tpl = slide.template || SLIDE_TEMPLATES.default;
         let contentHtml = '';
 
         if (Array.isArray(slide.content)) {
-            // Enhanced List Graphical Style
-            contentHtml = `<ul style="list-style: none; padding-left: 0;">
-                ${slide.content.map(c => `
-                    <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 12px; font-size: 1.4rem;">
-                        <span class="material-symbols-rounded" style="color: #2563eb; flex-shrink: 0; margin-top: 4px;">arrow_forward_ios</span>
-                        <span>${c}</span>
-                    </li>
-                `).join('')}
-            </ul>`;
+            // Themed bullet list with color accent from template
+            const numbered = tpl.key === 'framework' || tpl.key === 'management';
+            contentHtml = renderTemplatedBullets(slide.content, tpl, { fontSize: '1.3rem', numbered });
         } else if (typeof slide.content === 'object' && slide.content !== null) {
             // Check for table structure
             if (slide.content.headers && slide.content.rows) {
@@ -9515,12 +9889,18 @@ function renderSlide() {
                 </div>`;
         }
 
+        const headerBadge = tpl.key === 'default' ? '' : `
+            <span style="display:inline-flex;align-items:center;gap:6px;margin-left:auto;background:${tpl.accent};color:white;padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">
+                <span class="material-symbols-rounded" style="font-size:1rem;">${tpl.icon}</span>
+                ${tpl.label}
+            </span>`;
         slideContent.innerHTML = `
-            <h3 style="display: flex; align-items: center; gap: 12px; border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem; font-size: 2.2rem; color: #0f172a; margin-bottom: 2rem; width:100%;">
-                <span class="material-symbols-rounded" style="color: #2563eb; font-size: 2.2rem;">${slide.icon || 'auto_awesome'}</span>
-                ${slide.title}
+            <h3 style="display:flex;align-items:center;gap:12px;border-bottom:3px solid ${tpl.accent}22;padding-bottom:0.9rem;font-size:2rem;color:#0f172a;margin-bottom:1.75rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.2rem;">${slide.icon || tpl.icon}</span>
+                <span style="flex:1;">${slide.title}</span>
+                ${headerBadge}
             </h3>
-            <div style="margin-top: 1rem; width:100%;">
+            <div style="margin-top:0.5rem;width:100%;">
                 ${contentHtml}
             </div>
         `;
@@ -9716,10 +10096,15 @@ function renderPresentationSlide() {
             <p>${slide.subtitle || ''}</p>
         `;
     } else if (slide.type === 'section') {
+        const tpl = slide.template || SLIDE_TEMPLATES.default;
         content.classList.add('section-slide');
+        content.style.background = tpl.bg;
         content.innerHTML = `
-            <span class="material-symbols-rounded" style="font-size:6rem;margin-bottom:1.5rem;opacity:0.9;">${slide.icon || 'auto_awesome'}</span>
-            <h2>${slide.title}</h2>
+            <div style="display:inline-flex;align-items:center;justify-content:center;width:200px;height:200px;border-radius:50%;background:${tpl.accent};color:white;margin-bottom:2.5rem;box-shadow:0 20px 50px rgba(0,0,0,0.2);">
+                <span class="material-symbols-rounded" style="font-size:7rem;">${slide.icon || tpl.icon}</span>
+            </div>
+            <div style="font-size:1.3rem;text-transform:uppercase;letter-spacing:6px;color:${tpl.accent};font-weight:700;margin-bottom:1rem;">${tpl.label}</div>
+            <h2 style="color:#0f172a;">${slide.title}</h2>
         `;
     } else if (slide.type === 'agenda') {
         content.classList.add('content-slide');
@@ -9739,14 +10124,19 @@ function renderPresentationSlide() {
         `;
     } else {
         content.classList.add('content-slide');
+        content.style.background = '';
+        const tpl = slide.template || SLIDE_TEMPLATES.default;
         let contentHtml = '';
 
         if (Array.isArray(slide.content)) {
-            contentHtml = `<ul style="list-style:none;padding-left:0;font-size:2rem;line-height:1.7;">
-                ${slide.content.map(c => `
-                    <li style="margin-bottom:1.25rem;display:flex;align-items:flex-start;gap:16px;">
-                        <span class="material-symbols-rounded" style="color:#2563eb;font-size:2.2rem;flex-shrink:0;margin-top:4px;">arrow_forward_ios</span>
-                        <span style="flex:1;">${c}</span>
+            const numbered = tpl.key === 'framework' || tpl.key === 'management';
+            contentHtml = `<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1rem;width:100%;font-size:1.6rem;">
+                ${slide.content.map((c, i) => `
+                    <li style="display:flex;align-items:flex-start;gap:18px;padding:1.25rem 1.5rem;background:${tpl.bg};border-left:6px solid ${tpl.border};border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+                        <span ${numbered ? '' : 'class="material-symbols-rounded"'} style="${numbered
+                            ? `min-width:48px;height:48px;border-radius:50%;background:${tpl.accent};color:white;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;flex-shrink:0;`
+                            : `color:${tpl.accent};font-size:2rem;flex-shrink:0;margin-top:4px;`}">${numbered ? (i + 1) : tpl.bullet}</span>
+                        <span style="flex:1;line-height:1.6;color:#0f172a;">${c}</span>
                     </li>
                 `).join('')}
             </ul>`;
@@ -9801,17 +10191,23 @@ function renderPresentationSlide() {
             }
         } else {
             contentHtml = `
-                <div style="background:#f8fafc;padding:2.5rem;border-radius:14px;border-left:8px solid #3b82f6;box-shadow:0 4px 16px rgba(0,0,0,0.04);width:100%;">
-                    <p style="font-size:2rem;line-height:1.8;color:#334155;">${slide.content || ''}</p>
+                <div style="background:${tpl.bg};padding:3rem;border-radius:16px;border-left:10px solid ${tpl.border};box-shadow:0 6px 20px rgba(0,0,0,0.06);width:100%;">
+                    <p style="font-size:2rem;line-height:1.8;color:#0f172a;">${slide.content || ''}</p>
                 </div>`;
         }
 
+        const headerBadge = tpl.key === 'default' ? '' : `
+            <span style="display:inline-flex;align-items:center;gap:8px;margin-left:auto;background:${tpl.accent};color:white;padding:6px 18px;border-radius:999px;font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
+                <span class="material-symbols-rounded" style="font-size:1.3rem;">${tpl.icon}</span>
+                ${tpl.label}
+            </span>`;
         content.innerHTML = `
-            <h3 style="display:flex;align-items:center;gap:16px;font-size:3rem;color:#0f172a;margin-bottom:2rem;border-bottom:3px solid #e2e8f0;padding-bottom:1rem;width:100%;">
-                <span class="material-symbols-rounded" style="color:#2563eb;font-size:3rem;">${slide.icon || 'auto_awesome'}</span>
-                ${slide.title}
+            <h3 style="display:flex;align-items:center;gap:16px;font-size:2.6rem;color:#0f172a;margin-bottom:1.75rem;border-bottom:4px solid ${tpl.accent}33;padding-bottom:1rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.8rem;">${slide.icon || tpl.icon}</span>
+                <span style="flex:1;">${slide.title}</span>
+                ${headerBadge}
             </h3>
-            <div style="width:100%;flex:1;display:flex;align-items:center;">${contentHtml}</div>
+            <div style="width:100%;flex:1;display:flex;align-items:flex-start;overflow:auto;">${contentHtml}</div>
         `;
     }
 }
@@ -12385,6 +12781,100 @@ function setupKanskiPics() {
             return false;
         }
     };
+
+    // ═══════════════════════════════════════════════════════════════
+    // BATCH BACKFILL — auto-attach Kanski images to every library item
+    // that doesn't already have `kanskiMeta`. Shows a progress modal.
+    // ═══════════════════════════════════════════════════════════════
+    window.autoAttachKanskiToAllLibrary = async function () {
+        const ready = await ensureKanskiReady();
+        if (!ready) {
+            alert('Kanski PDF is not loaded. Open the Kanski Pics tool first, load the PDF once, then retry.');
+            return;
+        }
+
+        const library = (typeof getLibraryCache === 'function') ? getLibraryCache() : [];
+        if (!library || library.length === 0) {
+            alert('Your library is empty.');
+            return;
+        }
+
+        const pending = library.filter(it => !it.kanskiMeta || it.kanskiMeta.length === 0);
+        if (pending.length === 0) {
+            alert('Every infographic in your library already has Kanski photos attached.');
+            return;
+        }
+
+        if (!confirm(`Scan the Kanski PDF and auto-attach matching clinical photos to ${pending.length} infographic(s)?\n\nThis runs locally in your browser and may take a few minutes.`)) return;
+
+        // Build progress modal
+        const overlay = document.createElement('div');
+        overlay.id = 'kanski-backfill-overlay';
+        overlay.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,0.75);backdrop-filter:blur(6px);z-index:100000;display:flex;align-items:center;justify-content:center;';
+        overlay.innerHTML = `
+            <div style="background:white;border-radius:16px;padding:2rem;width:min(92vw,520px);box-shadow:0 24px 48px rgba(0,0,0,0.3);">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem;">
+                    <span class="material-symbols-rounded" style="font-size:2rem;color:#0891b2;">photo_library</span>
+                    <h3 style="margin:0;font-size:1.25rem;color:#0f172a;">Auto-attaching Kanski photos</h3>
+                </div>
+                <p id="kbf-status" style="color:#475569;font-size:0.9rem;margin:0 0 1rem;">Preparing…</p>
+                <div style="background:#e2e8f0;height:10px;border-radius:6px;overflow:hidden;margin-bottom:0.75rem;">
+                    <div id="kbf-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#0891b2,#0e7490);transition:width 0.3s;"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:#64748b;">
+                    <span id="kbf-counter">0 / ${pending.length}</span>
+                    <span id="kbf-attached" style="color:#0891b2;font-weight:600;">0 photos attached</span>
+                </div>
+                <div style="margin-top:1.25rem;display:flex;justify-content:flex-end;gap:8px;">
+                    <button id="kbf-cancel" style="background:#f1f5f9;color:#0f172a;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-weight:500;">Stop</button>
+                </div>
+            </div>`;
+        document.body.appendChild(overlay);
+        const status = overlay.querySelector('#kbf-status');
+        const bar = overlay.querySelector('#kbf-bar');
+        const counter = overlay.querySelector('#kbf-counter');
+        const attachedEl = overlay.querySelector('#kbf-attached');
+        let cancelled = false;
+        overlay.querySelector('#kbf-cancel').addEventListener('click', () => { cancelled = true; });
+
+        let totalAttached = 0;
+        let processed = 0;
+        for (const item of pending) {
+            if (cancelled) break;
+            status.textContent = `Scoring pages for: ${item.title}`;
+            try {
+                const count = await window.autoAttachKanskiOnSave(item, { maxImages: 6 });
+                if (count) totalAttached += count;
+            } catch (err) {
+                console.warn(`[Kanski Backfill] Failed for "${item.title}":`, err);
+            }
+            processed++;
+            const pct = (processed / pending.length) * 100;
+            bar.style.width = `${pct}%`;
+            counter.textContent = `${processed} / ${pending.length}`;
+            attachedEl.textContent = `${totalAttached} photos attached`;
+            // Yield to the UI so the progress bar actually paints
+            await new Promise(r => setTimeout(r, 30));
+        }
+
+        status.textContent = cancelled
+            ? `Stopped. Processed ${processed} of ${pending.length}.`
+            : `Done — attached ${totalAttached} photo${totalAttached === 1 ? '' : 's'} across ${processed} infographic${processed === 1 ? '' : 's'}.`;
+        overlay.querySelector('#kbf-cancel').textContent = 'Close';
+        overlay.querySelector('#kbf-cancel').onclick = () => {
+            overlay.remove();
+            // Re-render library if modal is open
+            if (typeof renderLibraryList === 'function') {
+                try { renderLibraryList(); } catch {}
+            }
+        };
+    };
+
+    // Wire the Library header button
+    const backfillBtn = document.getElementById('kanski-backfill-btn');
+    if (backfillBtn) {
+        backfillBtn.addEventListener('click', () => window.autoAttachKanskiToAllLibrary());
+    }
 
     console.log('Kanski Pics initialized.');
 }

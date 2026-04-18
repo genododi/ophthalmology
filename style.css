@@ -2886,6 +2886,86 @@ textarea:focus {
 }
 
 /* ========================================
+   STICKY NOTES — polish on top of inline styles
+   ======================================== */
+
+#sticky-notes-modal .modal-content {
+    border-radius: 16px !important;
+    overflow: hidden;
+}
+
+#sticky-notes-modal .modal-header {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#sticky-notes-grid {
+    perspective: 800px;
+}
+
+.sticky-note-card {
+    transform-origin: center top;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s, border 0.15s !important;
+    animation: sticky-fade-in 0.3s ease backwards;
+}
+
+.sticky-note-card::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 12px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.05));
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Subtle pseudo-random tilt so the pile looks hand-placed */
+.sticky-note-card:nth-child(3n+1) { transform: rotate(-0.8deg); }
+.sticky-note-card:nth-child(3n+2) { transform: rotate(0.5deg); }
+.sticky-note-card:nth-child(3n+3) { transform: rotate(-0.3deg); }
+
+.sticky-note-card:hover {
+    transform: translateY(-4px) rotate(0deg) scale(1.015) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08) !important;
+    z-index: 10;
+}
+
+.sticky-note-card button {
+    border-radius: 6px;
+    transition: all 0.15s !important;
+}
+
+.sticky-note-card button:hover {
+    background: rgba(0, 0, 0, 0.08) !important;
+    opacity: 1 !important;
+    transform: scale(1.1);
+}
+
+.sticky-note-text {
+    font-family: 'Kalam', 'Segoe Print', 'Comic Sans MS', system-ui, sans-serif;
+    letter-spacing: 0.2px;
+}
+
+@keyframes sticky-fade-in {
+    from { opacity: 0; transform: translateY(8px) rotate(0deg); }
+    to   { opacity: 1; }
+}
+
+.sticky-badge {
+    animation: sticky-badge-pulse 2.5s ease-in-out infinite;
+    box-shadow: 0 0 0 2px white, 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes sticky-badge-pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.12); }
+}
+
+/* ========================================
    COMMUNITY HUB STYLES
    ======================================== */
 

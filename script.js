@@ -11491,10 +11491,26 @@ function setupKanskiPics() {
             if (navigator.storage && navigator.storage.persist) {
                 try { await navigator.storage.persist(); } catch {}
             }
+
+            // Check quota up-front so we fail fast on Safari/small-quota browsers
+            if (navigator.storage && navigator.storage.estimate) {
+                try {
+                    const est = await navigator.storage.estimate();
+                    const free = (est.quota || 0) - (est.usage || 0);
+                    if (est.quota && free < arrayBuffer.byteLength * 1.2) {
+                        console.warn(`[Kanski] Storage quota too small: ${(free/1048576).toFixed(0)} MB free, need ${(arrayBuffer.byteLength*1.2/1048576).toFixed(0)} MB.`);
+                        return { ok: false, reason: 'quota' };
+                    }
+                } catch {}
+            }
+
             const db = await openKanskiIndexDB();
+
+            // Store as a Blob — lower memory pressure than a raw ArrayBuffer structured-clone on Safari
+            const blob = new Blob([arrayBuffer], { type: 'application/pdf' });
             const tx = db.transaction('pdfData', 'readwrite');
             const store = tx.objectStore('pdfData');
-            store.put({ id: 'kanski_pdf', data: arrayBuffer, savedAt: Date.now(), size: arrayBuffer.byteLength });
+            store.put({ id: 'kanski_pdf', data: blob, savedAt: Date.now(), size: arrayBuffer.byteLength });
             await new Promise((resolve, reject) => {
                 tx.oncomplete = () => resolve();
                 tx.onerror = () => reject(tx.error || new Error('Transaction error'));
@@ -11534,7 +11550,11 @@ function setupKanskiPics() {
             });
             db.close();
             if (result && result.data) {
-                console.log('[Kanski] Loaded cached PDF binary from IndexedDB');
+                console.log('[Kanski] Loaded cached PDF from IndexedDB');
+                // Support both legacy ArrayBuffer records and new Blob records
+                if (result.data instanceof Blob) {
+                    return await result.data.arrayBuffer();
+                }
                 return result.data;
             }
         } catch (err) { console.warn('[Kanski] No cached PDF:', err); }
@@ -11786,7 +11806,7 @@ function setupKanskiPics() {
         kanskiInput.click();
     });
 
-    async function handleKanskiFileLoad(file, fileHandle = null) {
+    async function handleKanskiFileLoad(file, fileHandle = null, opts = {}) {
         if (!file) { kanskiAutoMode = false; return; }
 
         if (!file.name.toLowerCase().endsWith('.pdf')) {
@@ -11848,8 +11868,10 @@ function setupKanskiPics() {
 
             updateKanskiReadyIndicator();
 
-            // Ask Auto/Manual mode now that PDF is ready
-            await promptAndRunKanskiMode();
+            // Ask Auto/Manual mode now that PDF is ready, unless caller asked to skip it
+            if (!opts.silent) {
+                await promptAndRunKanskiMode();
+            }
 
         } catch (err) {
             console.error('Kanski PDF error:', err);
@@ -11900,6 +11922,125 @@ function setupKanskiPics() {
     })();
 
     // ═══════════════════════════════════════════════════════════════
+    // PAGE SCORING — shared by auto, manual, backfill, and auto-attach
+    // Applies: on-topic gate, weighted keyword counts, figure/caption
+    // boost, off-topic noise penalty, and page-diversity spreading.
+    // ═══════════════════════════════════════════════════════════════
+    const FIGURE_HINT_PATTERNS = [
+        /\bfig(?:ure|\.)?\s*\d/i,     // "Fig. 1" / "Figure 12"
+        /\barrow(s)?\b/i,             // "arrow shows..."
+        /\bshown\b/i,
+        /\bappears?\b/i,
+        /\bappearance\b/i,
+        /\bphoto(graph)?\b/i,
+        /\bslit[-\s]?lamp\b/i,
+        /\bfundus\b/i,
+        /\bfunduscop/i,
+        /\bgonioscop/i,
+        /\boct\b/i,
+        /\bangiograph/i,
+        /\bb-scan\b/i
+    ];
+
+    function scoreKanskiPages(weightedKeywords, primaryTopicTerms, options = {}) {
+        const primarySet = new Set(primaryTopicTerms.map(t => t.toLowerCase()));
+        const scored = [];
+
+        for (const { pageNum, text } of kanskiPageTexts) {
+            if (!text || text.length < 50) continue;
+            const textLower = text.toLowerCase();
+
+            // ── Gate: page must contain at least one primary topic term ──
+            let hasPrimary = primaryTopicTerms.length === 0;
+            if (!hasPrimary) {
+                for (const pt of primaryTopicTerms) {
+                    if (textLower.includes(pt.toLowerCase())) { hasPrimary = true; break; }
+                }
+            }
+            if (!hasPrimary) continue;
+
+            // ── Weighted keyword counting ──
+            let score = 0, primaryHits = 0;
+            const matchedKeywords = [];
+            for (const { term, weight } of weightedKeywords) {
+                const kwLower = term.toLowerCase();
+                const escaped = kwLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = kwLower.length < 5
+                    ? new RegExp(`\\b${escaped}\\b`, 'gi')
+                    : new RegExp(`\\b${escaped}`, 'gi');
+                const matches = text.match(regex);
+                if (matches) {
+                    score += matches.length * weight;
+                    if (weight >= 20) primaryHits += matches.length;
+                    if (!matchedKeywords.includes(term)) matchedKeywords.push(term);
+                }
+            }
+            if (score === 0) continue;
+
+            // ── Figure/caption boost: pages that LOOK like image pages get a bump ──
+            let figureBoost = 0;
+            for (const pat of FIGURE_HINT_PATTERNS) {
+                if (pat.test(text)) figureBoost += 15;
+            }
+            // Cap the boost so short-text figure pages don't drown out real content pages
+            if (figureBoost > 60) figureBoost = 60;
+            score += figureBoost;
+
+            // ── Short-text (image-heavy) pages get a small bump proportional to primary hits ──
+            if (text.length < 600 && primaryHits > 0) {
+                score += 20 + primaryHits * 5;
+            }
+
+            // ── Proximity bonus: primary topic mentioned near a figure keyword ──
+            if (primaryHits > 0) {
+                for (const pt of primarySet) {
+                    const idx = textLower.indexOf(pt);
+                    if (idx === -1) continue;
+                    const window = textLower.slice(Math.max(0, idx - 80), idx + 80);
+                    if (/\bfig(?:ure|\.)?\s*\d/.test(window) || /\barrow/.test(window)) {
+                        score += 25;
+                    }
+                }
+            }
+
+            scored.push({ pageNum, score, primaryHits, matchedKeywords, textLen: text.length, figureBoost });
+        }
+
+        scored.sort((a, b) => (b.primaryHits - a.primaryHits) || (b.score - a.score));
+        return scored;
+    }
+
+    /**
+     * Diversify the top-K: avoid selecting many consecutive pages that are
+     * likely the same topic block (usually the same figure repeated).
+     */
+    function diversifyTopPages(scored, k, { maxPerWindow = 2, windowSize = 4 } = {}) {
+        const picked = [];
+        const used = new Set();
+        for (const entry of scored) {
+            if (picked.length >= k) break;
+            if (used.has(entry.pageNum)) continue;
+            let nearbyCount = 0;
+            for (const p of picked) {
+                if (Math.abs(p.pageNum - entry.pageNum) <= windowSize) nearbyCount++;
+            }
+            if (nearbyCount >= maxPerWindow) continue;
+            picked.push(entry);
+            used.add(entry.pageNum);
+        }
+        // If diversification left us short, fill from the next-best remaining pages
+        if (picked.length < k) {
+            for (const entry of scored) {
+                if (picked.length >= k) break;
+                if (used.has(entry.pageNum)) continue;
+                picked.push(entry);
+                used.add(entry.pageNum);
+            }
+        }
+        return picked;
+    }
+
+    // ═══════════════════════════════════════════════════════════════
     // AUTO MODE — match, render, and insert automatically (no modal)
     // ═══════════════════════════════════════════════════════════════
     async function autoMatchAndInsert() {
@@ -11914,48 +12055,10 @@ function setupKanskiPics() {
             console.log(`[Kanski Auto] Primary topic terms:`, primaryTopicTerms);
             console.log(`[Kanski Auto] Keywords:`, weightedKeywords.filter(k => k.weight >= 20).map(k => k.term));
 
-            // Score pages — require primary topic presence
-            const scoredPages = [];
-            kanskiPageTexts.forEach(({ pageNum, text }) => {
-                if (!text || text.length < 50) return;
-                const textLower = text.toLowerCase();
+            const scoredPages = scoreKanskiPages(weightedKeywords, primaryTopicTerms);
 
-                // Topic-scope gate: page must mention at least one primary topic term
-                let hasPrimaryTopic = false;
-                for (const pt of primaryTopicTerms) {
-                    if (textLower.includes(pt.toLowerCase())) {
-                        hasPrimaryTopic = true;
-                        break;
-                    }
-                }
-                if (primaryTopicTerms.length > 0 && !hasPrimaryTopic) return; // Skip off-topic pages
-
-                let score = 0;
-                let primaryHits = 0;
-                const matchedKeywords = [];
-                weightedKeywords.forEach(({ term, weight }) => {
-                    const kwLower = term.toLowerCase();
-                    const escaped = kwLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                    const regex = kwLower.length < 5
-                        ? new RegExp(`\\b${escaped}\\b`, 'gi')
-                        : new RegExp(`\\b${escaped}`, 'gi');
-                    const matches = text.match(regex);
-                    if (matches) {
-                        score += matches.length * weight;
-                        if (weight >= 20) primaryHits += matches.length;
-                        if (!matchedKeywords.includes(term)) matchedKeywords.push(term);
-                    }
-                });
-                if (score > 0) scoredPages.push({ pageNum, score, primaryHits, matchedKeywords });
-            });
-
-            scoredPages.sort((a, b) => {
-                if (b.primaryHits !== a.primaryHits) return b.primaryHits - a.primaryHits;
-                return b.score - a.score;
-            });
-
-            // Auto-select: take top 10 pages (focused selection for auto mode)
-            const topPages = scoredPages.slice(0, 10);
+            // Auto-select: take top 10, diversified across the book
+            const topPages = diversifyTopPages(scoredPages, 10, { maxPerWindow: 2, windowSize: 3 });
 
             if (topPages.length === 0) {
                 alert(`[Auto Mode] No matching pages found for "${currentInfographicData.title}".`);
@@ -12019,56 +12122,8 @@ function setupKanskiPics() {
             console.log(`[Kanski] Primary topic terms:`, primaryTopicTerms);
             console.log(`[Kanski] Total keywords:`, weightedKeywords.length);
 
-            // Score each page by weighted keyword matches
-            // Topic-scope gate: pages must mention at least one primary topic term
-            const scoredPages = [];
-            kanskiPageTexts.forEach(({ pageNum, text }) => {
-                if (!text || text.length < 50) return; // Skip nearly empty pages
-                const textLower = text.toLowerCase();
-
-                // Topic-scope gate: page must mention the primary topic
-                let hasPrimaryTopic = false;
-                for (const pt of primaryTopicTerms) {
-                    if (textLower.includes(pt.toLowerCase())) {
-                        hasPrimaryTopic = true;
-                        break;
-                    }
-                }
-                if (primaryTopicTerms.length > 0 && !hasPrimaryTopic) return; // Skip off-topic pages
-
-                let score = 0;
-                let primaryHits = 0; // Hits from headline/topic keywords
-                const matchedKeywords = [];
-
-                weightedKeywords.forEach(({ term, weight }) => {
-                    const kwLower = term.toLowerCase();
-                    const escaped = kwLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                    // Use word boundary for short terms, looser match for longer phrases
-                    const regex = kwLower.length < 5
-                        ? new RegExp(`\\b${escaped}\\b`, 'gi')
-                        : new RegExp(`\\b${escaped}`, 'gi');
-                    const matches = text.match(regex);
-                    if (matches) {
-                        const hitScore = matches.length * weight;
-                        score += hitScore;
-                        if (weight >= 20) primaryHits += matches.length;
-                        if (!matchedKeywords.includes(term)) matchedKeywords.push(term);
-                    }
-                });
-
-                if (score > 0) {
-                    scoredPages.push({ pageNum, score, primaryHits, matchedKeywords });
-                }
-            });
-
-            // Sort: pages with primary topic hits first, then by total score
-            scoredPages.sort((a, b) => {
-                // Primary topic hits are most important
-                if (b.primaryHits !== a.primaryHits) return b.primaryHits - a.primaryHits;
-                return b.score - a.score;
-            });
-
-            const topPages = scoredPages.slice(0, 12); // Max 12 images
+            const scoredPages = scoreKanskiPages(weightedKeywords, primaryTopicTerms);
+            const topPages = diversifyTopPages(scoredPages, 12, { maxPerWindow: 2, windowSize: 3 });
 
             if (topPages.length === 0) {
                 alert(`No matching pages found in "${kanskiFileName}" for "${currentInfographicData.title}".\n\nTry loading an infographic with more specific ophthalmic content.`);
@@ -12323,6 +12378,25 @@ function setupKanskiPics() {
                 // Boost words that look medical (long, Latin/Greek-ish)
                 const isMedical = clean.length >= 6 || /itis$|oma$|osis$|emia$|opia$|ectomy$|plasty$|scopy$|pathy$|graft|laser|phaco|uvea|retin|cornea|sclera|iris|pupil|nerve|orbit/.test(clean);
                 addTerm(clean, isMedical ? 20 : 3);
+            });
+        }
+
+        // ── Pass 1b: Summary text ──
+        // Summaries are dense with diagnostic terminology — scan for any known
+        // ophthalmic term and, if on-topic, add it with moderate weight.
+        if (data.summary && typeof data.summary === 'string' && data.summary.length > 10) {
+            const summaryLower = data.summary.toLowerCase();
+            OPHTHALMIC_TOPIC_TERMS.forEach(term => {
+                if (summaryLower.includes(term.toLowerCase())) {
+                    addTerm(term, isOffTopic(term) ? 1 : 12);
+                }
+            });
+            // Also harvest medical-looking words from the summary
+            summaryLower.split(/[\s,.\-:;()/]+/).forEach(w => {
+                const clean = w.replace(/[^a-z0-9'-]/g, '');
+                if (clean.length < 6 || stopWords.has(clean)) return;
+                const isMedical = /itis$|oma$|osis$|emia$|opia$|ectomy$|plasty$|scopy$|pathy$|phoresis$|angio|neuro|retin|cornea|sclera|chorioid|uveit|vitre|macul|foveal|papill|nystag|strabis/.test(clean);
+                if (isMedical) addTerm(clean, 6);
             });
         }
 
@@ -12792,41 +12866,10 @@ function setupKanskiPics() {
             const data = item.data || { title: item.title, summary: item.summary, sections: [] };
             if (!data.title) data.title = item.title;
 
-            // Score Kanski pages
+            // Score Kanski pages (shared helper — same as auto/manual modes)
             const { keywords: weightedKeywords, primaryTopicTerms } = extractInfographicKeywordsWeighted(data);
-            const scoredPages = [];
-            kanskiPageTexts.forEach(({ pageNum, text }) => {
-                if (!text || text.length < 50) return;
-                const textLower = text.toLowerCase();
-                let hasPrimary = primaryTopicTerms.length === 0;
-                for (const pt of primaryTopicTerms) {
-                    if (textLower.includes(pt.toLowerCase())) { hasPrimary = true; break; }
-                }
-                if (!hasPrimary) return;
-
-                let score = 0, primaryHits = 0;
-                const matchedKeywords = [];
-                weightedKeywords.forEach(({ term, weight }) => {
-                    const kwLower = term.toLowerCase();
-                    const escaped = kwLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                    const regex = kwLower.length < 5
-                        ? new RegExp(`\\b${escaped}\\b`, 'gi')
-                        : new RegExp(`\\b${escaped}`, 'gi');
-                    const matches = text.match(regex);
-                    if (matches) {
-                        score += matches.length * weight;
-                        if (weight >= 20) primaryHits += matches.length;
-                        if (!matchedKeywords.includes(term)) matchedKeywords.push(term);
-                    }
-                });
-                if (score > 0) scoredPages.push({ pageNum, score, primaryHits, matchedKeywords });
-            });
-
-            scoredPages.sort((a, b) => {
-                if (b.primaryHits !== a.primaryHits) return b.primaryHits - a.primaryHits;
-                return b.score - a.score;
-            });
-            const topPages = scoredPages.slice(0, maxImages);
+            const scoredPages = scoreKanskiPages(weightedKeywords, primaryTopicTerms);
+            const topPages = diversifyTopPages(scoredPages, maxImages, { maxPerWindow: 2, windowSize: 3 });
             if (topPages.length === 0) {
                 console.log(`[Kanski Auto-Adhere] No Kanski pages matched "${title}".`);
                 return { success: false, reason: 'no_matches' };
@@ -12913,38 +12956,10 @@ function setupKanskiPics() {
             const { keywords: weightedKeywords, primaryTopicTerms } =
                 extractInfographicKeywordsWeighted(data);
 
-            // Score pages (same logic as autoMatchAndInsert)
-            const scored = [];
-            kanskiPageTexts.forEach(({ pageNum, text }) => {
-                if (!text || text.length < 50) return;
-                const textLower = text.toLowerCase();
-                if (primaryTopicTerms.length > 0) {
-                    let has = false;
-                    for (const pt of primaryTopicTerms) {
-                        if (textLower.includes(pt.toLowerCase())) { has = true; break; }
-                    }
-                    if (!has) return;
-                }
-                let score = 0, primaryHits = 0;
-                const matched = [];
-                weightedKeywords.forEach(({ term, weight }) => {
-                    const esc = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                    const re = term.length < 5
-                        ? new RegExp(`\\b${esc}\\b`, 'gi')
-                        : new RegExp(`\\b${esc}`, 'gi');
-                    const m = text.match(re);
-                    if (m) {
-                        score += m.length * weight;
-                        if (weight >= 20) primaryHits += m.length;
-                        if (!matched.includes(term)) matched.push(term);
-                    }
-                });
-                if (score > 0) scored.push({ pageNum, score, primaryHits, matchedKeywords: matched });
-            });
-            scored.sort((a, b) => (b.primaryHits - a.primaryHits) || (b.score - a.score));
-
+            // Score pages via shared helper (figure-boost, proximity, diversity)
+            const scored = scoreKanskiPages(weightedKeywords, primaryTopicTerms);
             const MAX_IMAGES = opts.maxImages || 8;
-            const topPages = scored.slice(0, MAX_IMAGES);
+            const topPages = diversifyTopPages(scored, MAX_IMAGES, { maxPerWindow: 2, windowSize: 3 });
             if (topPages.length === 0) {
                 console.log(`[Kanski AutoAttach] No matching pages for "${libraryItem.title}".`);
                 return false;
@@ -13015,10 +13030,46 @@ function setupKanskiPics() {
     // that doesn't already have `kanskiMeta`. Shows a progress modal.
     // ═══════════════════════════════════════════════════════════════
     window.autoAttachKanskiToAllLibrary = async function () {
-        const ready = await ensureKanskiReady();
+        let ready = await ensureKanskiReady();
+
+        // If the PDF/index aren't cached, give the user a one-click way to pick the file
+        // here (same flow as the main Kanski Pics button), instead of a dead-end alert.
         if (!ready) {
-            alert('Kanski PDF is not loaded. Open the Kanski Pics tool first, load the PDF once, then retry.');
-            return;
+            const go = confirm(
+                'Load the Kanski PDF now?\n\n' +
+                'You\'ll be asked to pick the file once. After that it will be cached/linked in your browser ' +
+                'so every future scan runs silently.\n\n' +
+                'OK = Select Kanski PDF\n' +
+                'Cancel = Abort'
+            );
+            if (!go) return;
+
+            // Prefer the modern picker where available (Chrome/Edge) so we can persist a file handle.
+            if (hasFileSystemAccess) {
+                const picked = await pickKanskiFile();
+                if (picked && picked.file) {
+                    await handleKanskiFileLoad(picked.file, picked.handle, { silent: true });
+                    ready = !!kanskiPdfDoc;
+                }
+            }
+
+            // Fallback: classic <input type="file"> (Safari, Firefox, iOS, etc.)
+            if (!ready) {
+                await new Promise((resolve) => {
+                    const onChange = async (e) => {
+                        const file = e.target.files && e.target.files[0];
+                        if (!file) { resolve(); return; }
+                        await handleKanskiFileLoad(file, null, { silent: true });
+                        resolve();
+                    };
+                    kanskiInput.addEventListener('change', onChange, { once: true });
+                    showKanskiToast(kanskiPromptMessage());
+                    kanskiInput.click();
+                });
+                ready = !!kanskiPdfDoc;
+            }
+
+            if (!ready) return; // User cancelled / couldn't load
         }
 
         const library = (typeof getLibraryCache === 'function') ? getLibraryCache() : [];

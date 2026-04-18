@@ -2829,7 +2829,35 @@ function setupKnowledgeBase() {
             saveBtn.innerHTML = '<span class="material-symbols-rounded">check</span>';
             setTimeout(() => {
                 saveBtn.innerHTML = originalIcon;
+                saveBtn.title = 'Save to Knowledge Base';
             }, 2000);
+
+            // ── AUTO-ATTACH KANSKI IMAGES ──
+            // If a Kanski PDF has been cached (from any prior session), run
+            // topic-matching silently and permanently adhere the best clinical
+            // photos to the freshly saved library item. No user interaction needed.
+            // Fires in the background; does not block the UI.
+            if (typeof window.autoAttachKanskiOnSave === 'function' && !newItem.kanskiMeta) {
+                saveBtn.title = 'Checking Kanski library...';
+                window.autoAttachKanskiOnSave(newItem, { maxImages: 8 })
+                    .then(count => {
+                        if (!count) return;
+                        saveBtn.title = `Saved · ${count} Kanski image(s) attached`;
+                        try {
+                            const toast = document.createElement('div');
+                            toast.innerHTML = `<span class="material-symbols-rounded" style="vertical-align:middle;margin-right:6px;">photo_library</span>${count} Kanski photo${count === 1 ? '' : 's'} auto-attached`;
+                            toast.style.cssText = 'position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#0891b2,#0e7490);color:white;padding:12px 18px;border-radius:10px;z-index:100000;font-size:0.9rem;box-shadow:0 8px 24px rgba(0,0,0,0.25);font-weight:500;display:flex;align-items:center;';
+                            document.body.appendChild(toast);
+                            setTimeout(() => {
+                                toast.style.transition = 'opacity 0.4s, transform 0.4s';
+                                toast.style.opacity = '0';
+                                toast.style.transform = 'translateY(10px)';
+                                setTimeout(() => toast.remove(), 450);
+                            }, 3500);
+                        } catch {}
+                    })
+                    .catch(err => console.warn('[Save] Kanski auto-attach error:', err));
+            }
         });
     }
 
@@ -6448,6 +6476,47 @@ function updateInfographicCategoryBadge(newChapterId) {
 // to their closest valid equivalents. Prevents broken/empty icon boxes.
 // ═══════════════════════════════════════════════════════════════════════
 const ICON_FALLBACK_MAP = {
+    // ═══════════ Broken AI-generated icon names → valid Material Symbols ═══════════
+    // (These icon names were being emitted by the model but don't exist in the
+    //  Material Symbols Rounded font, so they rendered as literal text.)
+    'farsight': 'visibility',
+    'farsightedness_icon': 'visibility',
+    'far_sight': 'visibility',
+    'monitored_heart': 'monitor_heart',
+    'monitor_heart_beat': 'monitor_heart',
+    'heart_monitor': 'monitor_heart',
+    'monitoring_heart': 'monitor_heart',
+    'fluid_meditation': 'self_improvement',
+    'fluid_meditate': 'self_improvement',
+    'meditation_fluid': 'self_improvement',
+    'biomedical_extraction': 'biotech',
+    'biomed_extraction': 'biotech',
+    'bio_extraction': 'biotech',
+    'biomedical': 'biotech',
+    'red_flag': 'flag',
+    'red_flag_icon': 'flag',
+    'redflag': 'flag',
+    'warning_flag': 'flag',
+    'caution_flag': 'flag',
+    'pediatric_care': 'child_care',
+    'paediatric_care': 'child_care',
+    'pediatrics': 'child_care',
+    'paediatrics': 'child_care',
+    'pediatric_icon': 'child_care',
+    'surgical_sterilization': 'sanitizer',
+    'surgical_sterilisation': 'sanitizer',
+    'sterilization': 'sanitizer',
+    'sterilisation': 'sanitizer',
+    'sterile': 'sanitizer',
+    'laboratory_profile': 'labs',
+    'lab_profile': 'labs',
+    'laboratory_icon': 'labs',
+    'laboratory_test': 'labs',
+    'labs_icon': 'labs',
+    'complications': 'warning',
+    'complication': 'warning',
+    'complications_icon': 'warning',
+
     // Custom requested additions
     'mindmap': 'account_tree',
     'mind_map': 'account_tree',
@@ -9156,6 +9225,8 @@ function updateQuizScore() {
 let slides = [];
 let currentSlideIndex = 0;
 
+let _lastSlidesForTitle = null; // Remembers which infographic slides were built for
+
 function setupSlideDeck() {
     const slideBtn = document.getElementById('slidedeck-btn');
     const slideModal = document.getElementById('slidedeck-modal');
@@ -9174,6 +9245,12 @@ function setupSlideDeck() {
             return;
         }
         slideModal.classList.add('active');
+        // Auto-generate on open (or when the infographic has changed since last open)
+        const title = currentInfographicData.title;
+        if (slides.length === 0 || _lastSlidesForTitle !== title) {
+            generateSlides();
+            _lastSlidesForTitle = title;
+        }
     });
 
     closeBtn?.addEventListener('click', () => slideModal.classList.remove('active'));
@@ -9181,11 +9258,26 @@ function setupSlideDeck() {
         if (e.target === slideModal) slideModal.classList.remove('active');
     });
 
-    generateBtn?.addEventListener('click', generateSlides);
+    generateBtn?.addEventListener('click', () => {
+        generateSlides();
+        _lastSlidesForTitle = currentInfographicData?.title || null;
+    });
     prevBtn?.addEventListener('click', () => navigateSlide(-1));
     nextBtn?.addEventListener('click', () => navigateSlide(1));
     presentBtn?.addEventListener('click', enterPresentationMode);
     exportBtn?.addEventListener('click', exportSlidesAsHTML);
+
+    // Keyboard nav inside the preview modal (not in presentation mode)
+    slideModal.addEventListener('keydown', (e) => {
+        if (!slideModal.classList.contains('active')) return;
+        if (document.getElementById('presentation-mode')) return; // Ignored while presenting
+        if (e.key === 'ArrowRight') { navigateSlide(1); e.preventDefault(); }
+        else if (e.key === 'ArrowLeft') { navigateSlide(-1); e.preventDefault(); }
+        else if (e.key === 'f' || e.key === 'F' || e.key === 'F5') { enterPresentationMode(); e.preventDefault(); }
+    });
+    // Make the modal focusable so it can catch keys when clicked
+    slideModal.setAttribute('tabindex', '-1');
+    slideModal.addEventListener('mouseenter', () => slideModal.focus({ preventScroll: true }));
 }
 
 function generateSlides() {
@@ -9193,13 +9285,6 @@ function generateSlides() {
 
     const data = currentInfographicData;
     slides = [];
-
-    // Title slide
-    slides.push({
-        type: 'title',
-        title: data.title,
-        subtitle: data.summary
-    });
 
     // Helper to recursively remove citation brackets like [1] or [1, 2]
     function stripReferences(val) {
@@ -9215,20 +9300,71 @@ function generateSlides() {
         return val;
     }
 
+    // Title slide
+    slides.push({
+        type: 'title',
+        title: stripReferences(data.title || 'Untitled'),
+        subtitle: stripReferences(data.summary || '')
+    });
+
+    // Optional agenda slide summarizing the section titles
+    if (Array.isArray(data.sections) && data.sections.length > 1) {
+        slides.push({
+            type: 'agenda',
+            title: 'Overview',
+            items: data.sections.map(s => stripReferences(s.title || '')).filter(Boolean)
+        });
+    }
+
+    // Split long array content into chunks so no slide gets overstuffed
+    const MAX_BULLETS_PER_SLIDE = 7;
+
     // Content slides from sections
     if (data.sections) {
-        data.sections.forEach(section => {
+        data.sections.forEach((section, sIdx) => {
+            const sectionTitle = stripReferences(section.title || `Section ${sIdx + 1}`);
+            const sectionType = section.type || 'plain_text';
+            const sectionIcon = typeof sanitizeMaterialIcon === 'function'
+                ? sanitizeMaterialIcon(section.icon || 'auto_awesome')
+                : (section.icon || 'auto_awesome');
+            const colorTheme = section.color_theme || 'blue';
+
+            // Section divider slide
             slides.push({
                 type: 'section',
-                title: stripReferences(section.title)
+                title: sectionTitle,
+                icon: sectionIcon,
+                colorTheme
             });
 
-            slides.push({
-                type: 'content',
-                title: stripReferences(section.title),
-                content: stripReferences(section.content),
-                contentType: section.type
-            });
+            const content = stripReferences(section.content);
+
+            // Chunk array content so each slide stays readable
+            if (Array.isArray(content) && content.length > MAX_BULLETS_PER_SLIDE) {
+                for (let i = 0; i < content.length; i += MAX_BULLETS_PER_SLIDE) {
+                    const chunk = content.slice(i, i + MAX_BULLETS_PER_SLIDE);
+                    const suffix = content.length > MAX_BULLETS_PER_SLIDE
+                        ? ` (${Math.floor(i / MAX_BULLETS_PER_SLIDE) + 1}/${Math.ceil(content.length / MAX_BULLETS_PER_SLIDE)})`
+                        : '';
+                    slides.push({
+                        type: 'content',
+                        title: sectionTitle + suffix,
+                        content: chunk,
+                        contentType: sectionType,
+                        icon: sectionIcon,
+                        colorTheme
+                    });
+                }
+            } else {
+                slides.push({
+                    type: 'content',
+                    title: sectionTitle,
+                    content,
+                    contentType: sectionType,
+                    icon: sectionIcon,
+                    colorTheme
+                });
+            }
         });
     }
 
@@ -9236,7 +9372,7 @@ function generateSlides() {
     slides.push({
         type: 'end',
         title: 'Thank You',
-        subtitle: 'Questions?'
+        subtitle: data.title || 'Questions?'
     });
 
     currentSlideIndex = 0;
@@ -9266,10 +9402,38 @@ function renderSlide() {
         `;
     } else if (slide.type === 'section') {
         slideContent.classList.add('section-slide');
-        slideContent.innerHTML = `<h2>${slide.title}</h2>`;
+        slideContent.innerHTML = `
+            <span class="material-symbols-rounded" style="font-size:4rem;margin-bottom:1rem;opacity:0.85;">${slide.icon || 'auto_awesome'}</span>
+            <h2>${slide.title}</h2>
+        `;
+    } else if (slide.type === 'agenda') {
+        slideContent.classList.add('content-slide');
+        slideContent.innerHTML = `
+            <h3 style="display:flex;align-items:center;gap:12px;font-size:2.4rem;color:#0f172a;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:1rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:#2563eb;font-size:2.4rem;">list_alt</span>
+                ${slide.title}
+            </h3>
+            <ol style="list-style:none;padding-left:0;counter-reset:agenda;width:100%;">
+                ${slide.items.map(item => `
+                    <li style="counter-increment:agenda;margin-bottom:1rem;display:flex;align-items:center;gap:16px;font-size:1.5rem;color:#334155;padding:0.75rem 1rem;background:#f8fafc;border-radius:10px;border-left:4px solid #3b82f6;">
+                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:1.1rem;">
+                            <span style="content:counter(agenda);">${'0'}</span>
+                        </span>
+                        <span style="flex:1;">${item}</span>
+                    </li>
+                `).join('')}
+            </ol>
+        `;
+        // Fix counter display (CSS counters render as strings via pseudo-elements,
+        // we replace the placeholder numbers with literal numbering here)
+        slideContent.querySelectorAll('ol li').forEach((li, i) => {
+            const numEl = li.querySelector('span span');
+            if (numEl) numEl.textContent = String(i + 1).padStart(2, '0');
+        });
     } else if (slide.type === 'end') {
         slideContent.classList.add('title-slide');
         slideContent.innerHTML = `
+            <span class="material-symbols-rounded" style="font-size:3.5rem;margin-bottom:1rem;color:#fbbf24;">auto_awesome</span>
             <h1>${slide.title}</h1>
             <p>${slide.subtitle || ''}</p>
         `;
@@ -9352,11 +9516,11 @@ function renderSlide() {
         }
 
         slideContent.innerHTML = `
-            <h3 style="display: flex; align-items: center; gap: 12px; border-bottom: none; padding-bottom: 0.5rem; font-size: 2.2rem; color: #0f172a; margin-bottom: 2rem;">
-                <span class="material-symbols-rounded" style="color: #2563eb; font-size: 2.2rem;">auto_awesome</span>
+            <h3 style="display: flex; align-items: center; gap: 12px; border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem; font-size: 2.2rem; color: #0f172a; margin-bottom: 2rem; width:100%;">
+                <span class="material-symbols-rounded" style="color: #2563eb; font-size: 2.2rem;">${slide.icon || 'auto_awesome'}</span>
                 ${slide.title}
             </h3>
-            <div style="margin-top: 1rem;">
+            <div style="margin-top: 1rem; width:100%;">
                 ${contentHtml}
             </div>
         `;
@@ -9372,9 +9536,21 @@ function renderThumbnails() {
     const container = document.getElementById('slide-thumbnails');
     if (!container) return;
 
+    const iconFor = (slide) => {
+        if (slide.type === 'title') return 'title';
+        if (slide.type === 'section') return slide.icon || 'bookmark';
+        if (slide.type === 'agenda') return 'list_alt';
+        if (slide.type === 'end') return 'celebration';
+        return slide.icon || 'description';
+    };
+
     container.innerHTML = slides.map((slide, i) => `
-        <div class="slide-thumbnail ${i === currentSlideIndex ? 'active' : ''}" data-index="${i}">
-            ${slide.type === 'title' ? '📌 Title' : slide.type === 'section' ? '📂 Section' : slide.type === 'end' ? '🎉 End' : truncateText(slide.title, 15)}
+        <div class="slide-thumbnail ${i === currentSlideIndex ? 'active' : ''}" data-index="${i}" title="Slide ${i + 1}: ${slide.title || ''}">
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:100%;height:100%;">
+                <span class="material-symbols-rounded" style="font-size:1.1rem;color:#2563eb;">${iconFor(slide)}</span>
+                <span style="font-size:0.6rem;font-weight:600;color:#64748b;">#${i + 1}</span>
+                <span style="font-size:0.55rem;color:#94a3b8;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;max-width:90%;">${truncateText(slide.title || slide.type, 18)}</span>
+            </div>
         </div>
     `).join('');
 
@@ -9413,33 +9589,116 @@ function enterPresentationMode() {
     const presentationDiv = document.createElement('div');
     presentationDiv.className = 'presentation-mode';
     presentationDiv.id = 'presentation-mode';
+    presentationDiv.tabIndex = -1;
 
     presentationDiv.innerHTML = `
         <div class="slide-frame">
             <div class="slide-content" id="presentation-slide-content"></div>
         </div>
+        <div class="presentation-progress" id="presentation-progress">
+            <div class="presentation-progress-bar" id="presentation-progress-bar"></div>
+        </div>
         <div class="presentation-controls">
-            <button id="pres-prev"><span class="material-symbols-rounded">chevron_left</span></button>
-            <button id="pres-exit"><span class="material-symbols-rounded">close</span></button>
-            <button id="pres-next"><span class="material-symbols-rounded">chevron_right</span></button>
+            <button id="pres-prev" title="Previous (\u2190)"><span class="material-symbols-rounded">chevron_left</span></button>
+            <button id="pres-fullscreen" title="Toggle Fullscreen (F)"><span class="material-symbols-rounded" id="pres-fs-icon">fullscreen</span></button>
+            <span id="pres-indicator" style="color:white;font-size:0.85rem;font-weight:500;padding:0 12px;min-width:90px;text-align:center;opacity:0.9;">1 / ${slides.length}</span>
+            <button id="pres-exit" title="Exit (Esc)"><span class="material-symbols-rounded">close</span></button>
+            <button id="pres-next" title="Next (\u2192 / Space)"><span class="material-symbols-rounded">chevron_right</span></button>
         </div>
     `;
 
     document.body.appendChild(presentationDiv);
     renderPresentationSlide();
+    updatePresentationProgress();
 
     document.getElementById('pres-prev').addEventListener('click', () => {
         navigateSlide(-1);
         renderPresentationSlide();
+        updatePresentationProgress();
     });
     document.getElementById('pres-next').addEventListener('click', () => {
         navigateSlide(1);
         renderPresentationSlide();
+        updatePresentationProgress();
     });
     document.getElementById('pres-exit').addEventListener('click', exitPresentationMode);
+    document.getElementById('pres-fullscreen').addEventListener('click', togglePresentationFullscreen);
+
+    // Sync the fullscreen icon when the user hits Esc / F11
+    document.addEventListener('fullscreenchange', syncFullscreenIcon);
 
     // Keyboard navigation
     document.addEventListener('keydown', handlePresentationKeydown);
+
+    // Auto-hide controls on mouse inactivity
+    let hideTimer = null;
+    const showControls = () => {
+        presentationDiv.classList.remove('controls-hidden');
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => presentationDiv.classList.add('controls-hidden'), 2500);
+    };
+    presentationDiv.addEventListener('mousemove', showControls);
+    presentationDiv.addEventListener('touchstart', showControls, { passive: true });
+    showControls();
+
+    // Click-to-advance (but ignore clicks on the controls bar)
+    presentationDiv.addEventListener('click', (e) => {
+        if (e.target.closest('.presentation-controls')) return;
+        navigateSlide(1);
+        renderPresentationSlide();
+        updatePresentationProgress();
+    });
+
+    // Request native browser fullscreen
+    requestPresentationFullscreen(presentationDiv);
+
+    // Focus so keyboard works immediately
+    presentationDiv.focus({ preventScroll: true });
+}
+
+function requestPresentationFullscreen(el) {
+    try {
+        const req = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+        if (req) {
+            const p = req.call(el);
+            if (p && typeof p.catch === 'function') {
+                p.catch(err => console.warn('[Presentation] Fullscreen request failed:', err));
+            }
+        }
+    } catch (err) {
+        console.warn('[Presentation] Fullscreen not supported:', err);
+    }
+}
+
+function togglePresentationFullscreen() {
+    const el = document.getElementById('presentation-mode');
+    if (!el) return;
+    const inFS = !!(document.fullscreenElement || document.webkitFullscreenElement);
+    if (inFS) {
+        const exit = document.exitFullscreen || document.webkitExitFullscreen;
+        if (exit) exit.call(document);
+    } else {
+        requestPresentationFullscreen(el);
+    }
+}
+
+function syncFullscreenIcon() {
+    const icon = document.getElementById('pres-fs-icon');
+    if (!icon) return;
+    const inFS = !!(document.fullscreenElement || document.webkitFullscreenElement);
+    icon.textContent = inFS ? 'fullscreen_exit' : 'fullscreen';
+}
+
+function updatePresentationProgress() {
+    const bar = document.getElementById('presentation-progress-bar');
+    const indicator = document.getElementById('pres-indicator');
+    if (bar && slides.length > 0) {
+        const pct = ((currentSlideIndex + 1) / slides.length) * 100;
+        bar.style.width = `${pct}%`;
+    }
+    if (indicator && slides.length > 0) {
+        indicator.textContent = `${currentSlideIndex + 1} / ${slides.length}`;
+    }
 }
 
 function renderPresentationSlide() {
@@ -9452,33 +9711,107 @@ function renderPresentationSlide() {
     if (slide.type === 'title' || slide.type === 'end') {
         content.classList.add('title-slide');
         content.innerHTML = `
+            ${slide.type === 'end' ? '<span class="material-symbols-rounded" style="font-size:5rem;margin-bottom:1.5rem;color:#fbbf24;">auto_awesome</span>' : ''}
             <h1>${slide.title}</h1>
             <p>${slide.subtitle || ''}</p>
         `;
     } else if (slide.type === 'section') {
         content.classList.add('section-slide');
-        content.innerHTML = `<h2>${slide.title}</h2>`;
+        content.innerHTML = `
+            <span class="material-symbols-rounded" style="font-size:6rem;margin-bottom:1.5rem;opacity:0.9;">${slide.icon || 'auto_awesome'}</span>
+            <h2>${slide.title}</h2>
+        `;
+    } else if (slide.type === 'agenda') {
+        content.classList.add('content-slide');
+        content.innerHTML = `
+            <h3 style="display:flex;align-items:center;gap:16px;font-size:3rem;color:#0f172a;margin-bottom:2.5rem;border-bottom:3px solid #e2e8f0;padding-bottom:1rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:#2563eb;font-size:3rem;">list_alt</span>
+                ${slide.title}
+            </h3>
+            <ol style="list-style:none;padding-left:0;width:100%;font-size:1.8rem;">
+                ${slide.items.map((item, i) => `
+                    <li style="margin-bottom:1.25rem;display:flex;align-items:center;gap:20px;color:#334155;padding:1rem 1.5rem;background:#f8fafc;border-radius:14px;border-left:6px solid #3b82f6;">
+                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:1.3rem;">${String(i + 1).padStart(2, '0')}</span>
+                        <span style="flex:1;">${item}</span>
+                    </li>
+                `).join('')}
+            </ol>
+        `;
     } else {
         content.classList.add('content-slide');
         let contentHtml = '';
 
         if (Array.isArray(slide.content)) {
-            contentHtml = `<ul>${slide.content.map(c => `<li>${c}</li>`).join('')}</ul>`;
-        } else if (typeof slide.content === 'object') {
-            if (slide.content.mnemonic) {
-                contentHtml = `<p><strong style="font-size: 3rem; color: #8b5cf6;">${slide.content.mnemonic}</strong></p>
-                    <p>${slide.content.explanation}</p>`;
+            contentHtml = `<ul style="list-style:none;padding-left:0;font-size:2rem;line-height:1.7;">
+                ${slide.content.map(c => `
+                    <li style="margin-bottom:1.25rem;display:flex;align-items:flex-start;gap:16px;">
+                        <span class="material-symbols-rounded" style="color:#2563eb;font-size:2.2rem;flex-shrink:0;margin-top:4px;">arrow_forward_ios</span>
+                        <span style="flex:1;">${c}</span>
+                    </li>
+                `).join('')}
+            </ul>`;
+        } else if (typeof slide.content === 'object' && slide.content !== null) {
+            if (slide.content.headers && slide.content.rows) {
+                const headers = slide.content.headers || [];
+                const rows = slide.content.rows || [];
+                contentHtml = `
+                <div style="overflow:auto;width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,0.08);border:1px solid #e2e8f0;">
+                    <table style="width:100%;border-collapse:collapse;text-align:left;font-size:1.4rem;">
+                        <thead>
+                            <tr style="background:#f1f5f9;border-bottom:3px solid #cbd5e1;">
+                                ${headers.map(h => `<th style="padding:1.5rem;font-weight:700;color:#0f172a;">${h}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rows.map((row, idx) => `
+                                <tr style="background:${idx % 2 === 0 ? 'white' : '#f8fafc'};border-bottom:1px solid #e2e8f0;">
+                                    ${row.map(cell => `<td style="padding:1.25rem 1.5rem;color:#334155;">${cell}</td>`).join('')}
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>`;
+            } else if (slide.content.mnemonic) {
+                contentHtml = `
+                    <div style="background:linear-gradient(135deg,#f8fafc,#eef2ff);padding:3rem;border-left:8px solid #8b5cf6;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);width:100%;">
+                        <p style="font-size:4.5rem;font-weight:800;color:#8b5cf6;letter-spacing:4px;margin-bottom:1.5rem;">${slide.content.mnemonic}</p>
+                        <p style="font-size:1.8rem;color:#475569;line-height:1.7;">${slide.content.explanation || ''}</p>
+                    </div>`;
             } else if (slide.content.center) {
-                contentHtml = `<p><strong>${slide.content.center}</strong></p>
-                    ${slide.content.branches ? `<ul>${slide.content.branches.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}`;
+                contentHtml = `
+                    <div style="text-align:center;margin-bottom:3rem;">
+                        <span style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:white;padding:16px 32px;border-radius:40px;font-weight:700;font-size:2rem;box-shadow:0 6px 16px rgba(37,99,235,0.35);">${slide.content.center}</span>
+                    </div>
+                    ${slide.content.branches ? `
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;width:100%;">
+                            ${slide.content.branches.map(b => `<div style="background:#eff6ff;padding:1.5rem;border-radius:12px;border:2px solid #bfdbfe;text-align:center;font-size:1.5rem;font-weight:500;color:#1e3a8a;">${b}</div>`).join('')}
+                        </div>` : ''}`;
+            } else if (slide.content.data) {
+                contentHtml = `
+                    <div style="display:flex;flex-wrap:wrap;gap:2rem;width:100%;justify-content:center;">
+                        ${slide.content.data.map(d => `
+                            <div style="background:white;padding:2.5rem;border-radius:18px;box-shadow:0 8px 20px rgba(0,0,0,0.06);border:2px solid #e2e8f0;flex:1;min-width:220px;text-align:center;">
+                                <div style="font-size:4rem;font-weight:800;color:#10b981;margin-bottom:0.5rem;line-height:1;">${d.value}${typeof d.value === 'number' ? '%' : ''}</div>
+                                <div style="color:#64748b;font-size:1.2rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">${d.label}</div>
+                            </div>
+                        `).join('')}
+                    </div>`;
+            } else {
+                contentHtml = `<p style="font-size:1.6rem;line-height:1.8;color:#334155;white-space:pre-wrap;">${JSON.stringify(slide.content, null, 2)}</p>`;
             }
         } else {
-            contentHtml = `<p>${slide.content}</p>`;
+            contentHtml = `
+                <div style="background:#f8fafc;padding:2.5rem;border-radius:14px;border-left:8px solid #3b82f6;box-shadow:0 4px 16px rgba(0,0,0,0.04);width:100%;">
+                    <p style="font-size:2rem;line-height:1.8;color:#334155;">${slide.content || ''}</p>
+                </div>`;
         }
 
         content.innerHTML = `
-            <h3>${slide.title}</h3>
-            ${contentHtml}
+            <h3 style="display:flex;align-items:center;gap:16px;font-size:3rem;color:#0f172a;margin-bottom:2rem;border-bottom:3px solid #e2e8f0;padding-bottom:1rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:#2563eb;font-size:3rem;">${slide.icon || 'auto_awesome'}</span>
+                ${slide.title}
+            </h3>
+            <div style="width:100%;flex:1;display:flex;align-items:center;">${contentHtml}</div>
         `;
     }
 }
@@ -9486,12 +9819,29 @@ function renderPresentationSlide() {
 function handlePresentationKeydown(e) {
     if (!document.getElementById('presentation-mode')) return;
 
-    if (e.key === 'ArrowRight' || e.key === ' ') {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key === 'ArrowDown') {
         navigateSlide(1);
         renderPresentationSlide();
-    } else if (e.key === 'ArrowLeft') {
+        updatePresentationProgress();
+        e.preventDefault();
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'ArrowUp') {
         navigateSlide(-1);
         renderPresentationSlide();
+        updatePresentationProgress();
+        e.preventDefault();
+    } else if (e.key === 'Home') {
+        currentSlideIndex = 0;
+        renderPresentationSlide();
+        updatePresentationProgress();
+        e.preventDefault();
+    } else if (e.key === 'End') {
+        currentSlideIndex = slides.length - 1;
+        renderPresentationSlide();
+        updatePresentationProgress();
+        e.preventDefault();
+    } else if (e.key === 'f' || e.key === 'F') {
+        togglePresentationFullscreen();
+        e.preventDefault();
     } else if (e.key === 'Escape') {
         exitPresentationMode();
     }
@@ -9503,6 +9853,14 @@ function exitPresentationMode() {
         presentation.remove();
     }
     document.removeEventListener('keydown', handlePresentationKeydown);
+    document.removeEventListener('fullscreenchange', syncFullscreenIcon);
+    // Exit native fullscreen if still engaged
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+        const exit = document.exitFullscreen || document.webkitExitFullscreen;
+        if (exit) {
+            try { exit.call(document); } catch {}
+        }
+    }
 }
 
 function exportSlidesAsHTML() {
@@ -11769,6 +12127,264 @@ function setupKanskiPics() {
             return item && item.kanskiMeta && item.kanskiMeta.length > 0;
         } catch { return false; }
     }
+
+    // ═══════════════════════════════════════════════════════════════
+    // AUTO-ADHERE — called from the Save flow (no modal, no prompts)
+    // Runs topic matching + renders top pages + saves to IndexedDB,
+    // and stores a lightweight `kanskiMeta` on the library item so
+    // loadAdheredKanskiImages() re-injects them on re-open.
+    // ═══════════════════════════════════════════════════════════════
+    async function autoAdhereForTitle(title, opts = {}) {
+        const maxImages = Math.max(1, Math.min(opts.maxImages || 6, 12));
+        try {
+            // Silently ensure cached PDF + index (never prompts for file)
+            if (!kanskiPdfDoc || kanskiPageTexts.length === 0) {
+                const cachedIndex = await loadCachedIndex();
+                if (cachedIndex && cachedIndex.length > 0) {
+                    kanskiPageTexts = cachedIndex;
+                }
+                if (!kanskiPdfDoc) {
+                    const cachedPdf = await loadCachedPdf();
+                    if (cachedPdf) {
+                        try { kanskiPdfDoc = await loadPdfFromBuffer(cachedPdf); }
+                        catch (e) { console.warn('[Kanski Auto-Adhere] PDF buffer load failed:', e); }
+                    }
+                }
+                if (!kanskiPdfDoc || kanskiPageTexts.length === 0) {
+                    console.log('[Kanski Auto-Adhere] No cached Kanski PDF/index available — skipping.');
+                    return { success: false, reason: 'no_cache' };
+                }
+            }
+
+            // Pick the library item with this title (use the most recent match)
+            let library = (typeof getLibraryCache === 'function') ? getLibraryCache() : [];
+            let item = library.find(i => i.title === title);
+            if (!item) {
+                console.warn('[Kanski Auto-Adhere] Library item not found for title:', title);
+                return { success: false, reason: 'no_item' };
+            }
+
+            // Build a synthetic data object for the matcher (must have .title)
+            const data = item.data || { title: item.title, summary: item.summary, sections: [] };
+            if (!data.title) data.title = item.title;
+
+            // Score Kanski pages
+            const { keywords: weightedKeywords, primaryTopicTerms } = extractInfographicKeywordsWeighted(data);
+            const scoredPages = [];
+            kanskiPageTexts.forEach(({ pageNum, text }) => {
+                if (!text || text.length < 50) return;
+                const textLower = text.toLowerCase();
+                let hasPrimary = primaryTopicTerms.length === 0;
+                for (const pt of primaryTopicTerms) {
+                    if (textLower.includes(pt.toLowerCase())) { hasPrimary = true; break; }
+                }
+                if (!hasPrimary) return;
+
+                let score = 0, primaryHits = 0;
+                const matchedKeywords = [];
+                weightedKeywords.forEach(({ term, weight }) => {
+                    const kwLower = term.toLowerCase();
+                    const escaped = kwLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    const regex = kwLower.length < 5
+                        ? new RegExp(`\\b${escaped}\\b`, 'gi')
+                        : new RegExp(`\\b${escaped}`, 'gi');
+                    const matches = text.match(regex);
+                    if (matches) {
+                        score += matches.length * weight;
+                        if (weight >= 20) primaryHits += matches.length;
+                        if (!matchedKeywords.includes(term)) matchedKeywords.push(term);
+                    }
+                });
+                if (score > 0) scoredPages.push({ pageNum, score, primaryHits, matchedKeywords });
+            });
+
+            scoredPages.sort((a, b) => {
+                if (b.primaryHits !== a.primaryHits) return b.primaryHits - a.primaryHits;
+                return b.score - a.score;
+            });
+            const topPages = scoredPages.slice(0, maxImages);
+            if (topPages.length === 0) {
+                console.log(`[Kanski Auto-Adhere] No Kanski pages matched "${title}".`);
+                return { success: false, reason: 'no_matches' };
+            }
+
+            // Render pages
+            const images = [];
+            const isMobileRender = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+                || ('ontouchstart' in window && window.innerWidth < 1024);
+            const renderScale = isMobileRender ? 1.0 : 1.5;
+            for (const p of topPages) {
+                try {
+                    const page = await kanskiPdfDoc.getPage(p.pageNum);
+                    const viewport = page.getViewport({ scale: renderScale });
+                    const canvas = document.createElement('canvas');
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    const ctx = canvas.getContext('2d');
+                    await page.render({ canvasContext: ctx, viewport }).promise;
+                    images.push({
+                        pageNum: p.pageNum,
+                        imgUrl: canvas.toDataURL('image/jpeg', 0.82),
+                        keywords: (p.matchedKeywords || []).slice(0, 5)
+                    });
+                } catch (err) {
+                    console.warn(`[Kanski Auto-Adhere] Failed page ${p.pageNum}:`, err);
+                }
+            }
+            if (images.length === 0) return { success: false, reason: 'render_failed' };
+
+            // Save images to IndexedDB
+            const ok = await saveKanskiToIDB(title, images);
+            if (!ok) return { success: false, reason: 'idb_save_failed' };
+
+            // Update lightweight meta on the library item
+            library = getLibraryCache();
+            item = library.find(i => i.title === title);
+            if (item) {
+                item.kanskiMeta = images.map(img => ({ pageNum: img.pageNum, keywords: img.keywords }));
+                delete item.kanskiImages;
+                if (item.data) {
+                    delete item.data.kanskiImages;
+                }
+                saveLibraryToIDB(library);
+            }
+
+            // If this item is currently displayed, refresh the on-screen section
+            if (currentInfographicData && currentInfographicData.title === title) {
+                try { loadAdheredKanskiImages(currentInfographicData); } catch (e) { /* ignore */ }
+            }
+
+            console.log(`[Kanski Auto-Adhere] Adhered ${images.length} image(s) to "${title}".`);
+            return { success: true, count: images.length };
+        } catch (err) {
+            console.error('[Kanski Auto-Adhere] Error:', err);
+            return { success: false, reason: 'exception', error: err.message };
+        }
+    }
+
+    // Expose to save flow
+    window.kanskiAutoAdhere = autoAdhereForTitle;
+
+    // ═══════════════════════════════════════════════════════════════
+    // GLOBAL AUTO-ATTACH — called by the Save button after saving
+    // a new infographic. Quietly runs match → render → adhere without
+    // any modals or prompts. No-op if the Kanski PDF isn't cached yet.
+    // ═══════════════════════════════════════════════════════════════
+    window.autoAttachKanskiOnSave = async function (libraryItem, opts = {}) {
+        try {
+            if (!libraryItem || !libraryItem.title) return false;
+            // Skip if already adhered
+            if (libraryItem.kanskiMeta && libraryItem.kanskiMeta.length > 0) return false;
+
+            // Only try if we have the PDF/index cached or loaded in this session.
+            // ensureKanskiReady() returns false when no cache exists (and would
+            // otherwise need a user file-picker, which we skip on autosave).
+            const ready = await ensureKanskiReady();
+            if (!ready) {
+                console.log('[Kanski AutoAttach] No Kanski PDF cached — skipping.');
+                return false;
+            }
+
+            const data = libraryItem.data || libraryItem;
+            const { keywords: weightedKeywords, primaryTopicTerms } =
+                extractInfographicKeywordsWeighted(data);
+
+            // Score pages (same logic as autoMatchAndInsert)
+            const scored = [];
+            kanskiPageTexts.forEach(({ pageNum, text }) => {
+                if (!text || text.length < 50) return;
+                const textLower = text.toLowerCase();
+                if (primaryTopicTerms.length > 0) {
+                    let has = false;
+                    for (const pt of primaryTopicTerms) {
+                        if (textLower.includes(pt.toLowerCase())) { has = true; break; }
+                    }
+                    if (!has) return;
+                }
+                let score = 0, primaryHits = 0;
+                const matched = [];
+                weightedKeywords.forEach(({ term, weight }) => {
+                    const esc = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    const re = term.length < 5
+                        ? new RegExp(`\\b${esc}\\b`, 'gi')
+                        : new RegExp(`\\b${esc}`, 'gi');
+                    const m = text.match(re);
+                    if (m) {
+                        score += m.length * weight;
+                        if (weight >= 20) primaryHits += m.length;
+                        if (!matched.includes(term)) matched.push(term);
+                    }
+                });
+                if (score > 0) scored.push({ pageNum, score, primaryHits, matchedKeywords: matched });
+            });
+            scored.sort((a, b) => (b.primaryHits - a.primaryHits) || (b.score - a.score));
+
+            const MAX_IMAGES = opts.maxImages || 8;
+            const topPages = scored.slice(0, MAX_IMAGES);
+            if (topPages.length === 0) {
+                console.log(`[Kanski AutoAttach] No matching pages for "${libraryItem.title}".`);
+                return false;
+            }
+
+            // Render pages → data URLs
+            const images = [];
+            for (const p of topPages) {
+                try {
+                    const page = await kanskiPdfDoc.getPage(p.pageNum);
+                    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+                        || ('ontouchstart' in window && window.innerWidth < 1024);
+                    const vp = page.getViewport({ scale: isMobile ? 1.0 : 1.5 });
+                    const canvas = document.createElement('canvas');
+                    canvas.width = vp.width;
+                    canvas.height = vp.height;
+                    await page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
+                    images.push({
+                        pageNum: p.pageNum,
+                        imgUrl: canvas.toDataURL('image/jpeg', 0.85),
+                        keywords: (p.matchedKeywords || []).slice(0, 5)
+                    });
+                } catch (err) {
+                    console.warn(`[Kanski AutoAttach] Render failed for page ${p.pageNum}:`, err);
+                }
+            }
+            if (images.length === 0) return false;
+
+            // Persist: images → IndexedDB, meta → library item in localStorage
+            const saved = await saveKanskiToIDB(libraryItem.title, images);
+            if (!saved) return false;
+
+            libraryItem.kanskiMeta = images.map(img => ({
+                pageNum: img.pageNum,
+                keywords: img.keywords
+            }));
+            // Clean legacy blob fields just in case
+            delete libraryItem.kanskiImages;
+            if (libraryItem.data) delete libraryItem.data.kanskiImages;
+
+            // Rewrite library cache so the meta sticks
+            try {
+                const lib = getLibraryCache();
+                const idx = lib.findIndex(i => i.id === libraryItem.id || i.title === libraryItem.title);
+                if (idx !== -1) {
+                    lib[idx].kanskiMeta = libraryItem.kanskiMeta;
+                    saveLibraryToIDB(lib);
+                }
+            } catch (err) {
+                console.warn('[Kanski AutoAttach] Failed to persist meta to library cache:', err);
+            }
+
+            // If this infographic is the one currently displayed, show the images inline
+            if (currentInfographicData && currentInfographicData.title === libraryItem.title) {
+                try { loadAdheredKanskiImages(currentInfographicData); } catch {}
+            }
+
+            console.log(`[Kanski AutoAttach] Adhered ${images.length} image(s) to "${libraryItem.title}".`);
+            return images.length;
+        } catch (err) {
+            console.warn('[Kanski AutoAttach] Error:', err);
+            return false;
+        }
+    };
 
     console.log('Kanski Pics initialized.');
 }

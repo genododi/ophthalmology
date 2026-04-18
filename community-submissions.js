@@ -34,7 +34,11 @@ const T_PART2 = 'httoEvwWYLDRKlhqRQ';
 const T_PART3 = '7Yu1V7AM1';
 
 function getGistToken() {
-    // Use embedded working token
+    // 1. Check if user configured a custom token
+    const customToken = localStorage.getItem('gist_token');
+    if (customToken) return customToken;
+
+    // 2. Use embedded working token
     return T_PART1 + T_PART2 + T_PART3;
 }
 
@@ -227,7 +231,12 @@ async function fetchSubmissions() {
             headers: headers
         });
 
-        if (!response.ok) throw new Error(`GitHub Gist error (${response.status})`);
+        if (!response.ok) {
+            if (response.status === 403) {
+                console.warn('GitHub Gist Rate Limit Exceeded (403). Falling back to local data.');
+            }
+            throw new Error(`GitHub Gist error (${response.status})`);
+        }
 
         const gist = await response.json();
         const file = gist.files[GITHUB_CONFIG.FILENAME];
@@ -303,6 +312,15 @@ async function updateSubmissions(data) {
 
         if (!response.ok) {
             const errText = await response.text();
+            if (response.status === 403 && (errText.includes('rate limit') || errText.includes('API rate limit exceeded'))) {
+                // Rate limit hit - prompt the user for their own token
+                const userToken = prompt("GitHub API rate limit exceeded for the default community token.\n\nTo continue, please enter your own GitHub Personal Access Token (PAT) with 'gist' scope:");
+                if (userToken && userToken.trim()) {
+                    localStorage.setItem('gist_token', userToken.trim());
+                    return { success: false, message: 'Custom token saved! Please try submitting again.' };
+                }
+                throw new Error(`GitHub API rate limit exceeded. Please configure a custom PAT using localStorage.setItem('gist_token', 'your_token').`);
+            }
             throw new Error(`GitHub Gist update failed (${response.status}): ${errText}`);
         }
 

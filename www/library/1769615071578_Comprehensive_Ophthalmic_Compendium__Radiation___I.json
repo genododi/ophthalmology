@@ -1,0 +1,481 @@
+{
+  "id": 1769615071578,
+  "seqId": 132,
+  "title": "Comprehensive Ophthalmic Compendium: Radiation & Inherited Retinal Dystrophies",
+  "summary": "An exhaustive clinical guide covering the pathogenesis, risk factors, and management of radiation-induced retinopathy alongside a complete classification of inherited retinal and macular dystrophies, including RP, CSNB, and Stargardt’s disease.",
+  "date": "2026-01-28T15:44:31.578Z",
+  "data": {
+    "title": "Comprehensive Ophthalmic Compendium: Radiation & Inherited Retinal Dystrophies",
+    "summary": "An exhaustive clinical guide covering the pathogenesis, risk factors, and management of radiation-induced retinopathy alongside a complete classification of inherited retinal and macular dystrophies, including RP, CSNB, and Stargardt’s disease.",
+    "summary_illustration": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"2\"/><path d=\"M100 60 Q140 100 100 140 Q60 100 100 60\" fill=\"#1d4ed8\" opacity=\"0.3\"/><circle cx=\"100\" cy=\"100\" r=\"15\" fill=\"#1d4ed8\"/><g stroke=\"#1d4ed8\" stroke-width=\"1\"><line x1=\"100\" y1=\"20\" x2=\"100\" y2=\"40\"/><line x1=\"100\" y1=\"160\" x2=\"100\" y2=\"180\"/><line x1=\"20\" y1=\"100\" x2=\"40\" y2=\"100\"/><line x1=\"160\" y1=\"100\" x2=\"180\" y2=\"100\"/><line x1=\"43\" y1=\"43\" x2=\"58\" y2=\"58\"/><line x1=\"142\" y1=\"142\" x2=\"157\" y2=\"157\"/><line x1=\"43\" y1=\"157\" x2=\"58\" y2=\"142\"/><line x1=\"142\" y1=\"43\" x2=\"157\" y2=\"58\"/></g><path d=\"M80 100 L120 100 M100 80 L100 120\" stroke=\"white\" stroke-width=\"2\"/></svg>",
+    "sections": [
+      {
+        "title": "Radiation Retinopathy: Pathogenesis",
+        "icon": "radioactive",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "Irradiation of the globe, orbit, sinuses, or nasopharynx may lead to retinal damage, predominantly through retinal vascular endothelial cell loss and resulting ischaemic retinopathy. Radiation retinopathy usually develops after a delay of 6mo–3y, which is thought to be the turnover time for retinal endothelial cells. Radiation-induced optic neuropathy occurs less frequently, with uncertain pathogenesis, but often results in blindness."
+      },
+      {
+        "title": "Radiation Retinopathy: Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Brachytherapy (≥7,500rad) Maculopathy Risk",
+              "value": 90
+            },
+            {
+              "label": "Orbital/Nasopharyngeal Irradiation Retinopathy Risk",
+              "value": 50
+            },
+            {
+              "label": "Retinopathy Likelihood (≤2,500rad in ≤200rad fractions)",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Concomitant Radiation Risks",
+        "icon": "add_alert",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Risk of retinopathy increases with radiation dose and dose rate.",
+          "Presence of concomitant vascular disease (e.g. diabetes) increases risk.",
+          "Use of radiation sensitizers (e.g. chemotherapy) increases risk."
+        ]
+      },
+      {
+        "title": "Radiation Retinopathy: Clinical Features",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Clinical Signs"
+          ],
+          "rows": [
+            [
+              "Ischaemic retinopathy",
+              "Initially microaneurysms; then intraretinal haemorrhages, capillary dilatation/non-perfusion, CWS, telangiectasia; exudation and hard exudates, often with macular oedema; large areas of capillary non-perfusion may result in neovascularization, with subsequent vitreous haemorrhage, TRD, and NVg. Retinochoroidal anastomoses (akin to RAP lesions) may occasionally develop. Acute severe responses to high-dose radiation may also sometimes occur."
+            ],
+            [
+              "Optic neuropathy",
+              "Acute disc hyperaemia, oedema, peripapillary haemorrhage, and CWS, commonly accompanied by retinopathy; subsequent severe optic atrophy; posterior optic neuropathy may sometimes occur after external beam irradiation of posterior optic nerve chiasm."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Radiation Retinopathy: Treatment",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "No widely accepted treatment protocol exists. Treatment to date is based on the similarities between radiation and diabetic retinopathy.",
+          "Macular oedema: options include focal laser photocoagulation as per ETDRS, intravitreal triamcinolone, and anti-VEgF therapies. In patients undergoing plaque radiotherapy for uveal melanoma, prophylactic periocular injection of triamcinolone may be of benefit.",
+          "Retinal non-perfusion and neovascularization: scatter laser photocoagulation may decrease macular oedema, neovascularization, and vitreous haemorrhages; prophylactic obliteration of ischaemic areas may be of benefit, even in the absence of neovascularization.",
+          "Anti-VEgF therapies: may have a role in treatment of both neovascularization and its 2° complications.",
+          "Optic neuropathy: guarded prognosis."
+        ]
+      },
+      {
+        "title": "Retinitis Pigmentosa (RP) - Overview",
+        "icon": "groups",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "RP is the commonest of the inherited retinal disorders, affecting about 1 in 3–4,000 of the population. RP is a group of conditions characterized by progressive dysfunction, cell loss, and atrophy of retinal tissue. Photoreceptors are affected initially (rods in the first instance, with cone involvement in the later stages), with subsequent atrophy of other retinal layers, although the NFL is preserved till late in the disease process—which is exploited in retinal implant technology. The relative frequency of the different modes of inheritance differs widely in different series, but 750% of patients have no family history of RP. AD RP is often of later onset and less severe, whereas XL and AR disease is associated with an earlier onset and is more severe."
+      },
+      {
+        "title": "Genetics of RP (Table 13.16)",
+        "icon": "dna",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Inheritance",
+            "Genes Involved (Selected)"
+          ],
+          "rows": [
+            [
+              "AD RP*",
+              "Rhodopsin ^ (e.g. p.Pro23His, Pro347Leu), RP1^, PRPF31, PRPF8, PRPF6, SNRNP200 (spliceosome-related), PRPH2 (e.g. p.Arg172Trp), NRL^"
+            ],
+            [
+              "AR RP†",
+              "USH2A (associated with AR RP and Usher syndrome type 2), EYS, PDE6B, PDE6A, CNGA1, MERTK, RLBP1, TULP1 (AR, RP, and LCA), RPE65 (LCA), CRB1 (LCA), RDH12 (LCA), CEP290 (LCA)"
+            ],
+            [
+              "XL RP",
+              "RPGR, RP2"
+            ],
+            [
+              "Digenic RP",
+              "Mutation in PRPH2 and ROM1"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Genetic Footnotes (RP)",
+        "icon": "info",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "* Mutations in >20 genes identified, accounting for 760–70% of AD RP; RHO gene commonest.",
+          "† Mutations in >30 genes identified, accounting for 74050% of AR RP; commonest is USH2A (10–15% of AR RP).",
+          "^ Rarely bi-allelic mutations can cause recessive disease.",
+          "Mutations in over 150 genes identified in RP to date."
+        ]
+      },
+      {
+        "title": "Systemic Associations of RP",
+        "icon": "medical_information",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Types/Syndromes"
+          ],
+          "rows": [
+            [
+              "Isolated",
+              "Sporadic, Familial (AD, AR, XL, mitochondrial)"
+            ],
+            [
+              "Systemic",
+              "Usher syndrome, BBS, Laurence–Moon syndrome, Kearns–Sayre syndrome, Mucopolysaccharidoses I–III, Abetalipoproteinaemia, Refsum’s disease"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "RP: Clinical & Ocular Features",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Symptoms: Nyctalopia, tunnel vision, dVA (later in disease).",
+          "Signs: Mid-peripheral ‘bone spicule’ retinal pigmentation, waxy pallor of the optic disc, arteriolar attenuation.",
+          "Ocular associations: cataract (esp. posterior subcapsular); myopia (especially in XL RP).",
+          "Complications: CMO, ERM, Coats’-like vasculopathy.",
+          "Isolated RP: Vast majority (<25% have systemic disease)."
+        ]
+      },
+      {
+        "title": "RP: Investigations",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "ERG: scotopic affected > photopic; used to monitor disease.",
+          "EOG: abnormal—proportional to the ERg.",
+          "VF: kinetic testing shows progressive constriction (reliable measure of change).",
+          "OCT: loss of outer retinal structures (ellipsoid zone and ONL).",
+          "FAF: ring of hyperfluorescence often demarcates affected/unaffected retina. Reduced autofluorescence in cell death areas."
+        ]
+      },
+      {
+        "title": "RP Variants & Differential Diagnosis",
+        "icon": "difference",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Variants: Sectoral/pericentral RP; retinitis punctata albescens (white dots); enhanced S-cone syndrome (white hyperautofluorescent dots, macular schisis). Differential diagnosis includes: rubella, syphilis, infectious retinitis, autoimmune/paraneoplastic retinopathies, drug toxicity (chloroquine), pigmented paravenous chorioretinal atrophy, vitamin A deficiency, traumatic retinopathy, long-standing RD, and DUSN (causing unilateral RP)."
+      },
+      {
+        "title": "RP Treatment: Multimodal Approach",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Supportive: genetic/psychological counselling, VI registration, refractive/low vision management, mobility training.",
+          "Macular oedema: CAIs (topical dorzolamide/brinzolamide, then oral acetazolamide - monitor renal function).",
+          "Cataract surgery: reduced operating light; avoid small capsulorhexis (phimosis risk); meticulous LEC clearance (PCO risk); slow taper of NSAIDs/steroids (CMO risk).",
+          "Disease progression: Supplements controversial; Vit A palmitate not recommended. DHA (1200mg/d) and lutein (12mg/d) may be considered (limited evidence). No benefit of valproic acid.",
+          "Future: Gene/stem cell therapies (LCA, Usher’s, Stargardt’s, achromatopsia); Argus II epiretinal prosthesis system licensed in Europe."
+        ]
+      },
+      {
+        "title": "Leber Congenital Amaurosis (LCA)",
+        "icon": "child_care",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": "Group of disorders due to mutations in >25 genes. Characterized by congenital blindness, nystagmus, often hypermetropia, and extinguished ERg responses. Pupillary light reflexes absent/diminished. Systemic associations uncommon. Fundus: often normal initially or subtle RPE changes/vessel attenuation. Characteristic retinal phenotypes seen with RPE65, RDH12, and CRB1 genes. Associated with oculodigital syndrome and keratoconus."
+      },
+      {
+        "title": "Bietti’s Crystalline Dystrophy",
+        "icon": "diamond",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Rare AR chorioretinal dystrophy (CYP4V2 gene) involving disordered lipid metabolism. Common in East Asia (Japan/China). Multiple small intraretinal crystalline deposits. FFA shows ‘moth-eaten’ RPE/choriocapillaris. Perilimbal subepithelial corneal deposits possible. Leads to night blindness, VF constriction, dVA, and legal blindness by 5th/6th decade."
+      },
+      {
+        "title": "Congenital Stationary Night Blindness (CSNB)",
+        "icon": "nights_stay",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Shared feature: Early non-progressive nyctalopia.",
+          "Additional manifestations: reduced VA, refractive error (myopia/hyperopia), nystagmus, strabismus.",
+          "Classification: Normal fundus (Riggs/Schubert–Bornschein types) vs. Abnormal fundus (Oguchi’s/Fundus albipunctatus)."
+        ]
+      },
+      {
+        "title": "CSNB with Normal Fundi: Classification",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Genetics & Pathophysiology"
+          ],
+          "rows": [
+            [
+              "AD CSNB (Riggs)",
+              "Molecular defect at rod phototransduction cascade level (RHO, GNAT1, PDE6B)."
+            ],
+            [
+              "AR/XL CSNB (Schubert–Bornschein)",
+              "Defect in visual signal transmission from photoreceptors to bipolar cells."
+            ],
+            [
+              "Complete (cCSNB)",
+              "Defects in ON pathway (NYX, GRM6, TRPM1 genes)."
+            ],
+            [
+              "Incomplete (iCSNB)",
+              "Signalling defects between photoreceptors and both ON/OFF bipolar cells (CACNA1F, CABP4, CACNA2D4)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CSNB Investigations & Differentials",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "cCSNB ERG: No detectable rod-specific ERg; profoundly electronegative bright flash response (reduced b:a ratio).",
+          "iCSNB ERG: Detectable rod-specific ERg; negative bright flash response. Cone ERgs more abnormal than cCSNB (ON/OFF pathways).",
+          "AD CSNB ERG: Evidence of inner retinal rod system dysfunction; bright flash might not have negative waveform.",
+          "Differential: Vit A deficiency (grey-white spots), RP (pigmentation), Choroideraemia (atrophy), Autoimmune/paraneoplastic retinopathies."
+        ]
+      },
+      {
+        "title": "CSNB with Abnormal Fundi",
+        "icon": "visibility_off",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Disorder",
+            "Features"
+          ],
+          "rows": [
+            [
+              "Oguchi’s Disease (AR)",
+              "Golden yellow metallic sheen (fundus). Normalizes after dark adaptation (Mizuo phenomenon). Genes: SAG, GRK1 (rhodopsin inactivation)."
+            ],
+            [
+              "Fundus albipunctatus (AR)",
+              "Tiny radially distributed white dots (usually absent at macula). Accumulation of retinoids. Genes: RDH5 (commonest), RLBP1, RPE65."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Inherited Cone Function Disorders",
+        "icon": "light_mode",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Includes non-progressive cone dysfunction syndromes (Achromatopsia, Blue cone monochromatism) and progressive cone dystrophies."
+      },
+      {
+        "title": "Non-Progressive Cone Dysfunction",
+        "icon": "palette",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Syndrome",
+            "Clinical Features & Investigations"
+          ],
+          "rows": [
+            [
+              "Achromatopsia (AR)",
+              "1 in 30,000. Lack of all 3 cone subtypes. VA 6/36–6/60, nystagmus, photophobia. ERG: non-recordable cone responses, normal rods. OCT: hyporeflective cavity at fovea."
+            ],
+            [
+              "Blue Cone Monochromatism (XL)",
+              "1 in 100,000. High myopia. Absent L- and M-cone function. Preserved S-cone/rod function. Distinguished via S-cone-specific ERG."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Progressive Cone Dystrophies",
+        "icon": "trending_down",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Features: Present 2nd–3rd decades; dVA, color vision loss, mild photophobia.",
+          "Rod involvement: Leads to nyctalopia and peripheral field defects.",
+          "Fundus: Variable; RPE changes, Bull’s eye maculopathy, or advanced RP findings.",
+          "Genetics: >30 genes; AD, AR, and XL inheritance.",
+          "ERG: Generalized cone dysfunction > rod system; early marked macular involvement."
+        ]
+      },
+      {
+        "title": "Stargardt’s Disease & Fundus Flavimaculatus",
+        "icon": "stars",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Genetics: AR (ABCA4 gene) commonest macular dystrophy. ELOVL4 causes rare AD Stargardt-like disease.",
+          "Pathology: Lipofuscin and A2E accumulation in RPE.",
+          "Clinical Stargardt’s: childhood dVA (6/18–6/60); ‘beaten-bronze’ atrophy, yellowish white flecks.",
+          "Fundus flavimaculatus: pisciform flecks at posterior pole; adulthood onset; preserved vision.",
+          "Investigations: FFA ‘dark choroid’; FAF reduced at RPE atrophy, hyperautofluorescent flecks (peripapillary sparing); OCT shows RPE/outer retinal loss.",
+          "Treatment: stem cell-derived RPE trials; gene therapy; modified (deuterated) vitamin A."
+        ]
+      },
+      {
+        "title": "Best’s Vitelliform Dystrophy (AD, BEST1)",
+        "icon": "egg",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Stage",
+            "Description"
+          ],
+          "rows": [
+            [
+              "1. Pre-vitelliform",
+              "EOg findings only"
+            ],
+            [
+              "2. Vitelliform",
+              "yolk-like macular lesion"
+            ],
+            [
+              "3. Pseudohypopyon",
+              "Partial absorption leaving level"
+            ],
+            [
+              "4. Vitelliruptive",
+              "‘Scrambled’ appearance"
+            ],
+            [
+              "5. End-stage",
+              "Scarring or atrophy"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Best’s & Related Disorders",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Visual prognosis often good (reading vision beyond 5th decade). EOG: reduced Arden ratio. ERG: normal (abnormal in ARB). OCT: hyperreflective subretinal material; SRF doesn't always mean CNV. BEST1 related phenotypes: multifocal Best’s, ADVIRC, AVMD, ARB, and MRCS. Adult vitelliform macular dystrophy (AVMD) often involves PRPH2, IMPG1/2; smaller lesions, often normal EOG."
+      },
+      {
+        "title": "X-linked Retinoschisis (XLRS)",
+        "icon": "grid_view",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Mutation: RS1 gene. Affects males (females asymptomatic).",
+          "Signs: Foveal schisis (spoke-wheel), peripheral NFL schisis (50%). Associated with hyperopia.",
+          "Investigations: ERG (reduced b:a ratio, electronegative in 750%); OCT shows hyporeflective spaces in multiple layers.",
+          "Treatment: refractive/amblyopia correction; LVA; surgery for VH/RD; gene therapy trials."
+        ]
+      },
+      {
+        "title": "Pattern Dystrophy (AD, PRPH2)",
+        "icon": "grain",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Subtypes: (1) Butterfly-shaped; (2) Reticular; (3) Fundus pulverulentus.",
+          "Features: RPE-level changes. Good prognosis. Low CNV risk.",
+          "MIDD: Mitochondrial DNA mutation (m.3243a>g). Diabetes, low BMI, sensorineural deafness, and macular/peripapillary pattern dystrophy."
+        ]
+      },
+      {
+        "title": "Dominant Drusen & Sorsby’s",
+        "icon": "bubble_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Clinical Features"
+          ],
+          "rows": [
+            [
+              "AD Drusen (EFEMP1)",
+              "Doyne’s honeycomb/malattia leventinese. yellow-white drusen at posterior pole/optic disc. Central atrophy late."
+            ],
+            [
+              "Sorsby’s (TIMP3)",
+              "Night blindness (3rd decade). Loss of central vision from atrophy or CNV (high risk) by 5th decade. Thickening of Bruch’s membrane."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Rare Macular Phenotypes",
+        "icon": "landscape",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "North Carolina Macular Dystrophy (AD, PRDM13): non-progressive, grade 1 (small drusen) to grade 3 (colobomatous). Progressive bifocal chorioretinal atrophy (AD, Chr 6q): nystagmus, myopia, large atrophic macular/nasal lesions from birth. Spotted cystic dystrophy: pigmented spots with cysts on OCT, neovascularization risk. Membranoproliferative glomerulonephritis type II: associated with drusen in young patients."
+      }
+    ],
+    "chapterId": "paediatric"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1769615071578,
+  "communityId": "sub_1769614749293_qagkfdtvpr1x5q",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

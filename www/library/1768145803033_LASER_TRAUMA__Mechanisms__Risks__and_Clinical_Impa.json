@@ -1,0 +1,215 @@
+{
+  "id": 1768145803033,
+  "seqId": 76,
+  "title": "LASER TRAUMA: Mechanisms, Risks, and Clinical Impact",
+  "summary": "Laser trauma represents a significant ocular threat where even low-output beams are intensified 100,000 times by the eye's natural focus. This poster details the historical context, physiological effects, and treatment protocols for laser-induced injuries as outlined in clinical standards.",
+  "date": "2026-01-11T15:36:43.033Z",
+  "data": {
+    "title": "LASER TRAUMA: Mechanisms, Risks, and Clinical Impact",
+    "summary": "Laser trauma represents a significant ocular threat where even low-output beams are intensified 100,000 times by the eye's natural focus. This poster details the historical context, physiological effects, and treatment protocols for laser-induced injuries as outlined in clinical standards.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><line x1='0' y1='50' x2='40' y2='50' stroke='red' stroke-width='3' stroke-dasharray='4'/><path d='M40 50 L50 50' stroke='red' stroke-width='1'/><circle cx='50' cy='50' r='2' fill='red'/><text x='10' y='20' font-family='Arial' font-size='6' fill='hsl(215, 90%, 45%)'>100,000x Focus</text></svg>",
+    "sections": [
+      {
+        "title": "The Physics of Laser Injury",
+        "icon": "biotech",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Irradiance at Cornea",
+              "value": 1
+            },
+            {
+              "label": "Focal Retinal Irradiance",
+              "value": 100
+            }
+          ],
+          "note": "The eye focuses the parallel beam and increases the focal retinal irradiance by a factor of over 100,000 times above that incident at the cornea."
+        }
+      },
+      {
+        "title": "Historical Context & Regulation",
+        "icon": "history",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1960s onwards: Reports of unintentional injuries occur.",
+          "1980s: Reports of adversarial use of high-powered lasers begin.",
+          "1995 Protocol to the Geneva Convention: Specifically regulates laser use to decrease deliberate injury and bans lasers designated as blinding weapons."
+        ]
+      },
+      {
+        "title": "Modern Risks and Security Threats",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "The risk has not been eliminated.",
+          "Late 1990s: Pilots attacked with laser targeting designators in Bosnia.",
+          "Devices are now relatively cheap, readily available, and easily portable.",
+          "Increasing incidents involving insurgents, terrorists, and criminals."
+        ]
+      },
+      {
+        "title": "Temporary Visual Effects (Non-Damaging)",
+        "icon": "visibility_off",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Non-Permanent Effects",
+          "branches": [
+            "Glare/Dazzle: Interference at low energies; significant distraction for vision-critical tasks (pilots/drivers).",
+            "Continuous-wave/Rapidly pulsed light: Causes distraction without eye damage.",
+            "Flash Blindness: Inability to detect or resolve a visual target following exposure.",
+            "After-image: Perception of light, dark, or coloured spots; similar to flashbulbs."
+          ]
+        }
+      },
+      {
+        "title": "The Nature of After-images",
+        "icon": "palette",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Persistence: May last for minutes, hours, or days.",
+          "Dynamic characteristics: Change in colour ('flight of colour'), size, and intensity.",
+          "Background dependence: Appearance depends upon the background being viewed.",
+          "Clinical impact: Often annoying/distracting, but unlikely to cause a significant reduction in Va."
+        ]
+      },
+      {
+        "title": "Permanent Visual Damage: Anterior Segment",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Photokeratitis: Degrades vision due to light scatter from opacities.",
+          "Transient states: Similar to 'arc eye' or 'snow blindness'.",
+          "Permanent states: Occurs if stromal scarring develops.",
+          "High-power injuries: Can lead to gross rupture.",
+          "Anterior Uveitis: Seen with corneal injuries; causes photophobia, pain, and miosis."
+        ]
+      },
+      {
+        "title": "Permanent Visual Damage: Posterior Segment",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Foveal involvement: Functionally significant loss occurs only if the burn directly affects the fovea.",
+          "Bilaterality: Light energy may affect both eyes unless protected.",
+          "Beam Diameter: At significant distance, beam is wider than the IPD (inter-pupillary distance)."
+        ]
+      },
+      {
+        "title": "Table 3.16: Laser Damage According to Wavelength",
+        "icon": "grid_on",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Wavelength range",
+            "Pathological effect"
+          ],
+          "rows": [
+            [
+              "180–315nm (uVB, uVC)",
+              "Photokeratitis"
+            ],
+            [
+              "315–400nm (uVa)",
+              "Photochemical cataract"
+            ],
+            [
+              "400–780nm (visible)",
+              "retinal burn"
+            ],
+            [
+              "780–1400nm (near-infrared)",
+              "Cataract, retinal burn"
+            ],
+            [
+              "1.4–3.0 microns (infrared)",
+              "aqueous flare, cataract, corneal burn"
+            ],
+            [
+              "3.0 microns–1 mm",
+              "Comeal burn"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Standards and Classifications",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Wavelength ranges based on The european Standard IeC 60825-1:2014 and BSI Standard BS en60825-1:2014. Published as: BSI Standards Publication. Safety of laser products Part 1: equipment classification and requirements. ISBn 978 0 580 77969 5. Page Ref: 149."
+      },
+      {
+        "title": "Foveal Exposure & Retinal Haemorrhage",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": "Low-power exposure to the fovea has variable effects on Va, with either no effect or a mild reduction in vision to 76/12. Direct high-power exposure to the foveola leads to significant thermal burn and significantly reduced vision. If haemorrhage occurs, visual loss is even more profound due to initial masking and later toxic effects of haemoglobin breakdown on surrounding photoreceptors. See also E Laser pointer maculopathy, p. 661."
+      },
+      {
+        "title": "Prevention & Safety Standards",
+        "icon": "shield",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Governed by international standards for safe use and maintenance.",
+          "Factors: Wavelength, power, dispersion, and likely exposure time.",
+          "Ref: See E Laser safety in the clinic, pp. 1080–1."
+        ]
+      },
+      {
+        "title": "Treatment Protocols",
+        "icon": "medical_services",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Injury Type",
+            "Management Strategy"
+          ],
+          "rows": [
+            [
+              "Corneal Injuries",
+              "Treated same as thermal burns (see E Thermal injury/burns: management, p. 120)."
+            ],
+            [
+              "Retinal Injuries",
+              "No treatment proven to improve outcome."
+            ],
+            [
+              "Vitreous/Preretinal Haemorrhage",
+              "May benefit from vitreoretinal surgery."
+            ],
+            [
+              "Subfoveal Haemorrhage",
+              "Displace away from fovea to prevent toxicity; uses intravitreal injection of C3F8, alteplase and face-down posturing (see p. 554)."
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "chapterId": "lasers",
+  "_serverSynced": true
+}

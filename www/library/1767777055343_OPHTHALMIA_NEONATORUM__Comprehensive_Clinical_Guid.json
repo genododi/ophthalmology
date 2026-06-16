@@ -1,0 +1,179 @@
+{
+  "id": 1767777055343,
+  "title": "OPHTHALMIA NEONATORUM: Comprehensive Clinical Guide",
+  "summary": "Ophthalmia neonatorum is defined as a conjunctivitis occurring within the first month of life, where organisms are commonly acquired from the birth canal. It is a potentially sight-threatening condition with a primary risk factor being the presence of sexually transmitted disease in the mother.",
+  "date": "2026-01-07T09:10:55.343Z",
+  "data": {
+    "title": "OPHTHALMIA NEONATORUM: Comprehensive Clinical Guide",
+    "summary": "Ophthalmia neonatorum is defined as a conjunctivitis occurring within the first month of life, where organisms are commonly acquired from the birth canal. It is a potentially sight-threatening condition with a primary risk factor being the presence of sexually transmitted disease in the mother.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 Q50 20 80 50 Q50 80 20 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M50 10 L50 20 M50 80 L50 90 M10 50 L20 50 M80 50 L90 50' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Epidemiology & Global Impact",
+        "icon": "public",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Western World",
+              "value": 12
+            },
+            {
+              "label": "Developing Countries",
+              "value": 23
+            }
+          ]
+        }
+      },
+      {
+        "title": "Defining the Risk",
+        "icon": "info",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Defined as conjunctivitis within the first month of life.",
+          "Organisms commonly acquired from the birth canal.",
+          "Main risk factor: Presence of sexually transmitted disease in the mother.",
+          "Potentially sight-threatening and may cause systemic complications."
+        ]
+      },
+      {
+        "title": "Table 18.26: Timing of Onset by Cause",
+        "icon": "schedule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Cause",
+            "Timing of Onset"
+          ],
+          "rows": [
+            [
+              "Chemical",
+              "<2d"
+            ],
+            [
+              "Gonococcal",
+              "1–3d"
+            ],
+            [
+              "Other bacteria",
+              "2–5d"
+            ],
+            [
+              "HSV",
+              "1–14d"
+            ],
+            [
+              "Chlamydia",
+              "4–28d"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Gonococcal Neonatal Conjunctivitis",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Gonococcal (1-3d)",
+          "branches": [
+            "Clinical: Hyperacute, severe purulent discharge, lid oedema, chemosis ± pseudomembrane ± keratitis",
+            "Investigations: Prewet swab/conjunctival scrapings for immediate Gram stain (Gram-negative diplococci), culture (chocolate agar), and sensitivities",
+            "Treatment: Cefotaxime 100mg/kg (max 1g) IM as a single dose",
+            "Management: Frequent saline irrigation of discharge until eliminated",
+            "Referral: After counselling, refer mother (with partner) to GU physician"
+          ]
+        }
+      },
+      {
+        "title": "Chlamydial Neonatal Conjunctivitis",
+        "icon": "microbiology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Chlamydial (Commonest)",
+          "branches": [
+            "Pathology: Papillary, rather than follicular, reaction due to delayed development of palpebral lymphoid tissue",
+            "Clinical: Subacute onset (4–28d), mucopurulent discharge, papillae, may be haemorrhagic ± preseptal cellulitis",
+            "Systemic (uncommon): Rhinitis, otitis, pneumonitis",
+            "Investigations: Prewet swabs (immunofluorescent staining, cell culture, PCR, ELISA); Scrapings (Giemsa stain)",
+            "Treatment: Erythromycin 12.5mg/kg 4×/d for 2wk",
+            "Referral: After counselling, refer mother (with partner) to GU physician"
+          ]
+        }
+      },
+      {
+        "title": "Other Bacterial Causes",
+        "icon": "bug_report",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Staphylococcus aureus (Requires topical antibiotics only)",
+          "Streptococcus pneumoniae (Requires topical antibiotics only)",
+          "Haemophilus (Requires additional systemic antibiotics to prevent systemic complications)",
+          "Pseudomonas (Requires additional systemic antibiotics to prevent systemic complications)",
+          "Clinical features: Subacute onset (4–28d), purulent discharge, lid oedema, chemosis ± keratitis (Pseudomonas)"
+        ]
+      },
+      {
+        "title": "General Bacterial Investigations & Treatment",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Investigations: Prewet swab or conjunctival scrapings: Gram stain, culture, and sensitivities.",
+          "Gram-positive organisms Tx: topical (e.g. chloramphenicol Oc 4×/d or erythromycin Oc 4×/d); adjust according to sensitivities.",
+          "Gram-negative organisms Tx: topical (e.g. tobramycin Oc 4×/d); adjust according to sensitivities."
+        ]
+      },
+      {
+        "title": "HSV Neonatal Conjunctivitis",
+        "icon": "dangerous",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Uncommon but may cause serious ocular morbidity and systemic disease.",
+          "Clinical: Acute onset (1–14d), vesicular lid lesions, mucoid discharge ± keratitis (e.g. microdendrites), anterior uveitis, cataract, retinitis, optic neuritis (rare).",
+          "Systemic (uncommon but may be fatal): Jaundice, hepatosplenomegaly, pneumonitis, meningoencephalitis, DIC.",
+          "Investigations: Swab or conjunctival scrapings in viral culture medium; PCR.",
+          "Treatment: Aciclovir Oc 5×/d for 1wk ± aciclovir IV 10mg/kg 3×/d for 10d."
+        ]
+      },
+      {
+        "title": "Chemical Conjunctivitis",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Caused by silver nitrate drops used as a protective measure against ophthalmia neonatorum.",
+          "Effective against gonococcal disease; limited use against other bacteria; no use against Chlamydia or viruses.",
+          "Reaction: Causes red, watering eyes from 12 to 48h after instillation in the majority of neonates."
+        ]
+      },
+      {
+        "title": "Conjunctivitis in the Older Child",
+        "icon": "child_care",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Children are commonly affected by both infective and allergic conjunctivitis. In the older child, it behaves in a more similar manner to adult disease: viral (see E Viral conjunctivitis, pp. 206–7), bacterial (see E Bacterial conjunctivitis (1), p. 202), chlamydial (see E Chlamydial conjunctivitis, pp. 208–9), and allergic (see E Allergic conjunctivitis (1), pp. 210–11). [Source Page 883]"
+      }
+    ]
+  },
+  "chapterId": "conjunctiva",
+  "seqId": 39,
+  "_serverSynced": true
+}

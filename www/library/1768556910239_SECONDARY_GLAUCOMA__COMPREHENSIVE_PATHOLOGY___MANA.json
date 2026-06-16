@@ -1,0 +1,292 @@
+{
+  "id": 1768556910239,
+  "seqId": 110,
+  "title": "SECONDARY GLAUCOMA: COMPREHENSIVE PATHOLOGY & MANAGEMENT",
+  "summary": "An exhaustive clinical guide to lens-related, open-angle, and closed-angle secondary glaucomas. This poster details the mechanisms, clinical presentations, and multi-modal treatment strategies for these complex ocular conditions.",
+  "date": "2026-01-16T09:48:30.239Z",
+  "data": {
+    "title": "SECONDARY GLAUCOMA: COMPREHENSIVE PATHOLOGY & MANAGEMENT",
+    "summary": "An exhaustive clinical guide to lens-related, open-angle, and closed-angle secondary glaucomas. This poster details the mechanisms, clinical presentations, and multi-modal treatment strategies for these complex ocular conditions.",
+    "summary_illustration": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"4\"/><path d=\"M60 100 Q100 60 140 100 Q100 140 60 100\" fill=\"#1d4ed8\" opacity=\"0.6\"/><circle cx=\"100\" cy=\"100\" r=\"25\" fill=\"#1d4ed8\"/><line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"170\" stroke=\"#1d4ed8\" stroke-dasharray=\"4\"/></svg>",
+    "sections": [
+      {
+        "title": "Lens-Related Glaucoma Overview",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Lens-Related Glaucoma Etiology",
+          "branches": [
+            "Abnormalities of lens size",
+            "Abnormalities of lens position",
+            "Release of lens protein (mature cataract/trauma/surgery)",
+            "Consequent inflammatory response"
+          ]
+        }
+      },
+      {
+        "title": "Phacomorphic Glaucoma",
+        "icon": "expand_circle_right",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Mechanism",
+            "Clinical Features",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "The enlarging lens causes pupillary block and anterior bowing of the iris, with 2° angle closure. In an eye of normal axial length, this occurs 2° to an intumescent cataractous lens; in a short eye, this may result simply from the normal increase in lens size with age.",
+              "iIOP, shallow AC, fixed semi-dilated pupil, swollen cataractous lens. Ipsilateral closed angle (appositional; sigma sign may be seen on indentation gonioscopy). Contralateral angle may be open with deep AC (in contrast to PACG); however, this helpful sign may not be present if the contralateral eye also has significant cataract.",
+              "Medical (topical and systemic): as for PACG. Nd-yAG PI to reverse pupillary block component. early cataract extraction is the definitive treatment—needs an experienced surgeon."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Phacolytic Glaucoma",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Mechanism: the hypermature cataract loses soluble lens proteins through the anterior capsule, causing trabecular obstruction and subsequent 2° open-angle glaucoma.",
+          "Clinical features: iIOP, lens protein in a deep AC (may form a pseudohypopyon), hypermature/mature cataract, open angle (with lens protein); AC tap reveals lens protein and foamy macrophages.",
+          "Treatment Medical: topical (e.g. β-blocker, α2-agonist, carbonic anhydrase inhibitor) or systemic (e.g. acetazolamide) agents, as required; consider topical steroids for associated inflammation.",
+          "Surgical: early cataract extraction—needs experienced surgeon."
+        ]
+      },
+      {
+        "title": "Phacoanaphylactic Uveitis",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Mechanism: Inflammatory reaction to lens protein post-trauma or surgery (must distinguish from endophthalmitis). May cause sensitization in contralateral eye.",
+          "Clinical Features: recent trauma/surgery, exposed lens protein, AC flare + cells ± hypopyon, KPs, synechiae (PS + PAS), angle usually open (but ± PAS); IOP may be high, normal, or low.",
+          "Treatment Of inflammatory process: topical steroid (e.g. dexamethasone 0.1% hourly) and surgical removal of any retained lens fragments.",
+          "Treatment of iIOP: medical—topical (e.g. β-blocker, α2-agonist, carbonic anhydrase inhibitor) or systemic (e.g. acetazolamide) agents, as required.",
+          "For contralateral cataract: consider removal by intracapsular cataract extraction (ICCe) to reduce lens protein exposure."
+        ]
+      },
+      {
+        "title": "Glaucoma 2° to Lens Subluxation/Dislocation",
+        "icon": "unfold_less",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Mechanism: pupillary block by anterior lens subluxation or complete dislocation into the AC; there may also be a coincident angle abnormality (e.g. Marfan’s syndrome).",
+          "Clinical features: iIOP, subluxed/dislocated lens ± corneal oedema (if acute or lenticulocorneal touch); lenticular astigmatism and variable refraction.",
+          "Treatment Positional: dilate and lie patient supine (to encourage posterior movement of lens), and constrict (to keep lens safely behind pupil); long-term miotic therapy may be needed, unless the lens dislocates safely into the vitreous.",
+          "Early lens extraction: if positional measures fail, if complete dislocation into the AC, if cataract, or if recurrent problem. Often best dealt with by a vitreoretinal approach."
+        ]
+      },
+      {
+        "title": "Steroid-Induced Glaucoma",
+        "icon": "medication",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "IOP increase >15mmHg (Normal Pop)",
+              "value": 5
+            },
+            {
+              "label": "IOP increase 6–15mmHg (Normal Pop)",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Steroid-Induced: Mechanism & Treatment",
+        "icon": "history_edu",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Exogenous, and occasionally endogenous, steroids may decrease outflow facility, leading to iIOP after a few days or weeks. POAG patients are often particularly sensitive. Possible mechanisms include prostaglandin inhibition (e.g. PGF2A) and structural changes in the eCM (glycosaminoglycans) and trabecular meshwork (cross-linking of actins). History: specifically ask for steroid-containing anabolics, skin/haemorrhoid creams, inhaled steroids, or oral steroids (asthma/COPD). Treatment: Decrease frequency/potency or stop steroid (± steroid-sparing agent)—liaise with physician. If corticosteroids essential, treat as POAG. SLt may be helpful."
+      },
+      {
+        "title": "Red Cell Glaucoma",
+        "icon": "bloodtype",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Hyphaema (usually traumatic) leads to TM blockage.",
+          "10% risk of rebleed usually at ~5d post-injury.",
+          "Sickle-cell disease/trait patients do worse and are harder to treat (acidosis from CAIs worsens sickling)."
+        ]
+      },
+      {
+        "title": "Red Cell Glaucoma Management",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Of hyphaema: strict bed rest, topical steroid (e.g. dexamethasone 0.1% 6×/d), mydriatic/cycloplegic (e.g. atropine 1% 2×/d).",
+          "Of IOP: topical (e.g. β-blocker, α2-agonist, CAI) or systemic (e.g. acetazolamide) agents.",
+          "Surgical: AC paracentesis ± AC washout. In rare refractory cases, trabeculectomy."
+        ]
+      },
+      {
+        "title": "Ghost Cell Glaucoma",
+        "icon": "water_drop",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Mechanism: Vitreous haemorrhage leads to blockage of TM by degenerate red blood cells, usually 2–4wk after haemorrhage.",
+          "Appearance: Cells are tan-coloured (lost haemoglobin) and seen in AC and angle.",
+          "Treatment: Medical (as for POAG) is usually sufficient. If failure: AC washout + vitrectomy."
+        ]
+      },
+      {
+        "title": "Angle Recession Glaucoma",
+        "icon": "warning",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "TR-10-10",
+          "explanation": "Traumatic Recession = 10% risk of glaucoma at 10 years. Risk increases with extent of recession."
+        }
+      },
+      {
+        "title": "Angle Recession: Clinical & Screening",
+        "icon": "gavel",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Mechanism: Blunt trauma causes angle recession and trabecular damage.",
+          "Observation: Best seen by simultaneous gonioscopy. Look for asymmetry of AC depth, pupil, and angle.",
+          "Screening: Periodic IOP check (e.g. 3mo, 6mo, yearly) if known angle recession.",
+          "Treatment: As for POAG."
+        ]
+      },
+      {
+        "title": "Raised Episcleral Venous Pressure",
+        "icon": "compress",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Aqueous drainage reduced as pressure increases. Causes: Vascular abnormalities in orbit (Sturge–Weber syndrome, orbital varices), cavernous sinus (AV fistulae), or SVC obstruction. Manifestations: Unilateral/bilateral engorged episcleral veins, chemosis, proptosis, with blood in Schlemm’s canal on gonioscopy. Treatment: Directed at underlying pathology; medical/surgical IOP lowering if necessary. Surgical warning: extremely hazardous with refractory uveal effusion."
+      },
+      {
+        "title": "Tumours and Schwartz-Matsuo",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Facts",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Tumours",
+              "Open-angle (clogging/infiltration) or Closed-angle (rubeosis/displacement). 20% of malignant melanoma associated with iIOP.",
+              "Directed by tumour; B-scan US essential if poor posterior view. iIOP suggests poor prognosis."
+            ],
+            [
+              "Schwartz-Matsuo",
+              "Uncommon association of mild AC inflammation and iIOP (open angle) from RRD. Photoreceptor outer segments obstruct TM.",
+              "IOP/uveitis treated medically in interim; resolves rapidly with surgical repair of retinal detachment."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Other Secondary Closed-Angle: Iridoschisis",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Bilateral splitting/atrophy of anterior iris leaf.",
+          "Associated with nanophthalmos; usually in elderly.",
+          "Angle-closure type: treat with Nd-YAG PI.",
+          "Open-angle type: treat as POAG (due to debris blocking TM)."
+        ]
+      },
+      {
+        "title": "Iridocorneal Endothelial (ICE) Syndrome",
+        "icon": "group_work",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "ICE Syndrome (50% Glaucoma Risk)",
+          "branches": [
+            "Chandler syndrome (predominantly corneal)",
+            "Essential iris atrophy (predominantly iris changes)",
+            "Iris naevus (Cogan–Reese) syndrome (protrusions of iris stroma)"
+          ]
+        }
+      },
+      {
+        "title": "ICE Syndrome Details",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Unilateral (rarely bilateral) condition; abnormal endothelium migrates across angle, TM, and iris. Usually 20-40y old female. HSV proposed as causative.",
+          "Clinical features: Unilateral pain, blurred vision. Fine corneal guttata ('beaten metal'), corneal oedema, iris atrophy, corectopia (displaced pupil), pseudopolycoria (accessory pupil).",
+          "Gonioscopy: Broad-based PAS that may insert anterior to Schwalbe’s line.",
+          "Investigations: Consider specular microscopy for endothelial changes.",
+          "Treatment: Medical (β-blocker, α2-agonist, CAI, PGA), surgery (trabeculectomy ± augmented or tube), or cyclodestruction."
+        ]
+      },
+      {
+        "title": "Endothelial Dystrophies & Downgrowth",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Mechanism/Features",
+            "Treatment/Prognosis"
+          ],
+          "rows": [
+            [
+              "Posterior Polymorphous Dystrophy (PPD)",
+              "Bilateral, dominantly inherited, detectable in childhood. Abnormal endothelium forms extensive adhesions with angle closure. 15% risk of glaucoma.",
+              "Treat glaucoma as for POAG."
+            ],
+            [
+              "Epithelial Downgrowth",
+              "Trauma/surgery allows epithelium to proliferate across corneal endothelium and angle. Similar to ICE syndrome but unchecked proliferation.",
+              "Very difficult; lower IOP as for POAG; intracameral antifibrotics (e.g. 5-FU), surgical excision. Prognosis for vision is poor."
+            ],
+            [
+              "Fuchs’ Endothelial Dystrophy",
+              "Oedema of the peripheral cornea may cause 2° angle closure.",
+              "Risk is highest in eyes with pre-existing shallow ACs."
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "chapterId": "glaucoma",
+  "communityId": "sub_1768552126016_wpoiy058j",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-01-16T08:28:46.016Z",
+  "_serverSynced": true,
+  "bookmarked": false
+}

@@ -1,0 +1,389 @@
+{
+  "id": 1770233676936,
+  "seqId": 182,
+  "title": "AGE-RELATED MACULAR DEGENERATION: THE COMPLETE CLINICAL GUIDE",
+  "summary": "An exhaustive clinical overview of Age-Related Macular Degeneration (AMD), covering its classification, epidemiology, multi-factorial risk factors, and the distinct characteristics of dry and wet forms. This guide details the critical role of drusen, current imaging standards like OCT and FA, and evidence-based management including AREDS2 supplementation and emerging therapies.",
+  "date": "2026-02-04T19:34:36.936Z",
+  "data": {
+    "title": "AGE-RELATED MACULAR DEGENERATION: THE COMPLETE CLINICAL GUIDE",
+    "summary": "An exhaustive clinical overview of Age-Related Macular Degeneration (AMD), covering its classification, epidemiology, multi-factorial risk factors, and the distinct characteristics of dry and wet forms. This guide details the critical role of drusen, current imaging standards like OCT and FA, and evidence-based management including AREDS2 supplementation and emerging therapies.",
+    "summary_illustration": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"48\" fill=\"none\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"15\" fill=\"hsl(215, 90%, 45%)\" fill-opacity=\"0.2\"/><circle cx=\"50\" cy=\"50\" r=\"8\" fill=\"hsl(215, 90%, 45%)\" fill-opacity=\"0.4\"/><circle cx=\"45\" cy=\"45\" r=\"2\" fill=\"#FFD700\"/><circle cx=\"55\" cy=\"52\" r=\"3\" fill=\"#FFD700\"/><circle cx=\"48\" cy=\"55\" r=\"1.5\" fill=\"#FFD700\"/><path d=\"M20 50 Q50 10 80 50 Q50 90 20 50\" fill=\"none\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"1\" opacity=\"0.5\"/></svg>",
+    "sections": [
+      {
+        "title": "Introduction to AMD",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Age-related macular degeneration (AMD) is a degenerative disorder in which the structure and function of the macula deteriorates. It is characterized by the presence of specific clinical findings, including drusen and RPE changes, in the absence of another disorder. Later stages of the disease are associated with impairment of vision secondary to neovascularization or atrophy."
+      },
+      {
+        "title": "Clinical Classification of AMD (Table 14.2)",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Category",
+            "Definition (Lesions within 2 disc diameters of fovea)"
+          ],
+          "rows": [
+            [
+              "No apparent ageing changes",
+              "No drusen; No AMD pigmentary abnormalities"
+            ],
+            [
+              "Normal ageing changes",
+              "Only drupelets (small drusen <63 μm); No AMD pigmentary abnormalities"
+            ],
+            [
+              "Early AMD",
+              "Medium drusen (>63 μm but <125 μm); No AMD pigmentary abnormalities"
+            ],
+            [
+              "Intermediate AMD",
+              "Large drusen (>125 μm); Any AMD pigmentary abnormalities"
+            ],
+            [
+              "Late AMD",
+              "Neovascular AMD and/or Any geographic atrophy"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Definitions & Terminology",
+        "icon": "dictionary",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Pigmentary abnormalities: definite hyper- or hypopigmentary abnormalities associated with medium/large drusen (not due to other disease).",
+          "Drupelets: Proposed term for small drusen (<63 μm).",
+          "Drusen sizing: Estimated by comparison with a retinal vein at the optic disc margin (~125 μm).",
+          "The consensus committee has standardized nomenclature for reporting neovascular AMD."
+        ]
+      },
+      {
+        "title": "The Two Main Types of AMD",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "AMD Forms",
+          "branches": [
+            "Dry (Non-exudative/Non-neovascular): 90% of cases; Advanced stage is Geographic Atrophy (GA).",
+            "Wet (Exudative/Neovascular): Less common; Rapid progression; Includes MNV, PED, RAP, and PCV."
+          ]
+        }
+      },
+      {
+        "title": "Terminology Update",
+        "icon": "campaign",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "MNV over CNV",
+          "explanation": "TIP: The term ‘choroidal neovascularization’ (CNV) is no longer appropriate because neovascularization may start in the outer retina. Macular neovascularization (MNV) should be used instead."
+        }
+      },
+      {
+        "title": "Global & Regional Epidemiology",
+        "icon": "public",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Most common cause of irreversible visual loss in industrialized countries.",
+          "Symptoms are rare in patients under 50 years of age; prevalence increases with age.",
+          "UK: 4% of population over 75 and 14% of those over 90 have significant visual impairment (6/18 or worse).",
+          "UK: 1.6% of those over 75 have binocular acuity < 6/60.",
+          "Fellow Eye Risk: 50% chance of developing advanced AMD within 5 years if late AMD or moderate loss is present in the first eye."
+        ]
+      },
+      {
+        "title": "USA Visual Loss Statistics by Race",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Whites (Severe Loss)",
+              "value": 50
+            },
+            {
+              "label": "Hispanics (Severe Loss)",
+              "value": 15
+            },
+            {
+              "label": "Black people (Severe Loss)",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Multi-factorial Risk Factors",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Age: The major risk factor.",
+          "Race: Late AMD is more common in White individuals.",
+          "Heredity: 3x risk if a first-degree relative is affected. Variants in 50+ genes implicated.",
+          "Smoking: Roughly doubles the risk of AMD.",
+          "Hypertension: Associated with other cardiovascular risk factors.",
+          "Dietary: High fat intake and obesity promote AMD; high antioxidants are protective.",
+          "Aspirin: Weak statistically significant association, but benefits (stroke/heart attack prevention) outweigh the risk of exacerbating wet AMD.",
+          "Uncertain Factors: Cataract surgery, blue iris colour, high sunlight exposure, and female gender."
+        ]
+      },
+      {
+        "title": "The Genetics of AMD",
+        "icon": "dna",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Major Susceptibility Gene",
+            "Function/Location",
+            "Risk Impact (Homozygous)"
+          ],
+          "rows": [
+            [
+              "CFH (1q31)",
+              "Complement factor H; protects cells from complement-mediated damage",
+              "Increases risk 7 times"
+            ],
+            [
+              "ARMS2 (10q26)",
+              "Encodes protein in choroidal extracellular matrix",
+              "Increases risk 8 times"
+            ],
+            [
+              "Lipid Metabolism Genes",
+              "Thought to be important",
+              "N/A"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Genetic Testing Note",
+        "icon": "biotech",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "WAIT",
+          "explanation": "There is no advantage in undertaking genetic testing until studies confirm its value for determining prognosis or treatment response."
+        }
+      },
+      {
+        "title": "Drusen: Histopathology & Distribution",
+        "icon": "microscopy",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Drusen are extracellular deposits at the interface between the RPE and Bruch membrane. They consist of constituents from immune-mediated and metabolic RPE processes. Rare before age 40, common by the 60s. Distribution: foveal, encircling the fovea, band-like around the macular periphery, or in mid-peripheral fundus."
+      },
+      {
+        "title": "Clinical Features of Drusen",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Small Drusen (Drupelets/Hard): ≤63 μm. Well-defined, white-yellow. Little risk unless with pigmentary changes.",
+          "Intermediate Drusen: 63–125 μm. Focal yellow-white deposits. Risk to late AMD >10% if bilateral pigmentary abnormalities exist.",
+          "Large Drusen (Soft): >125 μm. Less delineated. Can coalesce into 'drusenoid RPE detachment'. Risk to late AMD is 13% (rises to 50% with bilateral pigmentary changes).",
+          "Dystrophic calcification: May develop in all drusen types.",
+          "Pigmentary abnormalities: Hyper- and hypopigmentation significantly increase late AMD likelihood."
+        ]
+      },
+      {
+        "title": "Drusen & Risk Summary",
+        "icon": "priority_high",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "SIZE + PIGMENT",
+          "explanation": "TIP: There is a strong association between the risk of developing advanced AMD, drusen size, and macular pigmentary change."
+        }
+      },
+      {
+        "title": "Imaging Findings for Drusen",
+        "icon": "camera_enhance",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "OCT: Medium/large drusen appear as hyper-reflective irregular nodules beneath the RPE on/within Bruch membrane.",
+          "FA (Hyperfluorescence): Caused by window defects (RPE atrophy) or late staining.",
+          "FA (Hypofluorescence): Hydrophobic drusen with high lipid content mask background fluorescence and do not stain."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Drusen-like Lesions",
+        "icon": "difference",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Doyne honeycomb retinal dystrophy: Autosomal dominant; appears in 2nd/3rd decades.",
+          "Cuticular drusen: Grouped early adult-onset (25–75 μm). 'Stars in the sky' appearance on FA. Linked to CFH gene variant.",
+          "Type 2 membranoproliferative glomerulonephritis: Chronic renal disease; bilateral drusen-like lesions; CFH gene implicated."
+        ]
+      },
+      {
+        "title": "Antioxidant Supplementation: AREDS Findings",
+        "icon": "pill",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "High-dose antioxidants/minerals decrease risk of advanced AMD development.",
+          "AREDS1 Risk Reduction: 25–30% at 10 years for advanced signs at baseline.",
+          "No benefit seen in those with early or no AMD at baseline.",
+          "AREDS1 High-Risk Characteristics for Age >55: Extensive intermediate drusen, One+ large drusen, GA in one/both eyes, or late AMD in one eye."
+        ]
+      },
+      {
+        "title": "AREDS2 Study Breakthroughs",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Lutein/Zeaxanthin: Safe and likely superior alternative to beta-carotene (18% additional risk reduction).",
+          "Beta-carotene Warning: Increases lung cancer in smokers/former smokers.",
+          "Zinc: 25 mg likely maximal absorbed; lower dose (25 mg) reduces GI/urinary side effects vs 80 mg.",
+          "Omega-3 fatty acids: Did not enhance outcomes.",
+          "Competition: Carotenoid absorption competition may affect results in some patients."
+        ]
+      },
+      {
+        "title": "Recommended Daily Supplementation (AREDS2)",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Vitamin C: 500 mg",
+          "Vitamin E: 400 IU",
+          "Lutein: 10 mg",
+          "Zeaxanthin: 2 mg",
+          "Zinc: 25–80 mg",
+          "Copper: 2 mg (may not be required with lower zinc dose)"
+        ]
+      },
+      {
+        "title": "Lifestyle & Prevention Tips",
+        "icon": "eco",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Green leafy vegetables: Prudent choice for early AMD/family history.",
+          "Oily fish: Regular consumption supported by some authorities.",
+          "Smoking: Cessation is mandatory advice.",
+          "Sunlight: Protective measures against excessive exposure.",
+          "Home Monitoring: Provide Amsler grid for regular self-testing.",
+          "TIP: Risk of severe AMD in patients with high-risk dry characteristics can be reduced with regular supplementation."
+        ]
+      },
+      {
+        "title": "Non-exudative (Dry) AMD: Overview",
+        "icon": "visibility_off",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Common condition; GA threatens central vision in 5 million people worldwide. Involves loss of photoreceptors and RPE. Pathogenesis: Activation of complement factors C3 and C5 is vital. Lesion size measured via FAF is the primary trial outcome."
+      },
+      {
+        "title": "Dry AMD Diagnostic Signs",
+        "icon": "clinical_notes",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Gradual vision impairment (months/years); vision better in bright light.",
+          "Step 2: Numerous soft drusen (may become confluent).",
+          "Step 3: Focal RPE hyper- and/or hypopigmentation.",
+          "Step 4: Geographic Atrophy (GA) - sharply circumscribed areas of RPE atrophy; visible choroidal vessels.",
+          "Step 5: Severe impairment if fovea involved; rare MNV development in GA area."
+        ]
+      },
+      {
+        "title": "Advanced Imaging for Dry AMD",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "OCT - Outer Retinal Tubulations: Roundish hyporeflective spaces (degenerating photoreceptors) around GA margins.",
+          "OCT - Outer Retinal Corrugations: Undulating hyper-reflective layer (basal laminar deposit) between RPE and basement membrane.",
+          "Basal Linear Deposit: Membranous debris between RPE basement membrane and Bruch membrane inner layer.",
+          "Microperimetry: Accurate central vision testing method.",
+          "FAF: Shows hyperautofluorescence in junctional zones at high risk of GA progression.",
+          "FA: Window defects in atrophic areas; late staining of exposed sclera."
+        ]
+      },
+      {
+        "title": "Dry AMD Management & Social Support",
+        "icon": "support",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Prophylaxis: Address smoking, sun, cardiovascular, and dietary factors.",
+          "Amsler Grid: Urgent professional advice needed if vision changes.",
+          "Support: Low vision aids and visually impaired certification to access social/financial support."
+        ]
+      },
+      {
+        "title": "Potential New & Experimental Therapies",
+        "icon": "experiment",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Complement Inhibitors: Avacincaptad pegol (C5) or Pegcetacoplan (C3) intravitreal injections reduce GA growth.",
+          "Saffron: 20 mg/day may improve retinal function short-term.",
+          "Photocoagulation: Reduces drusen extent but not AMD progression risk.",
+          "Visual Cycle Modulation: Emixustat (vitamin A processing reduction) has not proved helpful.",
+          "Failed/Ineffective: Many of the 13 complement inhibitors studied were ineffective."
+        ]
+      },
+      {
+        "title": "Experimental Surgical Interventions",
+        "icon": "medical_services",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Patients must be informed of high risks and slender likelihood of long-term vision improvement.",
+          "Miniature Intraocular Telescope: Benefit in selected cases.",
+          "RPE Stem Cells: Implanted behind macula; improved vision in some patients.",
+          "Macular Translocation Surgery: High complication rate; not successful in improving vision.",
+          "Visual Prostheses: Various types currently under investigation."
+        ]
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1770233676936,
+  "communityId": "sub_1769972561627_zl7rjnpgtpalqg",
+  "communityAuthor": "Oiii",
+  "communityDate": "2026-02-01T19:02:41.627Z"
+}

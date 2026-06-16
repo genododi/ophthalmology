@@ -1,0 +1,177 @@
+{
+  "id": 1768231246452,
+  "seqId": 92,
+  "title": "POSTERIOR SCLERITIS: The Hidden Sight-Threat",
+  "summary": "Posterior scleritis is a potentially sight-threatening, underdiagnosed condition often presenting with a 'white and quiet' eye. It requires serious treatment, often involving systemic corticosteroids and monitoring for systemic vasculitis associations.",
+  "date": "2026-01-12T15:20:46.452Z",
+  "data": {
+    "title": "POSTERIOR SCLERITIS: The Hidden Sight-Threat",
+    "summary": "Posterior scleritis is a potentially sight-threatening, underdiagnosed condition often presenting with a 'white and quiet' eye. It requires serious treatment, often involving systemic corticosteroids and monitoring for systemic vasculitis associations.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><path d='M20 50 Q50 20 80 50 Q50 80 20 50' stroke='hsl(215, 90%, 45%)' fill='none'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M75 35 A30 30 0 0 1 75 65' stroke='red' stroke-width='4' fill='none' stroke-linecap='round'/><text x='65' y='25' font-size='5' fill='red' font-weight='bold'>Inflammation</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Overview & Risks",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Posterior scleritis is uncommon but is probably underdiagnosed. It is a potentially sight-threatening condition. It may be overlooked due to more obvious anterior scleral inflammation or because there is isolated posterior disease (40% of patients have no evidence of anterior scleral inflammation), and thus the eye appears white and quiet (often despite severe symptoms). It is associated with systemic disease (usually RA or systemic vasculitis (see Table 8.3)) in up to one-third of cases. Any posterior scleritis may lead to visual loss and needs to be treated seriously."
+      },
+      {
+        "title": "Clinical Presentation Proportions",
+        "icon": "pie_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Isolated Posterior (White Eye)",
+              "value": 40
+            },
+            {
+              "label": "Systemic Disease Association",
+              "value": 33
+            }
+          ]
+        }
+      },
+      {
+        "title": "Symptoms Checklist",
+        "icon": "assignment_late",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Mild to severe deep pain (may be referred to brow or jaw)",
+          "dVA (decreased Visual Acuity)",
+          "Diplopia",
+          "Photopsia",
+          "Hypermetropic shift",
+          "It may, however, sometimes be painless"
+        ]
+      },
+      {
+        "title": "Physical Signs & Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "White eye (unless anterior involvement)",
+          "Lid oedema",
+          "Proptosis",
+          "Lid retraction",
+          "Restricted motility",
+          "Shallow Anterior Chamber (AC)",
+          "Choroidal folds",
+          "Annular choroidal detachment",
+          "Exudative retinal detachments (ERDs)",
+          "Macular oedema",
+          "Disc oedema"
+        ]
+      },
+      {
+        "title": "Complications: Secondary Glaucoma",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Choroidal and retinal detachment may cause ciliary body rotation and a shallow AC.",
+          "The patient may present with 2° angle closure glaucoma."
+        ]
+      },
+      {
+        "title": "Imaging & Investigations",
+        "icon": "image",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "B-SCAN / CT / MRI",
+          "explanation": "B-scan US shows Scleral thickening with fluid in Tenon’s space (T-sign). Scleral thickening will also be seen on CT and MRI."
+        }
+      },
+      {
+        "title": "Treatment Escalation Path",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Systemic Corticosteroids (Now often used directly due to visual loss risk).",
+          "Step 2: Oral NSAIDs (Reserve for cases where corticosteroids are contraindicated).",
+          "Step 3: If not controlled or high visual loss risk: Consider systemic immunosuppression.",
+          "Step 4: 'Rescue' with corticosteroids (Prednisolone 1mg/kg/d tapering OR three pulses of IVMP 1g), followed by oral corticosteroid.",
+          "Step 5: Taper to 'maintenance' dose (e.g., Prednisolone ≤7mg od).",
+          "Step 6: If maintenance fails without recurrence: introduce 'second-line' immunosuppressant."
+        ]
+      },
+      {
+        "title": "Response Monitoring",
+        "icon": "monitor_heart",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Response to therapy may be monitored by measuring the posterior scleral thickness on serial B-scan US."
+        ]
+      },
+      {
+        "title": "Vasculitides Classification (Table 8.3)",
+        "icon": "account_tree",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Specific Conditions"
+          ],
+          "rows": [
+            [
+              "1° Large Artery Vasculitides",
+              "GCA (Giant Cell Arteritis), Takayasu arteritis"
+            ],
+            [
+              "1° Medium Artery Vasculitides",
+              "PAN (Polyarteritis nodosa), Kawasaki disease"
+            ],
+            [
+              "1° Small Artery & Vein Vasculitides",
+              "GPA (Granulomatosis with polyangiitis)*, Microscopic polyangiitis*, Henoch–Schönlein purpura, Leukocytoclastic vasculitis, Essential cryoglobulinaemic vasculitis"
+            ],
+            [
+              "1° Other Vasculitides",
+              "Behçet’s disease, Cogan’s syndrome"
+            ],
+            [
+              "2° Vasculitides",
+              "Connective tissue disease, Hepatitis B/C, HIV"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Important Diagnostic Notes",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "* These vasculitides (GPA, Microscopic polyangiitis) are associated with ANCA. NB: Subsequently, Watts et al. have suggested a possible fourth category, 'no predominant vessel size', to describe Behçet’s syndrome, 1º CNS vasculitis, and Cogan’s syndrome."
+      },
+      {
+        "title": "Literature & Sources",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "McCluskey PJ et al. Posterior scleritis: clinical features, systemic associations, and outcome in a large series of patients. Ophthalmology. 1999;106:2380–6. Summarised from Jennette JC et al. Nomenclature of systemic vasculitides. Proposal of an international consensus conference. Arthritis Rheum 1994;37:187–92."
+      }
+    ]
+  },
+  "chapterId": "sclera",
+  "_serverSynced": true
+}

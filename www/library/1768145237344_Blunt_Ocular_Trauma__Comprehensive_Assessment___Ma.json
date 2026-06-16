@@ -1,0 +1,194 @@
+{
+  "id": 1768145237344,
+  "seqId": 72,
+  "title": "Blunt Ocular Trauma: Comprehensive Assessment & Management",
+  "summary": "An exhaustive clinical guide to the classification, assessment, and treatment of blunt eye injuries. This poster covers UK epidemiology, the Birmingham Eye Trauma Terminology (BETTS), detailed clinical features, and surgical protocols for globe repairs.",
+  "date": "2026-01-11T15:27:17.344Z",
+  "data": {
+    "title": "Blunt Ocular Trauma: Comprehensive Assessment & Management",
+    "summary": "An exhaustive clinical guide to the classification, assessment, and treatment of blunt eye injuries. This poster covers UK epidemiology, the Birmingham Eye Trauma Terminology (BETTS), detailed clinical features, and surgical protocols for globe repairs.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' stroke='hsl(215, 90%, 45%)' stroke-width='4' fill='none'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M20 20 L40 40 M80 20 L60 40 M20 80 L40 60 M80 80 L60 60' stroke='red' stroke-width='3' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Epidemiology & Impact (UK)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Annual UK Admissions",
+              "value": 4500
+            },
+            {
+              "label": "Ocular % in Polytrauma",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Changing Trends in Trauma",
+        "icon": "trending_down",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "In the UK, legislation (notably the compulsory wearing of seatbelts and health and safety at work) has effectively reduced some sources of eye injuries. Currently, most injuries are related to sport and leisure activities and assaults. Most ocular trauma is blunt rather than penetrating."
+      },
+      {
+        "title": "BETTS Classification (Birmingham Eye Trauma Terminology)",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Eye Injury",
+          "branches": [
+            "Closed Globe: Contusion, Lamellar Laceration",
+            "Open Globe: Rupture, Laceration",
+            "Reference: Kuhn, F. et al. Ophthalmol Clin North Am 2002:15;139–143 (Elsevier)"
+          ]
+        }
+      },
+      {
+        "title": "Table 3.11: Specific Features in Assessment",
+        "icon": "checklist",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Category",
+            "Action / Checkpoints"
+          ],
+          "rows": [
+            [
+              "History (Hx)",
+              "Mechanism, associated injuries, tetanus status"
+            ],
+            [
+              "Globe (O/e)",
+              "Look for anterior or posterior rupture"
+            ],
+            [
+              "Cornea",
+              "Check fluorescein staining, clarity"
+            ],
+            [
+              "Anterior Chamber (AC)",
+              "Check for cells/flare and depth (compare with other eye)"
+            ],
+            [
+              "Iris/Ciliary Body",
+              "Abnormalities of pupil; examine iris root/angle by gonioscopy (if closed globe without hyphaema)"
+            ],
+            [
+              "Lens",
+              "Opacity, position, stability"
+            ],
+            [
+              "Vitreous",
+              "PVD, haemorrhage"
+            ],
+            [
+              "Fundus",
+              "Commotio retinae; check macular pathology (e.g. hole); examine equator/periphery for retinal tears/dialysis; consider choroidal rupture (often masked by blood)"
+            ],
+            [
+              "Optic Nerve",
+              "Check function and disc appearance"
+            ],
+            [
+              "IOP",
+              "Closed globes only"
+            ],
+            [
+              "Investigations (Ix)",
+              "Consider B-scan US, CT orbits/brain (assess extent of damage, particularly where clinical assessment limited)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Critical Warnings",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Beware: ‘Occult’ posterior rupture",
+          "Check for associated orbital/adnexal injuries",
+          "Never perform gonioscopy or check IOP in suspected open globe",
+          "Corticosteroids increase mortality in head injury patients—DO NOT USE"
+        ]
+      },
+      {
+        "title": "Clinical Features: Globe & Anterior Segment",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Anterior Rupture: Obvious uveal/lens/vitreous herniation, subconjunctival haemorrhage, hyphaema.",
+          "Posterior Rupture: Suspect if deep AC ± very low IOP (compare eyes).",
+          "Corneal Abrasion: Epithelial defect.",
+          "Corneal Oedema: Transient endothelial decompensation; spontaneously resolves.",
+          "Hyphaema: RBCs in the AC.",
+          "Iris: Miosis (transient), Mydriasis (permanent), Sphincter rupture (irregular pupil).",
+          "Iris Root: Iridodialysis, Angle recession (late glaucoma risk), Ciliary cleft (low IOP).",
+          "Lens: Vossius ring (iris pigment on capsule), Cataract (subcapsular), Subluxation/luxation."
+        ]
+      },
+      {
+        "title": "Clinical Features: Posterior Segment",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Vitreous: PVD, vitreous haemorrhage.",
+          "Commotio Retinae: Grey-white retinal opacity; 3/4 macular cases resolve with visual recovery; others may result in retinal atrophy or macular hole.",
+          "Chorioretinitis Sclopetaria: Haemorrhagic necrosis of choroid/retina from high-velocity projectile grazing globe.",
+          "Retinal Dialysis: Full-thickness circumferential break at ora serrata (commonly superonasal). Progression to detachment is slow (months); unrelated to PVD.",
+          "Macular Holes: May be acute or late.",
+          "Choroidal Rupture: Break in choroid/Bruch’s/RPE with intact sclera; concentric to disc; initially masked by blood; later white scleral streak; CNV is a late complication.",
+          "Traumatic Optic Neuropathy: Acutely decreased function and RAPD.",
+          "Optic Nerve Avulsion: Decreased/absent function; defect in place of disc; confirm with B-scan if view is obscured by hemorrhage."
+        ]
+      },
+      {
+        "title": "Treatment: Primary Repair of Globe Rupture",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Admit and prepare for GA (NBM, last meal/drink, ECG/bloods, liaise with anaesthetist).",
+          "Step 2: Protect globe with a clear plastic shield.",
+          "Step 3: Immediate systemic antibiotics (e.g., Ciprofloxacin 750mg PO twice daily).",
+          "Step 4: Administer Tetanus vaccine/toxoid if indicated.",
+          "Step 5: Perform primary surgical repair as soon as possible (ideally within 24h)."
+        ]
+      },
+      {
+        "title": "Secondary Repair & Other Management",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Iris: Most injuries (except herniation) do not require surgery.",
+          "Lens: Remove if decreased VA (opacity/subluxation), increased IOP (glaucoma), or inflammation (breached capsule).",
+          "Vitreoretinal: Tears/dialysis need laser retinopexy (if no detachment) or urgent VR referral. Macular holes are non-urgent.",
+          "Commotio Retinae: No treatment available.",
+          "Choroidal Rupture: No treatment indicated unless CNV develops (treat conventionally).",
+          "Traumatic Optic Neuropathy: Liaise with neuro-ophthalmologist; obtain neuroimaging for bony compression. No treatment shown to improve outcome."
+        ]
+      }
+    ]
+  },
+  "chapterId": "trauma",
+  "_serverSynced": true
+}

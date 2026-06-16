@@ -1,0 +1,167 @@
+{
+  "id": 1767814062927,
+  "title": "Understanding Thyroid Eye Disease (TED)",
+  "summary": "Thyroid Eye Disease (TED) is a complex autoimmune condition causing inflammation and swelling of the tissues around the eyes. It is most commonly associated with Graves' disease and follows a characteristic pattern of activity known as Rundle's Curve.",
+  "date": "2026-01-07T19:27:42.927Z",
+  "data": {
+    "title": "Understanding Thyroid Eye Disease (TED)",
+    "summary": "Thyroid Eye Disease (TED) is a complex autoimmune condition causing inflammation and swelling of the tissues around the eyes. It is most commonly associated with Graves' disease and follows a characteristic pattern of activity known as Rundle's Curve.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M20 20 L30 30 M80 20 L70 30 M20 80 L30 70 M80 80 L70 70' stroke='red' stroke-width='3' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Disease Overview & Pathogenesis",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Thyroid Eye Disease",
+          "branches": [
+            "Autoimmune: TSH-Receptor Antibodies (TRAb)",
+            "Orbital Fibroblasts: Primary target cells",
+            "Hyaluronan Production: Causes tissue swelling",
+            "Adipogenesis: Expansion of orbital fat",
+            "Muscle Fibrosis: Leads to restricted movement"
+          ]
+        }
+      },
+      {
+        "title": "The Natural History: Rundle's Curve",
+        "icon": "show_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Initial Phase (Inflammation)",
+              "value": 90
+            },
+            {
+              "label": "Peak Severity",
+              "value": 100
+            },
+            {
+              "label": "Plateau Phase",
+              "value": 70
+            },
+            {
+              "label": "Stable Phase (Fibrotic)",
+              "value": 50
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Risk Factors",
+        "icon": "list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Smoking: The strongest modifiable risk factor",
+          "Radioactive Iodine Treatment: Can trigger or worsen TED",
+          "Dysfunctional Thyroid Levels: Both Hypo and Hyperthyroidism",
+          "Female Gender: Higher prevalence (though males often have more severe cases)",
+          "High Serum TRAb levels"
+        ]
+      },
+      {
+        "title": "Clinical Activity Score (CAS)",
+        "icon": "assessment",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Symptom/Sign",
+            "Clinical Description"
+          ],
+          "rows": [
+            [
+              "Spontaneous Pain",
+              "Feeling of painful pressure in or behind the eye"
+            ],
+            [
+              "Pain on Eye Movement",
+              "Discomfort when looking up, down, or sideways"
+            ],
+            [
+              "Eyelid Redness",
+              "Erythema of the eyelids"
+            ],
+            [
+              "Conjunctival Redness",
+              "Injection of the conjunctiva"
+            ],
+            [
+              "Eyelid Swelling",
+              "Edema of the eyelids"
+            ],
+            [
+              "Chemosis",
+              "Edema of the conjunctiva"
+            ],
+            [
+              "Caruncle/Plica Swelling",
+              "Inflammation of the inner corner of the eye"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "NOSPECS Severity Classification",
+        "icon": "format_list_numbered",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "N-O-S-P-E-C-S",
+          "explanation": "N: No signs or symptoms; O: Only signs (Lid retraction); S: Soft tissue involvement; P: Proptosis; E: Extraocular muscle involvement; C: Corneal involvement; S: Sight loss (Optic nerve compression)"
+        }
+      },
+      {
+        "title": "EMERGENCY: Red Flag Warnings",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden decrease in visual acuity",
+          "Changes in color vision (Dyschromatopsia)",
+          "Constant double vision (Diplopia)",
+          "Corneal ulceration or opacity",
+          "Optic disc swelling seen on examination",
+          "Inability to fully close the eyelids (Lagophthalmos)"
+        ]
+      },
+      {
+        "title": "Management Protocol",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Supportive Care (Smoking cessation, lubricants, selenium for mild cases)",
+          "Step 2: Stabilize Thyroid Function (Achieve euthyroidism)",
+          "Step 3: Active Phase Treatment (IV Corticosteroids, Teprotumumab, or Orbital Radiation)",
+          "Step 4: Surgical Rehabilitation (Decompression surgery for proptosis)",
+          "Step 5: Strabismus Surgery (To correct double vision)",
+          "Step 6: Eyelid Surgery (Correction of lid retraction and blepharoplasty)"
+        ]
+      },
+      {
+        "title": "Patient Summary Note",
+        "icon": "description",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "Thyroid Eye Disease is a chronic condition that requires close coordination between an Ophthalmologist and an Endocrinologist. While the active inflammatory phase eventually burns out, the structural changes such as proptosis and double vision often require surgical intervention after the disease has stabilized for at least 6 months."
+      }
+    ]
+  },
+  "chapterId": "orbit",
+  "seqId": 51,
+  "_serverSynced": true
+}

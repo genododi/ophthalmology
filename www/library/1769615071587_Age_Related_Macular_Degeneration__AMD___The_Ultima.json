@@ -1,0 +1,357 @@
+{
+  "id": 1769615071587,
+  "seqId": 133,
+  "title": "Age-Related Macular Degeneration (AMD): The Ultimate Clinical Guide",
+  "summary": "An exhaustive clinical resource covering the leading cause of blindness in the Western world over 50. This guide details the epidemiology, risk factors, classification, and multimodal management of both non-neovascular (dry) and neovascular (wet) AMD.",
+  "date": "2026-01-28T15:44:31.587Z",
+  "data": {
+    "title": "Age-Related Macular Degeneration (AMD): The Ultimate Clinical Guide",
+    "summary": "An exhaustive clinical resource covering the leading cause of blindness in the Western world over 50. This guide details the epidemiology, risk factors, classification, and multimodal management of both non-neovascular (dry) and neovascular (wet) AMD.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M30 50 Q 50 20 70 50 T 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1.5'/><circle cx='50' cy='50' r='4' fill='hsl(215, 90%, 45%)'/><g fill='hsl(30, 90%, 50%)'><circle cx='42' cy='48' r='1.5'/><circle cx='58' cy='52' r='2'/><circle cx='50' cy='58' r='1.2'/><circle cx='45' cy='55' r='1.8'/></g></svg>",
+    "sections": [
+      {
+        "title": "AMD Epidemiology & Prevalence",
+        "icon": "trending_up",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "55–65y (1%)",
+              "value": 5
+            },
+            {
+              "label": "65–75y (6%)",
+              "value": 30
+            },
+            {
+              "label": ">75y (20%)",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "Introduction & Prevalence Details",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "AMD is the leading cause of blindness for the ‘over 50s’ in the Western world. Its prevalence increases with age. One study found visually significant disease (VA ≤6/9) in about 1% for 55–65y, 6% for 65–75y, and 20% for >75y. Numerous classification systems exist; the Age-Related Eye Disease Study (AREDS) classification system is commonly used (see Table 13.1). (Ref: Owen Cg et al. Br J Ophthalmol. 2012;96:752–6)."
+      },
+      {
+        "title": "Risk Factors & Genetics",
+        "icon": "groups",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "AMD Risk Landscape",
+          "branches": [
+            "Lifestyle: Smoking, Diet",
+            "Demographics: Gender (♀ > ♂), Ethnic origin (white Caucasian high risk)",
+            "Systemic: CVS risk, Hypermetropia",
+            "Surgery Note: Recent evidence does not find cataract surgery to cause or worsen AMD",
+            "Genetic Loci: Complement factor H (CFH) gene on Chr 1q32",
+            "Genetic Loci: ARMS2/ HTRA1 locus on Chr 10q26 gene cluster",
+            "Pathways: Other complement pathway-related genes"
+          ]
+        }
+      },
+      {
+        "title": "Non-neovascular (Dry) AMD: Overview",
+        "icon": "wb_sunny",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "Accounting for 90% of AMD, this tends to lead to gradual, but potentially significant, reduction in central vision. It is characterized by drusen (hard or soft) and RPE changes (focal hyperpigmentation or atrophy)."
+      },
+      {
+        "title": "Histology of Dry AMD",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "There is loss of the RPE/photoreceptor layers, thinning of the outer plexiform layer, thickening of Bruch’s membrane, and atrophy of the choriocapillaris exposing the larger choroidal vessels to view. Drusen are PAS-positive amorphous deposits, lying between the RPE membrane and the inner collagenous layer of Bruch’s membrane; they may become calcified."
+      },
+      {
+        "title": "Clinical Features of Dry AMD",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "dVA, metamorphopsia, scotomas; usually gradual in onset.",
+          "Hard drusen: small <63 microns, well-defined, of limited significance.",
+          "Soft drusen: larger, pale yellow, poorly defined, tendency to coalesce and form ‘confluent drusen,’ increasing risk of CNV.",
+          "RPE focal hyperpigmentation.",
+          "RPE atrophy: ‘geographic atrophy’ if well demarcated and with visibility of the underlying choroidal vessels."
+        ]
+      },
+      {
+        "title": "Investigations for Dry AMD",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "FFA: is not usually necessary. OCT used for non-specific complaints to screen for CNV (intraretinal/subretinal fluid).",
+          "Drusen on OCT: Small/intermediate appear as discrete RPE elevation with variable reflectivity; larger drusen are dome-shaped with underlying hyporeflectivity.",
+          "Reticular pseudodrusen: Best seen on near-infrared reflectance imaging; appear above the RPE on OCT; recognized as a risk factor for advanced AMD.",
+          "RPE hyperpigmentation: OCT shows pigment clumping/migration as discrete foci of hyperreflectivity with underlying shadowing, commonly in outer retina overlying drusen.",
+          "Geographic atrophy: Most clearly seen on FAF as marked decreased autofluorescence. On OCT: sharply demarcated choroidal hyperreflectivity due to RPE loss.",
+          "Outer retinal tubulations: Ovoid hyporeflective spaces with hyperreflective borders in ONL (rosettes of degenerating photoreceptors in advanced atrophy/disciform scars)."
+        ]
+      },
+      {
+        "title": "Table 13.1 AREDS Classification of AMD",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Classification",
+            "Clinical findings"
+          ],
+          "rows": [
+            [
+              "Category 1: no AMD",
+              "None or a few small drusen (<63 microns in diameter)"
+            ],
+            [
+              "Category 2: early AMD",
+              "Any or all: multiple small drusen; few intermediate drusen (63–124 microns); RPE abnormalities"
+            ],
+            [
+              "Category 3: intermediate AMD",
+              "Any or all: extensive intermediate drusen; at least one large drusen (≥125 microns, ~width of retinal vein at optic disc rim); geographic atrophy not involving fovea"
+            ],
+            [
+              "Category 4: advanced AMD",
+              "Geographic atrophy involving the fovea or any features of neovascular AMD"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Dry AMD Treatment & Management",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Supportive: counselling and linking to support group/social services.",
+          "Refraction: with increased near-add; low-vision aid assessment/provision (best in dedicated clinics).",
+          "Registration: should be offered to improve access to services.",
+          "Amsler grid: regular use to detect new/progressive metamorphopsia for urgent review.",
+          "Lifestyle: Smoking cessation. Increase intake of macular carotenoids (spinach, cabbage, broccoli) and omega-3 fatty acids (oily fish: salmon, mackerel, anchovies, sardines).",
+          "Vitamin supplementation (AREDS): High-dose antioxidants/minerals (C, E, α-carotene, zinc) delay progression from intermediate to advanced stages (especially Category 4 with CNV in one eye).",
+          "AREDS2 & Carotenoids: β-carotene may increase lung cancer in former smokers; lutein + zeaxanthin is the appropriate substitute. Commercially available: Bausch & Lomb’s PreserVision® (AREDS/AREDS2) and Alcon’s I-Caps®."
+        ]
+      },
+      {
+        "title": "Neovascular (Wet) AMD: The Rapid Threat",
+        "icon": "water_drop",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": "Although much less common, neovascular AMD leads to rapid and severe loss of vision. Nearly 40,000 new cases occur each year in the UK, accounting for up to 90% of blind registration due to AMD. Anti-VEGF therapies have significantly reduced legal blindness (Ref: Bloch SB et al. Am J Ophthalmol. 2012;153:209–13.e2)."
+      },
+      {
+        "title": "Wet AMD Histology & Types",
+        "icon": "layers",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Histology: New capillaries grow from choriocapillaris through Bruch’s membrane.",
+          "Type 1 Neovascularization: Proliferates in sub-RPE space. Commoner in AMD.",
+          "Type 2 Neovascularization: Proliferates in subretinal space. Commoner in younger patients (e.g. 2° to myopia).",
+          "Associated signs: Haemorrhage, exudation, serous retinal detachment, PED, or scar formation."
+        ]
+      },
+      {
+        "title": "Wet AMD Variants",
+        "icon": "alt_route",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "AMD Variants",
+          "branches": [
+            "Type 3 (RAP): Retinal angiomatous proliferation (10–15% patients); intraretinal vascular complexes from deep retinal capillaries and choroid.",
+            "PCV: Polypoidal choroidal vasculopathy; polypoidal dilatation of choroidal vasculature with serosanguineous PEDs. Common in Asian/African descent.",
+            "Peripapillary CNV: Lesions developed contiguous with the optic disc.",
+            "Peripheral CNV: Lesions located in the retinal periphery."
+          ]
+        }
+      },
+      {
+        "title": "Wet AMD Clinical Features",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "dVA, metamorphopsia, scotoma; may be sudden in onset.",
+          "Grey membrane (sometimes visible).",
+          "Secondary signs: Subretinal (red) or sub-RPE (grey) haemorrhage, exudation, retinal/PED detachment, CMO, or subretinal fibrosis (disciform scar).",
+          "RAP Signs: Parafoveal intraretinal haemorrhage, PED, circinate exudate. Retinal vessel may ‘dive’ into outer retina (‘right-angled’).",
+          "RPE Tears (‘rips’): Occur in serous PED; appear as atrophy adjacent to marked hyperpigmentation (rolled-up RPE)."
+        ]
+      },
+      {
+        "title": "Investigations for Wet AMD",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Urgent FFA: Vital for diagnosis and assessment (location/classification).",
+          "ICg: Performed where PCV is suspected.",
+          "OCT: Central to detection/monitoring. Activity signs: intraretinal/subretinal fluid, increased sub-RPE fluid.",
+          "OCTA: Beginning to be used for CNV detection."
+        ]
+      },
+      {
+        "title": "Imaging Specifics by CNV Type",
+        "icon": "image",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Type 2 (Classic): FFA shows early, well-demarcated lacy hyperfluorescence with progressive leakage. OCT shows subretinal hyperreflective material (SHRM). \nType 1 (Occult): FFA shows fibrovascular PED (stippled hyperfluorescence at 1-2 min) or late leakage of undetermined source (poorly demarcated 5-10 min). OCT shows irregular RPE elevation from Bruch’s. \nType 3 (RAP): FFA similar to small classic CNV (early hyperfluorescence/progressive leakage). OCT shows outer retinal hyperreflective foci, overlying CMO, and may have PED."
+      },
+      {
+        "title": "PCV EVEREST Diagnostic Criteria",
+        "icon": "rule",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Primary: Early subretinal ICg hyperfluorescence (<5min).",
+          "Plus at least one of:",
+          "(1) Nodular polyp appearance (stereoscopic)",
+          "(2) Hypofluorescent halo around nodule",
+          "(3) Abnormal vascular channel(s) supplying polyps",
+          "(4) Pulsatile filling of polyps",
+          "(5) Orange subretinal nodules (on ICg)",
+          "(6) Massive submacular haemorrhage",
+          "OCT Findings: Branching vascular network (shallow RPE elevation), polyps (sharp protuberances), PED (dome-shaped).",
+          "EDI-OCT: Markedly thickened choroid with dilated vessels (vs thinned in standard AMD)."
+        ]
+      },
+      {
+        "title": "Wet AMD Treatment Hierarchy",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Supportive Care (Counselling, Amsler, Lifestyle - same as Dry AMD).",
+          "Step 2: Anti-VEGF Therapy (Treatment of choice for all subfoveal CNV lesion types).",
+          "Step 3: PDT (Option if Anti-VEGF is contraindicated or patient refuses injections; combination therapy may benefit PCV for polyp regression).",
+          "Step 4: Laser Photocoagulation (Focal laser for extrafoveal/peripapillary CNV or extrafoveal PCV polyps; results in scotoma; high recurrence)."
+        ]
+      },
+      {
+        "title": "Role of FFA in Diagnosis",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "FFA should be performed for all suspected wet AMD except if contraindicated (allergy). It determines CNV location (critical for deciding between laser and injections) and classification. For 'occult' lesions, treatment can sometimes be deferred if no progression is seen. FFA also excludes mimics: Retinal macroaneurysms, CSC, and pattern dystrophies. It identifies non-AMD CNV causes which may respond differently to treatment."
+      },
+      {
+        "title": "Table 13.2 Common Causes of CNV",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Causes"
+          ],
+          "rows": [
+            [
+              "Degenerative",
+              "AMD, Pathological myopia (lacquer crack), Angioid streaks"
+            ],
+            [
+              "Trauma",
+              "Choroidal rupture, Laser"
+            ],
+            [
+              "Inflammation",
+              "POHS, Multifocal choroiditis, Serpiginous choroidopathy, Birdshot retinochoroidopathy, Punctate inner choroidopathy, VKH"
+            ],
+            [
+              "Dystrophies",
+              "Best’s disease"
+            ],
+            [
+              "Other",
+              "Chorioretinal scar (any cause), Tumour, Idiopathic"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Predicting Risk of Advanced AMD",
+        "icon": "calculate",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "AREDS RISK SCALE",
+          "explanation": "Assign 1 point per eye for large drusen (>125 microns) and 1 point per eye for pigment abnormality (0–4 scale). If one eye already has advanced AMD, it counts as 2 risk factors. Add these to the second eye's factors to predict 5-year risk."
+        }
+      },
+      {
+        "title": "Table 13.3 5-Year Risk Estimation",
+        "icon": "query_stats",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Number of Factors",
+            "5y Risk (%)"
+          ],
+          "rows": [
+            [
+              "0",
+              "0.5%"
+            ],
+            [
+              "1",
+              "3%"
+            ],
+            [
+              "2",
+              "12%"
+            ],
+            [
+              "3",
+              "25%"
+            ],
+            [
+              "4",
+              "50%"
+            ]
+          ]
+        }
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1769615071587,
+  "communityId": "sub_1769614749293_v6ge7sptihlhj6",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

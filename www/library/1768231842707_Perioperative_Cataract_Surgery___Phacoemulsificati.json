@@ -1,0 +1,379 @@
+{
+  "id": 1768231842707,
+  "seqId": 95,
+  "title": "Perioperative Cataract Surgery & Phacoemulsification: The Comprehensive Clinical Guide",
+  "summary": "An exhaustive guide to the perioperative management of cataract surgery, encompassing meticulous preoperative checks, IOL selection logic, advanced phacoemulsification techniques, and OVD fluidics. This resource integrates RCOphth guidelines and ESCRS standards for surgical excellence.",
+  "date": "2026-01-12T15:30:42.707Z",
+  "data": {
+    "title": "Perioperative Cataract Surgery & Phacoemulsification: The Comprehensive Clinical Guide",
+    "summary": "An exhaustive guide to the perioperative management of cataract surgery, encompassing meticulous preoperative checks, IOL selection logic, advanced phacoemulsification techniques, and OVD fluidics. This resource integrates RCOphth guidelines and ESCRS standards for surgical excellence.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='35' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M70 100 Q100 70 130 100 Q100 130 70 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><rect x='95' y='40' width='10' height='120' fill='hsl(215, 90%, 45%)' transform='rotate(45 100 100)'/></svg>",
+    "sections": [
+      {
+        "title": "Preoperative Check (Day of Surgery)",
+        "icon": "checklist",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Ensure mydriasis, e.g. cyclopentolate 1% + phenylephrine 2.5% + diclofenac 0.1%.",
+          "Check consent form complete.",
+          "Check any new ophthalmic problems, especially evidence of active infection.",
+          "Mark side of operation.",
+          "Operating surgeon to confirm IoL type/power and axis/operating position."
+        ]
+      },
+      {
+        "title": "CRITICAL: NHS Never Event Warning",
+        "icon": "report_problem",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Within the NHS UK, inserting the incorrect IoL (i.e. not the one intended in the surgical plan) is now mandatorily reported as a Never Event in the category of ‘Wrong Implant/Prosthesis’.",
+          "NHS England. Revised Never Events Policy and Framework. 2015. https://improvement.nhs.uk/uploads/documents/never-evnts-pol-framwrk.pdf."
+        ]
+      },
+      {
+        "title": "Biometry & IOL Selection Logic",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Check that the biometry does indeed belong to your patient.",
+          "Check for intraocular consistency in axial length and K values (similar values/low SD).",
+          "Check for interocular consistency: 92% of axial lengths are 21.0–25.5mm; 99% of K readings are 40–48D.",
+          "Select appropriate lens power (usually aiming for emmetropia).",
+          "If previous refractive surgery: enter corrected K values into SRK/T, Haigis, Haigis-L, Hoffer Q, and Holladay 2, and select the highest IoL power suggested.",
+          "Optimize IOL constants (A constant) for axial length measurement method (optical vs acoustic). Resource: ULIB (http://ocusoft.de/ulib/)."
+        ]
+      },
+      {
+        "title": "RCOphth Guidelines: When to Repeat Measurements",
+        "icon": "replay",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Threshold for Repeating (2010 Guidelines)"
+          ],
+          "rows": [
+            [
+              "Axial Length (AL)",
+              "<21.20mm or >26.60mm"
+            ],
+            [
+              "Mean Corneal Power",
+              "<41D or >47D"
+            ],
+            [
+              "Delta K",
+              ">2.5D"
+            ],
+            [
+              "Interocular AL Difference",
+              ">0.7mm"
+            ],
+            [
+              "Interocular Mean Corneal Power Difference",
+              ">0.9D"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "IOL Formula Selection (Table 9.5)",
+        "icon": "calculate",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Axial Length",
+            "Recommended Formula (RCOphth 2004/2010)"
+          ],
+          "rows": [
+            [
+              "<22mm",
+              "Hoffer Q or SRK/T (Haigis/Hoffer Q may be preferred)"
+            ],
+            [
+              "22–24.5mm",
+              "SRK/T, Holladay, Haigis"
+            ],
+            [
+              ">24.6mm",
+              "SRK/T"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Astigmatic Targeting & Incision Strategy",
+        "icon": "straighten",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "Some surgeons operate ‘from the top’, but temporal clear corneal incisions or scleral tunnels offer relative astigmatic neutrality. ‘On-meridian’ surgery places the clear corneal incision on the steep corneal meridian based on keratometry (refractive astigmatism may include a lenticular component). The astigmatic effect increases with wound depth and length. Enhancement methods: opposite refractive incision (on-meridian) or single/paired incisions at another meridian (off-meridian)."
+      },
+      {
+        "title": "IOL Selection After Refractive Surgery",
+        "icon": "history_edu",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Post-Refractive IOL",
+          "branches": [
+            "Historical: Hoffer, Feiz and Mannis (uses pre-refractive data)",
+            "CL Method: Corrected K = 40 + (Refraction with 40D CL - Refraction without CL)",
+            "Topographical: Apical axial curvature (after Maloney)",
+            "Online Calculators: ASCRS (http://iolcalc.ascrs.org) - incorporates multiple methods for averaged accuracy"
+          ]
+        }
+      },
+      {
+        "title": "Phacoemulsification (1): Preparation & Incision",
+        "icon": "sanitizer",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Povidone iodine (5% aqueous) cleansing of skin and conjunctival sac.",
+          "Step 2: Careful draping to maximize view, keep lashes out, and prevent fluid pooling.",
+          "Step 3: Wound construction (e.g. 2.8mm) for instrument access and AC stability.",
+          "Step 4: Choose wound type: Scleral tunnel (neutral) or Clear Corneal (tends to cause flattening).",
+          "Step 5: Bimanual microincision option (wounds as small as 1.4mm).",
+          "Step 6: Respect wound shape to avoid stripping Descemet’s membrane."
+        ]
+      },
+      {
+        "title": "OVDs (Ophthalmic Viscosurgical Devices)",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Group",
+            "Subgroup",
+            "Content",
+            "Example",
+            "Molecular Weight"
+          ],
+          "rows": [
+            [
+              "Viscoadaptive",
+              "-",
+              "Hyaluronic acid",
+              "Healon 5®",
+              "4,000–8,000kDa"
+            ],
+            [
+              "Cohesive",
+              "Superviscous",
+              "Hyaluronic acid",
+              "Healon GV®",
+              "4,000–8,000kDa"
+            ],
+            [
+              "Cohesive",
+              "Viscous",
+              "Hyaluronic acid",
+              "Healon® / Provisc®",
+              "1,000–2,000kDa"
+            ],
+            [
+              "Dispersive",
+              "Medium Viscosity",
+              "Hyaluronic acid",
+              "Viscoat®",
+              "100–500kDa"
+            ],
+            [
+              "Dispersive",
+              "Very Low Viscosity",
+              "HPMC",
+              "OcuCoat®",
+              "80–90kDa"
+            ],
+            [
+              "Combination",
+              "Cohesive/Dispersive",
+              "-",
+              "DisCoVisc®",
+              "-"
+            ],
+            [
+              "Combination",
+              "With Anaesthetic",
+              "-",
+              "Visthesia®",
+              "-"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Soft-Shell Technique",
+        "icon": "layers",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Traditional: High-viscosity cohesive (maintain AC) + Low-viscosity dispersive (coat cornea).",
+          "Viscoadaptive: Use Healon 5® for both maintenance and protection.",
+          "Ultimate Soft-Shell: Viscoadaptive OVD + BSS.",
+          "Viscoadaptive with viscodispersive combination."
+        ]
+      },
+      {
+        "title": "Continuous Curvilinear Capsulorhexis (CCC)",
+        "icon": "motion_photos_on",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Aim: 5–6mm continuous central anterior capsulectomy.",
+          "Tools: Cystotome and/or forceps under viscoelastic.",
+          "Visibility: Use Trypan blue (under air, irrigate <60s) for poor red reflex.",
+          "Rescuing peripheral run-out: Deepen AC with Healon 5®; tear in opposite direction; use scissors or can-opener.",
+          "Extension: Post-IOL insertion, nick with cystotome and tear with forceps."
+        ]
+      },
+      {
+        "title": "Hydrodissection & Small Pupil Management",
+        "icon": "water_drop",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Hydrodissection: Inject BSS under anterior capsular rim; wave indicates success; allows nucleus rotation.",
+          "Risk: Aggressive injection or fine-bore cannula (<27g) can cause posterior capsule rupture.",
+          "Small Pupil Causes: Diabetes, PXF, Uveitis, Floppy Iris Syndrome, long-term Pilocarpine.",
+          "Intraoperative Strategies: Pupil stretch, Iris hooks, Intracameral mydriatics (Lidocaine + Phenylephrine ± Cyclopentolate).",
+          "Pupil Expansion Devices: Malyugin ring (benefits: round pupil, no sphincter damage, saves time)."
+        ]
+      },
+      {
+        "title": "Phacoemulsification Techniques",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Phaco Techniques",
+          "branches": [
+            "Divide and Conquer: 1.5 tips wide groove, 3mm deep; crack into 4 segments",
+            "Phaco Chop (Horizontal): 2nd instrument under capsule, chop against probe",
+            "Phaco Chop (Vertical): Sharp chopper buried adjacent to probe; lift probe/depress chopper",
+            "Stop and Chop: Initial central groove then chop hemisegments",
+            "Chip and Flip: Sculpt to form a bowl, then flip anteriorly"
+          ]
+        }
+      },
+      {
+        "title": "Pumps, Fluidics & Power Modulation",
+        "icon": "settings_input_component",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "System",
+            "Mechanism",
+            "Characteristics"
+          ],
+          "rows": [
+            [
+              "Vacuum (Venturi/Diaphragm)",
+              "Low pressure relative to AC",
+              "Flow is dependent on pressure difference; cannot be altered independently."
+            ],
+            [
+              "Peristaltic",
+              "Rollers milking tubing",
+              "Flow and Vacuum set separately; low-flow for gentle response; high-flow for aggressive response."
+            ],
+            [
+              "Dual Linear",
+              "Pitch/Yaw foot control",
+              "Simultaneous control of phaco power (pitch) and aspiration (yaw)."
+            ],
+            [
+              "EPT Formula",
+              "Power Efficiency",
+              "Effective Phaco Time = Phaco time × % phaco power used."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Power Modulation Modes",
+        "icon": "bolt",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Pulse: Linear control of energy with fixed/varying rate.",
+          "Burst: Fixed power with variable duration/interval.",
+          "Modifications: Sonolase, ‘no burn’, and ‘cool’ phaco."
+        ]
+      },
+      {
+        "title": "Final Steps & Wound Closure",
+        "icon": "done_all",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Irrigation and Aspiration (automated or manual Simcoe). Engage cortex peripherally, drag centrally.",
+          "Step 2: IOL Insertion. Pre-fill bag with OVD. Place lead haptic, then dial in second haptic.",
+          "Step 3: Wound Closure. Self-sealing assisted by stromal hydration. Suture if in doubt."
+        ]
+      },
+      {
+        "title": "Perioperative Antibiotics (ESCRS Standards)",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "ESCRS Study: Intracameral cefuroxime reported a 5-fold reduction in endophthalmitis.",
+          "Subconjunctival: Cefuroxime or Gentamicin ± Dexamethasone.",
+          "Intracameral: Cefuroxime (1mg)."
+        ]
+      },
+      {
+        "title": "Bimanual Microincision Cataract Surgery (Box 9.3)",
+        "icon": "architecture",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Technique: Two limbal incisions (1.2 x 1.4mm) using separate handpieces for irrigation and phaco.",
+          "Advantage: Smaller incision (1.45mm) and more stable AC.",
+          "Advantage: Improved fluid dynamics (irrigation doesn't propel nucleus away).",
+          "Advantage: Improved accessibility (interchangeable probes) and reduced phaco time/power."
+        ]
+      },
+      {
+        "title": "Patient Communication Warning",
+        "icon": "forum",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "It is vital to have a thorough discussion with any post-refractive laser patient regarding difficulty in accurate IoL prediction.",
+          "Warn of higher risk of post-operative refractive surprise (hyperopic in myopic correction; vice-versa).",
+          "Document discussion in notes and obtain appropriate consent."
+        ]
+      }
+    ]
+  },
+  "chapterId": "glaucoma",
+  "_serverSynced": true
+}

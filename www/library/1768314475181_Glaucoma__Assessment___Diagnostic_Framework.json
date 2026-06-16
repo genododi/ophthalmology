@@ -1,0 +1,274 @@
+{
+  "id": 1768314475181,
+  "seqId": 100,
+  "title": "Glaucoma: Assessment & Diagnostic Framework",
+  "summary": "A comprehensive clinical guide to the assessment of possible glaucoma, covering UK referral statistics, detailed history and examination protocols, the European Glaucoma Society field loss criteria, and the diagnostic 'glaucoma triad'.",
+  "date": "2026-01-13T14:27:55.181Z",
+  "data": {
+    "title": "Glaucoma: Assessment & Diagnostic Framework",
+    "summary": "A comprehensive clinical guide to the assessment of possible glaucoma, covering UK referral statistics, detailed history and examination protocols, the European Glaucoma Society field loss criteria, and the diagnostic 'glaucoma triad'.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M50 10 L50 20 M50 80 L50 90 M10 50 L20 50 M80 50 L90 50' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M25 25 L32 32 M68 68 L75 75 M25 75 L32 68 M68 25 L75 32' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "UK Referral Statistics & Outcomes",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Annual UK Sight Tests",
+              "value": 100
+            },
+            {
+              "label": "Referrals to Ophthalmologists",
+              "value": 6
+            },
+            {
+              "label": "Outcome: Diagnosed Glaucoma (1/3)",
+              "value": 33
+            },
+            {
+              "label": "Outcome: Diagnosed OHT (1/3)",
+              "value": 33
+            },
+            {
+              "label": "Outcome: Discharged (1/3)",
+              "value": 33
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Initial Consultation Strategy",
+        "icon": "visibility",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Consider evidence for glaucoma vs normal variant or alternative pathology (Table 10.3).",
+          "2. Evidence for underlying cause (i.e., type of glaucoma).",
+          "3. Factors that may influence treatment."
+        ]
+      },
+      {
+        "title": "Caution: The Learning Effect",
+        "icon": "warning",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Isolated Abnormalities",
+          "explanation": "Be cautious of interpreting any one abnormality in isolation. Apparent field defects may be artefactual and disappear with repeated testing due to the 'learning effect'."
+        }
+      },
+      {
+        "title": "Significant Glaucomatous Field Loss (EGS)",
+        "icon": "grid_view",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Abnormal glaucoma hemifield test.",
+          "Three abnormal points at p <5% level, one of which should be at p <1% level.",
+          "Points must NOT be contiguous with the blind spot.",
+          "Corrected PSD <5% if the VF is otherwise normal (must be confirmed on two consecutive tests).",
+          "Verification: Ensure no other retinal or neurological disease is affecting the VF."
+        ]
+      },
+      {
+        "title": "Clinical History: Table 10.1",
+        "icon": "history_edu",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Category",
+            "Details to Assess"
+          ],
+          "rows": [
+            [
+              "Visual symptoms",
+              "Asymptomatic, haloes, ache, precipitants (dim light, reading, exercise), subjective loss of vision/field"
+            ],
+            [
+              "POh (Past Ocular)",
+              "Previous surgery (incl. refractive) or trauma, concurrent eye disease, refractive error, amblyopia"
+            ],
+            [
+              "PMh (Past Medical)",
+              "Diabetes, hypertension, ischaemic heart disease (IhD), asthma/COPD, transient ischaemic attack (tIA)/CVA, thyroid disease, chronic obstructive sleep apnoea (COSA), peripheral and central vasospasm (raynaud’s phenomenon, migraine), anaemia"
+            ],
+            [
+              "Fh (Family)",
+              "Family members with glaucoma (age of onset) and their outcome (e.g. any glaucoma-related blindness)"
+            ],
+            [
+              "Dx (Drugs)",
+              "Current/previous topical medications, current drugs (interactions), systemic β-blockers, current/previous use of steroids (any route)"
+            ],
+            [
+              "Ax (Allergies)",
+              "Allergies or relevant drug contraindications"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Physical Examination Checklist",
+        "icon": "medical_services",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Structure",
+            "Findings to Record"
+          ],
+          "rows": [
+            [
+              "VA & Function",
+              "Best corrected (distance/near); rAPD; colour vision (Ishihara plates)"
+            ],
+            [
+              "Cornea",
+              "Pigment deposition (Krukenberg spindle), KPs, guttata, pachymetry"
+            ],
+            [
+              "AC",
+              "Peripheral (van herrick)/central AC depth, cells, pigment"
+            ],
+            [
+              "Gonioscopy",
+              "Angle configuration, iris approach, abnormal pigmentation, peripheral anterior synechiae (PAS), NVA, angle recession"
+            ],
+            [
+              "Tonometry",
+              "IOP (Goldmann applanation tonometry (GAt))—measure in two meridia in high corneal astigmatism"
+            ],
+            [
+              "Iris",
+              "transillumination defects (mid-peripheral/focal/sectorial), PXF, heterochromia, iris stromal hypoplasia, neovascularization (NVI), iris nodules, configuration (plateau, convex, concave)"
+            ],
+            [
+              "Lens",
+              "Cataract (phacomorphic/phacolytic), phacodonesis, subluxation, ACIOL"
+            ],
+            [
+              "Optic disc",
+              "Size, vertical C/D ratio, colour (pallor—diffuse/segmental), optic disc asymmetry, Nrr (contour, notches, haemorrhages), pits, colobomata, optic disc drusen"
+            ],
+            [
+              "Disc vessels",
+              "Baring, bayonetting, trifurcation (optic disc drusen), shunt vessels"
+            ],
+            [
+              "Peripapillary",
+              "haemorrhages, PPA, pigmentation, rNFL defects"
+            ],
+            [
+              "Fundus",
+              "Chorioretinal scarring, retinoschisis, retinal detachment (can cause field loss), maculopathy, previous CrVO/BrVO"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Glaucoma Triad: Table 10.2",
+        "icon": "triangle",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1. RAISED IOP: >21mmHg",
+          "2. ABNORMAL DISC: C/D ratio asymmetry, Large C/D for disc size, NRR notch/thinning (ISNT rule), Disc haemorrhage, Vessel bayoneting/nasally displaced, PPA (B-zone)",
+          "3. VF DEFECT: Nasal step, Paracentral scotoma, Arcuate scotoma, Altitudinal scotoma, residual temporal or central island of vision"
+        ]
+      },
+      {
+        "title": "The ISNT Rule & IOP Caveats",
+        "icon": "rule",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "‘ISNt rule’ describes the normal contour of the disc rim: thickest Inferiorly, thinner Superiorly, then Nasally, and thinnest Temporally. This rule often fails when optic discs have an anomalous configuration. Note: IOP does not need to be >21mmHg to develop glaucomatous optic neuropathy. Anomalous optic discs are difficult to assess."
+      },
+      {
+        "title": "Short Differential Diagnosis: Table 10.3",
+        "icon": "fact_check",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "IOP Status",
+            "Disc Appearance",
+            "Visual Field (VF)",
+            "Consider Diagnosis"
+          ],
+          "rows": [
+            [
+              "Raised IOP",
+              "Normal",
+              "Normal",
+              "OHT (Ocular Hypertension)"
+            ],
+            [
+              "Raised IOP",
+              "Borderline",
+              "Normal",
+              "Glaucoma suspect / Pre-perimetric glaucoma"
+            ],
+            [
+              "Raised IOP",
+              "Borderline",
+              "Consistent defect",
+              "Highly suspicious: treat as glaucoma"
+            ],
+            [
+              "Raised IOP",
+              "Abnormal",
+              "Consistent defect",
+              "Glaucoma"
+            ],
+            [
+              "Normal IOP",
+              "Normal",
+              "Normal",
+              "Normal"
+            ],
+            [
+              "Normal IOP",
+              "Borderline",
+              "Normal",
+              "Physiological cupping"
+            ],
+            [
+              "Normal IOP",
+              "Stable abnormality",
+              "Stable defect",
+              "Congenital disc anomaly / Previous optic disc insult"
+            ],
+            [
+              "Normal IOP",
+              "Evolving abnormality",
+              "Evolving defect",
+              "Normal-tension glaucoma (NtG)"
+            ],
+            [
+              "Normal IOP",
+              "Other Findings",
+              "Other Findings",
+              "Other optic neuropathy"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "chapterId": "glaucoma",
+  "_serverSynced": true
+}

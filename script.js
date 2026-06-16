@@ -19,8 +19,16 @@ const TOPIC_DEFAULT_SEED = "today's trendy articles in ophthalmic journals";
 let geminiKeyProgrammaticUpdate = false;
 
 function isLocalDevHost() {
+    if (isCapacitorNativeApp()) return false;
     const h = window.location.hostname;
     return h === 'localhost' || h === '127.0.0.1' || h === '[::1]';
+}
+
+function isCapacitorNativeApp() {
+    const cap = window.Capacitor;
+    if (!cap) return false;
+    const platform = typeof cap.getPlatform === 'function' ? cap.getPlatform() : cap.platform;
+    return platform === 'ios' || platform === 'android';
 }
 
 /** Reject Keychain account label or other non-key values wrongly persisted earlier. */
@@ -438,7 +446,7 @@ async function exportToPDF(element) {
     try {
         if (downloadBtn) {
             downloadBtn.disabled = true;
-            downloadBtn.innerHTML = '<span class="material-symbols-rounded margin-right:0;">hourglass_top</span>';
+            downloadBtn.innerHTML = '<span class="material-symbols-rounded" style="margin-right:0;">hourglass_top</span>';
             document.body.style.cursor = 'wait';
         }
 
@@ -585,7 +593,7 @@ async function exportToPDF(element) {
                         const flags = Array.isArray(section.content) ? section.content : [section.content];
                         for (const flag of flags) {
                             // Auto-fit the flag text
-                            const fit = autoFitTextBlock(flag, contentWidth - 14, 10, 7);
+                            const fit = autoFitTextBlock(displayText(flag), contentWidth - 14, 10, 7);
                             const flagHeight = fit.lines.length * fit.lineHeight + 4;
 
                             checkPageBreak(flagHeight);
@@ -608,8 +616,10 @@ async function exportToPDF(element) {
                     case 'chart':
                         const chartData = section.content?.data || [];
                         for (const item of chartData) {
+                            const chartLabel = displayText(item?.label ?? item?.name ?? item?.title ?? '');
+                            const chartValue = clampPercent(item?.value ?? item);
                             // Auto-fit chart label
-                            const labelFit = autoFitTextBlock(item.label, contentWidth * 0.68, 9, 7);
+                            const labelFit = autoFitTextBlock(chartLabel, contentWidth * 0.68, 9, 7);
                             const labelHeight = labelFit.lines.length * labelFit.lineHeight;
 
                             checkPageBreak(labelHeight + 8);
@@ -623,11 +633,11 @@ async function exportToPDF(element) {
                             // Draw bar background
                             drawBox(margin, yPos, contentWidth * 0.7, 5, [226, 232, 240]);
                             // Draw bar fill
-                            const barWidth = (contentWidth * 0.7) * (item.value / 100);
+                            const barWidth = (contentWidth * 0.7) * (chartValue / 100);
                             drawBox(margin, yPos, barWidth, 5, themeColor);
                             // Value text
                             pdf.setFontSize(8);
-                            pdf.text(`${item.value}%`, margin + contentWidth * 0.72, yPos + 4);
+                            pdf.text(`${chartValue}%`, margin + contentWidth * 0.72, yPos + 4);
                             yPos += 8;
                         }
                         break;
@@ -651,7 +661,7 @@ async function exportToPDF(element) {
                         pdf.setFont('helvetica', 'bold');
                         pdf.setFontSize(18);
                         pdf.setTextColor(...colors.purple);
-                        pdf.text(mem.mnemonic || 'REMEMBER', margin + contentWidth / 2, yPos + 8, { align: 'center' });
+                        pdf.text(displayText(mem.mnemonic || 'REMEMBER'), margin + contentWidth / 2, yPos + 8, { align: 'center' });
 
                         // Explanation - all lines
                         pdf.setFont('helvetica', 'normal');
@@ -669,7 +679,7 @@ async function exportToPDF(element) {
 
                         // Center concept
                         pdf.setFillColor(...colors.primaryDark);
-                        const centerText = map.center || 'Concept';
+                        const centerText = displayText(map.center || 'Concept');
                         pdf.setFontSize(10);
                         const centerWidth = pdf.getTextWidth(centerText) + 10;
                         pdf.roundedRect(margin + (contentWidth - centerWidth) / 2, yPos, centerWidth, 8, 2, 2, 'F');
@@ -694,7 +704,7 @@ async function exportToPDF(element) {
                             const branchX = margin + colIdx * branchWidth;
 
                             // Auto-fit branch text
-                            const branchFit = autoFitTextBlock(branches[i], branchWidth - 8, 9, 6);
+                            const branchFit = autoFitTextBlock(displayText(branches[i]), branchWidth - 8, 9, 6);
                             const branchHeight = Math.max(8, branchFit.lines.length * branchFit.lineHeight + 4);
 
                             checkPageBreak(branchHeight);
@@ -716,7 +726,7 @@ async function exportToPDF(element) {
                         const points = Array.isArray(section.content) ? section.content : [section.content];
                         for (let i = 0; i < points.length; i++) {
                             // Auto-fit point text
-                            const pointFit = autoFitTextBlock(points[i], contentWidth - 14, 10, 7);
+                            const pointFit = autoFitTextBlock(displayText(points[i]), contentWidth - 14, 10, 7);
                             const pointHeight = pointFit.lines.length * pointFit.lineHeight + 3;
 
                             checkPageBreak(pointHeight);
@@ -736,9 +746,12 @@ async function exportToPDF(element) {
 
                     case 'table':
                         if (section.content?.headers && section.content?.rows) {
-                            const headers = section.content.headers;
-                            const rows = section.content.rows;
+                            const { headers, rows } = normalizeSlideTable(section.content);
                             const numCols = headers.length;
+                            if (numCols === 0) {
+                                yPos += 8;
+                                break;
+                            }
 
                             // Calculate column widths - minimum 25mm, evenly distributed
                             const minColWidth = 25;
@@ -808,7 +821,9 @@ async function exportToPDF(element) {
                             for (const row of rows) {
                                 // Auto-fit each cell
                                 let rowHeight = 6;
-                                const fittedCells = row.map((cell, i) => {
+                                const normalizedRow = Array.isArray(row) ? row : [row];
+                                const paddedRow = headers.map((_, i) => normalizedRow[i] ?? '');
+                                const fittedCells = paddedRow.map((cell, i) => {
                                     const fit = autoFitText(cell, colWidth - 4, 8, 5);
                                     const cellHeight = fit.lines.length * fit.lineHeight + 3;
                                     rowHeight = Math.max(rowHeight, cellHeight);
@@ -841,7 +856,7 @@ async function exportToPDF(element) {
 
                     default:
                         // Plain text
-                        const textContent = String(section.content || '');
+                        const textContent = displayText(section.content || '');
                         const textLines = pdf.splitTextToSize(textContent, contentWidth);
                         for (const line of textLines) {
                             checkPageBreak(6);
@@ -991,6 +1006,33 @@ function isGitHubPages() {
 }
 
 async function safeFetch(url, options) {
+    if (isCapacitorNativeApp()) {
+        const path = String(url || '').replace(/^\//, '');
+        if (path.startsWith('api/library/list')) {
+            const items = await fetchLibraryFromStatic();
+            return new Response(JSON.stringify(items), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+        if (path.startsWith('api/library/upload') || path.startsWith('api/library/delete')) {
+            return new Response(JSON.stringify({ success: true, nativeLocalOnly: true }), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+        if (path.startsWith('api/ftp/')) {
+            return new Response(JSON.stringify({
+                success: false,
+                running: false,
+                error: 'FTP server controls are not available inside the mobile app.'
+            }), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+    }
+
     if (window.location.protocol === 'file:') {
         // Point to localhost server if running locally
         const fullUrl = url.startsWith('http') ? url : `${SERVER_URL}/${url}`;
@@ -1794,6 +1836,11 @@ function autoDetectChapter(title) {
 let _gitHubPagesMessageShown = false;
 
 async function syncLibraryToServer() {
+    if (isCapacitorNativeApp()) {
+        console.log("Native mobile app detected - server sync disabled; library is kept in local IndexedDB.");
+        return;
+    }
+
     // Skip sync on GitHub Pages (static hosting, no backend)
     if (isGitHubPages()) {
         // Only log once per session to avoid console spam
@@ -5176,6 +5223,11 @@ function setupFTPServer() {
 
     if (!ftpBtn || !ftpModal) return;
 
+    if (isCapacitorNativeApp()) {
+        ftpBtn.style.display = 'none';
+        return;
+    }
+
     ftpBtn.addEventListener('click', () => {
         ftpModal.classList.add('active');
         if (window.location.protocol !== 'file:') {
@@ -6193,6 +6245,10 @@ function setLoading(isLoading) {
 }
 
 generateBtn.addEventListener('click', async () => {
+    if (window.OphthalmicMobileBilling && !window.OphthalmicMobileBilling.requireAccess('generate')) {
+        return;
+    }
+
     const geminiKey = apiKeyInput.value.trim();
     const openaiKey = openaiKeyInput.value.trim();
     const topic = topicInput.value.trim();
@@ -6732,6 +6788,31 @@ function escapeHtml(text) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+}
+
+function displayText(value) {
+    if (value == null) return '';
+    if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+        return String(value);
+    }
+    if (Array.isArray(value)) {
+        return value.map(displayText).filter(Boolean).join(' | ');
+    }
+    if (typeof value === 'object') {
+        const preferred = value.title || value.label || value.name || value.topic ||
+            value.heading || value.text || value.description || value.content ||
+            value.detail || value.body || value.value;
+        if (preferred != null && preferred !== value) return displayText(preferred);
+        const values = Object.values(value).map(displayText).filter(Boolean);
+        return values.length ? values.join(' | ') : '';
+    }
+    return String(value);
+}
+
+function clampPercent(value) {
+    const n = Number.parseFloat(String(value ?? '').replace('%', ''));
+    if (!Number.isFinite(n)) return 0;
+    return Math.max(0, Math.min(100, n));
 }
 
 // Utility: Update the category badge on the currently displayed infographic
@@ -7743,10 +7824,10 @@ function renderInfographic(data) {
                 const flags = Array.isArray(section.content) ? section.content : [section.content];
                 contentHtml = `<ul class="warning-list">
                     ${flags.map(item => {
-                        const text = typeof item === 'object' && item !== null ? (item.title || item.text || item.description || item.content || Object.values(item).join(': ')) : item;
+                        const text = displayText(item);
                         return `<li>
                         <span class="material-symbols-rounded warning-icon">warning</span>
-                        ${text}
+                        ${escapeHtml(text)}
                         </li>`;
                     }).join('')}
                 </ul>`;
@@ -7756,36 +7837,39 @@ function renderInfographic(data) {
                 const chartContent = section.content || {};
                 const chartData = chartContent.data || [];
                 contentHtml = `<div class="bar-chart">
-                    ${chartData.map(d => `
+                    ${chartData.map(d => {
+                        const value = clampPercent(d?.value ?? d);
+                        const label = displayText(d?.label ?? d?.name ?? d?.title ?? '');
+                        return `
                         <div class="chart-row">
-                            <div class="chart-label">${d.label}</div>
+                            <div class="chart-label">${escapeHtml(label)}</div>
                             <div class="chart-bar-container">
-                                <div class="chart-bar" style="width: ${d.value}%"></div>
-                                <span class="chart-val">${d.value}%</span>
+                                <div class="chart-bar" style="width: ${value}%"></div>
+                                <span class="chart-val">${value}%</span>
                             </div>
-                        </div>
-                    `).join('')}
+                        </div>`;
+                    }).join('')}
                 </div>`;
                 break;
 
             case 'remember':
                 const mem = section.content || {};
                 contentHtml = `<div class="mnemonic-box">
-                    <div class="mnemonic-title">${mem.mnemonic || 'REMEMBER'}</div>
-                    <div class="mnemonic-text">${mem.explanation}</div>
+                    <div class="mnemonic-title">${escapeHtml(displayText(mem.mnemonic || 'REMEMBER'))}</div>
+                    <div class="mnemonic-text">${escapeHtml(displayText(mem.explanation))}</div>
                 </div>`;
                 break;
 
             case 'mindmap':
                 const map = section.content || {};
-                const centerText = typeof map.center === 'object' && map.center !== null ? (map.center.title || map.center.text || Object.values(map.center).join(' ')) : (map.center || 'Central Topic');
+                const centerText = displayText(map.center || 'Central Topic');
                 const branches = map.branches || [];
                 contentHtml = `<div class="mindmap-container">
-                    <div class="mindmap-center">${centerText}</div>
+                    <div class="mindmap-center">${escapeHtml(centerText)}</div>
                     <div class="mindmap-branches">
                         ${branches.map(b => {
-                            const bText = typeof b === 'object' && b !== null ? (b.title || b.text || b.name || b.branch || Object.values(b).join(': ')) : b;
-                            return `<div class="mindmap-branch">${bText}</div>`;
+                            const bText = displayText(b);
+                            return `<div class="mindmap-branch">${escapeHtml(bText)}</div>`;
                         }).join('')}
                     </div>
                 </div>`;
@@ -7796,28 +7880,27 @@ function renderInfographic(data) {
                 const points = Array.isArray(section.content) ? section.content : [section.content];
                 contentHtml = `<ul class="card-list">
                     ${points.map(item => {
-                        const text = typeof item === 'object' && item !== null ? (item.title || item.text || item.description || item.content || Object.values(item).join(': ')) : item;
-                        return `<li>${text}</li>`;
+                        const text = displayText(item);
+                        return `<li>${escapeHtml(text)}</li>`;
                     }).join('')}
                 </ul>`;
                 break;
 
             case 'table':
                 if (section.content && section.content.headers && section.content.rows) {
-                    const headers = section.content.headers || [];
-                    const rows = section.content.rows || [];
+                    const { headers, rows } = normalizeSlideTable(section.content);
                     contentHtml = `
                     <div class="table-wrapper">
                         <table class="data-table">
                             <thead>
                                 <tr>
-                                    ${headers.map(h => `<th>${h}</th>`).join('')}
+                                    ${headers.map(h => `<th>${escapeHtml(h)}</th>`).join('')}
                                 </tr>
                             </thead>
                             <tbody>
                                 ${rows.map(row => `
                                     <tr>
-                                        ${row.map(cell => `<td>${cell}</td>`).join('')}
+                                        ${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join('')}
                                     </tr>
                                 `).join('')}
                             </tbody>
@@ -7829,16 +7912,16 @@ function renderInfographic(data) {
                 break;
 
             default:
-                const defaultContent = typeof section.content === 'object' && section.content !== null ? 
-                    (Array.isArray(section.content) ? section.content.map(i => typeof i === 'object' && i !== null ? Object.values(i).join(': ') : i).join('<br>') : Object.values(section.content).join(': ')) 
-                    : section.content;
+                const defaultContent = Array.isArray(section.content)
+                    ? section.content.map(displayText).filter(Boolean).map(escapeHtml).join('<br>')
+                    : escapeHtml(displayText(section.content));
                 contentHtml = `<p class="plain-text">${defaultContent}</p>`;
         }
 
         const titleHtml = `
             <h3 class="card-title">
                 <div class="icon-box"><span class="material-symbols-rounded">${iconName}</span></div>
-                ${section.title}
+                ${escapeHtml(section.title)}
             </h3>`;
 
         card.innerHTML = `
@@ -10182,27 +10265,32 @@ function slideContentToTextLines(slide) {
         return c.map(item => {
             const { topic, body } = parseSlideContentItem(item);
             if (topic && body) return `${topic}: ${body}`;
-            return body || topic || String(item);
+            return body || topic || displayText(item);
         });
     }
     if (typeof c === 'string' && c.trim()) return [c];
     if (c && typeof c === 'object') {
         if (c.headers && c.rows) {
-            const hdr = (c.headers || []).join(' | ');
-            return [hdr, ...(c.rows || []).map(row => row.join(' | '))];
+            const { headers, rows } = normalizeSlideTable(c);
+            const hdr = headers.join(' | ');
+            return [hdr, ...rows.map(row => row.join(' | '))].filter(Boolean);
         }
         if (c.mnemonic) {
-            const lines = [`${c.mnemonic}`];
-            if (c.explanation) lines.push(String(c.explanation));
+            const lines = [displayText(c.mnemonic)];
+            if (c.explanation) lines.push(displayText(c.explanation));
             return lines;
         }
         if (c.center) {
-            const lines = [String(c.center)];
-            if (Array.isArray(c.branches)) lines.push(...c.branches.map(String));
+            const lines = [displayText(c.center)];
+            if (Array.isArray(c.branches)) lines.push(...c.branches.map(displayText));
             return lines;
         }
         if (Array.isArray(c.data)) {
-            return c.data.map(d => `${d.label}: ${d.value}${typeof d.value === 'number' ? '%' : ''}`);
+            return c.data.map(d => {
+                const label = displayText(d?.label ?? d?.name ?? d?.title ?? '');
+                const value = displayText(d?.value ?? d);
+                return `${label}: ${value}${value && !String(value).includes('%') ? '%' : ''}`;
+            });
         }
     }
     return [];
@@ -10253,12 +10341,10 @@ function parseSlideContentItem(item) {
         const topic = String(
             item.title || item.label || item.name || item.topic || item.heading || ''
         ).trim();
-        const body = String(
-            item.text || item.description || item.content || item.detail || item.body || item.value || ''
-        ).trim();
+        const body = displayText(item.text || item.description || item.content || item.detail || item.body || item.value || '');
         if (topic && body) return { topic, body };
         if (topic && !body) return { topic, body: '' };
-        const vals = Object.values(item).filter(v => typeof v === 'string' && v.trim());
+        const vals = Object.values(item).map(displayText).filter(Boolean);
         if (vals.length >= 2) {
             return { topic: vals[0].trim(), body: vals.slice(1).join(' — ').trim() };
         }
@@ -10303,7 +10389,7 @@ function renderTemplatedBullets(items, tpl, opts = {}) {
     return `<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.85rem;width:100%;">
         ${items.map((it, i) => {
             const { topic, body } = parseSlideContentItem(it);
-            const displayBody = body || topic || String(it);
+            const displayBody = body || topic || displayText(it);
             const topicLabel = topic && body ? topic : '';
             return `
             <li style="display:flex;align-items:stretch;gap:0;padding:0;background:${tpl.bg};border-left:5px solid ${tpl.border};border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.04);overflow:hidden;">
@@ -10318,6 +10404,102 @@ function renderTemplatedBullets(items, tpl, opts = {}) {
             </li>`;
         }).join('')}
     </ul>`;
+}
+
+function normalizeSlideTable(content) {
+    const headers = Array.isArray(content?.headers)
+        ? content.headers.map(displayText)
+        : [];
+    const rawRows = Array.isArray(content?.rows) ? content.rows : [];
+    const objectKeys = headers.length ? headers : Array.from(new Set(rawRows.flatMap(row =>
+        row && typeof row === 'object' && !Array.isArray(row) ? Object.keys(row) : []
+    )));
+    const finalHeaders = objectKeys.length ? objectKeys : headers;
+    const rows = rawRows.map(row => {
+        if (Array.isArray(row)) return row.map(displayText);
+        if (row && typeof row === 'object') return finalHeaders.map(key => displayText(row[key]));
+        return [displayText(row)];
+    });
+    return { headers: finalHeaders.map(displayText), rows };
+}
+
+function renderSlideStructuredContent(slide, tpl, opts = {}) {
+    const mode = opts.mode || 'preview';
+    const content = slide?.content;
+    const isPresentation = mode === 'presentation';
+    const tableFont = isPresentation ? '1.4rem' : '1.25rem';
+    const tablePad = isPresentation ? '1.5rem' : '1.2rem';
+    const mnemonicTitleSize = isPresentation ? '4.5rem' : '3rem';
+    const mnemonicBodySize = isPresentation ? '1.8rem' : '1.5rem';
+    const centerSize = isPresentation ? '2rem' : '1.5rem';
+    const branchSize = isPresentation ? '1.5rem' : '1.2rem';
+    const statSize = isPresentation ? '4rem' : '3rem';
+
+    if (content?.headers && content?.rows) {
+        const { headers, rows } = normalizeSlideTable(content);
+        if (!headers.length || !rows.length) {
+            return '<p style="font-size:1.4rem;line-height:1.8;color:#334155;">No table rows available.</p>';
+        }
+        return `
+            <div style="overflow:auto;width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,0.08);border:1px solid #e2e8f0;">
+                <table style="width:100%;border-collapse:collapse;text-align:left;font-size:${tableFont};">
+                    <thead>
+                        <tr style="background:#f1f5f9;border-bottom:3px solid #cbd5e1;">
+                            ${headers.map(h => `<th style="padding:${tablePad};font-weight:700;color:#0f172a;">${escapeHtml(h)}</th>`).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${rows.map((row, idx) => `
+                            <tr style="background:${idx % 2 === 0 ? 'white' : '#f8fafc'};border-bottom:1px solid #e2e8f0;">
+                                ${row.map(cell => `<td style="padding:${tablePad};color:#334155;">${escapeHtml(cell)}</td>`).join('')}
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>`;
+    }
+
+    if (content?.mnemonic) {
+        return `
+            <div style="background:linear-gradient(135deg,#f8fafc,#eef2ff);padding:${isPresentation ? '3rem' : '2rem'};border-left:${isPresentation ? '8px' : '6px'} solid #8b5cf6;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);width:100%;">
+                <p style="font-size:${mnemonicTitleSize};font-weight:800;color:#8b5cf6;letter-spacing:3px;margin-bottom:1.5rem;">${escapeHtml(content.mnemonic)}</p>
+                <p style="font-size:${mnemonicBodySize};color:#475569;line-height:1.7;">${escapeHtml(content.explanation || '')}</p>
+            </div>`;
+    }
+
+    if (content?.center) {
+        const branches = Array.isArray(content.branches) ? content.branches : [];
+        return `
+            <div style="text-align:center;margin-bottom:${isPresentation ? '3rem' : '2.5rem'};">
+                <span style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:white;padding:12px 24px;border-radius:30px;font-weight:700;font-size:${centerSize};box-shadow:0 4px 10px rgba(37,99,235,0.3);">${escapeHtml(displayText(content.center))}</span>
+            </div>
+            ${branches.length ? `
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;width:100%;">
+                    ${branches.map(b => `<div style="background:#eff6ff;padding:1.2rem;border-radius:10px;border:2px solid #bfdbfe;text-align:center;font-size:${branchSize};font-weight:500;color:#1e3a8a;">${escapeHtml(displayText(b))}</div>`).join('')}
+                </div>` : ''}`;
+    }
+
+    if (Array.isArray(content?.data)) {
+        return `
+            <div style="display:flex;flex-wrap:wrap;gap:${isPresentation ? '2rem' : '1.5rem'};width:100%;justify-content:center;">
+                ${content.data.map(d => {
+                    const rawValue = d && typeof d === 'object' ? d.value : d;
+                    const label = d && typeof d === 'object' ? (d.label || d.name || d.title || '') : '';
+                    const pct = clampPercent(rawValue);
+                    const valueLabel = Number.isFinite(Number.parseFloat(String(rawValue ?? '')))
+                        ? `${escapeHtml(displayText(rawValue))}${String(rawValue).includes('%') ? '' : '%'}`
+                        : escapeHtml(displayText(rawValue));
+                    return `
+                        <div style="background:white;padding:2rem;border-radius:16px;box-shadow:0 6px 15px rgba(0,0,0,0.05);border:2px solid #e2e8f0;flex:1;min-width:180px;text-align:center;">
+                            <div style="height:6px;background:#e2e8f0;border-radius:999px;margin-bottom:1rem;overflow:hidden;"><div style="width:${pct}%;height:100%;background:${tpl.accent};"></div></div>
+                            <div style="font-size:${statSize};font-weight:800;color:#10b981;margin-bottom:0.5rem;line-height:1;">${valueLabel}</div>
+                            <div style="color:#64748b;font-size:1.1rem;text-transform:uppercase;letter-spacing:1px;font-weight:600;">${escapeHtml(displayText(label))}</div>
+                        </div>`;
+                }).join('')}
+            </div>`;
+    }
+
+    return `<p style="font-size:${isPresentation ? '1.6rem' : '1.4rem'};line-height:1.8;color:#334155;white-space:pre-wrap;">${escapeHtml(displayText(content) || JSON.stringify(content, null, 2) || '')}</p>`;
 }
 
 function generateSlides() {
@@ -10454,8 +10636,8 @@ function renderSlide() {
         slideContent.classList.add('title-slide');
         slideContent.innerHTML = `
             <div class="slide-title-emoji" aria-hidden="true">${getSlideEmoji(slide)}</div>
-            <h1>${slide.title}</h1>
-            <p class="slide-subtitle">${slide.subtitle || ''}</p>
+            <h1>${escapeHtml(slide.title)}</h1>
+            <p class="slide-subtitle">${escapeHtml(slide.subtitle || '')}</p>
             <p class="slide-deck-tagline">Ophthalmology Clinical Teaching Deck</p>
         `;
     } else if (slide.type === 'section') {
@@ -10464,17 +10646,17 @@ function renderSlide() {
         slideContent.style.background = tpl.bg;
         slideContent.innerHTML = `
             <div style="display:inline-flex;align-items:center;justify-content:center;width:120px;height:120px;border-radius:50%;background:${tpl.accent};color:white;margin-bottom:1.5rem;box-shadow:0 12px 24px rgba(0,0,0,0.15);">
-                <span class="material-symbols-rounded" style="font-size:4rem;">${slide.icon || tpl.icon}</span>
+                <span class="material-symbols-rounded" style="font-size:4rem;">${escapeHtml(slide.icon || tpl.icon)}</span>
             </div>
-            <div style="font-size:0.9rem;text-transform:uppercase;letter-spacing:3px;color:${tpl.accent};font-weight:700;margin-bottom:0.5rem;">${getSlideEmoji(slide)} ${tpl.label}</div>
-            <h2 style="color:#0f172a;">${slide.title}</h2>
+            <div style="font-size:0.9rem;text-transform:uppercase;letter-spacing:3px;color:${tpl.accent};font-weight:700;margin-bottom:0.5rem;">${getSlideEmoji(slide)} ${escapeHtml(tpl.label)}</div>
+            <h2 style="color:#0f172a;">${escapeHtml(slide.title)}</h2>
         `;
     } else if (slide.type === 'agenda') {
         slideContent.classList.add('content-slide');
         slideContent.innerHTML = `
             <h3 style="display:flex;align-items:center;gap:12px;font-size:2.4rem;color:#0f172a;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:1rem;width:100%;">
                 <span class="material-symbols-rounded" style="color:#2563eb;font-size:2.4rem;">list_alt</span>
-                ${withSlideEmoji(slide.title, slide)}
+                ${escapeHtml(withSlideEmoji(slide.title, slide))}
             </h3>
             <ol style="list-style:none;padding-left:0;counter-reset:agenda;width:100%;">
                 ${slide.items.map(item => `
@@ -10482,7 +10664,7 @@ function renderSlide() {
                         <span style="display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:1.1rem;">
                             <span style="content:counter(agenda);">${'0'}</span>
                         </span>
-                        <span style="flex:1;">${item}</span>
+                        <span style="flex:1;">${escapeHtml(item)}</span>
                     </li>
                 `).join('')}
             </ol>
@@ -10497,8 +10679,8 @@ function renderSlide() {
         slideContent.classList.add('title-slide');
         slideContent.innerHTML = `
             <div class="slide-title-emoji" aria-hidden="true">${getSlideEmoji(slide)}</div>
-            <h1>${slide.title}</h1>
-            <p class="slide-subtitle">${slide.subtitle || ''}</p>
+            <h1>${escapeHtml(slide.title)}</h1>
+            <p class="slide-subtitle">${escapeHtml(slide.subtitle || '')}</p>
         `;
     } else {
         slideContent.classList.add('content-slide');
@@ -10514,78 +10696,24 @@ function renderSlide() {
                 contentHtml = renderTemplatedBullets(slide.content, tpl, { fontSize: '1.3rem', numbered });
             }
         } else if (typeof slide.content === 'object' && slide.content !== null) {
-            // Check for table structure
-            if (slide.content.headers && slide.content.rows) {
-                const headers = slide.content.headers || [];
-                const rows = slide.content.rows || [];
-                contentHtml = `
-                <div style="overflow-x: auto; margin-top: 1rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
-                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 1.25rem;">
-                        <thead>
-                            <tr style="background: #f8fafc; border-bottom: 2px solid #cbd5e1;">
-                                ${headers.map(h => `<th style="padding: 1.2rem; font-weight: 700; color: #1e293b; border-right: 1px solid #e2e8f0;">${h}</th>`).join('')}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${rows.map((row, idx) => `
-                                <tr style="background: ${idx % 2 === 0 ? 'white' : '#f8fafc'}; border-bottom: 1px solid #e2e8f0;">
-                                    ${row.map(cell => `<td style="padding: 1.2rem; color: #475569; border-right: 1px solid #e2e8f0;">${cell}</td>`).join('')}
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
-                </div>`;
-            } else if (slide.content.mnemonic) {
-                // Enhanced Mnemonic Graphical Style
-                contentHtml = `
-                    <div style="background: #f8fafc; padding: 2rem; border-left: 6px solid #8b5cf6; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-                        <p><strong style="font-size: 3rem; color: #8b5cf6; display: block; margin-bottom: 1rem; letter-spacing: 3px;">${slide.content.mnemonic}</strong></p>
-                        <p style="font-size: 1.5rem; color: #475569; line-height: 1.6;">${slide.content.explanation}</p>
-                    </div>`;
-            } else if (slide.content.center) {
-                // Enhanced Mindmap Graphical Style
-                contentHtml = `
-                    <div style="text-align: center; margin-bottom: 2.5rem;">
-                        <span style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; padding: 12px 24px; border-radius: 30px; font-weight: 700; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);">${slide.content.center}</span>
-                    </div>`;
-                if (slide.content.branches) {
-                    contentHtml += `
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-                            ${slide.content.branches.map(b => `<div style="background: #eff6ff; padding: 1.2rem; border-radius: 10px; border: 2px solid #bfdbfe; text-align: center; font-size: 1.2rem; font-weight: 500; color: #1e3a8a;">${b}</div>`).join('')}
-                        </div>`;
-                }
-            } else if (slide.content.data) {
-                // Enhanced Chart Graphical Style
-                contentHtml = `
-                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
-                        ${slide.content.data.map(d => `
-                            <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 6px 15px rgba(0,0,0,0.05); border: 2px solid #e2e8f0; flex: 1; min-width: 180px; text-align: center;">
-                                <div style="font-size: 3rem; font-weight: 800; color: #10b981; margin-bottom: 0.5rem; line-height: 1;">${d.value}%</div>
-                                <div style="color: #64748b; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">${d.label}</div>
-                            </div>
-                        `).join('')}
-                    </div>`;
-            } else {
-                // Fallback for unexpected object structure
-                contentHtml = `<p style="font-size: 1.4rem; line-height: 1.8; color: #334155; white-space: pre-wrap;">${JSON.stringify(slide.content, null, 2)}</p>`;
-            }
+            contentHtml = renderSlideStructuredContent(slide, tpl, { mode: 'preview' });
         } else {
             // Enhanced Plain Text Graphical Style
             contentHtml = `
                 <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; border-left: 6px solid #3b82f6; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
-                    <p style="font-size: 1.4rem; line-height: 1.8; color: #334155;">${slide.content}</p>
+                    <p style="font-size: 1.4rem; line-height: 1.8; color: #334155;">${escapeHtml(slide.content)}</p>
                 </div>`;
         }
 
         const headerBadge = tpl.key === 'default' ? '' : `
             <span style="display:inline-flex;align-items:center;gap:6px;margin-left:auto;background:${tpl.accent};color:white;padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">
-                <span class="material-symbols-rounded" style="font-size:1rem;">${tpl.icon}</span>
-                ${tpl.label}
+                <span class="material-symbols-rounded" style="font-size:1rem;">${escapeHtml(tpl.icon)}</span>
+                ${escapeHtml(tpl.label)}
             </span>`;
         slideContent.innerHTML = `
             <h3 style="display:flex;align-items:center;gap:12px;border-bottom:3px solid ${tpl.accent}22;padding-bottom:0.9rem;font-size:2rem;color:#0f172a;margin-bottom:1.75rem;width:100%;">
-                <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.2rem;">${slide.icon || tpl.icon}</span>
-                <span style="flex:1;">${withSlideEmoji(slide.title, slide)}</span>
+                <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.2rem;">${escapeHtml(slide.icon || tpl.icon)}</span>
+                <span style="flex:1;">${escapeHtml(withSlideEmoji(slide.title, slide))}</span>
                 ${headerBadge}
             </h3>
             <div style="margin-top:0.5rem;width:100%;">
@@ -10815,8 +10943,8 @@ function renderPresentationSlide() {
         content.classList.add('title-slide');
         content.innerHTML = `
             ${slide.type === 'end' ? '<span class="material-symbols-rounded" style="font-size:5rem;margin-bottom:1.5rem;color:#fbbf24;">auto_awesome</span>' : ''}
-            <h1>${slide.title}</h1>
-            <p>${slide.subtitle || ''}</p>
+            <h1>${escapeHtml(slide.title)}</h1>
+            <p>${escapeHtml(slide.subtitle || '')}</p>
         `;
     } else if (slide.type === 'section') {
         const tpl = slide.template || SLIDE_TEMPLATES.default;
@@ -10824,23 +10952,23 @@ function renderPresentationSlide() {
         content.style.background = tpl.bg;
         content.innerHTML = `
             <div style="display:inline-flex;align-items:center;justify-content:center;width:200px;height:200px;border-radius:50%;background:${tpl.accent};color:white;margin-bottom:2.5rem;box-shadow:0 20px 50px rgba(0,0,0,0.2);">
-                <span class="material-symbols-rounded" style="font-size:7rem;">${slide.icon || tpl.icon}</span>
+                <span class="material-symbols-rounded" style="font-size:7rem;">${escapeHtml(slide.icon || tpl.icon)}</span>
             </div>
-            <div style="font-size:1.3rem;text-transform:uppercase;letter-spacing:6px;color:${tpl.accent};font-weight:700;margin-bottom:1rem;">${tpl.label}</div>
-            <h2 style="color:#0f172a;">${slide.title}</h2>
+            <div style="font-size:1.3rem;text-transform:uppercase;letter-spacing:6px;color:${tpl.accent};font-weight:700;margin-bottom:1rem;">${escapeHtml(tpl.label)}</div>
+            <h2 style="color:#0f172a;">${escapeHtml(slide.title)}</h2>
         `;
     } else if (slide.type === 'agenda') {
         content.classList.add('content-slide');
         content.innerHTML = `
             <h3 style="display:flex;align-items:center;gap:16px;font-size:3rem;color:#0f172a;margin-bottom:2.5rem;border-bottom:3px solid #e2e8f0;padding-bottom:1rem;width:100%;">
                 <span class="material-symbols-rounded" style="color:#2563eb;font-size:3rem;">list_alt</span>
-                ${slide.title}
+                ${escapeHtml(withSlideEmoji(slide.title, slide))}
             </h3>
             <ol style="list-style:none;padding-left:0;width:100%;font-size:1.8rem;">
                 ${slide.items.map((item, i) => `
                     <li style="margin-bottom:1.25rem;display:flex;align-items:center;gap:20px;color:#334155;padding:1rem 1.5rem;background:#f8fafc;border-radius:14px;border-left:6px solid #3b82f6;">
                         <span style="display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:1.3rem;">${String(i + 1).padStart(2, '0')}</span>
-                        <span style="flex:1;">${item}</span>
+                        <span style="flex:1;">${escapeHtml(item)}</span>
                     </li>
                 `).join('')}
             </ol>
@@ -10859,70 +10987,23 @@ function renderPresentationSlide() {
                 contentHtml = renderTemplatedBullets(slide.content, tpl, { fontSize: '1.6rem', numbered });
             }
         } else if (typeof slide.content === 'object' && slide.content !== null) {
-            if (slide.content.headers && slide.content.rows) {
-                const headers = slide.content.headers || [];
-                const rows = slide.content.rows || [];
-                contentHtml = `
-                <div style="overflow:auto;width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,0.08);border:1px solid #e2e8f0;">
-                    <table style="width:100%;border-collapse:collapse;text-align:left;font-size:1.4rem;">
-                        <thead>
-                            <tr style="background:#f1f5f9;border-bottom:3px solid #cbd5e1;">
-                                ${headers.map(h => `<th style="padding:1.5rem;font-weight:700;color:#0f172a;">${h}</th>`).join('')}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${rows.map((row, idx) => `
-                                <tr style="background:${idx % 2 === 0 ? 'white' : '#f8fafc'};border-bottom:1px solid #e2e8f0;">
-                                    ${row.map(cell => `<td style="padding:1.25rem 1.5rem;color:#334155;">${cell}</td>`).join('')}
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
-                </div>`;
-            } else if (slide.content.mnemonic) {
-                contentHtml = `
-                    <div style="background:linear-gradient(135deg,#f8fafc,#eef2ff);padding:3rem;border-left:8px solid #8b5cf6;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);width:100%;">
-                        <p style="font-size:4.5rem;font-weight:800;color:#8b5cf6;letter-spacing:4px;margin-bottom:1.5rem;">${slide.content.mnemonic}</p>
-                        <p style="font-size:1.8rem;color:#475569;line-height:1.7;">${slide.content.explanation || ''}</p>
-                    </div>`;
-            } else if (slide.content.center) {
-                contentHtml = `
-                    <div style="text-align:center;margin-bottom:3rem;">
-                        <span style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:white;padding:16px 32px;border-radius:40px;font-weight:700;font-size:2rem;box-shadow:0 6px 16px rgba(37,99,235,0.35);">${slide.content.center}</span>
-                    </div>
-                    ${slide.content.branches ? `
-                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;width:100%;">
-                            ${slide.content.branches.map(b => `<div style="background:#eff6ff;padding:1.5rem;border-radius:12px;border:2px solid #bfdbfe;text-align:center;font-size:1.5rem;font-weight:500;color:#1e3a8a;">${b}</div>`).join('')}
-                        </div>` : ''}`;
-            } else if (slide.content.data) {
-                contentHtml = `
-                    <div style="display:flex;flex-wrap:wrap;gap:2rem;width:100%;justify-content:center;">
-                        ${slide.content.data.map(d => `
-                            <div style="background:white;padding:2.5rem;border-radius:18px;box-shadow:0 8px 20px rgba(0,0,0,0.06);border:2px solid #e2e8f0;flex:1;min-width:220px;text-align:center;">
-                                <div style="font-size:4rem;font-weight:800;color:#10b981;margin-bottom:0.5rem;line-height:1;">${d.value}${typeof d.value === 'number' ? '%' : ''}</div>
-                                <div style="color:#64748b;font-size:1.2rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">${d.label}</div>
-                            </div>
-                        `).join('')}
-                    </div>`;
-            } else {
-                contentHtml = `<p style="font-size:1.6rem;line-height:1.8;color:#334155;white-space:pre-wrap;">${JSON.stringify(slide.content, null, 2)}</p>`;
-            }
+            contentHtml = renderSlideStructuredContent(slide, tpl, { mode: 'presentation' });
         } else {
             contentHtml = `
                 <div style="background:${tpl.bg};padding:3rem;border-radius:16px;border-left:10px solid ${tpl.border};box-shadow:0 6px 20px rgba(0,0,0,0.06);width:100%;">
-                    <p style="font-size:2rem;line-height:1.8;color:#0f172a;">${slide.content || ''}</p>
+                    <p style="font-size:2rem;line-height:1.8;color:#0f172a;">${escapeHtml(slide.content || '')}</p>
                 </div>`;
         }
 
         const headerBadge = tpl.key === 'default' ? '' : `
             <span style="display:inline-flex;align-items:center;gap:8px;margin-left:auto;background:${tpl.accent};color:white;padding:6px 18px;border-radius:999px;font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
-                <span class="material-symbols-rounded" style="font-size:1.3rem;">${tpl.icon}</span>
-                ${tpl.label}
+                <span class="material-symbols-rounded" style="font-size:1.3rem;">${escapeHtml(tpl.icon)}</span>
+                ${escapeHtml(tpl.label)}
             </span>`;
         content.innerHTML = `
             <h3 style="display:flex;align-items:center;gap:16px;font-size:2.6rem;color:#0f172a;margin-bottom:1.75rem;border-bottom:4px solid ${tpl.accent}33;padding-bottom:1rem;width:100%;">
-                <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.8rem;">${slide.icon || tpl.icon}</span>
-                <span style="flex:1;">${slide.title}</span>
+                <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.8rem;">${escapeHtml(slide.icon || tpl.icon)}</span>
+                <span style="flex:1;">${escapeHtml(withSlideEmoji(slide.title, slide))}</span>
                 ${headerBadge}
             </h3>
             <div style="width:100%;flex:1;display:flex;align-items:flex-start;overflow:auto;">${contentHtml}</div>
@@ -10979,24 +11060,43 @@ function exitPresentationMode() {
 
 function exportSlidesAsHTML() {
     if (slides.length === 0) return;
+    const deckTitle = currentInfographicData?.title || 'Presentation';
+
+    const renderExportSlideContent = (slide) => {
+        const tpl = slide.template || SLIDE_TEMPLATES.default;
+        if (Array.isArray(slide.content)) {
+            const numbered = tpl.key === 'framework' || tpl.key === 'management';
+            return renderTemplatedBullets(slide.content, tpl, { fontSize: '1.25rem', numbered });
+        }
+        if (slide.content && typeof slide.content === 'object') {
+            return renderSlideStructuredContent(slide, tpl, { mode: 'preview' });
+        }
+        const lines = slideContentToTextLines(slide);
+        if (lines.length > 1) {
+            return `<ul>${lines.map(line => `<li>${escapeHtml(line)}</li>`).join('')}</ul>`;
+        }
+        return `<p>${escapeHtml(slide.content || '')}</p>`;
+    };
 
     let html = `<!DOCTYPE html>
 <html>
 <head>
-    <title>${currentInfographicData.title} - Presentation</title>
+    <meta charset="utf-8">
+    <title>${escapeHtml(deckTitle)} - Presentation</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; }
         .slide { width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4rem; }
         .title-slide { background: linear-gradient(135deg, #1e293b, #334155); color: white; text-align: center; }
         .section-slide { background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; text-align: center; }
-        .content-slide { background: white; color: #1f2937; align-items: flex-start; }
+        .content-slide { background: white; color: #1f2937; align-items: flex-start; justify-content: flex-start; overflow: auto; }
         h1 { font-size: 3.5rem; margin-bottom: 1rem; }
         h2 { font-size: 3rem; }
         h3 { font-size: 2rem; color: #3b82f6; margin-bottom: 2rem; width: 100%; }
         p { font-size: 1.5rem; opacity: 0.9; }
         ul { font-size: 1.3rem; line-height: 2; list-style: none; }
-        li::before { content: "▸ "; color: #3b82f6; }
+        .content-slide > ul li::before { content: "▸ "; color: #3b82f6; }
+        table { max-width: 100%; }
         @media print { .slide { page-break-after: always; } }
     </style>
 </head>
@@ -11004,23 +11104,24 @@ function exportSlidesAsHTML() {
 ${slides.map(slide => {
         if (slide.type === 'title' || slide.type === 'end') {
             return `<div class="slide title-slide">
-            <h1>${slide.title}</h1>
-            <p>${slide.subtitle || ''}</p>
+            <h1>${escapeHtml(slide.title)}</h1>
+            <p>${escapeHtml(slide.subtitle || '')}</p>
         </div>`;
         } else if (slide.type === 'section') {
             return `<div class="slide section-slide">
-            <h2>${slide.title}</h2>
+            <h2>${escapeHtml(slide.title)}</h2>
+        </div>`;
+        } else if (slide.type === 'agenda') {
+            return `<div class="slide content-slide">
+            <h3>${escapeHtml(withSlideEmoji(slide.title, slide))}</h3>
+            <ol style="font-size:1.35rem;line-height:1.9;padding-left:2rem;">
+                ${(slide.items || []).map(item => `<li>${escapeHtml(item)}</li>`).join('')}
+            </ol>
         </div>`;
         } else {
-            let content = '';
-            if (Array.isArray(slide.content)) {
-                content = `<ul>${slide.content.map(c => `<li>${c}</li>`).join('')}</ul>`;
-            } else if (typeof slide.content === 'string') {
-                content = `<p>${slide.content}</p>`;
-            }
             return `<div class="slide content-slide">
-            <h3>${slide.title}</h3>
-            ${content}
+            <h3>${escapeHtml(withSlideEmoji(slide.title, slide))}</h3>
+            ${renderExportSlideContent(slide)}
         </div>`;
         }
     }).join('\n')}
@@ -11031,7 +11132,7 @@ ${slides.map(slide => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${currentInfographicData.title.replace(/[^a-z0-9]/gi, '_')}_slides.html`;
+    a.download = `${deckTitle.replace(/[^a-z0-9]/gi, '_')}_slides.html`;
     a.click();
     URL.revokeObjectURL(url);
     showSlideDeckToast('HTML slide deck downloaded.', 'success');

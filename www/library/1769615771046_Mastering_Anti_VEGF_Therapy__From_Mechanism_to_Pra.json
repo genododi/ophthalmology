@@ -1,0 +1,317 @@
+{
+  "id": 1769615771046,
+  "seqId": 157,
+  "title": "Mastering Anti-VEGF Therapy: From Mechanism to Practice",
+  "summary": "Anti-vascular endothelial growth factor (VEGF) therapy is a cornerstone of medical retina, targeting VEGF-A to reduce vascular permeability and halt pathologic angiogenesis. This comprehensive guide outlines the pharmacological mechanisms, clinical trial evidence, NICE guidelines, and precise surgical protocols for intravitreal administration.",
+  "date": "2026-01-28T15:56:11.046Z",
+  "data": {
+    "title": "Mastering Anti-VEGF Therapy: From Mechanism to Practice",
+    "summary": "Anti-vascular endothelial growth factor (VEGF) therapy is a cornerstone of medical retina, targeting VEGF-A to reduce vascular permeability and halt pathologic angiogenesis. This comprehensive guide outlines the pharmacological mechanisms, clinical trial evidence, NICE guidelines, and precise surgical protocols for intravitreal administration.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)' opacity='0.2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/><line x1='75' y1='25' x2='60' y2='40' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M70 20 L80 30' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Core Mechanism of Action",
+        "icon": "settings_input_component",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "VEGF-A (VEGF)",
+          "branches": [
+            "Induces angiogenesis (developmental & pathological)",
+            "Increases vascular permeability",
+            "Triggers inflammation",
+            "Anti-VEGF Result: Resolution of intraretinal/subretinal fluid",
+            "Anti-VEGF Result: Restoration of normal retinal architecture",
+            "Anti-VEGF Result: Halts progression of pathologic neovascularization"
+          ]
+        }
+      },
+      {
+        "title": "The Pharmacological Lineup",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Drug",
+            "Classification",
+            "Mechanism/Specifics",
+            "Clinical Status"
+          ],
+          "rows": [
+            [
+              "Pegaptanib",
+              "Pegylated aptamer",
+              "Selective VEGF inhibitor (VEGF-165 isoform)",
+              "Less effective; no longer in widespread use."
+            ],
+            [
+              "Ranibizumab",
+              "Humanized monoclonal antibody fragment",
+              "Binds ALL isoforms of VEGF-A.",
+              "Licensed for multiple indications."
+            ],
+            [
+              "Bevacizumab",
+              "Humanized monoclonal antibody",
+              "Derived from the same antibody as ranibizumab.",
+              "Common practice (Off-label)."
+            ],
+            [
+              "Aflibercept",
+              "‘Fusion’ protein (Decoy receptor)",
+              "Higher affinity than others; binds VEGF-A + PlGF 1 and 2.",
+              "Licensed for multiple indications."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Evidence: Wet AMD (Neovascular AMD)",
+        "icon": "visibility",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Ranibizumab Gain ≥15 Letters (MARINA/ANCHOR)",
+              "value": 33
+            },
+            {
+              "label": "Ranibizumab Avoid Loss ≥15 Letters",
+              "value": 95
+            },
+            {
+              "label": "Aflibercept Gain ≥15 Letters (VIEW 1/2)",
+              "value": 30
+            },
+            {
+              "label": "Aflibercept Avoid Loss ≥15 Letters",
+              "value": 95
+            }
+          ]
+        }
+      },
+      {
+        "title": "Comparative Trials: Wet AMD",
+        "icon": "compare_arrows",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "CATT and IVAN studies: Bevacizumab (1.25mg/0.05mL) demonstrated similar efficacy to ranibizumab. However, OCT-guided 'as-required' (PRN) retreatment regimens resulted in less gain in VA, whether started at enrolment or after 1 year of monthly treatment."
+      },
+      {
+        "title": "Evidence: Diabetic Macular Oedema (DMO)",
+        "icon": "bloodtype",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Ranibizumab (RISE Trial): 44.8% gained ≥15 letters with 0.3mg monthly (vs 18.1% sham).",
+          "Ranibizumab (RIDE Trial): 33.6% gained ≥15 letters with 0.3mg monthly (vs 12.3% sham).",
+          "Laser requirement: Ranibizumab-treated patients required significantly fewer macular laser procedures.",
+          "Aflibercept (VISTA/VIVID): Mean gain of 10 letters at 3 years.",
+          "DRCRNet (1 Year): All drugs gave 10-12 letter improvement; Aflibercept superior in poor starting VA.",
+          "DRCRNet (2 Year): Ranibizumab and Aflibercept outcomes were similar."
+        ]
+      },
+      {
+        "title": "Evidence: Retinal Vein Occlusion (RVO)",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Drug",
+            "Study",
+            "Indication",
+            "Key Result (≥15 Letter Gain)"
+          ],
+          "rows": [
+            [
+              "Ranibizumab",
+              "CRUISE",
+              "CRVO",
+              "47.5% (vs 16.9% sham)"
+            ],
+            [
+              "Ranibizumab",
+              "BRAVO",
+              "BRVO",
+              "61.1% (vs 28.8% sham)"
+            ],
+            [
+              "Aflibercept",
+              "COPERNICUS",
+              "CRVO",
+              "55.3%"
+            ],
+            [
+              "Aflibercept",
+              "GALILEO",
+              "CRVO",
+              "60.2%"
+            ],
+            [
+              "Aflibercept",
+              "VIBRANT",
+              "BRVO",
+              "57.1% (at 1 year)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Evidence: Myopia-associated CNV",
+        "icon": "remove_red_eye",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "RADIANCE Study (Ranibizumab): Superior to PDT. Gain of 10.5-10.6 letters at 3mo (vs 2.2 PDT). At 12mo: 13.8-14.4 letters (vs 9.3 PDT).",
+          "MyRROR Study (Aflibercept): 12.1 letter improvement at 24wk (vs -2.0 sham). At 48wk: 13.5 letters total gain."
+        ]
+      },
+      {
+        "title": "NICE Guidelines: Wet AMD & CNV",
+        "icon": "gavel",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Ranibizumab (2008) / Aflibercept (2013) recommended for Wet AMD if:",
+          "• BCVA between 6/12 and 6/96.",
+          "• No permanent structural damage to central fovea.",
+          "• Lesion size ≤12 disc areas.",
+          "• Evidence of recent disease progression.",
+          "Pegaptanib: NOT recommended for wet AMD.",
+          "Pathological Myopia (CNV): Ranibizumab approved (2013); Aflibercept (appraisal expected Jan 2018)."
+        ]
+      },
+      {
+        "title": "NICE Guidelines: DMO, RVO, & Steroids",
+        "icon": "rule",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "DMO: Ranibizumab (2013) / Aflibercept (2015) if Central Retinal Thickness (CRT) ≥400 microns and manufacturer discount provided. RVO: Ranibizumab (2013), Aflibercept CRVO (2014), Aflibercept BRVO (2016). Steroid Implants: Dexamethasone for RVO (2011) and DMO in pseudophakic eyes (2015) if non-responsive to other treatments. Fluocinolone acetonide (2013) for DMO in pseudophakic eyes not responding to other treatments."
+      },
+      {
+        "title": "Intravitreal Injection: Pre-Procedure",
+        "icon": "clinical_notes",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Discuss procedure and take informed consent.",
+          "2. Explain purpose: maintain vision and potential improvement.",
+          "3. Warn of risks and need for multiple injections.",
+          "4. Bevacizumab specific: Explain off-label status and licensed alternatives for AMD.",
+          "5. Setting: Theatre or dedicated clean room (enclosed, no interruptions).",
+          "6. Environmental checks: Illumination, washable floor, dust-free ceiling."
+        ]
+      },
+      {
+        "title": "Intravitreal Injection: Preparation",
+        "icon": "inventory_2",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Confirm consent and correct eye.",
+          "2. Measure IOP.",
+          "3. Ensure adequate dilation.",
+          "4. Instil topical anaesthesia.",
+          "5. Set up equipment trolley.",
+          "6. Verify all drugs and post-injection antibiotics are available."
+        ]
+      },
+      {
+        "title": "Surgical Procedure Steps",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Wash hands and don sterile gloves (full gowning unnecessary).",
+          "Step 2: Instil topical anaesthetic and 5% povidone iodine onto ocular surface.",
+          "Step 3: Clean periocular area with povidone iodine; drape and insert lid speculum.",
+          "Step 4: Supplement anaesthesia if needed (Subconjunctival/Sub-Tenon's lidocaine 1%).",
+          "Step 5: Prepare syringe immediately prior; expel air; maintain aseptic technique.",
+          "Step 6: Mark site: 3.0–3.5mm (pseudophakic) or 3.5–4mm (phakic) posterior to limbus.",
+          "Step 7: Insert 27–30g needle (1/2–5/8in) perpendicularly toward centre of globe.",
+          "Step 8: Inject 0.05mL volume; remove needle; use cotton-tipped applicator for reflux/counterpressure.",
+          "Step 9: Instil preservative-free topical antibiotic (e.g., chloramphenicol 0.5%)."
+        ]
+      },
+      {
+        "title": "Post-Injection & Follow-up",
+        "icon": "history",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Test gross VA immediately post-injection.",
+          "Check central retinal artery patency (if acuity unsatisfactory).",
+          "IOP check (often omitted unless specific concern).",
+          "Antibiotics: Chloramphenicol 0.5% 4×/d for ≥3 days (varies by centre).",
+          "Review in clinic according to specific retreatment regimen."
+        ]
+      },
+      {
+        "title": "Signs of Disease Activity (Wet AMD)",
+        "icon": "warning",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "DAFA",
+          "explanation": "D: Deterioration in VA; A: Abnormal retinal thickness/Fluid on OCT (Intraretinal, subretinal, or sub-RPE); F: Fluorescein angiography leakage (CNV); A: Appearance of new intraretinal or subretinal haemorrhage."
+        }
+      },
+      {
+        "title": "Side Effects & Complications",
+        "icon": "report_problem",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Endophthalmitis (<0.1%)",
+          "Retinal detachment",
+          "Lens damage/cataract",
+          "Raised IOP",
+          "Conjunctival haemorrhage",
+          "Vitreous floaters (expected post-procedure)",
+          "Intraocular inflammation",
+          "Eye pain",
+          "Visual loss"
+        ]
+      },
+      {
+        "title": "Patient Contraindications & Advice",
+        "icon": "error",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "CONTRAINDICATION: Allergy to any drug components.",
+          "CONTRAINDICATION: Ocular and periocular infections.",
+          "ADVICE: Explain endophthalmitis warning symptoms clearly.",
+          "ADVICE: Advise that floaters post-procedure are normal."
+        ]
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1769615771046,
+  "communityId": "sub_1769614749293_k5acjeivm5o4d7",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

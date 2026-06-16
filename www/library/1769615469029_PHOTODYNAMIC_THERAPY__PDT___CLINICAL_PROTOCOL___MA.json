@@ -1,0 +1,209 @@
+{
+  "id": 1769615469029,
+  "seqId": 147,
+  "title": "PHOTODYNAMIC THERAPY (PDT): CLINICAL PROTOCOL & MANAGEMENT",
+  "summary": "PDT describes the laser stimulation of a photoactivated dye that results in the selective destruction of Choroidal Neovascularization (CNV) while minimizing damage to adjacent structures. This comprehensive guide outlines the mechanism, administration, and essential safety protocols for modern ophthalmic practice.",
+  "date": "2026-01-28T15:51:09.029Z",
+  "data": {
+    "title": "PHOTODYNAMIC THERAPY (PDT): CLINICAL PROTOCOL & MANAGEMENT",
+    "summary": "PDT describes the laser stimulation of a photoactivated dye that results in the selective destruction of Choroidal Neovascularization (CNV) while minimizing damage to adjacent structures. This comprehensive guide outlines the mechanism, administration, and essential safety protocols for modern ophthalmic practice.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M60 100 Q100 40 140 100 Q100 160 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)' opacity='0.3'/><line x1='100' y1='20' x2='100' y2='85' stroke='red' stroke-width='4' stroke-dasharray='5,2'/><path d='M95 85 L100 95 L105 85 Z' fill='red'/><text x='110' y='50' fill='red' font-family='Arial' font-size='10' font-weight='bold'>689nm Laser</text></svg>",
+    "sections": [
+      {
+        "title": "Core Definition and Aim",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "P HOTODy NAMIC THERAP y (PDT)",
+          "branches": [
+            "Laser stimulation of a photoactivated dye",
+            "Results in the destruction of CNV",
+            "Aims to selectively destroy the membrane",
+            "Minimizing damage to adjacent structures"
+          ]
+        }
+      },
+      {
+        "title": "Indications & Therapeutic Niche",
+        "icon": "assignment_turned_in",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "The commonest indication has been for AMD.",
+          "Used for other CNVs (e.g., in myopia, inflammatory membranes, etc.).",
+          "Role as single agent for CNV largely replaced by anti-VEgF therapies.",
+          "New niche: Central Serous Chorioretinopathy (CSC).",
+          "New niche: Polypoidal Choroidal Vasculopathy (PCV).",
+          "Treatment of certain ocular tumours (e.g. choroidal haemangiomas)."
+        ]
+      },
+      {
+        "title": "Mechanism of Action",
+        "icon": "settings_suggest",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Verteporfin is a photoactivated dye that binds to lipoproteins.",
+          "2. Becomes concentrated in the proliferating vascular bed of the CNV.",
+          "3. Laser light of 689nm wavelength is directed onto the CNV, activating the dye.",
+          "4. Activation catalyses the formation of the free radical ‘singlet oxygen’.",
+          "5. Causes local endothelial cell death and occlusion of the blood supply to the CNV."
+        ]
+      },
+      {
+        "title": "Standard Energy Parameters",
+        "icon": "bolt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Standard Value (Tumours / AMD / Polypoidal)"
+          ],
+          "rows": [
+            [
+              "Wavelength",
+              "689nm"
+            ],
+            [
+              "Irradiance",
+              "600mW/ cm 2"
+            ],
+            [
+              "Exposure Time",
+              "83s"
+            ],
+            [
+              "Total Fluence",
+              "50J/cm2"
+            ],
+            [
+              "Thermal Effect",
+              "Too low to cause thermal damage; sufficient to activate dye."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Practice: Preparation",
+        "icon": "preliminary",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "In advance: Discuss procedure and take informed consent (see Box 13.2).",
+          "On the day: Calculate spot size (greatest linear diameter + 1,000 microns).",
+          "Confirm consent: purpose, risks (see Box 13.2).",
+          "Ensure safety precautions: hat, long sleeves, sunglasses, resuscitation equipment available.",
+          "Establish IV cannula in large vein (e.g. antecubital fossa)."
+        ]
+      },
+      {
+        "title": "Drug Reconstitution & Administration",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Reconstitute 15mg of powder with 7mL of water for injections (2mg/mL solution).",
+          "2. Dilute requisite dose (6mg/m 2 BSA) with glucose 5% to a final volume of 30mL.",
+          "3. Give IV infusion over 10min.",
+          "4. Check laser is functioning and check set-up parameters before starting infusion.",
+          "5. At 15min since start of infusion, start 83s of laser (689nm, variable spot size, 600mW/cm2)."
+        ]
+      },
+      {
+        "title": "Modified Protocols for CSC",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Small RCTs suggest benefit from two modified approaches:",
+          "Standard half-dose (3mg/m2) delivered over 8min and treatment at 10min after infusion start.",
+          "OR Reduced fluence (300mW/cm2)."
+        ]
+      },
+      {
+        "title": "Follow-up and Retreatment",
+        "icon": "event_note",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Review with FFA (+ ICg for polypoidal lesion) and OCT at 12wk for neovascular AMD.",
+          "If recurrent leakage occurs, PDT may be performed up to 4×/y.",
+          "If severe dVA of ≥4 lines within 1wk of treatment, do not retreat, unless VA returns to pre-treatment level.",
+          "Note: Text from page 591."
+        ]
+      },
+      {
+        "title": "Box 13.2: Side Effects & Contraindications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "SIDE EFFECTS: Injection site reactions (inflammation, leakage, hypersensitivity).",
+          "SIDE EFFECTS: Back pain (2%).",
+          "SIDE EFFECTS: Transient visual disturbances.",
+          "SIDE EFFECTS: Significant visual loss (up to 4%).",
+          "CONTRAINDICATIONS: Liver failure.",
+          "CONTRAINDICATIONS: Porphyria.",
+          "CONTRAINDICATIONS: Allergy to any of the components."
+        ]
+      },
+      {
+        "title": "Incidence of Side Effects",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Back Pain",
+              "value": 2
+            },
+            {
+              "label": "Significant Visual Loss",
+              "value": 4
+            }
+          ]
+        }
+      },
+      {
+        "title": "Essential Patient Advice",
+        "icon": "light_mode",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "48-HOUR LIGHT PROTECTION",
+          "explanation": "Avoid direct sunlight and bright lights (sunlamps, halogen, strip-lights, undraped windows). Wear: wide-brimmed hat, sunglasses, long-sleeved shirt, trousers, and socks if going outside."
+        }
+      },
+      {
+        "title": "NICE Guidelines & Historical Context",
+        "icon": "gavel",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Although, in 2006, NICE (UK) made recommendations for the use of PDT in the treatment of classic subfoveal CNV, the 2008 NICE (UK) guidance for ranibizumab and 2013 guidance for aflibercept have resulted in anti-VEgF being first-line indication for CNV 2° to AMD."
+      }
+    ],
+    "chapterId": "lasers"
+  },
+  "chapterId": "lasers",
+  "_newlyImported": 1769615469029,
+  "communityId": "sub_1769614749293_tv6jj2py1ffyuv",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

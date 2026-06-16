@@ -1,0 +1,350 @@
+{
+  "id": 1767780357610,
+  "title": "Paediatric Ophthalmology: Developmental Abnormalities",
+  "summary": "An exhaustive guide to congenital craniofacial and ocular abnormalities, covering structural dysgenesis from the orbit to the retina. This overview includes genetic syndromes, diagnostic features, and surgical management protocols.",
+  "date": "2026-01-07T10:05:57.610Z",
+  "data": {
+    "title": "Paediatric Ophthalmology: Developmental Abnormalities",
+    "summary": "An exhaustive guide to congenital craniofacial and ocular abnormalities, covering structural dysgenesis from the orbit to the retina. This overview includes genetic syndromes, diagnostic features, and surgical management protocols.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M20 20 L40 40 M80 20 L60 40' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Congenital Craniofacial Overview",
+        "icon": "skeleton",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Craniofacial Abnormalities",
+          "branches": [
+            "Craniosynostosis (Premature suture fusion)",
+            "Nonsynostosis (Branchial arch failure)",
+            "Rare overall frequency",
+            "Profound effect on developing orbit and globe"
+          ]
+        }
+      },
+      {
+        "title": "Incidence & Statistics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Craniosynostosis (Live Births)",
+              "value": 25
+            },
+            {
+              "label": "Crouzon Syndrome (Births)",
+              "value": 2
+            },
+            {
+              "label": "Goldenhar Syndrome (Births)",
+              "value": 18
+            },
+            {
+              "label": "Apert Syndrome (Births)",
+              "value": 1
+            },
+            {
+              "label": "Aniridia (Births)",
+              "value": 1.5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Craniosynostosis: Clinical Anatomy",
+        "icon": "vital_signs",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type of Fusion",
+            "Typical Features"
+          ],
+          "rows": [
+            [
+              "Calvarial Suture",
+              "Tall, broad skull; frontal bossing; proptosis. Severe cases: iICP (compression of brain)."
+            ],
+            [
+              "Skull Base Suture",
+              "Midface hypoplasia: maxillary hypoplasia, beak-shaped nose, hypertelorism, shallow orbits with proptosis, high arched palate, mandibular prognathism."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Craniosynostosis Syndromes (FGFR2 Mutations)",
+        "icon": "dna",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Crouzon and Apert syndromes are clinically distinct, but both arise from mutations in the gene encoding the fibroblast growth factor receptor-2 (Chr 10q26). They can be isolated or part of these syndromes."
+      },
+      {
+        "title": "Apert vs. Crouzon Syndromes",
+        "icon": "compare",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Apert Syndrome",
+            "Crouzon Syndrome"
+          ],
+          "rows": [
+            [
+              "Inheritance",
+              "AD or sporadic (1 in 100,000)",
+              "AD or sporadic (1 in 50,000)"
+            ],
+            [
+              "Systemic Features",
+              "Calvarial bone synostosis, midface hypoplasia, syndactyly, intellectual disability, low-set ears.",
+              "Similar to Apert syndrome (midface hypoplasia, synostosis)."
+            ],
+            [
+              "Ocular Associations",
+              "Keratoconus, ectopia lentis, glaucoma, albinism, exposure keratopathy, papilloedema, optic atrophy.",
+              "Micro-/megalocornea, iris coloboma, cataract, ectopia lentis, glaucoma, orbital floor retrusion (leading to globe prolapse)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Nonsynostotic: Branchial Arch Syndromes",
+        "icon": "face",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Caused by failure of development of the first two branchial arches (maxillary/mandibular bones, ear, and facial musculature).",
+          "Treacher Collins Syndrome (Mandibulofacial Dysostosis): AD; mutation in 'treacle gene' TCOF1 (Chr 5q32). Features: Bilateral mandibular/zygoma hypoplasia, downward slanting palpebral fissures, lower lid colobomas, malformed ears, conductive deafness.",
+          "Goldenhar Syndrome: Spectrum of hemifacial microsomia. Mostly sporadic HFM gene mutation (Chr 14q32); 1 in 5,600 births. Features: Unilateral/bilateral hypoplasia (malar, maxillary, mandibular), microtia, preauricular/facial skin tags, epibulbar dermoid, eyelid coloboma, microphthalmos, vertebral anomaly."
+        ]
+      },
+      {
+        "title": "Nasolacrimal Duct Obstruction",
+        "icon": "water_drop",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Congenital obstruction from delayed cannulation of nasolacrimal cord.",
+          "Commonly: Imperforate mucus membrane at the Valve of Hasner (disappears within 1st year).",
+          "90% spontaneously resolve by 1 year of age.",
+          "Treatment: 'Syringe and probe' carries a 90% success rate.",
+          "Failure: Repeat procedure or silicone intubation.",
+          "Severe blockage: DCR is usually required."
+        ]
+      },
+      {
+        "title": "Procedure: 'Syringe and Probe' (Box 18.1)",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Anaesthesia: Usually GA.",
+          "2. Dilate punctum: If necessary, with Nettleship dilator.",
+          "3. Introduce cannula: Into the lower or upper canaliculus.",
+          "4. Inject fluorescein-stained saline: To confirm obstruction.",
+          "5. Pull lower lid laterally: Introduce probe into inferior punctum to the sac until 'hard stop'.",
+          "6. Turn probe 90°: Direct inferiorly/posterolaterally down duct to perforate membrane.",
+          "7. Repeat syringing: Confirm patency by recovery of fluorescein from nose."
+        ]
+      },
+      {
+        "title": "Anophthalmia and Microphthalmia",
+        "icon": "visibility_off",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Anophthalmia: Absence of an eye within the orbit.",
+          "1° Anophthalmia: Complete failure of ocular tissue development.",
+          "2° Anophthalmia: Partial development that halts (very small microphthalmic eye).",
+          "Degenerative Anophthalmia: Partially developed eye regresses.",
+          "Management: Early treatment with conformers and orbit expanders is vital for lid/orbit development until face is fully developed.",
+          "Hydrophilic Orbital Expanders: Used until age 2y; replaced every few weeks.",
+          "Prosthetics: Replaced later by painted prostheses; special conformers for microphthalmos preserve limited vision and improve cosmesis.",
+          "Multidisciplinary Team: Paediatric ophthalmologist, orbital surgeon, orbital prosthesist."
+        ]
+      },
+      {
+        "title": "Hamartomas vs. Choristomas",
+        "icon": "category",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Definition",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Hamartomas",
+              "Congenital tumours of tissues normal to that location",
+              "Capillary haemangiomas (Orbital or Retinal)"
+            ],
+            [
+              "Choristomas",
+              "Congenital tumours of tissues abnormal to that location",
+              "Dermoids (Dermoid cyst)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Anterior Segment Dysgenesis Spectrum",
+        "icon": "layers",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "AS Dysgenesis",
+          "branches": [
+            "Axenfeld–Rieger syndrome",
+            "Peters anomaly",
+            "Aniridia",
+            "50% develop Glaucoma"
+          ]
+        }
+      },
+      {
+        "title": "Axenfeld–Rieger Syndrome",
+        "icon": "rebase_edit",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Consolidated entity: Axenfeld anomaly, Rieger anomaly, Rieger syndrome, iris hypoplasia, iridogoniodysgenesis.",
+          "Genetics: AD commonest; mutations in PITX2 and FOXC1 genes.",
+          "Ocular features: Posterior embryotoxon (found in 15% of normal patients), anterior iris strands, iris hypoplasia, 50% glaucoma.",
+          "Systemic features: Microdontia, oligodontia, maxillary hypoplasia, redundant periumbilical skin, cardiovascular outflow tract abnormalities."
+        ]
+      },
+      {
+        "title": "Peters Anomaly & Iris Coloboma",
+        "icon": "brightness_low",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Peters Anomaly: Congenital corneal opacity (leukoma) with posterior defect (stroma, Descemet’s, endothelium). Usually sporadic. Associated with strands and glaucoma.",
+          "Iris Coloboma: Failure of embryological fissure closure; typical inferonasal defect. May involve ciliary body, choroid, retina, and optic nerve."
+        ]
+      },
+      {
+        "title": "Aniridia: Deep Dive",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Incidence: 1 in 64,000 births. Inheritance: 2/3 AD, 1/3 Sporadic.",
+          "Genetics: PAX6 gene (11p13) point mutations or microdeletions.",
+          "Clinical Features: Iris hypoplasia (mild to complete absence), foveal hypoplasia (thickened inner retina on OCT), nystagmus.",
+          "Complications: Cataract, optic nerve hypoplasia, glaucoma, stem cell deficiency (corneal opacification in childhood).",
+          "Gillespie Syndrome: Rare AR form; partial aniridia, ataxia, intellectual disability (not PAX6 related)."
+        ]
+      },
+      {
+        "title": "WAGR & Wilms' Tumor Warning",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sporadic aniridia may involve an 11p13 microdeletion of PAX6 and WT1 (tumor suppressor).",
+          "WAGR Syndrome: Wilms’ tumour (nephroblastoma), Aniridia, Genitourinary abnormalities, intellectual disability (dIQ).",
+          "All sporadic aniridia cases must undergo chromosomal deletion analysis to exclude Wilms’ tumour."
+        ]
+      },
+      {
+        "title": "Aniridia Management",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Tinted contact lenses.",
+          "Cataract surgery with artificial iris–lens diaphragms.",
+          "Keratoplasty for stem cell deficiency/opacification.",
+          "Medical and surgical therapy for glaucoma."
+        ]
+      },
+      {
+        "title": "Posterior Segment: Vitreous & Hyaloid",
+        "icon": "waves",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Remnant Type",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Mittendorf’s dot",
+              "Glial remnant just posterior to lens"
+            ],
+            [
+              "Bergmeister’s papilla",
+              "Glial remnant just anterior to disc"
+            ],
+            [
+              "Persistent hyaloid artery",
+              "Vascular remnant arising from disc"
+            ],
+            [
+              "Persistent fetal vasculature",
+              "Vascular remnant and retrolental mass"
+            ],
+            [
+              "Stickler Syndrome",
+              "Type II collagen abnormalities of vitreous structure"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Optic Nerve & Fissure Defects",
+        "icon": "album",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Coloboma: Defects from failure of fissure closure anywhere from disc to iris. Can be blinding.",
+          "Optic Nerve Anomalies: Optic disc pits (often isolated), optic disc hypoplasia, coloboma, and morning glory anomaly.",
+          "Severe disc abnormalities are often associated with systemic pathology."
+        ]
+      },
+      {
+        "title": "Retinal Abnormalities",
+        "icon": "center_focus_strong",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Vascularization Defects: Premature cessation due to FEVR (inherited) or ROP (acquired). Results in fibrovascular proliferation, traction, exudation, and detachment.",
+          "Retinal Dysplasia: Can be isolated or syndromic (Edwards’, Patau, Norrie, Walker–Warburg, or incontinentia pigmenti). Presents with bilateral leucocoria and poor vision.",
+          "Macular Hypoplasia: Loss of foveal reflex/avascular zone. Occurs in isolation or with albinism/aniridia."
+        ]
+      }
+    ]
+  },
+  "chapterId": "paediatric",
+  "seqId": 45,
+  "_serverSynced": true
+}

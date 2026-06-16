@@ -1,0 +1,317 @@
+{
+  "id": 1769615071599,
+  "seqId": 135,
+  "title": "MACULAR FLUID DYNAMICS: CSC & CMO CLINICAL COMPENDIUM",
+  "summary": "An exhaustive clinical guide to Central Serous Chorioretinopathy (CSC) and Cystoid Macular Oedema (CMO), detailing their unknown aetiologies, complex risk profiles, diagnostic imaging hallmarks, and evidence-based management protocols.",
+  "date": "2026-01-28T15:44:31.599Z",
+  "data": {
+    "title": "MACULAR FLUID DYNAMICS: CSC & CMO CLINICAL COMPENDIUM",
+    "summary": "An exhaustive clinical guide to Central Serous Chorioretinopathy (CSC) and Cystoid Macular Oedema (CMO), detailing their unknown aetiologies, complex risk profiles, diagnostic imaging hallmarks, and evidence-based management protocols.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><path d='M20,50 Q100,20 180,50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M20,55 Q100,85 180,55' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='4'/><circle cx='100' cy='50' r='15' fill='rgba(215, 90%, 45%, 0.1)' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><path d='M90,50 Q100,40 110,50 Q100,60 90,50' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Central Serous Chorioretinopathy (CSC/CSR)",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The aetiology of CSC (syn central serous retinopathy (CSR)) is unknown, but choroidal hyperpermeability appears to play a central role, leading to a variable combination of sub-RPE and SRF (subretinal fluid) accumulation."
+      },
+      {
+        "title": "CSC Risk Factors Profile",
+        "icon": "groups",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "CSC Risk Factors",
+          "branches": [
+            "Adult men (20–50y)",
+            "Type A personalities",
+            "Psychosocial stress",
+            "Pregnancy (usually third trimester)",
+            "Cushing’s disease (5% prevalence)"
+          ]
+        }
+      },
+      {
+        "title": "CRITICAL: Drug Associations",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Numerous drugs (notably corticosteroids) are associated.",
+          "Vital to enquire about ALL medications: tablets, creams, lotions, inhalers.",
+          "Check for any natural remedies.",
+          "Avoidance of glucocorticoid medication is essential for management."
+        ]
+      },
+      {
+        "title": "CSC Clinical Features",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Unilateral sudden dVA (decreased visual acuity).",
+          "Positive scotoma (usually central).",
+          "Metamorphopsia.",
+          "Increased hypermetropia.",
+          "Shallow detachment of sensory retina at posterior pole.",
+          "Deeper small yellow-grey elevations / RPE detachments (PEDs).",
+          "Multifocal or diffuse pigmentary changes (suggests chronicity).",
+          "Occasional fluid tracking inferiorly from posterior pole.",
+          "Bullous nonrhegmatogenous detachment of inferior peripheral retina (in tracking cases)."
+        ]
+      },
+      {
+        "title": "Diagnostic Investigation Suite for CSC",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Modality",
+            "Key Findings & Actions"
+          ],
+          "rows": [
+            [
+              "GP Liaison",
+              "Rule out systemic causes (e.g., 24h urine collection for cortisol if Cushing’s disease is suspected)."
+            ],
+            [
+              "FFA",
+              "One or more points of progressive leakage and pooling; classically in a 'smoke-stack' or 'ink-blot' pattern."
+            ],
+            [
+              "ICG",
+              "Choroidal hyperpermeability in late phase; hyperfluorescence more widespread than FFA; commonly bilateral changes."
+            ],
+            [
+              "OCT",
+              "Neurosensory retinal detachment; small PEDs; intact architecture (typically); cystoid degeneration in severe chronic cases."
+            ],
+            [
+              "EDI-OCT",
+              "Markedly thickened choroid with dilatation of large choroidal vessels (hallmark: 'pachychoroid')."
+            ],
+            [
+              "FAF",
+              "RPE changes and evidence of gravitational fluid tracks (indicating previous episodes or chronicity)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CSC Management & Intervention",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Conservative: High rate of spontaneous remission; include lifestyle counselling and glucocorticoid avoidance.",
+          "Indications for Intervention: Persistence >6mo, multiple recurrences, occupational needs, contralateral persistent visual impairment.",
+          "Argon Laser Treatment: Mild burns to leakage site (<10 burns, 50–200 microns, 0.1s, gentle blanching only); less common now.",
+          "PDT: Half-dose or low-fluence PDT for disease not amenable to argon laser (e.g., subfoveal).",
+          "Medication: Mineralocorticoid antagonists (e.g., eplerenone) may help; monitor serum potassium for hyperkalaemia risk."
+        ]
+      },
+      {
+        "title": "CSC Prognosis Statistics",
+        "icon": "query_stats",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Spontaneous Recovery (1-6mo, VA ≥6/12)",
+              "value": 80
+            },
+            {
+              "label": "Recurrent Episodes",
+              "value": 45
+            },
+            {
+              "label": "Chronic Cases",
+              "value": 5
+            },
+            {
+              "label": "Annual risk of CNV",
+              "value": 2
+            }
+          ]
+        }
+      },
+      {
+        "title": "Prognosis & Differential Notes",
+        "icon": "assignment_late",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "Subtle metamorphopsia may persist despite recovery. Pregnancy-associated CSC usually resolves 1–2mo post-delivery. Chronic or recurrent episodes are associated with more significant visual loss."
+      },
+      {
+        "title": "CSC Differential Diagnosis",
+        "icon": "troubleshoot",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "IMPORTANT: Thoroughly examine optic disc for PITS.",
+          "CNV and PCV.",
+          "Inflammatory: VKH, posterior scleritis, sympathetic ophthalmia, uveal effusion syndrome.",
+          "Autoimmune: SLE, PAN.",
+          "Vascular: Malignant hypertension, toxaemia of pregnancy, DIC.",
+          "Choroidal tumours (including lymphoma)."
+        ]
+      },
+      {
+        "title": "Cystoid Macular Oedema (CMO)",
+        "icon": "water_drop",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "CMO is a common pathological response to various ocular insults, most commonly after cataract surgery, or associated with retinal vascular or inflammatory disease. Knowledge of underlying mechanisms is essential to a rational therapeutic approach."
+      },
+      {
+        "title": "Mechanisms of CMO Formation",
+        "icon": "settings_suggest",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "CMO Mechanisms",
+          "branches": [
+            "Increased vascular permeability (VEGF, Prostaglandins)",
+            "Loss of vascular structure (DR: endothelial cells/pericytes)",
+            "Congenital vascular abnormalities (Coats’)",
+            "Increased blood flow (post-operative)",
+            "Dysfunction of RPE barrier/pump (dystrophies)",
+            "Tractional stress (VMT, ERM)",
+            "Drug reactions",
+            "Fluid migration (Optic disc pit)"
+          ]
+        }
+      },
+      {
+        "title": "CMO Clinical Features",
+        "icon": "person_search",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Asymptomatic or dVA (may be severe).",
+          "Metamorphopsia and scotomas.",
+          "Loss of foveal contour.",
+          "Retinal thickening and cystoid spaces.",
+          "Central yellow spot.",
+          "Small intraretinal haemorrhages (occasional).",
+          "Telangiectasia (occasional).",
+          "Complication: Lamellar hole (irreversible dVA)."
+        ]
+      },
+      {
+        "title": "CMO Investigations",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Test",
+            "Findings"
+          ],
+          "rows": [
+            [
+              "FFA",
+              "Dye leakage from parafovea (petaloid pattern) and optic disc. (Note: May be absent in drug reactions/dystrophies)."
+            ],
+            [
+              "OCT",
+              "Detection rate equal to FFA; measures thickening and specific pathology (VMT); differentiates from retinoschisis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CMO Stepwise Treatment Path",
+        "icon": "stairs",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1 (Recent Insult): Topical Steroid (Dex 0.1% 4x/d) + NSAID (Ketorolac 0.3% 3x/d).",
+          "Step 2 (4-6wk Review): If persisting, add Periocular steroid (Orbital floor/sub-Tenon’s; methylprednisolone/triamcinolone).",
+          "Step 3 (4-6wk Review): If persisting, consider Intravitreal steroid (Triamcinolone 2mg), Vitrectomy, or Systemic steroids (Prednisolone 40mg 1x/d or IVMP 500mg single dose).",
+          "Step 4 (Alternative): Topical or oral carbonic anhydrase inhibitors (dorzolamide, acetazolamide; limited evidence)."
+        ]
+      },
+      {
+        "title": "Box 13.3: Comprehensive Causes of CMO",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Specific Conditions"
+          ],
+          "rows": [
+            [
+              "Inflammatory",
+              "Post-operative (cataract/corneal/vitreoretinal), Post-laser (PI, PRP), Post-cryotherapy, Uveitis."
+            ],
+            [
+              "Retinal Vascular",
+              "RVO, DR, Hypertensive retinopathy, Radiation retinopathy, OIS, Telangiectasia (MacTel)."
+            ],
+            [
+              "Choroidal Vascular",
+              "CNV."
+            ],
+            [
+              "Drug Reactions",
+              "Nicotinic acid, Topical adrenaline, PgAs (latano-), Chemotherapy (paclitaxel), glitazones."
+            ],
+            [
+              "Inherited Dystrophies",
+              "RP, Autosomal dominantly inherited CMO."
+            ],
+            [
+              "Vitreoretinal Interface",
+              "Vitreomacular traction (VMT) syndrome, ERM."
+            ],
+            [
+              "Optic Nerve Head",
+              "Optic disc pit, Optic disc coloboma."
+            ],
+            [
+              "Other",
+              "Tumours of choroid/retina, Idiopathic."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CMO Prognosis",
+        "icon": "trending_up",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "Prognosis varies according to underlying pathology. In diabetes or RVO, anti-VEGF agents are effective. Carbonic anhydrase inhibitors are used for inherited dystrophies. Most post-cataract surgery patients attain VA ≥6/9 within 3–12mo of their operation."
+      }
+    ],
+    "chapterId": "uncategorized"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1769615071599,
+  "communityId": "sub_1769614749293_81kkxlqt18j51t",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

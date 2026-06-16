@@ -1,0 +1,287 @@
+{
+  "id": 1769615771017,
+  "seqId": 154,
+  "title": "Clinical Pathology of Degenerative Myopia, Angioid Streaks & Choroidal Folds",
+  "summary": "An exhaustive clinical guide covering the epidemiological impact, diagnostic features, systemic associations, and evidence-based treatments for pathological myopia, Bruch's membrane pathologies, and choroidal corrugations.",
+  "date": "2026-01-28T15:56:11.017Z",
+  "data": {
+    "title": "Clinical Pathology of Degenerative Myopia, Angioid Streaks & Choroidal Folds",
+    "summary": "An exhaustive clinical guide covering the epidemiological impact, diagnostic features, systemic associations, and evidence-based treatments for pathological myopia, Bruch's membrane pathologies, and choroidal corrugations.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' stroke='hsl(215, 90%, 45%)' stroke-width='4' fill='none'/><ellipse cx='100' cy='100' rx='95' ry='75' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><path d='M60 100 Q 100 80 140 100 T 180 100' stroke='hsl(215, 90%, 45%)' fill='none' stroke-dasharray='4'/><path d='M40 70 L 160 130 M 40 130 L 160 70' stroke='hsl(0, 70%, 50%)' stroke-width='1'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)' opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Defining Degenerative Myopia",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Criteria / Description"
+          ],
+          "rows": [
+            [
+              "Physiological Myopia",
+              "Common; regarded as physiological if <−6D."
+            ],
+            [
+              "High Myopia",
+              ">−6D; includes a subset where axial length may never stabilize."
+            ],
+            [
+              "Progressive / Pathological Myopia",
+              "Subset of high myopia at risk of degenerative changes."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "public",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "East Asia School-Leavers Affected",
+              "value": 90
+            },
+            {
+              "label": "Sight-Threatening Pathology (2° Schooling)",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathogenesis & Risks",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Excessive near work appears to be a risk factor.",
+          "i time outdoors appears protective.",
+          "Genetic factors are important; susceptibility loci identified from genome-wide association studies (GWAS).",
+          "Ref 27: Morgan Ig et al. Lancet 2012.",
+          "Ref 28: Verhoeven VJ et al. Nat Genet 2013.",
+          "Ref 29: Li yJ et al. Ophthalmology 2011 (CTNND2 variants in Singapore Chinese)."
+        ]
+      },
+      {
+        "title": "Clinical Features of Degenerative Myopia",
+        "icon": "clinical_notes",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Degenerative Myopia Features",
+          "branches": [
+            "Symptoms: Increasing myopia, dVA, metamorphopsia, photopsia (occasional)",
+            "Fundus: Pale, tessellated, central/peripheral chorioretinal atrophy, lacquer cracks (Bruch’s membrane), spontaneous macular haemorrhage",
+            "Macula: Förster–Fuchs’ spot (pigmented scar), posterior staphyloma",
+            "Periphery: Lattice degeneration",
+            "Disc: Tilted, temporal crescent (atrophy), peripapillary choroidal cavitation (yellow-orange thickening at inferior border of conus)",
+            "Vitreous: Syneresis; PVD (at younger age)",
+            "Anterior/Other: Long axial length, deep AC, zonular dehiscence, PDS, glaucoma"
+          ]
+        }
+      },
+      {
+        "title": "Complications of Pathological Myopia",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "CNV: Commonest cause in young patients (Risk: lacquer cracks, patchy atrophy)",
+          "Macular hole",
+          "Peripheral retinal tears",
+          "Rhegmatogenous Retinal Detachment (RRD)",
+          "Macular retinoschisis",
+          "Macular hole retinal detachments (especially with posterior staphyloma)"
+        ]
+      },
+      {
+        "title": "Box 13.4: Associations of Myopia",
+        "icon": "list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Stickler syndrome",
+          "Marfan’s syndrome",
+          "Ehlers–Danlos syndrome",
+          "Down’s syndrome",
+          "Gyrate atrophy",
+          "Congenital rubella",
+          "Congenital stationary night blindness (CSNB)"
+        ]
+      },
+      {
+        "title": "Investigations for Myopia",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Posterior staphyloma: US for confirmation and monitoring of axial length.",
+          "Dome-shaped macula: Seen on OCT in minority; associated with SRF; may be misdiagnosed as myopic CNV.",
+          "Myopic CNV on OCT: Smaller than wet AMD; negligible sub-RPE fluid; considerably less intraretinal/subretinal fluid.",
+          "FFA: Frequently required for CNV diagnosis and retreatment guidance due to low fluid on OCT.",
+          "Macular retinoschisis: OCT useful for differentiation from macular hole retinal detachment."
+        ]
+      },
+      {
+        "title": "Treatment Strategies for Myopia",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Prevent progression: Trials of i time spent outdoors; controversial options include orthokeratology, atropine eye drops, and scleral reinforcement procedures.",
+          "CNV Treatment: Anti-VEGF agents (Ranibizumab—RADIANCE study; Aflibercept—MyRROR study).",
+          "Regulatory: NICE approved ranibizumab for pathological myopia in 2013; aflibercept guidance expected 2018."
+        ]
+      },
+      {
+        "title": "Angioid Streaks: Pathogenesis & PXE",
+        "icon": "emergency_home",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "Angioid streaks are breaks in an abnormally thickened and calcified Bruch’s membrane associated with endocrine, metabolic, and connective tissue abnormalities (50% idiopathic). Pseudoxanthoma elasticum (PXE) is the commonest systemic association. PXE is an AR connective tissue disorder (ABCC6 gene) causing calcification of elastic fibres in skin, eye, and CVS. Skin examination of the neck, antecubital fossae, and axillae may reveal a ‘plucked chicken’ or ‘cobblestone-like’ appearance."
+      },
+      {
+        "title": "Clinical Features of Angioid Streaks",
+        "icon": "patient_list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Symptoms: Asymptomatic; dVA, metamorphopsia.",
+          "Appearance: Narrow, irregular streaks radiating from a peripapillary ring; red to dark brown color (less visible in young).",
+          "Associated Features: Peripapillary chorioretinal atrophy; RPE mottling (‘peau d’orange’ - commonest in PXE); disc drusen, subretinal drusenoid deposits.",
+          "Complications: CNV, choroidal rupture (after minor trauma), subfoveal haemorrhage, macular atrophy."
+        ]
+      },
+      {
+        "title": "Box 13.5: Causes of Angioid Streaks",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "PXE",
+          "Ehlers–Danlos syndrome",
+          "Paget’s disease",
+          "Acromegaly",
+          "Haemoglobinopathies",
+          "Hereditary spherocytosis",
+          "Abetalipoproteinaemia",
+          "Idiopathic (50%)"
+        ]
+      },
+      {
+        "title": "Angioid Streaks: Management",
+        "icon": "health_and_safety",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Approach",
+            "Details"
+          ],
+          "rows": [
+            [
+              "Conservative",
+              "Advise to avoid contact sports / risk of trauma (due to choroidal rupture risk)."
+            ],
+            [
+              "FFA Investigation",
+              "If CNV suspected; streaks show hyperfluorescence due to window defect."
+            ],
+            [
+              "Anti-VEGF",
+              "Intravitreal therapies effective and used as first-line for all CNV."
+            ],
+            [
+              "Argon Laser / PDT",
+              "Options for extrafoveal/juxtafoveal CNV; often fails to prevent subfoveal progression."
+            ],
+            [
+              "PDT for Subfoveal",
+              "Short-term benefit; lost by 2y with progressive decline in vision."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Choroidal Folds: Clinical Presentation",
+        "icon": "layers",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "Corrugations in the choroid and Bruch’s membrane seen as light and dark lines. Typically horizontal over the posterior pole; can be vertical, oblique, or jigsaw-like. Distinguished from retinal striae by being deeper and broader. Their primary significance is prompting investigation for underlying disease."
+      },
+      {
+        "title": "Diagnostic Imaging: Choroidal Folds",
+        "icon": "image",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Modality",
+            "Findings / Value"
+          ],
+          "rows": [
+            [
+              "FFA",
+              "Alternating lines: Hyperfluorescence (peaks - RPE stretched/thinned) and hypofluorescence (troughs - RPE bunching blocks signal)."
+            ],
+            [
+              "OCT",
+              "Undulations of RPE (visible on vertical scans) without separation from Bruch’s. Differentiates folds from retinal striae (ERM)."
+            ],
+            [
+              "Orbital US",
+              "Detection of retrobulbar masses or orbital pathology."
+            ],
+            [
+              "CT/MRI",
+              "Excludes orbital/intracranial pathology. Key for acquired ‘idiopathic’ hypermetropia (raised ICP risk)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Box 13.6: Causes of Choroidal Folds",
+        "icon": "diagnosis",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Etiology",
+          "branches": [
+            "Idiopathic: Asymptomatic bilateral folds in healthy hypermetropes",
+            "Orbital: TED, Retrobulbar mass, Idiopathic orbital inflammatory disease",
+            "Ocular: Hypotony, Posterior scleritis, Choroidal lesions (disciform scars/tumours), Uveitis",
+            "Intracranial: Raised ICP (may occur without papilloedema)"
+          ]
+        }
+      }
+    ],
+    "chapterId": "refractive"
+  },
+  "chapterId": "refractive",
+  "_newlyImported": 1769615771017,
+  "communityId": "sub_1769614749293_kgutm4b4tdd7qz",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

@@ -1,0 +1,345 @@
+{
+  "id": 1768146310850,
+  "seqId": 78,
+  "title": "Microbial Keratitis: Clinical Assessment & Management",
+  "summary": "A comprehensive guide to microbial keratitis, a common sight-threatening ophthalmic emergency. This poster outlines assessment protocols, microbiological processing, intensive sterilization phases, and advanced surgical interventions for corneal perforations.",
+  "date": "2026-01-11T15:45:10.850Z",
+  "data": {
+    "title": "Microbial Keratitis: Clinical Assessment & Management",
+    "summary": "A comprehensive guide to microbial keratitis, a common sight-threatening ophthalmic emergency. This poster outlines assessment protocols, microbiological processing, intensive sterilization phases, and advanced surgical interventions for corneal perforations.",
+    "summary_illustration": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"2\"/><path d=\"M20 50 Q50 10 80 50 Q50 90 20 50\" fill=\"none\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"8\" fill=\"hsl(215, 90%, 75%)\" opacity=\"0.6\"/><path d=\"M45 45 L55 55 M55 45 L45 55\" stroke=\"hsl(0, 70%, 50%)\" stroke-width=\"1.5\"/></svg>",
+    "sections": [
+      {
+        "title": "Introduction & Critical Pitfalls",
+        "icon": "report_problem",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": "Microbial keratitis is a common sight-threatening, mostly treatable, ophthalmic emergency. Common pitfalls include delay in diagnosis, inappropriate sample collection, injudicious or inadequate therapy, drug toxicity, and delayed follow-up, all of which may result in suboptimal visual outcome."
+      },
+      {
+        "title": "Table 7.5: Risk Factors for Microbial Keratitis",
+        "icon": "groups",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Category",
+            "Type",
+            "Specific Factors"
+          ],
+          "rows": [
+            [
+              "Ocular",
+              "Trauma",
+              "Corneal abrasion"
+            ],
+            [
+              "Ocular",
+              "Contact Lens (CL)",
+              "Extended wear > soft > daily disposable > rigid gas-permeable (RgP); poor hygiene"
+            ],
+            [
+              "Ocular",
+              "Iatrogenic",
+              "Corneal surgery (e.g. LASIK); Removal of suture; Loose suture; Topical immunosuppression to the eye or around the eye (eg guttae corticosteroids or ciclosporin, facial tacrolimus, inhaled corticosteroids); Long-term topical antibiotics"
+            ],
+            [
+              "Ocular",
+              "Surface Disease",
+              "Dry eyes; Bullous keratopathy; Immune-mediated ocular surface disease; Progressive conjunctival scarring disorders; Chronic blepharokeratoconjunctivitis; Chronic keratitis (e.g. HSV); Neurotrophic keratitis (e.g. HSV, VZV, tumours of the cerebellopontine angle)"
+            ],
+            [
+              "Ocular",
+              "Lid Disease",
+              "Entropion; Lagophthalmos; Trichiasis"
+            ],
+            [
+              "Ocular",
+              "Nasolacrimal",
+              "Chronic dacryocystitis"
+            ],
+            [
+              "Systemic",
+              "Immunosuppression / Nutritional",
+              "Drugs; Immunodeficiency syndromes; Diabetes; RA; Vitamin A deficiency"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Presentation",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Pain, FB sensation, redness, photophobia, tearing, discharge (may be purulent), dVA.",
+          "Circumlimbal/diffuse injection.",
+          "Single or multiple foci of white opacity within stroma ± oedema.",
+          "Usually associated epithelial defect and anterior uveitis.",
+          "NB: May present insidiously as infectious crystalline keratopathy (see E Deposition keratopathies, p. 302)."
+        ]
+      },
+      {
+        "title": "Complications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Limbal and scleral extension",
+          "Corneal perforation",
+          "Endophthalmitis (rare unless perforation or organisms like gonococcus or fungi that penetrate intact epithelia)",
+          "Panophthalmitis"
+        ]
+      },
+      {
+        "title": "Investigations: Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Perform early and adequate corneal scrapes.",
+          "If CL wearer: Send lenses, solutions, and cases for culture (warn patient they will be destroyed).",
+          "Liaise with microbiologists regarding incubation length, sensitivities, and unusual features.",
+          "Take a swab for molecular diagnostics (PCR) if herpetic disease is a suspected underlying risk factor."
+        ]
+      },
+      {
+        "title": "Box 7.1: How to Perform a Corneal Scrape",
+        "icon": "colorize",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Instil preservative-free topical anaesthesia (perform scrape prior to use of fluorescein).",
+          "Use a Kimura spatula, No. 15 blade, or 25g needle.",
+          "Scrape both the base and leading edge of the ulcer (from uninvolved to involved cornea).",
+          "Place material onto glass slide for microscopy and staining (gram stain, Ziehl–Neelsen, methenamine silver, etc.).",
+          "Plate onto blood agar (aerobes), chocolate agar (Neisseria, Haemophilus), and Sabouraud agar (fungi).",
+          "Consider non-nutrient Escherichia coli-enriched agar (if Acanthamoeba suspected).",
+          "When plating small samples, rows of ‘C streaks’ aid dilution of inoculum and identification of individual spp.",
+          "Use separate needles for each agar dish.",
+          "Consider culture in thioglycollate (anaerobes) and enrichment (bacteria) broths."
+        ]
+      },
+      {
+        "title": "Table 7.6: Microbiological Processing",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Media/Stain",
+            "Target Organism (B: Bacteria, F: Fungi, A: Acanthamoeba, M: Mycobacteria, N: Nocardia)"
+          ],
+          "rows": [
+            [
+              "Gram stain",
+              "B, F, A"
+            ],
+            [
+              "Giemsa stain",
+              "B, F, A"
+            ],
+            [
+              "Gomori/methenamine silver",
+              "F, A"
+            ],
+            [
+              "Periodic acid–Schiff (PAS)",
+              "F"
+            ],
+            [
+              "Calcofluor white",
+              "F, A"
+            ],
+            [
+              "Ziehl–Neelsen",
+              "F, A, M, N"
+            ],
+            [
+              "Blood agar / Chocolate agar",
+              "B"
+            ],
+            [
+              "Sabouraud dextrose agar",
+              "F"
+            ],
+            [
+              "Thioglycollate broth",
+              "B(an) - Anaerobic bacteria"
+            ],
+            [
+              "Non-nutrient E. coli-enriched agar",
+              "A (Acanthamoeba)"
+            ],
+            [
+              "Lowenstein–Jensen",
+              "M (Mycobacteria)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Treatment Strategy: Sterilization & Healing",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Sterilization Phase: Appropriate topical antibiotics administered intensively for 48–72h.",
+          "Healing Phase: Topical corticosteroids added with lubricants (reduce shear forces); reduced antibiotic frequency."
+        ]
+      },
+      {
+        "title": "Initial Treatment Actions",
+        "icon": "first_aid",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Stop CL wear. Report CL-related keratitis to MHRA using yellow card system.",
+          "Admit patient if severe infection or poor compliance (see Box 7.2).",
+          "Intensive topical antibiotics: Hourly empirical broad-spectrum (one or two antibiotics).",
+          "Combined therapy (e.g., cefuroxime + ofloxacin) + non-preserved if OSD or immunocompromised.",
+          "Consider oral Ciprofloxacin (750mg 2x/d) for limbal lesions or perforation.",
+          "Cycloplegia (e.g. cyclopentolate 1% 2x/d) and oral analgesia.",
+          "Oral Tetracyclines & Vitamin C for stromal necrosis (inhibit MMPs/cytokines)."
+        ]
+      },
+      {
+        "title": "Box 7.2: Indications for Admission",
+        "icon": "hotel",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Severe infection: >1.5mm-diameter infiltrate",
+          "Central corneal ulcer",
+          "Hypopyon, purulent exudate, or complicated disease",
+          "Poor compliance likely: Administering drops or daily review",
+          "Other concern: ‘Only eye’, failing to improve, etc."
+        ]
+      },
+      {
+        "title": "Box 7.3: Empirical Therapy Options",
+        "icon": "medication",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Empirical Treatment",
+          "branches": [
+            "Combined Therapy: Fortified Cephalosporin (Cefuroxime 5%) + Fluoroquinolone (Ofloxacin). Penicillin 0.3% if Strep suspected.",
+            "Caution: Aminoglycosides (Gentamicin 1.5%) cause toxicity/necrosis (especially in OSD).",
+            "Monotherapy: Fluoroquinolones (Ofloxacin, Levofloxacin, Moxifloxacin) adequate for most but not resistant Staph aureus/Pseudomonas.",
+            "Preference: Always use non-preserved therapy in OSD patients."
+          ]
+        }
+      },
+      {
+        "title": "Table 7.7: Common Bacterial Causes",
+        "icon": "bug_report",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Organism",
+            "Frequency",
+            "Penetration Intact Epithelium",
+            "Virulence"
+          ],
+          "rows": [
+            [
+              "Staphylococcus aureus (Gram +ve)",
+              "Common",
+              "-",
+              "+"
+            ],
+            [
+              "Staphylococcus epidermidis (Gram +ve)",
+              "Common",
+              "-",
+              "±"
+            ],
+            [
+              "Streptococcus pneumoniae (Gram +ve)",
+              "Common",
+              "-",
+              "++"
+            ],
+            [
+              "Haemophilus (Gram -ve)",
+              "Common in children",
+              "+",
+              "+"
+            ],
+            [
+              "Pseudomonas aeruginosa (Gram -ve)",
+              "Common in CL wearers",
+              "-",
+              "+++"
+            ],
+            [
+              "Neisseria gonorrhoeae (Gram -ve)",
+              "Common in neonates",
+              "+",
+              "+++"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ongoing Management & Monitoring",
+        "icon": "monitoring",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Daily review: inflammation, epithelial defect size (slit-lamp), infiltrate/hypopyon size, oedema, anterior uveitis.",
+          "Taper frequency and switch to non-fortified preparations with clinical improvement.",
+          "Add lubricants and introduce topical steroids (e.g. dexamethasone 0.1%, prednisolone 0.5%) carefully following re-epithelialization/sterile culture.",
+          "If no growth and clinically ineffective: Withhold treatment for 12h, then reserape or biopsy.",
+          "Restain original slides to identify less common organisms (mycobacteria, fungi)."
+        ]
+      },
+      {
+        "title": "Management of Complications",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Persistent Epithelial Defect (>2wk): Switch to non-preserved, reduce drop frequency, add lubricants, assist lid closure (tarsorrhaphy).",
+          "Resistant/Progressive Keratitis: Seek specialist advice. Scleral extension: Oral Ciprofloxacin. Matrix remodelling: Doxycycline 50mg OD and Vitamin C 1g BD.",
+          "Threatened Perforation: Oral Cipro, therapeutic CL, glue, or emergency PK (usually after 2d intensive treatment).",
+          "Endophthalmitis: Diagnostic vitrectomy and intravitreal antibiotics."
+        ]
+      },
+      {
+        "title": "Corneal Perforation Treatments",
+        "icon": "construction",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Perforation Options",
+          "branches": [
+            "Therapeutic CL: For microperforations/no tissue loss. High-water content; acts as mechanical scaffold for epithelial sliding.",
+            "Tissue Adhesives: <2mm perforations. Enbucrilate (cyanoacrylate) + 4mm polythene patch + hydrogel CL. Avoid aminoglycosides. Repeated use is toxic.",
+            "Amniotic Membrane: Larger perforations. Layered AM constructs + fibrin sealant (fibrinogen/aprotinin + thrombin/CaCl2) ± sutures.",
+            "Surgical Reconstruction: Lamellar/Full-thickness keratoplasty ± AM overlay ± therapeutic CL ± immunosuppression."
+          ]
+        }
+      }
+    ]
+  },
+  "chapterId": "cornea",
+  "_serverSynced": true
+}

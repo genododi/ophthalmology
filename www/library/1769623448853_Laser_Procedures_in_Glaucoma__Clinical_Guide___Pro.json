@@ -1,0 +1,240 @@
+{
+  "id": 1769623448853,
+  "seqId": 172,
+  "title": "Laser Procedures in Glaucoma: Clinical Guide & Protocols",
+  "summary": "Laser procedures play a vital part in the treatment of many forms of glaucoma. This comprehensive overview details procedural techniques, debated mechanisms of action, specific clinical indications, and potential complications as outlined in Chapter 24.",
+  "date": "2026-01-28T18:04:08.853Z",
+  "data": {
+    "title": "Laser Procedures in Glaucoma: Clinical Guide & Protocols",
+    "summary": "Laser procedures play a vital part in the treatment of many forms of glaucoma. This comprehensive overview details procedural techniques, debated mechanisms of action, specific clinical indications, and potential complications as outlined in Chapter 24.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><line x1='10' y1='10' x2='45' y2='45' stroke='red' stroke-width='2' stroke-dasharray='4'/><path d='M30 50 Q 50 10 70 50' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "General Overview",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Laser procedures have a vital part in the treatment of many forms of glaucoma. Directions on how to carry out a number of these procedures are given in E Chapter 24, as indicated."
+      },
+      {
+        "title": "Nd-YAG Peripheral Iridotomy (PI)",
+        "icon": "flare",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Nd-YAG PI",
+          "branches": [
+            "Essence: Nd-yAG laser photodisruption causes a full-thickness hole through the iris, permitting flow of aqueous humour from the PC to AC.",
+            "Location: May be performed superiorly or temporally—but avoid placing PI in the axis of the marginal tear strip.",
+            "Management of Thick Irides: Consider staged yAG PI/argon laser pre-treatment/surgical peripheral iridectomy/lens extraction."
+          ]
+        }
+      },
+      {
+        "title": "Nd-YAG PI: Indications & Complications",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Details"
+          ],
+          "rows": [
+            [
+              "Indication: Treatment",
+              "Angle closure with pupillary block—may be acute/subacute/chronic, 1°/2°."
+            ],
+            [
+              "Indication: Prophylaxis",
+              "Occludable narrow angles (including fellow eye in angle closure)."
+            ],
+            [
+              "Complications",
+              "Bleeding, inflammation, raised IOP, corneal burns (caution with shallow AC), glare, and optical aberrations."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Argon Laser Trabeculoplasty (ALT)",
+        "icon": "settings_suggest",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "ALT Essence & Mechanism",
+          "branches": [
+            "Essence: Argon laser photocoagulation of the angle structures, resulting in reduction of IOP.",
+            "Mechanical Theory: Focal tissue contraction/scarring causes opening up of the trabecular meshwork and widening of Schlemm’s canal.",
+            "Biological Theory: Induced inflammatory cytokines trigger a cascade which upregulates MMPs, altering the eCM.",
+            "Repopulative Theory: Trabecular epithelial cells are stimulated to divide and migrate into burn sites from healthy adjacent sites."
+          ]
+        }
+      },
+      {
+        "title": "ALT Clinical Profile",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Indication: Open-angle glaucoma with pigmented trabeculum—commonly POAG/PXF glaucoma/PDS glaucoma.",
+          "Indication: Medical and surgical options undesirable or ineffective.",
+          "Complication: Bleeding, inflammation (usually mild), PAS.",
+          "Complication: IOP spike may increase failure rate of subsequent trabeculectomy.",
+          "Requirement: Long-term follow-up is necessary."
+        ]
+      },
+      {
+        "title": "ALT Failure Data",
+        "icon": "trending_down",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Annual Failure Rate",
+              "value": 10
+            },
+            {
+              "label": "5-Year Control (Spaeth 1992)",
+              "value": 33
+            }
+          ]
+        }
+      },
+      {
+        "title": "ALT Failure & Reference",
+        "icon": "history",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "Failure occurs at a rate of 6–10%/y and is often sudden. 10 Spaeth G et al. Argon laser trabeculoplasty controls one third of progressive uncontrolled open angle glaucoma for 5 years. Arch Ophthalmol. 1992;110:491–4."
+      },
+      {
+        "title": "Selective Laser Trabeculoplasty (SLT)",
+        "icon": "target",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Essence",
+              "An alternative to ALt, SLt uses a Q-switched frequency-doubled Nd-yAG laser to selectively target pigmented cells (photo-bioactivation) and to minimize damage to angle structures (cf. ALt)."
+            ],
+            [
+              "Indication",
+              "As for ALt."
+            ],
+            [
+              "Complications",
+              "Similar to ALt; a transient, subclinical, reversible corneal endotheliopathy is often seen in the early stages after SLt."
+            ],
+            [
+              "Failure Rate",
+              "Failure rate is similar to ALt. (Damji KF et al. Br J Ophthalmol. 2006;90:1490–4)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Argon Laser Peripheral Iridoplasty (ALPI)",
+        "icon": "adjust",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Essence: A ring of argon laser burns causes cicatricial contraction of the peripheral iris stroma to tighten the iris and widen the angular approach.",
+          "Indication (Procedure of Choice): Plateau iris syndrome.",
+          "Indication: APAC (uncommon indication but may be used where unresponsive to medical therapy and Nd-yAG PI has failed or is technically difficult).",
+          "Complications: Inflammation (usually mild), IOP spike, corneal burns, persistently dilated pupil.",
+          "Reference: Ritch r et al. Argon laser peripheral iridoplasty. Ophthalmic Surg Lasers. 1996;27:289–300."
+        ]
+      },
+      {
+        "title": "Trans-scleral Diode Laser Cyclophotocoagulation",
+        "icon": "visibility_off",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Cyclodiode",
+          "branches": [
+            "Essence: Selective destruction of the ciliary body achieved with either a diode or, less commonly, Nd-yAG laser.",
+            "Indication: Intractable IOP (e.g. in rubeotic or synechial angle closure) where other treatment modalities have failed or are contraindicated (e.g. systemically unwell).",
+            "Indication: Refractory acute 1° and 2° angle closure (Manna A et al. Eye (Lond). 2012;26:742–5).",
+            "Indication: Temporizing measure prior to trabeculectomy; gentle titrated diode laser cycloablation can be used in eyes with good visual potential.",
+            "Indication: Use has been described to break attack of malignant glaucoma."
+          ]
+        }
+      },
+      {
+        "title": "Cyclodiode Complications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Anterior inflammation (may get hypopyon with NVG)",
+          "Hypotony",
+          "Haemorrhage",
+          "Scleral thinning",
+          "Perforation",
+          "Cataract",
+          "Lens subluxation",
+          "Phthisis",
+          "Sympathetic endophthalmitis"
+        ]
+      },
+      {
+        "title": "Endodiode Laser Photocoagulation (ECP)",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Synonym: Endoscopic cyclophotocoagulation.",
+          "Essence: Direct photocoagulation of the ciliary processes with an endolaser using endoscopic visualization.",
+          "Technical Note: eCP is much easier technically if performed in a pseudophakic eye than a phakic eye.",
+          "Procedure: May be performed as a combined procedure (with phacoemulsification).",
+          "Indication: As for trans-scleral diode laser cyclophotocoagulation."
+        ]
+      },
+      {
+        "title": "ECP Complications",
+        "icon": "dangerous",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Inflammation",
+          "CMO",
+          "Cataract (if phakic)",
+          "Endophthalmitis",
+          "Suprachoroidal haemorrhage",
+          "Retinal detachment",
+          "Hypotony",
+          "Phthisis"
+        ]
+      }
+    ],
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "_newlyImported": 1769623448853,
+  "communityId": "sub_1769618268160_nynyufx6ijldz1",
+  "communityAuthor": "Dodiii",
+  "communityDate": "2026-01-28T16:37:48.160Z",
+  "_serverSynced": true
+}

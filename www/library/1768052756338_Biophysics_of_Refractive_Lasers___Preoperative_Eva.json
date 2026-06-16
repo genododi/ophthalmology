@@ -1,0 +1,220 @@
+{
+  "id": 1768052756338,
+  "seqId": 56,
+  "title": "Biophysics of Refractive Lasers & Preoperative Evaluation",
+  "summary": "A comprehensive guide to laser-tissue interactions, excimer technology, and the rigorous clinical standards for preoperative assessment. This visual roadmap covers everything from the Munnerlyn formula to the Ectasia Risk Scoring System.",
+  "date": "2026-01-10T13:45:56.338Z",
+  "data": {
+    "title": "Biophysics of Refractive Lasers & Preoperative Evaluation",
+    "summary": "A comprehensive guide to laser-tissue interactions, excimer technology, and the rigorous clinical standards for preoperative assessment. This visual roadmap covers everything from the Munnerlyn formula to the Ectasia Risk Scoring System.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M40 100 Q100 20 160 100 Q100 180 40 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><line x1='100' y1='20' x2='100' y2='60' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-dasharray='4'/><path d='M80 60 L100 80 L120 60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Types of Laser–Tissue Interactions",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Interaction Type",
+            "Laser Type",
+            "Wavelength / Specs",
+            "Mechanism & Usage"
+          ],
+          "rows": [
+            [
+              "Photoablation",
+              "Excimer (Argon fluoride)",
+              "193nm UV light",
+              "Argon stimulated to form dimers with fluorine. High-energy photons with low tissue penetrance. Produces high-precision breakage of intermolecular bonds which vaporizes and reshapes the tissue surface. Used for changing refractive power of the cornea."
+            ],
+            [
+              "Photodisruption",
+              "Femtosecond",
+              "1,053nm Infrared",
+              "Causes transformation of tissue into plasma, rapid tissue expansion, and small microscopic cavities, allowing separation of tissues. Used for creating LASIK flaps, ICRS channels, and cutting corneas for lamellar/penetrating keratoplasty."
+            ],
+            [
+              "Photothermal",
+              "Holmium (Holmium:YAG)",
+              "2.13 microns",
+              "Absorbed by water in the cornea, causing thermal shrinkage of collagen. Used for treating low amounts of hypermetropia."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Types of Excimer Laser Delivery",
+        "icon": "settings_input_component",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Broad beam: Large-diameter beams (77mm) with slow repetition rate. High-energy pulses; only small number of pulses needed to treat. Short operating time, but uneven ablation more likely.",
+          "Scanning slit: Narrow beams that scan across corneal surface, improving smoothness and allowing larger treatment zones than broad beam lasers.",
+          "Flying spot: Much smaller-diameter beams (0.5–2.0mm) with a high repetition rate. Used in conjunction with a tracking mechanism to ensure precise ablation. This is the main type of laser in use today."
+        ]
+      },
+      {
+        "title": "The Physics of Shape Change",
+        "icon": "architecture",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "An understanding of the basic changes that occur to the corneal shape is useful in understanding topographic and pachymetry changes, following different types of treatment, and also the optical zone of treatment required (see Fig. 19.2). Myopic treatments: Central corneal tissue is removed to make the central cornea flatter (see Fig. 19.2a). Hypermetropic treatments: A ring-shaped area of mid-peripheral corneal tissue is removed to make the central cornea steeper (see Fig. 19.2b). Astigmatic treatments: Treatment with an elliptical or cylindrical beam which removes more tissue in the steeper meridian which is then flattened."
+      },
+      {
+        "title": "The Munnerlyn Formula",
+        "icon": "calculate",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Depth = [Diameter]² × Power / 3",
+          "explanation": "The amount of tissue removed in myopic ablations is governed by this formula. Depth of ablation (micron) = [diameter (mm)]² × power (D) / 3. Thus, depth of ablation for a given refractive correction increases by the square of the treatment diameter."
+        }
+      },
+      {
+        "title": "Optical Zone Trade-offs",
+        "icon": "visibility",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Small Zone: Tissue Removal",
+              "value": 30
+            },
+            {
+              "label": "Small Zone: Haloes/Glare",
+              "value": 90
+            },
+            {
+              "label": "Large Zone: Visual Quality",
+              "value": 95
+            },
+            {
+              "label": "Large Zone: Tissue Removal",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "Treatment Zone Context",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Small ablation zones minimize tissue removal so theoretically would be beneficial in high refractive errors. However, small treatment zones are associated with high degrees of haloes and glare, particularly with large pupil size. They are also associated with greater regression. Large treatment zones reduce visual symptoms and regression but are limited by requiring greater tissue removal. A compromise optical zone size of 76mm is normally used for removal."
+      },
+      {
+        "title": "Ablation Modalities (See Fig. 19.3)",
+        "icon": "schema",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Ablation Types",
+          "branches": [
+            "Conventional: Corrects low-order aberrations (sphere/cylinder). Can increase spherical aberration (reduced contrast/night vision issues).",
+            "Wavefront-optimized: Based on subjective refraction. Uses modeling to add peripheral laser pulses to negate conventional-induced spherical aberration.",
+            "Wavefront-guided: Measures coma, trefoil, spherical aberration with aberrometer. Corrects both high and low-order aberrations. May increase new aberrations.",
+            "Topography-guided: Uses data from corneal topographers to treat highly irregular corneas where aberrometry is impossible to obtain."
+          ]
+        }
+      },
+      {
+        "title": "Preoperative Evaluation Overview",
+        "icon": "assignment_ind",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "Since the introduction of the excimer laser in the 1980s, millions have undergone PRK or LASIK with excellent results. A small minority have visual complications or unsatisfactory outcomes. This can be minimized by careful patient selection and meticulous preoperative evaluation. Patients with unrealistic expectations or unwilling to accept any level of risk should be excluded. Identify patients with relative or absolute contraindications."
+      },
+      {
+        "title": "Refractive Assessment: Age & Error",
+        "icon": "person_search",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Age: Lower limit 18–21y or when refractive stability reached (no change >0.50D in 2y) to avoid retreatments.",
+          "Age: No theoretical upper limit, but cataract presence makes laser surgery inappropriate.",
+          "Accommodation Strategy: Young patients aim for distance. Older patients consider monovision (dominant eye for distance, fellow eye low myopia for near).",
+          "Refractive Error Range: Average +6D to -12D for LASIK, PRK, and LASEK.",
+          "Astigmatism: Up to 5D can be treated.",
+          "Refraction: All patients undergo subjective refraction; cycloplegic refraction used if necessary (especially young hypermetropes)."
+        ]
+      },
+      {
+        "title": "Pachymetry & Topography",
+        "icon": "layers",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Pachymetry: Limiting factor for LASIK. Must have minimal corneal thickness after laser to provide mechanical strength and prevent post-laser ectasia.",
+          "Residual Stromal Bed (RSB): A minimal RSB of >250 microns is an accepted figure but not absolute.",
+          "Corneal Topography: Mandatory for all patients. Exclude eyes with features of ectatic disease (keratoconus, pellucid marginal degeneration, and forme fruste keratoconus).",
+          "Laser ablation can cause further weakening and further ectasia in compromised corneas."
+        ]
+      },
+      {
+        "title": "The Ectasia Risk Scoring System",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Risk stratification based on: (1) Topography pattern",
+          "(2) Residual stromal bed thickness",
+          "(3) Age",
+          "(4) Preoperative corneal thickness",
+          "(5) Preoperative spherical manifest refraction",
+          "Reference: Randleman JB et al. Validation of the Ectasia Risk Score System for preoperative LASIK screening. Am J Ophthalmol. 2008;145:813–18."
+        ]
+      },
+      {
+        "title": "Keratometry, Pupils, & Clinical Exam",
+        "icon": "clinical_notes",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Assessment Item",
+            "Criteria / Constraints"
+          ],
+          "rows": [
+            [
+              "Keratometric Power",
+              "Myopic = flattening; Hypermetropic = steepening. Min 38D after myopic ablations. Max 50D after hypermetropic ablations. Beyond these, optical quality degrades significantly."
+            ],
+            [
+              "Pupil Size",
+              "Mandatory measurement under mesopic conditions. Large pupils (>7.5mm) tend to be associated with optical aberrations; larger treatment zone may be preferable."
+            ],
+            [
+              "Full Ophthalmic Examination",
+              "Particular attention to: Ocular surface, evidence of dry eye, tonometry, presence of cataract, and retinal examination."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Visual Figure References",
+        "icon": "image",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Fig. 19.2 Myopic and hypermetropic ablation illustrations. Fig. 19.3 Summary of refractive laser procedures and ablation profiles."
+      }
+    ]
+  },
+  "chapterId": "glaucoma",
+  "_serverSynced": true
+}

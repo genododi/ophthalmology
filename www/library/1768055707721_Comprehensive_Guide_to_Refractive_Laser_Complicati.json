@@ -1,0 +1,248 @@
+{
+  "id": 1768055707721,
+  "seqId": 58,
+  "title": "Comprehensive Guide to Refractive Laser Complications",
+  "summary": "An exhaustive clinical overview of the immediate, early, and late complications associated with refractive laser procedures including LASIK, SMILE, and surface treatments. Essential for surgeons and primary care ophthalmologists to ensure timely diagnosis and management.",
+  "date": "2026-01-10T14:35:07.721Z",
+  "data": {
+    "title": "Comprehensive Guide to Refractive Laser Complications",
+    "summary": "An exhaustive clinical overview of the immediate, early, and late complications associated with refractive laser procedures including LASIK, SMILE, and surface treatments. Essential for surgeons and primary care ophthalmologists to ensure timely diagnosis and management.",
+    "summary_illustration": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"none\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"4\"/><path d=\"M40 100 Q100 40 160 100 Q100 160 40 100\" fill=\"none\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"4\"/><circle cx=\"100\" cy=\"100\" r=\"25\" fill=\"hsl(215, 90%, 45%)\"/><line x1=\"100\" y1=\"20\" x2=\"100\" y2=\"75\" stroke=\"#ff4444\" stroke-width=\"3\" stroke-dasharray=\"5,5\"/><path d=\"M130 80 L160 60\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"3\" fill=\"none\"/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Significance & General Outlook",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "In general, refractive laser is a highly successful procedure with high patient satisfaction and low complication rate. However, due to the high uptake of refractive surgery in the population, it is important that not only refractive surgeons, but also general ophthalmologists, especially those working in 1° care and emergency ophthalmology, are able to understand, diagnose, and treat refractive surgery complications."
+      },
+      {
+        "title": "Incidence of Microkeratome Complications (LASIK Only)",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Incomplete Cut",
+              "value": 1.2
+            },
+            {
+              "label": "Free Cap",
+              "value": 1
+            },
+            {
+              "label": "Button Hole",
+              "value": 0.6
+            }
+          ]
+        }
+      },
+      {
+        "title": "Microkeratome-Related Flap Problems",
+        "icon": "content_cut",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Complication",
+            "Incidence",
+            "Etiology/Risk Factors",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Incomplete or Irregular Cut",
+              "0.3–1.2%",
+              "Caused by inadequate globe exposure, loss of suction, or mechanical failure.",
+              "Depends on how far the keratome has advanced. If adequate bed, continue with ablation. If inadequate bed or irregular cut, stop and repeat flap or surface treatment 3–6mo later."
+            ],
+            [
+              "Free Cap",
+              "0.1–1%",
+              "Amount of cornea protruding above suction ring dictates flap size. Too little protrusion will result in a free flap; can occur with very flat corneas (<40D) or inadequate suction.",
+              "Ensure cap placed back in correct orientation and allow time for stromal adhesion."
+            ],
+            [
+              "Button Hole",
+              "0.1–0.6%",
+              "Associated with poorer visual outcome. Risk factors: inadequate suction, poor applanation, slow/non-uniform cutting speeds, steep corneas (>46D), previous ocular surgery, large flaps.",
+              "Managed by early recognition and abortion of procedure, and plan surface ablation at later date."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Additional Intraoperative Complications",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Corneal epithelial defect",
+          "Corneal bleed (large flaps in presence of peripheral pannus)",
+          "Thin or decentred flaps",
+          "Wound dehiscence (flap creation after PK)",
+          "Pizza slicing (LASIK after RK)",
+          "Corneal perforation (very rare, seen with old-generation microkeratomes lacking prefixed-depth plate)"
+        ]
+      },
+      {
+        "title": "Photoablation-Related Problems",
+        "icon": "flare",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Problem",
+            "Details & Risks",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Treatment Decentration (LASIK, SMILE, Surface)",
+              "Often unrecognized intraoperatively. Leads to irregular astigmatism. Risks: high corrections, long treatment duration, poor patient cooperation. Risk minimized by high-speed, real-time eye tracking.",
+              "Treatment difficult; needs retreatment using a larger, deeper treatment zone or a topography-guided treatment."
+            ],
+            [
+              "Central Islands (LASIK, Surface)",
+              "Steep areas (≥1D with diameter >1mm) within treatment zone. Leads to irregular astigmatism, glare, ghosting, monocular diplopia, and reduced VA. Causes: laser optics degradation, plume dynamics, acoustic shock waves, water accumulation, wound healing.",
+              "Conservative treatment indicated, as most resolve. If present >6–12mo, repeat laser ablation."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Flap & Interface Issues (Immediate)",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Wrinkles—macro- or microstriae (LASIK only): Present in 0.2–4%. Difficult to see on laser; all patients examined at slit lamp post-operatively. Causes: malposition, excessive irrigation, eye rubbing, flap redundancy in high myopia. Treated by gentle repositioning or refloating flap and air-drying; recalcitrant cases are sutured. Early intervention is vital.",
+          "Interface debris (LASIK and SMILE): From conjunctival/skin epithelial cells, meibomian secretions, FB (swab fibres, blade fragments). Best avoided by good technique. If present, treat with flap lift and clean."
+        ]
+      },
+      {
+        "title": "Early Post-Operative Complications",
+        "icon": "schedule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Complication",
+            "Clinical Features",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Under/Overcorrection (LASIK, SMILE, Surface)",
+              "Undercorrection is most frequent, common in high ametropia. Overtreatments less common, usually in retreatments and older patients (>50y).",
+              "Undercorrection can be retreated. Most overtreatments regress, so observation is needed."
+            ],
+            [
+              "Sliding/Dislodged Flaps (LASIK)",
+              "Commonest in first 24h. Most common with large, thin, or small-hinged flaps.",
+              "Emergency repositioning to prevent fixed folds and epithelial ingrowth."
+            ],
+            [
+              "Flap Loss/Free Cap (Post-op)",
+              "Can occur via eye rubbing or adhesion to eye patch.",
+              "If flap found and viable, reposition and secure with or without sutures."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diffuse Lamellar Keratitis (DLK)",
+        "icon": "grain",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Shifting Sands of Sahara",
+          "explanation": "Diffuse inflammation at flap interface without microbial cause. Usually seen within first 24h. Aetiology: inflammatory pathway activation by toxic or mechanical agents. Clinical appearance: white sand- like deposits in lamellar cut plane; no epithelial defect or AC activity. Graded I–IV. Treatment: Aggressive topical steroid. If diagnostic doubt, lift flap and culture."
+        }
+      },
+      {
+        "title": "URGENT: Infectious Keratitis",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Vision-threatening; Incidence 0.1–0.2%.",
+          "Common Organisms: Gram +ve, Nocardia, Mycobacterium, and atypicals.",
+          "Signs: Infiltrate, ciliary injection, hypopyon, and flap melt (severe cases).",
+          "Management: Early sampling (flap lift in LASIK, scrape) and frequent topical antibiotics.",
+          "Severe Cases: Flap amputation or corneal grafting (DALK) may be needed.",
+          "Ref: Haq Z et al. Infections after refractive surgery. Curr Opin Ophthalmol. 2016;27:367–72."
+        ]
+      },
+      {
+        "title": "Epithelial Ingrowth (LASIK and SMILE)",
+        "icon": "layers",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Incidence: 3-4% of cases at 1 month.",
+          "Sources: Implantation from microkeratome, irrigation, or growth under flap.",
+          "Risk Factors: Deficient technique, epithelial defects, retreatments with flap lift.",
+          "Treatment Criteria: Treat if >2mm from edge, progression, flap melting, or reduced VA.",
+          "Management: Flap lift and scrape. For recurrence: PTK, 50% alcohol, or MMC to stromal bed."
+        ]
+      },
+      {
+        "title": "Late Post-Operative Complications",
+        "icon": "event_busy",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Details",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Regression (LASIK, SMILE, Surface)",
+              "Return of refractive error 3–6/12 after treatment. Commoner in hypermetropic treatments. Cause: compensatory epithelial hyperplasia.",
+              "If significant, retreatment required."
+            ],
+            [
+              "Iatrogenic Keratectasia (LASIK >> SMILE, Surface)",
+              "Serious/sight-threatening ectasia due to weakened corneal strength. Risks: pre-existing ectatic conditions (forme fruste keratoconus), very large ablations, minimal stromal bed <250 microns, removal of >50% corneal thickness.",
+              "Diagnosis: Serial corneal topographies. Treatment: RGP CL initially; usually requires PK. Some benefit from CXL and ICRS."
+            ],
+            [
+              "Glare and Haloes (LASIK, SMILE, Surface)",
+              "Usually at night; associated with spherical aberration of flattened central cornea (myopic treatments). Linked to large scotopic/mesopic pupils or small zones.",
+              "Observation. If no improvement, consider enlarging optical zone with modern flying spot laser."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Dry Eye & Corneal Haze",
+        "icon": "water_drop",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Dry Eye (LASIK > SMILE): The most frequent complication of LASIK. Flap creation causes corneal nerve disruption (takes 6–12mo to regenerate). Less problematic with surface treatments. Causes symptoms and poor results due to interference with healing. Treatment: Prevention (best), intensive lubricants, artificial tears, punctal plugs, and topical ciclosporin.",
+          "Corneal Haze (Surface Ablations): Subepithelial haze appearing weeks after ablation; peaks at 1–2mo; usually resolves over 6–12mo. Persistent haze associated with greater ablation depths and small treatment zones. Treatment: If no resolution by 6–12mo, treat with PTK or superficial keratectomy with MMC."
+        ]
+      }
+    ]
+  },
+  "chapterId": "medical_retina",
+  "_serverSynced": true
+}

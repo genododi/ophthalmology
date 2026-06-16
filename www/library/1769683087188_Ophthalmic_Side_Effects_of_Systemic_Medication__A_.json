@@ -1,0 +1,236 @@
+{
+  "id": 1769683087188,
+  "seqId": 179,
+  "title": "Ophthalmic Side Effects of Systemic Medication: A Comprehensive Guide",
+  "summary": "An exhaustive clinical resource detailing the retinal toxicity and ocular complications associated with systemic drugs, including Chloroquine, Hydroxychloroquine, Phenothiazines, and various crystalline maculopathies. This guide emphasizes the critical role of screening and multimodal imaging in early detection.",
+  "date": "2026-01-29T10:38:07.188Z",
+  "data": {
+    "title": "Ophthalmic Side Effects of Systemic Medication: A Comprehensive Guide",
+    "summary": "An exhaustive clinical resource detailing the retinal toxicity and ocular complications associated with systemic drugs, including Chloroquine, Hydroxychloroquine, Phenothiazines, and various crystalline maculopathies. This guide emphasizes the critical role of screening and multimodal imaging in early detection.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><circle cx='100' cy='100' r='30' fill='hsl(215, 90%, 45%)'/><circle cx='100' cy='100' r='50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='10,5'/><path d='M60 100 L140 100 M100 60 L100 140' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Introduction to Chloroquine and Hydroxychloroquine",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Chloroquine was used to prevent and treat malaria in the past, but is less often prescribed in recent times because of resistance to the medication. Hydroxychloroquine is used to treat long-term inflammatory disorders of the joints and skin. These medications are concentrated in melanin-containing structures of the eye, such as the retinal pigment epithelium (RPE) and choroid. Hydroxychloroquine is generally safe and cost effective but can cause permanent loss of vision because of retinal toxicity, particularly if the recommended dose is exceeded. Retinal adverse effects may be more common than previously believed and progression can occur despite discontinuation of the drug. Significant damage can occur without signs on fundus examination and optical coherence tomography (OCT) scanning of the macula has therefore emerged as a key part of screening. Renal impairment and the use of tamoxifen increases the risk of toxicity. Obesity may lead to miscalculation of the safe dose, as hydroxychloroquine is not stored in fat. Vortex keratopathy may occur (see above)."
+      },
+      {
+        "title": "Dosage & Toxicity Thresholds",
+        "icon": "calculate",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "CQ Cumulative Dose (g) for High Risk",
+              "value": 30
+            },
+            {
+              "label": "HCQ Cumulative Dose (g) Risk (1000g)",
+              "value": 100
+            },
+            {
+              "label": "HCQ Risk >5 Years Usage (%)",
+              "value": 7.5
+            },
+            {
+              "label": "HCQ Risk >20 Years Usage (%)",
+              "value": 50
+            }
+          ]
+        }
+      },
+      {
+        "title": "Specific Drug Risk Warnings",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "zz Chloroquine can result in retinal toxicity. The risk of toxicity increases significantly when the cumulative dose exceeds 300 g. Individual susceptibility seems highly variable.",
+          "zz Hydroxychloroquine is much safer than chloroquine, particularly if the dose is kept to less than 5 mg/kg real weight/day.",
+          "The risk of developing retinal toxicity has been reported to be 7.5% for an individual taking the medication for more than 5 years.",
+          "Between 20% and 50% of people taking hydroxy-chloroquine for more than 20 years will have some signs of retinopathy.",
+          "The risk increases with a cumulative dose over 1000 g, equating to a standard twice-daily dose of 200 mg for around 7 years."
+        ]
+      },
+      {
+        "title": "Premaculopathy & Early Features",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "zz Premaculopathy consists of early functional and structural changes prior to visible fundus signs. The goal of screening is to detect toxicity at this stage prior to irreversible damage.",
+          "{z High-resolution OCT imaging is relatively sensitive and shows parafoveal outer retinal lining, loss of the cone outersegment tip-line and disruption of the inner-segment/ outer-segment line as early features.",
+          "The inferotemporal macula is the earliest location of hydroxychloroquine toxicity.",
+          "{z When available, multifocal electroretinography (see Ch. 15) can demonstrate early changes.",
+          "{z Subtle central visual field defects (e.g. Humphrey 10-2, Amsler grid) may be detected, but standard perimetry is less sensitive than the imaging modalities above.",
+          "{z Mild colour vision defects may be present, but the commonly used Ishihara chart is of relatively low sensitivity for this purpose."
+        ]
+      },
+      {
+        "title": "Clinical Progression & Imaging Stages",
+        "icon": "show_chart",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Early maculopathy: Modest reduction of VA (6/9–6/12) and subtle macular disturbance. FAF and macular pigment density useful (Fig. 21.3A).",
+          "Progressive Loss: Preserved central foveal tissue results in the ‘flying saucer’ sign on OCT scanning (Fig. 21.3B).",
+          "Moderate–Severe Retinopathy: VA reduction (6/36–6/60) with deterioration to a ‘bull’s eye’ macular lesion.",
+          "Bull's Eye Morphology: Foveolar island of pigment surrounded by a depigmented zone of RPE atrophy, encircled by a hyperpigmented ring (Fig. 21.4A).",
+          "Substantial Macular Lesion: Widespread RPE atrophy surrounding the fovea (Fig. 21.4B).",
+          "Advanced Stages: Retinal arterioles may become attenuated and pigment clumps can form in the peripheral retina (Fig. 21.4C).",
+          "Fluorescein angiography (FA): Typically shows hyperfluorescence in a ‘bull’s eye’ pattern. OCT has superseded this investigation."
+        ]
+      },
+      {
+        "title": "Clinical Reference Tips",
+        "icon": "tips_and_updates",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "FLYING SAUCER",
+          "explanation": "Fig. 21.3 Imaging of chloroquine retinopathy. (A) FAF of established maculopathy showing two oval areas of hyperautofluorescence and loss of retinal pigment epithelium in the parafovea; (B) OCT shows disruption of photoreceptors and loss of inner-segment/outer-segment junction in the fovea (arrow – ‘flying saucer’ sign). TIP: Loss of the outer retinal layer in a parafoveal distribution on OCT scanning is a sensitive method of detecting early toxicity to hydroxychloroquine."
+        }
+      },
+      {
+        "title": "Screening Protocol Guidelines",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Patient education: the importance of regular screening should be emphasized.",
+          "Baseline assessment: Before or soon after commencement of treatment. Includes functional visual parameters and OCT macula scan for future comparison and exclusion of pre-existing maculopathy.",
+          "Annual review (No special risk): Begin 5 years after starting treatment with central visual fields, FAF, and SD-OCT.",
+          "Annual review (At 1 year/Special risk): Required for children, those on chloroquine, or if there are factors such as age-related maculopathy, substantial renal impairment, or tamoxifen use.",
+          "Discontinuation: Must be discussed with the patient’s rheumatologist if toxicity is suspected."
+        ]
+      },
+      {
+        "title": "Phenothiazines: Thioridazine & Chlorpromazine",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "zz Thioridazine (Schizophrenia/psychoses): Normal dose 150–600 mg. Doses > 800 mg/day for weeks can reduce VA and impair dark adaptation.",
+          "{z Early feature: ‘Salt and pepper’ pigmentary disturbance in midperiphery and posterior pole (Fig. 21.5A).",
+          "{z Progression: Plaque-like pigmentation and focal loss of RPE and choriocapillaris (Fig. 21.5B).",
+          "{z End-stage: Diffuse loss of RPE and choriocapillaris. FA shows punctate hyperfluorescence (Fig. 21.5C).",
+          "zz Chlorpromazine: Normal dose 75–300 mg. Retinal toxicity risk only with substantially larger doses over prolonged periods. Characterized by non-specific pigmentary granularity and clumping."
+        ]
+      },
+      {
+        "title": "Digitalis (Digoxin) Visual Spectrum",
+        "icon": "heart_pulse",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Used for atrial fibrillation and symptomatic heart failure. Narrow therapeutic margin.",
+          "Visual symptoms: Decreased visual acuity, scotomas, photophobia, and dyschromatopsia.",
+          "Color vision disturbances: Xanthopsia (yellow), cyanopsia (blue), and chloropsia (green).",
+          "Electroretinogram (ERG) findings: Delayed implicit time and reduced amplitude of the B-wave."
+        ]
+      },
+      {
+        "title": "Drug-induced Crystalline Maculopathies",
+        "icon": "diamond",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Drug",
+            "Usage/Context",
+            "Retinal Characteristics",
+            "Additional Features"
+          ],
+          "rows": [
+            [
+              "Tamoxifen",
+              "Breast carcinoma (20–40 mg/day)",
+              "Bilateral fine yellow crystals (inner layers); punctate grey lesions (outer retina/RPE).",
+              "Visual impairment from maculopathy/foveolar cyst formation. Rare optic neuritis (reversible)."
+            ],
+            [
+              "Canthaxanthin",
+              "Tanning pills (high doses)",
+              "Glistening yellow inner retinal deposits in a doughnut conformation at posterior poles (Fig. 21.6B).",
+              "Slowly reversible. Not FDA approved in the USA."
+            ],
+            [
+              "Methoxyflurane",
+              "Inhalant general anaesthetic",
+              "Calcium oxalate crystals scattered throughout retina; subsequent RPE hyperplasia (Fig. 21.6C).",
+              "Metabolized to oxalic acid. May lead to renal failure and secondary hyperoxalosis."
+            ],
+            [
+              "Nitrofurantoin",
+              "UTI antibiotic (long-term)",
+              "Superficial and deep glistening intraretinal deposits in a circinate pattern at posterior pole.",
+              "Associated with slight visual impairment."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 21.1: Non-drug Causes of Macular Crystals",
+        "icon": "list_alt",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Primary hyperoxaluria",
+          "Bietti corneoretinal crystalline dystrophy",
+          "Cystinosis",
+          "Sjögren–Larsson syndrome",
+          "Gyrate atrophy",
+          "Acquired parafoveal telangiectasis",
+          "Talc-corn starch emboli",
+          "West African crystalline maculopathy"
+        ]
+      },
+      {
+        "title": "Interferon Alfa & Desferrioxamine",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "zz Interferon alfa (Hepatitis C/Malignancy): Cotton-wool spots, retinal haemorrhages (Fig. 21.7A), focal capillary non-perfusion on FA. Spontaneous resolution; good visual prognosis.",
+          "Other IFN side effects: Cystoid macular oedema, extraocular muscle paresis, optic disc oedema, and RVE.",
+          "zz Desferrioxamine (Iron overload chelator): Administered via slow subcutaneous infusion. Rapid visual loss. Mottled pigmentary changes (Fig. 21.8A) and abnormal electrodiagnostics. Widespread punctate hyperfluorescence on FA (Fig. 21.8B)."
+        ]
+      },
+      {
+        "title": "Nicotinic Acid, Pentosan & Alkyl Nitrites",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "zz Nicotinic acid (Cholesterol agent): Doses > 1.5 g daily. Cystoid maculopathy (mimics CME but no FA leakage). Mild VA reduction; resolves on discontinuation.",
+          "zz Pentosan polysulfate (Interstitial cystitis): Long-term use (> 7 years). Progressive symmetrical maculopathy. Symptoms: Nyctalopia, blurred vision, visual loss. No treatment available.",
+          "zz Alkyl nitrites (‘poppers’): Recreational use. Bilateral VA loss and photopsia. Small yellow spot in fovea (visible on FAF - Fig. 21.9A). OCT shows defect in foveal inner-segment ellipsoid band (Fig. 21.9B). Spontaneous recovery possible."
+        ]
+      }
+    ],
+    "chapterId": "therapeutics"
+  },
+  "chapterId": "therapeutics",
+  "_newlyImported": 1769683087188,
+  "communityId": "sub_1769682852273_zaw1bao5x",
+  "communityAuthor": "Dodiii",
+  "communityDate": "2026-01-29T10:34:12.275Z",
+  "_serverSynced": true
+}

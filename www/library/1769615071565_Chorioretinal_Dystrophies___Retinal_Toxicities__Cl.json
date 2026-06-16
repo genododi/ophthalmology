@@ -1,0 +1,371 @@
+{
+  "id": 1769615071565,
+  "seqId": 130,
+  "title": "Chorioretinal Dystrophies & Retinal Toxicities: Clinical Compendium",
+  "summary": "An exhaustive clinical guide to inherited chorioretinal conditions, albinism phenotypes, and drug-induced retinal toxicities. This resource covers pathophysiology, diagnostic investigations, and management protocols for potentially blinding disorders.",
+  "date": "2026-01-28T15:44:31.565Z",
+  "data": {
+    "title": "Chorioretinal Dystrophies & Retinal Toxicities: Clinical Compendium",
+    "summary": "An exhaustive clinical guide to inherited chorioretinal conditions, albinism phenotypes, and drug-induced retinal toxicities. This resource covers pathophysiology, diagnostic investigations, and management protocols for potentially blinding disorders.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M20 50 Q50 20 80 50 Q50 80 20 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><path d='M30 30 L40 40 M70 30 L60 40 M30 70 L40 60 M70 70 L60 60' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Overview: Chorioretinal Dystrophies",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "These are inherited potentially blinding conditions, in which there is progressive chorioretinal atrophy; often initially involving the RPE, choriocapillaris, and photoreceptors, and in later stages, the larger choroidal vessels."
+      },
+      {
+        "title": "Gyrate Atrophy",
+        "icon": "rebase_edit",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Gyrate Atrophy (AR)",
+          "branches": [
+            "Genetics: OAT gene mutation (ornithine aminotransferase); cofactor B6",
+            "Pathophysiology: Failure to catalyze conversion of ornithine to glutamic-γ-semialdehyde and proline",
+            "Demographics: Commoner in Finland; symptoms from late childhood",
+            "Clinical Subtypes: B6 (pyridoxine) responsive vs non-responsive"
+          ]
+        }
+      },
+      {
+        "title": "Gyrate Atrophy: Clinical Profile",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Symptoms: Nyctalopia, peripheral field loss, later dVA",
+          "Fundus: Well-defined, circular RPE/choroidal atrophy patches (mid-peripheral/superficial)",
+          "Progression: Atrophic areas coalesce towards posterior pole; characteristic scalloped leading edge; deeper atrophy",
+          "Complications: ERM, CMO, moderate to high myopia, posterior subcapsular cataract"
+        ]
+      },
+      {
+        "title": "Gyrate Atrophy: Investigations & Tx",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Category",
+            "Details"
+          ],
+          "rows": [
+            [
+              "Plasma Ornithine",
+              "10–15× normal level; also elevated in urine and CSF"
+            ],
+            [
+              "ERG",
+              "Early reduction (rods > cones); less marked in B6-responsive group"
+            ],
+            [
+              "OCT",
+              "Multiple intraretinal cystoid spaces, linear hyperreflective GCL deposits, outer retinal tubulations"
+            ],
+            [
+              "Treatment 1",
+              "Pyridoxine (B6) supplements (for responsive minority)"
+            ],
+            [
+              "Treatment 2",
+              "Arginine-restricted diet (for non-responders)"
+            ],
+            [
+              "Treatment 3",
+              "Proline supplementation (may slow progress)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Choroideraemia",
+        "icon": "male",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Inheritance: XL condition (CHM gene; encodes Rab escort protein-1 (REP1))",
+          "Affected: Significant impairment from childhood in males (♂)",
+          "Females: ♀ carriers usually asymptomatic; show widespread fine RPE atrophy and mid-peripheral granular pigment",
+          "Symptoms: Nyctalopia, concentric VF loss, dVA variable (often middle age)",
+          "Fundus Progression: Patchy mid-peripheral superficial atrophy -> central diffuse deeper atrophy exposing sclera",
+          "NB: Relative sparing of retinal vessels and optic disc is characteristic",
+          "Associated: Posterior subcapsular cataract, early vitreous degeneration",
+          "Investigations: ERG reduction (rods > cones)",
+          "Management: Supportive treatment, genetic counselling, prenatal testing, Phase II gene therapy studies pending"
+        ]
+      },
+      {
+        "title": "Choroideraemia Differential Diagnosis",
+        "icon": "rule",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Severe XL RP",
+          "Bietti’s crystalline dystrophy",
+          "Thioridazine toxicity",
+          "Advanced Stargardt’s disease (rare)",
+          "PRPH2 retinopathy (rare)"
+        ]
+      },
+      {
+        "title": "Central Areolar Choroidal Dystrophy",
+        "icon": "center_focus_weak",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "Slowly progressive loss of central vision with symmetric, sharply outlined geographic atrophy. Large choroidal vessels change from reddish-orange to yellow-white ('choroidal sclerosis'). Associated with PRPH2 and GUCY2D mutations."
+      },
+      {
+        "title": "Albinism: General Features",
+        "icon": "palette",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Definition: Abnormalities in melanin synthesis resulting in pigment deficiency",
+          "Ocular Albinism: Eye alone",
+          "Oculocutaneous Albinism: Eye, skin, and hair",
+          "Visual Acuity: Generally reduced due to foveal hypoplasia",
+          "Chiasm: Increased decussation of temporal fibres; demonstrated by VEP contralateral predominance"
+        ]
+      },
+      {
+        "title": "Ocular Albinism (OA)",
+        "icon": "visibility_off",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Nettleship–Falls (XL)",
+          "branches": [
+            "Genetics: OA1 gene (melanosome function)",
+            "Clinical: dVA, photophobia, nystagmus, strabismus, ametropia",
+            "Fundus: Hypopigmentation, foveal hypoplasia, iris transillumination",
+            "Female Carriers: Patchy 'mud-splattered' fundus",
+            "OCT: Bulging photoreceptor nuclear layer; absent foveal depression; persistent inner retinal layers",
+            "Treatment: Correct ametropia (tinted lenses), prevent amblyopia, strabismus/nystagmus surgery"
+          ]
+        }
+      },
+      {
+        "title": "Oculocutaneous Albinism (OCA)",
+        "icon": "person",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Mechanism/Gene"
+          ],
+          "rows": [
+            [
+              "Type I",
+              "Tyrosinase (Chr 11q)"
+            ],
+            [
+              "Type II",
+              "P product (Chr 15q; transporter)"
+            ],
+            [
+              "Type III",
+              "Tyrosinase-related protein 1 (Chr 9p)"
+            ],
+            [
+              "Systemic Associations",
+              "Variable skin/hair hypopigmentation (blond)"
+            ],
+            [
+              "Hermansky–Pudlak",
+              "Mild OCA, low platelets, pulmonary/renal/intestinal issues (Puerto Rican ancestry)"
+            ],
+            [
+              "Chediak–Higashi",
+              "Mild OCA, leucocyte abnormalities, recurrent pyogenic infections"
+            ],
+            [
+              "Testing",
+              "Hair bulb incubation test (after age 5y)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Toxic Retinopathy: CQ & HCQ",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Chloroquine (CQ) Risk: >2.3mg/kg real weight or >3.5mg/kg/d (historical)",
+          "Hydroxychloroquine (HCQ) Risk: >5.0mg/kg real weight or >6.5mg/kg/d (historical)",
+          "Risk Factors: Duration (>5y), renal function, pre-existing maculopathy, tamoxifen use",
+          "Clinical Sign: 'Bull’s eye maculopathy' (depigmentation ring)",
+          "East Asian Pattern: May show extramacular toxicity",
+          "Irreversibility: Toxicity is irreversible; CQ is higher risk than HCQ"
+        ]
+      },
+      {
+        "title": "HCQ/CQ Screening (AAO 2016 Guidelines)",
+        "icon": "event_repeat",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Risk <5 years",
+              "value": 1
+            },
+            {
+              "label": "Risk <10 years",
+              "value": 2
+            },
+            {
+              "label": "Risk @ 20 years",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "HCQ/CQ Diagnostic Findings",
+        "icon": "image",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Symptoms: Asymptomatic initially, paracentral scotomas, dVA, d color vision",
+          "OCT: Subtle loss of ellipsoid zone -> parafoveal thinning of ONL -> widespread RPE atrophy",
+          "FAF: Increased autofluorescence ring -> parafoveal hypoautofluorescence",
+          "FFA: RPE window defects; minimal choriocapillaris loss",
+          "mfERG: Reduced pericentral hexagon amplitudes",
+          "Cornea: Vortex keratopathy, enhanced Hudson-Stahli line"
+        ]
+      },
+      {
+        "title": "Box 13.7: Mechanisms of Drug Toxicity",
+        "icon": "settings",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Mechanism",
+            "Drugs Involved"
+          ],
+          "rows": [
+            [
+              "RPE/Retina Degeneration",
+              "CQ/HCQ, Phenothiazines, Desferrioxamine, Clofazimine, Didanosine (DDI), Quinine, Ritonavir"
+            ],
+            [
+              "Retinal Vasculopathy",
+              "IFN retinopathy, Aminoglycoside antibiotics, Talc retinopathy"
+            ],
+            [
+              "CMO",
+              "Nicotinic acid, Topical adrenaline, PgAs (latanoprost), Paclitaxel, Glitazones, Fingolimod"
+            ],
+            [
+              "Crystalline Retinopathy",
+              "Talc, Tamoxifen, Canthaxanthin, Nitrofurantoin, Methoxyflurane, Ritonavir"
+            ],
+            [
+              "Retinal Folds",
+              "Topiramate and other sulfamated drugs"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Phenothiazines & Desferrioxamine",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Thioridazine: Toxicity if >1g/d for weeks; nummular RPE loss, pigment plaques, optic atrophy",
+          "Chlorpromazine: Corneal/lens deposits; pigmentary changes rarer (requires massive dose ~2400mg/d)",
+          "Desferrioxamine: Chelating agent; no 'safe' dose; RPE changes central/peripheral within weeks",
+          "Deferasirox: Orally active agent; may also lead to retinopathy"
+        ]
+      },
+      {
+        "title": "Specific Toxicities (Part 2)",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Interferon alfa: Microangiopathy (CWS, haemorrhages); risk in diabetics/hypertensive",
+          "Aminoglycosides (Gentamicin): Acute macular necrosis, vascular non-perfusion, NVG (post-intravitreal)",
+          "Talc: Crystals in end-arterioles (IV drug use); ischaemic retinopathy, NV, VH",
+          "Nicotinic Acid: CMO without vascular leakage (>1.5g/d); toxic effect on Müller cells",
+          "Tamoxifen: White crystals, CMO, RPE changes; risk if cumulative dose >100g or high daily dose"
+        ]
+      },
+      {
+        "title": "Specific Toxicities (Part 3)",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Canthaxanthine: Ring-shaped yellow-orange crystals; usually asymptomatic; clears on discontinuation",
+          "Topiramate: Acute myopia, AC shallowing, ciliary body swelling, retinal folds, AACG",
+          "MEK Inhibitors: Transient SRF (serous retinal fluid); not usually a reason to stop cancer Tx",
+          "Poppers (Alkyl Nitrite): Foveal yellow spots, disruption of cone outer segments on OCT",
+          "Fingolimod: Macular oedema (most frequent), haemorrhages, RVO",
+          "Taxanes (Paclitaxel/Docetaxel): CMO/macular oedema without leakage",
+          "HIV Drugs: Didanosine (peripheral atrophy); Ritonavir (central epitheliopathy, MacTel, crystals)"
+        ]
+      },
+      {
+        "title": "Box 13.8: Causes of Crystalline Retinopathy",
+        "icon": "diamond",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Vascular: Type 2 idiopathic MacTel",
+          "Drugs: Tamoxifen, Canthaxanthine, Methoxyflurane, Talc, Nitrofurantoin, Ritonavir",
+          "Inherited: Bietti’s, Kjellin syndrome, Sjögren–Larsson, Oxalosis, Cystinosis",
+          "Other: West African crystalline maculopathy"
+        ]
+      },
+      {
+        "title": "Miscellaneous: Flecked Retina & Solar",
+        "icon": "wb_sunny",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Flecked Retina: Originally Fundus albipunctatus, flavimaculatus, familial drusen, Kandori. Now includes Alport, Metabolic (cystinosis), Vit A deficiency",
+          "Solar Maculopathy: Photochemical injury from sun/eclipse; oxidative stress; small yellow-white foveolar lesions",
+          "Solar/Laser OCT: Characteristic defect in IS-OS junction at fovea ('microhole' or 'outer retinal hole')",
+          "Laser Pointer Maculopathy: Discrete IS-OS line abnormalities; horizontal/vertical linear patterns if self-inflicted; 2° iris atrophic changes",
+          "Acute Macular Neuroretinopathy (AMN): Wedge-shaped dark lesions pointing to fovea (best on IR reflectance); OCT shows OPL/ONL hyperreflectivity"
+        ]
+      }
+    ],
+    "chapterId": "paediatric"
+  },
+  "chapterId": "paediatric",
+  "_newlyImported": 1769615071565,
+  "communityId": "sub_1769614749293_o782a218bpeoiw",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

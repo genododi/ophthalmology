@@ -1,0 +1,381 @@
+{
+  "id": 1768147425068,
+  "seqId": 88,
+  "title": "Keratoplasty & Corneal Cross-Linking: The Definitive Clinical Guide",
+  "summary": "An exhaustive visual roadmap of corneal transplantation, from penetrating and lamellar techniques to the management of rejection, survival strategies, and therapeutic collagen cross-linking. This guide covers over 100 years of surgical evolution and modern protocols.",
+  "date": "2026-01-11T16:03:45.068Z",
+  "data": {
+    "title": "Keratoplasty & Corneal Cross-Linking: The Definitive Clinical Guide",
+    "summary": "An exhaustive visual roadmap of corneal transplantation, from penetrating and lamellar techniques to the management of rejection, survival strategies, and therapeutic collagen cross-linking. This guide covers over 100 years of surgical evolution and modern protocols.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='20' fill='hsl(215, 90%, 45%)' fill-opacity='0.2' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='4'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='2' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Overview: The Commonest Transplantation",
+        "icon": "history",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Corneal grafting has been performed for over 100y and is the commonest of all transplantation procedures. It may be performed as an elective procedure to improve vision or as an emergency procedure for corneal perforation. It may involve full-thickness replacement of a button of corneal tissue (PK), partial-thickness replacement (lamellar keratoplasty), or of just the posterior layers (endothelial keratoplasty). Although not necessary for low-risk procedures, systemic immunosuppression should be considered for high-risk grafts."
+      },
+      {
+        "title": "Risk Stratification by Vascularization",
+        "icon": "adversary",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Low Risk (Avascular)",
+              "value": 20
+            },
+            {
+              "label": "Moderate (1-2 Quadrants)",
+              "value": 60
+            },
+            {
+              "label": "High Risk (3+ Quadrants)",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "Additional Risk & Survival Factors",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Deep vessels confer greater risk than superficial vessels.",
+          "Underlying immune-mediated disease.",
+          "Threatened or actual perforation.",
+          "Presence of infection.",
+          "Raised IOP (Intraocular Pressure).",
+          "Previous transplant surgery."
+        ]
+      },
+      {
+        "title": "Penetrating Keratoplasty (PK): Indications",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Visual Indications: keratoconus, pseudophakic/aphakic bullous keratopathy, Fuchs’ endothelial dystrophy, other corneal dystrophies, scarring 2° to trauma, chemical injury, or keratitis.",
+          "Tectonic Indications: corneal thinning, threatened perforation, or actual perforation."
+        ]
+      },
+      {
+        "title": "Poor Prognostic Factors (Cautions)",
+        "icon": "priority_high",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Corneal vascularization",
+          "Reduced corneal sensation",
+          "Active inflammation",
+          "Peripheral corneal thinning",
+          "Herpetic disease",
+          "Ocular surface disease",
+          "Uncontrolled glaucoma"
+        ]
+      },
+      {
+        "title": "PK Method: The Consent Process",
+        "icon": "assignment",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Consent: explain what the operation does, the need for frequent post-operative visits, long-term follow-up, and the importance of immediate attendance if there are problems. Explain the nature of organ donation and that the donors are screened, but that there is still a small risk of transmission of infectious agents. Explain the delay in visual rehabilitation and possible complications, including failure, graft rejection, infection, haemorrhage, worsened vision, and need for correction of astigmatism (CL ± refractive surgery)."
+      },
+      {
+        "title": "PK Surgical Preparation & Initial Steps",
+        "icon": "precision_manufacturing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Preoperative: miotic (e.g. pilocarpine 1%).",
+          "Prep: with 5% povidone iodine and drape.",
+          "Check donor material: healthy-looking corneoscleral ring in clear media, good endothelial cell count.",
+          "Determine button sizes: depends on corneal morphology and pathology, but commonly 7.5mm for the host and 0.25–0.5mm larger for the donor.",
+          "Mark cornea: measure height and width of cornea with calipers, and mark centre with ink; consider marking the periphery with radial keratotomy marker to assist with suture placement.",
+          "Perform paracentesis, and fill AC with viscoelastic.",
+          "Excise donor button: cut from endothelial side, using a trephine (types include handheld, gravity, and vacuum-driven)."
+        ]
+      },
+      {
+        "title": "PK Surgical: Excision and Suturing",
+        "icon": "content_cut",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Excise host button: cutting with the trephine (numerous designs) may be full-thickness or stopped at the first release of aqueous to perform a slower decompression with blade or corneal scissors.",
+          "Place cardinal sutures: 4×10-0 nylon sutures to secure the donor button in position.",
+          "Complete suturing: either additional interrupted sutures (often 16 in total or continuous running suture—less favourable). Aim for 90% suture depth. Ensure suture tension even, and attempt to minimize astigmatism.",
+          "Refill AC with balanced salt solution (BSS)."
+        ]
+      },
+      {
+        "title": "PK Post-operative Care",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Topical steroid and antibiotic; if low risk of rejection, then a combined preparation may be sufficient.",
+          "If higher risk: non-preserved dexamethasone 0.1% q2h and chloramphenicol 0.5% 4×/d.",
+          "Consider oral acetazolamide in the immediate post-operative period (especially if coexistent glaucoma).",
+          "Consider oral aciclovir (if HSV disease)."
+        ]
+      },
+      {
+        "title": "Follow-up & Long-term Maintenance",
+        "icon": "event_available",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Frequency: commonly at 1d, 1wk, 1mo, and then 2- to 3-monthly.",
+          "Astigmatism Management: Regular refraction/autorefraction and corneal topography permit adjustment/removal of sutures. A continuous running suture should not usually be removed for at least a year.",
+          "Monitoring: Use antibiotic/steroid cover to reduce risk of infection/rejection, and check for wound leaks.",
+          "Lifelong Care: Patients require one drop of topical steroid for a minimum of 2y (following which rejection rates fall) and possibly lifelong thereafter."
+        ]
+      },
+      {
+        "title": "Lamellar Keratoplasty: DALK & SLK",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Indications",
+            "Method Outline"
+          ],
+          "rows": [
+            [
+              "Deep anterior lamellar (DALK)",
+              "Visual: Suitable for healthy host endothelium/Descemet’s (e.g., keratoconus, stromal dystrophies, scarring). Reduced rejection risk vs PK.",
+              "Deep stromal pocket formed from superior scleral/corneal incision + viscoelastic. Trephine partial-thickness excision. Air in AC assists visualization."
+            ],
+            [
+              "Superficial lamellar",
+              "Tectonic: reinforce thinned cornea (threatened perforation, post-pterygium). Visual (uncommon): anterior stromal scarring.",
+              "Trephine cut to desired depth; blade or microkeratome used to separate button at the base."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Endothelial Keratoplasty (EK)",
+        "icon": "layers_clear",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Endothelial Keratoplasty",
+          "branches": [
+            "Indications: Fuchs’ endothelial dystrophy, pseudophakic bullous keratopathy.",
+            "Advantages: Shorter surgical time, structural integrity, stable refraction, faster visual recovery.",
+            "Method: Descemet’s/endothelium stripped; donor prepared via automated keratome; inserted via small incision (introducer/glide); air tamponade opposition.",
+            "Complications: Pupillary block, donor endothelial damage, donor graft detachment (needs air injection repositioning)."
+          ]
+        }
+      },
+      {
+        "title": "Triple Procedure",
+        "icon": "plus_one",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Indications: Visually significant cataract with disease requiring PK (most commonly Fuchs’ endothelial dystrophy).",
+          "Method Outline: PK performed with cataract extraction (usually extracapsular ‘open sky’) and IOL implantation."
+        ]
+      },
+      {
+        "title": "Early Post-operative Complications",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Wound leak: Seidel positive leak, shallow AC, soft eye. Management: lubricants, BCL, patching, or resuturing.",
+          "Raised IOP: Causes include retained viscoelastic, malignant glaucoma, choroidal effusion, and choroidal haemorrhage. Management: Identify/treat cause.",
+          "Persistent epithelial defect (>2wk): Causes include dry eye, blepharitis, rosacea, exposure, diabetes, or RA. Management: Lubrication, preservative-free drops, taping/tarsorrhaphy.",
+          "Endophthalmitis: Rare, sight-threatening emergency requiring urgent treatment.",
+          "1° transplant failure: Endothelial failure causing persistent graft oedema from d1 in a quiet eye. Observe 2–4wk; consider regraft.",
+          "Early graft rejection: Requires urgent assessment.",
+          "Urrets–Zavalia syndrome: Fixed, dilated pupil after PK or DALK; presumed due to iris ischaemia.",
+          "Iris prolapse & Flat AC: (From Table 7.17 summary)."
+        ]
+      },
+      {
+        "title": "Late Post-operative Complications",
+        "icon": "history_edu",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Astigmatism: Monitor with topography; adjust running or remove interrupted sutures at steepest axes. Wound must be secure. Hard CL ± arcuate keratotomies.",
+          "Microbial keratitis: Risk due to epithelial disturbance, sutures, chronic steroids. Urgent treatment required.",
+          "Suture-related problems: Remove loose/broken sutures; check leaks. Continuous suture not removed for at least a year.",
+          "Disease recurrence: Common with viral keratitis (HSV) and corneal dystrophies (e.g. macular). Treatment: Aciclovir for HSV; may require further graft.",
+          "Late graft rejection: Continued risk >20y.",
+          "Glaucoma: (From Table 7.17 summary)."
+        ]
+      },
+      {
+        "title": "Corneal Transplant Rejection: Basics",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Term",
+            "Definition/Mechanism"
+          ],
+          "rows": [
+            [
+              "Rejection",
+              "Specific immunologic response of host to donor tissue. Diagnosis only after graft has been clear for ≥2wk."
+            ],
+            [
+              "Failure",
+              "Non-immune-mediated, such as 1° donor failure or endothelial cell count attrition."
+            ],
+            [
+              "Mechanism",
+              "Usually endothelial (20% of grafts). Dependent on antigen-presenting cells and CD4+ T cells. Th1 or Th2 response."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Rejection Prognosis & Treatment",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Risk is greatest in first 12mo; risk decreases if rejection-free for 24mo.",
+          "Progression to failure from rejection is 49%.",
+          "Treat any anterior uveitis or raised IOP in a graft patient as rejection until proven otherwise.",
+          "Low threshold for admission. Prompt treatment saves grafts.",
+          "Mild treatment: Topical steroids ± ocular hypotensives.",
+          "Severe/High-risk treatment: Oral prednisolone ± pulsed IVMP."
+        ]
+      },
+      {
+        "title": "Types of Graft Rejection",
+        "icon": "flaky",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Type",
+            "Signs",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Epithelial",
+              "Epithelial demarcation line (host replacing donor).",
+              "Double topical steroids (e.g., Dexamethasone PF 0.1% up to hourly)."
+            ],
+            [
+              "Stromal/Subepithelial",
+              "Subepithelial infiltrates.",
+              "Double topical steroids (e.g., Dexamethasone PF 0.1% up to hourly)."
+            ],
+            [
+              "Endothelial",
+              "Corneal oedema, KPs, Khodadoust line, AC activity.",
+              "Intensive topical steroids (hourly day/night + ointment); cycloplegia (cyclopentolate 1% 3x/d); consider subconjunctival/systemic."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Strategies for Survival Prolongation",
+        "icon": "trending_up",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Survival rates at 5y: Lower than renal; high-risk corneal transplants are worse than liver transplants.",
+          "Pharmacology: Induction with mycophenolate; maintenance with mTOR inhibition (sirolimus) or calcineurin inhibitors (tacrolimus).",
+          "Antiangiogenic: Bevacizumab (anti-VEGF) at time of surgery or post-op for vascular cues."
+        ]
+      },
+      {
+        "title": "5-Year Survival Rates",
+        "icon": "query_stats",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "1st Graft",
+              "value": 72
+            },
+            {
+              "label": "2nd Graft",
+              "value": 53
+            },
+            {
+              "label": "3rd Graft",
+              "value": 37
+            },
+            {
+              "label": "4th+ Graft",
+              "value": 28
+            }
+          ]
+        }
+      },
+      {
+        "title": "Corneal Collagen Cross-Linking (CXL)",
+        "icon": "light_mode",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "CXL (Riboflavin + UVA)",
+          "branches": [
+            "Indications: Stabilize keratoconus, 2° ectasia (LASIK, keratitis), refractive fine-tuning, corneal decompensation (oedema).",
+            "Wollensak Method: Topical proxymetacaine 0.5%; 9mm epithelium removed; 0.1% iso-osmolar riboflavin (B2) every 1-5min for 30min.",
+            "UVA Exposure: 365nm, 3mW/cm2, 5mm distance for 30min (Total 5.4J/cm2).",
+            "Requirement: Minimum 400 microns corneal thickness.",
+            "Completion: Topical antibiotic and therapeutic CL."
+          ]
+        }
+      },
+      {
+        "title": "CXL: Outcomes and Complications",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Outcome: Delay in disease progression shown in observational and RCT studies.",
+          "NICE Guidance: Supports 'epithelium-off' method for keratoconus/keratectasia; further research needed for other forms.",
+          "Failure/Complications: Rate <5% (epithelial defects, infective keratitis, melts).",
+          "Risk Factors for Failure: Age >35, steep pre-treatment Ks (>58D). Higher efficacy in younger patients."
+        ]
+      }
+    ]
+  },
+  "chapterId": "cornea",
+  "_serverSynced": true
+}

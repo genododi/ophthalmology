@@ -1,0 +1,226 @@
+{
+  "id": 1769615469038,
+  "seqId": 148,
+  "title": "Diabetic Eye Disease: Screening Guidelines & Management",
+  "summary": "This visual guide outlines the UK National Screening Committee's systematic approach to testing for diabetic retinopathy. It covers the methods, classification systems, and specific referral timelines for clinical management and hospital eye services.",
+  "date": "2026-01-28T15:51:09.038Z",
+  "data": {
+    "title": "Diabetic Eye Disease: Screening Guidelines & Management",
+    "summary": "This visual guide outlines the UK National Screening Committee's systematic approach to testing for diabetic retinopathy. It covers the methods, classification systems, and specific referral timelines for clinical management and hospital eye services.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M20 50 Q 50 10 80 50 Q 50 90 20 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><rect x='45' y='15' width='10' height='10' fill='hsl(215, 90%, 45%)' transform='rotate(45 50 20)'/></svg>",
+    "sections": [
+      {
+        "title": "What is Screening?",
+        "icon": "help_outline",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Screening is the systematic testing of a population (or subgroup) for signs of asymptomatic or ignored disease."
+      },
+      {
+        "title": "Screening for Diabetic Eye Disease",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "DR Classification Systems",
+          "branches": [
+            "Detailed Airlie House system (generally for trials)",
+            "Dichotomous non-proliferative vs proliferative division",
+            "Traditional background/pre-proliferative/proliferative grading (adopted by UK NSC)"
+          ]
+        }
+      },
+      {
+        "title": "Eligibility and Adoption",
+        "icon": "person_add",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "The traditional grading system is the most familiar to 1° care physicians and optometrists.",
+          "All people with diabetes over the age of 12 are invited for screening."
+        ]
+      },
+      {
+        "title": "Methodology & Quality Assurance",
+        "icon": "camera_alt",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Although screening may be by dilated fundoscopy, quality assurance can be more readily achieved where there is a photographic record. Hence a national programme of digital photographic screening is under way. Photography could potentially be performed by mobile units, by selected 1°/2° care units, or by community optometrists. grading of the photographs could be performed by the same units (if approved) or the photographs could be sent to an approved centre. The UK National Screening Committee guidelines undergo regular revision and are available at: M https:// www.gov.uk/ topic/ population- screening- programmes/ diabetic-eye (see Table 13.7)."
+      },
+      {
+        "title": "Referral Targets to Hospital Eye Service (HES)",
+        "icon": "priority_high",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Referral/Action Target"
+          ],
+          "rows": [
+            [
+              "Pre-proliferative retinopathy (R2)",
+              "Referral to hospital eye service (HES) (target ≤13wk)."
+            ],
+            [
+              "Proliferative retinopathy (R3)",
+              "Fast-track referral (target ≤2wk)."
+            ],
+            [
+              "Maculopathy fulfilling screening guidelines (M1)",
+              "Referral to HES (target ≤13wk)."
+            ],
+            [
+              "Unclassifiable (U)",
+              "Referral to HES."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Treatment Timing: Listing to Photocoagulation (P1)",
+        "icon": "timer",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Proliferative retinopathy (R3): ≤2wk",
+          "Maculopathy: target ≤10wk"
+        ]
+      },
+      {
+        "title": "Screening Intervals & NHS England Specifics",
+        "icon": "calendar_today",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "NB The NHS Diabetic Eye Screening Programme in England only operates an annual screening programme.",
+          "Patients should only be discharged to screening if at sufficiently low risk to receive 12-monthly photographic assessments.",
+          "2016 Recommendation: People with no retinopathy on two consecutive screening visits can be screened every 2y."
+        ]
+      },
+      {
+        "title": "Table 13.7: Retinopathy Grading & Management (R0 - R2)",
+        "icon": "grading",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Grade",
+            "Type",
+            "Clinical Features",
+            "Management"
+          ],
+          "rows": [
+            [
+              "R0",
+              "None",
+              "None",
+              "Annual screening"
+            ],
+            [
+              "R1",
+              "Background",
+              "Microaneurysm(s), Retinal haemorrhage(s), Venous loop, Any exudate in presence of other non-referable DR features, Any CWS in presence of other non-referable DR features",
+              "Annual screening; Inform diabetes care team"
+            ],
+            [
+              "R2",
+              "Pre-proliferative",
+              "Venous beading, Venous reduplication, IRMA, Multiple deep, round, or blot haemorrhages",
+              "Refer to HES"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 13.7: Retinopathy Grading & Management (R3a - R3s)",
+        "icon": "warning",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Grade",
+            "Type",
+            "Clinical Features",
+            "Management"
+          ],
+          "rows": [
+            [
+              "R3a",
+              "Proliferative (active)",
+              "NVD, NVE, Preretinal or vitreous haemorrhage, Preretinal fibrosis ± TRD",
+              "Fast-track referral to HES"
+            ],
+            [
+              "R3s",
+              "Proliferative (stable post-treatment)",
+              "Evidence of peripheral retinal laser AND stable retina from photograph taken at, or shortly after, discharge from HES",
+              "Annual screening"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 13.7: Maculopathy & Photocoagulation Grading",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Grade",
+            "Type",
+            "Clinical Features",
+            "Management"
+          ],
+          "rows": [
+            [
+              "M0",
+              "No maculopathy",
+              "None",
+              "Annual screening"
+            ],
+            [
+              "M1",
+              "Maculopathy",
+              "Exudate within 1DD of the centre of the fovea; Circinate or group of exudates within the macula; Retinal thickening 01DD of the centre of the fovea (if stereo available); Any microaneurysm or haemorrhage 01DD of the centre of the fovea only if associated with a best VA of 06/12 (if no stereo)",
+              "Refer to HES"
+            ],
+            [
+              "P",
+              "Photocoagulation",
+              "Only assigned if laser scars are identified (focal/grid to macula or peripheral scatter)",
+              "Photocoagulation (Action depends on R grade)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ungradable Category",
+        "icon": "error_outline",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Unclassifiable (U): Ungradable. For example, if media opacity, poor photographs. Management: Refer to HES or slit-lamp biomicroscopy clinic."
+        ]
+      }
+    ],
+    "chapterId": "evidence"
+  },
+  "chapterId": "evidence",
+  "_newlyImported": 1769615469038,
+  "communityId": "sub_1769614749293_cf11k1sud1ejzs",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

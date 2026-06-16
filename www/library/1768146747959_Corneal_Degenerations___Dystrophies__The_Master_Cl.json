@@ -1,0 +1,391 @@
+{
+  "id": 1768146747959,
+  "seqId": 84,
+  "title": "Corneal Degenerations & Dystrophies: The Master Clinical Map",
+  "summary": "An exhaustive clinical guide covering corneal degenerative diseases and dystrophies, ranging from common age-related changes like Arcus to rare genetic posterior dystrophies such as CHED and PPCD. This poster delineates pathophysiology, clinical markers, and modern management strategies.",
+  "date": "2026-01-11T15:52:27.959Z",
+  "data": {
+    "title": "Corneal Degenerations & Dystrophies: The Master Clinical Map",
+    "summary": "An exhaustive clinical guide covering corneal degenerative diseases and dystrophies, ranging from common age-related changes like Arcus to rare genetic posterior dystrophies such as CHED and PPCD. This poster delineates pathophysiology, clinical markers, and modern management strategies.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='100' cy='100' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='4'/><path d='M60 100 Q100 60 140 100 Q100 140 60 100' fill='hsla(215, 90%, 45%, 0.1)' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='100' cy='100' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Corneal Degenerative Disease (1): Peripheral Changes",
+        "icon": "blur_circular",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Common Degenerations",
+          "branches": [
+            "Arcus: Bilateral lipid deposition. Usually age-related or hyperlipidaemia.",
+            "Cornea farinata: Symmetrical deep stromal flour-like opacities (prominent centrally).",
+            "Crocodile shagreen: Reticular network of stromal opacities (Anterior > Posterior).",
+            "Vogt’s limbal girdle: Chalky white deposits at 3 and 9 o’clock (Type I: clear zone; Type II: no clear zone)."
+          ]
+        }
+      },
+      {
+        "title": "Arcus Senilis & Juvenilis",
+        "icon": "radio_button_checked",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Causes: Most bilateral cases no systemic association; check Type II hyperlipidaemia in Arcus Juvenilis.",
+          "Unilateral Arcus: Rare; may signify contralateral carotid compromise or previous ocular hypotony.",
+          "Clinical Features: Starts at 3 and 9 o'clock; forms a complete 1mm ring.",
+          "Morphology: Central margin is blurred; peripheral margin is sharp with clear perilimbal zone (may show thinning).",
+          "Visual Impact: Generally insignificant."
+        ]
+      },
+      {
+        "title": "Lipid Keratopathy Profiles",
+        "icon": "opacity",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Primary",
+            "Secondary"
+          ],
+          "rows": [
+            [
+              "Cause",
+              "Rare idiopathic cholesterol/fat deposition.",
+              "Follows vascularization (injury/inflammation)."
+            ],
+            [
+              "Vascularization",
+              "No associated vascularization.",
+              "Vascularization present."
+            ],
+            [
+              "Appearance",
+              "Yellow-white stromal deposits.",
+              "Yellow-white stromal deposition with vessels."
+            ],
+            [
+              "Triggers",
+              "N/A",
+              "Herpetic (simplex/zoster), trauma, interstitial keratitis."
+            ],
+            [
+              "Treatment",
+              "None required; non-progressive.",
+              "Steroids, vessel occlusion, PK, or anti-VEGF."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Secondary Lipid Keratopathy: Management",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Investigations - Quantify neovascularization using fluorescein and ICG angiography.",
+          "Step 2: Inflammation Control - Treat underlying cause; occasional long-term mild corticosteroid (e.g., fluorometholone).",
+          "Step 3: Anti-VEGF - Consider topical or subconjunctival anti-VEGF therapy.",
+          "Step 4: Vessel Occlusion - Argon laser photocoagulation or direct needle point cautery under microscope.",
+          "Step 5: Penetrating Keratoplasty (PK) - If severe/persistent and eye is quiet (Note: guarded prognosis due to vascularization)."
+        ]
+      },
+      {
+        "title": "Band Keratopathy: Causes (Table 7.11)",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Category",
+            "Condition",
+            "Specific Causes"
+          ],
+          "rows": [
+            [
+              "Ocular",
+              "Anterior Segment Inflammation",
+              "Chronic anterior uveitis, Chronic keratitis, Chronic corneal oedema, Silicone oil in AC"
+            ],
+            [
+              "Ocular",
+              "Degenerative",
+              "Phthisis bulbi"
+            ],
+            [
+              "Systemic",
+              "Metabolic/Genetic",
+              "Primary (familial), Senile, Ichthyosis, Hypercalcaemia, Hyperphosphataemia, Hyperuricaemia, Chronic renal failure"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Band Keratopathy Clinical & Treatment",
+        "icon": "flare",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Deposition: Subepithelial calcium phosphate salts.",
+          "Clinical Features: White opacities starting at 3 and 9 o’clock progressing to a central band; FB sensation, pain, decreased VA.",
+          "Treatment Step 1: Identify/treat underlying cause; consider therapeutic CL.",
+          "Treatment Step 2: Chemical chelation (disodium EDTA).",
+          "Treatment Step 3: Mechanical debridement (No. 15 blade).",
+          "Alternative: Excimer therapeutic laser keratectomy."
+        ]
+      },
+      {
+        "title": "Salzmann Nodular Degeneration",
+        "icon": "grain",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Definition: Eosinophilic material replacing Bowman’s layer; complication of chronic keratitis.",
+          "Causes: Trachoma, phlyctenular, vernal, or interstitial keratitis; post-surgery; idiopathic.",
+          "Clinical Features: Well-defined grey-white elevated nodules ± iron lines (chronicity); glare, decreased VA, pain.",
+          "Treatment: Lubrication, therapeutic CL, or excimer laser keratectomy."
+        ]
+      },
+      {
+        "title": "Anterior Dystrophies: Epithelial & Bowman's",
+        "icon": "texture",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Dystrophy",
+            "Pathophysiology",
+            "Key Clinical Features",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "EBMD (Map-dot-fingerprint)",
+              "Defect in epithelium-BM interaction (hemidesmosomes); 2.5% prevalence; female predilection.",
+              "Bilateral/Asymmetric; Maps (opacities), Dots (microcysts), Fingerprints (ridges); RCES in 10-33%.",
+              "Manage as RCES (Recurrent Corneal Erosion Syndrome)."
+            ],
+            [
+              "Reis–Bucklers",
+              "BIGH3 (TGFBI) mutation (Chr 5q). Bowman's degeneration + collagen (blue Masson trichrome).",
+              "Early childhood RCES; multiple subepithelial grey reticular opacities (central start).",
+              "Manage RCES; Excimer laser superficial keratectomy; Lamellar/PK if decreased VA."
+            ],
+            [
+              "Meesman’s",
+              "Cytokeratin mutations (CK3/Chr 12, CK12/Chr 17). Rare, AD.",
+              "Discrete clear epithelial vesicles spreading centrally to peripherally (spares limbus).",
+              "Usually no treatment; rarely lamellar keratoplasty."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Stromal Dystrophies (1): Lattice, Granular, Avellino",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Dystrophy",
+            "Genetic / Stain",
+            "Clinical Features",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Lattice (I, II, III)",
+              "Type I/III: BIGH3 (amyloid). Type II: Gelsolin (Meretoja's). Congo red (apple green).",
+              "Criss-cross refractile lines. Type II includes systemic lax skin, CN palsies, renal/cardiac failure.",
+              "RCES treatment; PK or Excimer laser; Recurrence is common."
+            ],
+            [
+              "Granular",
+              "BIGH3 mutation. Hyaline material (phospholipids). Stains red with Masson trichrome.",
+              "White, crumb-like opacities in clear stroma; initially central, then coalesce.",
+              "RCES treatment; PK or Lamellar keratoplasty. Recurrence is common."
+            ],
+            [
+              "Avellino",
+              "BIGH3 mutation. Stains for Hyaline (Masson) AND Amyloid (Congo red). Rare (Italy).",
+              "Granular-type anterior opacities + lattice-type deep lines; central subepithelial haze.",
+              "RCES treatment; PK if decreased VA. Recurrence is common."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Stromal Dystrophies (2): Macular, Schnyder, Congenital",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Dystrophy",
+            "Mutation / Stain",
+            "Clinical Features",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Macular",
+              "AR (CHST6). Glycosaminoglycan (keratan sulfate-like). Alcian blue / Colloidal iron.",
+              "Diffuse clouding with focal grey-white opacities; involves full thickness peripherally.",
+              "PK or Lamellar keratoplasty. Recurrence is rare."
+            ],
+            [
+              "Schnyder’s",
+              "AD (UBIAD1). Cholesterol/neutral fat. Oil red O staining.",
+              "Central yellow-white scintillating crystals, corneal haze, and arcus. Childhood onset.",
+              "Excimer laser or PK. Recurrence possible. Check fasting lipids."
+            ],
+            [
+              "Congenital (CHSD)",
+              "AD (DCN). Abnormal collagen. Normal thickness, no oedema.",
+              "Present at birth; snowflake whitish opacities throughout entire cornea; static/slow progress.",
+              "Requires PK."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Other Stromal Dystrophies",
+        "icon": "bubble_chart",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Central cloudy dystrophy: AD; similar to posterior crocodile shagreen; visually insignificant.",
+          "Fleck dystrophy: AD; white flecks throughout stroma; visually insignificant.",
+          "Posterior amorphous corneal dystrophy: AD; grey sheets in deep stroma; non-progressive; rarely significant."
+        ]
+      },
+      {
+        "title": "Fuchs’ Endothelial Dystrophy: Pathogenesis",
+        "icon": "biotech",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "ZEB1-SLC-COL",
+          "explanation": "Genetics: COL8A2 (early-onset), SLC4A11 and ZEB1 (late-onset). Na+K+ATPase pump failure causes fluid accumulation."
+        }
+      },
+      {
+        "title": "Fuchs’ Clinical Stages & Diagnosis",
+        "icon": "visibility",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Stage 1: Central corneal guttata ('beaten metal'), endothelial pigment.",
+          "Stage 2: Stromal oedema, Descemet’s folds, and epithelial bullae.",
+          "Stage 3: Recurrent erosions, subepithelial vascular pannus, and stromal haze.",
+          "Specular Microscopy: Decreased cell count, increased diameter, decreased hexagons, variation in size.",
+          "Pachymetry: Increased CCT (Central Corneal Thickness)."
+        ]
+      },
+      {
+        "title": "Fuchs' Management & Rehabilitation",
+        "icon": "health_and_safety",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Edema Relief: Topical 5% NaCl (hypertonic), warm air (hair dryer), treat OHT.",
+          "Comfort: BCL for bullous change.",
+          "Visual Rehab: Endothelial replacement surgery (DSAEK/DMEK) or PK if scarring.",
+          "Triple Procedure: Simultaneous keratoplasty, cataract extraction, and IOL insertion."
+        ]
+      },
+      {
+        "title": "RED FLAG: Prevention of Decompensation",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Cataract Surgery Risk: Protect endothelium with heavy viscoelastic (soft-shell); minimize phako-time.",
+          "OHT/Glaucoma Meds: Topical β-blockers preferred. Carbonic anhydrase inhibitors may induce failure.",
+          "Surgical Strategy: Refer severe cases to corneal specialists for elective combined or sequential surgery.",
+          "Counseling: Essential to discuss risk of decompensation prior to any cataract surgery."
+        ]
+      },
+      {
+        "title": "CHED and PPCD: Posterior Dystrophies",
+        "icon": "child_care",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Genetics",
+            "Clinical Features",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "CHED2 (AR form)",
+              "SLC4A11 mutation (more common/severe).",
+              "Birth: Marked oedema (3x thickness), nystagmus, severe decreased VA. Not painful.",
+              "PK (limited by amblyopia)."
+            ],
+            [
+              "CHED1 (AD form)",
+              "Linked to Chr 20p (similar to PPCD1).",
+              "Infancy: Mild oedema, tearing, photophobia. Gradually progressive. No nystagmus.",
+              "Management as needed."
+            ],
+            [
+              "PPCD (Posterior Polymorphous)",
+              "AD. Forms: PPCD1 (VSX1), PPCD2 (COL8A2), PPCD3 (ZEB1).",
+              "Vesicles, broad bands, or haze; iris adhesions, corectopia, glaucoma (open/closed).",
+              "Usually none; PK if significant decreased VA."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Demographics & Stats",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Fuchs' ♀:♂ Ratio",
+              "value": 80
+            },
+            {
+              "label": "EBMD Prevalence (%)",
+              "value": 2.5
+            },
+            {
+              "label": "EBMD RCES Risk (%)",
+              "value": 33
+            },
+            {
+              "label": "CHED2 Stroma Thickness (x Normal)",
+              "value": 30
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "chapterId": "paediatric",
+  "_serverSynced": true
+}

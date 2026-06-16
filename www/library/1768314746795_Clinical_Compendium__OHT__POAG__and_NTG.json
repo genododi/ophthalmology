@@ -1,0 +1,359 @@
+{
+  "id": 1768314746795,
+  "seqId": 101,
+  "title": "Clinical Compendium: OHT, POAG, and NTG",
+  "summary": "An exhaustive clinical guide covering Ocular Hypertension (OHT), Primary Open-Angle Glaucoma (POAG), and Normal-Tension Glaucoma (NTG). This poster details diagnostic criteria, risk factors from the OHTS and CNTGS trials, and comprehensive management protocols.",
+  "date": "2026-01-13T14:32:26.795Z",
+  "data": {
+    "title": "Clinical Compendium: OHT, POAG, and NTG",
+    "summary": "An exhaustive clinical guide covering Ocular Hypertension (OHT), Primary Open-Angle Glaucoma (POAG), and Normal-Tension Glaucoma (NTG). This poster details diagnostic criteria, risk factors from the OHTS and CNTGS trials, and comprehensive management protocols.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><line x1='50' y1='10' x2='50' y2='20' stroke='hsl(215, 90%, 45%)'/><line x1='50' y1='80' x2='50' y2='90' stroke='hsl(215, 90%, 45%)'/><line x1='10' y1='50' x2='20' y2='50' stroke='hsl(215, 90%, 45%)'/><line x1='80' y1='50' x2='90' y2='50' stroke='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Ocular Hypertension (OHT) Essentials",
+        "icon": "speed",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Oht describes an IOP >21mmhg (representing 2 SD above the population mean) in the presence of a healthy optic disc and normal VF.",
+          "This population is positively skewed, with 5–7% of those aged >40 having an IOP >21mmhg.",
+          "In the absence of glaucomatous damage, it is difficult to differentiate those in whom such an IOP is physiological from those in whom it is pathological (i.e. will ‘convert’ to POAG).",
+          "See Box 10.2 for devices to measure IOP."
+        ]
+      },
+      {
+        "title": "OHTS Trial: Conversion to POAG",
+        "icon": "trending_up",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Untreated (5y)",
+              "value": 9.5
+            },
+            {
+              "label": "Treated (5y)",
+              "value": 4.4
+            }
+          ],
+          "description": "The Ocular hypertension treatment Study (OhtS) found treatment (reducing IOP by >20% and achieving ≤24mmhg) reduced conversion rates significantly."
+        }
+      },
+      {
+        "title": "OHTS Risk Factors & Hazard Ratios (HRs)",
+        "icon": "calculate",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Risk Factor",
+            "Hazard Ratio (HR)",
+            "Metric Unit"
+          ],
+          "rows": [
+            [
+              "Older age",
+              "1.2",
+              "per decade"
+            ],
+            [
+              "Higher IOP",
+              "1.1",
+              "per mmhg"
+            ],
+            [
+              "Larger C/D ratio",
+              "1.2",
+              "per 0.1"
+            ],
+            [
+              "Greater pattern SD",
+              "1.3",
+              "per 0.2dB"
+            ],
+            [
+              "Thinner CCt",
+              "1.7",
+              "per 40 microns"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The CCT & IOP Relationship",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Thinner CCt may lead to underestimation of IOP, such that the measured IOP may be less than the true IOP. One estimate is that, for every 20 microns that the CCt is <550 microns, the IOP is under-read by 1mmhg; interestingly, this calculation reclassifies many NtG patients as high-tension POAG and Oht patients as normals. There is not a close linear relationship between CCt and IOP, so caution should be used when interpreting corrective algorithms."
+      },
+      {
+        "title": "OHT: Who to Treat?",
+        "icon": "medical_services",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Consider treating Isolated Oht: if IOP >27mmhg.",
+          "Consider treating Oht and suspicious disc: if IOP >21mmhg.",
+          "Consider treating Oht and thin cornea: if IOP >21mmhg.",
+          "Note: Relatively thin corneas (CCt <555 microns) were associated with a 3-fold risk of ‘conversion’ to POAG vs thick corneas (>588 microns)."
+        ]
+      },
+      {
+        "title": "Other Treatment Triggers & Monitoring",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Treatment & Monitoring",
+          "branches": [
+            "Oht and only eye",
+            "Oht and CrVO or AION in either eye",
+            "Oht and Fh of glaucoma (especially blinding disease)",
+            "Oht and optic disc drusen",
+            "No treatment: Follow up 6–12mo (IOP, disc, perimetry, OCt)",
+            "Requiring treatment: Follow up as per POAG protocol"
+          ]
+        }
+      },
+      {
+        "title": "Box 10.2: Devices for IOP Measurement",
+        "icon": "devices",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Device",
+            "Mechanism / Characteristics",
+            "CCT Sensitivity"
+          ],
+          "rows": [
+            [
+              "GAt (Haag-Streit)",
+              "Ubiquitous slit-lamp-mounted contact applanation device. Calibrated for 520 microns.",
+              "Significantly affected by deviations in CCt."
+            ],
+            [
+              "OrA (Reichert)",
+              "Automated non-contact device. Measures IOPg and IOPcc (corneal compensated).",
+              "Reflects corneal hysteresis and structural rigidity."
+            ],
+            [
+              "Pascal DCT",
+              "Slit-lamp digital device. Provides diastolic IOP and ocular pulse amplitude.",
+              "Less affected by CCt than GAt."
+            ],
+            [
+              "Tono-Pen XL",
+              "Portable contact instrument based on Mackay–Marg principle. Averages multiple readings.",
+              "Affected by CCt; less affected by corneal curvature; useful in irregular corneas."
+            ],
+            [
+              "ICare Tonometer",
+              "Portable contact (rebound). Does not require topical anaesthesia. Self-tonometry version available (Icare home).",
+              "Affected by CCt; less affected by corneal curvature; useful in non-tolerant patients."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Primary Open-Angle Glaucoma (POAG)",
+        "icon": "report_problem",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Adult-onset optic neuropathy with glaucomatous disc/VF changes and open angles.",
+          "Reserved for 'high-tension' cases: IOP >21mmhg.",
+          "Present in 1% of population; up to 50% remain undiagnosed.",
+          "Vascular disease (diabetes/hypertension) and myopia are possible risk factors."
+        ]
+      },
+      {
+        "title": "POAG: Risk Factors & Clinical Features",
+        "icon": "groups",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "POAG Profile",
+          "branches": [
+            "Age: Increasing age (uncommon <40y)",
+            "Ethnicity: African-Caribbean (more frequent, younger onset, more severe)",
+            "Family History: 1st-degree relative confers 1 in 8 risk; higher in siblings",
+            "Steroid-induced IOP elevation: commoner in POAG and Fh of POAG",
+            "Asymptomatic (rarely eye ache/haloes)",
+            "IOP >21mmhg with high diurnal variability"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Disc & Field Changes",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Disc: C/D asymmetry, high C/D for disc size, vertical elongation, Nrr notch/thinning (violates 'ISNt' rule).",
+          "Disc Vascularity: Haemorrhage, vessel bayoneting/nasally displaced.",
+          "PPA (β-zone): Choroidal atrophy immediately adjacent to the disc; corresponds to RGC loss. (α-zone is peripheral/pigmented).",
+          "VF Focal Defects: Nasal step, baring of blind spot, paracentral scotomas, arcuate defects, altitudinal defects.",
+          "VF General: Generalized depression."
+        ]
+      },
+      {
+        "title": "POAG Treatment Modalities",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Category",
+            "Options",
+            "Key Notes"
+          ],
+          "rows": [
+            [
+              "Medical",
+              "PGA, β-blocker, α2-agonist, Carbonic anhydrase inhibitor.",
+              "Preservative-free formulations available for allergy/toxicity."
+            ],
+            [
+              "Laser",
+              "ALT or SLT (Argon/Selective Laser Trabeculoplasty).",
+              "First-line for frail/non-adherent. 50% failure rate at 5y."
+            ],
+            [
+              "Surgical",
+              "Trabeculectomy (+/- MMC), Shunts (Baerveldt, Ahmed, etc.).",
+              "Trabeculectomy with MMC is the gold standard for advanced disease."
+            ],
+            [
+              "Destructive",
+              "Diode laser cycloablation, cyclocryotherapy.",
+              "For resistant cases; targets ciliary body."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Box 10.3: Approach to Medical Treatment",
+        "icon": "assignment",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Counsel - Natural history, driving implications, drops, side effects, compliance, lifetime treatment probability.",
+          "Step 2: Define Target IOP - Usually ≥20% reduction. Early glaucoma: ≤18mmhg. Moderate/Advanced: ≤15mmhg.",
+          "Step 3: Select Drug - First line: PGA or β-blocker. Note contraindications.",
+          "Step 4: Administration - Teach how to administer drops (including nasolacrimal occlusion).",
+          "Step 5: Review Treatment (6 weeks later) - Check IOP reduction and side effects. Consider one-eye trial to gauge efficacy.",
+          "Step 6: Further Action - If no reduction: stop drop, try new first-line agent. If target not met: augment. If achieved but progressing: lower target."
+        ]
+      },
+      {
+        "title": "Normal-Tension Glaucoma (NtG)",
+        "icon": "air",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "NtG is a subcategory of POAG with a distinct phenotype, likely involving local vascular dysregulation at the optic disc. Patients often show central (migraine) or peripheral (Raynaud’s) vascular dysregulation and low BP (exaggerated nocturnal dipping). IOP is consistently <21mmhg."
+      },
+      {
+        "title": "NtG Risks & Clinical Features",
+        "icon": "person_search",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Risk/Feature",
+            "Details"
+          ],
+          "rows": [
+            [
+              "Age",
+              "Elderly, but 1/3 may be <50y"
+            ],
+            [
+              "Ethnicity",
+              "Commoner in Japan"
+            ],
+            [
+              "Sex",
+              "Possible ♀ preponderance"
+            ],
+            [
+              "Disc",
+              "Disc haemorrhages and acquired pits common; saucerization"
+            ],
+            [
+              "VF Defects",
+              "Superior hemifield (superonasal); deeper/steeper/closer to fixation"
+            ],
+            [
+              "Blood Pressure",
+              "Consider 24h ambulatory BP monitoring for nocturnal hypotension"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CNTGS Trial & NtG Progression",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Non-Progressors (Untreated 5y)",
+              "value": 50
+            },
+            {
+              "label": "Target IOP Reduction (%)",
+              "value": 30
+            }
+          ],
+          "description": "Collaborative Normal tension Glaucoma study: 30% IOP reduction slows field loss. 50% of untreated patients show no progression at 5y."
+        }
+      },
+      {
+        "title": "NtG: Progression Risk Factors",
+        "icon": "warning",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "FMD",
+          "explanation": "F: Female sex, M: Migraine, D: Disc haemorrhage at diagnosis."
+        }
+      },
+      {
+        "title": "NtG Management Strategy",
+        "icon": "health_and_safety",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Consider PGAs (better nocturnal control) over non-selective β-blockers (may reduce night blood flow).",
+          "Avoid β-blockers for systemic hypertension; use calcium channel blockers instead.",
+          "Optimize 24h BP control with a physician to avoid nocturnal hypotension.",
+          "Treat contributory causes: OSAS (refer for CPAP/sleep study), anaemia, and folate/B12 deficiency."
+        ]
+      }
+    ]
+  },
+  "chapterId": "glaucoma",
+  "_serverSynced": true
+}

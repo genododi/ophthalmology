@@ -1,0 +1,204 @@
+{
+  "id": 1769615469020,
+  "seqId": 146,
+  "title": "DIABETIC EYE DISEASE: SYSTEMIC MANAGEMENT",
+  "summary": "A comprehensive clinical guide to the systemic management of diabetic eye disease. This resource covers glycaemic, blood pressure, and cholesterol control targets, lifestyle interventions, renal support, and pregnancy screening protocols.",
+  "date": "2026-01-28T15:51:09.020Z",
+  "data": {
+    "title": "DIABETIC EYE DISEASE: SYSTEMIC MANAGEMENT",
+    "summary": "A comprehensive clinical guide to the systemic management of diabetic eye disease. This resource covers glycaemic, blood pressure, and cholesterol control targets, lifestyle interventions, renal support, and pregnancy screening protocols.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M60 100 Q100 150 140 100 Q100 50 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='6'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)'/><rect x='85' y='40' width='30' height='40' rx='5' fill='hsl(215, 90%, 45%)' opacity='0.7'/><path d='M90 50 H110 M90 60 H110 M90 70 H110' stroke='white' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Glycaemic Control Targets",
+        "icon": "target",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "A personalized target should be set, usually HbA1c 6.5–7.5% (4858mmol/mol).",
+          "Set less strict targets in patients with established cardiovascular disease.",
+          "Set less strict targets in older subjects."
+        ]
+      },
+      {
+        "title": "Insulin Regimens for Type 1 Disease",
+        "icon": "syringe",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Twice-daily premixed insulins.",
+          "2. Ultra-fast or soluble insulins with each meal and long-acting insulin at night."
+        ]
+      },
+      {
+        "title": "Type 2 Diabetes: Medication Pathway",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Start with diet.",
+          "Step 2: Followed by metformin.",
+          "Step 3: Then a sulfonylurea if not overweight (e.g. gliclazide or glibenclamide).",
+          "Alternative or Combination: A dipeptidyl peptidase-4 (DPP-4) inhibitor or a glitazone (e.g. pioglitazone) or a sodium–glucose cotransporter 2 (SgLT-2) inhibitor.",
+          "Final Step: Insulin may be required."
+        ]
+      },
+      {
+        "title": "Critical Warning: Glitazones",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Pioglitazone has been associated with the development of DMO (Diabetic Macular Oedema)."
+        ]
+      },
+      {
+        "title": "BP Control Targets (Systolic)",
+        "icon": "speed",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "With Retinopathy/Nephropathy (≤130mmHg)",
+              "value": 130
+            },
+            {
+              "label": "Without Retinopathy (<140mmHg)",
+              "value": 140
+            }
+          ]
+        }
+      },
+      {
+        "title": "Blood Pressure Management",
+        "icon": "monitor_heart",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Encourage regular monitoring of BP (including at home, if possible).",
+          "Effective antihypertensives include ACE inhibitors (usually first line in type 2 diabetes).",
+          "Angiotensin II receptor (AIIR) antagonists.",
+          "β-blockers or thiazide diuretics."
+        ]
+      },
+      {
+        "title": "Cholesterol Control Guidelines",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "NICE Statin Advice",
+          "branches": [
+            "Type 1: Offer if age >40y, diabetic for >10y, established nephropathy, or other cardiovascular risk factors.",
+            "Type 2: Offer if >10% 10y risk of developing cardiovascular disease (using QRISK2 assessment tool).",
+            "Dosage: NICE advises 20mg atorvastatin.",
+            "Fenofibrate: Consider adding to a statin for non-proliferative retinopathy in type 2 diabetes (evidence for benefit in the ACCORD eye study)."
+          ]
+        }
+      },
+      {
+        "title": "Renal Function Support",
+        "icon": "nephrology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Microalbuminuria is indicative of early nephropathy.",
+          "Associated with increased risk of macrovascular complications.",
+          "ACE inhibitors or AIIR antagonists are preferred."
+        ]
+      },
+      {
+        "title": "Lifestyle Interventions",
+        "icon": "fitness_center",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "mnemonic": "SWE",
+          "explanation": "Smoking, Weight, Exercise strategies for macrovascular health."
+        }
+      },
+      {
+        "title": "Lifestyle Detail",
+        "icon": "person_play",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Smoking cessation: smoking greatly increases macrovascular disease; explore strategies to assist the patient to 'give up'.",
+          "Weight control: mainly in type 2 disease, particularly if body mass index (BMI) >25.",
+          "Exercise >30min/d: ↓weight, ↓BP, ↑insulin sensitivity, improves lipid profile."
+        ]
+      },
+      {
+        "title": "Pregnancy Management & Screening",
+        "icon": "pregnant_woman",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Timing",
+            "Scenario",
+            "Typical Week Range"
+          ],
+          "rows": [
+            [
+              "1st Assessment",
+              "Following first antenatal clinic appointment",
+              "1st Trimester (8–12wk)"
+            ],
+            [
+              "Normal Findings",
+              "Follow-up if initial assessment is normal",
+              "3rd Trimester (28wk)"
+            ],
+            [
+              "Retinopathy Present",
+              "Additional assessment required",
+              "2nd Trimester (16–20wk)"
+            ],
+            [
+              "Postpartum",
+              "All cases",
+              "Postpartum follow-up required"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pregnancy Risk Note",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Progression of retinopathy is a significant, but relatively low, risk in pregnancy. Pregnant women with pre-existing diabetes should be offered retinal assessment following their first antenatal clinic appointment."
+      },
+      {
+        "title": "Clinical References & Data",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "26 ACCORD Study group et al. Effects of medical therapies on retinopathy progression in type 2 diabetes. N Engl J Med. 2010;363:233–44. DIABETIC EYE DISEASE: MANAGEMENT 599"
+      }
+    ],
+    "chapterId": "uncategorized"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1769615469020,
+  "communityId": "sub_1769614749293_2ab2hbkx544zwa",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

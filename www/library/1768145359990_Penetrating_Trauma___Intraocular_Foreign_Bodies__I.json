@@ -1,0 +1,268 @@
+{
+  "id": 1768145359990,
+  "seqId": 73,
+  "title": "Penetrating Trauma & Intraocular Foreign Bodies (IOFBs): Assessment & Management",
+  "summary": "An exhaustive clinical guide covering the exclusion of IOFBs, detailed diagnostic assessment, toxicity profiles, and the surgical protocols for primary and secondary repair of penetrating ocular injuries.",
+  "date": "2026-01-11T15:29:19.990Z",
+  "data": {
+    "title": "Penetrating Trauma & Intraocular Foreign Bodies (IOFBs): Assessment & Management",
+    "summary": "An exhaustive clinical guide covering the exclusion of IOFBs, detailed diagnostic assessment, toxicity profiles, and the surgical protocols for primary and secondary repair of penetrating ocular injuries.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M80 20 L60 40' stroke='red' stroke-width='3' stroke-linecap='round'/><path d='M10 50 Q50 10 90 50' stroke='hsl(215, 90%, 25%)' stroke-width='1' fill='none'/></svg>",
+    "sections": [
+      {
+        "title": "Critical Assessment Paradigms",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "IOFB/Penetration Exclusion",
+          "branches": [
+            "Small (<2mm) FBs: May leave a sealed wound and minimal clinical signs",
+            "Exclude in all cases of penetration",
+            "Exclude following injury from sharp objects and projectiles (high mass/velocity)",
+            "Multiple IOFBs are not uncommon",
+            "Adequate imaging required even if IOFB identified under direct vision [7]",
+            "Consider Perforation (through and through) even if IOFB is within globe",
+            "Consider Posterior rupture following significant blunt trauma (See Table 3.12)",
+            "Complications (infection, RD, toxicity) may have a more severe impact than initial injury [8]",
+            "Iatrogenic risk: Up to 1 in 1,000 peribulbar injections"
+          ]
+        }
+      },
+      {
+        "title": "Table 3.12: Specific Features in Assessment",
+        "icon": "clinical_notes",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Category",
+            "Assessment Details"
+          ],
+          "rows": [
+            [
+              "Hx (History)",
+              "Source (e.g. hammer on steel, machinery, explosive), probable IOFB material, likely toxicity and infective risk, tetanus status"
+            ],
+            [
+              "O/e (Examination)",
+              "Entry site: identify location and integrity (leak) of wound; d IOP; Trajectory: look for iris hole (transillumination), focal cataract/lens tract, retinal haemorrhage; Location: including dilated fundoscopy ± careful gonioscopy. Beware: occult IOFB in angle, ciliary body, pars plana"
+            ],
+            [
+              "Ix (Investigations)",
+              "Orbital CT with 2mm slices in all cases, even if an IOFB is clearly visible; uS: preoperative B-scan may have a role in very experienced hands (bedside in ITU, higher sensitivity for posterior rupture/IOFB than CT; extreme caution to avoid extruding contents); erG: chronic retained IOFB l d b-wave"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features: Mechanical & Infection",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Mechanical - Globe: penetration, perforation, or rupture.",
+          "Mechanical - Anterior segment: angle recession (late risk of glaucoma; see E Other secondary open-angle glaucoma, p. 413), ciliary body cleft; hyphaema (see E Hyphaema, pp. 146–7); lens capsule injury, cataract formation, zonular dehiscence, subluxation.",
+          "Mechanical - Posterior segment: vitreous liquefaction, vitreous haemorrhage, abnormal vitreoretinal traction, retinal haemorrhage, retinal tear/dialysis, retinal detachment.",
+          "Introduction of infection: endophthalmitis, panophthalmitis."
+        ]
+      },
+      {
+        "title": "Box 3.3 Toxicity Spectrum of IOFBs",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Inert Materials",
+            "Toxic Materials"
+          ],
+          "rows": [
+            [
+              "Platinum",
+              "Aluminium"
+            ],
+            [
+              "Gold",
+              "Iron"
+            ],
+            [
+              "Glass",
+              "Copper"
+            ],
+            [
+              "Plastic",
+              "Silver"
+            ],
+            [
+              "Stone",
+              "Zinc"
+            ],
+            [
+              "Carbon",
+              "Nickel"
+            ],
+            [
+              "Lead (relative)",
+              "Mercury"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Siderosis (Ferrous FB Toxicity)",
+        "icon": "error",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Mechanism: Dissociated iron deposits in epithelial tissue (lens, rPe), causing toxicity and cell death.",
+          "RPE Toxicity: Causes photoreceptor loss, d Va, constricted VF, and raPD.",
+          "Clinical Features: Injection, heterochromia (iris reddish brown), i IOP (2° glaucoma).",
+          "Clinical Features: Anterior capsular cataract, reddish ferrous deposits at lens epithelium.",
+          "Clinical Features: Coarse degenerative pigment dispersion and retinal detachment.",
+          "ERG findings: Generalized depression with a-wave reduction or more selective b-wave attenuation and loss of oscillatory potentials."
+        ]
+      },
+      {
+        "title": "Chalcosis (Copper FB Toxicity)",
+        "icon": "danger",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Pure copper IOFBs: result in rapid fulminant endophthalmitis.",
+          "Copper alloy (brass, bronze) IOFBs: Clinical signs mirror Wilson’s disease.",
+          "Chalcosis Ocular Signs: Kayser–Fleischer ring.",
+          "Chalcosis Ocular Signs: Anterior ‘sunflower’ cataract.",
+          "Chalcosis Ocular Signs: Yellow retinal plaques."
+        ]
+      },
+      {
+        "title": "Treatment Priorities & General Management",
+        "icon": "emergency",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Urgent priority - repair integrity of the globe as soon as possible (no later than 24h).",
+          "Step 2: Admit and prepare for GA - NBM; determine last meal/drink and comorbidities; liaise with anaesthetist; eCG/bloods (if indicated).",
+          "Step 3: Prophylaxis - Protect globe with clear plastic shield.",
+          "Step 4: Prophylaxis - Systemic antibiotic (e.g. ciprofloxacin PO 750mg 2×/d).",
+          "Step 5: Prophylaxis - Administer tetanus vaccine/toxoid if indicated (p. 112).",
+          "Step 6: Surgery - IOFBs ideally removed at time of 1° repair (but do not delay closure if VR expertise unavailable).",
+          "Step 7: Delayed Procedures - Additional procedures (lensectomy, vitrectomy, RD repair) may be deferred to planned 2° rehabilitative procedure [9,10]."
+        ]
+      },
+      {
+        "title": "Table 3.13: Approach to Primary (1°) Repair",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Wound Type",
+            "Management Approach"
+          ],
+          "rows": [
+            [
+              "All wounds",
+              "Most extruded tissue should be reposited. Occasional debridement of contaminated non-viable tissue may be required. Send swab of contaminated wounds to microbiology. Carefully maintain the aC to avoid expulsion of ocular contents."
+            ],
+            [
+              "Small self-sealing corneal wound",
+              "Shelved corneal laceration with formed aC may not require formal closure. Observe until healed; consider BCL and adequate antibiotic cover."
+            ],
+            [
+              "Corneal wound",
+              "May require aC deepening/stabilization with viscoelastic. Return exposed viable iris tissue through perforation; abscise exposed tissue if non-viable. Directly close corneal wound with perpendicular deep 10-0 nylon sutures, and rotate sutures to bury knots. Remove viscoelastic through a surgical incision."
+            ],
+            [
+              "Involving limbus",
+              "Expose adjacent sclera to determine full posterior extent of wound. Start closure at limbus, and proceed posteriorly."
+            ],
+            [
+              "Scleral",
+              "Conjunctival peritomy; expose and explore sclera. Return exposed viable uveal tissue through perforation. Cut prolapsed vitreous flush to wound, taking care not to induce vitreous traction. Direct scleral closure with 8.0 prolene or nylon (never absorbable)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 3.14: IOFB Removal Techniques",
+        "icon": "architecture",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "IOFB Location",
+            "Removal Strategy"
+          ],
+          "rows": [
+            [
+              "aC IOFB",
+              "Corneal approach; removal with fine forceps."
+            ],
+            [
+              "Angle IOFB",
+              "Gonioscopic removal through opposite corneal incision, taking care not to touch an intact lens."
+            ],
+            [
+              "Lenticular IOFB",
+              "If in clear lens matter, consider leaving in situ or remove with lens at cautious cataract surgery (potential capsular and zonular instability)."
+            ],
+            [
+              "Ciliary body IOFB",
+              "Cannot be directly visualized, so consider using an electroacoustic locator and electromagnetic removal through scleral trapdoor approach."
+            ],
+            [
+              "Posterior segment IOFB",
+              "Undertake as soon as optimal surgical expertise/OR conditions available. Use an intraocular magnet or vitrectomy forceps. Reserve direct trans-scleral delivery for those IOFB that are easily accessible."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Secondary Procedures & Timelines",
+        "icon": "calendar_month",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Planned 2° Repair: Traditionally 4–10d after initial injury (to allow PVD formation).",
+          "Indications for early 2° repair: Presence of IOFB (not removed at 1° repair), retinal detachment, and endophthalmitis.",
+          "Outcomes: No evidence outcomes are better with immediate, early (<3d), or late 2° repair [11,12].",
+          "Delayed Removal: Not associated with increased PVD presence nor infection if adequate antibiotic cover is given.",
+          "2° Repair Components: Vitrectomy, membrane dissection (if PVR), encircling buckle (if breaks), lensectomy (if cataract; IOL deferred), IVT antibiotics (if endophthalmitis), and tamponade (C3F8 or silicone oil)."
+        ]
+      },
+      {
+        "title": "Sympathetic Ophthalmia",
+        "icon": "group_work",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "mnemonic": "SO ALERT",
+          "explanation": "Rare bilateral granulomatous panuveitis. Trauma to one eye causes inflammation in the untraumatized 'sympathizing' eye. Uncommon if 1° repair or evisceration is performed promptly. Not a justification for enucleation of eyes with visual potential. 1"
+        }
+      },
+      {
+        "title": "Scientific References",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "7 Woodcock MG et al. Mass and shape factors in intraocular foreign body injuries. Ophthalmology. 2006;113:2262–9. 8 roper-Hall Mj. review of 555 cases of intra-ocular foreign body with special reference to prog-nosis. Br J Ophthalmol. 1954;38:65–98. 9 Woodcock MG et al. Ophthalmology. 2006;113:2262–9. 10 Colyer MH et al. Delayed intraocular foreign body removal without endophthalmitis during Operations Iraqi Freedom and enduring Freedom. Ophthalmology. 2007;114:1439–47. 11,12 Literature regarding secondary repair timing."
+      }
+    ]
+  },
+  "chapterId": "medical_retina",
+  "_serverSynced": true
+}

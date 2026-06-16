@@ -1,0 +1,119 @@
+.mobile-paywall-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 30000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(14px);
+}
+
+body.mobile-entitlement-locked .mobile-paywall-backdrop {
+    display: flex;
+}
+
+body.mobile-entitlement-locked .app-container {
+    filter: blur(3px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.mobile-paywall-card {
+    width: min(430px, 100%);
+    border-radius: 8px;
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.35);
+    overflow: hidden;
+}
+
+.mobile-paywall-header {
+    padding: 22px 22px 16px;
+    background: linear-gradient(135deg, #0f766e 0%, #1d4ed8 100%);
+    color: #fff;
+}
+
+.mobile-paywall-header h2 {
+    margin: 0 0 8px;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    letter-spacing: 0;
+}
+
+.mobile-paywall-header p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.45;
+}
+
+.mobile-paywall-body {
+    padding: 18px 22px 22px;
+}
+
+.mobile-paywall-list {
+    margin: 0 0 18px;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.mobile-paywall-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #334155;
+    line-height: 1.4;
+}
+
+.mobile-paywall-list .material-symbols-rounded {
+    color: #0f766e;
+    font-size: 1.2rem;
+    flex: 0 0 auto;
+}
+
+.mobile-paywall-actions {
+    display: grid;
+    gap: 10px;
+}
+
+.mobile-paywall-actions button {
+    min-height: 46px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.mobile-paywall-primary {
+    background: #0f766e;
+    color: #fff;
+}
+
+.mobile-paywall-secondary {
+    background: #f8fafc;
+    color: #334155;
+    border-color: #cbd5e1 !important;
+}
+
+.mobile-paywall-status {
+    min-height: 20px;
+    margin-top: 12px;
+    color: #64748b;
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+.mobile-paywall-status.error {
+    color: #dc2626;
+}
+
+.mobile-paywall-footnote {
+    margin: 14px 0 0;
+    color: #64748b;
+    font-size: 0.78rem;
+    line-height: 1.35;
+}

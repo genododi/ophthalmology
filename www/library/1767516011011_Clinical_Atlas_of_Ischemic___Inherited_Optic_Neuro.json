@@ -1,0 +1,351 @@
+{
+  "id": 1767516011011,
+  "title": "Clinical Atlas of Ischemic & Inherited Optic Neuropathies",
+  "summary": "A comprehensive clinical guide to the diagnosis, classification, and management of Non-Arteritic AION, PION, and inherited optic atrophies. This resource details vascular risk factors, genetic mutations, and comparative diagnostic features.",
+  "date": "2026-01-04T08:40:11.011Z",
+  "data": {
+    "title": "Clinical Atlas of Ischemic & Inherited Optic Neuropathies",
+    "summary": "A comprehensive clinical guide to the diagnosis, classification, and management of Non-Arteritic AION, PION, and inherited optic atrophies. This resource details vascular risk factors, genetic mutations, and comparative diagnostic features.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M50 10 Q60 50 50 90' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M58 50 L85 50 M58 45 L80 35 M58 55 L80 65' stroke='hsl(215, 90%, 45%)' stroke-width='1.5' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Non-Arteritic AION (NAION): Overview",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "NAION (90–95% of AION)",
+          "branches": [
+            "Mechanism: Perfusion insufficiency in short posterior ciliary arteries",
+            "Pathology: Infarction of the retrolaminar portion of the disc",
+            "Risk Modification: Identified vascular factors must be modified to prevent complications"
+          ]
+        }
+      },
+      {
+        "title": "NAION: Risk Factors",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Diabetes",
+          "Atherosclerosis",
+          "Disc morphology (‘disc at risk’— crowded disc with a small cup)",
+          "Hypertension",
+          "Hyperlipidaemia",
+          "Hypotension",
+          "Haemoconcentration",
+          "Haemodilution",
+          "Hypercoagulable states"
+        ]
+      },
+      {
+        "title": "NAION: Clinical Features",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "dVA: Usually sudden, can be progressive; VA >6/60 in 61%, >6/12 in 18%",
+          "Onset: Commonly occurs overnight; occasional pain",
+          "RAPD (Relative Afferent Pupillary Defect)",
+          "Field Loss: 45% inferior altitudinal; 15% superior altitudinal",
+          "Swollen Disc: Typically hyperaemic ± segmental, telangiectasia",
+          "Associations: ‘Disc at risk’ in the fellow eye"
+        ]
+      },
+      {
+        "title": "NAION: Management & Investigations",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Rule out GCA (Rule out Arteritic AION first)",
+          "Step 2: If non-arteritic: Check BP, Glu, lipids, FBC",
+          "Step 3 (If <50y): Consider full vasculitis screen",
+          "Step 4: Referral to physician for vascular assessment and treatment",
+          "Step 5 (Prescription): Low-dose aspirin (e.g. 75mg/d) is commonly prescribed despite no proven benefit"
+        ]
+      },
+      {
+        "title": "NAION: Treatment Research & Trials",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "No proven benefit for any treatment including: steroids, optic nerve sheath defenestration, hyperbaric oxygen, dopamine, and aspirin. CURRENT RESEARCH: A phase II/ III trial delivering an intravitreal chemically modified synthetic siRNA (small interfering RNA) targeting caspase 2 mRNA (QPI-1007) for non-arteritic AION is being conducted."
+      },
+      {
+        "title": "NAION: Prognosis (IONDT Data)",
+        "icon": "trending_up",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Improved 3+ lines (6mo)",
+              "value": 43
+            },
+            {
+              "label": "Lost 3+ lines (6mo)",
+              "value": 12
+            },
+            {
+              "label": "2nd eye risk (5yr)",
+              "value": 14.7
+            }
+          ]
+        }
+      },
+      {
+        "title": "NAION Prognostic Notes",
+        "icon": "info",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Poor baseline VA and diabetes are risk factors for second eye involvement.",
+          "Increased risk of NAION in the fellow eye after cataract surgery.",
+          "Natural history data sourced from the Ischemic Optic Neuropathy Decompression Trial (IONDT) control group."
+        ]
+      },
+      {
+        "title": "Posterior Ischaemic Optic Neuropathy (PION)",
+        "icon": "emergency",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": "PION is a rare condition; it describes abrupt ischaemia of the more posterior (retrolaminar) optic nerve. Blood supply to the retrobulbar portion of the optic nerve is from the plial plexus arising from the ophthalmic artery."
+      },
+      {
+        "title": "PION: Causes & Features",
+        "icon": "list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Causes: Perioperative/shock (blood loss, hypotension, anaemia), Arteritic (GCA, rarely other vasculitides)",
+          "Clinical: Sudden visual loss with RAPD (if unilateral)",
+          "Disc: Normal-appearing optic disc (Bilateral involvement common)",
+          "Disc Evolution: Occasionally disc swelling develops subsequent to visual loss",
+          "Associations: Anaemia, acute hypotension, dialysis patients",
+          "Investigations: Rule out GCA; check BP, Glu, lipids, FBC. MRI head/orbits with contrast to exclude compression/infiltration"
+        ]
+      },
+      {
+        "title": "Perioperative Visual Loss",
+        "icon": "report_problem",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "A very rare, devastating complication following non-ocular surgery",
+          "AION common after cardiac procedures",
+          "PION common after prolonged spinal surgery in prone position",
+          "CRAO reported 2° to periorbita compression in prone position",
+          "Features: Bilateral simultaneous involvement, very poor visual function",
+          "Treatment: Prompt fluid replacement/blood products (no evidence of reversal)",
+          "Action: Warrants senior review and careful medical documentation (medicolegal risk)"
+        ]
+      },
+      {
+        "title": "Hypotension-Induced ION",
+        "icon": "trending_down",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Usually presents in chronic renal failure or patients undergoing dialysis",
+          "Mechanism: Acute hypotension in the setting of compromised vascular system (arteriosclerosis) + chronic anaemia",
+          "Manifestation: Both AION and PION can be seen",
+          "Treatment: Prompt normalization of hypotension, fluid replacement, and transfusion of blood products"
+        ]
+      },
+      {
+        "title": "Table 16.7: Identifying PION vs AION",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Arteritic AION",
+            "Non-arteritic AION",
+            "PION"
+          ],
+          "rows": [
+            [
+              "Major Cause",
+              "GCA",
+              "Hypertension, Diabetes, Disc morphology",
+              "Perioperative/Shock, Blood loss, Cardiac/Spinal surgery, GCA"
+            ],
+            [
+              "Minor Cause",
+              "None listed",
+              "Smoking, Hyperlipidaemia, Hypotension, Anaemia, Sleep Apnoea, Drusen, Surgery",
+              "Hypertension, Diabetes, Smoking, Hyperlipidaemia"
+            ],
+            [
+              "Disc Appearance",
+              "Swollen; often pale",
+              "Swollen; often segmental/hyperaemic",
+              "Normal"
+            ],
+            [
+              "ESR (Mean 70)",
+              "Significantly Increased",
+              "Normal",
+              "Normal (unless arteritic)"
+            ],
+            [
+              "CRP",
+              "Significantly Increased",
+              "Normal",
+              "Normal (unless arteritic)"
+            ],
+            [
+              "Platelets (Plt)",
+              "Increased",
+              "Normal",
+              "Normal (unless arteritic)"
+            ],
+            [
+              "MRI (Contrast)",
+              "Enhancement of optic nerve",
+              "No enhancement",
+              "No enhancement"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Leber’s Hereditary Optic Neuropathy (LHON)",
+        "icon": "family_history",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "LHON (Maternally Inherited)",
+          "branches": [
+            "Genetics: Point mutations in mitochondrial DNA (11778, 3460, 14484)",
+            "Demographics: Young adult males (3:1 ratio), 50% FH present",
+            "Mechanism: Affects complex I of the respiratory chain",
+            "Triggers: May be precipitated by toxic insult"
+          ]
+        }
+      },
+      {
+        "title": "LHON: Clinical & Treatment",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "VA: Sudden, painless sequential dVA (2nd eye within 2mo); typically 6/60 to HM",
+          "Fields: Large, dense centrocaecal scotoma, dcolour vision",
+          "Disc: Early: peripapillary telangiectasia/NFL swelling. Late: temporal pallor",
+          "Pupils: Reactions are usually normal",
+          "Treatment: No clear benefit with idebenone, brimonidine, or quinone analogues",
+          "Gene Therapy: Adeno-associated viral vector (ND4 genetic material) intravitreal injection under investigation",
+          "Prognosis: Majority poor; spontaneous recovery seen with uncommon 14484 mutation"
+        ]
+      },
+      {
+        "title": "Nutritional & Toxic Optic Neuropathies",
+        "icon": "liquor",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Mechanism: Disruption of mitochondrial oxidative phosphorylation",
+          "Tobacco–alcohol amblyopia: Cyanide (tobacco) + Low B12 (alcohol)",
+          "Clinical: Subacute painless bilateral dVA (typically 6/9–6/60)",
+          "Signs: Small central/centrocaecal scotomas, dcolour vision, NFL swelling (early), temporal pallor (late)",
+          "Labs: B1, B2, B12, folate, heavy metal screening (24h urine)",
+          "Treatment: Supplementation (B12 must be IM with folate), prevent toxin exposure"
+        ]
+      },
+      {
+        "title": "Table 16.8: Exhaustive Causes of Optic Atrophy",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Category",
+            "Specific Causes"
+          ],
+          "rows": [
+            [
+              "Inherited",
+              "ADOA (Kjer), Behr syndrome, Wolfram syndrome, LHON"
+            ],
+            [
+              "Extrinsic Compression",
+              "Pituitary tumour, Craniopharyngioma, Meningioma, Metastasis"
+            ],
+            [
+              "Intrinsic Compression",
+              "Optic nerve glioma, Optic nerve sheath meningioma"
+            ],
+            [
+              "Other Compression",
+              "Aneurysm, Mucocele"
+            ],
+            [
+              "Vascular",
+              "CRAO, AION, PION"
+            ],
+            [
+              "Inflammatory",
+              "Acute demyelinating optic neuritis, Sarcoidosis, Vasculitis (SLE, PAN)"
+            ],
+            [
+              "Infection",
+              "TB, Syphilis, Lyme disease, Measles, Mumps, Varicella, Aspergillus"
+            ],
+            [
+              "Nutritional",
+              "B1, B2, B6, B12, and Folate deficiency"
+            ],
+            [
+              "Toxic",
+              "Amiodarone, Ethambutol, Methanol, Carbon monoxide, Cyanide, Isoniazid, Lead, Triethyl tin"
+            ],
+            [
+              "Other",
+              "Trauma, Papilloedema (Disc oedema), Retinal disease (e.g. RP)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Inherited Optic Atrophy Subtypes",
+        "icon": "groups",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "AUTOSOMAL DOMINANT: AD optic atrophy (ADOA/Kjer syndrome) - Mutations in nuclear OPA1 gene (Chr 3q). Insidious bilateral dVA (6/9–6/36) in mid/late childhood. No routine rapid DNA test. AUTOSOMAL RECESSIVE: 1. Isolated: Rare, severe, early onset (<4y). 2. Behr syndrome: Optic atrophy, nystagmus, ataxia, spasticity, dIQ. 3. Wolfram syndrome (DIDMOAD): Diabetes Insipidus, Diabetes Mellitus, Optic Atrophy, Deafness."
+      },
+      {
+        "title": "Bibliography & References",
+        "icon": "bookmark",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "17. JAMA. 1995;273:625–32 (IONDT). 18. Am J Ophthalmol. 2002;134:317–28 (Newman et al). 19. Br J Ophthalmol. 2007;91:585–7 (Lam BL et al). 20. Anesthesiology. 2006;104:1319–28 (ASA Task Force)."
+      }
+    ]
+  },
+  "chapterId": "paediatric",
+  "seqId": 16,
+  "_serverSynced": true
+}

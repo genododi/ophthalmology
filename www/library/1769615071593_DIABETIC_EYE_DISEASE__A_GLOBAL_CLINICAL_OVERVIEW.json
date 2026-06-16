@@ -1,0 +1,292 @@
+{
+  "id": 1769615071593,
+  "seqId": 134,
+  "title": "DIABETIC EYE DISEASE: A GLOBAL CLINICAL OVERVIEW",
+  "summary": "An exhaustive guide to the classification, systemic impact, and ophthalmic complications of diabetes mellitus. This overview includes diagnostic criteria and critical findings from landmark clinical trials like DCCT, UKPDS, and ACCORD.",
+  "date": "2026-01-28T15:44:31.593Z",
+  "data": {
+    "title": "DIABETIC EYE DISEASE: A GLOBAL CLINICAL OVERVIEW",
+    "summary": "An exhaustive guide to the classification, systemic impact, and ophthalmic complications of diabetes mellitus. This overview includes diagnostic criteria and critical findings from landmark clinical trials like DCCT, UKPDS, and ACCORD.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M20 20 L35 35 M80 20 L65 35 M20 80 L35 65 M80 80 L65 65' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "The Global Burden & Impact",
+        "icon": "public",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Adults Affected (Current Estimate)",
+              "value": 415
+            },
+            {
+              "label": "Estimated by 2040 (Millions)",
+              "value": 642
+            }
+          ]
+        }
+      },
+      {
+        "title": "Blindness Statistics",
+        "icon": "visibility_off",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "One of the commonest causes of blindness in the working population.",
+          "Associated with a 20-fold increase in blindness.",
+          "Source: 22 International Diabetes Federation. IDF Diabetes Atlas, 7th edition. 2015. Brussels: International Diabetes Federation. Available at: M http://www.idf.org/diabetesatlas."
+        ]
+      },
+      {
+        "title": "WHO Diabetes Classification",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Common Onset",
+            "Primary Characteristic"
+          ],
+          "rows": [
+            [
+              "Type 1 (insulin-dependent)",
+              "Typically juvenile onset",
+              "Insulin deficiency"
+            ],
+            [
+              "Type 2 (non-insulin-dependent)",
+              "Typically adult/elderly onset",
+              "Insulin resistance"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Systemic Disease Presentation",
+        "icon": "clinical_notes",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Clinical Features",
+          "branches": [
+            "Type 1 Presentation: Acutely with diabetic ketoacidosis or subacutely with weight loss, polyuria, polydipsia, and fatigue.",
+            "Type 2 Presentation: Incidental finding (may have long asymptomatic period); or symptoms of weight loss, polyuria, polydipsia, and fatigue; or complications."
+          ]
+        }
+      },
+      {
+        "title": "Systemic Complications",
+        "icon": "warning",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Category",
+            "Specific Complications & Risks"
+          ],
+          "rows": [
+            [
+              "Macrovascular",
+              "MI (3–5× risk), peripheral vascular disease, stroke (>2× risk)."
+            ],
+            [
+              "Microvascular",
+              "Nephropathy, neuropathy."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ophthalmic Features & Risk Factors",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Retinopathy and sequelae risk factors: type of disease (1 vs 2), duration of disease, glycaemic control, hypertension, hypercholesterolaemia, nephropathy, pregnancy, and possibly intraocular surgery.",
+          "Diabetic maculopathy is the main cause for severe sight loss, rather than proliferative retinopathy."
+        ]
+      },
+      {
+        "title": "Retinopathy Prevalence by Duration",
+        "icon": "history",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Disease Type",
+            "Prevalence at Diagnosis",
+            "Prevalence after 15 Years"
+          ],
+          "rows": [
+            [
+              "Type 1",
+              "Rare",
+              "Over 90%"
+            ],
+            [
+              "Type 2",
+              "20%",
+              "60%"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Cataract in Diabetes",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Occurs at a younger age and progresses more quickly.",
+          "Often poor dilatation of pupils.",
+          "i risk of PCO and endophthalmitis post-surgery."
+        ]
+      },
+      {
+        "title": "Other Ocular Conditions",
+        "icon": "list_alt",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Dry eye",
+          "d corneal sensation",
+          "d corneal healing with risk of recurrent erosions",
+          "Anterior uveitis",
+          "Rubeosis",
+          "NVg (Neovascular glaucoma)",
+          "OIS (Ocular Ischemic Syndrome)",
+          "Papillitis",
+          "AION (Anterior Ischemic Optic Neuropathy)",
+          "Orbital infection",
+          "Cranial nerve palsies"
+        ]
+      },
+      {
+        "title": "Diagnostic Criteria",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Venous fasting plasma glucose ≥7mmol/L.",
+          "Oral glucose tolerance test (usually performed by physician) with a 2h value of >11.1mmol/L."
+        ]
+      },
+      {
+        "title": "Diabetes Control and Complications Trial (DCCT)",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Study Group (Type 1)",
+            "HbA1c Level",
+            "Outcome Reductions"
+          ],
+          "rows": [
+            [
+              "Tight Control vs Standard",
+              "7.2% vs 9%",
+              "76% reduction in retinopathy"
+            ],
+            [
+              "Neuropathy Reduction",
+              "-",
+              "60% reduction"
+            ],
+            [
+              "Nephropathy Reduction",
+              "-",
+              "54% reduction. (Ref 23)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "DCCT: Early Worsening Phenomenon",
+        "icon": "priority_high",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "The DCCT also provided evidence for ‘early worsening’ of diabetic retinopathy, following initiation of intensive glycaemic control (i.e. in the first 3–12mo following initiation). This finding was commoner and more sight-threatening in patients with more severe retinopathy and/or very poor glycaemic control."
+      },
+      {
+        "title": "UK Prospective Diabetic Study (UKPDS)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Focus (Type 2)",
+            "Control Comparison",
+            "Results"
+          ],
+          "rows": [
+            [
+              "Tight Glycaemic Control",
+              "HbA1c 7% vs 7.9%",
+              "25% reduction in microvascular disease"
+            ],
+            [
+              "Tight BP Control",
+              "144/82 vs 155/87",
+              "37% reduction in microvascular disease; 32% reduction in diabetes-related deaths. (Ref 24)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Metabolic Memory & Legacy Effect",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "Legacy Effect",
+          "explanation": "In both DCCT and UKPDS, extended periods of good glycaemic control also demonstrated ‘metabolic memory’ or ‘legacy effect’, with beneficial effects on retinopathy, even after regression of glycaemic control."
+        }
+      },
+      {
+        "title": "ACCORD Study Alert",
+        "icon": "dangerous",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Action to Control Cardiovascular Risk in Diabetes (ACCORD): For type 2 disease.",
+          "Evaluated intensive control (HbA1c <6%) vs standard control (HbA1c 77.9%).",
+          "Trial Halted early (Ref 25) because of an i rate of death from all causes in participants treated with intensive control."
+        ]
+      },
+      {
+        "title": "Reference Footer",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "DIABETIC E y E DISEASE : g ENERAL | 593"
+      }
+    ],
+    "chapterId": "uncategorized"
+  },
+  "chapterId": "evidence",
+  "_newlyImported": 1769615071593,
+  "communityId": "sub_1769614749293_5ft0fhokvvzs0o",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

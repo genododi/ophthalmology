@@ -1,0 +1,269 @@
+{
+  "id": 1768055580844,
+  "seqId": 57,
+  "title": "Excimer & Femtosecond Laser Refractive Surgery: The Ultimate Clinical Guide",
+  "summary": "An exhaustive clinical reference covering ophthalmic and medical contraindications, surface treatments (PRK, LASEK, Epi-LASEK), lamellar surgery (LASIK), and lenticule extraction (SMILE). This guide details indications, methods, advantages, and disadvantages for all major corneal refractive procedures.",
+  "date": "2026-01-10T14:33:00.844Z",
+  "data": {
+    "title": "Excimer & Femtosecond Laser Refractive Surgery: The Ultimate Clinical Guide",
+    "summary": "An exhaustive clinical reference covering ophthalmic and medical contraindications, surface treatments (PRK, LASEK, Epi-LASEK), lamellar surgery (LASIK), and lenticule extraction (SMILE). This guide details indications, methods, advantages, and disadvantages for all major corneal refractive procedures.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 Q50 20 80 50 Q50 80 20 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='12' fill='hsl(215, 90%, 45%)' opacity='0.3'/><line x1='50' y1='10' x2='50' y2='35' stroke='red' stroke-width='2' stroke-dasharray='2 1'/><path d='M45 35 L50 40 L55 35' fill='none' stroke='red' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Table 19.4: Ophthalmic Contraindications (CI)",
+        "icon": "report_problem",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Ocular contraindications",
+            "Reason"
+          ],
+          "rows": [
+            [
+              "Corneal ectasias: keratoconus, forme fruste keratoconus, pellucid marginal degeneration (absolute CI)",
+              "Ablation causes further thinning of ectatic cornea—increases risk of further ectasia"
+            ],
+            [
+              "Active or recently active herpes keratitis or hZO (absolute CI) Previous herpes keratitis or hZO (relative CI)",
+              "i risk of reactivation due to uv light activation. If inactive >1y, consider treatment with prophylactic aciclovir"
+            ],
+            [
+              "KCS (absolute CI) or dry eye (relative CI)",
+              "LASIK causes exacerbation of KCS and i risk of keratitis. PRK in KCS increases risk of post-op haze and delayed epithelialization"
+            ],
+            [
+              "Neurotrophic keratopathy (absolute CI)",
+              "Ablation associated with delayed epithelialization"
+            ],
+            [
+              "Glaucoma (relative CI)",
+              "Patients with steroid-induced iIOP difficult to manage after PRK due to duration of post-operative treatment needed. LASIK requires high pressure during flap creation which can induce further glaucomatous damage. Changes in corneal thickness means that IOP measurements with applanation tonometry are inaccurate"
+            ],
+            [
+              "Previous corneal surgery: RK, PK (relative CI)",
+              "LASIK unpredictable. Absolutely contraindicated in RK with epithelial plugs at incision site. Consider PRK"
+            ],
+            [
+              "Epithelial basement membrane dystrophy (relative CI for LASIK)",
+              "i likelihood of epithelial defect during flap creation. Surface ablation preferred, may also be therapeutic"
+            ],
+            [
+              "Active ophthalmic disease (absolute CI)",
+              "For example, dR, uveitis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 19.5: Medical Contraindications",
+        "icon": "medical_services",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Medical contraindications",
+            "Reason"
+          ],
+          "rows": [
+            [
+              "Pregnancy (absolute CI)",
+              "Refractive fluctuation. Changes in tear film affecting healing. unknown risk to fetus of post-operative topical medications"
+            ],
+            [
+              "diabetes mellitus associated with neurotrophic cornea (absolute CI)",
+              "Ablation associated with delayed epithelialization"
+            ],
+            [
+              "Autoimmune diseases, connective tissue disorders (relative CI)",
+              "Altered wound healing"
+            ],
+            [
+              "Keloid scars/abnormal wound healing (relative CI)",
+              "i risk of post-operative haze with PRK. LASIK is preferable"
+            ],
+            [
+              "Immunosuppressive medications, including oral steroids, isotretinoin, amiodarone (relative CI)",
+              "Altered wound healing"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "General Treatment Ranges",
+        "icon": "straighten",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Max Myopia (D)",
+              "value": 100
+            },
+            {
+              "label": "Max Hypermetropia (D)",
+              "value": 50
+            },
+            {
+              "label": "Max Astigmatism (D)",
+              "value": 42
+            }
+          ]
+        }
+      },
+      {
+        "title": "Excimer Laser Overview",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "In general, excimer laser treatment is good for spherical refractive errors in the range of +6.0d to −12.00d and astigmatism up to 5.00d. Absolute amounts vary according to patient and laser used. Several different techniques are available but can generally be divided into surface treatments (PRK, LASEK, Epi-LASEK) or lamellar/flap-based treatments (LASIK) (see Fig. 19.4)."
+      },
+      {
+        "title": "PRK (Photorefractive Keratectomy)",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Involves the reshaping of the corneal surface following removal of the epithelium.",
+          "Excimer laser is applied directly to Bowman’s layer and removes this layer and the anterior stroma.",
+          "Indications: previously for low myopia and hypermetropia. Large PRK myopic ablations were associated with i risk of post-operative corneal haze. With intraoperative MMC, larger ablations are now possible without post-operative haze.",
+          "Range: myopia from −0.50d to −12.00d; hypermetropia up to +6.00d; astigmatism up to 5.00d.",
+          "PRK is the treatment of choice for: thin corneas; corneas with epithelial irregularities, scars, and dystrophies; very flat or very steep corneas; eyes with i risk of trauma such as military personnel and contact sports players; dry eyes; patients who had complication from LASIK in fellow eye.",
+          "Advantages: safe, long track record, more ablation possible in thin corneas since no flap required, removal of all complications related to flap creation in LASIK.",
+          "Disadvantages: post-operative pain for 2–4d (Ref 4). Slow recovery and slow refractive stability. Wound healing variability and haze formation. Long post-operative drop regimen."
+        ]
+      },
+      {
+        "title": "PRK Method Steps",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Epithelium Removal: Can be performed mechanically (blade/rotating brush), chemically (20% ethanol), or by laser (PTK mode).",
+          "2. Optical Zone Determination: Size depends on ametropia (larger zones for hypermetropic corrections).",
+          "3. Laser Ablation: Excimer laser reshapes the surface.",
+          "4. Post-Op: CL inserted until epithelial defect healed. Topical antibiotics and steroids administered."
+        ]
+      },
+      {
+        "title": "LASEK & Epi-LASIK (Surface Ablations)",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "LASEK (laser-assisted subepithelial keratectomy)",
+            "Epi-LASIK"
+          ],
+          "rows": [
+            [
+              "Indications",
+              "Similar to PRK",
+              "Similar to PRK"
+            ],
+            [
+              "Method",
+              "Metal reservoir filled with 18–20% alcohol to loosen epithelium for 720s. Loose epithelium moved to side, Bowman’s/stroma lasered. Epithelium repositioned with bandage lens.",
+              "Epithelium lifted mechanically as a sheet using epikeratome (blunt plastic blade). Cornea sculpted with excimer laser. Flap replaced with bandage lens."
+            ],
+            [
+              "Advantages",
+              "Theoretically less painful, less haze, and quicker rehabilitation than for PRK.",
+              "Theoretically less pain, faster healing, and less haze than with PRK and LASEK."
+            ],
+            [
+              "Disadvantages",
+              "More painful, slower visual rehabilitation, and more haze than with LASIK. Alcohol use means epithelial sheet is not viable.",
+              "Similar to LASEK. Risk of stromal penetration by epikeratome."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "LASIK (Laser-Assisted In Situ Keratomileusis)",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Technique: Two stages—1. Creating a thin flap (microkeratome or FSL); 2. Lifting flap and reshaping stromal bed with excimer laser.",
+          "Overview: Overcomes pain and slow recovery of surface treatments. Most popular laser refractive procedure today.",
+          "Indications: Myopia −0.50d to −12.00d. Hypermetropia up to +6.00d. Astigmatism up to 5.00d.",
+          "Method: Flap hinge is usually superior or nasal. Bowman’s layer and superficial stroma of flap NOT lasered. Flap adheres to bed within a few minutes.",
+          "Advantages: Less painful than surface ablations. Rapid visual rehabilitation (Ref 5).",
+          "Disadvantages: Flap-related complications, unsuitable for thin corneas, dry eye lasting up to 1y."
+        ]
+      },
+      {
+        "title": "Box 19.3: LASIK Flap Creation Options",
+        "icon": "settings_suggest",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Tool",
+            "Description & Considerations"
+          ],
+          "rows": [
+            [
+              "Microkeratome",
+              "Oscillating blade over a suction ring. Raises IOP to high level for stability. Flap size/thickness related to suction ring and corneal power. Avoid in steep (>48d) or very flat (<40d) cornea due to i risk of flap complications."
+            ],
+            [
+              "Femtosecond laser (FSL)",
+              "Infrared laser (1,053nm). Produces precise lamellar plane dissection. Controls flap size, thickness, and hinge location. Accepted to have fewer flap complications."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Advantages of FSL over Microkeratome",
+        "icon": "thumb_up",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Safer and more reliable flap creation with steep and flat cornea.",
+          "Easier to create thin flaps reliably.",
+          "Stronger flap adherence.",
+          "Less epithelial ingrowth.",
+          "Reduced induction of higher-order aberrations."
+        ]
+      },
+      {
+        "title": "SMILE (Small-Incision Lenticule Extraction)",
+        "icon": "new_releases",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Newest laser refractive procedure; entirely FSL based (no excimer laser needed).",
+          "Indications: Myopia −1.0d to −10.00d. Astigmatism up to 5.00d. Not used for hypermetropia yet.",
+          "Method: Intrastromal lenticule and small surface channel (2–3mm) created with FSL. Lenticule removed via channel using surgical instrumentation. There is no flap (Ref 6).",
+          "Advantages: Less painful than surface ablations. Rapid visual rehabilitation. Possibly less dry eye and quicker recovery. Potential biomechanical advantages (thinner corneas).",
+          "Disadvantages: Lenticule-related complications (uncommon), unsuitable for hypermetropia, relatively new, long-term results not available (available data encouraging - Ref 7)."
+        ]
+      },
+      {
+        "title": "Clinical References",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "4: Woreta FA et al. Management of post-photorefractive keratectomy pain. Surv Ophthalmol. 2013;58:529–35. 5: Shortt AJ et al. Laser-assisted in-situ keratomileusis (LASIK) versus photorefractive keratectomy (PRK) for myopia. Cochrane Database Syst Rev. 2013;1:Cd005135. 6: SMILE method utilizes FSL without a flap. 7: SMILE available data is encouraging though long-term results are pending."
+      }
+    ]
+  },
+  "chapterId": "medical_retina",
+  "_serverSynced": true
+}

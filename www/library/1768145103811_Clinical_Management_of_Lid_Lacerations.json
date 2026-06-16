@@ -1,0 +1,178 @@
+{
+  "id": 1768145103811,
+  "seqId": 71,
+  "title": "Clinical Management of Lid Lacerations",
+  "summary": "An exhaustive guide to the assessment, prophylaxis, and surgical repair of eyelid injuries. This protocol covers everything from simple superficial cuts to complex full-thickness defects and canalicular involvement.",
+  "date": "2026-01-11T15:25:03.811Z",
+  "data": {
+    "title": "Clinical Management of Lid Lacerations",
+    "summary": "An exhaustive guide to the assessment, prophylaxis, and surgical repair of eyelid injuries. This protocol covers everything from simple superficial cuts to complex full-thickness defects and canalicular involvement.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><path d='M20,100 Q100,20 180,100 Q100,180 20,100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M60,60 L80,80 M120,60 L140,80 M60,140 L80,120 M120,140 L140,120' stroke='red' stroke-width='3' stroke-linecap='round'/><path d='M30,105 Q100,85 170,105' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4,2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Context & Importance",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Lid lacerations: Lacerations involving the eyelid are common, occurring in the context of both blunt and sharp injuries. They carry morbidity in their own right and may be associated with significant injuries of the globe or orbit. Lid lacerations require careful exploration and precise closure, particularly at the lid margin (see Table 3.9 for assessment)."
+      },
+      {
+        "title": "Comprehensive Assessment (Table 3.9)",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Category",
+            "Specific Features in Assessment"
+          ],
+          "rows": [
+            [
+              "Hx (History)",
+              "Mechanism of injury and likelihood of associated injuries (e.g. stab injuries), likely infective risk (e.g. bites)"
+            ],
+            [
+              "O/e (Examination)",
+              "Lid laceration (depth, length, tissue viability), lid position, orbicularis function, lagophthalmos, intercanthal distance, Canalicular involvement, nasolacrimal drainage"
+            ],
+            [
+              "Ix (Investigation)",
+              "All stab injuries should have orbital and head CT (fractures, FBs, pneumocranium)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Critical Alerts & Risks",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Beware: associated injury of globe or orbit",
+          "All stab injuries require orbital and head CT",
+          "Injured canaliculus may progressively retract medially",
+          "Avoid debridement: Lid tissue has an excellent blood supply and rarely becomes necrotic"
+        ]
+      },
+      {
+        "title": "Foundational Treatment Principles",
+        "icon": "medical_services",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Treatment Protocol",
+          "branches": [
+            "Prophylaxis: Corneal lubrication & Tetanus vaccine/Ig",
+            "Surgery: Assess depth, tissue loss, margin, and canaliculus",
+            "Complexity: Margin/canalicular repairs require theatre & experienced surgeon",
+            "Timing: May wait up to 48h for repair (but early is better for canaliculus)"
+          ]
+        }
+      },
+      {
+        "title": "Repair of Simple & Partial Thickness Defects",
+        "icon": "content_cut",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Injury Type",
+            "Surgical Approach"
+          ],
+          "rows": [
+            [
+              "Simple superficial not involving margin",
+              "Close with interrupted 6-0 sutures, parallel to lid margin; absorbable (e.g. Vicryl®) are often preferred (especially for children), but non-absorbable (e.g. prolene) may be used"
+            ],
+            [
+              "Partial thickness with tissue loss (Small)",
+              "Small defect restricted to anterior lamella; consider allowing repair by granulation. May be closed primarily after undermining"
+            ],
+            [
+              "Partial thickness with tissue loss (Large)",
+              "Larger defects require specialist reconstruction"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Full Thickness Tissue Loss Management",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Defect Size",
+            "Recommended Procedure"
+          ],
+          "rows": [
+            [
+              "Small (0–25% loss)",
+              "Clean and close with interrupted absorbable (e.g. 6-0 Vicryl®) sutures in one layer to tarsus and one layer to skin"
+            ],
+            [
+              "Large (25–60% loss)",
+              "Consider lateral canthotomy/cantholysis, Tenzel or McGregor myocutaneous flap"
+            ],
+            [
+              "Very large lower lid (>60% loss)",
+              "Consider Hughes tarsoconjunctival flap and skin graft or transposition skin flap or Mustarde myocutaneous flap"
+            ],
+            [
+              "Very large upper lid (>60% loss)",
+              "Consider Cutler–Beard flap or Mustarde lid-switch (2-stage)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Precise Marginal Laceration Repair",
+        "icon": "architecture",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Close tarsus with interrupted absorbable suture (e.g. 6-0 Vicryl®), ensuring alignment of lid margins",
+          "Step 2: Place grey line suture (non-absorbable or absorbable, e.g. 6-0 Vicryl®); leave long",
+          "Step 3: Place additional marginal suture (lash line); leave long",
+          "Step 4: Close overlying skin and orbicularis with interrupted absorbable suture (e.g. 6-0 Vicryl®)",
+          "Step 5: Catch long ends of marginal sutures in skin sutures to prevent corneal abrasion"
+        ]
+      },
+      {
+        "title": "Canalicular Laceration Protocol",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Internally splint the opened duct with silicone tubing (e.g. Mini Monoka stent)",
+          "Place 6.0 Vicryl® orbicularis sutures",
+          "For upper and lower lacerations: consider bicanalicular intubation",
+          "For lower lids: reattach lower limb of medial canthal tendon to posterior lacrimal crest (e.g. 5-0 PDS)",
+          "Close muscle and skin separately with 6-0 Vicryl®",
+          "Leave silicone tubes in situ for 3 months"
+        ]
+      },
+      {
+        "title": "Post-operative Care & Follow-up",
+        "icon": "event_available",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Apply topical antibiotic/lubrication (e.g. Oc chloramphenicol 3×/d to wound and fornix for 1wk)",
+          "Remove skin sutures at 5–7 days"
+        ]
+      }
+    ]
+  },
+  "chapterId": "trauma",
+  "_serverSynced": true
+}

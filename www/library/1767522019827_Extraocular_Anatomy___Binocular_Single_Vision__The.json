@@ -1,0 +1,407 @@
+{
+  "id": 1767522019827,
+  "title": "Extraocular Anatomy & Binocular Single Vision: The Complete Clinical Map",
+  "summary": "An exhaustive anatomical and physiological guide to the extraocular muscles, the complex mechanics of ocular motility, and the sensory frameworks of binocular single vision and its adaptive mechanisms.",
+  "date": "2026-01-04T10:20:19.827Z",
+  "data": {
+    "title": "Extraocular Anatomy & Binocular Single Vision: The Complete Clinical Map",
+    "summary": "An exhaustive anatomical and physiological guide to the extraocular muscles, the complex mechanics of ocular motility, and the sensory frameworks of binocular single vision and its adaptive mechanisms.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><line x1='40' y1='100' x2='160' y2='100' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/><line x1='100' y1='40' x2='100' y2='160' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/><path d='M70 45 L100 20 L130 45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M70 155 L100 180 L130 155' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Orbital Geometry & Rectus Origins",
+        "icon": "architecture",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "The orbit forms a pyramid structure.",
+          "Lateral and medial walls are at 45° to each other.",
+          "The central axis is at 22.5° (approximated to 23°).",
+          "The four rectus muscles (MR, LR, SR, IR) originate from the annulus of Zinn."
+        ]
+      },
+      {
+        "title": "Origins & Positions of the Obliques",
+        "icon": "adjust",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Oblique & LPS Origins",
+          "branches": [
+            "SO: Orbital apex outside the annulus (like LPS)",
+            "IO: Nasal orbital floor",
+            "SO Position: Inferior to SR",
+            "IO Position: Inferior to IR"
+          ]
+        }
+      },
+      {
+        "title": "Specialized Structures of the EOMs",
+        "icon": "settings_input_component",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The SO tendon and sheath uniquely pass through a cartilaginous rigid pulley attached to the superonasal orbital wall. The spiral of Tillaux describes the way the recti insert increasingly posterior to the limbus (MR, IR, LR, then SR). Each rectus muscle carries two anterior ciliary arteries, except the lateral which carries only one. These are important for anterior segment perfusion."
+      },
+      {
+        "title": "Table 17.1: Anatomy of EOMs",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Muscle",
+            "Origin",
+            "Muscle Length (mm)",
+            "Tendon Length",
+            "Insertion (mm from limbus)*"
+          ],
+          "rows": [
+            [
+              "MR",
+              "Annulus of Zinn",
+              "40",
+              "3.6mm",
+              "5.5"
+            ],
+            [
+              "LR",
+              "Annulus of Zinn",
+              "40",
+              "8.4mm",
+              "6.9"
+            ],
+            [
+              "SR",
+              "Annulus of Zinn",
+              "41",
+              "5.4mm",
+              "7.7"
+            ],
+            [
+              "IR",
+              "Annulus of Zinn",
+              "40",
+              "5.0mm",
+              "6.5"
+            ],
+            [
+              "SO",
+              "Sphenoid",
+              "32",
+              "From 10mm pre-trochlea",
+              "Posterior superotemporal"
+            ],
+            [
+              "IO",
+              "Orbital floor",
+              "34",
+              "Minimal",
+              "Posterior temporal"
+            ],
+            [
+              "* Distance to midpoint of insertion",
+              "",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Innervation Map",
+        "icon": "electric_bolt",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Nerve",
+            "Muscles Innervated"
+          ],
+          "rows": [
+            [
+              "IIIn (Oculomotor)",
+              "SR, MR, IR, IO"
+            ],
+            [
+              "IVn (Trochlear)",
+              "SO"
+            ],
+            [
+              "VIn (Abducens)",
+              "LR"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Fascial Layers & Orbital Connective Tissue",
+        "icon": "layers",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Tenon’s capsule: Diffuse fascial layer between conjunctiva and globe envelops EOMs.",
+          "Check ligaments: Spanning radially from globe to lateral/medial walls and between muscles.",
+          "Lockwood’s ligament: Slung below and supporting the globe.",
+          "Intermuscular septum: Concentrically surrounding the anterior globe between muscles."
+        ]
+      },
+      {
+        "title": "Modern Imaging Insights (Demer)",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "MRI shows EOMs do not pass in a straight line from origin to insertion.",
+          "Pulleys and associated passive and active sling structures control muscle paths (Demer JL, 2004).",
+          "Compartmentalization: EOMs have compartments with distinct innervation, function, and central control (Demer JL, 2014)."
+        ]
+      },
+      {
+        "title": "Classification of Eye Movements",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Eye Movements",
+          "branches": [
+            "Monocular: Ductions",
+            "Binocular Conjugate: Versions (same direction)",
+            "Binocular Disconjugate: Vergences (opposing directions)"
+          ]
+        }
+      },
+      {
+        "title": "Axes of Fick",
+        "icon": "exposed_arm_setup",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Horizontal axis: (x)",
+          "Anteroposterior axis: (y)",
+          "Vertical axis: (z)"
+        ]
+      },
+      {
+        "title": "Definitions: Ductions",
+        "icon": "sync_alt",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Abduction: Outward",
+          "Adduction: Inward",
+          "Supraduction: Upward",
+          "Infraduction: Downward",
+          "Intorsion: Superior limbus moves inward",
+          "Extorsion: Superior limbus moves outward"
+        ]
+      },
+      {
+        "title": "Definitions: Versions & Vergences",
+        "icon": "multiple_stop",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Dextroversion: Right gaze",
+          "Laevoversion: Left gaze",
+          "Supraversion: Upgaze",
+          "Infraversion: Downgaze",
+          "Dextrocycloversion: Superior limbus moves right",
+          "Laevocycloversion: Superior limbus moves left",
+          "Convergence: Inward vergence",
+          "Divergence: Outward vergence"
+        ]
+      },
+      {
+        "title": "Physiological Laws of Motility",
+        "icon": "gavel",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Sherrington & Hering",
+          "explanation": "Sherrington’s Law: Increased innervation of the agonist (e.g., LR) is accompanied by decreased innervation of its antagonist (ipsilateral MR). Hering’s Law: During conjugate movement, yoke muscles (e.g., LR of one eye and MR of the other) receive equal and simultaneous innervation."
+        }
+      },
+      {
+        "title": "Table 17.2: Actions of EOMs",
+        "icon": "directions_run",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Muscle",
+            "In 1° position (subsidiary actions)",
+            "In abduction",
+            "In adduction"
+          ],
+          "rows": [
+            [
+              "MR",
+              "Adduction",
+              "Adduction",
+              "Adduction"
+            ],
+            [
+              "LR",
+              "Abduction",
+              "Abduction",
+              "Abduction"
+            ],
+            [
+              "SR",
+              "Elevation (intorsion, adduction)",
+              "Elevation (isolated at 23° abduction)",
+              "Intorsion (isolated at 67° adduction)"
+            ],
+            [
+              "IR",
+              "Depression (extorsion, adduction)",
+              "Depression (isolated at 23° abduction)",
+              "Extorsion (isolated at 67° adduction)"
+            ],
+            [
+              "SO",
+              "Intorsion (depression, abduction)",
+              "Intorsion (isolated at 39° abduction)",
+              "Depression (isolated at 51° adduction)"
+            ],
+            [
+              "IO",
+              "Extorsion (elevation, abduction)",
+              "Extorsion (isolated at 39° abduction)",
+              "Elevation (isolated at 51° adduction)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Binocular Single Vision (BSV) Fundamentals",
+        "icon": "join_inner",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "BSV is the ability to view the world with two eyes, form two separate images, and fuse them centrally to create a single percept. Development depends on correct alignment and similar image clarity from the neonatal period. Prerequisite: Normal retinal correspondence where images stimulate anatomically corresponding points on each retina, stimulating functionally corresponding points in the occipital cortex. The Horopter is the imaginary plane of points in space projecting to these retinal points. Panum’s fusional area is the narrow region around the horopter where points are seen as single despite disparity."
+      },
+      {
+        "title": "Levels of Binocularity",
+        "icon": "stairs",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Simultaneous perception: Perception of a single image due to formation on each retina.",
+          "2. Fusion: Central fusion allowed by stimulation of corresponding retinal points.",
+          "3. Stereopsis: Perception of depth resulting from disparity in fused images."
+        ]
+      },
+      {
+        "title": "Fusion Components",
+        "icon": "vibration",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Sensory Fusion: Generates a single image from corresponding points.",
+          "Motor Fusion: Adjusts eye position to maintain sensory fusion.",
+          "Fusional Reserves: The level beyond which mechanisms break down, usually resulting in diplopia."
+        ]
+      },
+      {
+        "title": "Table 17.3: Normal Fusional Reserves",
+        "icon": "equalizer",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Condition",
+            "Value (Approximate)"
+          ],
+          "rows": [
+            [
+              "Horizontal Near",
+              "Convergent",
+              "32Δ BO"
+            ],
+            [
+              "Horizontal Near",
+              "Divergent",
+              "16Δ BI"
+            ],
+            [
+              "Horizontal Distance",
+              "Convergent",
+              "16Δ BO"
+            ],
+            [
+              "Horizontal Distance",
+              "Divergent",
+              "8Δ BI"
+            ],
+            [
+              "Vertical",
+              "N/A",
+              "4Δ BU and BD"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Abnormalities of Simultaneous Perception",
+        "icon": "error",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Confusion: Stimulation of corresponding points by dissimilar images (images appear on top of each other).",
+          "Diplopia: Stimulation of non-corresponding points by the same image (double vision)."
+        ]
+      },
+      {
+        "title": "Adaptive Mechanisms",
+        "icon": "extension",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Suppression: Cortical mechanism to extinguish one image. Central (fovea) for confusion, Peripheral for diplopia.",
+          "Abnormal Retinal Correspondence (ARC): Cortical remapping of non-corresponding points to produce a single perception despite deviation.",
+          "Abnormal Head Posture: Behavioral mechanism to move the field of single vision to a useful location."
+        ]
+      },
+      {
+        "title": "Detail: Suppression & Amblyopia",
+        "icon": "visibility_off",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": "Monocular foveal suppression, if not treated, leads to amblyopia; equal alternation between eyes does not. Suppression scotoma size and density are variable. Density is measured with a Sbiza filter bar, using successively denser filters in front of the better eye until a fixation switch occurs."
+      },
+      {
+        "title": "Microtropia",
+        "icon": "center_focus_weak",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "A small manifest deviation with a degree of BSV created by ARC, eccentric fixation, and a central suppression scotoma. Microtropia with identity: No movement on cover test. Microtropia without identity: Movement occurs because eccentric fixation is not absolute."
+      }
+    ]
+  },
+  "chapterId": "neuro",
+  "seqId": 22,
+  "_serverSynced": true
+}

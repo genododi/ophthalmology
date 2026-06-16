@@ -1,0 +1,129 @@
+{
+  "id": 1767689158535,
+  "title": "HESS & LESS",
+  "summary": "This visual guide explores the essential diagnostic tests used to plot eye positions through dissociation. By identifying underactions and overactions, clinicians can differentiate between mechanical and neurogenic defects in ocular motility.",
+  "date": "2026-01-06T08:45:58.535Z",
+  "data": {
+    "title": "HESS & LESS",
+    "summary": "This visual guide explores the essential diagnostic tests used to plot eye positions through dissociation. By identifying underactions and overactions, clinicians can differentiate between mechanical and neurogenic defects in ocular motility.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='50' r='15' fill='none' stroke='#d32f2f' stroke-width='4'/><circle cx='70' cy='50' r='15' fill='none' stroke='#388e3c' stroke-width='4'/><line x1='15' y1='50' x2='45' y2='50' stroke='#d32f2f' stroke-width='2'/><line x1='55' y1='50' x2='85' y2='50' stroke='#388e3c' stroke-width='2'/><path d='M25 45 L35 55 M35 45 L25 55' stroke='#d32f2f' stroke-width='2'/><rect x='65' y='45' width='10' height='10' fill='#388e3c'/></svg>",
+    "sections": [
+      {
+        "title": "Core Methodology",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "In these tests, the eyes are dissociated and the position of the non-fixing eye is plotted as the fixing eye adopts different positions of gaze determined by the examiner."
+      },
+      {
+        "title": "Hess Testing: Principles & Procedure",
+        "icon": "palette",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Principle: In Hess testing, dissociation is achieved by colour (wavelength) filters.",
+          "Step 1: Red (appearance) filter before fixing eye.",
+          "Step 2: Green (appearance) filter before non-fixing eye.",
+          "Step 3: Examiner presents their red or white target.",
+          "Step 4: Subject perceives with fixing eye (only) the target and grid.",
+          "Step 5: Subject perceives their green target with non-fixing eye (only).",
+          "Step 6: Position of non-fixing eye is revealed by projection of green target and plotted.",
+          "Step 7: Procedure repeated, reversing laterality for other eye."
+        ]
+      },
+      {
+        "title": "Lees Testing: Principles & Procedure",
+        "icon": "square_foot",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Principle: In Lees testing, dissociation is achieved by a mirror between the subject’s eyes. The mirror bisects two facing Lees screens 90° apart.",
+          "Step 1: Operator presents target to fixing eye.",
+          "Step 2: Subject’s non-fixing eye position is revealed by their projected perception of a corresponding point in the opposite Lees screen."
+        ]
+      },
+      {
+        "title": "Advantages: Lees vs. Hess",
+        "icon": "star",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Constant illumination L vs R.",
+          "Greater contrast.",
+          "Easier test for subject to understand and perform."
+        ]
+      },
+      {
+        "title": "Interpretation Guide",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "headers": [
+          "Finding",
+          "Indication / Interpretation"
+        ],
+        "rows": [
+          [
+            "Smaller field of movement",
+            "Usually indicates the affected eye."
+          ],
+          [
+            "Inward displacement",
+            "Indicates underaction."
+          ],
+          [
+            "Outward displacement",
+            "Indicates overaction."
+          ],
+          [
+            "Similarity of fields L vs R",
+            "Indicate concomitance."
+          ],
+          [
+            "Compressed field with asymmetry L vs R (incomitance)",
+            "Often indicates mechanical defect."
+          ],
+          [
+            "Sloping fields",
+            "Indicate A or V patterns (not torsion)."
+          ]
+        ]
+      },
+      {
+        "title": "Case Analysis: Figure 17.6 (Mechanical)",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": "Fig. 17.6 Hess chart showing limitation of left upgaze and abduction, with right upgaze overaction and lesser right adduction overaction. Findings consistent with asymmetrical TED (left worse than right) related to disease of the left inferior rectus and medial rectus."
+      },
+      {
+        "title": "Case Analysis: Figure 17.7 (Neurogenic)",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Fig. 17.7 Hess chart showing underaction of the right superior oblique and overaction of the left."
+      },
+      {
+        "title": "Reference & Examples",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Examples of abnormal charts and their interpretation are provided in Fig. 17.6 (mechanical) and Fig. 17.7 (neurogenic).",
+          "Hess and Lees charts 833"
+        ]
+      }
+    ]
+  },
+  "chapterId": "strabismus",
+  "seqId": 25,
+  "_serverSynced": true
+}

@@ -1,0 +1,300 @@
+{
+  "id": 1769622318730,
+  "seqId": 167,
+  "title": "RETINOBLASTOMA: The Comprehensive Clinical Guide",
+  "summary": "Retinoblastoma is a rare but life-threatening primary intraocular malignancy of childhood. This guide covers its complex genetics, international classification, clinical presentation, and multidisciplinary treatment protocols aimed at life, globe, and vision preservation.",
+  "date": "2026-01-28T17:45:18.730Z",
+  "data": {
+    "title": "RETINOBLASTOMA: The Comprehensive Clinical Guide",
+    "summary": "Retinoblastoma is a rare but life-threatening primary intraocular malignancy of childhood. This guide covers its complex genetics, international classification, clinical presentation, and multidisciplinary treatment protocols aimed at life, globe, and vision preservation.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='35' fill='hsl(215, 90%, 45%)'/><path d='M110 80 Q130 90 120 110' fill='none' stroke='white' stroke-width='5' stroke-linecap='round'/><circle cx='85' cy='85' r='12' fill='white' opacity='0.8'/></svg>",
+    "sections": [
+      {
+        "title": "Introduction & Epidemiology",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Rare: occurs in up to 1:18,000 live births.",
+          "Most common primary intraocular malignancy of childhood.",
+          "Accounts for about 3% of all childhood cancers.",
+          "Second most common malignant intraocular tumour after uveal melanoma.",
+          "Survival rates: over 95% in specialized centres; much lower in the developing world.",
+          "Psychological impact: high on parents; many suffer from depression, anxiety, and stress."
+        ]
+      },
+      {
+        "title": "Pathology & Morphology",
+        "icon": "microscope",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Tumours are composed of small basophilic cells (retinoblasts) with large hyperchromatic nuclei and scanty cytoplasm. Many are undifferentiated, but varying degrees of differentiation are characterized by structures known as rosettes. Fig 20.38 Notes: (A) Well-differentiated tumour showing abundant Flexner–Wintersteiner rosettes; (B) whole eye section showing both endophytic and exophytic growth; (C) transverse section of the cut end of an optic nerve demonstrating tumour infiltration."
+      },
+      {
+        "title": "The Genetics of Retinoblastoma",
+        "icon": "dna",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "RB1 Mutation",
+          "branches": [
+            "Tumour suppressor gene paradigm",
+            "Over 900 different mutations reported",
+            "Deletion size correlates with aggressive behavior",
+            "Knudson 'two-hit' hypothesis",
+            "Modifier genes as therapeutic targets",
+            "Associated genes disrupted in sporadic tumours"
+          ]
+        }
+      },
+      {
+        "title": "Heritable (40%) vs. Non-Heritable (60%)",
+        "icon": "family_history",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "headers": [
+          "Feature",
+          "Heritable (Germline)",
+          "Non-Heritable (Somatic)"
+        ],
+        "rows": [
+          [
+            "Mutation",
+            "One allele mutated in ALL cells in the body.",
+            "Mutation is localized (unilateral)."
+          ],
+          [
+            "Presentation",
+            "Bilateral and multifocal tumours.",
+            "Solitary and unilateral tumour."
+          ],
+          [
+            "Non-Ocular Risks",
+            "Predisposition to Pinealoblastoma (trilateral RB), Osteosarcoma, Soft tissue sarcoma, Melanoma.",
+            "No predisposition to second non-ocular cancers."
+          ],
+          [
+            "Transmission",
+            "Autosomal dominant; 50% transmission to offspring.",
+            "Not transmissible."
+          ],
+          [
+            "Sibling Risk",
+            "2% if parents healthy; 40% if a parent is affected.",
+            "About 1% if solitary with no family history."
+          ]
+        ]
+      },
+      {
+        "title": "Critical Warnings",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "TIP: Retinoblastoma needs to be excluded in a young child with leukocoria or a squint.",
+          "TIP: Heritable retinoblastoma patients are predisposed to non-ocular tumours (pinealoblastoma, osteosarcoma, soft tissue sarcoma and melanoma).",
+          "Pinealoblastoma (Trilateral Retinoblastoma) occurs in up to 10%, usually before age 5.",
+          "Risk of second malignancy is 6%, but increases FIVE-FOLD if external beam irradiation was used.",
+          "External beam radiotherapy should be avoided in heritable cases due to risk of inducing late second malignancy in the radiation field."
+        ]
+      },
+      {
+        "title": "International Classification of Retinoblastoma",
+        "icon": "format_list_bulleted",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "headers": [
+          "Group",
+          "Clinical Description"
+        ],
+        "rows": [
+          [
+            "Group A",
+            "Small intraretinal tumours (<3 mm) away from foveola and disc."
+          ],
+          [
+            "Group B",
+            "Tumours >3 mm, macular or juxtapapillary location, or with subretinal fluid."
+          ],
+          [
+            "Group C",
+            "Tumour with focal subretinal or vitreous seeding within 3 mm of tumour."
+          ],
+          [
+            "Group D",
+            "Tumour with diffuse subretinal or vitreous seeding > 3 mm from tumour."
+          ],
+          [
+            "Group E",
+            "Extensive RB (>50% globe), neovascular glaucoma, haemorrhage, extension to optic nerve or anterior chamber."
+          ]
+        ]
+      },
+      {
+        "title": "Clinical Presentation Stats",
+        "icon": "query_stats",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Leukocoria (Commonest)",
+              "value": 60
+            },
+            {
+              "label": "Strabismus (Second Commonest)",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Symptoms & Signs",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Bilateral cases present within 1st year of life.",
+          "Unilateral cases present around 2 years of age.",
+          "Painful red eye with secondary glaucoma/buphthalmos.",
+          "Poor vision and Inflammation/Pseudo-inflammation.",
+          "Orbital inflammation mimicking cellulitis (necrotic tumours).",
+          "Orbital invasion or extraocular growth in neglected cases.",
+          "Intraretinal signs: dome-shaped white lesion, white flecks of calcification.",
+          "Endophytic: Projects into vitreous with 'seeding'.",
+          "Exophytic: Multilobular subretinal masses, causes retinal detachment."
+        ]
+      },
+      {
+        "title": "Investigation Protocol",
+        "icon": "clinical_notes",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Red reflex testing with direct ophthalmoscope (community screening).",
+          "Step 2: Examination Under Anaesthesia (EUA): Tonometry, Corneal diameter, Hand-held slit lamp, Ophthalmoscopy, photography, Cycloplegic refraction.",
+          "Step 3: Ultrasound: Assess size and detect calcification (helps exclude Coats).",
+          "Step 4: Imaging: MRI (preferred for optic nerve, extraocular extension, pinealoblastoma). Avoid CT if possible due to radiation.",
+          "Step 5: Systemic Assessment: MRI orbit/skull. If metastatic disease suspected: bone scans, bone marrow aspiration, lumbar puncture.",
+          "Step 6: Genetic Studies: Tumour tissue and blood samples from patient and relatives."
+        ]
+      },
+      {
+        "title": "Treatment Strategies",
+        "icon": "medical_services",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Collaborative Treatment",
+          "branches": [
+            "Intravenous Chemotherapy (CEV: carboplatin, etoposide, vincristine)",
+            "Selective Ophthalmic Artery Infusion (Melphalan/Topotecan)",
+            "Intravitreal melphalan (for vitreous seeding)",
+            "Cryotherapy (Pre-equatorial, no invasion/seeding)",
+            "TTT (Focal consolidation)",
+            "Brachytherapy (Radioactive plaque for anterior tumours)",
+            "Enucleation (Group E, NVG, failed reduction, 10mm nerve section)"
+          ]
+        }
+      },
+      {
+        "title": "Managing Extraocular Extension",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Adjuvant Chemotherapy: 6-month CEV course post-enucleation if retrolaminar/massive choroidal spread.",
+          "External Beam Radiotherapy (EBRT): Indicated for extension to cut end of nerve or through sclera.",
+          "Systemic Spread/CNS: Aggressive high-dose chemo and autologous stem cell rescue."
+        ]
+      },
+      {
+        "title": "Screening & Follow-up",
+        "icon": "person_search",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Germline mutation penetrance is 40% (affects 40% of offspring).",
+          "RB1 mutation detection approach: 95%.",
+          "Screening for at-risk siblings: Prenatal USG, ophthalmoscopy at birth, then regularly until age 5–7.",
+          "Goal: 90% can achieve 6/6 to 6/12 visual acuity with early detection.",
+          "Examine ALL family (parents included) for retinomas, calcified scars, or phthisis.",
+          "Review: Frequent intervals to detect recurrence/new tumours."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Ocular & Systemic",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "headers": [
+          "Condition",
+          "Distinguishing Features"
+        ],
+        "rows": [
+          [
+            "Persistent Anterior Fetal Vasculature",
+            "Anterior segment only; lens opacity/leukocoria; retrolental mass with ciliary processes; cataract/glaucoma."
+          ],
+          [
+            "Persistent Posterior Fetal Vasculature",
+            "Posterior segment; clear lens; dense fold from disc to ora; treatment ineffective."
+          ],
+          [
+            "Coats Disease",
+            "Almost always unilateral; more common in boys; presents later than RB."
+          ],
+          [
+            "Retinopathy of Prematurity",
+            "Advanced stages cause RD/leukocoria; history of prematurity/low birthweight."
+          ],
+          [
+            "Toxocariasis",
+            "Chronic endophthalmitis; cyclitic membrane; granuloma at posterior pole mimics endophytic RB."
+          ],
+          [
+            "Uveitis",
+            "Mimics diffuse infiltrating RB; conversely, RB can be mistaken for uveitis or cellulitis."
+          ],
+          [
+            "Vitreoretinal Dysplasia",
+            "Faulty differentiation; microphthalmos; Norrie disease (NDP gene), Incontinentia pigmenti (NEMO gene), Walker-Warburg."
+          ],
+          [
+            "Other Tumours",
+            "Retinoma (Retinocytoma): benign variant, whitish dome, involutes to calcified mass; Retinal Astrocytoma."
+          ]
+        ]
+      },
+      {
+        "title": "Reference Figures Summary",
+        "icon": "image",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Fig 20.37: Choroidal metastasis examples (breast, bronchus) and B-scan. Fig 20.39: RB presentations: (A) Leukocoria, (B) Glaucoma/buphthalmos, (C) Red eye/uveitis, (D) Iris nodules, (E) Orbital inflammation, (F) Orbital invasion. Fig 20.40: RB types: (A) Intraretinal, (B) Endophytic, (C) Mixed, (D) Retinal detachment, (E) B-scan calcification, (F) CT calcification. Fig 20.42: PFV with cataract and retrolental vessels. Fig 20.43: Vitreoretinal dysplasia and skin rash (Incontinentia pigmenti). Fig 20.44: Retinoma calcified mass."
+      }
+    ],
+    "chapterId": "tumours"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1769622318730,
+  "communityId": "sub_1769618268159_inro7f1625vhbg",
+  "communityAuthor": "Dodiii",
+  "communityDate": "2026-01-28T16:37:48.159Z",
+  "_serverSynced": true
+}

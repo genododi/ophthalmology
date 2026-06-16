@@ -1,0 +1,283 @@
+{
+  "id": 1768386142768,
+  "seqId": 102,
+  "title": "Primary Angle-Closure Glaucoma (PACG): Comprehensive Clinical Guide",
+  "summary": "Primary angle-closure glaucoma is a major global cause of blindness characterized by anatomical predisposition and pressure-induced optic neuropathy. This guide covers the essential terminology, emergency management of acute episodes, and the latest evidence-based treatment strategies.",
+  "date": "2026-01-14T10:22:22.768Z",
+  "data": {
+    "title": "Primary Angle-Closure Glaucoma (PACG): Comprehensive Clinical Guide",
+    "summary": "Primary angle-closure glaucoma is a major global cause of blindness characterized by anatomical predisposition and pressure-induced optic neuropathy. This guide covers the essential terminology, emergency management of acute episodes, and the latest evidence-based treatment strategies.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M40 100 Q 70 50 100 100 T 160 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M100 100 L130 130' fill='none' stroke='red' stroke-width='6' stroke-linecap='round'/><text x='70' y='160' font-family='Arial' font-size='12' fill='hsl(215, 90%, 45%)'>ANGLE CLOSED</text></svg>",
+    "sections": [
+      {
+        "title": "Epidemiological Impact & Global Significance",
+        "icon": "public",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Gen. Pop >40y",
+              "value": 0.1
+            },
+            {
+              "label": "Chinese Pop >50y",
+              "value": 1.5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Epidemiology Stats",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "PACG is a significant cause of blindness worldwide. The terminology surrounding this condition has been reassessed by a consensus panel of glaucoma experts in the light of epidemiological studies (Foster PJ et al. Br J Ophthalmol. 2002;86:238–42)."
+      },
+      {
+        "title": "Risk Factor Analysis",
+        "icon": "warning",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Risk Factors",
+          "branches": [
+            "Epidemiological: Age >40y (Mean diagnosis ± 60y)",
+            "Epidemiological: Female (♀) sex",
+            "Ethnicity: Chinese, South east Asians, Inuit",
+            "Anatomical: Narrow angle, shallow AC",
+            "Anatomical: Relatively anterior iris–lens diaphragm",
+            "Anatomical: Large lens (older, cataract), small corneal diameter",
+            "Anatomical: Short axial length (usually hypermetropic)",
+            "Anatomical: High lens thickness-to-axial length ratio"
+          ]
+        }
+      },
+      {
+        "title": "Mechanisms of Angle Closure",
+        "icon": "settings",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Mechanism",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Pupillary Block",
+              "Apposition of the iris to the lens impedes aqueous flow from the PC to AC, causing relative build-up of pressure behind the iris, anterior bowing of the peripheral iris, and subsequent angle closure."
+            ],
+            [
+              "Plateau Iris Configuration",
+              "Relatively anterior ciliary body that apposes the peripheral iris to the trabeculum; AC depth normal centrally, shallow peripherally with flat iris plane. Vulnerable to pupillary block."
+            ],
+            [
+              "Plateau Iris Syndrome",
+              "Occurs in 'higher' plateau configurations where peripheral iris bunches up and blocks the trabeculum directly; angle closure can occur despite a patent PI."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Suggested Terminology Hierarchy",
+        "icon": "format_list_numbered",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "(1) Anatomically narrow drainage angle (ANDA): defined on dark-room gonioscopy in the 1° position.",
+          "(2) Iridotrabecular contact (ItC): defined on gonioscopy.",
+          "(3) 1° angle closure (PAC): ItC with iIOP or PAS or symptoms suggestive of episodes of acute PAC.",
+          "(4) Acute 1° angle closure (APAC): ItC with acute symptomatic iiIOP.",
+          "(5) 1° angle-closure glaucoma (PACG): PAC with glaucomatous damage (changes in the optic disc and VF)."
+        ]
+      },
+      {
+        "title": "Acute 1° Angle Closure (APAC): Clinical Emergency",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Pain: Periocular, headache, abdominal",
+          "Vision: Blurred vision, haloes",
+          "Systemic: Nausea, vomiting",
+          "Ipsilateral Red Eye",
+          "Raised IOP: Usually 50–80mmHg",
+          "Corneal oedema",
+          "Fixed semi-dilated pupil",
+          "Glaucomflecken",
+          "Contralateral angle narrow; Bilateral shallow AC"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis for APAC",
+        "icon": "troubleshoot",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "2° angle closure (e.g. phacomorphic, inflammatory, neovascular)",
+          "Acute glaucoma syndromes: Posner–Schlossman syndrome",
+          "Pigment dispersion syndrome (PDS)"
+        ]
+      },
+      {
+        "title": "Primary Angle Closure (PAC & PACG)",
+        "icon": "clinical_notes",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "PAC Features: Narrow angles with ItC + one or more of: iIOP, PAS, or symptomatic APAC episodes. Treatment: 'Prophylactic' Nd-YAG laser PIs or cataract surgery if visual opacity.\n\nPACG Pathogenesis: (1) Synechial closure (asymptomatic 'creeping' or post-acute/subacute episodes); or (2) POAG-like mechanism in context of narrow angles. Features include glaucomatous optic neuropathy (disc/VF changes)."
+      },
+      {
+        "title": "EAGLE Trial & Clinical Research",
+        "icon": "science",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "EAGLE RCT",
+          "explanation": "Investigated potential role of clear lens extraction vs YAG PI in PAC and PACG (age >50 + IOP >30mmHg). Confirmed both effective, but lens extraction suggested better IOP control and higher Quality of Life (QoL). Note: lens extraction in these cases is challenging, requires advanced phaco skills, and poses biometric problems (Azuara-Blanco A et al. Lancet 2016)."
+        }
+      },
+      {
+        "title": "Box 10.4: Treatment Approach for APAC",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "IMMEDIATE SYSTEMIC: Acetazolamide 500mg IV stat (then 250mg PO 4×/d).",
+          "IMMEDIATE IPSILATERAL: β-blocker (e.g. timolol 0.5% stat, then 2×/d); Sympathomimetic (e.g. apraclonidine 1% stat); Steroid (e.g. prednisolone 1% stat, then q 30–60min).",
+          "IMMEDIATE MIOTIC: Pilocarpine 2% (once IOP <50mmHg, e.g. twice in first hour, then 4×/d).",
+          "SUPPORTIVE: Admit patient. Consider corneal indentation with 4-mirror goniolens; Lie patient supine; Analgesics and antiemetics.",
+          "CONTRALATERAL: Pilocarpine 1% given while awaiting Nd-YAG PI (priority is bilateral PIs).",
+          "INTERMEDIATE: Check IOP hourly. If not improving, use systemic hyperosmotics (glycerol PO 1g/kg 50% solution in lemon juice OR mannitol 20% solution IV 1–1.5g/kg).",
+          "IF STILL UNCONTROLLED: Consider acute Nd-YAG PI (use topical glycerin for oedema). Review diagnosis (aqueous misdirection?). Repeat Nd-YAG PI, surgical PI, iridoplasty, paracentesis, cyclodiode, or emergency cataract/trabeculectomy.",
+          "DEFINITIVE: Bilateral Nd-YAG or surgical PI. Note: some eyes require long-term medical/surgical care for chronic iIOP."
+        ]
+      },
+      {
+        "title": "Table 10.4: Acute Glaucoma Syndromes (Closed Angle)",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Glaucoma Type",
+            "Critical Features",
+            "Additional Features"
+          ],
+          "rows": [
+            [
+              "Primary angle closure",
+              "Closed angle, shallow AC; fixed mid-dilated pupil; iris bombé",
+              "Corneal oedema; contralateral angle narrow; may have plateau iris. Short axial length"
+            ],
+            [
+              "Neovascular (Angle Pulled)",
+              "Rubeosis ± synechial angle closure zipped shut",
+              "Signs of underlying pathology: diabetes, CRVO, carotid artery occlusive disease"
+            ],
+            [
+              "Inflammatory closed angle (Angle Pulled)",
+              "Synechial angle closure with PAS. Angle zipped shut",
+              "Signs of uveitis. Systemic disease"
+            ],
+            [
+              "Phacomorphic (Angle Pushed)",
+              "Ipsilateral intumescent lens",
+              "Appositional closure; contralateral open angle. High lens thickness:axial length ratio"
+            ],
+            [
+              "Lens dislocation (Angle Pushed)",
+              "Poor lenticular support permits anterior dislocation",
+              "Abnormalities of zonules or lens size. Systemic disease (e.g. Marfan’s)"
+            ],
+            [
+              "Aqueous misdirection (Angle Pushed)",
+              "Shallow AC despite patent PI; no iris bombé",
+              "Usually post-surgery in short axial length eyes"
+            ],
+            [
+              "Choroidal pathology (Angle Pushed)",
+              "Choroidal detachment, haemorrhage, or effusion",
+              "Recent surgery/laser. Evidence of nanophthalmos or uveal effusion syndrome"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 10.4: Acute Glaucoma Syndromes (Open Angle)",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Glaucoma Type",
+            "Critical Features",
+            "Additional Features"
+          ],
+          "rows": [
+            [
+              "Inflammatory open angle",
+              "Elevated IOP with significant flare/cells; open angle",
+              "Other signs of cause, e.g. uveitis, trauma, surgery"
+            ],
+            [
+              "Steroid-induced",
+              "iIOP associated with steroid use",
+              "Signs of underlying pathology, e.g. uveitis. Lag of days or weeks"
+            ],
+            [
+              "Posner–Schlossman syndrome",
+              "Recurrent unilateral IOP spikes in fairly quiet, white eye",
+              "Corneal oedema"
+            ],
+            [
+              "Pigmentary",
+              "Mid-peripheral spoke-like transillumination (TI) defects; trabecular pigmentation",
+              "Pigment in AC, cornea, lens, iris; ♂ myopes; 20–45y; post-exercise IOP spikes"
+            ],
+            [
+              "Red cell",
+              "Hyphaema",
+              "Corneal blood staining"
+            ],
+            [
+              "Ghost cell",
+              "Vitreous haemorrhage; bleached, khaki-coloured erythrocytes in AC",
+              "Posterior segment bleeding point (PVD, retinal tear, NVD, NVe, CNV)"
+            ],
+            [
+              "Phacolytic",
+              "Lens protein in AC with (hyper)mature cataract",
+              "AC cells + flare, open angle ± clumps of macrophages. Refractile protein crystals in AC"
+            ],
+            [
+              "Lens particle",
+              "Retained lens fragment in AC",
+              "Post-surgery/trauma; AC inflammation"
+            ],
+            [
+              "Intraocular tumour",
+              "Posterior segment tumour",
+              "± cataract; mass seen on US"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "chapterId": "glaucoma",
+  "_serverSynced": true
+}

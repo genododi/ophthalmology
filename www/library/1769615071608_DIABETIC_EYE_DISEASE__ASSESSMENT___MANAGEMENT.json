@@ -1,0 +1,408 @@
+{
+  "id": 1769615071608,
+  "seqId": 136,
+  "title": "DIABETIC EYE DISEASE: ASSESSMENT & MANAGEMENT",
+  "summary": "A comprehensive clinical framework for the assessment, grading, and treatment of diabetic eye disease. This guide integrates risk factor evaluation, the Airlie House/ETDRS classification systems, and specific management protocols for retinopathy and maculopathy.",
+  "date": "2026-01-28T15:44:31.608Z",
+  "data": {
+    "title": "DIABETIC EYE DISEASE: ASSESSMENT & MANAGEMENT",
+    "summary": "A comprehensive clinical framework for the assessment, grading, and treatment of diabetic eye disease. This guide integrates risk factor evaluation, the Airlie House/ETDRS classification systems, and specific management protocols for retinopathy and maculopathy.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M30 50 L70 50 M50 30 L50 70' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><circle cx='65' cy='40' r='2' fill='red'/><circle cx='35' cy='60' r='1.5' fill='red'/><circle cx='55' cy='55' r='3' fill='orange' opacity='0.6'/><path d='M20 50 Q 50 10 80 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='2,2'/></svg>",
+    "sections": [
+      {
+        "title": "Primary Ophthalmic Aims",
+        "icon": "target",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Assess risk factors for eye disease (and, to a lesser extent, other systemic complications)",
+          "2. Ensure modifiable risk factors are treated",
+          "3. Detect and grade eye disease",
+          "4. Institute ophthalmic treatment where necessary"
+        ]
+      },
+      {
+        "title": "Table 13.4: Patient History (History & Social)",
+        "icon": "history_edu",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Assessment Details"
+          ],
+          "rows": [
+            [
+              "Visual symptoms",
+              "Asymptomatic; dVA, distortion, floaters"
+            ],
+            [
+              "POH (Past Ocular History)",
+              "Previous diabetic eye complications; laser treatment; surgery; concurrent eye disease"
+            ],
+            [
+              "PMH (Past Medical History)",
+              "Diabetes: age of diagnosis, type and duration, ‘who looks after your diabetes?’, ‘what is your long-range diabetes test result/HbA1c?’; hypertension: ‘how often is it checked?’, hypercholesterolaemia, smoking; pregnancy; IHD, cerebrovascular disease, peripheral vascular disease, nephropathy, neuropathy"
+            ],
+            [
+              "SH (Social History)",
+              "Driver; occupation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 13.4: Drug & Allergy Assessment",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Category",
+            "Details"
+          ],
+          "rows": [
+            [
+              "Dx (Drugs)",
+              "Treatment for diabetes (diet, oral hypoglycaemics, insulin types, and frequency), hypertension, hypercholesterolaemia; aspirin/antiplatelet agents; warfarin"
+            ],
+            [
+              "Ax (Allergies)",
+              "Allergies or relevant drug contraindications"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CRITICAL DRUG INTERACTION",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Pioglitazone: Ask specifically about this medication due to its association with macular oedema."
+        ]
+      },
+      {
+        "title": "Table 13.4: Clinical Examination Checklist",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Structure",
+            "Features to Assess"
+          ],
+          "rows": [
+            [
+              "VA",
+              "Best corrected / pinhole / near"
+            ],
+            [
+              "Cornea",
+              "Tear film"
+            ],
+            [
+              "Iris",
+              "Rubeosis"
+            ],
+            [
+              "Lens",
+              "Cataract"
+            ],
+            [
+              "Tonometry",
+              "Intraocular Pressure (IOP)"
+            ],
+            [
+              "Vitreous",
+              "Haemorrhage, asteroid hyalosis"
+            ],
+            [
+              "Fundus",
+              "Retinopathy (microaneurysms, haemorrhages, exudates, IRMAs, venous beading, venous loops, neovascularization), maculopathy (fluid, exudates, retinal thickening), TRD/RRD, arterial/venous occlusion, ocular ischaemia"
+            ],
+            [
+              "Disc",
+              "New vessels, papillitis, AION"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 13.5: Definitions in Diabetic Eye Disease",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Grade",
+            "Clinical Findings"
+          ],
+          "rows": [
+            [
+              "Background (low risk)",
+              "Microaneurysms, small haemorrhages, hard exudates, occasional CWS"
+            ],
+            [
+              "Pre-proliferative (high risk)",
+              "IRMAs, venous beading/loops, clusters of large blot haemorrhages, multiple CWS"
+            ],
+            [
+              "Proliferative: NVD",
+              "New vessels at the disc or within 1DD of the disc"
+            ],
+            [
+              "Proliferative: NVE",
+              "New vessels elsewhere in the retina"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "High-Risk Proliferative Criteria",
+        "icon": "priority_high",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "NVD > 1/3 disc area",
+          "Any NVD with vitreous or preretinal haemorrhage",
+          "NVE > 1/2 disc area with vitreous or preretinal haemorrhage"
+        ]
+      },
+      {
+        "title": "Classification Equivalency",
+        "icon": "compare_arrows",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Effectively, background retinopathy corresponds to mild NPDR, whereas pre-proliferative retinopathy would include the range from moderate to very severe non-proliferative retinopathy. The international (American Academy of Ophthalmology (AAO)) classification has similarities to a simplified form of the Airlie House criteria."
+      },
+      {
+        "title": "Maculopathy Categories",
+        "icon": "hub",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Maculopathy Types",
+          "branches": [
+            "Focal: Well-circumscribed leakage with oedema and exudate rings (often surrounding microaneurysm)",
+            "Diffuse: Generalized leakage with oedema",
+            "Ischaemic: dVA with relatively normal appearance; confirmed by macular ischaemia on FFA",
+            "Mixed: Combination (e.g., diffuse and ischaemic)"
+          ]
+        }
+      },
+      {
+        "title": "Clinically Significant Macular Oedema (CSMO)",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Retinal thickening at or within 500 microns of the centre of the macula",
+          "Hard exudates at or within 500 microns of the centre of the macula if associated with adjacent retinal thickening",
+          "Retinal thickening of >1 disc area, any part of which is within 1DD of the centre of the macula",
+          "Centre-involving DMO: Thickening involving the foveal centre"
+        ]
+      },
+      {
+        "title": "Airlie House Classification (ETDRS NPDR)",
+        "icon": "format_list_bulleted",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "NPDR Category",
+            "Features"
+          ],
+          "rows": [
+            [
+              "Mild NPDR",
+              "At least one microaneurysm"
+            ],
+            [
+              "Moderate NPDR",
+              "Severe retinal haemorrhages in 1 quadrant; OR CWS, venous beading, or IRMA definitely present"
+            ],
+            [
+              "Severe NPDR",
+              "Severe retinal haemorrhages in 4 quadrants; OR venous beading in 2 quadrants; OR extensive IRMA in 1 quadrant"
+            ],
+            [
+              "Very Severe NPDR",
+              "Any two features of severe NPDR"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 13.6: Retinopathy Management Protocol",
+        "icon": "settings_suggest",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Action / Management"
+          ],
+          "rows": [
+            [
+              "None / background",
+              "Discharge to community screening for annual review. If significant systemic disease, consider HES review at 9–12mo"
+            ],
+            [
+              "Pre-proliferative",
+              "Observe 4- to 6-monthly. Consider early PRP in select cases (e.g., only eye or prior to cataract surgery)"
+            ],
+            [
+              "Proliferative (active)",
+              "PRP (1–2 sessions). Wherever possible, occur on same day or within 2wk. Evolving role for anti-VEGF"
+            ],
+            [
+              "Proliferative (regressed)",
+              "Observe 4- to 6-monthly. Signs of d neovascularization: vessel regression/fibrosis, resolved haemorrhage, decreased vessel dilatation/tortuosity"
+            ],
+            [
+              "Proliferative + DMO",
+              "High-risk: Combined macular laser + PRP (3 sessions). Low-risk: Macular laser first, then PRP follow-up. Anti-VEGF particularly useful"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 13.6: Maculopathy Management Protocol",
+        "icon": "eye_tracking",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Maculopathy Type",
+            "Action / Management"
+          ],
+          "rows": [
+            [
+              "Focal leakage",
+              "Focal laser photocoagulation; review at 3–4mo"
+            ],
+            [
+              "Diffuse leakage",
+              "Grid laser photocoagulation; review at 3–4mo. Anti-VEGF now more common for diffuse centre-involving"
+            ],
+            [
+              "Centre-involving oedema",
+              "Anti-VEGF (Ranibizumab/Aflibercept) if thickness >400 microns. Dexamethasone implant for pseudophakic eyes if anti-VEGF fails/unsuitable"
+            ],
+            [
+              "Ischaemic",
+              "FFA or OCTA to confirm. Observation if significant ischaemia or no response to laser/anti-VEGF"
+            ],
+            [
+              "Persistent",
+              "Consider intravitreal fluocinolone (Iluvien) in pseudophakic eyes; consider vitrectomy for VMT"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Specific Anti-VEGF Regimens",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Ranibizumab: Monthly until VA stable on 3 consecutive visits",
+          "Aflibercept: Monthly for 5 months, then every 2 months (extend intervals after Year 1 if appropriate)",
+          "Dexamethasone Implant: Repeatable at 4 months (Caution: risk of pressure rise)",
+          "Anti-VEGF is approved for centre-involving DMO if thickness >400 microns"
+        ]
+      },
+      {
+        "title": "Laser Parameters",
+        "icon": "bolt",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "LASER SPECS",
+          "explanation": "PRP: 1–2 sessions, ≥1,000 burns, 200–500 microns, 0.1s (or 20–30ms for newer lasers). Focal: 50–100 microns, 0.08–0.1s (or 10–20ms for newer lasers)."
+        }
+      },
+      {
+        "title": "Special Case: Young Type 1 Patients",
+        "icon": "child_care",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "In young patients with type 1 diabetes, PRP should be delivered over 3–4 sessions.",
+          "Reason: Risk of increased macular oedema post-PRP if excess burns are applied in a single session."
+        ]
+      },
+      {
+        "title": "Table 13.6: Complications Management",
+        "icon": "emergency",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Specific Management"
+          ],
+          "rows": [
+            [
+              "Rubeosis + clear media",
+              "Urgent PRP ± anti-VEGF therapies"
+            ],
+            [
+              "Rubeosis + vitreous haemorrhage",
+              "Vitrectomy + endolaser"
+            ],
+            [
+              "Rubeotic glaucoma",
+              "Urgent PRP/anti-VEGF; dIOP with topical meds, cyclodiode, augmented trabeculectomy, or tubes"
+            ],
+            [
+              "Vit Hge: No view of fundus",
+              "US to ensure retina flat + review 2- to 4-weekly until adequate view"
+            ],
+            [
+              "Vit Hge: Adequate view",
+              "Ensure retina flat + PRP"
+            ],
+            [
+              "Persistent Vit Hge",
+              "Vitrectomy + endolaser + anti-VEGF therapies"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Guidelines & References",
+        "icon": "link",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "For further detail and equivalency of classification systems, refer to the Royal College of Ophthalmologists Diabetic Retinopathy guidelines 2012 available at http://www.rcophth.ac.uk."
+      }
+    ],
+    "chapterId": "uncategorized"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1769615071608,
+  "communityId": "sub_1769614749293_qaiwoph65ezaxy",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

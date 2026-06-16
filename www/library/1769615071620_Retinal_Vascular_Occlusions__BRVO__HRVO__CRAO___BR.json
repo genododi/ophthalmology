@@ -1,0 +1,327 @@
+{
+  "id": 1769615071620,
+  "seqId": 138,
+  "title": "Retinal Vascular Occlusions: BRVO, HRVO, CRAO & BRAO",
+  "summary": "An exhaustive clinical guide to diagnosing and managing retinal vein and artery occlusions. Covering clinical features, investigations, emergency treatment protocols, and prognostic outcomes for various retinal vascular disorders.",
+  "date": "2026-01-28T15:44:31.620Z",
+  "data": {
+    "title": "Retinal Vascular Occlusions: BRVO, HRVO, CRAO & BRAO",
+    "summary": "An exhaustive clinical guide to diagnosing and managing retinal vein and artery occlusions. Covering clinical features, investigations, emergency treatment protocols, and prognostic outcomes for various retinal vascular disorders.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='20' fill='hsl(0, 80%, 50%)' opacity='0.6'/><path d='M100 20 Q110 60 100 100 T100 180' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-dasharray='10 5'/><path d='M20 100 Q60 90 100 100 T180 100' fill='none' stroke='hsl(0, 70%, 50%)' stroke-width='5'/><circle cx='140' cy='80' r='10' fill='hsl(0, 100%, 40%)'/><path d='M60 60 L140 140 M140 60 L60 140' stroke='hsl(0, 100%, 40%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Branch Retinal Vein Occlusion (BRVO) Overview",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "BRVO Clinical Features",
+          "branches": [
+            "Most commonly superotemporal, unilateral in 90%",
+            "May be asymptomatic; dVA, metamorphopsia, VF defect (usually altitudinal)",
+            "Acute: Retinal haemorrhages (dot, blot, flame), CWS, oedema in the distribution of a dilated, tortuous vein",
+            "Superotemporal arcade most commonly affected; usually arise from an AV crossing",
+            "Chronic: Venous sheathing, exudates, pigment disturbance, collateral vessels"
+          ]
+        }
+      },
+      {
+        "title": "BRVO Investigations & Associations",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Hypertension: Commonest association (up to 75% of patients). Investigate similarly to CRVO.",
+          "FFA: Use if uncertain diagnosis or to assess ischaemia (>5DD is significantly ischaemic).",
+          "FFA in Macular Oedema: Perform if VA <6/12; can perform at baseline if no haemorrhages mask fovea; otherwise at 3mo.",
+          "OCT: Useful for documenting macular oedema, which characteristically respects the horizontal raphe."
+        ]
+      },
+      {
+        "title": "BRVO Complications & Prognosis",
+        "icon": "trending_up",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "VA Improvement ≥2 lines",
+              "value": 50
+            },
+            {
+              "label": "Risk of Retinal NV (1st 6-12mo)",
+              "value": 20
+            },
+            {
+              "label": "Baseline Fellow Eye Risk",
+              "value": 5
+            },
+            {
+              "label": "Long-term Fellow Eye Risk",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "BRVO Prognostic Details",
+        "icon": "info",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Complications: CMO, neovascularization (NVE > NVD > NVI), recurrent vitreous haemorrhage.",
+          "Recovery of VA: Estimates vary widely; around 50% improve by ≥2 lines (natural history).",
+          "Risk of NVD or NVI: Low.",
+          "Source: Rogers SL et al. Natural history of branch retinal vein occlusion: an evidence-based systematic review. Ophthalmology. 2010;117:1094–101."
+        ]
+      },
+      {
+        "title": "Hemiretinal Vein Occlusion (HRVO)",
+        "icon": "layers",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "HRVO has a similar appearance to BRVO, but the entire superior or inferior hemisphere is involved. HRVO has previously been classified as: (1) hemicentral RVO, in which the central retinal vein forms posterior to the lamina cribrosa from a dual trunk, with occlusion affecting a single trunk (thus a variant of CRVO); or (2) hemispheric RVO, in which a major branch of the central retinal vein is occluded at or near the optic disc (thus a variant of BRVO). However, use of this classification is limited by difficulty in identifying the site of occlusion in many cases of HRVO. Ischaemic hemispheric vein occlusions have an intermediate risk of rubeosis (compared with ischaemic BRVO and CRVO), but a greater risk of NVD than either ischaemic BRVO or CRVO. In the SCORE Study, HRVO was treated as BRVO and demonstrated a similar response to treatment (Scott IU et al. 2012)."
+      },
+      {
+        "title": "Table 13.10: Management of BRVO (RCOphth 2015)",
+        "icon": "assignment",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Baseline Action",
+            "At 3 Months Action"
+          ],
+          "rows": [
+            [
+              "Non-ischaemic (VA >6/12)",
+              "Reasonable to observe",
+              "Continue treatment or observation"
+            ],
+            [
+              "Non-ischaemic (VA 6/12 or less + MO)",
+              "Consider anti-VEGF or Ozurdex® (FFA if possible). Observe 3mo if minimal ischaemia (30% improve).",
+              "Continue/commence anti-VEGF or Ozurdex®. Consider modified grid laser if unresponsive & minimal ischaemia."
+            ],
+            [
+              "Ischaemic (No Neovascularization)",
+              "Observe 3-monthly for 24 months",
+              "Observe 3-monthly for 24 months"
+            ],
+            [
+              "Ischaemic (Neovascularization)",
+              "Sectoral PRP (± off-licence Intravitreal Bevacizumab)",
+              "Sectoral PRP (± off-licence Intravitreal Bevacizumab)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "BRVO Treatment & Follow-up Details",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Macular oedema options: anti-VEGF, Ozurdex® implant, modified grid laser, or observation.",
+          "Anti-VEGF and Ozurdex® can be commenced straightaway (reasonable to observe if VA > 6/12).",
+          "Laser: At 3mo if VA <6/12, minimal/no macular ischaemia, and other treatments unsuccessful/unavailable.",
+          "Follow-up (Observing): Every 3mo for 18mo (non-ischaemic) or 24mo (ischaemic).",
+          "Severe Ischaemia Note: Consider observing as improvement unlikely even with treatment."
+        ]
+      },
+      {
+        "title": "Central Retinal Artery Occlusion (CRAO)",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "OCULAR EMERGENCY: Rapid treatment may prevent irreversible vision loss.",
+          "Incidence: 0.85/100,000/y; Men 2x more than women; Mean age 60y.",
+          "Hypoxia: Causes lethal damage to primate retina after 100 min.",
+          "Pathology: Acute coagulative necrosis followed by complete loss of NFL, GCL, and inner plexiform layer."
+        ]
+      },
+      {
+        "title": "CRAO Clinical Presentation",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden painless unilateral dVA (usually CF or worse).",
+          "White swollen retina with a cherry-red spot at the macula.",
+          "Arteriolar attenuation + cattle-trucking; RAPD; visible emboli in 25%.",
+          "Cilioretinal artery (in 30%) may protect part of the papillomacular bundle, allowing relatively good vision.",
+          "Complications: NVI (18%), NVD (2%), rubeotic glaucoma, optic atrophy, OIS (if ophthalmic artery occlusion)."
+        ]
+      },
+      {
+        "title": "CRAO Investigations",
+        "icon": "search",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Rule out GCA: If age >50y, check ESR, CRP, FBC, temporal artery biopsy.",
+          "2. Atherosclerosis Check: BP, diabetes, hypercholesterolaemia, smoking.",
+          "3. Carotid Assessment: Check for bruits and plaque/stenosis via Doppler.",
+          "4. Delayed Cases: Use OCT to see inner retinal atrophy with outer retinal preservation.",
+          "5. Specialized Tests: PTT, APTT, Thrombophilia screen (C/S, Antithrombin, Factor V), ANA, ANCA, RF, ECG, Echo."
+        ]
+      },
+      {
+        "title": "CRAO Treatment & Prognosis",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Treat Affected Eye (within 24h): Lower IOP (500mg IV acetazolamide), ocular massage, ± AC paracentesis (no proven benefit).",
+          "Thrombolysis: Selective ophthalmic artery catheterization in some centres.",
+          "Protect Other Eye: Treat GCA with systemic steroids immediately.",
+          "Visual Outcome: 94% are CF or worse at presentation; 1/3 show some improvement.",
+          "Neovascularization: NVI in up to 18%; NVD is uncommon."
+        ]
+      },
+      {
+        "title": "Table 13.11: Associations of CRAO",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Associated Conditions"
+          ],
+          "rows": [
+            [
+              "Atherosclerotic",
+              "Hypertension (60%), Diabetes (25%), Hypercholesterolaemia, Smoking"
+            ],
+            [
+              "Embolic sources",
+              "Carotid artery disease, Aortic disease, Cardiac valves (endocarditis), Tumours (myxoma), Arrhythmias, Septal defects, Post-intervention, Amniotic fluid"
+            ],
+            [
+              "Haematological",
+              "Antiphospholipid syndrome, Leukaemia, Lymphoma, Hyperhomocysteinaemia, Sickle-cell anaemia"
+            ],
+            [
+              "Inflammatory",
+              "GCA, PAN, GPA, SLE, Kawasaki disease, Susac’s disease"
+            ],
+            [
+              "Infective",
+              "Toxoplasmosis, Mucormycosis, Syphilis, Lyme disease"
+            ],
+            [
+              "Pharmacological",
+              "Oral contraceptive pill, Cocaine"
+            ],
+            [
+              "Ophthalmic",
+              "Trauma, Optic nerve drusen, Migraine"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Branch Retinal Arteriolar Occlusion (BRAO)",
+        "icon": "account_tree",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Etiology: Mostly due to emboli; associated with Antiphospholipid syndrome.",
+          "Emboli Types: Cholesterol (Hollenhorst - yellow, refractile); Fibrinoplatelet (white, dull); Calcific (white, non-refractile).",
+          "Clinical: Sudden painless unilateral altitudinal field defect; white swollen retina; cattle-trucking; emboli in >60%.",
+          "Complications: Neovascularization is rare.",
+          "GCA Note: Extremely rare cause for BRAO.",
+          "Treatment: No proven treatment."
+        ]
+      },
+      {
+        "title": "Special Artery Occlusions",
+        "icon": "warning",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Type",
+            "Clinical Notes"
+          ],
+          "rows": [
+            [
+              "Isolated Cilioretinal",
+              "Young patients, systemic vasculitis, good prognosis."
+            ],
+            [
+              "Combined Cilioretinal + CRVO",
+              "Young patients, papillophlebitis, good prognosis."
+            ],
+            [
+              "Combined Cilioretinal + AION",
+              "Elderly, GCA association, very poor prognosis."
+            ],
+            [
+              "Ophthalmic Artery Occlusion",
+              "Profound choroidal ischaemia, retinochoroidal whitening (no cherry-red spot), loss of vision (usually NPL)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Combined Occlusions & Purtscher's",
+        "icon": "emergency_home",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": "Combined Retinal Artery and Vein Occlusion: CRAO seen with CRVO signs. On FFA: widespread retinal nonperfusion with minimal macular leakage. Prognosis is poor; search for systemic disease (e.g. Antiphospholipid). \n\nPurtscher’s Retinopathy: Bilateral polygonal retinal whitening ± CWS, minimal haemorrhage, restricted to posterior pole. Trauma (head/chest) or non-trauma (pancreatitis, fat embolism, childbirth). Signs clear in months leaving RPE changes and disc pallor. Steroids advocated but limited evidence."
+      },
+      {
+        "title": "PAMM (Paracentral Acute Middle Maculopathy)",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Definition: OCT sign showing hyperreflectivity of the middle retinal layers.",
+          "Cause: Ischaemia of the intermediate or deep capillary plexus.",
+          "Progression: Leads to subsequent thinning of the INL.",
+          "Context: Non-specific finding across a range of retinal vascular diseases.",
+          "History: Originally incorrectly described as a variant of AMN."
+        ]
+      },
+      {
+        "title": "Final Clinical Note",
+        "icon": "priority_high",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "CAROTID DOPPLER",
+          "explanation": "On scans, the presence or absence of a plaque is more important than whether significant stenosis is present in terms of aetiology."
+        }
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1769615071620,
+  "communityId": "sub_1769614749293_8v8ks8irmt3fx6",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

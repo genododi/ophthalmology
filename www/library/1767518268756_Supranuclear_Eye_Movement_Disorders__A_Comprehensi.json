@@ -1,0 +1,212 @@
+{
+  "id": 1767518268756,
+  "title": "Supranuclear Eye Movement Disorders: A Comprehensive Clinical Roadmap",
+  "summary": "This visual guide details the complex supranuclear pathways controlling foveal fixation and object tracking. It covers horizontal and vertical gaze disorders, the pulse-step innervation mechanism, and key clinical syndromes like INO, Parinaud syndrome, and PSP.",
+  "date": "2026-01-04T09:17:48.756Z",
+  "data": {
+    "title": "Supranuclear Eye Movement Disorders: A Comprehensive Clinical Roadmap",
+    "summary": "This visual guide details the complex supranuclear pathways controlling foveal fixation and object tracking. It covers horizontal and vertical gaze disorders, the pulse-step innervation mechanism, and key clinical syndromes like INO, Parinaud syndrome, and PSP.",
+    "summary_illustration": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"20\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"2.5\" fill=\"none\" /><circle cx=\"50\" cy=\"50\" r=\"8\" fill=\"hsl(215, 90%, 45%)\" /><path d=\"M10,50 L30,50 M70,50 L90,50 M50,10 L50,30 M50,70 L50,90\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"2\" stroke-linecap=\"round\" /><path d=\"M25,25 L35,35 M65,65 L75,75 M75,25 L65,35 M35,65 L25,75\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"1.5\" /></svg>",
+    "sections": [
+      {
+        "title": "Core Functions & Mechanics of Eye Movements",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Eye Movement Goals",
+          "branches": [
+            "Bring object to fovea (Saccades, quick phase of nystagmus)",
+            "Maintain object on fovea (Vestibular, OKN, pursuit, vergences)",
+            "Overcome orbital viscosity (Initial contraction)",
+            "Sustain position against elastic restoring force"
+          ]
+        }
+      },
+      {
+        "title": "The Pulse-Step Innervation Mechanism",
+        "icon": "bolt",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Pulse (Phasic Stimulus): High-frequency signal from excitatory burst neurones excites ocular motor nucleus directly.",
+          "2. Step (Tonic Stimulus): Neural integrators mathematically integrate the signal to sustain position.",
+          "3. Damping: Pause cells act as dampers to prevent unwanted saccadic activity."
+        ]
+      },
+      {
+        "title": "Supranuclear Pathway Control Origins",
+        "icon": "account_tree",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Ocular motor neurones originate from III, IV, VI nuclei.",
+          "Saccades: Originate in the contralateral frontal eye field (FEF).",
+          "Pursuit: Originate in the ipsilateral parieto-occipitotemporal (POT) junction.",
+          "Vestibular input (VOR): From the contralateral vestibular nucleus complex.",
+          "Convergence input: Directly to both III nuclei, avoiding the MLF.",
+          "Vertical eye movements: Complex torsional system subverted for verticality."
+        ]
+      },
+      {
+        "title": "Horizontal Conjugate Gaze Logic (Fig 16.2)",
+        "icon": "schema",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Horizontal conjugate gaze requires the VI nucleus to: 1. Simultaneously drive ipsilateral LR. 2. Drive contralateral MR (via the MLF to the contralateral III nucleus). 3. Inhibit the contralateral LR (via inhibitory burst cells to the contralateral VI nucleus). Connections shown for eye movements to the left include saccades from FEF, smooth pursuit from POT, and VOR from the vestibular nucleus. For convergence movements, the III nuclei are innervated directly to drive both MR. (L: lateral rectus; M: medial rectus; PPRF: paramedian pontine reticular formation)."
+      },
+      {
+        "title": "Disorders of Horizontal Gaze",
+        "icon": "error",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Disorder",
+            "Lesion Site",
+            "Clinical Presentation"
+          ],
+          "rows": [
+            [
+              "Horizontal Gaze Palsy",
+              "PPRF or VI nucleus",
+              "Failure to move eyes beyond midline to side of lesion (may not be complete). VOR preserved in PPRF lesion, lost in VI nucleus lesion."
+            ],
+            [
+              "Internuclear Ophthalmoplegia (INO)",
+              "Medial Longitudinal Fasciculus (MLF)",
+              "Failure of ipsilateral adduction and overshoot of contralateral eye ('ataxic nystagmus'); best seen on saccades. Convergence preserved in unilateral lesions."
+            ],
+            [
+              "One and a Half Syndrome",
+              "MLF and PPRF (or VI nucleus) on same side",
+              "Ipsilateral gaze palsy and ipsilateral INO. Loss of horizontal movements except abduction of the contralateral eye."
+            ],
+            [
+              "Tonic Gaze Deviation",
+              "Frontal Eye Field (FEF)",
+              "Destructive (e.g. stroke): Eyes deviate TO side of lesion. Irritative (e.g. tumor): Transient deviation to CONTRALATERAL side."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Special Horizontal Syndromes & Deficits",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Locked-in Syndrome: Large ventral pons lesions destroy bilateral PPRF and corticospinal pathways. Loss of all voluntary motor activity except lid and vertical eye movements (cf. coma where all are lost).",
+          "Selective Pursuit Loss: POT junction lesions cause failure of pursuit to the side of the lesion. Demonstrated by inability to follow OKN drum rotated to side of lesion. Often associated with contralateral homonymous field defect (usually superior).",
+          "INO Associated Signs: May include upbeat and torsional nystagmus, loss of vertical smooth pursuit, abnormal VOR, and skew deviation."
+        ]
+      },
+      {
+        "title": "Selective Loss of Saccades",
+        "icon": "history_edu",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Selective saccadic loss occurs in ocular motor apraxia. Congenital form: Child learns to compensate with 'head thrusts' (± blinks) beyond the target; less noticeable with age. Acquired form: Head thrusts are not major; occurs in bilateral frontoparietal injuries or diffuse cerebral disease. In Huntington’s disease, selective loss of saccades (vertical > horizontal) may be compensated by head thrusts and blinks."
+      },
+      {
+        "title": "Parinaud Dorsal Midbrain Syndrome",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Lesion Site: Posterior commissure and pretectal area.",
+          "Clinical Signs: Supranuclear upgaze palsy (saccades first, then pursuit, then VOR).",
+          "Light-near dissociation and Lid retraction.",
+          "Convergence retraction nystagmus.",
+          "Causes: Hydrocephalus, tumor, trauma, AVM, CVA, and demyelination."
+        ]
+      },
+      {
+        "title": "Progressive Supranuclear Palsy (PSP)",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "STEELE-RICHARDSON-OLSZEWSKI",
+          "explanation": "Rare neurodegenerative disease (>40y) caused by tau protein accumulation. Features: Vertical supranuclear palsy (slowing of vertical saccades, later horizontal), Lid Apraxia (early sign; risk of corneal exposure), Square wave jerks (frequent/continuous), Abnormal vertical OKN, Reduced blink rate, Postural instability (within 1st year), and Early cognitive impairment. No effective treatment."
+        }
+      },
+      {
+        "title": "Other Vertical Gaze & Skew Disorders",
+        "icon": "unfold_more",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Wilson's Disease: Selective upgaze palsy.",
+          "Niemann–Pick Type C: Selective downgaze palsy with athetosis and ataxia.",
+          "Vertical Tonic Gaze Deviation: Raised ICP or thalamic haemorrhage causes 'sunset sign' (forced downgaze). Transiently occurs in healthy neonates.",
+          "Skew Deviation: Vertical deviation usually concomitant with torsion. Caused by vertical VOR pathway dysfunction in pons or lateral medulla (CVA, demyelination). Incomitant skews may be confused with IVn or IIIn palsies."
+        ]
+      },
+      {
+        "title": "Location of Ocular Premotor & Motor Neurones",
+        "icon": "layers",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Cell/Neurone Type",
+            "Location"
+          ],
+          "rows": [
+            [
+              "Pause cell",
+              "Nucleus raphe interpositus"
+            ],
+            [
+              "Horizontal burst cell",
+              "PPRF"
+            ],
+            [
+              "Horizontal inhibitory burst cell",
+              "Nucleus paragigantocellularis dorsalis"
+            ],
+            [
+              "Horizontal integrator",
+              "Medial vestibular nucleus / Nucleus prepositus hypoglossi"
+            ],
+            [
+              "Horizontal ocular motor nucleus",
+              "VIn nucleus"
+            ],
+            [
+              "Vertical burst cell",
+              "Rostral interstitial nucleus of MLF"
+            ],
+            [
+              "Vertical inhibitory burst cell",
+              "Rostral interstitial nucleus of MLF (probable)"
+            ],
+            [
+              "Vertical integrator",
+              "Interstitial nucleus of Cajal"
+            ],
+            [
+              "Vertical ocular motor nuclei",
+              "III nucleus, IV nucleus"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "chapterId": "neuro",
+  "seqId": 21,
+  "_serverSynced": true
+}

@@ -1,0 +1,257 @@
+{
+  "id": 1769615071572,
+  "seqId": 131,
+  "title": "Central Retinal Vein Occlusion (CRVO) Clinical Blueprint",
+  "summary": "An exhaustive guide to CRVO classification, clinical presentation, and management protocols. This resource integrates the 2015 Royal College of Ophthalmologists guidelines and key prognostic data for both ischaemic and non-ischaemic types.",
+  "date": "2026-01-28T15:44:31.572Z",
+  "data": {
+    "title": "Central Retinal Vein Occlusion (CRVO) Clinical Blueprint",
+    "summary": "An exhaustive guide to CRVO classification, clinical presentation, and management protocols. This resource integrates the 2015 Royal College of Ophthalmologists guidelines and key prognostic data for both ischaemic and non-ischaemic types.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M50 5 L50 95 M5 50 L95 50' stroke='hsl(215, 90%, 45%)' stroke-width='1' opacity='0.3'/><path d='M50 50 Q60 30 80 20 M50 50 Q40 70 20 80 M50 50 Q70 60 85 85 M50 50 Q30 40 15 15' fill='none' stroke='hsl(0, 80%, 50%)' stroke-width='2.5' stroke-linecap='round'/><circle cx='50' cy='50' r='8' fill='hsl(40, 90%, 60%)' opacity='0.8'/><circle cx='50' cy='50' r='3' fill='hsl(0, 0%, 20%)'/></svg>",
+    "sections": [
+      {
+        "title": "Core Classification & Epidemiology",
+        "icon": "groups",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Retinal Vein Occlusions (RVO)",
+          "branches": [
+            "Prevalence: Common; can occur at almost any age",
+            "Presentation: Range from asymptomatic to the painful blind eye",
+            "Classification: Branch (BRVO) or Central (CRVO)",
+            "Anatomy: Occlusion anterior or posterior to cribriform plate",
+            "Types: Ischaemic or Non-ischaemic",
+            "Age Profile: Most >65y; Up to 15% affect patients <45y",
+            "Frequency: BRVO are three times commoner than CRVO"
+          ]
+        }
+      },
+      {
+        "title": "Non-Ischaemic CRVO: Profile",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Definition: Arbitrary cut-off based on FFA findings; useful predictor of outcome/NV risk.",
+          "Clinical Features: dVA (mild to moderate), painless, metamorphopsia.",
+          "Examination: Dilated, tortuous retinal veins; Retinal haemorrhages in all four quadrants.",
+          "Additional Signs: Occasional Cotton Wool Spots (CWS); Mild optic disc oedema.",
+          "Complications: Cystoid Macular Oedema (CMO)."
+        ]
+      },
+      {
+        "title": "Ischaemic CRVO: Profile",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Clinical Features: dVA (severe); painless (unless NVg has developed).",
+          "Acute Signs: As for non-ischaemic + RAPD, deeper/extensive haemorrhages, widespread CWS.",
+          "Rare Acute Signs: Vitreous haemorrhage (VH), Exudative Retinal Detachment (ERD).",
+          "Chronic Signs: Venous sheathing, resorption of haemorrhages, macular pigment disturbance, collateral vessels (especially at disc).",
+          "Complications: CMO, neovascularization (NVI > NVD > NVE), Neovascular Glaucoma (NVg - '90d').",
+          "NB on NVD: Vessels are typically smaller calibre than collaterals, branch into net-like network, and leak on FFA."
+        ]
+      },
+      {
+        "title": "Associations of CRVO (Table 13.8)",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Specific Factors / Conditions"
+          ],
+          "rows": [
+            [
+              "Atherosclerotic",
+              "Hypertension, Hypercholesterolaemia (including 2° to hypothyroidism), Diabetes, Smoking, Obesity"
+            ],
+            [
+              "Haematological",
+              "Protein S, C, or antithrombin deficiency; Activated protein C resistance; Factor V Leiden; Myeloma; Waldenström’s macroglobulinaemia; Antiphospholipid syndrome"
+            ],
+            [
+              "Inflammatory",
+              "Behçet’s disease, PAN, Sarcoidosis, gPA, SLE, Goodpasture’s syndrome"
+            ],
+            [
+              "Pharmacological",
+              "Oral contraceptive pill (usually in context of prothrombotic state)"
+            ],
+            [
+              "Ophthalmic",
+              "Glaucoma (open- or closed-angle), Trauma, Optic disc drusen, Orbital pathology"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mandatory Systemic Investigations",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "All Patients: Blood Pressure (BP), Glucose, FBC, ESR.",
+          "Thrombophilia Note: Routine testing is NOT recommended in RVO.",
+          "Specialized Directed Testing (History of thrombosis/miscarriages): Serum ACE, anticardiolipin, lupus anticoagulant, autoantibodies (RF, ANA, anti-DNA, ANCA), fasting homocysteine, CXR, and thrombophilia screen (Proteins C & S, antithrombin, Factor V).",
+          "Management: Specialized investigations may be better carried out by physician or haematology specialist."
+        ]
+      },
+      {
+        "title": "Critical Clinical Red Flags",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Bilateral CRVO (Simultaneous): Specifically exclude underlying hyperviscosity syndrome.",
+          "Digital Pressure Pulsations: If gentle digital pressure produces retinal arterial pulsations (or spontaneous), exclude Ocular Ischaemic Syndrome (OIS).",
+          "Young Adults: Mortality of 12% due to vascular disease has been reported.",
+          "Cilioretinal Artery: Can be associated with CRVO."
+        ]
+      },
+      {
+        "title": "Diagnostic Imaging (FFA & OCT)",
+        "icon": "image",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Modality",
+            "Findings & Criteria"
+          ],
+          "rows": [
+            [
+              "FFA (General)",
+              "All: normal arm to eye time, slow AV phase acutely."
+            ],
+            [
+              "FFA (Non-ischaemic)",
+              "Vein wall staining, microaneurysms, dilated optic disc capillaries."
+            ],
+            [
+              "FFA (Ischaemic)",
+              "Capillary closure (5–10DD borderline; >10 significant); Hypofluorescence (blockage by hemorrhage); Leakage (CMO, NV)."
+            ],
+            [
+              "OCT (General)",
+              "Typically demonstrates substantial retinal thickening with inner/outer retinal cysts and SRF at fovea; diagnosis/monitoring of CMO."
+            ],
+            [
+              "OCT (Post-MO)",
+              "Inner retinal thinning may be seen in ischaemic cases after resolution of macular oedema."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Medical & Pharmacological Management",
+        "icon": "medication",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "• Underlying medical conditions: Liaise with a physician for investigation and treatment. • Aspirin: Benefit in RVO remains equivocal. • Oestrogen-containing HRT & Oral Contraceptives: Recommended NOT to be commenced in women with a history of RVO. If already taking them, continued use does not appear associated with higher recurrence; decisions made on individual case basis. • dIOP: Treat if elevated in either eye."
+      },
+      {
+        "title": "Ophthalmic Treatment Options",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Macular Oedema: NICE-approved anti-VEGF (ranibizumab, aflibercept).",
+          "Corticosteroids: Dexamethasone intravitreal implant 0.7mg (Ozurdex) for pseudophakic patients or where anti-VEGF is unsuitable/ineffective.",
+          "NVA and/or NVI: Perform PRP ± anti-VEGF ± IOP control.",
+          "NVG in Blind Eye: Keep comfortable with topical agents."
+        ]
+      },
+      {
+        "title": "Prognosis & Natural History",
+        "icon": "trending_up",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Non-Isch Recovery to Normal VA",
+              "value": 10
+            },
+            {
+              "label": "Non-Isch to Isch (4mo)",
+              "value": 15
+            },
+            {
+              "label": "Non-Isch to Isch (3y)",
+              "value": 34
+            },
+            {
+              "label": "Ischaemic to Rubeosis (4mo)",
+              "value": 37
+            },
+            {
+              "label": "Contralateral Eye Risk (2y)",
+              "value": 7
+            }
+          ]
+        }
+      },
+      {
+        "title": "Table 13.9: RCOphth Guidelines for CRVO Treatment (2015)",
+        "icon": "gavel",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Management Protocol"
+          ],
+          "rows": [
+            [
+              "Non-ischaemic (with Macular Oedema)",
+              "Consider anti-VEGF or dexamethasone implant. Anti-VEGF: monthly until maximal/stable VA (3 consecutive visits). Discontinue if no improvement after 3-6 injections. Ozurdex: retreatment every 4-6 months until stable."
+            ],
+            [
+              "Ischaemic with NV (angle/iris) & Open Angle",
+              "Urgent PRP with review at 2wk; consider bevacizumab (off-licence); repeat if NVI/NVA persists."
+            ],
+            [
+              "Ischaemic with NV (angle/iris) + Closed Angle + Raised IOP",
+              "Urgent PRP with cyclodiode/tube-shunt (if closure established). If IOP normalizes, consider bevacizumab. If IOP elevated, add medical management. Caution with bevacizumab if IOP high. If VH precludes view, use transcleral diode/cryotherapy. Seek early glaucoma specialist opinion."
+            ],
+            [
+              "Ischaemic without NVI/NVg",
+              "If follow-up limited and FFA shows >30 DA non-perfusion, consider prophylactic PRP. If MO present, treat with anti-VEGF/dex but explain guarded prognosis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Additional Prognostic Factors",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Highest risk of progression to rubeosis occurs if Visual Acuity (VA) is <6/60 or if there are ≥30 disc areas of non-perfusion on FFA. Reference: The Central Vein Occlusion Study Group (1997) and Sivaprasad et al. (2015) Royal College of Ophthalmologists executive summary. More info available at http://www.rcophth.ac.uk."
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1769615071572,
+  "communityId": "sub_1769614749293_8545sgs4w3djsr",
+  "communityAuthor": "hh",
+  "communityDate": "2026-01-28T15:39:09.293Z",
+  "_serverSynced": true
+}

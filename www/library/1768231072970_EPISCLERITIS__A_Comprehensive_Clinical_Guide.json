@@ -1,0 +1,182 @@
+{
+  "id": 1768231072970,
+  "seqId": 90,
+  "title": "EPISCLERITIS: A Comprehensive Clinical Guide",
+  "summary": "This common condition is a benign, recurrent inflammation of the episclera. While it is usually self-limiting and not associated with systemic disease, detailed clinical differentiation and management strategies are essential for effective patient care.",
+  "date": "2026-01-12T15:17:52.970Z",
+  "data": {
+    "title": "EPISCLERITIS: A Comprehensive Clinical Guide",
+    "summary": "This common condition is a benign, recurrent inflammation of the episclera. While it is usually self-limiting and not associated with systemic disease, detailed clinical differentiation and management strategies are essential for effective patient care.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M20 50 Q50 20 80 50 Q50 80 20 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M70 40 Q85 50 70 60' fill='none' stroke='red' stroke-width='3' opacity='0.6'/><text x='10' y='95' font-size='6' fill='hsl(215, 90%, 45%)' font-family='sans-serif'>Episcleritis 323</text></svg>",
+    "sections": [
+      {
+        "title": "General Characteristics & Demographics",
+        "icon": "info",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "This common condition is a benign, recurrent inflammation of the episclera.",
+          "It is commonest in young women.",
+          "It is usually self-limiting and may require little or no treatment, the main reason its incidence is underestimated.",
+          "It is not usually associated with any systemic disease, although around 10% may have a connective tissue disease."
+        ]
+      },
+      {
+        "title": "Systemic Association Breakdown",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "No Systemic Disease",
+              "value": 90
+            },
+            {
+              "label": "Connective Tissue Disease",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Simple Episcleritis: Clinical Presentation",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Sudden onset of mild discomfort, tearing ± photophobia; may be recurrent.",
+          "Sectoral (occasionally diffuse) redness which blanches with topical vasoconstrictor (e.g. phenylephrine 10%).",
+          "Globe non-tender.",
+          "Spontaneous resolution 1–2wk.",
+          "Investigations: Investigations are not usually required, unless there is a history suggestive of systemic disease."
+        ]
+      },
+      {
+        "title": "Simple Episcleritis: Treatment Protocols",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Supportive: reassurance ± cold compresses.",
+          "Topical lubricants.",
+          "Other topical medication: the role of topical NSAIDs and corticosteroids is controversial.",
+          "Topical NSAIDs (such as diclofenac, flurbiprofen, ketorolac, nepafenac, and bromfenac) have become popular, but evidence of benefit is lacking; they are licensed for perioperative indications, not for episcleritis.",
+          "Topical corticosteroids appear effective for short-term control, but given the benign nature of the condition, it is not clear that the benefits outweigh the risks. They may be useful in those cases showing a more prolonged course.",
+          "Systemic: if severe/recurrent, consider oral NSAID (see Box 8.1)."
+        ]
+      },
+      {
+        "title": "Nodular Episcleritis: Clinical Presentation",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Sudden onset of FB sensation, discomfort, tearing ± photophobia; may be recurrent. Recurrences tend to develop in the same location.",
+          "Red nodule arising from the episclera; can be moved separately from the sclera (cf. nodular scleritis) and conjunctiva (cf. conjunctival phlycten).",
+          "Blanches with topical vasoconstrictor (e.g. phenylephrine 10%).",
+          "Does not stain with fluorescein.",
+          "Globe non-tender (cf. scleritis).",
+          "Spontaneous resolution 5–6wk.",
+          "Investigations: Investigations are not usually required, unless there is a history suggestive of systemic disease.",
+          "Treatment: As for simple episcleritis, but greater role for ocular lubricants."
+        ]
+      },
+      {
+        "title": "Box 8.1: Systemic NSAIDs - Background",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "NSAIDs (COX Inhibitors)",
+          "branches": [
+            "COX-1: Constitutively expressed throughout the body; important physiological roles (e.g. protecting stomach mucosa)",
+            "COX-2: Induced during inflammation; constitutively expressed in the kidney and brain",
+            "Non-selective: Block both COX-1 and COX-2",
+            "Selective COX-2: Less gastrotoxic than non-selective drugs; equally nephrotoxic",
+            "Rofecoxib: One of the first major COX-2 inhibitors; associated with elevated risk of myocardial infarction (MI) and stroke"
+          ]
+        }
+      },
+      {
+        "title": "Prescribing Principles for Systemic NSAIDs",
+        "icon": "clinical_notes",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Note significant variation in how individuals respond to different NSAIDs in efficacy and side effects; be prepared to change drug if ineffective.",
+          "Observe timing: Analgesic effect occurs after the first dose; anti-inflammatory effect may take up to 3wk.",
+          "Exercise caution: Use with caution in the elderly, patients with cardiac failure, and patients with previous gastrointestinal (GI) bleeding.",
+          "Prophylactic treatment: In patients at high risk for GI complications (age >65y, previous peptic ulcer, significant comorbidity), consider a proton pump inhibitor."
+        ]
+      },
+      {
+        "title": "NSAID Contraindications & Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Contraindication if previously documented NSAID hypersensitivity (e.g. worsening of asthma).",
+          "Elevated risk of myocardial infarction (MI) and stroke (specifically Rofecoxib).",
+          "Gastrotoxicity (COX-1 inhibition).",
+          "Nephrotoxicity (Both Selective and Non-selective)."
+        ]
+      },
+      {
+        "title": "Common Systemic NSAID Examples",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Drug Name",
+            "Dosage",
+            "Clinical Note"
+          ],
+          "rows": [
+            [
+              "Diclofenac sodium",
+              "25–50mg 3×/d",
+              "Balances efficacy with relatively low gastrotoxicity"
+            ],
+            [
+              "Naproxen",
+              "250–500mg 2×/d",
+              "Balances efficacy with relatively low gastrotoxicity"
+            ],
+            [
+              "Flurbiprofen",
+              "50–100mg 3×/d",
+              "Balances efficacy with relatively low gastrotoxicity"
+            ],
+            [
+              "Ibuprofen",
+              "Standard per text",
+              "Lower gastrotoxicity, but inflammatory properties are weaker"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Source Reference",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Episcleritis 323. All content sourced verbatim from clinical text. (cf. nodular scleritis / cf. conjunctival phlycten / cf. scleritis)."
+      }
+    ]
+  },
+  "chapterId": "sclera",
+  "_serverSynced": true
+}

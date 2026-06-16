@@ -1,0 +1,287 @@
+{
+  "id": 1768232322230,
+  "seqId": 98,
+  "title": "Cataract Surgery: The Comprehensive Complications Atlas",
+  "summary": "An exhaustive clinical guide detailing intraoperative mishaps, early post-operative emergencies, and late-stage surgical sequelae. This poster outlines evidence-based management, prophylaxis protocols, and the critical distinction between infectious and toxic anterior segment syndromes.",
+  "date": "2026-01-12T15:38:42.230Z",
+  "data": {
+    "title": "Cataract Surgery: The Comprehensive Complications Atlas",
+    "summary": "An exhaustive clinical guide detailing intraoperative mishaps, early post-operative emergencies, and late-stage surgical sequelae. This poster outlines evidence-based management, prophylaxis protocols, and the critical distinction between infectious and toxic anterior segment syndromes.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 100 Q100 60 140 100 Q100 140 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='100' cy='100' r='20' fill='hsl(215, 90%, 25%)' opacity='0.5'/><line x1='100' y1='60' x2='100' y2='40' stroke='red' stroke-width='2'/><line x1='100' y1='140' x2='100' y2='160' stroke='red' stroke-width='2'/><line x1='60' y1='100' x2='40' y2='100' stroke='red' stroke-width='2'/><line x1='140' y1='100' x2='160' y2='100' stroke='red' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Intraoperative: Posterior Capsule (PC) Rupture",
+        "icon": "warning",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Incidence",
+            "Management Aims & Techniques",
+            "IOL Strategy"
+          ],
+          "rows": [
+            [
+              "PC Rupture without Vitreous Loss",
+              "~2%",
+              "Maintain as much capsule as possible; clear any vitreous present.",
+              "Small/well-defined: In the bag (primary or 2° procedure). Larger/poorly defined: Sulcus fixation (if anterior capsule is stable)."
+            ],
+            [
+              "PC Rupture with Vitreous Loss",
+              "1%",
+              "Clear wound and AC of vitreous via manual (sponge/scissors) or automated vitrectomy. Maintain capsule to facilitate PCIoL insertion 4 weeks later. Intracameral triamcinolone highlights remaining vitreous.",
+              "If anterior capsule is sufficient: Sulcus fixation. Otherwise: Consider ACIoL (+ PI)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "IOL Power Adjustment & Capsule Problems",
+        "icon": "settings_backup_restore",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "THE -0.5D RULE",
+          "explanation": "NB: Assuming equal A-constants, a sulcus-fixated lens should be 0.5D lower power than that calculated for fixing in the bag."
+        }
+      },
+      {
+        "title": "Anterior Capsule & Zonular Issues",
+        "icon": "build",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Capsule Stability",
+          "branches": [
+            "Rhexis 'Run Out' Causes: Shallow AC, positive posterior pressure, young patients, intumescent cataracts.",
+            "Rhexis Rescue: Stabilize with viscous viscoelastic (e.g., Healon 5®). Decompress intumescent cataracts by puncturing AC/aspirating lens matter.",
+            "Rhexis Recovery: Attempt second tear opposite direction, use capsulorhexis scissors, or switch to can-opener technique.",
+            "Surgical Pivot: Continue with cautious phaco, or convert to MSICS/ECCE.",
+            "Zonular Dehiscence: Stabilize with iris hooks or Capsular Tension Ring (CTR) to redistribute forces. Requires vitrectomy if vitreous loss occurs."
+          ]
+        }
+      },
+      {
+        "title": "Posterior Loss of Nuclear Fragment (0.3%)",
+        "icon": "arrow_downward",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Assessment: Nuclear material is inflammatory. Very small fragments can be observed (may require prolonged topical steroids).",
+          "2. Referral: Refer immediately to a vitreoretinal surgeon for larger fragments.",
+          "3. Intervention: Removal via pars plana vitrectomy, ideally within 1–2 weeks.",
+          "4. Pre-VR Regimen: Start preferred regimen to control inflammation, reduce infection risk, and prevent iIOP (to preserve corneal clarity).",
+          "Example Regimen: Dexamethasone 0.1% 2-hourly + Chloramphenicol 0.5% 4x/day + Acetazolamide SR 250mg twice daily (bd)."
+        ]
+      },
+      {
+        "title": "Choroidal Haemorrhage (0.1%)",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "SUSPECT IF: Sudden increase in IOP, AC shallowing, iris prolapse, loss of vitreous, loss/darkening of red reflex, and severe pain.",
+          "IMMEDIATE ACTION: Suture all wounds closed immediately.",
+          "MEDICAL TX: Give IV pressure-lowering treatment (acetazolamide or mannitol); start intensive topical steroids.",
+          "PROGNOSIS: Poor; only 45% achieve VA ≥6/60."
+        ]
+      },
+      {
+        "title": "Post-Operative Complications: Incidence",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Corneal Oedema",
+              "value": 10
+            },
+            {
+              "label": "Elevated IOP",
+              "value": 8
+            },
+            {
+              "label": "PCO (2yr)",
+              "value": 10
+            },
+            {
+              "label": "CMO",
+              "value": 12
+            },
+            {
+              "label": "Ant. Inflammation",
+              "value": 6
+            },
+            {
+              "label": "Wound Leak",
+              "value": 1
+            },
+            {
+              "label": "Iris Prolapse",
+              "value": 0.7
+            },
+            {
+              "label": "Retinal Detach.",
+              "value": 0.7
+            },
+            {
+              "label": "Endophthalmitis",
+              "value": 0.1
+            }
+          ]
+        }
+      },
+      {
+        "title": "Early Post-Operative Management",
+        "icon": "timer",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Corneal Oedema (10%): Control IOP/inflammation with topical treatment ± acetazolamide.",
+          "Elevated IOP (2–8%): Topical treatment ± acetazolamide. Extreme cases: release fluid from paracentesis under aseptic conditions.",
+          "Increased Anterior Inflammation (2–6%): Increase topical steroids + chloramphenicol 0.5% 4x/day. Maintain high suspicion for TASS or Endophthalmitis.",
+          "Wound Leak (1%): Return to theatre for suturing if persistent/severe (shallow AC, iris prolapse, or iridocorneal touch).",
+          "Iris Prolapse (0.7%): Return to theatre; assess vitality (abscise if needed); reform AC and suture wound."
+        ]
+      },
+      {
+        "title": "Late Post-Operative & Long-Term Issues",
+        "icon": "event_note",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Posterior Capsule Opacification (PCO): 10% by 2y. YAG capsulotomy if reduced vision, monocular diplopia, or impaired fundus view. Defer in uveitis until 6mo post-op and 2mo quiet (VA ≤6/12).",
+          "Retained Epinuclear Fragment: Found in AC; causes late-onset corneal oedema. AS-OCT aids diagnosis; requires prompt removal.",
+          "Retinal Detachment (0.7%): Risk increased in myopes, lattice degeneration, or if vitreous loss occurred. Refer immediately to VR.",
+          "Corneal Decompensation: Increased risk with pre-existing endothelial dystrophy, DM, intraoperative trauma/phacoburn, long phaco/irrigation time, or ACIoL. Rx: Control IOP/inflammation, Hypertonic drops (NaCl 5%), BCL for comfort, or Keratoplasty (penetrating/endothelial)."
+        ]
+      },
+      {
+        "title": "Acute Post-Operative Endophthalmitis",
+        "icon": "medical_services",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": "Sight-threatening emergency (usually 1–7d). Onset breakdown: 31% (d1-3), 31% (d4-7), 24% (d8-14), 14% (>d14). Common Organisms: S. epidermidis, S. aureus, Streptococcus spp. Suspect if: Pain, worsening vision, disproportionate inflammation (hypopyon), lid swelling. RAPD/inaccurate light projection = poor prognosis. Risk factors: Blepharitis, conjunctivitis, diabetes, PC rupture, ACIoL, prolonged surgery."
+      },
+      {
+        "title": "Endophthalmitis: Diagnosis & Treatment",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "1. Diagnosis: AC tap and vitreous biopsy (automated vitrector preferred over needle) with simultaneous intravitreal antibiotics. B-scan to assess vitritis/retinal integrity.",
+          "2. Admission & Intravitreal Antibiotics: Vancomycin 1mg/0.1mL (Gram+) AND Ceftazidime 2mg/0.1mL OR Amikacin 0.4mg/0.1mL (Gram-). Use different syringes as Ceftazidime precipitates with Vancomycin.",
+          "3. Vitrectomy: Mandatory if VA ≤ PL (EVS study showed 3-fold improvement in 6/12 outcome).",
+          "4. Topical Adjuncts: Fortified Vancomycin (50mg/mL), Amikacin (20mg/mL), or Ceftazidime (100mg/mL) hourly. No evidence of VA benefit.",
+          "5. Corticosteroids: Topical (Dex 0.1% hourly), Intravitreal (Dex 0.4mg/0.1mL), or Systemic (Prednisolone PO 1wk). Reduces inflammation but no evidence of VA improvement.",
+          "6. Failure to Respond: If no response at 24h, repeat AC tap, biopsy, and antibiotics."
+        ]
+      },
+      {
+        "title": "RCOphth & ESCRS Guidelines Summary",
+        "icon": "gavel",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Category",
+            "Protocol Details & Statistics"
+          ],
+          "rows": [
+            [
+              "Prophylaxis",
+              "5% Aqueous Povidone Iodine to skin/conjunctival sac at least 5min before surgery (proven protective). Intracameral Cefuroxime (1mg/0.1mL) reduces cases 5-fold (4 per 10k vs 23 per 10k)."
+            ],
+            [
+              "National Rates",
+              "BOSU (2004): 0.14%. Bolton (2007): 0.055%."
+            ],
+            [
+              "ESCRS Results",
+              "Staphylococcal cases: None blind. Streptococcal cases: 5 became legally blind (all in non-cefuroxime group). Levofloxacin drops: No clinical significance."
+            ],
+            [
+              "Tx (VA > PL)",
+              "Single-port vitreous biopsy (pars plana) with vitrector. Smear/Culture. Inject Amikacin/Vancomycin (or Gentamicin/Cefuroxime)."
+            ],
+            [
+              "Tx (VA ≤ PL)",
+              "Three-port pars plana vitrectomy + Intravitreal antibiotics + High-dose systemic Prednisolone (60-80mg daily, tapered over 10d). Steroids contraindicated if fungal."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Chronic Post-Operative Endophthalmitis",
+        "icon": "history",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Onset: 1wk to several months post-surgery.",
+          "Organisms: Propionibacterium acnes, S. epidermidis (partially treated), Fungi.",
+          "Sign: Chronic inflammation flaring when steroids reduced; White plaque on PC suggests P. acnes.",
+          "Diagnosis: AC tap/Vitreous biopsy (Gram, Giemsa, Silver stain). Cultures: Blood, Chocolate, Sabouraud, Thioglycolate, Solid Anaerobic. PCR helpful.",
+          "Tx (P. acnes/S. epi): Vitrectomy, intravitreal Vancomycin, maybe IOL removal.",
+          "Tx (Fungal): Vitrectomy, intravitreal Amphotericin (5–10 mcg), topical/systemic antifungals."
+        ]
+      },
+      {
+        "title": "Toxic Anterior Segment Syndrome (TASS)",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Clinical Details"
+          ],
+          "rows": [
+            [
+              "Definition",
+              "Acute non-infectious reaction to toxic substances entering AC (BSS, OVDs, Povidone iodine)."
+            ],
+            [
+              "Onset",
+              "Rapid: 12–24h post-surgery (often uneventful surgery)."
+            ],
+            [
+              "Hallmarks",
+              "Limbus-to-limbus corneal oedema (classic), high IOP, AC inflammation/fibrin/hypopyon."
+            ],
+            [
+              "Distinction",
+              "Absence of vitritis; highly sensitive to topical steroids."
+            ],
+            [
+              "Complications",
+              "Permanent corneal decompensation, challenging glaucoma, CMO."
+            ],
+            [
+              "Treatment",
+              "Intensive topical steroids; monitor IOP. If uncertain, treat as infectious endophthalmitis."
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "chapterId": "medical_retina",
+  "_serverSynced": true
+}

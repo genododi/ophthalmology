@@ -1,0 +1,14831 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+const generateBtn = document.getElementById('generate-btn');
+const apiKeyInput = document.getElementById('api-key');
+const openaiKeyInput = document.getElementById('openai-api-key');
+const topicInput = document.getElementById('topic-input');
+const outputContainer = document.getElementById('output-container');
+
+// Gemini API key: localStorage + default seed (Pages) + localhost Keychain bootstrap
+const GEMINI_API_KEY_STORAGE = 'geminiApiKey';
+const GEMINI_API_KEY_USER_EDITED_FLAG = 'geminiApiKeyUserEdited';
+const LOCAL_DEV_KEY_ENDPOINT = '/local-dev/gemini-api-key';
+const KEYCHAIN_ACCOUNT_LABEL = 'SMILE';
+/** Public seed when storage is empty and user has not edited (rotate if repo is public). */
+const GEMINI_API_KEY_DEFAULT_SEED = 'AIzaSyAvtf0-Dbu_Ue5aw03m0xpiRmphYK5YydA';
+/** Default topic when the topic field is empty on first load. */
+const TOPIC_DEFAULT_SEED = "today's trendy articles in ophthalmic journals";
+
+let geminiKeyProgrammaticUpdate = false;
+
+function isLocalDevHost() {
+    if (isCapacitorNativeApp()) return false;
+    const h = window.location.hostname;
+    return h === 'localhost' || h === '127.0.0.1' || h === '[::1]';
+}
+
+function isCapacitorNativeApp() {
+    const cap = window.Capacitor;
+    if (!cap) return false;
+    const platform = typeof cap.getPlatform === 'function' ? cap.getPlatform() : cap.platform;
+    return platform === 'ios' || platform === 'android';
+}
+
+/** Reject Keychain account label or other non-key values wrongly persisted earlier. */
+function isValidGeminiApiKey(key) {
+    if (!key || typeof key !== 'string') return false;
+    const v = key.trim();
+    return v.length > 0 && v !== KEYCHAIN_ACCOUNT_LABEL;
+}
+
+function isGeminiApiKeyUserEdited() {
+    try {
+        return localStorage.getItem(GEMINI_API_KEY_USER_EDITED_FLAG) === 'true';
+    } catch (_) {
+        return false;
+    }
+}
+
+function setGeminiApiKeyUserEdited(edited) {
+    try {
+        if (edited) localStorage.setItem(GEMINI_API_KEY_USER_EDITED_FLAG, 'true');
+        else localStorage.removeItem(GEMINI_API_KEY_USER_EDITED_FLAG);
+    } catch (e) {
+        console.warn('[Gemini API] Could not persist user-edited flag', e);
+    }
+}
+
+function getDefaultGeminiApiKeySeed() {
+    return isValidGeminiApiKey(GEMINI_API_KEY_DEFAULT_SEED) ? GEMINI_API_KEY_DEFAULT_SEED : '';
+}
+
+function applyGeminiApiKeyToInput(key) {
+    if (!isValidGeminiApiKey(key) || !apiKeyInput) return;
+    geminiKeyProgrammaticUpdate = true;
+    apiKeyInput.value = key.trim();
+    geminiKeyProgrammaticUpdate = false;
+}
+
+function persistGeminiApiKey(key) {
+    if (!key) return;
+    try {
+        localStorage.setItem(GEMINI_API_KEY_STORAGE, key);
+    } catch (e) {
+        console.warn('[Gemini API] Could not persist key to localStorage', e);
+    }
+}
+
+async function fetchLocalDevGeminiKey() {
+    if (!isLocalDevHost()) return null;
+    try {
+        const res = await fetch(LOCAL_DEV_KEY_ENDPOINT, { cache: 'no-store' });
+        if (!res.ok) return null;
+        const text = (await res.text()).trim();
+        return isValidGeminiApiKey(text) ? text : null;
+    } catch (_) { /* local server may be offline */ }
+    return null;
+}
+
+function handleGeminiApiKeyUserInput() {
+    if (geminiKeyProgrammaticUpdate) return;
+    const v = apiKeyInput.value.trim();
+    if (isValidGeminiApiKey(v)) {
+        persistGeminiApiKey(v);
+        if (v !== GEMINI_API_KEY_DEFAULT_SEED) setGeminiApiKeyUserEdited(true);
+    } else {
+        try { localStorage.removeItem(GEMINI_API_KEY_STORAGE); } catch (_) {}
+        setGeminiApiKeyUserEdited(true);
+    }
+}
+
+async function initGeminiApiKey() {
+    if (!apiKeyInput) return;
+
+    let key = '';
+    const userEdited = isGeminiApiKeyUserEdited();
+    try {
+        key = localStorage.getItem(GEMINI_API_KEY_STORAGE) || '';
+    } catch (_) { /* private mode */ }
+
+    if (key && !isValidGeminiApiKey(key)) {
+        try { localStorage.removeItem(GEMINI_API_KEY_STORAGE); } catch (_) {}
+        key = '';
+    }
+
+    if (key) {
+        applyGeminiApiKeyToInput(key);
+    } else if (!userEdited) {
+        if (isLocalDevHost()) {
+            key = (await fetchLocalDevGeminiKey()) || '';
+        }
+        if (!key) {
+            key = getDefaultGeminiApiKeySeed();
+        }
+        if (key) {
+            applyGeminiApiKeyToInput(key);
+            persistGeminiApiKey(key);
+        }
+    }
+
+    apiKeyInput.addEventListener('input', handleGeminiApiKeyUserInput);
+    apiKeyInput.addEventListener('change', handleGeminiApiKeyUserInput);
+}
+
+function initTopicDefault() {
+    if (!topicInput || topicInput.value.trim()) return;
+    topicInput.value = TOPIC_DEFAULT_SEED;
+}
+
+// ============================================
+// RESOURCE FILE UPLOAD HANDLING (PDF/TXT)
+// ============================================
+
+const resourceUpload = document.getElementById('resource-upload');
+const uploadTriggerBtn = document.getElementById('upload-trigger-btn');
+const uploadedFilesList = document.getElementById('uploaded-files-list');
+
+// Store extracted text from uploaded files
+let uploadedResourcesText = [];
+
+/**
+ * Extract text from PDF using PDF.js
+ */
+async function extractPDFText(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = async function (e) {
+            try {
+                if (typeof pdfjsLib === 'undefined') {
+                    reject(new Error('PDF.js library not loaded'));
+                    return;
+                }
+
+                const typedArray = new Uint8Array(e.target.result);
+                const pdf = await pdfjsLib.getDocument(typedArray).promise;
+                let fullText = '';
+
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const textContent = await page.getTextContent();
+                    const pageText = textContent.items.map(item => item.str).join(' ');
+                    fullText += pageText + '\n\n';
+                }
+
+                resolve(fullText.trim());
+            } catch (err) {
+                reject(err);
+            }
+        };
+        reader.onerror = () => reject(new Error('Failed to read file'));
+        reader.readAsArrayBuffer(file);
+    });
+}
+
+/**
+ * Extract text from TXT file
+ */
+async function extractTXTText(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.onerror = () => reject(new Error('Failed to read file'));
+        reader.readAsText(file);
+    });
+}
+
+/**
+ * Extract text from DOCX file using Mammoth.js
+ */
+async function extractDOCXText(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = async function (e) {
+            try {
+                if (typeof mammoth === 'undefined') {
+                    reject(new Error('Mammoth.js library not loaded'));
+                    return;
+                }
+                const arrayBuffer = e.target.result;
+                const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+                if (result.value) {
+                    resolve(result.value.trim());
+                } else {
+                    resolve('');
+                }
+            } catch (err) {
+                reject(err);
+            }
+        };
+        reader.onerror = () => reject(new Error('Failed to read file'));
+        reader.readAsArrayBuffer(file);
+    });
+}
+
+/**
+ * Format file size for display
+ */
+function formatFileSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+}
+
+/**
+ * Render the uploaded files list
+ */
+function renderUploadedFiles() {
+    if (!uploadedFilesList) return;
+
+    if (uploadedResourcesText.length === 0) {
+        uploadedFilesList.innerHTML = '';
+        return;
+    }
+
+    uploadedFilesList.innerHTML = uploadedResourcesText.map((item, index) => `
+        <div class="uploaded-file-item ${item.status}" data-index="${index}">
+            <div class="uploaded-file-info">
+                <span class="material-symbols-rounded">${item.type === 'pdf' ? 'picture_as_pdf' : (item.type === 'docx' || item.type === 'doc' ? 'article' : 'description')}</span>
+                <span class="uploaded-file-name" title="${item.name}">${item.name}</span>
+                <span class="uploaded-file-size">(${formatFileSize(item.size)})</span>
+            </div>
+            ${item.status !== 'processing' ? `
+                <button class="remove-file-btn" onclick="removeUploadedFile(${index})" title="Remove file">
+                    <span class="material-symbols-rounded">close</span>
+                </button>
+            ` : ''}
+        </div>
+    `).join('');
+}
+
+/**
+ * Remove an uploaded file
+ */
+window.removeUploadedFile = function (index) {
+    uploadedResourcesText.splice(index, 1);
+    renderUploadedFiles();
+};
+
+/**
+ * Handle file upload
+ */
+async function handleFileUpload(files) {
+    for (const file of files) {
+        let fileType = 'txt';
+        const lowerName = file.name.toLowerCase();
+        if (lowerName.endsWith('.pdf')) {
+            fileType = 'pdf';
+        } else if (lowerName.endsWith('.docx')) {
+            fileType = 'docx';
+        } else if (lowerName.endsWith('.doc')) {
+            fileType = 'doc';
+        }
+
+        // Add to list with processing status
+        const fileEntry = {
+            name: file.name,
+            size: file.size,
+            type: fileType,
+            status: 'processing',
+            text: ''
+        };
+        uploadedResourcesText.push(fileEntry);
+        renderUploadedFiles();
+
+        try {
+            let text;
+            if (fileType === 'pdf') {
+                text = await extractPDFText(file);
+            } else if (fileType === 'docx') {
+                text = await extractDOCXText(file);
+            } else if (fileType === 'doc') {
+                throw new Error('.doc format is not fully supported in the browser. Please save as .docx and try again.');
+            } else {
+                text = await extractTXTText(file);
+            }
+
+            fileEntry.text = text;
+            fileEntry.status = 'success';
+        } catch (err) {
+            console.error(`Error extracting text from ${file.name}:`, err);
+            fileEntry.status = 'error';
+            fileEntry.error = err.message;
+        }
+
+        renderUploadedFiles();
+    }
+}
+
+/**
+ * Get combined text from all uploaded resources
+ */
+function getUploadedResourcesText() {
+    return uploadedResourcesText
+        .filter(item => item.status === 'success' && item.text)
+        .map(item => `[Source: ${item.name}]\n${item.text}`)
+        .join('\n\n---\n\n');
+}
+
+// Setup file upload event listeners
+if (uploadTriggerBtn && resourceUpload) {
+    uploadTriggerBtn.addEventListener('click', () => resourceUpload.click());
+
+    resourceUpload.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+            handleFileUpload(Array.from(e.target.files));
+            e.target.value = ''; // Reset input so same file can be re-uploaded
+        }
+    });
+}
+
+// Add Print Button Logic if not present (will be added to HTML separately)
+function setupPrintButton() {
+    const printBtn = document.getElementById('print-btn');
+    if (printBtn) {
+        printBtn.addEventListener('click', () => {
+            window.print();
+        });
+    }
+}
+
+const downloadBtn = document.getElementById('download-pdf-btn');
+
+// Home Button Logic
+const homeBtn = document.getElementById('home-btn');
+if (homeBtn) {
+    homeBtn.addEventListener('click', () => {
+        if (confirm("Return to Home? This will clear current work.")) {
+            window.location.reload();
+        }
+    });
+}
+
+// Sidebar Toggle Functionality
+const sidebar = document.getElementById('sidebar');
+const sidebarToggle = document.getElementById('sidebar-toggle');
+const appContainer = document.querySelector('.app-container');
+
+function collapseSidebar() {
+    if (sidebar && appContainer) {
+        sidebar.classList.add('collapsed');
+        appContainer.classList.add('sidebar-collapsed');
+    }
+}
+
+function expandSidebar() {
+    if (sidebar && appContainer) {
+        sidebar.classList.remove('collapsed');
+        appContainer.classList.remove('sidebar-collapsed');
+    }
+}
+
+function toggleSidebar() {
+    if (sidebar && sidebar.classList.contains('collapsed')) {
+        expandSidebar();
+    } else {
+        collapseSidebar();
+    }
+}
+
+if (sidebarToggle) {
+    sidebarToggle.addEventListener('click', toggleSidebar);
+}
+
+function setupPosterButton() {
+    const posterBtn = document.getElementById('poster-btn');
+    if (posterBtn) {
+        posterBtn.addEventListener('click', () => {
+            const sheet = document.querySelector('.poster-sheet');
+            if (sheet) {
+                const isLandscape = sheet.classList.toggle('landscape');
+                document.body.classList.toggle('landscape-mode');
+
+                if (isLandscape) {
+                    posterBtn.classList.add('active-btn');
+                    posterBtn.innerHTML = '<span class="material-symbols-rounded">crop_portrait</span>';
+                    posterBtn.title = "Switch to Portrait";
+                } else {
+                    posterBtn.classList.remove('active-btn');
+                    posterBtn.innerHTML = '<span class="material-symbols-rounded">panorama</span>';
+                    posterBtn.title = "Switch to Landscape";
+                    sheet.style.fontSize = '';
+                }
+            }
+        });
+    }
+
+    // Always enable download button if it exists
+    if (downloadBtn) {
+        downloadBtn.style.display = 'flex';
+        downloadBtn.addEventListener('click', () => {
+            const sheet = document.querySelector('.poster-sheet');
+            if (sheet) exportToPDF(sheet);
+            else alert("Please generate an infographic first.");
+        });
+    }
+}
+
+function fitContentToLandscape(sheet) {
+    if (!sheet.classList.contains('landscape')) return;
+
+    let fontSize = 16;
+    sheet.style.fontSize = `${fontSize}px`;
+
+    const minFontSize = 10;
+    const maxIterations = 20;
+    let i = 0;
+
+    while (sheet.scrollHeight > sheet.clientHeight && fontSize > minFontSize && i < maxIterations) {
+        fontSize -= 0.5;
+        sheet.style.fontSize = `${fontSize}px`;
+        i++;
+    }
+}
+
+// TEXT-RENDERED PDF EXPORT (NOT IMAGE-BASED)
+async function exportToPDF(element) {
+    try {
+        if (downloadBtn) {
+            downloadBtn.disabled = true;
+            downloadBtn.innerHTML = '<span class="material-symbols-rounded margin-right:0;">hourglass_top</span>';
+            document.body.style.cursor = 'wait';
+        }
+
+        if (!currentInfographicData) {
+            alert("No infographic data available for export.");
+            if (downloadBtn) {
+                downloadBtn.disabled = false;
+                downloadBtn.innerHTML = '<span class="material-symbols-rounded">download</span>';
+                document.body.style.cursor = 'default';
+            }
+            return;
+        }
+
+        const isLandscape = element.classList.contains('landscape');
+        const orientation = isLandscape ? 'landscape' : 'portrait';
+        const data = currentInfographicData;
+
+        // Create PDF with text rendering
+        const pdf = new jspdf.jsPDF({
+            orientation: orientation,
+            unit: 'mm',
+            format: 'a4'
+        });
+
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        const margin = 18;
+        const contentWidth = pageWidth - (margin * 2);
+        let yPos = margin;
+
+        // Color definitions
+        const colors = {
+            primary: [37, 99, 235],      // Blue
+            primaryDark: [30, 41, 59],   // Dark blue-gray
+            text: [31, 41, 55],          // Dark text
+            textSecondary: [75, 85, 99], // Secondary text
+            red: [220, 38, 38],
+            green: [16, 185, 129],
+            yellow: [245, 158, 11],
+            purple: [139, 92, 246],
+            border: [226, 232, 240]
+        };
+
+        // Helper: Add new page if needed
+        const checkPageBreak = (neededHeight) => {
+            if (yPos + neededHeight > pageHeight - margin) {
+                pdf.addPage();
+                yPos = margin;
+                return true;
+            }
+            return false;
+        };
+
+        // Helper: Draw colored box
+        const drawBox = (x, y, w, h, color, filled = true) => {
+            if (filled) {
+                pdf.setFillColor(...color);
+                pdf.rect(x, y, w, h, 'F');
+            } else {
+                pdf.setDrawColor(...color);
+                pdf.rect(x, y, w, h, 'S');
+            }
+        };
+
+        // Header bar
+        drawBox(0, 0, pageWidth, 8, colors.primary);
+        yPos = 12;
+
+        // Title
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(24);
+        pdf.setTextColor(...colors.primaryDark);
+        const titleLines = pdf.splitTextToSize(data.title || 'Infographic', contentWidth);
+        pdf.text(titleLines, margin, yPos);
+        yPos += titleLines.length * 10 + 5;
+
+        // Summary
+        if (data.summary) {
+            pdf.setFont('helvetica', 'normal');
+            pdf.setFontSize(11);
+            pdf.setTextColor(...colors.textSecondary);
+            const summaryLines = pdf.splitTextToSize(data.summary, contentWidth);
+            pdf.text(summaryLines, margin, yPos);
+            yPos += summaryLines.length * 5 + 10;
+        }
+
+        // Separator line
+        pdf.setDrawColor(...colors.border);
+        pdf.setLineWidth(0.5);
+        pdf.line(margin, yPos, pageWidth - margin, yPos);
+        yPos += 10;
+
+        // Sections
+        if (data.sections && Array.isArray(data.sections)) {
+            // Helper: Auto-fit text block with font size adjustment
+            const autoFitTextBlock = (text, maxWidth, maxFontSize = 10, minFontSize = 7) => {
+                const textStr = String(text || '');
+                let fontSize = maxFontSize;
+                let lines;
+                let lineHeight;
+
+                while (fontSize >= minFontSize) {
+                    pdf.setFontSize(fontSize);
+                    lineHeight = fontSize * 0.45;
+                    lines = pdf.splitTextToSize(textStr, maxWidth);
+
+                    // Accept if reasonable line count
+                    if (lines.length <= 8) {
+                        return { fontSize, lines, lineHeight };
+                    }
+                    fontSize -= 0.5;
+                }
+
+                // Use minimum and accept any line count
+                pdf.setFontSize(minFontSize);
+                lineHeight = minFontSize * 0.45;
+                lines = pdf.splitTextToSize(textStr, maxWidth);
+                return { fontSize: minFontSize, lines, lineHeight };
+            };
+
+            for (const section of data.sections) {
+                // Estimate section height for page break check
+                checkPageBreak(30);
+
+                // Section title with color indicator
+                const themeColor = colors[section.color_theme] || colors.primary;
+
+                // Color bar for section
+                drawBox(margin, yPos - 2, 3, 8, themeColor);
+
+                pdf.setFont('helvetica', 'bold');
+                pdf.setFontSize(14);
+                pdf.setTextColor(...colors.primaryDark);
+                pdf.text(section.title || 'Section', margin + 6, yPos + 4);
+                yPos += 12;
+
+                // Section content based on type
+                pdf.setFont('helvetica', 'normal');
+                pdf.setFontSize(10);
+                pdf.setTextColor(...colors.text);
+
+                switch (section.type) {
+                    case 'red_flag':
+                        const flags = Array.isArray(section.content) ? section.content : [section.content];
+                        for (const flag of flags) {
+                            // Auto-fit the flag text
+                            const fit = autoFitTextBlock(flag, contentWidth - 14, 10, 7);
+                            const flagHeight = fit.lines.length * fit.lineHeight + 4;
+
+                            checkPageBreak(flagHeight);
+
+                            // Red warning indicator
+                            pdf.setFillColor(...colors.red);
+                            pdf.circle(margin + 2, yPos + 2, 1.5, 'F');
+
+                            // Draw all lines
+                            pdf.setFontSize(fit.fontSize);
+                            pdf.setTextColor(...colors.red);
+                            fit.lines.forEach((line, idx) => {
+                                pdf.text(line, margin + 8, yPos + idx * fit.lineHeight);
+                            });
+                            yPos += flagHeight;
+                        }
+                        pdf.setTextColor(...colors.text);
+                        break;
+
+                    case 'chart':
+                        const chartData = section.content?.data || [];
+                        for (const item of chartData) {
+                            // Auto-fit chart label
+                            const labelFit = autoFitTextBlock(item.label, contentWidth * 0.68, 9, 7);
+                            const labelHeight = labelFit.lines.length * labelFit.lineHeight;
+
+                            checkPageBreak(labelHeight + 8);
+
+                            pdf.setFontSize(labelFit.fontSize);
+                            labelFit.lines.forEach((line, idx) => {
+                                pdf.text(line, margin, yPos + idx * labelFit.lineHeight);
+                            });
+                            yPos += labelHeight + 1;
+
+                            // Draw bar background
+                            drawBox(margin, yPos, contentWidth * 0.7, 5, [226, 232, 240]);
+                            // Draw bar fill
+                            const barWidth = (contentWidth * 0.7) * (item.value / 100);
+                            drawBox(margin, yPos, barWidth, 5, themeColor);
+                            // Value text
+                            pdf.setFontSize(8);
+                            pdf.text(`${item.value}%`, margin + contentWidth * 0.72, yPos + 4);
+                            yPos += 8;
+                        }
+                        break;
+
+                    case 'remember':
+                        const mem = section.content || {};
+
+                        // Auto-fit explanation text
+                        const expFit = autoFitTextBlock(mem.explanation || '', contentWidth - 14, 10, 7);
+                        const expHeight = expFit.lines.length * expFit.lineHeight;
+                        const boxHeight = Math.max(22, 12 + expHeight + 4);
+
+                        checkPageBreak(boxHeight + 5);
+
+                        // Mnemonic box
+                        drawBox(margin, yPos, contentWidth, boxHeight, [253, 252, 255]);
+                        pdf.setDrawColor(...colors.purple);
+                        pdf.rect(margin, yPos, contentWidth, boxHeight, 'S');
+
+                        // Mnemonic title
+                        pdf.setFont('helvetica', 'bold');
+                        pdf.setFontSize(18);
+                        pdf.setTextColor(...colors.purple);
+                        pdf.text(mem.mnemonic || 'REMEMBER', margin + contentWidth / 2, yPos + 8, { align: 'center' });
+
+                        // Explanation - all lines
+                        pdf.setFont('helvetica', 'normal');
+                        pdf.setFontSize(expFit.fontSize);
+                        pdf.setTextColor(...colors.text);
+                        expFit.lines.forEach((line, idx) => {
+                            pdf.text(line, margin + 5, yPos + 14 + idx * expFit.lineHeight);
+                        });
+                        yPos += boxHeight + 5;
+                        break;
+
+                    case 'mindmap':
+                        const map = section.content || {};
+                        checkPageBreak(25);
+
+                        // Center concept
+                        pdf.setFillColor(...colors.primaryDark);
+                        const centerText = map.center || 'Concept';
+                        pdf.setFontSize(10);
+                        const centerWidth = pdf.getTextWidth(centerText) + 10;
+                        pdf.roundedRect(margin + (contentWidth - centerWidth) / 2, yPos, centerWidth, 8, 2, 2, 'F');
+                        pdf.setTextColor(255, 255, 255);
+                        pdf.setFont('helvetica', 'bold');
+                        pdf.text(centerText, margin + contentWidth / 2, yPos + 5.5, { align: 'center' });
+                        yPos += 12;
+
+                        // Branches - with auto-fit for each
+                        pdf.setTextColor(...colors.text);
+                        pdf.setFont('helvetica', 'normal');
+                        const branches = map.branches || [];
+                        const numBranchCols = Math.min(branches.length, 3);
+                        const branchWidth = contentWidth / numBranchCols;
+
+                        for (let i = 0; i < branches.length; i++) {
+                            if (i > 0 && i % 3 === 0) {
+                                yPos += 10;
+                            }
+
+                            const colIdx = i % 3;
+                            const branchX = margin + colIdx * branchWidth;
+
+                            // Auto-fit branch text
+                            const branchFit = autoFitTextBlock(branches[i], branchWidth - 8, 9, 6);
+                            const branchHeight = Math.max(8, branchFit.lines.length * branchFit.lineHeight + 4);
+
+                            checkPageBreak(branchHeight);
+
+                            drawBox(branchX, yPos, branchWidth - 3, branchHeight, [248, 250, 252]);
+                            pdf.setDrawColor(...colors.border);
+                            pdf.rect(branchX, yPos, branchWidth - 3, branchHeight, 'S');
+
+                            pdf.setFontSize(branchFit.fontSize);
+                            branchFit.lines.forEach((line, idx) => {
+                                pdf.text(line, branchX + 2, yPos + 3 + idx * branchFit.lineHeight);
+                            });
+                        }
+                        yPos += 12;
+                        break;
+
+                    case 'key_point':
+                    case 'process':
+                        const points = Array.isArray(section.content) ? section.content : [section.content];
+                        for (let i = 0; i < points.length; i++) {
+                            // Auto-fit point text
+                            const pointFit = autoFitTextBlock(points[i], contentWidth - 14, 10, 7);
+                            const pointHeight = pointFit.lines.length * pointFit.lineHeight + 3;
+
+                            checkPageBreak(pointHeight);
+
+                            // Bullet
+                            pdf.setFillColor(...themeColor);
+                            pdf.circle(margin + 2, yPos + 2, 1.2, 'F');
+
+                            // All text lines
+                            pdf.setFontSize(pointFit.fontSize);
+                            pointFit.lines.forEach((line, idx) => {
+                                pdf.text(line, margin + 8, yPos + idx * pointFit.lineHeight);
+                            });
+                            yPos += pointHeight;
+                        }
+                        break;
+
+                    case 'table':
+                        if (section.content?.headers && section.content?.rows) {
+                            const headers = section.content.headers;
+                            const rows = section.content.rows;
+                            const numCols = headers.length;
+
+                            // Calculate column widths - minimum 25mm, evenly distributed
+                            const minColWidth = 25;
+                            const tableWidth = contentWidth - 4; // 2mm padding on each side
+                            const colWidth = Math.max(minColWidth, tableWidth / numCols);
+                            const actualTableWidth = Math.min(tableWidth, colWidth * numCols);
+
+                            // Helper: Auto-size text to fit in cell
+                            // Returns { fontSize, lines, lineHeight }
+                            const autoFitText = (text, maxWidth, maxFontSize = 8, minFontSize = 5) => {
+                                const cellText = String(text || '');
+                                let fontSize = maxFontSize;
+                                let lines;
+                                let lineHeight;
+
+                                while (fontSize >= minFontSize) {
+                                    pdf.setFontSize(fontSize);
+                                    lineHeight = fontSize * 0.4; // ~40% of font size for line height
+                                    lines = pdf.splitTextToSize(cellText, maxWidth);
+
+                                    // If text fits in a reasonable number of lines (max 6), accept it
+                                    if (lines.length <= 6) {
+                                        return { fontSize, lines, lineHeight };
+                                    }
+                                    fontSize -= 0.5;
+                                }
+
+                                // Use minimum font size if still doesn't fit
+                                pdf.setFontSize(minFontSize);
+                                lineHeight = minFontSize * 0.4;
+                                lines = pdf.splitTextToSize(cellText, maxWidth);
+                                return { fontSize: minFontSize, lines, lineHeight };
+                            };
+
+                            // Calculate header row with auto-fitting
+                            let headerHeight = 8;
+                            const fittedHeaders = headers.map(h => {
+                                const fit = autoFitText(h, colWidth - 4, 8, 6);
+                                const cellHeight = fit.lines.length * fit.lineHeight + 4;
+                                headerHeight = Math.max(headerHeight, cellHeight);
+                                return fit;
+                            });
+
+                            checkPageBreak(headerHeight + 10);
+
+                            // Draw header background
+                            drawBox(margin, yPos, actualTableWidth, headerHeight, [248, 250, 252]);
+                            pdf.setDrawColor(...colors.border);
+                            pdf.rect(margin, yPos, actualTableWidth, headerHeight, 'S');
+
+                            // Draw header text with fitted fonts
+                            pdf.setFont('helvetica', 'bold');
+                            fittedHeaders.forEach((fit, i) => {
+                                pdf.setFontSize(fit.fontSize);
+                                fit.lines.forEach((line, lineIdx) => {
+                                    pdf.text(line, margin + i * colWidth + 2, yPos + 3.5 + lineIdx * fit.lineHeight);
+                                });
+                                // Draw vertical separator
+                                if (i < numCols - 1) {
+                                    pdf.line(margin + (i + 1) * colWidth, yPos, margin + (i + 1) * colWidth, yPos + headerHeight);
+                                }
+                            });
+                            yPos += headerHeight;
+
+                            // Data rows with auto-fitting
+                            pdf.setFont('helvetica', 'normal');
+                            for (const row of rows) {
+                                // Auto-fit each cell
+                                let rowHeight = 6;
+                                const fittedCells = row.map((cell, i) => {
+                                    const fit = autoFitText(cell, colWidth - 4, 8, 5);
+                                    const cellHeight = fit.lines.length * fit.lineHeight + 3;
+                                    rowHeight = Math.max(rowHeight, cellHeight);
+                                    return fit;
+                                });
+
+                                checkPageBreak(rowHeight);
+
+                                // Draw bottom border
+                                pdf.setDrawColor(...colors.border);
+                                pdf.line(margin, yPos + rowHeight, margin + actualTableWidth, yPos + rowHeight);
+
+                                // Draw cell content with individual font sizes
+                                fittedCells.forEach((fit, i) => {
+                                    pdf.setFontSize(fit.fontSize);
+                                    fit.lines.forEach((line, lineIdx) => {
+                                        pdf.text(line, margin + i * colWidth + 2, yPos + 3 + lineIdx * fit.lineHeight);
+                                    });
+                                    // Draw vertical separator
+                                    if (i < numCols - 1) {
+                                        pdf.line(margin + (i + 1) * colWidth, yPos, margin + (i + 1) * colWidth, yPos + rowHeight);
+                                    }
+                                });
+
+                                yPos += rowHeight;
+                            }
+                        }
+                        yPos += 8;
+                        break;
+
+                    default:
+                        // Plain text
+                        const textContent = String(section.content || '');
+                        const textLines = pdf.splitTextToSize(textContent, contentWidth);
+                        for (const line of textLines) {
+                            checkPageBreak(6);
+                            pdf.text(line, margin, yPos);
+                            yPos += 5;
+                        }
+                        break;
+                }
+
+                yPos += 8; // Space between sections
+            }
+        }
+
+        // Save PDF - Content remains visible (no hiding)
+        const filename = `${data.title || 'infographic'}-${orientation}.pdf`.replace(/[^a-zA-Z0-9-_.]/g, '_');
+        pdf.save(filename);
+
+    } catch (err) {
+        console.error("PDF Export failed:", err);
+        alert("Failed to export PDF: " + err.message);
+    } finally {
+        if (downloadBtn) {
+            downloadBtn.disabled = false;
+            downloadBtn.innerHTML = '<span class="material-symbols-rounded">download</span>';
+            document.body.style.cursor = 'default';
+        }
+    }
+}
+
+/* Knowledge Base / Library System with Chapters and Rename */
+const LIBRARY_KEY = 'ophthalmic_infographic_library';
+const CHAPTERS_KEY = 'ophthalmic_infographic_chapters';
+
+// ═══════════════════════════════════════════════════════════════════════
+// INDEXEDDB-BACKED LIBRARY STORAGE (unlimited size, replaces localStorage)
+// ═══════════════════════════════════════════════════════════════════════
+const LIBRARY_IDB_NAME = 'OphthalmoLibraryDB';
+const LIBRARY_IDB_VERSION = 1;
+const LIBRARY_IDB_STORE = 'library';
+let _libraryCache = null;
+
+function openLibraryIDB() {
+    return new Promise((resolve, reject) => {
+        const req = indexedDB.open(LIBRARY_IDB_NAME, LIBRARY_IDB_VERSION);
+        req.onupgradeneeded = (e) => {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains(LIBRARY_IDB_STORE)) {
+                db.createObjectStore(LIBRARY_IDB_STORE, { keyPath: 'key' });
+            }
+        };
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+    });
+}
+
+async function saveLibraryToIDB(library) {
+    _libraryCache = library;
+    try {
+        const db = await openLibraryIDB();
+        const tx = db.transaction(LIBRARY_IDB_STORE, 'readwrite');
+        tx.objectStore(LIBRARY_IDB_STORE).put({ key: 'main', data: library });
+        await new Promise((res, rej) => { tx.oncomplete = res; tx.onerror = rej; });
+        db.close();
+        try { localStorage.removeItem(LIBRARY_KEY); } catch(e) {}
+    } catch (err) {
+        console.error('Failed to save library to IndexedDB:', err);
+        try { saveLibraryToIDB(library); } catch(e2) {}
+    }
+}
+
+async function loadLibraryFromIDB() {
+    try {
+        const db = await openLibraryIDB();
+        const tx = db.transaction(LIBRARY_IDB_STORE, 'readonly');
+        const req = tx.objectStore(LIBRARY_IDB_STORE).get('main');
+        const result = await new Promise((res, rej) => { req.onsuccess = () => res(req.result); req.onerror = rej; });
+        db.close();
+        if (result && result.data) {
+            _libraryCache = result.data;
+            try { localStorage.removeItem(LIBRARY_KEY); } catch(e) {}
+            return result.data;
+        }
+    } catch (err) {
+        console.error('Failed to load library from IndexedDB:', err);
+    }
+    const lsData = localStorage.getItem(LIBRARY_KEY);
+    if (lsData) {
+        try {
+            _libraryCache = JSON.parse(lsData);
+            saveLibraryToIDB(_libraryCache);
+            return _libraryCache;
+        } catch(e) {}
+    }
+    _libraryCache = [];
+    return [];
+}
+
+function getLibraryCache() {
+    return _libraryCache || [];
+}
+
+async function initLibraryCache() {
+    await loadLibraryFromIDB();
+}
+
+// Default ophthalmic chapters
+const DEFAULT_CHAPTERS = [
+    { id: 'uncategorized', name: 'Uncategorized', color: '#64748b' },
+    { id: 'clinical_skills', name: 'Clinical Skills', color: '#3b82f6' },
+    { id: 'investigations', name: 'Investigations & Interpretation', color: '#10b981' },
+    { id: 'trauma', name: 'Ocular Trauma', color: '#ef4444' },
+    { id: 'lids', name: 'Lids', color: '#f59e0b' },
+    { id: 'lacrimal', name: 'Lacrimal', color: '#6366f1' },
+    { id: 'conjunctiva', name: 'Conjunctiva', color: '#8b5cf6' },
+    { id: 'cornea', name: 'Cornea', color: '#ec4899' },
+    { id: 'sclera', name: 'Sclera', color: '#06b6d4' },
+    { id: 'lens', name: 'Lens', color: '#14b8a6' },
+    { id: 'glaucoma', name: 'Glaucoma', color: '#22c55e' },
+    { id: 'uveitis', name: 'Uveitis', color: '#eab308' },
+    { id: 'vitreoretinal', name: 'Vitreoretinal', color: '#f97316' },
+    { id: 'medical_retina', name: 'Medical Retina', color: '#f43f5e' },
+    { id: 'orbit', name: 'Orbit', color: '#a855f7' },
+    { id: 'tumours', name: 'Intraocular Tumours', color: '#d946ef' },
+    { id: 'neuro', name: 'Neuro-ophthalmology', color: '#0ea5e9' },
+    { id: 'strabismus', name: 'Strabismus', color: '#84cc16' },
+    { id: 'paediatric', name: 'Paediatric Ophthalmology', color: '#fbbf24' },
+    { id: 'refractive', name: 'Refractive Ophthalmology', color: '#f472b6' },
+    { id: 'aids', name: 'Aids to Diagnosis', color: '#fb7185' },
+    { id: 'vision_context', name: 'Vision in Context', color: '#38bdf8' },
+    { id: 'surgery_care', name: 'Surgery: Anaesthetics & Care', color: '#4ade80' },
+    { id: 'theatre', name: 'Surgery: Theatre Notes', color: '#2dd4bf' },
+    { id: 'lasers', name: 'Lasers', color: '#f87171' },
+    { id: 'therapeutics', name: 'Therapeutics', color: '#c084fc' },
+    { id: 'anatomy', name: 'Anatomy', color: '#0d9488' },
+    { id: 'optics', name: 'Optics', color: '#7c3aed' },
+    { id: 'physiology', name: 'Physiology', color: '#dc2626' },
+    { id: 'evidence', name: 'Evidence-based Ophthalmology', color: '#94a3b8' },
+    { id: 'resources', name: 'Resources', color: '#64748b' }
+];
+
+/* Safe Fetch Wrapper to handle file:// protocol and GitHub Pages */
+const SERVER_URL = 'http://localhost:3000';
+const GITHUB_PAGES_HOST = 'genododi.github.io';
+
+function isGitHubPages() {
+    return window.location.hostname === GITHUB_PAGES_HOST;
+}
+
+async function safeFetch(url, options) {
+    if (isCapacitorNativeApp()) {
+        const path = String(url || '').replace(/^\//, '');
+        if (path.startsWith('api/library/list')) {
+            const items = await fetchLibraryFromStatic();
+            return new Response(JSON.stringify(items), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+        if (path.startsWith('api/library/upload') || path.startsWith('api/library/delete')) {
+            return new Response(JSON.stringify({ success: true, nativeLocalOnly: true }), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+        if (path.startsWith('api/ftp/')) {
+            return new Response(JSON.stringify({
+                success: false,
+                running: false,
+                error: 'FTP server controls are not available inside the mobile app.'
+            }), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+    }
+
+    if (window.location.protocol === 'file:') {
+        // Point to localhost server if running locally
+        const fullUrl = url.startsWith('http') ? url : `${SERVER_URL}/${url}`;
+        return fetch(fullUrl, options);
+    }
+    return fetch(url, options);
+}
+
+// Fetch library from static JSON file (for GitHub Pages)
+async function fetchLibraryFromStatic() {
+    try {
+        // Try fetching the pre-generated library index
+        const response = await fetch('library-index.json');
+        if (response.ok) {
+            return await response.json();
+        }
+
+        // Fallback: try fetching individual files from Library folder listing
+        // This won't work on GitHub Pages without a proper index, so return empty
+        return [];
+    } catch (err) {
+        console.log('Could not fetch static library index:', err.message);
+        return [];
+    }
+}
+
+function getChapters() {
+    // Strict Mode: Always return DEFAULT_CHAPTERS to prevent duplicates/legacy chapters
+    // We ignore localStorage 'ophthalmic_infographic_chapters' to clean up
+    return DEFAULT_CHAPTERS;
+}
+
+// Helper: Reassign Sequential IDs 
+// Newest item = HIGHEST number (library.length), Oldest = 1
+// Called after any addition or deletion to ensure no gaps or duplicates
+function reassignSequentialIds(library) {
+    if (!library || library.length === 0) return false;
+
+    // Sort by date ASCENDING (oldest first gets #1)
+    const sortedByDate = [...library].sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    let modified = false;
+    const totalCount = library.length;
+
+    // Assign sequential numbers: oldest = 1, newest = totalCount
+    sortedByDate.forEach((sortedItem, index) => {
+        const newSeqId = index + 1; // oldest gets 1, newest gets totalCount
+        // Find the original item in library and update its seqId
+        const originalItem = library.find(item => item.id === sortedItem.id);
+        if (originalItem && originalItem.seqId !== newSeqId) {
+            originalItem.seqId = newSeqId;
+            modified = true;
+        }
+    });
+
+    return modified;
+}
+
+// Legacy function - now calls reassignSequentialIds for full reordering
+function assignSequentialIds(library) {
+    return reassignSequentialIds(library);
+}
+
+// Auto-chapterize: Detect chapter from title keywords
+// Organized by clinical ophthalmology subspecialties with comprehensive terminology
+function autoDetectChapter(title) {
+    if (!title) return 'uncategorized';
+
+    const titleLower = title.toLowerCase();
+
+    // CLINICAL OPHTHALMOLOGY AUTO-CATEGORIZATION RULES
+    // Order matters: more specific conditions first, then broader categories
+    // Based on standard ophthalmology subspecialty organization
+    const rules = [
+        // ══════════════════════════════════════════════════════════════════
+        // NEURO-OPHTHALMOLOGY - Disorders of visual pathway & cranial nerves
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Optic nerve conditions
+                'optic neuritis', 'optic neuropathy', 'optic atrophy', 'papilledema', 'papilloedema',
+                'disc swelling', 'disc edema', 'disc oedema', 'aion', 'naion', 'pion', 'lhon',
+                'ischaemic optic', 'ischemic optic', 'optic nerve head', 'optic disc drusen',
+                // Cranial nerve palsies
+                'third nerve', 'fourth nerve', 'sixth nerve', 'cn iii', 'cn iv', 'cn vi',
+                'oculomotor', 'trochlear', 'abducens', 'cranial nerve pals',
+                // Pupil disorders
+                'anisocoria', 'pupil', 'horner', 'adie', 'argyll robertson', 'rapd', 'apd',
+                'relative afferent', 'marcus gunn',
+                // Visual pathway
+                'chiasm', 'optic tract', 'optic radiation', 'visual cortex', 'hemianop',
+                'quadrantanop', 'bitemporal', 'homonymous',
+                // Nystagmus & eye movements
+                'nystagmus', 'gaze palsy', 'ino', 'internuclear', 'one-and-a-half',
+                'supranuclear', 'infranuclear', 'saccad',
+                // Intracranial conditions
+                'iih', 'pseudotumor', 'benign intracranial', 'idiopathic intracranial',
+                'raised icp', 'intracranial pressure', 'pituitary', 'sellar',
+                // Neuromuscular
+                'myasthenia', 'nmj', 'neuromuscular junction', 'ocular myasthenia',
+                // General neuro-ophth
+                'neuro-ophth', 'neuroophth', 'visual pathway', 'afferent', 'efferent'
+            ], chapter: 'neuro'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // GLAUCOMA - IOP-related optic neuropathy & angle disorders
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Types of glaucoma
+                'glaucoma', 'poag', 'pacg', 'primary open angle', 'primary angle closure',
+                'normal tension', 'ntg', 'low tension', 'ocular hypertension', 'oht',
+                'secondary glaucoma', 'neovascular glaucoma', 'nvg', 'uveitic glaucoma',
+                'pigmentary glaucoma', 'pigment dispersion', 'pseudoexfoliation', 'pxf', 'pex',
+                'exfoliation syndrome', 'steroid-induced', 'traumatic glaucoma',
+                'congenital glaucoma', 'juvenile glaucoma', 'developmental glaucoma',
+                'angle recession glaucoma', 'inflammatory glaucoma', 'lens-induced',
+                // IOP & anatomy
+                'intraocular pressure', 'iop', 'aqueous', 'trabecular meshwork',
+                'schlemm', 'angle closure', 'narrow angle', 'plateau iris',
+                'pupillary block', 'appositional', 'synechial',
+                // Glaucoma surgery
+                'trabeculectomy', 'tube shunt', 'ahmed', 'baerveldt', 'molteno',
+                'migs', 'istent', 'hydrus', 'xen', 'preserflo', 'goniotomy',
+                'trabeculotomy', 'trabectome', 'kahook', 'gonioscopy-assisted',
+                'cyclophotocoagulation', 'cyclodiode', 'filtering surgery', 'bleb',
+                // Diagnostic
+                'rnfl', 'ganglion cell', 'optic disc cupping', 'cup-to-disc', 'c:d ratio',
+                'visual field loss', 'arcuate scotoma', 'nasal step'
+            ], chapter: 'glaucoma'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // VITREORETINAL - Surgical retina conditions
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Retinal detachment
+                'retinal detachment', 'rd', 'rhegmatogenous', 'tractional', 'exudative',
+                'macula-off', 'macula-on', 'pvr', 'proliferative vitreoretinopathy',
+                // Vitreous conditions
+                'vitreous', 'pvd', 'posterior vitreous', 'vitreous hemorrhage', 'vit haem',
+                'vitreous opacities', 'floaters', 'asteroid hyalosis', 'synchysis',
+                // Macular surgery
+                'macular hole', 'epiretinal membrane', 'erm', 'macular pucker',
+                'vitreomacular traction', 'vmt', 'lamellar hole',
+                // Surgical procedures
+                'vitrectomy', 'ppv', 'pars plana', 'scleral buckle', 'pneumatic retinopexy',
+                'silicone oil', 'gas tamponade', 'sf6', 'c3f8', 'endolaser', 'cryotherapy',
+                'internal limiting membrane', 'ilm peel',
+                // Peripheral retina
+                'retinal tear', 'retinal break', 'horseshoe tear', 'lattice degeneration',
+                'retinoschisis', 'peripheral retinal', 'prophylactic laser'
+            ], chapter: 'vitreoretinal'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // MEDICAL RETINA - Non-surgical retinal conditions
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Diabetic eye disease
+                'diabetic retinopathy', 'dr', 'npdr', 'pdr', 'proliferative diabetic',
+                'non-proliferative', 'diabetic macular', 'dme', 'csme', 'clinically significant',
+                'microaneurysm', 'hard exudate', 'cotton wool', 'irma', 'nve', 'nvd',
+                // AMD
+                'age-related macular', 'amd', 'armd', 'macular degeneration',
+                'drusen', 'geographic atrophy', 'wet amd', 'dry amd', 'neovascular amd',
+                'cnv', 'choroidal neovascul', 'polypoidal', 'pcv', 'rac', 'rpe detachment',
+                // Vascular conditions
+                'retinal vein occlusion', 'rvo', 'brvo', 'crvo', 'hemi-rvo',
+                'retinal artery occlusion', 'rao', 'brao', 'crao', 'branch retinal',
+                'central retinal', 'ocular ischemic', 'venous stasis',
+                // Macular conditions
+                'macular edema', 'cme', 'cystoid macular', 'irvine-gass',
+                'central serous', 'csr', 'csc', 'cscr', 'pachychoroid',
+                'myopic maculopathy', 'pathological myopia', 'macular atrophy',
+                'epiretinal', 'macular dystrophy', 'vitelliform', 'best disease',
+                'stargardt', 'pattern dystrophy',
+                // Other medical retina
+                'retinitis pigmentosa', 'rp', 'rod-cone', 'cone-rod', 'choroideremia',
+                'retinal dystrophy', 'inherited retinal', 'ird',
+                'hypertensive retinopathy', 'radiation retinopathy', 'solar retinopathy',
+                'chloroquine', 'hydroxychloroquine', 'drug toxicity retina',
+                // Anti-VEGF related
+                'anti-vegf', 'intravitreal injection', 'aflibercept', 'ranibizumab',
+                'bevacizumab', 'faricimab', 'brolucizumab'
+            ], chapter: 'medical_retina'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // CORNEA & EXTERNAL - Corneal conditions & ocular surface
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Infections
+                'keratitis', 'corneal ulcer', 'microbial keratitis', 'bacterial keratitis',
+                'fungal keratitis', 'acanthamoeba', 'herpetic keratitis', 'hsv keratitis',
+                'herpes simplex', 'herpes zoster ophthalmicus', 'hzo', 'disciform',
+                'dendrit', 'geographic ulcer',
+                // Dystrophies
+                'corneal dystrophy', 'fuchs', 'endothelial dystrophy', 'fced',
+                'keratoconus', 'pellucid', 'ectasia', 'corneal ectasia',
+                'lattice dystrophy', 'granular dystrophy', 'macular dystrophy',
+                'map-dot-fingerprint', 'ebmd', 'reis-bucklers', 'thiel-behnke',
+                'posterior polymorphous', 'congenital hereditary endothelial',
+                // Degenerations
+                'pterygium', 'pinguecula', 'band keratopathy', 'salzmann',
+                'terrien', 'mooren', 'dellen', 'arcus senilis',
+                // Dry eye & ocular surface
+                'dry eye', 'ded', 'meibomian gland', 'mgd', 'blepharitis',
+                'ocular surface disease', 'osd', 'tear film', 'schirmer',
+                'tbut', 'tear break-up', 'sjogren', 'sicca', 'gvhd ocular',
+                // Surgery
+                'corneal transplant', 'keratoplasty', 'pk', 'penetrating keratoplasty',
+                'dsaek', 'dsek', 'dmek', 'dalk', 'endothelial keratoplasty',
+                'corneal graft', 'graft rejection', 'graft failure',
+                'cross-linking', 'cxl', 'collagen cross', 'intacs', 'corneal ring',
+                // Other corneal
+                'corneal opacity', 'corneal scar', 'corneal edema', 'bullous keratopathy',
+                'exposure keratopathy', 'neurotrophic', 'persistent epithelial defect',
+                'recurrent erosion', 'epithelial basement membrane'
+            ], chapter: 'cornea'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // LENS & CATARACT
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Cataract types
+                'cataract', 'nuclear sclerosis', 'cortical cataract', 'posterior subcapsular',
+                'psc', 'mature cataract', 'hypermature', 'morgagnian', 'brunescent',
+                'white cataract', 'intumescent', 'traumatic cataract', 'congenital cataract',
+                'developmental cataract', 'metabolic cataract', 'drug-induced cataract',
+                // Surgery
+                'phacoemulsification', 'phaco', 'ecce', 'icce', 'sics', 'msics',
+                'femtosecond', 'flacs', 'cataract surgery', 'cataract extraction',
+                // IOL
+                'intraocular lens', 'iol', 'monofocal', 'multifocal', 'toric',
+                'edof', 'accommodating iol', 'iol calculation', 'biometry',
+                'iol power', 'a-constant', 'srk', 'barrett', 'holladay', 'haigis',
+                'piggyback iol', 'sulcus iol', 'secondary iol', 'scleral fixated',
+                // Complications
+                'posterior capsule opacification', 'pco', 'after-cataract',
+                'nd:yag capsulotomy', 'yag capsulotomy', 'pcr', 'posterior capsule rupture',
+                'vitreous loss', 'dropped nucleus', 'endophthalmitis', 'tass',
+                'cme post cataract', 'iol dislocation', 'iol decentration',
+                // Lens conditions
+                'lens', 'crystalline lens', 'ectopia lentis', 'lens subluxation',
+                'lens dislocation', 'marfan lens', 'homocystinuria', 'weill-marchesani',
+                'microspherophakia', 'lenticonus', 'lentiglobus', 'aphakia', 'pseudophakia',
+                'zonular weakness', 'zonulopathy'
+            ], chapter: 'lens'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // UVEITIS & OCULAR INFLAMMATION
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Anatomical classification
+                'uveitis', 'iritis', 'iridocyclitis', 'anterior uveitis', 'aau',
+                'intermediate uveitis', 'pars planitis', 'posterior uveitis',
+                'panuveitis', 'choroiditis', 'chorioretinitis', 'retinochoroiditis',
+                // Specific entities
+                'hla-b27', 'ankylosing spondylitis', 'reactive arthritis', 'psoriatic',
+                'inflammatory bowel', 'crohn', 'ulcerative colitis',
+                'behcet', 'sarcoid', 'sarcoidosis', 'vogt-koyanagi-harada', 'vkh',
+                'sympathetic ophthalmia', 'birdshot', 'multifocal choroiditis', 'mcp',
+                'serpiginous', 'acute posterior multifocal', 'apmppe', 'mewds',
+                'punctate inner choroidopathy', 'pic', 'white dot syndrome',
+                // Infectious uveitis
+                'toxoplasm', 'toxocara', 'cmv retinitis', 'cytomegalovirus',
+                'herpes uveitis', 'arn', 'acute retinal necrosis', 'porn',
+                'tuberculosis uveitis', 'tb uveitis', 'ocular tb', 'syphilitic uveitis',
+                'endogenous endophthalmitis', 'fungal endophthalmitis',
+                // Signs & complications
+                'hypopyon', 'keratic precipitate', 'kp', 'mutton fat', 'stellate',
+                'synechia', 'posterior synechia', 'peripheral anterior synechia',
+                'iris bombe', 'seclusio pupillae', 'cyclitic membrane',
+                'band keratopathy uveitis', 'uveitic glaucoma', 'uveitic cataract',
+                // Treatment-related
+                'immunosuppression', 'steroid-sparing', 'biologic', 'adalimumab', 'infliximab'
+            ], chapter: 'uveitis'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // STRABISMUS & OCULAR MOTILITY
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Types of strabismus
+                'strabismus', 'squint', 'heterotropia', 'esotropia', 'exotropia',
+                'hypertropia', 'hypotropia', 'infantile esotropia', 'accommodative',
+                'non-accommodative', 'partially accommodative', 'sensory strabismus',
+                'consecutive', 'divergence excess', 'convergence insufficiency',
+                'convergence excess', 'divergence insufficiency',
+                // Specific patterns
+                'a-pattern', 'v-pattern', 'duane syndrome', 'duane retraction',
+                'brown syndrome', 'superior oblique palsy', 'inferior oblique overaction',
+                'double elevator palsy', 'monocular elevation deficiency',
+                'congenital fibrosis', 'cfeom', 'mobius',
+                // Motility & binocularity
+                'ocular motility', 'eom', 'extraocular muscle', 'eye movement',
+                'binocular vision', 'binocular single vision', 'bsv', 'diplopia',
+                'suppression', 'anomalous correspondence', 'arc',
+                // Amblyopia
+                'amblyopia', 'lazy eye', 'anisometropic', 'strabismic amblyopia',
+                'deprivation amblyopia', 'occlusion therapy', 'penalization',
+                // Assessment & surgery
+                'cover test', 'prism cover', 'hirschberg', 'krimsky',
+                'hess chart', 'lancaster', 'diplopia chart',
+                'strabismus surgery', 'recession', 'resection', 'transposition',
+                'adjustable suture', 'botulinum strabismus'
+            ], chapter: 'strabismus'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // PAEDIATRIC OPHTHALMOLOGY
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // General paediatric
+                'paediatric', 'pediatric', 'child', 'children', 'infant', 'neonatal',
+                'congenital', 'developmental', 'hereditary eye',
+                // ROP
+                'retinopathy of prematurity', 'rop', 'zone i', 'zone ii', 'plus disease',
+                'threshold rop', 'pre-threshold', 'aggressive rop', 'arop',
+                // Congenital conditions
+                'congenital cataract', 'congenital glaucoma', 'buphthalmos',
+                'persistent fetal vasculature', 'pfv', 'phpv', 'coloboma',
+                'aniridia', 'peters anomaly', 'axenfeld-rieger', 'anterior segment dysgenesis',
+                // Childhood conditions
+                'leukocoria', 'white pupil', 'red reflex', 'bruckner',
+                'nasolacrimal duct obstruction', 'nldo', 'dacryocele', 'congenital dacryocystocele',
+                'childhood blindness', 'cortical visual impairment', 'cvi',
+                // Genetic/metabolic
+                'retinoblastoma', 'coats disease', 'norrie', 'familial exudative',
+                'fevr', 'incontinentia pigmenti', 'albinism ocular'
+            ], chapter: 'paediatric'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // ORBIT & OCULOPLASTICS - ORBIT
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Thyroid eye disease
+                'thyroid eye disease', 'ted', 'graves ophthalmopathy', 'graves orbitopathy',
+                'dysthyroid', 'thyroid-associated', 'tao', 'exophthalmos', 'proptosis',
+                'lid retraction thyroid', 'compressive optic neuropathy', 'con',
+                'orbital decompression',
+                // Orbital inflammation
+                'orbital cellulitis', 'preseptal cellulitis', 'postseptal',
+                'orbital abscess', 'subperiosteal abscess', 'cavernous sinus thrombosis',
+                'idiopathic orbital inflammation', 'orbital pseudotumor', 'tolosa-hunt',
+                'igg4-related', 'dacryoadenitis', 'myositis orbital',
+                // Orbital tumors
+                'orbital tumor', 'orbital mass', 'lacrimal gland tumor',
+                'cavernous hemangioma', 'lymphangioma', 'dermoid', 'orbital dermoid',
+                'optic nerve glioma', 'optic nerve meningioma', 'orbital meningioma',
+                'rhabdomyosarcoma', 'orbital lymphoma', 'orbital metastasis',
+                // Trauma & other
+                'orbital fracture', 'blow-out fracture', 'medial wall fracture',
+                'floor fracture', 'enophthalmos', 'orbital reconstruction',
+                'orbital hemorrhage', 'retrobulbar hemorrhage',
+                'orbit', 'orbital anatomy', 'extraocular muscle anatomy'
+            ], chapter: 'orbit'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // OCULOPLASTICS - LIDS
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Lid position
+                'ptosis', 'blepharoptosis', 'congenital ptosis', 'aponeurotic ptosis',
+                'myogenic ptosis', 'neurogenic ptosis', 'mechanical ptosis',
+                'ectropion', 'entropion', 'cicatricial ectropion', 'involutional',
+                'paralytic ectropion', 'spastic entropion',
+                'lid retraction', 'lagophthalmos', 'exposure keratopathy lid',
+                // Lid tumors
+                'eyelid tumor', 'lid tumor', 'basal cell carcinoma', 'bcc',
+                'squamous cell carcinoma eyelid', 'sebaceous carcinoma',
+                'meibomian gland carcinoma', 'merkel cell', 'eyelid melanoma',
+                'chalazion', 'hordeolum', 'stye', 'lid cyst', 'dermoid cyst lid',
+                'papilloma lid', 'xanthelasma', 'syringoma',
+                // Inflammation
+                'blepharitis', 'anterior blepharitis', 'posterior blepharitis',
+                'meibomian gland dysfunction', 'mgd', 'rosacea ocular',
+                'demodex', 'preseptal', 'lid margin disease',
+                // Structural
+                'trichiasis', 'distichiasis', 'madarosis', 'epicanthus',
+                'telecanthus', 'blepharophimosis', 'coloboma lid', 'ankyloblepharon',
+                'floppy eyelid syndrome', 'dermatochalasis',
+                // Surgery
+                'blepharoplasty', 'ptosis surgery', 'levator', 'muller muscle',
+                'frontalis sling', 'tarsal strip', 'lid reconstruction',
+                'mohs', 'hughes flap', 'cutler-beard', 'lid sharing',
+                'botulinum toxin lid', 'facial palsy', 'bell palsy eye'
+            ], chapter: 'lids'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // LACRIMAL SYSTEM
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                'lacrimal', 'tear duct', 'nasolacrimal', 'nldo',
+                'dacryocystitis', 'dacryocystocele', 'dacryoadenitis',
+                'epiphora', 'watery eye', 'tearing', 'lacrimation',
+                'punctal stenosis', 'punctum', 'canalicular', 'canaliculitis',
+                'dcr', 'dacryocystorhinostomy', 'endonasal dcr', 'external dcr',
+                'jones tube', 'lacrimal stent', 'intubation lacrimal',
+                'lacrimal gland', 'lacrimal sac', 'lacrimal drainage',
+                'dry eye lacrimal', 'tear production', 'reflex tearing'
+            ], chapter: 'lacrimal'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // CONJUNCTIVA
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                'conjunctivitis', 'red eye', 'pink eye', 'viral conjunctivitis',
+                'bacterial conjunctivitis', 'allergic conjunctivitis',
+                'vernal keratoconjunctivitis', 'vkc', 'atopic keratoconjunctivitis', 'akc',
+                'giant papillary', 'gpc', 'seasonal allergic', 'perennial allergic',
+                'chlamydial', 'trachoma', 'ophthalmia neonatorum', 'gonococcal',
+                'adenoviral', 'epidemic keratoconjunctivitis', 'ekc',
+                'subconjunctival hemorrhage', 'chemosis', 'follicles', 'papillae',
+                'pinguecula', 'conjunctival degeneration',
+                'ocular cicatricial pemphigoid', 'ocp', 'mucous membrane pemphigoid',
+                'stevens-johnson syndrome', 'sjs', 'toxic epidermal', 'ten',
+                'symblepharon', 'fornix shortening', 'conjunctival scarring',
+                'conjunctival tumor', 'ocular surface squamous', 'ossn', 'cin',
+                'conjunctival melanoma', 'conjunctival nevus', 'pan'
+            ], chapter: 'conjunctiva'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // SCLERA
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                'scleritis', 'episcleritis', 'anterior scleritis', 'posterior scleritis',
+                'nodular scleritis', 'necrotizing scleritis', 'scleromalacia',
+                'diffuse scleritis', 'scleral inflammation',
+                'blue sclera', 'scleral thinning', 'staphyloma',
+                'scleral buckle complication', 'scleral perforation'
+            ], chapter: 'sclera'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // REFRACTIVE SURGERY & ERRORS
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Refractive errors
+                'refractive error', 'refraction', 'ametropia',
+                'myopia', 'short-sighted', 'near-sighted', 'high myopia', 'pathological myopia',
+                'hyperopia', 'hypermetropia', 'long-sighted', 'far-sighted',
+                'astigmatism', 'regular astigmatism', 'irregular astigmatism',
+                'anisometropia', 'aniseikonia', 'presbyopia',
+                // Refractive surgery
+                'lasik', 'lasek', 'prk', 'photorefractive', 'smile', 'relex',
+                'femtosecond laser refractive', 'excimer', 'refractive surgery',
+                'enhancement', 'retreatment', 'regression',
+                'icl', 'phakic iol', 'implantable collamer', 'artisan', 'artiflex',
+                'refractive lens exchange', 'rle', 'clear lens extraction',
+                // Complications
+                'ectasia post-lasik', 'dry eye post-lasik', 'flap complication',
+                'epithelial ingrowth', 'interface inflammation', 'dlk',
+                // Assessment
+                'wavefront', 'aberrometry', 'topography', 'tomography',
+                'keratometry', 'corneal power', 'axial length', 'biometry',
+                'spectacle', 'glasses', 'contact lens'
+            ], chapter: 'refractive'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // OCULAR TRAUMA
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                'ocular trauma', 'eye injury', 'eye trauma',
+                'open globe', 'ruptured globe', 'penetrating injury', 'perforating injury',
+                'closed globe', 'blunt trauma', 'contusion',
+                'foreign body', 'iofb', 'intraocular foreign body', 'corneal foreign body',
+                'hyphema', 'traumatic hyphema', 'eight ball hyphema',
+                'chemical burn', 'chemical injury', 'alkali burn', 'acid burn',
+                'thermal burn', 'radiation injury',
+                'commotio retinae', 'berlin edema', 'choroidal rupture',
+                'traumatic cataract', 'lens dislocation trauma', 'iridodialysis',
+                'cyclodialysis', 'angle recession', 'vitreous hemorrhage trauma',
+                'traumatic optic neuropathy', 'retinal detachment trauma',
+                'siderosis', 'chalcosis', 'sympathetic ophthalmia trauma'
+            ], chapter: 'trauma'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // OCULAR TUMORS
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Intraocular tumors
+                'uveal melanoma', 'choroidal melanoma', 'iris melanoma', 'ciliary body melanoma',
+                'choroidal nevus', 'iris nevus', 'choroidal metastasis', 'ocular metastasis',
+                'retinoblastoma', 'choroidal hemangioma', 'retinal hemangioblastoma',
+                'intraocular lymphoma', 'vitreoretinal lymphoma',
+                'melanocytoma', 'adenoma', 'medulloepithelioma',
+                // Treatments
+                'plaque brachytherapy', 'proton beam', 'gamma knife', 'stereotactic',
+                'transpupillary thermotherapy', 'ttt', 'photodynamic tumor',
+                'enucleation', 'evisceration', 'exenteration', 'orbital implant',
+                // General
+                'ocular tumor', 'intraocular tumor', 'eye cancer', 'ocular oncology'
+            ], chapter: 'tumours'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // OPHTHALMIC SURGERY & ANAESTHESIA
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Anaesthesia
+                'ophthalmic anaesthesia', 'ocular anesthesia', 'local anaesthetic',
+                'topical anaesthesia', 'sub-tenon', 'subtenon', 'peribulbar',
+                'retrobulbar', 'block', 'orbital block',
+                'general anaesthesia eye', 'sedation eye',
+                // Surgical principles
+                'surgical technique', 'intraoperative', 'perioperative',
+                'post-operative', 'postoperative', 'complication',
+                'surgical complication', 'informed consent',
+                'ophthalmic instruments', 'microsurgery', 'operating microscope',
+                // Specific mentions
+                'theatre', 'operating room', 'aseptic technique', 'sterile'
+            ], chapter: 'surgery_care'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // OPHTHALMIC LASERS
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                'laser', 'argon laser', 'yag laser', 'nd:yag',
+                'diode laser', 'green laser', 'micropulse',
+                'photocoagulation', 'panretinal photocoagulation', 'prp',
+                'focal laser', 'grid laser', 'macular laser',
+                'laser trabeculoplasty', 'slt', 'alt', 'selective laser',
+                'peripheral iridotomy', 'pi', 'laser iridotomy',
+                'yag capsulotomy', 'posterior capsulotomy',
+                'photodynamic therapy', 'pdt', 'verteporfin',
+                'laser retinopexy', 'barrage laser'
+            ], chapter: 'lasers'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // OCULAR PHARMACOLOGY & THERAPEUTICS
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Drug delivery
+                'eye drop', 'topical', 'intravitreal', 'subconjunctival',
+                'intracameral', 'periocular', 'sustained release', 'implant',
+                // Anti-infectives
+                'antibiotic eye', 'antifungal eye', 'antiviral eye',
+                'fluoroquinolone', 'aminoglycoside', 'chloramphenicol',
+                'acyclovir', 'ganciclovir', 'valganciclovir',
+                // Anti-inflammatories
+                'corticosteroid', 'prednisolone', 'dexamethasone',
+                'fluorometholone', 'loteprednol', 'difluprednate',
+                'nsaid eye', 'ketorolac', 'nepafenac', 'bromfenac',
+                // Glaucoma medications
+                'prostaglandin analogue', 'latanoprost', 'travoprost', 'bimatoprost',
+                'beta-blocker eye', 'timolol', 'betaxolol',
+                'alpha-agonist', 'brimonidine', 'apraclonidine',
+                'carbonic anhydrase inhibitor', 'dorzolamide', 'brinzolamide',
+                'acetazolamide', 'rho kinase', 'netarsudil',
+                // Other
+                'cycloplegic', 'mydriatic', 'miotic', 'pilocarpine',
+                'atropine', 'cyclopentolate', 'tropicamide', 'phenylephrine',
+                'artificial tears', 'lubricant', 'preservative-free',
+                'anti-vegf', 'vegf inhibitor', 'ranibizumab', 'aflibercept',
+                'bevacizumab', 'faricimab', 'ozurdex', 'iluvien',
+                'pharmacology', 'drug interaction', 'adverse effect', 'toxicity'
+            ], chapter: 'therapeutics'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // CLINICAL EXAMINATION SKILLS
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // History & examination
+                'history taking', 'clinical examination', 'ocular examination',
+                'systematic examination', 'ophthalmic assessment',
+                // Visual assessment
+                'visual acuity', 'snellen', 'logmar', 'etdrs', 'pinhole',
+                'near vision', 'reading addition', 'contrast sensitivity',
+                'colour vision', 'ishihara', 'farnsworth',
+                // Anterior segment
+                'slit lamp', 'biomicroscopy', 'anterior segment examination',
+                'external examination', 'lid examination',
+                // Posterior segment
+                'fundoscopy', 'ophthalmoscopy', 'direct ophthalmoscopy',
+                'indirect ophthalmoscopy', 'fundus examination', 'dilated examination',
+                '90d', '78d', 'volk lens', 'panfundoscope',
+                // IOP
+                'tonometry', 'goldmann tonometry', 'applanation', 'icare',
+                'tonopen', 'non-contact tonometry',
+                // Gonioscopy
+                'gonioscopy', 'angle examination', 'shaffer', 'spaeth',
+                // Other
+                'confrontation field', 'amsler grid', 'red desaturation',
+                'swinging flashlight', 'cover test examination'
+            ], chapter: 'clinical_skills'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // OPHTHALMIC INVESTIGATIONS
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                // Imaging
+                'oct', 'optical coherence tomography', 'oct-a', 'octa',
+                'angiography', 'ffa', 'fluorescein angiography', 'fa',
+                'icg', 'indocyanine green', 'fundus autofluorescence', 'faf',
+                'fundus photography', 'colour fundus', 'red-free',
+                'ultrasound eye', 'b-scan', 'a-scan', 'ubm', 'ultrasound biomicroscopy',
+                'ct orbit', 'mri orbit', 'neuroimaging',
+                // Corneal assessment
+                'topography', 'tomography', 'pentacam', 'orbscan', 'galilei',
+                'scheimpflug', 'placido', 'keratometry', 'pachymetry',
+                'specular microscopy', 'endothelial cell count',
+                // Visual field
+                'perimetry', 'visual field', 'humphrey', 'octopus', 'goldmann perimetry',
+                'automated perimetry', 'kinetic perimetry', 'esterman',
+                // Electrophysiology
+                'electrophysiology', 'erg', 'electroretinogram', 'full-field erg',
+                'pattern erg', 'multifocal erg', 'vep', 'visual evoked potential',
+                'eog', 'electro-oculogram',
+                // Biometry
+                'biometry', 'iol master', 'lenstar', 'axial length measurement',
+                // Other
+                'exophthalmometry', 'hertel', 'tear osmolarity', 'meibography'
+            ], chapter: 'investigations'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // EVIDENCE-BASED OPHTHALMOLOGY
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                'clinical trial', 'randomized controlled', 'rct', 'evidence-based',
+                'systematic review', 'meta-analysis', 'cochrane',
+                'guideline', 'nice guideline', 'aao preferred practice',
+                'drcr', 'catt trial', 'comparison trial', 'areds', 'areds2',
+                'emgt', 'ohts', 'agis', 'cigts', 'cntgs',
+                'etdrs', 'drs', 'ukpds', 'dcct', 'field study',
+                'marina', 'anchor', 'view', 'rise', 'ride', 'vivid', 'vista',
+                'hawk', 'harrier', 'tenaya', 'lucerne'
+            ], chapter: 'evidence'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // AIDS TO DIAGNOSIS
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                'signs', 'symptoms', 'differential diagnosis', 'grading', 'classification',
+                'staging', 'diagnostic criteria', 'clinical pearls', 'mnemonic',
+                'syndrome', 'triad', 'pathognomonic', 'epidemiology'
+            ], chapter: 'aids'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // VISION IN CONTEXT
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                'dvla', 'driving', 'visual standards', 'driving vision',
+                'cvi', 'certificate of visual impairment', 'registration', 'blind registration',
+                'low vision', 'lva', 'visual aid', 'rehabilitation',
+                'occupational', 'screening', 'public health',
+                'quality of life', 'prom', 'patient reported'
+            ], chapter: 'vision_context'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // ANATOMY
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                'anatomy', 'anatomical', 'orbital anatomy', 'ocular anatomy', 'globe anatomy',
+                'extraocular muscles', 'annulus of zinn', 'tenon', 'fascia',
+                'lacrimal gland anatomy', 'eyelid anatomy', 'conjunctival anatomy',
+                'corneal layers', 'bowman', 'descemet', 'endothelium anatomy',
+                'uveal tract', 'choroid anatomy', 'ciliary body anatomy', 'iris anatomy',
+                'retinal layers', 'photoreceptor layer', 'rpe anatomy', 'bruch membrane',
+                'optic nerve anatomy', 'lamina cribrosa', 'circle of zinn-haller',
+                'blood supply', 'arterial supply', 'venous drainage', 'orbital apex',
+                'superior orbital fissure', 'inferior orbital fissure', 'optic canal',
+                'cavernous sinus', 'orbital walls', 'periorbita', 'septum anatomy',
+                'muscle origin', 'muscle insertion', 'nerve supply', 'innervation',
+                'embryology', 'development of eye', 'ocular development'
+            ], chapter: 'anatomy'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // OPTICS
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                'optics', 'optical', 'refraction', 'refractive index', 'snell', 'vergence',
+                'dioptre', 'diopter', 'focal length', 'focal point', 'conjugate',
+                'prism', 'prism dioptre', 'prentice', 'total internal reflection',
+                'critical angle', 'dispersion', 'chromatic aberration', 'spherical aberration',
+                'astigmatism optics', 'sturm conoid', 'circle of least confusion',
+                'thin lens', 'thick lens', 'lens equation', 'lens formula', 'power of lens',
+                'convex lens', 'concave lens', 'converging', 'diverging',
+                'mirror', 'concave mirror', 'convex mirror', 'mirror equation',
+                'telescopes', 'galilean', 'keplerian', 'microscope optics',
+                'direct ophthalmoscope optics', 'indirect ophthalmoscope optics',
+                'slit lamp optics', 'gonioscopy optics', 'goniolens',
+                'wavefront', 'zernike', 'higher order aberrations', 'coma', 'trefoil',
+                'jackson cross cylinder', 'retinoscopy optics', 'streak retinoscope',
+                'keratometry', 'iol calculation', 'iol power', 'srk', 'haigis', 'holladay',
+                'optical coherence', 'interferometry', 'low coherence',
+                'diffraction', 'interference', 'polarization'
+            ], chapter: 'optics'
+        },
+
+        // ══════════════════════════════════════════════════════════════════
+        // PHYSIOLOGY
+        // ══════════════════════════════════════════════════════════════════
+        {
+            keywords: [
+                'physiology', 'physiological', 'aqueous humour physiology', 'aqueous production',
+                'aqueous outflow', 'trabecular outflow', 'uveoscleral outflow',
+                'tear film physiology', 'tear production', 'lacrimal secretion', 'tear breakup',
+                'corneal physiology', 'corneal transparency', 'corneal hydration',
+                'lens physiology', 'accommodation', 'presbyopia physiology',
+                'pupil physiology', 'pupillary pathway', 'light reflex', 'near reflex',
+                'dark adaptation', 'light adaptation', 'phototransduction',
+                'visual cycle', 'retinol', 'rhodopsin', '11-cis retinal',
+                'colour vision', 'color vision', 'trichromatic', 'opponent process',
+                'contrast sensitivity', 'visual acuity physiology',
+                'electrophysiology', 'erg', 'electroretinogram', 'vep', 'eog',
+                'pattern erg', 'multifocal erg', 'flash erg',
+                'retinal metabolism', 'photoreceptor physiology', 'rod physiology', 'cone physiology',
+                'blood-retinal barrier', 'blood-aqueous barrier',
+                'circadian rhythm', 'melatonin eye', 'iprgc', 'melanopsin'
+            ], chapter: 'physiology'
+        },
+    ];
+
+    // SCORING-BASED MATCHING: Count keyword hits per category
+    // Multi-word phrases get higher weight; short terms use word-boundary matching
+    const scores = {};
+    const shortTermMinLength = 4; // Terms shorter than this need word-boundary matching
+
+    for (const rule of rules) {
+        let score = 0;
+        for (const keyword of rule.keywords) {
+            if (keyword.length < shortTermMinLength) {
+                // Short terms (e.g., 'rop', 'amd', 'iop') - use word boundary regex to avoid false matches
+                const regex = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+                if (regex.test(titleLower)) {
+                    score += keyword.includes(' ') ? 3 : 2; // Multi-word phrases score higher
+                }
+            } else {
+                if (titleLower.includes(keyword)) {
+                    // Longer keywords are more specific and reliable
+                    score += keyword.includes(' ') ? 3 : 1; // Multi-word phrases score higher
+                }
+            }
+        }
+        if (score > 0) {
+            scores[rule.chapter] = (scores[rule.chapter] || 0) + score;
+        }
+    }
+
+    // Find the chapter with the highest score
+    let bestChapter = 'uncategorized';
+    let bestScore = 0;
+    for (const [chapter, score] of Object.entries(scores)) {
+        if (score > bestScore) {
+            bestScore = score;
+            bestChapter = chapter;
+        }
+    }
+
+    return bestChapter;
+}
+
+// Auto-Sync to Server Logic
+// Track if we've already shown the GitHub Pages message
+let _gitHubPagesMessageShown = false;
+
+async function syncLibraryToServer() {
+    if (isCapacitorNativeApp()) {
+        console.log("Native mobile app detected - server sync disabled; library is kept in local IndexedDB.");
+        return;
+    }
+
+    // Skip sync on GitHub Pages (static hosting, no backend)
+    if (isGitHubPages()) {
+        // Only log once per session to avoid console spam
+        if (!_gitHubPagesMessageShown) {
+            console.log("GitHub Pages detected - server sync disabled (expected behavior for static hosting)");
+            _gitHubPagesMessageShown = true;
+        }
+        return;
+    }
+
+    if (window.location.protocol === 'file:') {
+        // Try to sync anyway via localhost API
+    }
+    const libraryData = JSON.stringify(getLibraryCache());
+    console.log("Syncing library to server...");
+    try {
+        const response = await safeFetch('api/library/upload', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: libraryData
+        });
+        if (response.ok) {
+            console.log("Library synced to server successfully.");
+        } else {
+            console.error("Failed to sync library:", response.statusText);
+        }
+    } catch (err) {
+        console.error("Error syncing library:", err);
+    }
+}
+
+function setupKnowledgeBase() {
+    const saveBtn = document.getElementById('save-btn');
+    const libraryBtn = document.getElementById('library-btn');
+    const libraryBtnEmpty = document.getElementById('library-btn-empty');
+    const modal = document.getElementById('library-modal');
+    const closeBtn = document.getElementById('close-modal-btn');
+    const listContainer = document.getElementById('saved-items-list');
+    const importBtn = document.getElementById('import-server-btn');
+    const exportBtn = document.getElementById('export-server-btn');
+    const emptyMsg = document.getElementById('empty-library-msg');
+
+    let currentChapterFilter = 'all';
+    let currentSearchTerm = ''; // NEW: Search state
+    let currentSortMode = 'date'; // 'date', 'name', 'chapter', 'vip'
+    let showBookmarkedOnly = false; // NEW: Bookmark filter state
+    let currentContentFilter = 'all'; // Content-type filter: tables, causes, etc.
+    let selectionMode = false;
+    let selectedItems = new Set();
+
+    // Content-type filter definitions
+    // Each filter scans section titles and content for matching keywords
+    const CONTENT_TYPE_FILTERS = [
+        { id: 'all', name: 'All Content', icon: 'apps' },
+        {
+            id: 'tables', name: 'Tables', icon: 'table_chart',
+            keywords: ['table', 'comparison', 'versus', 'vs', 'differential', 'grading', 'staging', 'classification', 'scoring'],
+            sectionTypes: ['table']
+        },
+        {
+            id: 'differential', name: 'Differential Diagnosis', icon: 'account_tree',
+            keywords: ['differential', 'diagnosis', 'ddx', 'vs', 'versus', 'distinguish', 'differentiate']
+        },
+        {
+            id: 'causes', name: 'Causes', icon: 'help_outline',
+            keywords: ['cause', 'aetiology', 'etiology', 'pathogenesis', 'pathophysiology', 'mechanism', 'risk factor', 'predisposing', 'associated with', 'due to']
+        },
+        {
+            id: 'clinical', name: 'Clinical Presentations', icon: 'medical_information',
+            keywords: ['clinical', 'presentation', 'symptom', 'sign', 'feature', 'manifestation', 'finding', 'examination', 'history', 'complaint', 'onset']
+        },
+        {
+            id: 'complications', name: 'Complications', icon: 'warning',
+            keywords: ['complication', 'adverse', 'side effect', 'sequelae', 'prognosis', 'outcome', 'morbidity', 'risk', 'deterioration', 'progression']
+        },
+        {
+            id: 'workup', name: 'Workup', icon: 'assignment',
+            keywords: ['workup', 'work-up', 'work up', 'assessment', 'evaluation', 'approach', 'algorithm', 'protocol', 'guideline', 'screening', 'triage']
+        },
+        {
+            id: 'investigations', name: 'Investigations', icon: 'biotech',
+            keywords: ['investigation', 'imaging', 'test', 'laboratory', 'lab', 'diagnostic', 'scan', 'oct', 'angiography', 'ultrasound', 'biopsy', 'blood test', 'xray', 'mri', 'ct']
+        },
+        {
+            id: 'treatment', name: 'Treatment', icon: 'medication',
+            keywords: ['treatment', 'management', 'therapy', 'drug', 'medication', 'surgical', 'operation', 'procedure', 'intervention', 'dose', 'dosage', 'regimen', 'protocol', 'conservative', 'medical', 'pharmacological', 'anti-vegf', 'laser', 'injection']
+        },
+    ];
+
+    // Toggle Export Button
+    function updateExportButtonVisibility() {
+        if (exportBtn) {
+            exportBtn.style.display = (selectionMode && selectedItems.size > 0) ? 'block' : 'none';
+        }
+    }
+
+    // EXPORT TO SERVER (or Community Pool for remote users)
+    if (exportBtn) {
+        exportBtn.addEventListener('click', async () => {
+            // Check removed to allow attempt
+            if (selectedItems.size === 0) return;
+
+            const library = getLibraryCache();
+            const itemsToExport = library.filter(item => selectedItems.has(item.id));
+
+            // REMOTE USER: Redirect to Community Pool instead of server
+            // No limit on number of items - users can submit as many as they want
+            if (isGitHubPages()) {
+                const itemWord = itemsToExport.length === 1 ? 'infographic' : 'infographics';
+                if (!confirm(`You are accessing remotely. ${itemsToExport.length} ${itemWord} will be published to the Community Hub and become available to everyone. Continue?`)) return;
+
+                const originalIcon = exportBtn.innerHTML;
+                exportBtn.innerHTML = '<span class="material-symbols-rounded">sync</span>';
+
+                try {
+                    // Prompt for username
+                    const savedUsername = localStorage.getItem('community_username') || '';
+                    const userName = prompt('Enter your name for the submissions:', savedUsername);
+
+                    if (!userName || !userName.trim()) {
+                        alert('A name is required for community submissions.');
+                        exportBtn.innerHTML = originalIcon;
+                        return;
+                    }
+
+                    localStorage.setItem('community_username', userName.trim());
+
+                    // PROGRESS BAR OVERLAY
+                    const progressOverlay = document.createElement('div');
+                    progressOverlay.className = 'progress-overlay';
+                    progressOverlay.style.cssText = 'position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 10000; flex-direction: column; color: white; backdrop-filter: blur(5px);';
+                    progressOverlay.innerHTML = `
+                        <div style="width: 320px; padding: 25px; background: #2c3e50; border-radius: 16px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                            <div class="spinner" style="margin: 0 auto 15px; width: 40px; height: 40px; border: 4px solid rgba(255,255,255,0.1); border-top-color: #2ecc71; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                            <h3 style="margin: 0 0 10px 0; font-size: 1.2rem;">Publishing to Community...</h3>
+                            <p style="margin: 0 0 15px 0; font-size: 0.9rem; opacity: 0.8;">Uploading ${itemsToExport.length} infographic${itemsToExport.length === 1 ? '' : 's'}</p>
+                            <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                                <div class="progress-bar-fill" style="width: 5%; height: 100%; background: #2ecc71; transition: width 0.3s ease; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                        <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+                    `;
+                    document.body.appendChild(progressOverlay);
+
+                    // Simulate progress for user feedback (since it's an atomic batch upload)
+                    let progress = 5;
+                    const fill = progressOverlay.querySelector('.progress-bar-fill');
+                    const progressInterval = setInterval(() => {
+                        if (progress < 90) {
+                            progress += Math.random() * 5; // Increment
+                            if (progress > 90) progress = 90;
+                            fill.style.width = `${progress}%`;
+                        }
+                    }, 100);
+
+                    try {
+                        // Submit multiple items at once
+                        if (typeof CommunitySubmissions === 'undefined') {
+                            throw new Error('Community module not loaded');
+                        }
+                        // Attach adhered Kanski images to each item before batch submission
+                        for (const item of itemsToExport) {
+                            if (item.kanskiMeta && item.kanskiMeta.length > 0) {
+                                const kanskiImgs = await loadKanskiFromIDB(item.title);
+                                if (kanskiImgs && kanskiImgs.length > 0) {
+                                    const itemData = item.data || item;
+                                    itemData.kanskiImages = kanskiImgs;
+                                    console.log(`[ExportSubmit] Attaching ${kanskiImgs.length} Kanski image(s) to "${item.title}"`);
+                                }
+                            }
+                        }
+
+                        const result = await CommunitySubmissions.submitMultiple(itemsToExport, userName.trim());
+
+                        clearInterval(progressInterval);
+                        fill.style.width = '100%';
+
+                        // Small delay to let user see 100%
+                        await new Promise(r => setTimeout(r, 400));
+
+                        if (result.success) {
+                            const msg = `✅ ${result.count} infographic${result.count === 1 ? '' : 's'} published successfully!`;
+                            alert(msg + '\n\nThey are now live in the Community Hub.');
+                            selectionMode = false;
+                            selectedItems.clear();
+                            renderLibraryList();
+                        } else {
+                            alert(`Submission failed: ${result.message}`);
+                        }
+                    } catch (err) {
+                        console.error('Community submission error:', err);
+                        alert('Error submitting to the Community Hub: ' + err.message);
+                    } finally {
+                        if (document.body.contains(progressOverlay)) {
+                            document.body.removeChild(progressOverlay);
+                        }
+                        exportBtn.innerHTML = originalIcon;
+                    }
+                    return;
+                } catch (e) {
+                    console.error('Submission wrapper error:', e);
+                }
+            }
+
+            // LOCAL SERVER: Original behavior
+            if (!confirm(`Export ${selectedItems.size} selected items to the server knowledge base?`)) return;
+
+            const originalIcon = exportBtn.innerHTML;
+            exportBtn.innerHTML = '<span class="material-symbols-rounded">sync</span>';
+
+            try {
+                const response = await safeFetch('api/library/upload', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(itemsToExport)
+                });
+
+                if (response.ok) {
+                    alert('Export successful!');
+                    selectionMode = false;
+                    selectedItems.clear();
+                    renderLibraryList();
+                } else {
+                    alert('Failed to export to server.');
+                }
+            } catch (err) {
+                console.error('Export error:', err);
+                alert('Error connecting to server.');
+            } finally {
+                exportBtn.innerHTML = originalIcon;
+            }
+        });
+    }
+
+    // REFACTORED: Unified Sync Function
+    async function syncFromServer(silent = false) {
+        if (window.location.protocol === 'file:') {
+            console.log("Running in file:// mode. Attempting to connect to localhost server...");
+        }
+
+        const originalIcon = importBtn ? importBtn.innerHTML : '';
+        if (importBtn) importBtn.innerHTML = '<span class="material-symbols-rounded">sync</span>';
+
+        try {
+            let serverItems = [];
+            let communityApproved = [];
+
+            // GitHub Pages: Use static JSON file instead of API
+            if (isGitHubPages()) {
+                console.log("Running on GitHub Pages. Fetching from static library index...");
+                serverItems = await fetchLibraryFromStatic();
+                if (serverItems.length === 0 && !silent) {
+                    console.log("No items found in static library index.");
+                }
+
+                // Also fetch approved community submissions (the cloud pool)
+                try {
+                    if (typeof CommunitySubmissions !== 'undefined' && CommunitySubmissions.isConfigured()) {
+                        console.log("Fetching approved community submissions...");
+                        const communityData = await CommunitySubmissions.getAll();
+                        communityApproved = communityData.approved || [];
+                        if (communityApproved.length > 0) {
+                            console.log(`Found ${communityApproved.length} approved community infographics.`);
+                        }
+
+                        // SYNC DELETION LOGIC (Remote Users)
+                        if (CommunitySubmissions.getDeletedItems) {
+                            const deletedItems = await CommunitySubmissions.getDeletedItems();
+                            if (deletedItems && deletedItems.length > 0) {
+                                let localLibrary = getLibraryCache();
+                                const normalizeTitle = (t) => (t || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+                                const originalLength = localLibrary.length;
+
+                                localLibrary = localLibrary.filter(item => {
+                                    const normTitle = normalizeTitle(item.title);
+                                    if (deletedItems.includes(normTitle)) {
+                                        console.log(`[Sync] Removing deleted item: ${item.title}`);
+                                        return false;
+                                    }
+                                    return true;
+                                });
+
+                                if (localLibrary.length < originalLength) {
+                                    saveLibraryToIDB(localLibrary);
+                                    if (!silent) alert('Some items were deleted by the admin and have been removed from your library.');
+                                }
+                            }
+                        }
+                    }
+                } catch (communityErr) {
+                    console.log("Could not fetch community submissions:", communityErr.message);
+                }
+            } else {
+                // Local/Server mode: Use API
+                const response = await safeFetch('api/library/list');
+                if (response.ok) {
+                    serverItems = await response.json();
+                } else {
+                    throw new Error('API response not ok');
+                }
+            }
+
+            // Merge community approved items into serverItems for unified processing
+            // Convert community format to library format
+            if (communityApproved.length > 0) {
+                console.log(`[Sync] processing ${communityApproved.length} community items`);
+                communityApproved.forEach(submission => {
+                    if (submission.data) {
+                        // PRIORITY: Use submission.chapterId (set by original user), fallback to nested data
+                        // This ensures categorization syncs to all users
+                        const syncedChapterId = submission.chapterId || submission.data.chapterId || 'uncategorized';
+
+                        const libraryItem = {
+                            id: submission.id || Date.now(),
+                            title: submission.title || submission.data.title || 'Community Infographic',
+                            summary: submission.summary || submission.data.summary || '',
+                            date: submission.approvedAt || submission.submittedAt || new Date().toISOString(),
+                            data: submission.data,
+                            chapterId: syncedChapterId, // Use synced category from original user
+                            communitySource: true, // Mark as from community
+                            author: submission.userName,
+                            citation: submission.userName ? `Author: ${submission.userName}` : 'Community Contributor',
+                            serverId: submission.id
+                        };
+
+                        // Only auto-categorize if still uncategorized after checking both sources
+                        if (libraryItem.chapterId === 'uncategorized') {
+                            libraryItem.chapterId = autoDetectChapter(libraryItem.title);
+                        }
+
+                        serverItems.push(libraryItem);
+                    }
+                });
+            }
+
+            if (serverItems.length > 0 || isGitHubPages()) {
+                let localLibrary = getLibraryCache();
+                let addedCount = 0;
+                let updatedCount = 0;
+                let skippedDuplicates = 0;
+                let deletedCount = 0;
+                const skippedTitles = [];
+                const deletedTitles = [];
+
+                // ADMIN DELETION SYNC: Check for items deleted by admin
+                // Remote users will have these items removed from their library
+                try {
+                    if (typeof CommunitySubmissions !== 'undefined' && CommunitySubmissions.getDeletedItems) {
+                        const deletedItems = await CommunitySubmissions.getDeletedItems();
+                        if (deletedItems && deletedItems.length > 0) {
+                            const normalizeTitle = (t) => (t || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+                            const originalLength = localLibrary.length;
+
+                            localLibrary = localLibrary.filter(item => {
+                                const normTitle = normalizeTitle(item.title);
+                                if (deletedItems.includes(normTitle)) {
+                                    deletedTitles.push(item.title?.substring(0, 30) || 'Unknown');
+                                    return false; // Remove this item
+                                }
+                                return true; // Keep this item
+                            });
+
+                            deletedCount = originalLength - localLibrary.length;
+                            if (deletedCount > 0) {
+                                console.log(`[Sync] Removed ${deletedCount} item(s) deleted by admin.`);
+                                saveLibraryToIDB(localLibrary);
+                            }
+                        }
+                    }
+                } catch (err) {
+                    console.log('Could not check for admin deletions:', err.message);
+                }
+
+                // Create a map of local items for faster lookup (by ID)
+                const localMap = new Map();
+                localLibrary.forEach(item => {
+                    // Use ID if available, otherwise fallback to title+date as key (legacy support)
+                    const key = item.id || (item.title + item.date);
+                    localMap.set(String(key), item);
+                });
+
+                // DUPLICATE PREVENTION: Build a normalized title index for ALL local items
+                // This prevents importing ANY item with a duplicate title
+                const normalizeTitle = (t) => (t || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+                const localTitleIndex = new Set();
+                localLibrary.forEach(item => {
+                    const normTitle = normalizeTitle(item.title);
+                    if (normTitle.length > 0) {
+                        localTitleIndex.add(normTitle);
+                    }
+                });
+
+                // Get user's sync preference: 'local' (default) or 'server'
+                const syncPreference = typeof getSyncPreference === 'function' ? getSyncPreference() : 'local';
+                console.log(`[Sync] Using preference: ${syncPreference === 'local' ? 'Local First' : 'Server First'}`);
+
+                // Track what changed for detailed logging
+                const updateDetails = [];
+
+                // Helper function to normalize strings for comparison
+                // Aggressive normalization to prevent false positives
+                const normalizeStr = (str) => {
+                    if (!str) return '';
+                    return String(str)
+                        .trim()
+                        .normalize('NFC')
+                        .replace(/\s+/g, ' ')  // Collapse multiple spaces
+                        .replace(/[\u200B-\u200D\uFEFF]/g, ''); // Remove zero-width chars
+                };
+
+                serverItems.forEach(serverItem => {
+                    const serverKey = String(serverItem.id || (serverItem.title + serverItem.date));
+
+                    if (localMap.has(serverKey)) {
+                        // Item exists locally. Check if we need to update.
+                        // We assume Server is the "Truth" for synchronization when fetching.
+                        const localItem = localMap.get(serverKey);
+
+                        // Check for REAL differences that matter
+                        const changes = [];
+
+                        // CHAPTER SYNC: Server is source of truth for chapters
+                        // BUT: We never revert a categorized item to 'uncategorized'
+                        const localChapter = normalizeStr(localItem.chapterId) || 'uncategorized';
+                        let serverChapter = normalizeStr(serverItem.chapterId) || 'uncategorized';
+
+                        // If server is uncategorized but local ALREADY has a category, preserve the local one
+                        if (serverChapter === 'uncategorized' && localChapter !== 'uncategorized') {
+                            serverChapter = localChapter;
+                            serverItem.chapterId = localItem.chapterId;
+                        } else if (serverChapter === 'uncategorized' && localChapter === 'uncategorized') {
+                            // Both are uncategorized, try auto-detecting from title
+                            const autoChapter = autoDetectChapter(serverItem.title || localItem.title);
+                            if (autoChapter !== 'uncategorized') {
+                                serverChapter = autoChapter;
+                                serverItem.chapterId = autoChapter;
+                            }
+                        }
+
+                        if (localChapter !== serverChapter) {
+                            const chapters = getChapters();
+                            const oldChapterName = chapters.find(c => c.id === localChapter)?.name || localChapter;
+                            const newChapterName = chapters.find(c => c.id === serverChapter)?.name || serverChapter;
+                            changes.push(`chapter: ${oldChapterName} → ${newChapterName}`);
+                            localItem.chapterId = serverItem.chapterId;
+                            // Mark as recently updated for visual feedback
+                            localItem._chapterUpdated = Date.now();
+                        }
+
+                        // SYNC PREFERENCE HANDLING:
+                        // 'local' (default): Keep local data, only sync metadata
+                        // 'server': Overwrite local with server data
+                        if (syncPreference === 'server') {
+                            // SERVER FIRST: Always accept server's version
+                            if (localItem.title !== serverItem.title) {
+                                changes.push(`title updated`);
+                                localItem.title = serverItem.title;
+                            }
+                            if (localItem.summary !== serverItem.summary) {
+                                localItem.summary = serverItem.summary;
+                            }
+                            // Overwrite local data with server data
+                            localItem.data = serverItem.data;
+                            localItem._serverSynced = true;
+                        } else {
+                            // LOCAL FIRST: Only update if first sync or if local has no data
+                            if (!localItem._serverSynced) {
+                                // First time syncing this item - accept server values
+                                if (localItem.title !== serverItem.title) {
+                                    localItem.title = serverItem.title;
+                                }
+                                if (localItem.summary !== serverItem.summary) {
+                                    localItem.summary = serverItem.summary;
+                                }
+                                localItem.data = serverItem.data;
+                                localItem._serverSynced = true;
+                            }
+                            // If already synced, keep local version (Local First behavior)
+                        }
+
+                        // Preserve local seqId if it exists, otherwise use server's or generate new
+                        if (!localItem.seqId && serverItem.seqId) localItem.seqId = serverItem.seqId;
+
+                        if (changes.length > 0) {
+                            updatedCount++;
+                            updateDetails.push({ title: serverItem.title?.substring(0, 30), changes });
+                        }
+                    } else {
+                        // New Item from Server - CHECK FOR DUPLICATES FIRST
+                        // Use pre-built title index for fast duplicate detection
+                        const serverTitleNorm = normalizeTitle(serverItem.title);
+
+                        // Check if this title already exists in local library
+                        const isDuplicate = serverTitleNorm.length > 0 && localTitleIndex.has(serverTitleNorm);
+
+                        if (isDuplicate) {
+                            // Skip this item - it's a duplicate
+                            skippedDuplicates++;
+                            skippedTitles.push(serverItem.title?.substring(0, 30) || 'Untitled');
+                            console.log(`[Sync] Skipping duplicate: "${serverItem.title}"`);
+                        } else {
+                            // Not a duplicate - safe to add
+                            // CRITICAL: Strip the server's seqId so we assign a new LOCAL one
+                            const newItem = { ...serverItem };
+                            delete newItem.seqId;
+
+                            // PRESERVE CHAPTER: Keep the original category as submitted
+                            // Priority: communitySource chapterId > data.chapterId > auto-detect
+                            if (!newItem.chapterId || newItem.chapterId === 'uncategorized') {
+                                if (newItem.data && newItem.data.chapterId && newItem.data.chapterId !== 'uncategorized') {
+                                    newItem.chapterId = newItem.data.chapterId;
+                                } else {
+                                    const autoChapter = autoDetectChapter(newItem.title);
+                                    newItem.chapterId = autoChapter;
+                                }
+                            }
+                            // Sync tag: ensure data.chapterId matches the item chapterId
+                            if (newItem.data && newItem.chapterId !== 'uncategorized') {
+                                newItem.data.chapterId = newItem.chapterId;
+                            }
+
+                            // Mark as newly imported for green hashtag display
+                            newItem._newlyImported = Date.now();
+
+                            localLibrary.push(newItem);
+                            addedCount++;
+
+                            // Add to title index to prevent duplicates within same sync batch
+                            if (serverTitleNorm.length > 0) {
+                                localTitleIndex.add(serverTitleNorm);
+                            }
+                        }
+                    }
+                });
+
+                if (addedCount > 0 || updatedCount > 0 || assignSequentialIds(localLibrary)) {
+                    // Sort by date desc
+                    localLibrary.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    saveLibraryToIDB(localLibrary);
+                    renderLibraryList();
+                    if (!silent) {
+                        const msg = [];
+                        if (addedCount) msg.push(`${addedCount} new`);
+                        if (updatedCount) msg.push(`${updatedCount} updated`);
+                        if (deletedCount) msg.push(`${deletedCount} removed (admin deleted)`);
+                        if (skippedDuplicates) msg.push(`${skippedDuplicates} skipped (duplicates)`);
+
+                        // Build detailed message showing what was updated
+                        let detailMsg = `Sync Complete: ${msg.join(', ')}.`;
+
+                        if (updateDetails.length > 0) {
+                            detailMsg += '\n\nUpdated items:';
+                            updateDetails.slice(0, 10).forEach(item => {
+                                detailMsg += `\n• ${item.title}... (${item.changes.join(', ')})`;
+                            });
+                            if (updateDetails.length > 10) {
+                                detailMsg += `\n...and ${updateDetails.length - 10} more`;
+                            }
+                        }
+
+                        if (deletedTitles.length > 0) {
+                            detailMsg += '\n\nRemoved by admin:';
+                            deletedTitles.slice(0, 5).forEach(title => {
+                                detailMsg += `\n• ${title}...`;
+                            });
+                            if (deletedTitles.length > 5) {
+                                detailMsg += `\n...and ${deletedTitles.length - 5} more`;
+                            }
+                        }
+
+                        if (skippedTitles.length > 0) {
+                            detailMsg += '\n\nSkipped duplicates:';
+                            skippedTitles.slice(0, 5).forEach(title => {
+                                detailMsg += `\n• ${title}...`;
+                            });
+                            if (skippedTitles.length > 5) {
+                                detailMsg += `\n...and ${skippedTitles.length - 5} more`;
+                            }
+                        }
+
+                        alert(detailMsg);
+                    }
+
+                    // Detailed logging for debugging
+                    console.log(`Auto-Sync: Imported ${addedCount}, Updated ${updatedCount}, Skipped ${skippedDuplicates} duplicates.`);
+                    if (updateDetails.length > 0) {
+                        console.log('Updated items:');
+                        updateDetails.forEach(item => {
+                            console.log(`  • "${item.title}..." - ${item.changes.join(', ')}`);
+                        });
+                    }
+                    if (skippedTitles.length > 0) {
+                        console.log('Skipped duplicates:');
+                        skippedTitles.forEach(title => {
+                            console.log(`  • "${title}..." (already in library)`);
+                        });
+                    }
+                } else if (skippedDuplicates > 0) {
+                    // Only duplicates were found, nothing new to add
+                    if (!silent) {
+                        let msg = `Sync Complete: ${skippedDuplicates} item(s) skipped (already in library).`;
+                        if (skippedTitles.length > 0) {
+                            msg += '\n\nSkipped duplicates:';
+                            skippedTitles.slice(0, 5).forEach(title => {
+                                msg += `\n• ${title}...`;
+                            });
+                            if (skippedTitles.length > 5) {
+                                msg += `\n...and ${skippedTitles.length - 5} more`;
+                            }
+                        }
+                        alert(msg);
+                    }
+                    console.log(`Auto-Sync: Skipped ${skippedDuplicates} duplicates (already in library).`);
+                } else {
+                    if (!silent) alert('Library is up to date.');
+                    console.log("Auto-Sync: Library is up to date (no changes needed).");
+                }
+
+                // BIDIRECTIONAL SYNC: Upload local-only items to server
+                // Also upload items that are newer locally? 
+                // For now, let's just upload items that don't exist on server.
+                // Re-read server items to be sure (or just use the list we got)
+                const serverIdMap = new Set(serverItems.map(i => String(i.id || (i.title + i.date))));
+
+                const localOnlyItems = localLibrary.filter(localItem =>
+                    !serverIdMap.has(String(localItem.id || (localItem.title + localItem.date)))
+                );
+
+                // Also identify items that exist but might be newer locally? 
+                // That requires "Last Modified" timestamp which we don't have reliably yet.
+                // So we only push NEW items. Updates MUST be triggered manually by "Save" or "Rename" pushing.
+
+                // BIDIRECTIONAL SYNC: Only for non-GitHub Pages (requires backend)
+                if (!isGitHubPages() && localOnlyItems.length > 0) {
+                    try {
+                        await safeFetch('api/library/upload', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(localOnlyItems)
+                        });
+                        console.log(`Bidirectional Sync: Uploaded ${localOnlyItems.length} local-only items to server.`);
+                    } catch (uploadErr) {
+                        console.log('Bidirectional Sync: Could not upload local items:', uploadErr.message);
+                    }
+                }
+            }
+        } catch (err) {
+            if (!silent) {
+                console.error('Import error:', err);
+                if (!isGitHubPages()) {
+                    alert('Error connecting to server.');
+                }
+            } else {
+                console.log("Auto-Sync: Could not connect to server (backend likely offline or running on static hosting).");
+            }
+        } finally {
+            if (importBtn) importBtn.innerHTML = originalIcon;
+        }
+    }
+
+    // Sync Button Logic
+    const syncBtn = document.getElementById('sync-btn');
+
+    // SILENT DUPLICATE CLEANUP ON STARTUP
+    // This removes any existing duplicates from localStorage without showing alerts
+    (function silentDuplicateCleanup() {
+        try {
+            const library = getLibraryCache();
+            if (library.length === 0) return;
+
+            const normalizeTitle = (t) => (t || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+            const seenTitles = new Map(); // normalized title -> index of first occurrence
+            const indicesToRemove = new Set();
+
+            // Find duplicates (keep the OLDER one based on date)
+            library.forEach((item, index) => {
+                const normTitle = normalizeTitle(item.title);
+                if (normTitle.length === 0) return;
+
+                if (seenTitles.has(normTitle)) {
+                    // Duplicate found - compare dates to keep the older one
+                    const existingIndex = seenTitles.get(normTitle);
+                    const existingDate = new Date(library[existingIndex].date);
+                    const currentDate = new Date(item.date);
+
+                    if (currentDate < existingDate) {
+                        // Current is older, we are keeping 'item' (index) and removing library[existingIndex]
+                        // Transfer category if keeping uncategorized but removing categorized
+                        if ((!library[index].chapterId || library[index].chapterId === 'uncategorized') &&
+                            (library[existingIndex].chapterId && library[existingIndex].chapterId !== 'uncategorized')) {
+                            library[index].chapterId = library[existingIndex].chapterId;
+                        }
+                        indicesToRemove.add(existingIndex);
+                        seenTitles.set(normTitle, index);
+                    } else {
+                        // Existing is older, we are keeping library[existingIndex] and removing 'item' (index)
+                        // Transfer category if keeping uncategorized but removing categorized
+                        if ((!library[existingIndex].chapterId || library[existingIndex].chapterId === 'uncategorized') &&
+                            (item.chapterId && item.chapterId !== 'uncategorized')) {
+                            library[existingIndex].chapterId = item.chapterId;
+                        }
+                        indicesToRemove.add(index);
+                    }
+                } else {
+                    seenTitles.set(normTitle, index);
+                }
+            });
+
+            if (indicesToRemove.size > 0) {
+                // Remove duplicates
+                const cleanedLibrary = library.filter((_, index) => !indicesToRemove.has(index));
+
+                // Reassign sequential IDs
+                reassignSequentialIds(cleanedLibrary);
+
+                saveLibraryToIDB(cleanedLibrary);
+                console.log(`[Startup] Silently removed ${indicesToRemove.size} duplicate(s) from library.`);
+            }
+        } catch (err) {
+            console.error('[Startup] Duplicate cleanup error:', err);
+        }
+    })();
+
+    // AUTO-SYNC ON STARTUP
+    setTimeout(() => {
+        syncFromServer(true); // Run silently
+    }, 1000); // Small delay to ensure UI is ready
+
+    // Sync Button Click Listener
+    if (syncBtn) {
+        syncBtn.addEventListener('click', () => {
+            syncBtn.classList.add('rotating');
+            syncFromServer(false).finally(() => {
+                syncBtn.classList.remove('rotating');
+            });
+        });
+    }
+
+    // IMPORT BUTTON HANDLER
+    if (importBtn) {
+        importBtn.addEventListener('click', async () => {
+            if (!confirm('Import saved infographics from the server? This will add any missing items.')) return;
+            await syncFromServer(false);
+        });
+    }
+
+    // FIND DUPLICATES
+    const findDuplicatesBtn = document.getElementById('find-duplicates-btn');
+    if (findDuplicatesBtn) {
+        findDuplicatesBtn.addEventListener('click', () => {
+            const library = getLibraryCache();
+
+            if (library.length === 0) {
+                alert('Library is empty. No duplicates to find.');
+                return;
+            }
+
+            // Normalize title for comparison
+            const normalizeTitle = (title) => {
+                if (!title) return '';
+                return String(title).trim().toLowerCase().normalize('NFC');
+            };
+
+            // Find duplicates by title
+            const titleMap = new Map();
+            const duplicates = [];
+
+            library.forEach((item, index) => {
+                const normalizedTitle = normalizeTitle(item.title);
+
+                if (titleMap.has(normalizedTitle)) {
+                    // Found a duplicate
+                    const originalIndex = titleMap.get(normalizedTitle);
+                    duplicates.push({
+                        title: item.title,
+                        duplicateId: item.id,
+                        duplicateIndex: index,
+                        originalId: library[originalIndex].id,
+                        originalIndex: originalIndex,
+                        duplicateDate: item.date,
+                        originalDate: library[originalIndex].date
+                    });
+                } else {
+                    titleMap.set(normalizedTitle, index);
+                }
+            });
+
+            if (duplicates.length === 0) {
+                alert('✅ No duplicates found! Your library is clean.');
+                return;
+            }
+
+            // Build message showing duplicates
+            let msg = `Found ${duplicates.length} duplicate(s):\n\n`;
+            duplicates.forEach((dup, i) => {
+                const dupDate = new Date(dup.duplicateDate).toLocaleDateString();
+                const origDate = new Date(dup.originalDate).toLocaleDateString();
+                msg += `${i + 1}. "${dup.title}"\n   - Original: ${origDate}\n   - Duplicate: ${dupDate}\n\n`;
+            });
+            msg += `\nDelete all ${duplicates.length} duplicate(s)? (Keeps the older/original version)`;
+
+            if (confirm(msg)) {
+
+
+                // Get IDs to delete (the newer duplicates)
+                const idsToDelete = new Set(duplicates.map(d => d.duplicateId));
+
+                // Transfer categories before deleting
+                duplicates.forEach(dup => {
+                    const originalItem = library[dup.originalIndex];
+                    const duplicateItem = library[dup.duplicateIndex];
+
+                    // If original is uncategorized but duplicate is categorized, transfer the category
+                    if ((!originalItem.chapterId || originalItem.chapterId === 'uncategorized') &&
+                        (duplicateItem.chapterId && duplicateItem.chapterId !== 'uncategorized')) {
+                        originalItem.chapterId = duplicateItem.chapterId;
+                    }
+                });
+
+                // Filter out duplicates
+                const cleanedLibrary = library.filter(item => !idsToDelete.has(item.id));
+
+                // Reassign sequential IDs
+                reassignSequentialIds(cleanedLibrary);
+
+                saveLibraryToIDB(cleanedLibrary);
+
+                alert(`✅ Deleted ${duplicates.length} duplicate(s). Library now has ${cleanedLibrary.length} items.`);
+
+                // Refresh the library view
+                renderLibraryList();
+
+                // Sync to server
+                syncLibraryToServer();
+            }
+        });
+    }
+
+    // MERGE SIMILAR TOPICS
+    const mergeSimilarBtn = document.getElementById('merge-similar-btn');
+    if (mergeSimilarBtn) {
+        mergeSimilarBtn.addEventListener('click', async () => {
+            const library = getLibraryCache();
+
+            if (library.length < 2) {
+                alert('Library needs at least 2 items to find similar topics.');
+                return;
+            }
+
+            // Simple stop words for keyword extraction
+            const stopWords = new Set(['the', 'and', 'or', 'of', 'to', 'in', 'a', 'an', 'is', 'for', 'on', 'with', 'as', 'by', 'at', 'from']);
+            const getKeywords = (text) => {
+                if (!text) return new Set();
+                const words = String(text).toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/);
+                return new Set(words.filter(w => w.length > 2 && !stopWords.has(w)));
+            };
+
+            const computeJaccard = (setA, setB) => {
+                const intersection = new Set([...setA].filter(x => setB.has(x)));
+                const union = new Set([...setA, ...setB]);
+                return union.size === 0 ? 0 : intersection.size / union.size;
+            };
+
+            // Pre-calculate keywords for all items
+            const itemKeywords = library.map(item => ({
+                id: item.id,
+                keywords: getKeywords((item.title || '') + ' ' + (item.summary || ''))
+            }));
+
+            // Find clusters of similar infographics
+            const processedIndices = new Set();
+            const clusters = [];
+            const SIMILARITY_THRESHOLD = 0.35; // Fine-tune as needed (0 to 1)
+
+            for (let i = 0; i < library.length; i++) {
+                if (processedIndices.has(i)) continue;
+
+                const currentCluster = [i];
+                for (let j = i + 1; j < library.length; j++) {
+                    if (processedIndices.has(j)) continue;
+
+                    const sim = computeJaccard(itemKeywords[i].keywords, itemKeywords[j].keywords);
+                    if (sim >= SIMILARITY_THRESHOLD) {
+                        currentCluster.push(j);
+                        processedIndices.add(j);
+                    }
+                }
+                
+                if (currentCluster.length > 1) {
+                    clusters.push(currentCluster);
+                }
+                // Mark initial item as processed whether it formed a cluster or not
+                processedIndices.add(i);
+                // Also mark all items in cluster as processed just to be sure
+                currentCluster.forEach(idx => processedIndices.add(idx));
+            }
+
+            if (clusters.length === 0) {
+                alert('✅ No similar topics found! Your library is distinct.');
+                return;
+            }
+
+            let msg = `Found ${clusters.length} group(s) of similar topics:\n\n`;
+            clusters.forEach((cluster, idx) => {
+                msg += `Group ${idx + 1}:\n`;
+                cluster.forEach(itemIdx => {
+                    msg += ` - ${library[itemIdx].title}\n`;
+                });
+                msg += '\n';
+            });
+            msg += 'Do you want to merge these groups into combined infographics?';
+
+            if (confirm(msg)) {
+                const deleteOriginals = confirm('Do you want to delete the original infographics after merging? Select OK to delete them, Cancel to keep them alongside the merged version.');
+
+                let mergedCount = 0;
+                let idsToDelete = new Set();
+                const newItems = [];
+
+                clusters.forEach(cluster => {
+                    // Base item is the first one in the cluster
+                    const baseItem = JSON.parse(JSON.stringify(library[cluster[0]]));
+                    baseItem.id = Date.now() + Math.floor(Math.random() * 1000) + mergedCount; // Ensure unique new ID
+                    baseItem.title = "Merged: " + baseItem.title;
+                    baseItem.date = new Date().toISOString();
+                    
+                    if (!baseItem.data) baseItem.data = {};
+                    if (!baseItem.data.sections) baseItem.data.sections = [];
+                    
+                    if (deleteOriginals) idsToDelete.add(library[cluster[0]].id);
+
+                    // Tracking existing sections to avoid duplicates based on CONTENT only
+                    const existingContents = new Set(
+                        baseItem.data.sections.map(s => JSON.stringify(s.content))
+                    );
+
+                    // Append sections from the other similar items
+                    for (let i = 1; i < cluster.length; i++) {
+                        const otherItem = library[cluster[i]];
+                        if (otherItem.data && otherItem.data.sections) {
+                            // Filter out sections that already exist in the baseItem
+                            const uniqueSections = otherItem.data.sections.filter(section => {
+                                const secContentStr = JSON.stringify(section.content);
+                                
+                                // Only deduplicate based on actual content, not generic titles
+                                if (existingContents.has(secContentStr)) {
+                                    return false; // It's a duplicate, skip it
+                                }
+                                
+                                existingContents.add(secContentStr);
+                                return true;
+                            });
+
+                            if (uniqueSections.length > 0) {
+                                // Add a separator only if there are unique sections to add
+                                baseItem.data.sections.push({
+                                    title: `--- Sub-topics from: ${otherItem.title} ---`,
+                                    icon: "merge",
+                                    type: "plain_text",
+                                    layout: "full_width",
+                                    color_theme: "blue",
+                                    content: otherItem.summary || "Additional merged content."
+                                });
+                                baseItem.data.sections.push(...uniqueSections);
+                            }
+                        }
+                        if (deleteOriginals) idsToDelete.add(otherItem.id);
+                    }
+
+                    newItems.push(baseItem);
+                    mergedCount++;
+                });
+
+                let cleanedLibrary = library;
+                if (deleteOriginals) {
+                    cleanedLibrary = library.filter(item => !idsToDelete.has(item.id));
+                }
+                
+                // Add the newly merged items back into the library
+                cleanedLibrary = [...cleanedLibrary, ...newItems];
+
+                reassignSequentialIds(cleanedLibrary);
+                saveLibraryToIDB(cleanedLibrary);
+
+                alert(`✅ Merged ${mergedCount} group(s). Library updated.`);
+                renderLibraryList();
+                syncLibraryToServer();
+
+                // Delete originals from server as well if chosen
+                if (deleteOriginals && idsToDelete.size > 0) {
+                    try {
+                        await fetch('/api/library/delete', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ ids: Array.from(idsToDelete) })
+                        });
+                    } catch (e) {
+                        console.error('Failed to notify server of deleted originals', e);
+                    }
+                }
+            }
+        });
+    }
+
+    // AUTO-CHAPTERIZE
+    const autoChapterBtn = document.getElementById('auto-chapter-btn');
+    if (autoChapterBtn) {
+        autoChapterBtn.addEventListener('click', () => {
+
+
+            const library = getLibraryCache();
+
+            if (library.length === 0) {
+                alert('Library is empty. Nothing to chapterize.');
+                return;
+            }
+
+            let changedCount = 0;
+            const changes = [];
+
+            library.forEach(item => {
+                // Only auto-chapterize if currently uncategorized
+                if (item.chapterId === 'uncategorized' || !item.chapterId) {
+                    const detectedChapter = autoDetectChapter(item.title);
+                    if (detectedChapter !== 'uncategorized') {
+                        const oldChapter = item.chapterId || 'uncategorized';
+                        item.chapterId = detectedChapter;
+                        changedCount++;
+
+                        // Get chapter name for display
+                        const chapterObj = DEFAULT_CHAPTERS.find(c => c.id === detectedChapter);
+                        changes.push({
+                            title: item.title.substring(0, 40),
+                            chapter: chapterObj ? chapterObj.name : detectedChapter
+                        });
+                    }
+                }
+            });
+
+            if (changedCount === 0) {
+                alert('✅ All items are already categorized or no matches found.');
+                return;
+            }
+
+            // Build summary message
+            let msg = `Auto-chapterized ${changedCount} item(s):\n\n`;
+            changes.slice(0, 15).forEach((c, i) => {
+                msg += `${i + 1}. "${c.title}..." → ${c.chapter}\n`;
+            });
+            if (changes.length > 15) {
+                msg += `\n...and ${changes.length - 15} more`;
+            }
+            msg += '\n\nApply these changes?';
+
+            if (confirm(msg)) {
+                saveLibraryToIDB(library);
+                alert(`✅ ${changedCount} item(s) auto-chapterized!`);
+                renderLibraryList();
+                syncLibraryToServer();
+            }
+        });
+    }
+
+    // SAVE
+    if (saveBtn) {
+        saveBtn.addEventListener('click', async () => {
+            if (!currentInfographicData) {
+                alert("Only generated infographics can be saved.");
+                return;
+            }
+
+            const library = getLibraryCache();
+
+            // Auto-detect chapter from title
+            const itemTitle = currentInfographicData.title || "Untitled Infographic";
+            const autoChapter = autoDetectChapter(itemTitle);
+
+            // Sync chapterId into the infographic data so the tag renders correctly
+            if (autoChapter !== 'uncategorized') {
+                currentInfographicData.chapterId = autoChapter;
+            }
+
+            const newItem = {
+                id: Date.now(),
+                seqId: 1, // Will be reassigned below
+                title: itemTitle,
+                summary: currentInfographicData.summary || "",
+                date: new Date().toISOString(),
+                data: currentInfographicData,
+                chapterId: autoChapter // Auto-assigned based on title keywords
+            };
+
+            library.unshift(newItem);
+
+            // Reassign all sequential IDs (oldest = 1, newest = highest)
+            reassignSequentialIds(library);
+
+            saveLibraryToIDB(library);
+
+            if (isGitHubPages()) {
+                const wantsShare = confirm('Share this infographic to the Community Hub now? It will be published instantly for all visitors.');
+                if (wantsShare) {
+                    if (!window.CommunitySubmissions) {
+                        alert('Community module not loaded. Please refresh the page and try again.');
+                    } else {
+                        const savedUsername = localStorage.getItem('community_username') || '';
+                        const userName = prompt('Enter your name for the Community Hub (this will be public):', savedUsername);
+
+                        if (!userName || !userName.trim()) {
+                            alert('A name is required to publish to the Community Hub.');
+                        } else {
+                            localStorage.setItem('community_username', userName.trim());
+                            try {
+                                const result = await CommunitySubmissions.submit(newItem.data, userName.trim());
+                                if (result.success) {
+                                    alert(result.message || '✅ Published to the Community Hub!');
+
+                                    // IMMEDIATE RECOGNITION: Update local item to reflect community status
+                                    const library = getLibraryCache();
+                                    // Find the item we just added (it's at the top, index 0)
+                                    if (library.length > 0) {
+                                        library[0].communitySource = true;
+                                        library[0].author = userName.trim();
+                                        library[0].citation = `Author: ${userName.trim()}`;
+                                        library[0]._serverSynced = true; // Mark as synced since it's in the cloud
+                                        saveLibraryToIDB(library);
+                                        renderLibraryList(); // Refresh UI to show the "Author" tag
+                                    }
+                                } else {
+                                    alert(`Publish failed: ${result.message || 'Unknown error.'}`);
+                                }
+                            } catch (err) {
+                                console.error('Community publish error:', err);
+                                alert('Error publishing to the Community Hub: ' + err.message);
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Auto-upload to server so it saves to the library/ folder
+                safeFetch('api/library/upload', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify([newItem])
+                }).then(() => {
+                    console.log('Saved to server library folder.');
+                }).catch(err => {
+                    console.log('Server sync skipped (server offline):', err.message);
+                });
+            }
+
+            const originalIcon = saveBtn.innerHTML;
+            saveBtn.innerHTML = '<span class="material-symbols-rounded">check</span>';
+            setTimeout(() => {
+                saveBtn.innerHTML = originalIcon;
+                saveBtn.title = 'Save to Knowledge Base';
+            }, 2000);
+
+            // ── AUTO-ATTACH KANSKI IMAGES ──
+            // If a Kanski PDF has been cached (from any prior session), run
+            // topic-matching silently and permanently adhere the best clinical
+            // photos to the freshly saved library item. No user interaction needed.
+            // Fires in the background; does not block the UI.
+            if (typeof window.autoAttachKanskiOnSave === 'function' && !newItem.kanskiMeta) {
+                saveBtn.title = 'Checking Kanski library...';
+                window.autoAttachKanskiOnSave(newItem, { maxImages: 8 })
+                    .then(count => {
+                        if (!count) return;
+                        saveBtn.title = `Saved · ${count} Kanski image(s) attached`;
+                        try {
+                            const toast = document.createElement('div');
+                            toast.innerHTML = `<span class="material-symbols-rounded" style="vertical-align:middle;margin-right:6px;">photo_library</span>${count} Kanski photo${count === 1 ? '' : 's'} auto-attached`;
+                            toast.style.cssText = 'position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#0891b2,#0e7490);color:white;padding:12px 18px;border-radius:10px;z-index:100000;font-size:0.9rem;box-shadow:0 8px 24px rgba(0,0,0,0.25);font-weight:500;display:flex;align-items:center;';
+                            document.body.appendChild(toast);
+                            setTimeout(() => {
+                                toast.style.transition = 'opacity 0.4s, transform 0.4s';
+                                toast.style.opacity = '0';
+                                toast.style.transform = 'translateY(10px)';
+                                setTimeout(() => toast.remove(), 450);
+                            }, 3500);
+                        } catch {}
+                    })
+                    .catch(err => console.warn('[Save] Kanski auto-attach error:', err));
+            }
+        });
+    }
+
+    // OPEN LIBRARY
+    const openLibrary = () => {
+        // Guest Access Fix: Auto-sync if library is empty
+        const library = getLibraryCache();
+        if (library.length === 0) {
+            console.log("Library empty. Triggering auto-sync for guest access...");
+            syncFromServer(true); // Silent sync
+        }
+
+        renderLibraryList();
+        modal.classList.add('active');
+        
+        // Auto-scroll to last opened item
+        setTimeout(() => {
+            const highlightedItem = document.querySelector('.last-opened-highlight');
+            if (highlightedItem) {
+                highlightedItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 100);
+    };
+
+    if (libraryBtn) {
+        libraryBtn.addEventListener('click', openLibrary);
+    }
+
+    if (libraryBtnEmpty) {
+        libraryBtnEmpty.addEventListener('click', openLibrary);
+    }
+
+    // Sidebar library button (below text entry)
+    const sidebarLibraryBtn = document.getElementById('sidebar-library-btn');
+    if (sidebarLibraryBtn) {
+        sidebarLibraryBtn.addEventListener('click', openLibrary);
+    }
+
+    // CLOSE LIBRARY
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            selectionMode = false;
+            selectedItems.clear();
+        });
+    }
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                selectionMode = false;
+                selectedItems.clear();
+            }
+        });
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    // CONTENT FILTER MODAL — displays matching section text like red flags
+    // ═══════════════════════════════════════════════════════════════
+    function openContentFilterModal(filterType, library) {
+        const filterDef = CONTENT_TYPE_FILTERS.find(f => f.id === filterType);
+        if (!filterDef || !filterDef.keywords) return;
+
+        // Helper: safely extract text from section content
+        // Handles ALL section types: key_point, process, red_flag, mindmap,
+        // remember, chart, table, and unknown structures via deep extraction.
+        function extractSectionText(section) {
+            if (!section || section.content === undefined || section.content === null) return [];
+            const lines = [];
+            try {
+                const content = section.content;
+
+                // 1) Plain string content (default section type)
+                if (typeof content === 'string') {
+                    if (content.trim()) lines.push(content);
+                }
+                // 2) Array content (key_point, process, red_flag, etc.)
+                else if (Array.isArray(content)) {
+                    content.forEach(c => {
+                        if (typeof c === 'string') {
+                            if (c.trim()) lines.push(c);
+                        } else if (c && typeof c === 'object') {
+                            // Objects with label/value (chart data items, etc.)
+                            if (c.label) lines.push(`${c.label}${c.value !== undefined ? ': ' + c.value : ''}`);
+                            else if (c.text) lines.push(c.text);
+                            else if (c.name) lines.push(c.name);
+                            else if (c.title) lines.push(c.title);
+                            else {
+                                // Generic object: collect all string values
+                                const vals = Object.values(c).filter(v => typeof v === 'string' && v.trim());
+                                if (vals.length > 0) lines.push(vals.join(' — '));
+                            }
+                        }
+                    });
+                }
+                // 3) Object content (chart, remember, mindmap, table, etc.)
+                else if (typeof content === 'object') {
+                    // Mindmap: center + branches
+                    if (content.center) lines.push(content.center);
+                    if (content.branches && Array.isArray(content.branches)) {
+                        content.branches.forEach(b => {
+                            if (typeof b === 'string') lines.push(b);
+                            else if (b && b.label) lines.push(b.label);
+                            else if (b && b.text) lines.push(b.text);
+                        });
+                    }
+
+                    // Remember/mnemonic
+                    if (content.mnemonic) lines.push(content.mnemonic);
+                    if (content.explanation) lines.push(content.explanation);
+
+                    // Chart data
+                    if (content.data && Array.isArray(content.data)) {
+                        content.data.forEach(d => {
+                            if (d.label) lines.push(`${d.label}${d.value !== undefined ? ': ' + d.value : ''}`);
+                        });
+                    }
+
+                    // Items array (generic)
+                    if (content.items && Array.isArray(content.items)) {
+                        content.items.forEach(it => {
+                            if (typeof it === 'string') lines.push(it);
+                            else if (it && it.text) lines.push(it.text);
+                            else if (it && it.label) lines.push(it.label);
+                            else if (it && it.name) lines.push(it.name);
+                        });
+                    }
+
+                    // Table: headers + rows
+                    if (content.headers && content.rows) {
+                        lines.push(content.headers.join(' | '));
+                        content.rows.forEach(row => {
+                            if (Array.isArray(row)) lines.push(row.join(' | '));
+                            else if (typeof row === 'string') lines.push(row);
+                        });
+                    }
+
+                    // Generic text-bearing keys
+                    if (content.description) lines.push(content.description);
+                    if (content.summary) lines.push(content.summary);
+                    if (content.text) lines.push(content.text);
+
+                    // Fallback: if nothing was extracted, do a deep walk
+                    if (lines.length === 0) {
+                        const deepExtract = (obj, depth) => {
+                            if (depth > 4) return; // prevent infinite recursion
+                            if (typeof obj === 'string' && obj.trim()) {
+                                lines.push(obj);
+                            } else if (Array.isArray(obj)) {
+                                obj.forEach(item => deepExtract(item, depth + 1));
+                            } else if (obj && typeof obj === 'object') {
+                                Object.values(obj).forEach(val => deepExtract(val, depth + 1));
+                            }
+                        };
+                        deepExtract(content, 0);
+                    }
+                }
+            } catch { /* ignore extraction errors */ }
+            return lines;
+        }
+
+        // ═══════════════════════════════════════════════════════════════
+        // PRECISE CONTENT MATCHING — title-first, strict keyword match
+        // Only shows sections whose TITLE directly indicates the filter
+        // type (e.g. "Causes", "Aetiology") or whose section type matches.
+        // Content-body keywords are only used as a secondary signal and
+        // require the keyword to appear prominently (not just once in
+        // passing). This prevents "treatment" sections from appearing
+        // under "causes" just because they mention "mechanism" once.
+        // ═══════════════════════════════════════════════════════════════
+
+        // Primary title keywords — the section title must contain one of these
+        const titlePrimary = {
+            causes: ['cause', 'aetiology', 'etiology', 'pathogenesis', 'pathophysiology', 'risk factor', 'predisposing', 'etiolog'],
+            clinical: ['clinical', 'presentation', 'symptom', 'sign', 'feature', 'manifestation', 'examination', 'finding'],
+            complications: ['complication', 'adverse', 'side effect', 'sequelae', 'prognosis', 'outcome'],
+            workup: ['workup', 'work-up', 'work up', 'assessment', 'evaluation', 'approach', 'algorithm', 'protocol'],
+            investigations: ['investigation', 'imaging', 'diagnostic', 'test', 'laboratory', 'scan', 'oct', 'angiography'],
+            treatment: ['treatment', 'management', 'therapy', 'medication', 'surgical', 'procedure', 'intervention', 'pharmacolog'],
+            tables: ['table', 'comparison', 'differential', 'classification', 'staging', 'grading', 'scoring'],
+        };
+
+        const primaryKws = titlePrimary[filterType] || filterDef.keywords;
+
+        const matchingItems = [];
+        library.forEach(item => {
+            try {
+                if (!item.data || !item.data.sections) return;
+                const sections = Array.isArray(item.data.sections) ? item.data.sections : [];
+                const matchedSections = [];
+
+                sections.forEach(section => {
+                    if (!section) return;
+                    const sTitle = (section.title || '').toLowerCase();
+
+                    let matched = false;
+
+                    // 1) Section type match (e.g. type === 'table')
+                    if (filterDef.sectionTypes && filterDef.sectionTypes.includes(section.type)) {
+                        matched = true;
+                    }
+
+                    // 2) PRIMARY: section title must contain a primary keyword
+                    if (!matched) {
+                        matched = primaryKws.some(kw => sTitle.includes(kw));
+                    }
+
+                    if (matched) {
+                        const textLines = extractSectionText(section);
+                        matchedSections.push({
+                            title: section.title || 'Untitled Section',
+                            type: section.type || 'unknown',
+                            lines: textLines
+                        });
+                    }
+                });
+
+                if (matchedSections.length > 0) {
+                    matchingItems.push({
+                        id: item.id,
+                        title: item.title,
+                        chapterId: item.chapterId || 'uncategorized',
+                        sections: matchedSections
+                    });
+                }
+            } catch { /* skip malformed items */ }
+        });
+
+        if (matchingItems.length === 0) {
+            alert(`No "${filterDef.name}" content found across your library.`);
+            return;
+        }
+
+        // Collect categories for the filter dropdown
+        const categoriesPresent = [...new Set(matchingItems.map(i => i.chapterId))];
+        const catOptions = categoriesPresent.map(cId => {
+            const ch = DEFAULT_CHAPTERS.find(c => c.id === cId);
+            return { id: cId, name: ch ? ch.name : cId, color: ch ? ch.color : '#64748b' };
+        }).sort((a, b) => a.name.localeCompare(b.name));
+
+        // Theme colors per filter type
+        const themeColors = {
+            tables: { bg: '#eff6ff', border: '#bfdbfe', header: '#2563eb', headerEnd: '#1d4ed8', accent: '#1e40af' },
+            causes: { bg: '#fefce8', border: '#fef08a', header: '#ca8a04', headerEnd: '#a16207', accent: '#854d0e' },
+            clinical: { bg: '#f0fdf4', border: '#bbf7d0', header: '#16a34a', headerEnd: '#15803d', accent: '#166534' },
+            complications: { bg: '#fef2f2', border: '#fecaca', header: '#ef4444', headerEnd: '#dc2626', accent: '#b91c1c' },
+            workup: { bg: '#faf5ff', border: '#e9d5ff', header: '#9333ea', headerEnd: '#7e22ce', accent: '#6b21a8' },
+            investigations: { bg: '#ecfeff', border: '#a5f3fc', header: '#0891b2', headerEnd: '#0e7490', accent: '#155e75' },
+            treatment: { bg: '#fff7ed', border: '#fed7aa', header: '#ea580c', headerEnd: '#c2410c', accent: '#9a3412' },
+        };
+        const theme = themeColors[filterType] || themeColors.tables;
+
+        // Create or reuse modal
+        let cfModal = document.getElementById('content-filter-modal');
+        if (!cfModal) {
+            cfModal = document.createElement('div');
+            cfModal.id = 'content-filter-modal';
+            cfModal.className = 'modal-overlay';
+            cfModal.innerHTML = `
+                <div class="modal-content modal-lg" id="cf-modal-inner" style="border: 2px solid ${theme.border};">
+                    <div class="modal-header" id="cf-modal-header" style="background: linear-gradient(135deg, ${theme.header} 0%, ${theme.headerEnd} 100%); color: white;">
+                        <h2 id="cf-modal-title" style="display: flex; align-items: center; gap: 8px;"></h2>
+                        <button id="close-cf-modal" class="icon-btn-ghost" style="color: white;">
+                            <span class="material-symbols-rounded">close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="cf-modal-body" style="max-height: 70vh; overflow-y: auto;"></div>
+                </div>
+            `;
+            document.body.appendChild(cfModal);
+
+            cfModal.querySelector('#close-cf-modal').addEventListener('click', () => {
+                cfModal.classList.remove('active');
+            });
+            cfModal.addEventListener('click', (e) => {
+                if (e.target === cfModal) cfModal.classList.remove('active');
+            });
+        }
+
+        // Update modal theme
+        const inner = cfModal.querySelector('#cf-modal-inner');
+        inner.style.border = `2px solid ${theme.header}`;
+        const header = cfModal.querySelector('#cf-modal-header');
+        header.style.background = `linear-gradient(135deg, ${theme.header} 0%, ${theme.headerEnd} 100%)`;
+
+        // Set title
+        cfModal.querySelector('#cf-modal-title').innerHTML = `
+            <span class="material-symbols-rounded">${filterDef.icon}</span>
+            ${filterDef.name}
+        `;
+
+        // Render body
+        const cfBody = cfModal.querySelector('#cf-modal-body');
+        const totalSections = matchingItems.reduce((sum, i) => sum + i.sections.length, 0);
+
+        cfBody.innerHTML = `
+            <!-- Category filter -->
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                <label style="font-weight: 600; color: ${theme.accent}; display: flex; align-items: center; gap: 4px;">
+                    <span class="material-symbols-rounded" style="font-size: 1.1rem;">filter_list</span>
+                    Filter by Category:
+                </label>
+                <select id="cf-category-filter" style="padding: 0.5rem 1rem; border: 1px solid ${theme.border}; border-radius: 8px; font-size: 0.9rem; background: white; color: #374151; min-width: 180px;">
+                    <option value="all">All Categories (${matchingItems.length})</option>
+                    ${catOptions.map(c => `<option value="${c.id}">${c.name} (${matchingItems.filter(i => i.chapterId === c.id).length})</option>`).join('')}
+                </select>
+            </div>
+            <p id="cf-count-text" style="margin-bottom: 1rem; color: ${theme.accent}; font-weight: 500;">
+                Found ${totalSections} matching section(s) across ${matchingItems.length} infographic(s):
+            </p>
+            ${matchingItems.map(item => {
+            const ch = DEFAULT_CHAPTERS.find(c => c.id === item.chapterId);
+            const catBadge = ch && item.chapterId !== 'uncategorized'
+                ? `<span style="display: inline-flex; align-items: center; gap: 3px; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; color: white; background: ${ch.color}; margin-left: 6px;"><span class="material-symbols-rounded" style="font-size: 11px;">folder</span>${ch.name}</span>`
+                : '';
+            return `
+                <div class="cf-card" data-chapter="${item.chapterId}" style="background: ${theme.bg}; border: 1px solid ${theme.border}; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                    <h3 style="color: ${theme.accent}; margin: 0 0 0.5rem 0; font-size: 1rem; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                        <span class="material-symbols-rounded" style="font-size: 1.2rem;">${filterDef.icon}</span>
+                        ${item.title.substring(0, 60)}${item.title.length > 60 ? '...' : ''}
+                        ${catBadge}
+                    </h3>
+                    ${item.sections.map(sec => `
+                        <div style="margin-bottom: 0.75rem; padding: 0.5rem 0.75rem; background: white; border-radius: 6px; border-left: 3px solid ${theme.header};">
+                            <div style="font-weight: 600; font-size: 0.85rem; color: ${theme.accent}; margin-bottom: 4px;">
+                                ${sec.title}
+                            </div>
+                            ${sec.lines.length > 0 ? `
+                                <ul style="margin: 0; padding-left: 1.25rem; color: #374151; font-size: 0.85rem;">
+                                    ${sec.lines.slice(0, 20).map(l => `<li style="margin-bottom: 3px;">${l}</li>`).join('')}
+                                    ${sec.lines.length > 20 ? `<li style="color: #94a3b8; font-style: italic;">...and ${sec.lines.length - 20} more items</li>` : ''}
+                                </ul>
+                            ` : '<p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">No text content extracted.</p>'}
+                        </div>
+                    `).join('')}
+                    <button class="btn-small cf-view-btn" data-item-id="${item.id}" style="margin-top: 0.5rem;">
+                        <span class="material-symbols-rounded">visibility</span>
+                        View Infographic
+                    </button>
+                </div>
+            `}).join('')}
+        `;
+
+        // Category filter: show/hide in-place
+        const cfFilter = cfBody.querySelector('#cf-category-filter');
+        const cfCountText = cfBody.querySelector('#cf-count-text');
+        if (cfFilter) {
+            cfFilter.addEventListener('change', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const sel = e.target.value;
+                let visCount = 0;
+                let secCount = 0;
+                cfBody.querySelectorAll('.cf-card').forEach(card => {
+                    if (sel === 'all' || card.dataset.chapter === sel) {
+                        card.style.display = '';
+                        visCount++;
+                        secCount += card.querySelectorAll('[style*="border-left"]').length;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                if (cfCountText) {
+                    const catName = sel !== 'all' ? catOptions.find(c => c.id === sel)?.name || sel : '';
+                    cfCountText.textContent = `Found ${secCount} matching section(s) across ${visCount} infographic(s)${catName ? ` in "${catName}"` : ''}:`;
+                }
+            });
+        }
+
+        // View infographic buttons
+        cfBody.querySelectorAll('.cf-view-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const itemId = parseInt(btn.dataset.itemId);
+                const lib = getLibraryCache();
+                const found = lib.find(i => i.id === itemId);
+                if (found && found.data) {
+                    if (found.chapterId) found.data.chapterId = found.chapterId;
+                    renderInfographic(found.data);
+                    cfModal.classList.remove('active');
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        cfModal.classList.add('active');
+    }
+
+    function renderLibraryList() {
+        const library = getLibraryCache();
+
+        // Ensure IDs are assigned (Migration check)
+        if (assignSequentialIds(library)) {
+            saveLibraryToIDB(library);
+        }
+
+        // Sync chapterId into data.chapterId for all items (ensures tag always matches)
+        let chapterSynced = false;
+        library.forEach(item => {
+            if (item.data && item.chapterId && item.data.chapterId !== item.chapterId) {
+                item.data.chapterId = item.chapterId;
+                chapterSynced = true;
+            }
+        });
+        if (chapterSynced) {
+            saveLibraryToIDB(library);
+        }
+
+        // Count badge - will be updated after filtering below
+        const countBadge = document.getElementById('library-count-badge');
+
+        // Detect uncategorized infographics
+        const uncategorizedCount = library.filter(item => !item.chapterId || item.chapterId === 'uncategorized').length;
+        let uncategorizedBanner = modal.querySelector('.uncategorized-banner');
+
+        if (uncategorizedCount > 0 && library.length > 0) {
+            if (!uncategorizedBanner) {
+                uncategorizedBanner = document.createElement('div');
+                uncategorizedBanner.className = 'uncategorized-banner';
+                const modalHeader = modal.querySelector('.modal-header');
+                if (modalHeader && modalHeader.nextSibling) {
+                    modalHeader.parentNode.insertBefore(uncategorizedBanner, modalHeader.nextSibling);
+                }
+            }
+            uncategorizedBanner.innerHTML = `
+                <span class="material-symbols-rounded">category</span>
+                <span><strong>${uncategorizedCount}</strong> infographic${uncategorizedCount > 1 ? 's' : ''} uncategorized</span>
+                <button class="btn-small btn-categorize-all" style="margin-left: auto;">
+                    <span class="material-symbols-rounded">auto_awesome</span>
+                    Auto-Categorize
+                </button>
+            `;
+            uncategorizedBanner.style.display = 'flex';
+
+            // Add click handler for auto-categorize button
+            const categorizeBtn = uncategorizedBanner.querySelector('.btn-categorize-all');
+            if (categorizeBtn) {
+                categorizeBtn.onclick = () => {
+                    const autoChapterBtn = document.getElementById('auto-chapter-btn');
+                    if (autoChapterBtn) {
+                        autoChapterBtn.click();
+                    }
+                };
+            }
+        } else if (uncategorizedBanner) {
+            uncategorizedBanner.style.display = 'none';
+        }
+
+        const chapters = getChapters();
+
+        // 1. Filter by Chapter
+        let filteredLibrary = currentChapterFilter === 'all'
+            ? library
+            : library.filter(item => item.chapterId === currentChapterFilter);
+
+        // 2. Filter by Search Term
+        if (currentSearchTerm) {
+            const term = currentSearchTerm.toLowerCase();
+            filteredLibrary = filteredLibrary.filter(item =>
+                (item.title || '').toLowerCase().includes(term) ||
+                (item.summary || '').toLowerCase().includes(term)
+            );
+        }
+
+        // 2.5 Filter by Bookmarked
+        if (showBookmarkedOnly) {
+            filteredLibrary = filteredLibrary.filter(item => item.bookmarked === true);
+        }
+
+        // 2.6 Filter by Content Type (tables, causes, clinical, etc.)
+        if (currentContentFilter !== 'all') {
+            const filterDef = CONTENT_TYPE_FILTERS.find(f => f.id === currentContentFilter);
+            if (filterDef && filterDef.keywords) {
+                filteredLibrary = filteredLibrary.filter(item => {
+                    try {
+                        if (!item.data || !item.data.sections) return false;
+                        const sections = Array.isArray(item.data.sections) ? item.data.sections : [];
+                        // Check section types first (e.g., table type)
+                        if (filterDef.sectionTypes) {
+                            const hasType = sections.some(s => s && filterDef.sectionTypes.includes(s.type));
+                            if (hasType) return true;
+                        }
+                        // Check section titles and content for keywords
+                        return sections.some(section => {
+                            if (!section) return false;
+                            const sTitle = (section.title || '').toLowerCase();
+                            let sContent = '';
+                            try {
+                                if (typeof section.content === 'string') {
+                                    sContent = section.content.toLowerCase();
+                                } else if (Array.isArray(section.content)) {
+                                    sContent = section.content
+                                        .map(c => typeof c === 'string' ? c : (c && c.label ? c.label : ''))
+                                        .join(' ').toLowerCase();
+                                } else if (section.content && typeof section.content === 'object') {
+                                    sContent = JSON.stringify(section.content).toLowerCase();
+                                }
+                            } catch { sContent = ''; }
+                            const combined = sTitle + ' ' + sContent;
+                            return filterDef.keywords.some(kw => combined.includes(kw));
+                        });
+                    } catch (err) {
+                        console.warn('Content filter error for item:', item.title, err);
+                        return false;
+                    }
+                });
+            }
+        }
+
+        // 3. Apply Sorting
+        if (currentSortMode === 'date') {
+            filteredLibrary.sort((a, b) => new Date(b.communityDate || b.date) - new Date(a.communityDate || a.date));
+        } else if (currentSortMode === 'read') {
+            filteredLibrary.sort((a, b) => {
+                const aVal = a.read ? 1 : 0;
+                const bVal = b.read ? 1 : 0;
+                if (aVal !== bVal) return aVal - bVal; // Unread (0) before Read (1)
+                return new Date(b.communityDate || b.date) - new Date(a.communityDate || a.date);
+            });
+        } else if (currentSortMode === 'name') {
+            filteredLibrary.sort((a, b) => {
+                const nameA = (a.title || '').toLowerCase();
+                const nameB = (b.title || '').toLowerCase();
+                return nameA.localeCompare(nameB);
+            });
+        } else if (currentSortMode === 'chapter') {
+            const chapterOrder = new Map(chapters.map((ch, idx) => [ch.id, idx]));
+            filteredLibrary.sort((a, b) => {
+                const idxA = chapterOrder.get(a.chapterId) ?? 999;
+                const idxB = chapterOrder.get(b.chapterId) ?? 999;
+                if (idxA !== idxB) return idxA - idxB;
+                // Secondary sort by date
+                return new Date(b.date) - new Date(a.date);
+            });
+        } else if (currentSortMode === 'vip') {
+            filteredLibrary.sort((a, b) => {
+                const aBookmarked = a.bookmarked ? 1 : 0;
+                const bBookmarked = b.bookmarked ? 1 : 0;
+                if (bBookmarked !== aBookmarked) return bBookmarked - aBookmarked;
+                return new Date(b.date) - new Date(a.date);
+            });
+        }
+
+        // Update count badge to show filtered vs total count
+        if (countBadge) {
+            const isFiltered = showBookmarkedOnly || currentChapterFilter !== 'all' || currentSearchTerm || currentContentFilter !== 'all';
+            if (isFiltered) {
+                countBadge.textContent = `${filteredLibrary.length} / ${library.length}`;
+            } else {
+                countBadge.textContent = library.length;
+            }
+            countBadge.style.display = library.length > 0 ? 'inline-block' : 'none';
+        }
+
+        // Build chapter filter tabs
+        const modalBody = modal.querySelector('.modal-body');
+
+        // Check if chapter tabs exist, if not create them
+        let chapterTabs = modal.querySelector('.chapter-tabs');
+        if (!chapterTabs) {
+            chapterTabs = document.createElement('div');
+            chapterTabs.className = 'chapter-tabs';
+            modalBody.insertBefore(chapterTabs, listContainer);
+        }
+
+        // Render chapter tabs
+        chapterTabs.innerHTML = `
+            <button class="chapter-tab ${currentChapterFilter === 'all' ? 'active' : ''}" data-chapter="all">
+                All
+            </button>
+            ${chapters.map(ch => `
+                <button class="chapter-tab ${currentChapterFilter === ch.id ? 'active' : ''}" 
+                        data-chapter="${ch.id}" 
+                        style="--chapter-color: ${ch.color}">
+                    ${ch.name}
+                </button>
+            `).join('')}
+        `;
+
+        // Chapter tab click handlers
+        chapterTabs.querySelectorAll('.chapter-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                currentChapterFilter = tab.dataset.chapter;
+                renderLibraryList();
+            });
+        });
+
+        // Selection toolbar & Search Bar
+        let toolbar = modal.querySelector('.selection-toolbar');
+        if (!toolbar) {
+            toolbar = document.createElement('div');
+            toolbar.className = 'selection-toolbar';
+            modalBody.insertBefore(toolbar, listContainer);
+        }
+
+        toolbar.innerHTML = `
+            <div class="toolbar-row" style="display: flex; gap: 10px; width: 100%; margin-bottom: 10px;">
+                <div class="search-wrapper" style="flex: 1; position: relative;">
+                    <span class="material-symbols-rounded" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 1.2rem;">search</span>
+                    <input type="text" id="library-search" placeholder="Search saved infographics..." value="${currentSearchTerm}" 
+                        style="width: 100%; padding: 8px 30px 8px 35px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem;">
+                    ${currentSearchTerm ? `
+                        <button id="clear-search-btn" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #94a3b8; padding: 2px; display: flex;">
+                            <span class="material-symbols-rounded" style="font-size: 1.2rem;">close</span>
+                        </button>
+                    ` : ''}
+                </div>
+                <div class="sort-wrapper">
+                    <select id="sort-select" style="padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.9rem; background-color: white; cursor: pointer;">
+                        <option value="date" ${currentSortMode === 'date' ? 'selected' : ''}>Sort by Date Added</option>
+                        <option value="name" ${currentSortMode === 'name' ? 'selected' : ''}>Sort by Name</option>
+                        <option value="read" ${currentSortMode === 'read' ? 'selected' : ''}>Sort by Read/Unread</option>
+                        <option value="chapter" ${currentSortMode === 'chapter' ? 'selected' : ''}>Sort by Chapter</option>
+                        <option value="vip" ${currentSortMode === 'vip' ? 'selected' : ''}>Sort by Bookmarked</option>
+                    </select>
+                </div>
+                <div class="content-filter-wrapper">
+                    <select id="content-type-filter" style="padding: 8px 10px; border: 1px solid ${currentContentFilter !== 'all' ? '#8b5cf6' : '#e2e8f0'}; border-radius: 6px; font-size: 0.9rem; background-color: ${currentContentFilter !== 'all' ? '#f5f3ff' : 'white'}; cursor: pointer; color: ${currentContentFilter !== 'all' ? '#6d28d9' : 'inherit'}; font-weight: ${currentContentFilter !== 'all' ? '600' : 'normal'};">
+                        ${CONTENT_TYPE_FILTERS.map(f => `<option value="${f.id}" ${currentContentFilter === f.id ? 'selected' : ''}>${f.name}</option>`).join('')}
+                    </select>
+                </div>
+                <div class="bookmark-filter-wrapper" style="display: flex; align-items: center; gap: 6px;">
+                    <button id="bookmark-filter-btn" class="btn-small ${showBookmarkedOnly ? 'btn-active' : ''}" title="Show Bookmarked Only">
+                        <span class="material-symbols-rounded" style="font-size: 1.1rem;">${showBookmarkedOnly ? 'bookmark' : 'bookmark_border'}</span>
+                        ${showBookmarkedOnly ? 'Bookmarked' : 'All'}
+                    </button>
+                    <span id="filtered-count-display" style="font-size: 0.85rem; font-weight: 600; color: #64748b; background: #f1f5f9; padding: 2px 8px; border-radius: 12px;">${filteredLibrary.length}</span>
+                </div>
+            </div>
+            <div class="toolbar-row" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                <button class="btn-small ${selectionMode ? 'btn-active' : ''}" id="toggle-selection-btn">
+                    <span class="material-symbols-rounded">checklist</span>
+                    ${selectionMode ? 'Cancel Selection' : 'Select Items'}
+                </button>
+                ${selectionMode ? `
+                    <button class="btn-small" id="select-all-btn">
+                        <span class="material-symbols-rounded">select_all</span>
+                        Select All
+                    </button>
+                ` : ''}
+                ${selectionMode && selectedItems.size > 0 ? `
+                    ${selectedItems.size >= 2 ? `
+                    <button class="btn-small btn-merge-selected" id="merge-selected-btn" style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); color: white; border: none;">
+                        <span class="material-symbols-rounded">merge</span>
+                        Merge (${selectedItems.size})
+                    </button>
+                    ` : ''}
+                    <button class="btn-small btn-bookmark-all" id="bookmark-selected-btn" style="background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); color: white; border: none;">
+                        <span class="material-symbols-rounded">bookmarks</span>
+                        Bookmark All (${selectedItems.size})
+                    </button>
+                    <button class="btn-small btn-delete-selected" id="delete-selected-btn" style="background-color: #fee2e2; color: #ef4444; border-color: #fca5a5;">
+                        <span class="material-symbols-rounded">delete</span>
+                        Delete Selected (${selectedItems.size})
+                    </button>
+                    <button class="btn-small btn-community-submit" id="submit-selected-community-btn" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; border: none;">
+                        <span class="material-symbols-rounded">group_add</span>
+                        Submit to Community (${selectedItems.size})
+                    </button>
+                    <select id="assign-chapter-select" class="chapter-select">
+                        <option value="">Assign to Chapter...</option>
+                        ${chapters.map(ch => `<option value="${ch.id}">${ch.name}</option>`).join('')}
+                    </select>
+                ` : ''}
+            </div>
+        `;
+
+        // Search Handler
+        const searchInput = toolbar.querySelector('#library-search');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                currentSearchTerm = e.target.value;
+                renderLibraryList();
+                // Restore focus after re-render
+                const newInput = modal.querySelector('#library-search');
+                if (newInput) {
+                    newInput.focus();
+                    newInput.setSelectionRange(newInput.value.length, newInput.value.length);
+                }
+            });
+        }
+
+        // Clear Search Handler
+        const clearSearchBtn = toolbar.querySelector('#clear-search-btn');
+        if (clearSearchBtn) {
+            clearSearchBtn.addEventListener('click', () => {
+                currentSearchTerm = '';
+                renderLibraryList();
+            });
+        }
+
+        // Sort Handler — deferred render to prevent DOM destruction during event
+        const sortSelect = toolbar.querySelector('#sort-select');
+        if (sortSelect) {
+            sortSelect.addEventListener('change', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                currentSortMode = e.target.value;
+                setTimeout(() => { renderLibraryList(); }, 0);
+            });
+        }
+
+        // Content-Type Filter Handler — opens a modal showing matching text content
+        const contentFilterSelect = toolbar.querySelector('#content-type-filter');
+        if (contentFilterSelect) {
+            contentFilterSelect.addEventListener('change', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const newValue = e.target.value;
+                if (newValue === 'all') {
+                    currentContentFilter = 'all';
+                    setTimeout(() => { renderLibraryList(); }, 0);
+                    return;
+                }
+                // Reset dropdown visually (modal will handle display)
+                e.target.value = 'all';
+                // Open content display modal
+                setTimeout(() => { openContentFilterModal(newValue, library); }, 0);
+            });
+        }
+
+        // Bookmark Filter Handler
+        const bookmarkFilterBtn = toolbar.querySelector('#bookmark-filter-btn');
+        if (bookmarkFilterBtn) {
+            bookmarkFilterBtn.addEventListener('click', () => {
+                showBookmarkedOnly = !showBookmarkedOnly;
+                renderLibraryList();
+            });
+        }
+
+        // Toggle selection mode
+        toolbar.querySelector('#toggle-selection-btn').addEventListener('click', () => {
+            selectionMode = !selectionMode;
+            selectedItems.clear();
+            renderLibraryList();
+            updateExportButtonVisibility();
+        });
+
+        // Select All Handler
+        const selectAllBtn = toolbar.querySelector('#select-all-btn');
+        if (selectAllBtn) {
+            selectAllBtn.addEventListener('click', () => {
+                filteredLibrary.forEach(item => selectedItems.add(item.id));
+                renderLibraryList();
+                updateExportButtonVisibility();
+            });
+        }
+
+        // Bookmark All Selected Handler
+        const bookmarkSelectedBtn = toolbar.querySelector('#bookmark-selected-btn');
+        if (bookmarkSelectedBtn) {
+            bookmarkSelectedBtn.addEventListener('click', () => {
+                if (selectedItems.size === 0) return;
+
+                const updatedLibrary = library.map(item => {
+                    if (selectedItems.has(item.id)) {
+                        return { ...item, bookmarked: true };
+                    }
+                    return item;
+                });
+                saveLibraryToIDB(updatedLibrary);
+
+                const count = selectedItems.size;
+                selectionMode = false;
+                selectedItems.clear();
+                renderLibraryList();
+                updateExportButtonVisibility();
+                alert(`Bookmarked ${count} infographic(s)!`);
+            });
+        }
+
+        // Initial Listeners consolidated items
+
+        // DELETE SELECTED HANDLER
+        const deleteSelectedBtn = toolbar.querySelector('#delete-selected-btn');
+        if (deleteSelectedBtn) {
+            deleteSelectedBtn.addEventListener('click', async () => {
+
+
+                if (!confirm(`Are you sure you want to PERMANENTLY delete ${selectedItems.size} items?`)) return;
+
+                const idsToDelete = Array.from(selectedItems);
+
+                // 1. Delete from Server (if connected)
+                if (window.location.protocol !== 'file:') {
+                    try {
+                        const response = await safeFetch('api/library/delete', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ ids: idsToDelete })
+                        });
+                        const result = await response.json();
+                        if (!result.success) {
+                            console.error('Server delete failed:', result.error);
+                            alert('Warning: Failed to delete some files from server.');
+                        }
+                    } catch (err) {
+                        console.error('Server connection failed during delete:', err);
+                    }
+                }
+
+                // 2. Delete from LocalStorage
+                const updatedLibrary = library.filter(item => !selectedItems.has(item.id));
+                saveLibraryToIDB(updatedLibrary);
+
+                // 3. Reset UI
+                selectionMode = false;
+                selectedItems.clear();
+                renderLibraryList();
+                alert('Selected items deleted.');
+            });
+        }
+
+        // SUBMIT SELECTED TO COMMUNITY HANDLER
+        const submitCommunityBtn = toolbar.querySelector('#submit-selected-community-btn');
+        if (submitCommunityBtn) {
+            submitCommunityBtn.addEventListener('click', async () => {
+                if (selectedItems.size === 0) return;
+
+                const itemsToSubmit = library.filter(item => selectedItems.has(item.id));
+                const itemWord = itemsToSubmit.length === 1 ? 'infographic' : 'infographics';
+
+                if (!confirm(`Publish ${itemsToSubmit.length} ${itemWord} to the Community Hub now? They will be available to everyone.`)) return;
+
+                // Prompt for username
+                const savedUsername = localStorage.getItem('community_username') || '';
+                const userName = prompt('Enter your name for the submissions:', savedUsername);
+
+                if (!userName || !userName.trim()) {
+                    alert('A name is required for community submissions.');
+                    return;
+                }
+
+                localStorage.setItem('community_username', userName.trim());
+
+                // Show progress
+                const originalContent = submitCommunityBtn.innerHTML;
+                try {
+                    // Attach adhered Kanski images to each item before batch submission
+                    for (const item of itemsToSubmit) {
+                        if (item.kanskiMeta && item.kanskiMeta.length > 0) {
+                            const kanskiImgs = await loadKanskiFromIDB(item.title);
+                            if (kanskiImgs && kanskiImgs.length > 0) {
+                                const itemData = item.data || item;
+                                itemData.kanskiImages = kanskiImgs;
+                                console.log(`[BatchSubmit] Attaching ${kanskiImgs.length} Kanski image(s) to "${item.title}"`);
+                            }
+                        }
+                    }
+
+                    // Use new batch submit function
+                    const result = await CommunitySubmissions.submitMultiple(itemsToSubmit, userName.trim());
+
+                    if (result.success) {
+                        const msg = `✅ ${result.count} infographic${result.count === 1 ? '' : 's'} published successfully!`;
+                        alert(msg + '\n\nThey are now live in the Community Hub.');
+                        selectionMode = false;
+                        selectedItems.clear();
+                        renderLibraryList();
+                        updateExportButtonVisibility();
+                    } else {
+                        alert(`Submission failed: ${result.message}`);
+                    }
+                } catch (err) {
+                    console.error('Community submission error:', err);
+                    alert('Error submitting to the Community Hub: ' + err.message);
+                } finally {
+                    // Reset button
+                    submitCommunityBtn.innerHTML = originalContent;
+                    submitCommunityBtn.disabled = false;
+                }
+            });
+        }
+
+        // Assign chapter handler
+        const assignSelect = toolbar.querySelector('#assign-chapter-select');
+        if (assignSelect) {
+            assignSelect.addEventListener('change', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (e.target.value && selectedItems.size > 0) {
+                    const newChapterId = e.target.value;
+                    const chapterName = DEFAULT_CHAPTERS.find(c => c.id === newChapterId)?.name || newChapterId;
+                    const count = selectedItems.size;
+
+                    const updatedLibrary = library.map(item => {
+                        if (selectedItems.has(item.id)) {
+                            // Update both the library item and the nested data chapterId
+                            const updated = { ...item, chapterId: newChapterId };
+                            if (updated.data) {
+                                updated.data = { ...updated.data, chapterId: newChapterId };
+                            }
+                            return updated;
+                        }
+                        return item;
+                    });
+                    saveLibraryToIDB(updatedLibrary);
+
+                    // Update the currently displayed infographic's tag if it was affected
+                    if (currentInfographicData) {
+                        const currentTitle = currentInfographicData.title;
+                        const affectedItem = updatedLibrary.find(
+                            i => selectedItems.has(i.id) && i.title === currentTitle
+                        );
+                        if (affectedItem) {
+                            updateInfographicCategoryBadge(newChapterId);
+                        }
+                    }
+
+                    // Auto-sync enabled (don't await - do in background)
+                    syncLibraryToServer();
+
+                    // Update the library card badges in-place without full re-render
+                    selectedItems.forEach(itemId => {
+                        const card = listContainer.querySelector(`.library-card[data-id="${itemId}"]`);
+                        if (card) {
+                            const badge = card.querySelector('.category-badge, .chapter-badge');
+                            if (badge) {
+                                const ch = DEFAULT_CHAPTERS.find(c => c.id === newChapterId);
+                                if (ch) {
+                                    badge.textContent = ch.name;
+                                    badge.style.background = ch.color;
+                                    badge.style.display = '';
+                                }
+                            }
+                        }
+                    });
+
+                    // Reset selection without full re-render
+                    selectionMode = false;
+                    selectedItems.clear();
+
+                    // Delayed re-render to avoid visual "reload" feel
+                    setTimeout(() => {
+                        renderLibraryList();
+                        updateExportButtonVisibility();
+                    }, 100);
+                }
+            });
+        }
+
+        // MERGE SELECTED HANDLER (with comprehensive type-aware deduplication)
+        const mergeSelectedBtn = toolbar.querySelector('#merge-selected-btn');
+        if (mergeSelectedBtn) {
+            mergeSelectedBtn.addEventListener('click', () => {
+                if (selectedItems.size < 2) {
+                    alert('Select at least 2 infographics to merge.');
+                    return;
+                }
+
+                const itemsToMerge = library.filter(item => selectedItems.has(item.id));
+                const rawTitles = itemsToMerge.map(i => i.title).filter(Boolean);
+                const uniqueTitles = Array.from(new Set(rawTitles.map(t => t.trim())));
+                const defaultTitle = uniqueTitles.join(' + ');
+                const promptTitle = defaultTitle.length > 90 ? defaultTitle.substring(0, 87) + '...' : defaultTitle;
+                const mergedTitle = prompt('Enter a title for the merged infographic:', promptTitle);
+                if (!mergedTitle || !mergedTitle.trim()) return;
+
+                const built = buildDeduplicatedMergedInfographic(itemsToMerge, mergedTitle.trim());
+
+                const chapterCounts = {};
+                for (const item of itemsToMerge) {
+                    const ch = item.chapterId || 'uncategorized';
+                    chapterCounts[ch] = (chapterCounts[ch] || 0) + 1;
+                }
+                const majorityChapter = Object.entries(chapterCounts).sort((a, b) => b[1] - a[1])[0][0];
+
+                const mergedData = {
+                    title: mergedTitle.trim(),
+                    summary: built.summary,
+                    summary_illustration: built.summary_illustration,
+                    sections: built.sections,
+                    chapterId: majorityChapter,
+                    mergedFrom: itemsToMerge.map(i => i.title),
+                    generationPrompt: built.generationPrompt || undefined
+                };
+
+                const newItem = {
+                    id: Date.now(),
+                    seqId: 1,
+                    title: mergedTitle.trim(),
+                    summary: built.summary,
+                    date: new Date().toISOString(),
+                    data: mergedData,
+                    chapterId: majorityChapter
+                };
+
+                library.unshift(newItem);
+                reassignSequentialIds(library);
+                saveLibraryToIDB(library);
+
+                // Load the merged infographic
+                currentInfographicData = mergedData;
+                renderInfographic(mergedData);
+
+                selectionMode = false;
+                selectedItems.clear();
+                renderLibraryList();
+                updateExportButtonVisibility();
+
+                const stats = built._mergeStats || {};
+                const details = [];
+                if (stats.duplicatesRemoved) details.push(`removed ${stats.duplicatesRemoved} duplicate entries`);
+                if (stats.sectionsMerged) details.push(`merged ${stats.sectionsMerged} overlapping sections`);
+                const suffix = details.length ? ` (${details.join(', ')})` : '';
+                alert(`Merged ${itemsToMerge.length} infographics into "${mergedTitle.trim()}" with ${built.sections.length} unique sections${suffix}.`);
+            });
+        }
+
+        listContainer.innerHTML = '';
+
+        if (filteredLibrary.length === 0) {
+            emptyMsg.style.display = 'flex';
+            emptyMsg.innerHTML = currentSearchTerm
+                ? `<p>No results found for "${currentSearchTerm}"</p>`
+                : `<div class="empty-icon-container"><span class="material-symbols-rounded">folder_open</span></div><h3>No Saved Infographics</h3><p>Generate an infographic and click "Save" to build your knowledge base.</p>`;
+            listContainer.style.display = 'none';
+        } else {
+            emptyMsg.style.display = 'none';
+            listContainer.style.display = 'flex';
+
+            filteredLibrary.forEach(item => {
+                const chapter = chapters.find(ch => ch.id === item.chapterId) || chapters[0];
+                const isSelected = selectedItems.has(item.id);
+
+                // Check if item is newly imported (within last 24 hours)
+                const isNewlyImported = item._newlyImported && (Date.now() - item._newlyImported) < 24 * 60 * 60 * 1000;
+                // Check if chapter was recently updated (within last 24 hours)
+                const isChapterUpdated = item._chapterUpdated && (Date.now() - item._chapterUpdated) < 24 * 60 * 60 * 1000;
+                const isNew = isNewlyImported || isChapterUpdated;
+                const hashtagColor = isNew ? '#22c55e' : '#94a3b8'; // Green for new/updated, gray for regular
+                const hashtagTitle = isNewlyImported ? 'Newly synced' : (isChapterUpdated ? 'Chapter updated' : '');
+
+                const lastOpenedId = localStorage.getItem('opth_last_opened_infograph_id');
+                const isLastOpened = lastOpenedId && item.id === parseInt(lastOpenedId);
+
+                const el = document.createElement('div');
+                el.className = `saved-item ${isSelected ? 'selected' : ''} ${isNew ? 'newly-imported' : ''} ${isLastOpened ? 'last-opened-highlight' : ''}`;
+                el.innerHTML = `
+                    ${selectionMode ? `
+                        <input type="checkbox" class="item-checkbox" data-id="${item.id}" ${isSelected ? 'checked' : ''}>
+                    ` : `
+                        <div class="item-number" style="font-weight: bold; color: ${hashtagColor}; font-size: 0.9rem; margin-right: 12px; min-width: 25px;" title="${hashtagTitle}">#${item.seqId || '?'}${isNew ? ' ✨' : ''}</div>
+                    `}
+                    <div class="saved-info">
+                        <div class="saved-title-row">
+                            <span class="chapter-badge" style="background: ${chapter.color}">${chapter.name}</span>
+                            <span class="saved-title">${item.title}</span>
+                            ${item.read ? '<span class="read-status-badge" style="background:#dcfce7; color:#166534; padding:2px 6px; border-radius:4px; font-size:0.75rem; margin-left:8px; display:inline-flex; align-items:center; gap:3px;"><span class="material-symbols-rounded" style="font-size:12px;">check_circle</span>Read</span>' : ''}
+                        </div>
+                        <div class="saved-date">${new Date(item.date).toLocaleString()}</div>
+                    </div>
+                    <div class="saved-actions">
+                        <button class="btn-small btn-bookmark" data-id="${item.id}" title="${item.bookmarked ? 'Remove Bookmark' : 'Add Bookmark'}">
+                            <span class="material-symbols-rounded" style="font-size: 1.1rem; color: ${item.bookmarked ? '#eab308' : '#94a3b8'};">${item.bookmarked ? 'bookmark' : 'bookmark_border'}</span>
+                        </button>
+                        <button class="btn-small btn-read-toggle" data-id="${item.id}" title="${item.read ? 'Mark as Unread' : 'Mark as Read'}" style="color: ${item.read ? '#ef4444' : '#22c55e'};">
+                            <span class="material-symbols-rounded" style="font-size: 1.1rem;">${item.read ? 'mark_email_unread' : 'mark_email_read'}</span>
+                            <span style="font-size: 0.75rem; font-weight: 600;">${item.read ? 'Unread' : 'Read'}</span>
+                        </button>
+                        <button class="btn-small btn-rename" data-id="${item.id}" title="Rename">
+                            <span class="material-symbols-rounded" style="font-size: 1rem;">edit</span>
+                        </button>
+                        <button class="btn-small btn-load" data-id="${item.id}">Load</button>
+                        <button class="btn-small btn-delete" data-id="${item.id}" title="Delete">
+                            <span class="material-symbols-rounded" style="font-size: 1.2rem;">delete</span>
+                        </button>
+                    </div>
+                `;
+                listContainer.appendChild(el);
+            });
+
+            // Checkbox handlers
+            listContainer.querySelectorAll('.item-checkbox').forEach(cb => {
+                cb.addEventListener('change', (e) => {
+                    const id = parseInt(e.target.dataset.id);
+                    if (e.target.checked) {
+                        selectedItems.add(id);
+                    } else {
+                        selectedItems.delete(id);
+                    }
+                    renderLibraryList(); // Re-render to update selected styling if needed, or just update class
+                    updateExportButtonVisibility();
+                });
+            });
+
+            // Bookmark toggle handlers
+            listContainer.querySelectorAll('.btn-bookmark').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const button = e.target.closest('.btn-bookmark');
+                    const id = parseInt(button.dataset.id);
+                    const targetItem = library.find(i => i.id === id);
+                    if (targetItem) {
+                        targetItem.bookmarked = !targetItem.bookmarked;
+                        saveLibraryToIDB(library);
+                        renderLibraryList();
+                    }
+                });
+            });
+
+            // Read/Unread toggle handlers
+            listContainer.querySelectorAll('.btn-read-toggle').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const button = e.target.closest('.btn-read-toggle');
+                    const id = parseInt(button.dataset.id);
+                    const targetItem = library.find(i => i.id === id);
+                    if (targetItem) {
+                        targetItem.read = !targetItem.read;
+                        saveLibraryToIDB(library);
+                        renderLibraryList();
+                    }
+                });
+            });
+
+            // Rename handlers - unrestricted for all users
+            listContainer.querySelectorAll('.btn-rename').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const button = e.target.closest('.btn-rename');
+                    const id = parseInt(button.dataset.id);
+                    const targetItem = library.find(i => i.id === id);
+
+                    if (targetItem) {
+                        // No password required - any user can rename in their own library
+                        const newTitle = prompt('Enter new title:', targetItem.title);
+                        if (newTitle && newTitle.trim()) {
+                            targetItem.title = newTitle.trim();
+                            if (targetItem.data) {
+                                targetItem.data.title = newTitle.trim();
+                            }
+                            saveLibraryToIDB(library);
+
+                            // Auto-Sync
+                            syncLibraryToServer();
+
+                            renderLibraryList();
+                        }
+                    }
+                });
+            });
+
+            // Load handlers
+            listContainer.querySelectorAll('.btn-load').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = parseInt(e.target.dataset.id);
+                    // Always read fresh from localStorage to get latest chapterId
+                    const freshLibrary = getLibraryCache();
+                    const targetItem = freshLibrary.find(i => i.id === id);
+                    if (targetItem) {
+                        // Highlight as last opened
+                        localStorage.setItem('opth_last_opened_infograph_id', id);
+
+                        // Also auto-mark as read when opened
+                        if (!targetItem.read) {
+                            targetItem.read = true;
+                            saveLibraryToIDB(freshLibrary);
+                        }
+                        if (!targetItem.data || (typeof targetItem.data === 'object' && !targetItem.data.sections)) {
+                            // Data is missing or corrupt - show resubmission prompt
+                            const authorInfo = targetItem.communityAuthor
+                                ? `\n\nOriginal author: ${targetItem.communityAuthor}`
+                                : '';
+                            alert(
+                                `⚠️ Unable to load "${targetItem.title}"\n\n` +
+                                `The infographic data is missing or corrupted and cannot be displayed.${authorInfo}\n\n` +
+                                `Please contact the original uploader and ask them to resubmit this infographic to the Community Hub.`
+                            );
+                        }
+                        // Force-sync the library's chapterId into data so the tag renders correctly
+                        if (targetItem.data && targetItem.chapterId) {
+                            targetItem.data.chapterId = targetItem.chapterId;
+                        }
+                        currentInfographicData = targetItem.data;
+                        renderInfographic(targetItem.data);
+                        modal.classList.remove('active');
+                    }
+                });
+            });
+
+            // Delete handlers - requires admin password
+            listContainer.querySelectorAll('.btn-delete').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    const button = e.target.closest('.btn-delete');
+                    const id = parseInt(button.dataset.id);
+                    const itemToDelete = library.find(i => i.id === id);
+
+                    // Delete handlers
+                    // Allow any user to delete from their own library (Local Only)
+
+                    const confirmMsg = 'Remove this item from your library?';
+
+                    if (confirm(confirmMsg)) {
+                        const newLibrary = library.filter(i => i.id !== id);
+
+                        // Reassign sequential IDs after deletion (no gaps)
+                        reassignSequentialIds(newLibrary);
+
+                        saveLibraryToIDB(newLibrary);
+
+                        // TRACK LOCAL DELETION (For Remote Users)
+                        if (isGitHubPages()) {
+                            try {
+                                const userDeletedKey = 'ophthalmic_user_deleted_items';
+                                let deletedList = JSON.parse(localStorage.getItem(userDeletedKey) || '[]');
+                                if (!deletedList.includes(String(id))) {
+                                    deletedList.push(String(id));
+                                    localStorage.setItem(userDeletedKey, JSON.stringify(deletedList));
+                                }
+                            } catch (e) {
+                                console.warn('Failed to track local deletion:', e);
+                            }
+                        }
+
+                        // Auto-Sync (Updates user's backup on server, but not Community Pool)
+                        syncLibraryToServer();
+
+                        renderLibraryList();
+                        // alert('Item removed from library.'); // Optional, or just let UI update
+                    }
+                });
+            });
+        }
+    }
+
+    // CHECK / CORRECT CATEGORISATION HANDLER (Improved mindset)
+    const checkCategorisationBtn = document.getElementById('check-categorisation-btn');
+    if (checkCategorisationBtn) {
+        checkCategorisationBtn.addEventListener('click', () => {
+            const library = getLibraryCache();
+
+            if (library.length === 0) {
+                alert('Library is empty. Nothing to check.');
+                return;
+            }
+
+            // DEEP MULTI-SIGNAL ANALYSIS: title + summary + all section content + nested data
+            // Extracts maximum text from every part of the infographic for the most intelligent categorisation
+            const mismatches = [];
+
+            // Helper: recursively extract text from any content structure
+            function extractTextDeep(content) {
+                if (!content) return '';
+                if (typeof content === 'string') return content;
+                if (Array.isArray(content)) return content.map(extractTextDeep).join(' ');
+                if (typeof content === 'object') {
+                    let parts = [];
+                    for (const val of Object.values(content)) {
+                        parts.push(extractTextDeep(val));
+                    }
+                    return parts.join(' ');
+                }
+                return String(content);
+            }
+
+            library.forEach(item => {
+                const currentChapter = item.chapterId || 'uncategorized';
+
+                // Signal 1: Title analysis (highest weight)
+                const titleChapter = autoDetectChapter(item.title);
+
+                // Signal 2: Summary analysis
+                const summaryText = (item.summary || '') + ' ' + (item.data?.summary || '');
+                const summaryChapter = autoDetectChapter(summaryText);
+
+                // Signal 3: Deep content analysis - extract ALL text from all sections
+                let contentChapter = 'uncategorized';
+                if (item.data && item.data.sections && Array.isArray(item.data.sections)) {
+                    const allSectionText = item.data.sections.map(s => {
+                        let text = s.title || '';
+                        text += ' ' + extractTextDeep(s.content);
+                        return text;
+                    }).join(' ');
+                    contentChapter = autoDetectChapter(allSectionText);
+                }
+
+                // Combine signals with priority weighting:
+                // Title > Summary > Content (for tie-breaking)
+                const candidates = [titleChapter, summaryChapter, contentChapter].filter(c => c !== 'uncategorized');
+                let bestSuggestion = 'uncategorized';
+                let confidence = 'low';
+
+                if (candidates.length === 0) {
+                    // No signals - skip
+                    return;
+                } else if (candidates.length >= 2) {
+                    // Count votes - majority wins
+                    const votes = {};
+                    candidates.forEach(c => votes[c] = (votes[c] || 0) + 1);
+                    const sorted = Object.entries(votes).sort((a, b) => b[1] - a[1]);
+                    bestSuggestion = sorted[0][0];
+                    confidence = sorted[0][1] >= 2 ? 'high' : 'medium';
+                } else {
+                    // Only one signal
+                    bestSuggestion = candidates[0];
+                    confidence = titleChapter !== 'uncategorized' ? 'medium' : 'low';
+                }
+
+                // Flag if: uncategorized and we have a suggestion, or current doesn't match consensus
+                if (currentChapter === 'uncategorized' && bestSuggestion !== 'uncategorized') {
+                    mismatches.push({
+                        id: item.id,
+                        title: item.title,
+                        current: currentChapter,
+                        suggested: bestSuggestion,
+                        confidence: confidence === 'low' ? 'medium' : confidence // Upgrade for uncategorized items
+                    });
+                } else if (currentChapter !== 'uncategorized' && bestSuggestion !== 'uncategorized' && currentChapter !== bestSuggestion) {
+                    // Only suggest override with sufficient confidence
+                    if (confidence === 'high') {
+                        mismatches.push({
+                            id: item.id,
+                            title: item.title,
+                            current: currentChapter,
+                            suggested: bestSuggestion,
+                            confidence: 'high'
+                        });
+                    } else if (confidence === 'medium' && titleChapter !== 'uncategorized') {
+                        mismatches.push({
+                            id: item.id,
+                            title: item.title,
+                            current: currentChapter,
+                            suggested: bestSuggestion,
+                            confidence: 'low'
+                        });
+                    }
+                }
+            });
+
+            if (mismatches.length === 0) {
+                const totalCategorised = library.filter(i => i.chapterId && i.chapterId !== 'uncategorized').length;
+                alert(`✅ All ${totalCategorised}/${library.length} categorised items look correct! No suggestions found.`);
+                return;
+            }
+
+            // Sort by confidence (high first)
+            mismatches.sort((a, b) => {
+                const order = { high: 0, medium: 1, low: 2 };
+                return (order[a.confidence] || 3) - (order[b.confidence] || 3);
+            });
+
+            // Create a modal to show ALL suggestions with individual checkboxes
+            let catModal = document.getElementById('categorisation-suggestions-modal');
+            if (!catModal) {
+                catModal = document.createElement('div');
+                catModal.id = 'categorisation-suggestions-modal';
+                catModal.className = 'modal-overlay';
+                catModal.innerHTML = `
+                    <div class="modal-content modal-lg" style="border: 2px solid #8b5cf6;">
+                        <div class="modal-header" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white;">
+                            <h2 style="display: flex; align-items: center; gap: 8px;">
+                                <span class="material-symbols-rounded">auto_fix_high</span>
+                                Categorisation Suggestions
+                            </h2>
+                            <button id="close-cat-suggestions-modal" class="icon-btn-ghost" style="color: white;">
+                                <span class="material-symbols-rounded">close</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="cat-suggestions-body" style="max-height: 70vh; overflow-y: auto;">
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(catModal);
+
+                catModal.querySelector('#close-cat-suggestions-modal').addEventListener('click', () => {
+                    catModal.classList.remove('active');
+                });
+                catModal.addEventListener('click', (e) => {
+                    if (e.target === catModal) catModal.classList.remove('active');
+                });
+            }
+
+            const catBody = catModal.querySelector('#cat-suggestions-body');
+            catBody.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                    <p style="margin: 0; color: #6d28d9; font-weight: 600;">
+                        Found ${mismatches.length} suggestion(s). Select which to apply:
+                    </p>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button id="cat-select-all-btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background: #ede9fe; color: #6d28d9; border: 1px solid #c4b5fd; border-radius: 6px; cursor: pointer; font-weight: 600;">
+                            Select All
+                        </button>
+                        <button id="cat-deselect-all-btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background: #f1f5f9; color: #64748b; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; font-weight: 600;">
+                            Deselect All
+                        </button>
+                    </div>
+                </div>
+                <p style="margin: 0 0 1rem 0; font-size: 0.8rem; color: #64748b;">
+                    🟢 High confidence &nbsp; 🟡 Medium &nbsp; 🔴 Low
+                </p>
+                <div id="cat-suggestions-list">
+                    ${mismatches.map((m, i) => {
+                const currentName = DEFAULT_CHAPTERS.find(c => c.id === m.current)?.name || m.current;
+                const suggestedName = DEFAULT_CHAPTERS.find(c => c.id === m.suggested)?.name || m.suggested;
+                const suggestedColor = DEFAULT_CHAPTERS.find(c => c.id === m.suggested)?.color || '#64748b';
+                const confidenceIcon = m.confidence === 'high' ? '🟢' : m.confidence === 'medium' ? '🟡' : '🔴';
+                const checked = m.confidence !== 'low' ? 'checked' : '';
+                return `
+                        <label style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem; margin-bottom: 0.5rem; background: ${m.confidence === 'high' ? '#f0fdf4' : m.confidence === 'medium' ? '#fefce8' : '#fef2f2'}; border: 1px solid ${m.confidence === 'high' ? '#bbf7d0' : m.confidence === 'medium' ? '#fef08a' : '#fecaca'}; border-radius: 8px; cursor: pointer; transition: background 0.15s;">
+                            <input type="checkbox" class="cat-suggestion-check" data-index="${i}" ${checked}
+                                style="margin-top: 3px; width: 18px; height: 18px; accent-color: #7c3aed; cursor: pointer; flex-shrink: 0;">
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="font-weight: 600; font-size: 0.9rem; color: #1e293b; margin-bottom: 2px; word-break: break-word;">
+                                    ${confidenceIcon} ${m.title}
+                                </div>
+                                <div style="font-size: 0.8rem; color: #64748b; display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
+                                    <span style="padding: 1px 6px; background: #e2e8f0; border-radius: 4px;">${currentName}</span>
+                                    <span class="material-symbols-rounded" style="font-size: 14px;">arrow_forward</span>
+                                    <span style="padding: 1px 6px; background: ${suggestedColor}; color: white; border-radius: 4px; font-weight: 600;">${suggestedName}</span>
+                                </div>
+                            </div>
+                        </label>
+                    `}).join('')}
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+                    <button id="cat-cancel-btn" style="padding: 0.6rem 1.25rem; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                        Cancel
+                    </button>
+                    <button id="cat-apply-btn" style="padding: 0.6rem 1.25rem; background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+                        <span class="material-symbols-rounded" style="font-size: 1.1rem;">check_circle</span>
+                        Apply Selected
+                    </button>
+                </div>
+            `;
+
+            // Select All / Deselect All
+            catBody.querySelector('#cat-select-all-btn').addEventListener('click', () => {
+                catBody.querySelectorAll('.cat-suggestion-check').forEach(cb => cb.checked = true);
+            });
+            catBody.querySelector('#cat-deselect-all-btn').addEventListener('click', () => {
+                catBody.querySelectorAll('.cat-suggestion-check').forEach(cb => cb.checked = false);
+            });
+
+            // Cancel
+            catBody.querySelector('#cat-cancel-btn').addEventListener('click', () => {
+                catModal.classList.remove('active');
+            });
+
+            // Apply Selected
+            catBody.querySelector('#cat-apply-btn').addEventListener('click', () => {
+                const selectedIndices = [];
+                catBody.querySelectorAll('.cat-suggestion-check:checked').forEach(cb => {
+                    selectedIndices.push(parseInt(cb.dataset.index));
+                });
+
+                if (selectedIndices.length === 0) {
+                    alert('No suggestions selected. Please check at least one item to apply.');
+                    return;
+                }
+
+                let changedCount = 0;
+                selectedIndices.forEach(idx => {
+                    const m = mismatches[idx];
+                    if (!m) return;
+                    const item = library.find(i => i.id === m.id);
+                    if (item) {
+                        item.chapterId = m.suggested;
+                        if (item.data) {
+                            item.data.chapterId = m.suggested;
+                        }
+                        changedCount++;
+                    }
+                });
+
+                saveLibraryToIDB(library);
+
+                // Update the currently displayed infographic's tag if it was in the changed set
+                if (currentInfographicData) {
+                    for (const idx of selectedIndices) {
+                        const m = mismatches[idx];
+                        if (!m) continue;
+                        const item = library.find(i => i.id === m.id);
+                        if (item && item.title === currentInfographicData.title) {
+                            updateInfographicCategoryBadge(m.suggested);
+                            break;
+                        }
+                    }
+                }
+
+                catModal.classList.remove('active');
+                alert(`✅ Updated categorisation for ${changedCount} item(s)! Tags have been updated.`);
+                renderLibraryList();
+                syncLibraryToServer();
+            });
+
+            catModal.classList.add('active');
+        });
+    }
+
+    // RED FLAGS SECTION HANDLER (with category filter)
+    const redFlagsBtn = document.getElementById('red-flags-btn');
+    if (redFlagsBtn) {
+        redFlagsBtn.addEventListener('click', () => {
+            const library = getLibraryCache();
+
+            if (library.length === 0) {
+                alert('Library is empty. No red flags to display.');
+                return;
+            }
+
+            // Find infographics that contain red_flag type sections OR any red-themed sections
+            const redFlagItems = [];
+            library.forEach(item => {
+                if (item.data && item.data.sections) {
+                    // Match red_flag type sections AND any section with color_theme 'red'
+                    const redSections = item.data.sections.filter(section =>
+                        section.type === 'red_flag' || section.color_theme === 'red'
+                    );
+                    if (redSections.length > 0) {
+                        // Extract content from all red sections
+                        const flags = [];
+                        redSections.forEach(s => {
+                            const sectionLabel = s.title ? `[${s.title}] ` : '';
+                            if (s.type === 'red_flag') {
+                                const items = Array.isArray(s.content) ? s.content : [s.content];
+                                items.forEach(f => flags.push(sectionLabel + f));
+                            } else if (Array.isArray(s.content)) {
+                                s.content.forEach(f => flags.push(sectionLabel + f));
+                            } else if (typeof s.content === 'string') {
+                                flags.push(sectionLabel + s.content);
+                            } else if (s.content && s.content.explanation) {
+                                flags.push(sectionLabel + s.content.explanation);
+                            } else if (s.content && s.content.data && Array.isArray(s.content.data)) {
+                                s.content.data.forEach(d => flags.push(sectionLabel + `${d.label}: ${d.value}%`));
+                            }
+                        });
+                        redFlagItems.push({
+                            id: item.id,
+                            title: item.title,
+                            chapterId: item.chapterId || item.data.chapterId || 'uncategorized',
+                            flags: flags
+                        });
+                    }
+                }
+            });
+
+            if (redFlagItems.length === 0) {
+                alert('No red flags or red-themed sections found! All infographics are clear.');
+                return;
+            }
+
+            // Collect unique categories that have red flags
+            const categoriesWithFlags = [...new Set(redFlagItems.map(i => i.chapterId))];
+            const categoryOptions = categoriesWithFlags.map(cId => {
+                const ch = DEFAULT_CHAPTERS.find(c => c.id === cId);
+                return { id: cId, name: ch ? ch.name : cId, color: ch ? ch.color : '#64748b' };
+            }).sort((a, b) => a.name.localeCompare(b.name));
+
+            // Create a modal overlay for red flags
+            let redFlagModal = document.getElementById('red-flag-modal');
+            if (!redFlagModal) {
+                redFlagModal = document.createElement('div');
+                redFlagModal.id = 'red-flag-modal';
+                redFlagModal.className = 'modal-overlay';
+                redFlagModal.innerHTML = `
+                    <div class="modal-content modal-lg" style="border: 2px solid #ef4444;">
+                        <div class="modal-header" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white;">
+                            <h2 style="display: flex; align-items: center; gap: 8px;">
+                                <span class="material-symbols-rounded">flag</span>
+                                🚩 Red Flags Section
+                            </h2>
+                            <button id="close-red-flag-modal" class="icon-btn-ghost" style="color: white;">
+                                <span class="material-symbols-rounded">close</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="red-flag-body" style="max-height: 70vh; overflow-y: auto;">
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(redFlagModal);
+
+                // Close handler
+                redFlagModal.querySelector('#close-red-flag-modal').addEventListener('click', () => {
+                    redFlagModal.classList.remove('active');
+                });
+                redFlagModal.addEventListener('click', (e) => {
+                    if (e.target === redFlagModal) redFlagModal.classList.remove('active');
+                });
+            }
+
+            // Render all cards once with data-chapter attributes for filtering
+            const body = redFlagModal.querySelector('#red-flag-body');
+            body.innerHTML = `
+                <!-- Category Filter Dropdown -->
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <label for="red-flag-category-filter" style="font-weight: 600; color: #dc2626; display: flex; align-items: center; gap: 4px;">
+                        <span class="material-symbols-rounded" style="font-size: 1.1rem;">filter_list</span>
+                        Filter by Category:
+                    </label>
+                    <select id="red-flag-category-filter" style="padding: 0.5rem 1rem; border: 1px solid #fecaca; border-radius: 8px; font-size: 0.9rem; background: white; color: #374151; min-width: 180px;">
+                        <option value="all">All Categories (${redFlagItems.length})</option>
+                        ${categoryOptions.map(c => `<option value="${c.id}">${c.name} (${redFlagItems.filter(i => i.chapterId === c.id).length})</option>`).join('')}
+                    </select>
+                </div>
+                <p id="red-flag-count-text" style="margin-bottom: 1rem; color: #ef4444; font-weight: 500;">
+                    Showing ${redFlagItems.length} infographic(s) with red flag warnings:
+                </p>
+                ${redFlagItems.map(item => {
+                const ch = DEFAULT_CHAPTERS.find(c => c.id === item.chapterId);
+                const catBadge = ch && item.chapterId !== 'uncategorized'
+                    ? `<span style="display: inline-flex; align-items: center; gap: 3px; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; color: white; background: ${ch.color}; margin-left: 6px;"><span class="material-symbols-rounded" style="font-size: 11px;">folder</span>${ch.name}</span>`
+                    : '';
+                return `
+                    <div class="red-flag-card" data-chapter="${item.chapterId}" style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                        <h3 style="color: #dc2626; margin: 0 0 0.5rem 0; font-size: 1rem; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                            <span class="material-symbols-rounded" style="font-size: 1.2rem;">warning</span>
+                            ${item.title.substring(0, 50)}${item.title.length > 50 ? '...' : ''}
+                            ${catBadge}
+                        </h3>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: #b91c1c;">
+                            ${item.flags.map(f => `<li style="margin-bottom: 4px;">${f}</li>`).join('')}
+                        </ul>
+                        <button class="btn-small view-redflag-infographic" data-item-id="${item.id}" style="margin-top: 0.75rem;">
+                            <span class="material-symbols-rounded">visibility</span>
+                            View Infographic
+                        </button>
+                    </div>
+                `}).join('')}
+            `;
+
+            // Category filter: show/hide cards in-place (no re-render)
+            const filterSelect = body.querySelector('#red-flag-category-filter');
+            const countText = body.querySelector('#red-flag-count-text');
+            if (filterSelect) {
+                filterSelect.addEventListener('change', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const selectedCat = e.target.value;
+                    let visibleCount = 0;
+
+                    body.querySelectorAll('.red-flag-card').forEach(card => {
+                        if (selectedCat === 'all' || card.dataset.chapter === selectedCat) {
+                            card.style.display = '';
+                            visibleCount++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    // Update count text
+                    if (countText) {
+                        const catName = selectedCat !== 'all'
+                            ? categoryOptions.find(c => c.id === selectedCat)?.name || selectedCat
+                            : '';
+                        countText.textContent = `Showing ${visibleCount} infographic(s) with red flag warnings${catName ? ` in "${catName}"` : ''}:`;
+                    }
+                });
+            }
+
+            // Attach click handlers for "View Infographic" buttons
+            body.querySelectorAll('.view-redflag-infographic').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const itemId = parseInt(btn.dataset.itemId);
+                    const lib = getLibraryCache();
+                    const found = lib.find(i => i.id === itemId);
+                    if (found && found.data) {
+                        // Sync library chapterId into data for correct tag rendering
+                        if (found.chapterId) found.data.chapterId = found.chapterId;
+                        renderInfographic(found.data);
+                        redFlagModal.classList.remove('active');
+                        document.getElementById('library-modal').classList.remove('active');
+                    } else if (found) {
+                        const authorInfo = found.communityAuthor ? `\nOriginal author: ${found.communityAuthor}` : '';
+                        alert(
+                            `⚠️ Unable to load "${found.title}"\n\n` +
+                            `The infographic data is missing or corrupted.${authorInfo}\n\n` +
+                            `Please ask the original uploader to resubmit this infographic.`
+                        );
+                    }
+                });
+            });
+            redFlagModal.classList.add('active');
+        });
+    }
+}
+
+/* Library Sync Status - Compare local vs server/admin knowledge base */
+const SYNC_PREFERENCE_KEY = 'ophthalmic_sync_preference'; // 'local' or 'server'
+
+function getSyncPreference() {
+    return localStorage.getItem(SYNC_PREFERENCE_KEY) || 'local';
+}
+
+function setSyncPreference(preference) {
+    localStorage.setItem(SYNC_PREFERENCE_KEY, preference);
+}
+
+function setupSyncStatus() {
+    const syncStatusBtn = document.getElementById('sync-status-btn');
+    const syncStatusModal = document.getElementById('sync-status-modal');
+    const closeBtn = document.getElementById('close-sync-status-btn');
+    const contentEl = document.getElementById('sync-status-content');
+    const exportBtn = document.getElementById('export-local-only-btn');
+    const downloadServerOnlyBtn = document.getElementById('download-server-only-btn');
+    const refreshBtn = document.getElementById('refresh-sync-status-btn');
+    const preferenceToggle = document.getElementById('sync-preference-toggle');
+
+    if (!syncStatusBtn || !syncStatusModal) return;
+
+    let currentDifferences = { localOnly: [], serverOnly: [], deletedByAdmin: [] };
+
+    // Initialize preference toggle
+    if (preferenceToggle) {
+        const currentPref = getSyncPreference();
+        const prefButtons = preferenceToggle.querySelectorAll('.pref-btn');
+
+        prefButtons.forEach(btn => {
+            // Set initial active state
+            if (btn.dataset.pref === currentPref) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+
+            // Add click handlers
+            btn.addEventListener('click', () => {
+                const newPref = btn.dataset.pref;
+                setSyncPreference(newPref);
+
+                // Update button states
+                prefButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Show confirmation
+                const prefName = newPref === 'local' ? 'Local First' : 'Server First';
+                console.log(`Sync preference changed to: ${prefName}`);
+
+                // Show a toast-like notification in the modal
+                const toast = document.createElement('div');
+                toast.className = 'sync-pref-toast';
+                toast.innerHTML = `<span class="material-symbols-rounded">check_circle</span> Preference set to ${prefName}`;
+                preferenceToggle.appendChild(toast);
+                setTimeout(() => toast.remove(), 2000);
+            });
+        });
+    }
+
+    // Normalize title for comparison
+    const normalizeTitle = (t) => (t || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+
+    async function comparLibraries() {
+        if (!contentEl) return;
+
+        contentEl.innerHTML = `
+            <div class="sync-loading">
+                <span class="material-symbols-rounded rotating">sync</span>
+                <p>Comparing libraries...</p>
+            </div>
+        `;
+
+        try {
+            // Get local library
+            const localLibrary = getLibraryCache();
+            const localTitles = new Map();
+            localLibrary.forEach(item => {
+                localTitles.set(normalizeTitle(item.title), item);
+            });
+
+            // Get server library
+            let serverItems = [];
+            if (isGitHubPages()) {
+                serverItems = await fetchLibraryFromStatic();
+            } else {
+                try {
+                    const response = await safeFetch('api/library/list');
+                    if (response.ok) {
+                        serverItems = await response.json();
+                    }
+                } catch (e) {
+                    console.log('Could not fetch server library:', e.message);
+                }
+            }
+
+            const serverTitles = new Map();
+            serverItems.forEach(item => {
+                serverTitles.set(normalizeTitle(item.title), item);
+            });
+
+            // Get deleted items from admin
+            let deletedItems = [];
+            try {
+                if (typeof CommunitySubmissions !== 'undefined' && CommunitySubmissions.getDeletedItems) {
+                    deletedItems = await CommunitySubmissions.getDeletedItems();
+                }
+            } catch (e) {
+                console.log('Could not fetch deleted items:', e.message);
+            }
+
+            // Find differences
+            const localOnly = [];
+            const serverOnly = [];
+            const deletedByAdmin = [];
+
+            // Items only on local
+            localLibrary.forEach(item => {
+                const normTitle = normalizeTitle(item.title);
+                if (!serverTitles.has(normTitle)) {
+                    localOnly.push(item);
+                }
+            });
+
+            // Items only on server
+            serverItems.forEach(item => {
+                const normTitle = normalizeTitle(item.title);
+                if (!localTitles.has(normTitle)) {
+                    serverOnly.push(item);
+                }
+            });
+
+            // Items deleted by admin that are still in local
+            deletedItems.forEach(normTitle => {
+                if (localTitles.has(normTitle)) {
+                    deletedByAdmin.push(localTitles.get(normTitle));
+                }
+            });
+
+            currentDifferences = { localOnly, serverOnly, deletedByAdmin };
+
+            // Render results
+            renderDifferences(localOnly, serverOnly, deletedByAdmin, localLibrary.length, serverItems.length);
+
+            // Show/hide export button
+            if (exportBtn) {
+                exportBtn.style.display = localOnly.length > 0 ? 'flex' : 'none';
+            }
+
+            // Show/hide download server-only button
+            if (downloadServerOnlyBtn) {
+                downloadServerOnlyBtn.style.display = serverOnly.length > 0 ? 'flex' : 'none';
+            }
+
+        } catch (err) {
+            console.error('Sync status error:', err);
+            contentEl.innerHTML = `
+                <div class="sync-error">
+                    <span class="material-symbols-rounded">error</span>
+                    <p>Could not compare libraries: ${err.message}</p>
+                </div>
+            `;
+        }
+    }
+
+    function renderDifferences(localOnly, serverOnly, deletedByAdmin, localCount, serverCount) {
+        const allSynced = localOnly.length === 0 && serverOnly.length === 0 && deletedByAdmin.length === 0;
+
+        let html = `
+            <div class="sync-summary">
+                <div class="sync-count local">
+                    <span class="material-symbols-rounded">folder</span>
+                    <span><strong>${localCount}</strong> Local</span>
+                </div>
+                <div class="sync-count server">
+                    <span class="material-symbols-rounded">cloud</span>
+                    <span><strong>${serverCount}</strong> Server</span>
+                </div>
+            </div>
+        `;
+
+        if (allSynced) {
+            html += `
+                <div class="sync-success">
+                    <span class="material-symbols-rounded">check_circle</span>
+                    <p>Libraries are in sync!</p>
+                </div>
+            `;
+        } else {
+            // Local Only - with checkboxes for individual selection
+            if (localOnly.length > 0) {
+                html += `
+                <div class="diff-section">
+                    <h4><span class="material-symbols-rounded" style="color: #22c55e;">add_circle</span> Only on Your Device (${localOnly.length})</h4>
+                    <p class="diff-hint">Select items to publish to the community library</p>
+                    <div style="margin-bottom: 0.5rem; display: flex; gap: 8px;">
+                        <button class="btn-small" id="select-all-local-only">
+                            <span class="material-symbols-rounded">select_all</span> Select All
+                        </button>
+                        <button class="btn-small" id="deselect-all-local-only">
+                            <span class="material-symbols-rounded">deselect</span> Deselect All
+                        </button>
+                        <span id="selected-count-display" style="margin-left: auto; color: #64748b; font-size: 0.9rem;">0 selected</span>
+                    </div>
+                    <div class="diff-list" id="local-only-list">
+                        ${localOnly.map((item, index) => `
+                            <div class="diff-item local-only" style="display: flex; align-items: center; gap: 8px;">
+                                <input type="checkbox" class="local-only-checkbox" data-index="${index}" id="local-check-${index}">
+                                <label for="local-check-${index}" style="flex: 1; cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span class="diff-title">${item.title}</span>
+                                    <span class="diff-date">${new Date(item.date).toLocaleDateString()}</span>
+                                </label>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            }
+
+            // Server Only
+            if (serverOnly.length > 0) {
+                html += `
+                <div class="diff-section">
+                    <h4><span class="material-symbols-rounded" style="color: #3b82f6;">cloud_download</span> Only on Server (${serverOnly.length})</h4>
+                    <p class="diff-hint">Click "Sync with Server" to download these</p>
+                    <div class="diff-list">
+                        ${serverOnly.map(item => `
+                            <div class="diff-item server-only">
+                                <span class="diff-title">${item.title}</span>
+                                <span class="diff-date">${new Date(item.date).toLocaleDateString()}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            }
+
+            // Deleted by Admin
+            if (deletedByAdmin.length > 0) {
+                html += `
+                <div class="diff-section">
+                    <h4><span class="material-symbols-rounded" style="color: #ef4444;">delete</span> Removed from Community Hub (${deletedByAdmin.length})</h4>
+                    <p class="diff-hint">These will be removed on next sync</p>
+                    <div class="diff-list">
+                        ${deletedByAdmin.map(item => `
+                            <div class="diff-item deleted">
+                                <span class="diff-title">${item.title}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            }
+        }
+
+        contentEl.innerHTML = html;
+
+        // Attach checkbox event handlers
+        const checkboxes = contentEl.querySelectorAll('.local-only-checkbox');
+        const selectAllBtn = contentEl.querySelector('#select-all-local-only');
+        const deselectAllBtn = contentEl.querySelector('#deselect-all-local-only');
+        const countDisplay = contentEl.querySelector('#selected-count-display');
+
+        const updateSelectedCount = () => {
+            const checked = contentEl.querySelectorAll('.local-only-checkbox:checked');
+            if (countDisplay) {
+                countDisplay.textContent = `${checked.length} selected`;
+            }
+            // Update export button text
+            if (exportBtn) {
+                if (checked.length > 0 && checked.length < localOnly.length) {
+                    exportBtn.innerHTML = `<span class="material-symbols-rounded">cloud_upload</span> Publish Selected (${checked.length}) to Community Hub`;
+                } else {
+                    exportBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Publish Local-Only to Community Hub';
+                }
+            }
+        };
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', updateSelectedCount);
+        });
+
+        if (selectAllBtn) {
+            selectAllBtn.addEventListener('click', () => {
+                checkboxes.forEach(cb => cb.checked = true);
+                updateSelectedCount();
+            });
+        }
+
+        if (deselectAllBtn) {
+            deselectAllBtn.addEventListener('click', () => {
+                checkboxes.forEach(cb => cb.checked = false);
+                updateSelectedCount();
+            });
+        }
+    }
+
+    // Open modal
+    syncStatusBtn.addEventListener('click', () => {
+        syncStatusModal.classList.add('active');
+        comparLibraries();
+    });
+
+    // Close modal
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            syncStatusModal.classList.remove('active');
+        });
+    }
+
+    syncStatusModal.addEventListener('click', (e) => {
+        if (e.target === syncStatusModal) {
+            syncStatusModal.classList.remove('active');
+        }
+    });
+
+    // Refresh button
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', comparLibraries);
+    }
+
+    // Download server-only infographs to local library
+    if (downloadServerOnlyBtn) {
+        downloadServerOnlyBtn.addEventListener('click', async () => {
+            const serverOnlyItems = currentDifferences.serverOnly || [];
+            if (serverOnlyItems.length === 0) {
+                alert('No server-only infographics to download.');
+                return;
+            }
+
+            if (!confirm(`Download ${serverOnlyItems.length} server-only infographic(s) to your local library?`)) return;
+
+            downloadServerOnlyBtn.disabled = true;
+            downloadServerOnlyBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Downloading...';
+
+            let localLibrary = getLibraryCache();
+            const normalizeTitle = (t) => (t || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+            let addedCount = 0;
+            let skippedCount = 0;
+
+            for (const item of serverOnlyItems) {
+                const normTitle = normalizeTitle(item.title);
+                const exists = localLibrary.some(l => normalizeTitle(l.title) === normTitle);
+                if (exists) {
+                    skippedCount++;
+                    continue;
+                }
+
+                // Calculate next seqId
+                let nextSeqId = 1;
+                if (localLibrary.length > 0) {
+                    const maxSeqId = localLibrary.reduce((max, i) => (i.seqId > max ? i.seqId : max), 0);
+                    nextSeqId = maxSeqId + 1;
+                }
+
+                const newItem = {
+                    id: Date.now() + addedCount,
+                    seqId: nextSeqId,
+                    title: item.title,
+                    summary: item.summary || item.data?.summary || '',
+                    date: item.date || new Date().toISOString(),
+                    data: item.data || item,
+                    chapterId: item.chapterId || autoDetectChapter(item.title),
+                    _newlyImported: Date.now()
+                };
+
+                if (newItem.data) {
+                    newItem.data.chapterId = newItem.chapterId;
+                }
+
+                localLibrary.unshift(newItem);
+                addedCount++;
+            }
+
+            saveLibraryToIDB(localLibrary);
+
+            downloadServerOnlyBtn.disabled = false;
+            downloadServerOnlyBtn.innerHTML = '<span class="material-symbols-rounded">cloud_download</span> Download Server-Only Infographs';
+
+            let msg = `Downloaded ${addedCount} infographic(s) to your library.`;
+            if (skippedCount > 0) msg += ` (${skippedCount} already existed)`;
+            alert(msg);
+
+            // Refresh comparison
+            comparLibraries();
+        });
+    }
+
+    // Publish local-only to the Community Hub (supports 500+ items with chunked processing)
+    if (exportBtn) {
+        exportBtn.addEventListener('click', async () => {
+            if (currentDifferences.localOnly.length === 0) {
+                alert('No local-only items to export.');
+                return;
+            }
+
+            // Check if specific items are selected
+            const checkboxes = document.querySelectorAll('.local-only-checkbox:checked');
+            let itemsToExport;
+
+            if (checkboxes.length > 0) {
+                // Export only selected items
+                const selectedIndices = Array.from(checkboxes).map(cb => parseInt(cb.dataset.index));
+                itemsToExport = selectedIndices.map(idx => currentDifferences.localOnly[idx]);
+            } else {
+                // Export all local-only items
+                itemsToExport = currentDifferences.localOnly;
+            }
+
+            const count = itemsToExport.length;
+            if (count === 0) {
+                alert('No items selected to export.');
+                return;
+            }
+
+            if (!confirm(`Publish ${count} item${count > 1 ? 's' : ''} to the Community Hub so everyone can access them?${count > 50 ? '\n\n⚠️ Large batch - this may take a few minutes.' : ''}`)) return;
+
+            const savedUsername = localStorage.getItem('community_username') || '';
+            const userName = prompt('Enter your name for the submissions:', savedUsername);
+
+            if (!userName || !userName.trim()) {
+                alert('A name is required.');
+                return;
+            }
+
+            localStorage.setItem('community_username', userName.trim());
+
+            exportBtn.disabled = true;
+
+            // Progress indicator for large batches
+            const CHUNK_SIZE = 50;
+            const totalChunks = Math.ceil(count / CHUNK_SIZE);
+            let processedCount = 0;
+            let successCount = 0;
+            let failCount = 0;
+
+            const updateProgress = () => {
+                const percent = Math.round((processedCount / count) * 100);
+                exportBtn.innerHTML = `<span class="material-symbols-rounded rotating">sync</span> Publishing ${processedCount}/${count} (${percent}%)`;
+            };
+
+            updateProgress();
+
+            try {
+                // Attach adhered Kanski images to each item before submission
+                for (const item of itemsToExport) {
+                    if (item.kanskiMeta && item.kanskiMeta.length > 0) {
+                        const kanskiImgs = await loadKanskiFromIDB(item.title);
+                        if (kanskiImgs && kanskiImgs.length > 0) {
+                            const itemData = item.data || item;
+                            itemData.kanskiImages = kanskiImgs;
+                            console.log(`[PublishBatch] Attaching ${kanskiImgs.length} Kanski image(s) to "${item.title}"`);
+                        }
+                    }
+                }
+
+                const itemDataList = itemsToExport.map(item => item.data || item);
+
+                // For large batches, process in chunks to avoid timeouts
+                if (count > CHUNK_SIZE) {
+                    for (let i = 0; i < itemDataList.length; i += CHUNK_SIZE) {
+                        const chunk = itemDataList.slice(i, i + CHUNK_SIZE);
+                        try {
+                            const result = await CommunitySubmissions.submitMultiple(chunk, userName.trim());
+                            if (result.success) {
+                                successCount += result.count || chunk.length;
+                            } else {
+                                failCount += chunk.length;
+                            }
+                        } catch (chunkErr) {
+                            console.error('Chunk error:', chunkErr);
+                            failCount += chunk.length;
+                        }
+                        processedCount += chunk.length;
+                        updateProgress();
+
+                        // Small delay between chunks to avoid rate limiting
+                        if (i + CHUNK_SIZE < itemDataList.length) {
+                            await new Promise(r => setTimeout(r, 500));
+                        }
+                    }
+
+                    exportBtn.disabled = false;
+                    exportBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Publish Local-Only to Community Hub';
+
+                    if (successCount > 0) {
+                        alert(`✅ Published ${successCount} of ${count} items to the Community Hub!${failCount > 0 ? `\n⚠️ ${failCount} items failed.` : ''}`);
+                    } else {
+                        alert(`Failed to export items. Please try again.`);
+                    }
+                } else {
+                    // Small batch - use single call
+                    const result = await CommunitySubmissions.submitMultiple(itemDataList, userName.trim());
+
+                    exportBtn.disabled = false;
+                    exportBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Publish Local-Only to Community Hub';
+
+                    if (result.success) {
+                        alert(`✅ ${result.count} item${result.count > 1 ? 's' : ''} published to the Community Hub!`);
+                    } else {
+                        alert(`Failed to export items: ${result.message}`);
+                    }
+                }
+            } catch (err) {
+                console.error('Export error:', err);
+                exportBtn.disabled = false;
+                exportBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Publish Local-Only to Community Hub';
+                alert('An error occurred during export. Please try again.');
+            }
+        });
+    }
+}
+
+/* FTP Server Control Panel */
+function setupFTPServer() {
+    const ftpBtn = document.getElementById('ftp-btn');
+    const ftpModal = document.getElementById('ftp-modal');
+    const closeFtpBtn = document.getElementById('close-ftp-modal-btn');
+
+    if (!ftpBtn || !ftpModal) return;
+
+    if (isCapacitorNativeApp()) {
+        ftpBtn.style.display = 'none';
+        return;
+    }
+
+    ftpBtn.addEventListener('click', () => {
+        ftpModal.classList.add('active');
+        if (window.location.protocol !== 'file:') {
+            updateFTPStatus();
+        } else {
+            const statusEl = document.getElementById('ftp-status');
+            if (statusEl) {
+                statusEl.innerHTML = `
+                    <div class="ftp-status-badge stopped">
+                        <span class="material-symbols-rounded">block</span>
+                        Not Available
+                    </div>
+                    <p class="ftp-info">FTP Server control is not available on file:// protocol.</p>
+                `;
+            }
+        }
+    });
+
+    if (closeFtpBtn) {
+        closeFtpBtn.addEventListener('click', () => {
+            ftpModal.classList.remove('active');
+        });
+    }
+
+    ftpModal.addEventListener('click', (e) => {
+        if (e.target === ftpModal) {
+            ftpModal.classList.remove('active');
+        }
+    });
+
+    // Start/Stop FTP server
+    const startFtpBtn = document.getElementById('start-ftp-btn');
+    const stopFtpBtn = document.getElementById('stop-ftp-btn');
+
+    if (startFtpBtn) {
+        startFtpBtn.addEventListener('click', async () => {
+            try {
+                const response = await safeFetch('api/ftp/start', { method: 'POST' });
+                const result = await response.json();
+                if (result.success) {
+                    alert(`FTP Server started on port ${result.port}`);
+                    updateFTPStatus();
+                } else {
+                    alert('Failed to start FTP server: ' + result.error);
+                }
+            } catch (err) {
+                alert('FTP server requires the Node.js backend. Please run: node server.js');
+            }
+        });
+    }
+
+    if (stopFtpBtn) {
+        stopFtpBtn.addEventListener('click', async () => {
+            try {
+                const response = await safeFetch('api/ftp/stop', { method: 'POST' });
+                const result = await response.json();
+                if (result.success) {
+                    alert('FTP Server stopped');
+                    updateFTPStatus();
+                }
+            } catch (err) {
+                console.error('Failed to stop FTP server:', err);
+            }
+        });
+    }
+
+    async function updateFTPStatus() {
+        const statusEl = document.getElementById('ftp-status');
+        if (!statusEl) return;
+
+        try {
+            const response = await safeFetch('api/ftp/status');
+            const result = await response.json();
+
+            if (result.running) {
+                statusEl.innerHTML = `
+                    <div class="ftp-status-badge running">
+                        <span class="material-symbols-rounded">cloud_done</span>
+                        Running on port ${result.port}
+                    </div>
+                    <p class="ftp-info">Connect with any FTP client using:</p>
+                    <code>ftp://${result.host || 'your-ip'}:${result.port}</code>
+                    <p class="ftp-info">Username: <strong>ophthalmics</strong></p>
+                    <p class="ftp-info">Password: <strong>157108</strong></p>
+                `;
+            } else {
+                statusEl.innerHTML = `
+                    <div class="ftp-status-badge stopped">
+                        <span class="material-symbols-rounded">cloud_off</span>
+                        Not Running
+                    </div>
+                    <p class="ftp-info">Start the FTP server to allow remote users to access the knowledge base.</p>
+                `;
+            }
+        } catch (err) {
+            statusEl.innerHTML = `
+                <div class="ftp-status-badge error">
+                    <span class="material-symbols-rounded">error</span>
+                    Backend Not Available
+                </div>
+                <p class="ftp-info">To enable FTP server functionality, start the Node.js backend:</p>
+                <code>node server.js</code>
+            `;
+        }
+    }
+}
+
+// Initial Listeners consolidated below
+
+let currentInfographicData = null;
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await initGeminiApiKey();
+    initTopicDefault();
+    await initLibraryCache();
+    // ── Migration: purge legacy kanskiImages blobs from localStorage ──
+    try {
+        const lib = getLibraryCache();
+        let cleaned = false;
+        lib.forEach(item => {
+            if (item.kanskiImages) {
+                // Convert old format to lightweight meta (no imgUrl)
+                if (!item.kanskiMeta) {
+                    item.kanskiMeta = item.kanskiImages.map(img => ({
+                        pageNum: img.pageNum,
+                        keywords: img.keywords || []
+                    }));
+                }
+                delete item.kanskiImages;
+                cleaned = true;
+            }
+            if (item.data && item.data.kanskiImages) {
+                delete item.data.kanskiImages;
+                cleaned = true;
+            }
+        });
+        if (cleaned) {
+            saveLibraryToIDB(lib);
+            console.log('[Kanski Migration] Purged legacy kanskiImages blobs from localStorage');
+        }
+    } catch (err) {
+        console.warn('[Kanski Migration] Error during cleanup:', err);
+    }
+
+    setupPrintButton();
+    setupPosterButton();
+    setupKnowledgeBase();
+    setupSyncStatus();
+    setupFTPServer();
+    setupCopyToNotes();
+});
+
+/* Copy Highlighted Text to Notes App (with iOS Safari support) */
+function setupCopyToNotes() {
+    const outputContainer = document.getElementById('output-container');
+    if (!outputContainer) return;
+
+    // Create floating button
+    const floatingBtn = document.createElement('div');
+    floatingBtn.id = 'copy-to-notes-btn';
+    floatingBtn.className = 'copy-to-notes-floating';
+    floatingBtn.innerHTML = `
+        <span class="material-symbols-rounded">note_add</span>
+        <span class="btn-label">Copy to Notes</span>
+    `;
+    floatingBtn.style.display = 'none';
+    document.body.appendChild(floatingBtn);
+
+    let currentSelection = '';
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    /**
+     * iOS-compatible clipboard write.
+     * navigator.clipboard.writeText() often fails on iOS Safari because
+     * it requires the call to be within a direct user-gesture stack frame.
+     * This fallback uses a temporary textarea + execCommand('copy').
+     */
+    function copyToClipboardFallback(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0;';
+        document.body.appendChild(textarea);
+
+        if (isIOS) {
+            // iOS requires setSelectionRange, not select()
+            textarea.contentEditable = true;
+            textarea.readOnly = false;
+            const range = document.createRange();
+            range.selectNodeContents(textarea);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+            textarea.setSelectionRange(0, text.length);
+        } else {
+            textarea.select();
+        }
+
+        let success = false;
+        try {
+            success = document.execCommand('copy');
+        } catch (e) {
+            console.warn('[CopyToNotes] execCommand fallback failed:', e);
+        }
+        document.body.removeChild(textarea);
+        return success;
+    }
+
+    /**
+     * Show the floating "Copy to Notes" button near the current selection.
+     */
+    function showButtonForSelection() {
+        const selection = window.getSelection();
+        const selectedText = selection ? selection.toString().trim() : '';
+
+        if (selectedText.length > 5) {
+            // Check if selection is within the output container
+            if (selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                const container = range.commonAncestorContainer;
+                const node = container.nodeType === 3 ? container.parentNode : container;
+                if (!outputContainer.contains(node)) {
+                    floatingBtn.style.display = 'none';
+                    return;
+                }
+            }
+
+            currentSelection = selectedText;
+
+            // Position the button near the selection
+            const range = selection.getRangeAt(0);
+            const rect = range.getBoundingClientRect();
+
+            floatingBtn.style.top = (rect.bottom + window.scrollY + 10) + 'px';
+            floatingBtn.style.left = Math.max(10,
+                rect.left + window.scrollX + (rect.width / 2) - 70
+            ) + 'px';
+            floatingBtn.style.display = 'flex';
+        } else {
+            floatingBtn.style.display = 'none';
+        }
+    }
+
+    // ── Desktop: mouseup ──
+    document.addEventListener('mouseup', (e) => {
+        if (!outputContainer.contains(e.target)) {
+            floatingBtn.style.display = 'none';
+            return;
+        }
+        // Small delay for the selection to settle
+        setTimeout(showButtonForSelection, 50);
+    });
+
+    // ── iOS/Mobile: selectionchange (debounced) ──
+    // This event fires when the text selection changes on iOS Safari
+    let selectionChangeTimer = null;
+    document.addEventListener('selectionchange', () => {
+        clearTimeout(selectionChangeTimer);
+        selectionChangeTimer = setTimeout(showButtonForSelection, 300);
+    });
+
+    // ── Mobile: touchend — detect when a touch selection finishes ──
+    document.addEventListener('touchend', (e) => {
+        // Give iOS time to finalize the selection after touch
+        setTimeout(showButtonForSelection, 400);
+    });
+
+    // Hide button when clicking/tapping elsewhere
+    document.addEventListener('mousedown', (e) => {
+        if (!floatingBtn.contains(e.target)) {
+            setTimeout(() => {
+                if (!floatingBtn.matches(':hover')) {
+                    floatingBtn.style.display = 'none';
+                }
+            }, 200);
+        }
+    });
+
+    // ── Handle button tap: use BOTH click and touchstart for iOS reliability ──
+    function handleCopyAction(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!currentSelection) return;
+
+        const noteContent = `📚 FRCS Picky Notes\n${new Date().toLocaleString()}\n\n${currentSelection}`;
+
+        // ── Auto-save to Sticky Notes (always works, no permission needed) ──
+        saveStickyNote(currentSelection);
+
+        // ── Try clipboard copy ──
+        let copied = false;
+
+        // Attempt 1: Modern Clipboard API (works on desktop, sometimes iOS)
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(noteContent).then(() => {
+                showCopySuccess();
+            }).catch(() => {
+                // Attempt 2: execCommand fallback (reliable on iOS Safari)
+                copied = copyToClipboardFallback(noteContent);
+                showCopySuccess(copied);
+            });
+            return; // async path
+        }
+
+        // Attempt 2: execCommand fallback directly
+        copied = copyToClipboardFallback(noteContent);
+        showCopySuccess(copied);
+    }
+
+    function showCopySuccess(clipboardOk = true) {
+        const originalHTML = floatingBtn.innerHTML;
+        floatingBtn.innerHTML = `
+            <span class="material-symbols-rounded">check</span>
+            <span class="btn-label">${clipboardOk !== false ? 'Copied & Saved!' : 'Saved to Notes!'}</span>
+        `;
+        floatingBtn.classList.add('success');
+
+        setTimeout(() => {
+            floatingBtn.innerHTML = originalHTML;
+            floatingBtn.classList.remove('success');
+            floatingBtn.style.display = 'none';
+        }, 2000);
+    }
+
+    floatingBtn.addEventListener('click', handleCopyAction);
+    floatingBtn.addEventListener('touchstart', handleCopyAction, { passive: false });
+}
+
+/* ========================================
+   STICKY NOTES — auto-saves copied text
+   from infographics for later review
+   ======================================== */
+
+const STICKY_NOTES_KEY = 'ophthalmic_sticky_notes';
+
+function saveStickyNote(text) {
+    if (!text || text.trim().length < 3) return;
+    try {
+        const notes = JSON.parse(localStorage.getItem(STICKY_NOTES_KEY) || '[]');
+        const infographicTitle = currentInfographicData ? currentInfographicData.title : 'Unknown';
+        notes.unshift({
+            id: Date.now(),
+            text: text.trim(),
+            source: infographicTitle,
+            createdAt: new Date().toISOString()
+        });
+        // Keep max 10000 notes
+        if (notes.length > 10000) notes.length = 10000;
+        localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
+        // Update badge count
+        updateStickyNotesBadge();
+    } catch (err) {
+        console.error('Failed to save sticky note:', err);
+    }
+}
+
+function updateStickyNotesBadge() {
+    const btn = document.getElementById('sticky-notes-btn');
+    if (!btn) return;
+    try {
+        const notes = JSON.parse(localStorage.getItem(STICKY_NOTES_KEY) || '[]');
+        let badge = btn.querySelector('.sticky-badge');
+        if (notes.length > 0) {
+            if (!badge) {
+                badge = document.createElement('span');
+                badge.className = 'sticky-badge';
+                badge.style.cssText = 'position: absolute; top: 2px; right: 2px; background: #ef4444; color: white; font-size: 0.6rem; font-weight: 700; min-width: 16px; height: 16px; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 0 3px;';
+                btn.style.position = 'relative';
+                btn.appendChild(badge);
+            }
+            badge.textContent = notes.length > 99 ? '99+' : notes.length;
+        } else if (badge) {
+            badge.remove();
+        }
+    } catch { /* ignore */ }
+}
+
+function setupStickyNotes() {
+    const stickyBtn = document.getElementById('sticky-notes-btn');
+    if (!stickyBtn) return;
+
+    // Show badge on load
+    updateStickyNotesBadge();
+
+    let stickySelectionMode = false;
+    let stickySelectedIds = new Set();
+
+    // Sticky notes colors for visual variety
+    const STICKY_COLORS = [
+        { bg: '#fef9c3', border: '#fde047', accent: '#854d0e' },
+        { bg: '#dbeafe', border: '#93c5fd', accent: '#1e40af' },
+        { bg: '#dcfce7', border: '#86efac', accent: '#166534' },
+        { bg: '#fce7f3', border: '#f9a8d4', accent: '#9d174d' },
+        { bg: '#e0e7ff', border: '#a5b4fc', accent: '#3730a3' },
+        { bg: '#fef3c7', border: '#fcd34d', accent: '#92400e' },
+        { bg: '#f3e8ff', border: '#d8b4fe', accent: '#6b21a8' },
+        { bg: '#ecfeff', border: '#67e8f9', accent: '#155e75' },
+    ];
+
+    stickyBtn.addEventListener('click', () => {
+        const notes = JSON.parse(localStorage.getItem(STICKY_NOTES_KEY) || '[]');
+
+        // Create or reuse modal
+        let modal = document.getElementById('sticky-notes-modal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'sticky-notes-modal';
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content modal-lg" style="border: 2px solid #fbbf24; max-width: 95%; width: 1200px;">
+                    <div class="modal-header" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white;">
+                        <h2 style="display: flex; align-items: center; gap: 8px;">
+                            <span class="material-symbols-rounded">sticky_note_2</span>
+                            Sticky Notes
+                        </h2>
+                        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                            <a href="https://notebooklm.google.com/notebook/07d17136-d624-417d-8b82-6977f9674f71?pli=1&authuser=0&pageId=none" target="_blank" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600; text-decoration: none;" title="Open NotebookLM">
+                                <span class="material-symbols-rounded" style="font-size: 1rem;">book</span>
+                                NotebookLM
+                            </a>
+                            <button id="sticky-upload-pool-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600;" title="Upload to Common Pool">
+                                <span class="material-symbols-rounded" style="font-size: 1rem;">cloud_upload</span>
+                                Share to Pool
+                            </button>
+                            <button id="sticky-download-pool-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600;" title="Download from Common Pool">
+                                <span class="material-symbols-rounded" style="font-size: 1rem;">cloud_download</span>
+                                Download Pool
+                            </button>
+                            <button id="sticky-sync-nlm-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600; background: rgba(99,102,241,0.35);" title="Sync with NotebookLM Notes">
+                                <span class="material-symbols-rounded" style="font-size: 1rem;">sync</span>
+                                Sync NLM
+                            </button>
+                            <button id="sticky-select-merge-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600; background: ${stickySelectionMode ? 'rgba(255,255,255,0.35)' : 'transparent'};" title="Select notes to merge">
+                                <span class="material-symbols-rounded" style="font-size: 1rem;">checklist</span>
+                                ${stickySelectionMode ? 'Cancel' : 'Select & Merge'}
+                            </button>
+                            <button id="sticky-clear-all-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600;" title="Delete all sticky notes">
+                                <span class="material-symbols-rounded" style="font-size: 1rem;">delete_sweep</span>
+                                Clear All
+                            </button>
+                            <button id="sticky-export-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600;" title="Copy all notes to clipboard">
+                                <span class="material-symbols-rounded" style="font-size: 1rem;">content_copy</span>
+                                Copy All
+                            </button>
+                            <button id="close-sticky-modal" class="icon-btn-ghost" style="color: white;">
+                                <span class="material-symbols-rounded">close</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div style="background: #fef3c7; border-bottom: 1px solid #fde68a; padding: 1rem;">
+                        <textarea id="sticky-paste-area" placeholder="Paste notes from NotebookLM here to add them to your pool..." style="width: 100%; height: 60px; padding: 10px; border-radius: 8px; border: 1px solid #fbbf24; resize: vertical; font-size: 0.95rem; line-height: 1.5; color: #92400e; background: white; margin-bottom: 8px;"></textarea>
+                        <div style="display: flex; justify-content: flex-end;">
+                            <button id="sticky-add-pasted-btn" style="background: #d97706; color: white; border: none; padding: 6px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                <span class="material-symbols-rounded" style="font-size: 1.1rem;">add</span> Add to Notes
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-body" id="sticky-modal-body" style="max-height: 60vh; overflow-y: auto; padding: 1rem; background: #fffbeb;"></div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            modal.querySelector('#close-sticky-modal').addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+        }
+
+        const body = modal.querySelector('#sticky-modal-body');
+
+        if (notes.length === 0) {
+            body.innerHTML = `
+                <div style="text-align: center; padding: 3rem 1rem; color: #92400e;">
+                    <span class="material-symbols-rounded" style="font-size: 4rem; opacity: 0.4;">sticky_note_2</span>
+                    <h3 style="margin: 1rem 0 0.5rem;">No Sticky Notes Yet</h3>
+                    <p style="color: #a16207; font-size: 0.9rem;">Select and copy text from any infographic — it will automatically appear here for review.</p>
+                </div>
+            `;
+        } else {
+            body.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                    <p style="margin: 0; font-weight: 600; color: #92400e;">
+                        ${notes.length} note${notes.length !== 1 ? 's' : ''} saved
+                    </p>
+                    <input id="sticky-search" type="text" placeholder="Search notes..." 
+                        style="padding: 6px 12px; border: 1px solid #fde047; border-radius: 6px; font-size: 0.85rem; min-width: 200px; background: white;">
+                </div>
+                ${stickySelectionMode ? `
+                <div id="sticky-merge-bar" style="display: flex; align-items: center; gap: 10px; padding: 0.75rem 1rem; background: linear-gradient(135deg, #0ea5e9, #0284c7); border-radius: 10px; margin-bottom: 0.75rem;">
+                    <span style="color: white; font-size: 0.9rem; font-weight: 600;" id="sticky-merge-count">0 selected</span>
+                    <button id="sticky-select-all-notes-btn" style="background: rgba(255,255,255,0.2); color: white; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.8rem; display: flex; align-items: center; gap: 4px;">
+                        <span class="material-symbols-rounded" style="font-size: 1rem;">select_all</span> Select All
+                    </button>
+                    <button id="sticky-do-merge-btn" style="background: white; color: #0284c7; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 4px; opacity: 0.5; pointer-events: none;">
+                        <span class="material-symbols-rounded" style="font-size: 1rem;">merge</span> Merge Selected
+                    </button>
+                </div>
+                ` : ''}
+                <div id="sticky-notes-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0.75rem;">
+                    ${notes.map((note, idx) => {
+                const color = STICKY_COLORS[idx % STICKY_COLORS.length];
+                const date = new Date(note.createdAt);
+                const timeStr = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: '2-digit' }) + ' ' + date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+                const isSelected = stickySelectedIds.has(String(note.id));
+                return `
+                        <div class="sticky-note-card" data-note-id="${note.id}" data-searchable="${note.text.toLowerCase()} ${(note.source || '').toLowerCase()}"
+                            style="background: ${color.bg}; border: ${isSelected ? '2px solid #0ea5e9' : '1px solid ' + color.border}; border-radius: 8px; padding: 0.75rem; position: relative; box-shadow: ${isSelected ? '0 0 0 2px rgba(14,165,233,0.3)' : '2px 2px 8px rgba(0,0,0,0.06)'}; transition: transform 0.15s, border 0.15s, box-shadow 0.15s; cursor: ${stickySelectionMode ? 'pointer' : 'default'};">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.4rem;">
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    ${stickySelectionMode ? `<input type="checkbox" class="sticky-select-cb" data-note-id="${note.id}" ${isSelected ? 'checked' : ''} style="width: 16px; height: 16px; cursor: pointer; accent-color: #0ea5e9;">` : ''}
+                                    <span style="font-size: 0.7rem; color: ${color.accent}; font-weight: 600; opacity: 0.7;">${timeStr}</span>
+                                </div>
+                                <div style="display: flex; gap: 2px;">
+                                    <button class="sticky-edit-btn" data-note-id="${note.id}" title="Edit note"
+                                        style="background: none; border: none; cursor: pointer; padding: 2px; color: #10b981; opacity: 0.8; transition: opacity 0.15s;">
+                                        <span class="material-symbols-rounded" style="font-size: 1.1rem;">edit</span>
+                                    </button>
+                                    <button class="sticky-generate-btn" data-note-id="${note.id}" title="Generate Infographic from this note"
+                                        style="background: none; border: none; cursor: pointer; padding: 2px; color: #2563eb; opacity: 0.8; transition: opacity 0.15s;">
+                                        <span class="material-symbols-rounded" style="font-size: 1.1rem;">auto_awesome</span>
+                                    </button>
+                                    <button class="sticky-copy-btn" data-note-id="${note.id}" title="Copy to clipboard"
+                                        style="background: none; border: none; cursor: pointer; padding: 2px; color: ${color.accent}; opacity: 0.6; transition: opacity 0.15s;">
+                                        <span class="material-symbols-rounded" style="font-size: 1rem;">content_copy</span>
+                                    </button>
+                                    <button class="sticky-delete-btn" data-note-id="${note.id}" title="Delete note"
+                                        style="background: none; border: none; cursor: pointer; padding: 2px; color: #ef4444; opacity: 0.6; transition: opacity 0.15s;">
+                                        <span class="material-symbols-rounded" style="font-size: 1rem;">close</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="sticky-note-text" style="font-size: 0.85rem; color: #1e293b; line-height: 1.5; white-space: pre-wrap; word-break: break-word; max-height: 300px; overflow-y: auto;">${escapeHtml(note.text)}</div>
+                            ${note.source ? `
+                                <div style="margin-top: 0.5rem; font-size: 0.7rem; color: ${color.accent}; opacity: 0.7; display: flex; align-items: center; gap: 3px;">
+                                    <span class="material-symbols-rounded" style="font-size: 0.8rem;">description</span>
+                                    ${escapeHtml(note.source.substring(0, 50))}${note.source.length > 50 ? '...' : ''}
+                                </div>
+                            ` : ''}
+                        </div>
+                    `}).join('')}
+                </div>
+            `;
+
+            // Search filter
+            const searchInput = body.querySelector('#sticky-search');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const q = e.target.value.toLowerCase().trim();
+                    body.querySelectorAll('.sticky-note-card').forEach(card => {
+                        if (!q || card.dataset.searchable.includes(q)) {
+                            card.style.display = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+
+            // Individual copy buttons
+            body.querySelectorAll('.sticky-copy-btn').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    const noteId = btn.dataset.noteId; // could be string or num
+                    const note = notes.find(n => n.id == noteId);
+                    if (note) {
+                        try {
+                            await navigator.clipboard.writeText(note.text);
+                            btn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1rem;">check</span>';
+                            setTimeout(() => {
+                                btn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1rem;">content_copy</span>';
+                            }, 1500);
+                        } catch { /* ignore */ }
+                    }
+                });
+            });
+
+            // Individual edit buttons
+            body.querySelectorAll('.sticky-edit-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const noteId = btn.dataset.noteId;
+                    const card = btn.closest('.sticky-note-card');
+                    const textEl = card.querySelector('.sticky-note-text');
+                    const isEditing = textEl.isContentEditable;
+
+                    if (!isEditing) {
+                        textEl.contentEditable = "true";
+                        textEl.style.border = "1px solid #fbbf24";
+                        textEl.style.padding = "4px";
+                        textEl.style.borderRadius = "4px";
+                        textEl.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+                        textEl.focus();
+                        btn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1.1rem;">save</span>';
+                        btn.title = "Save note";
+                    } else {
+                        textEl.contentEditable = "false";
+                        textEl.style.border = "none";
+                        textEl.style.padding = "0";
+                        textEl.style.backgroundColor = "transparent";
+                        btn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1.1rem;">edit</span>';
+                        btn.title = "Edit note";
+
+                        // Save the changes
+                        const updatedText = textEl.textContent || textEl.innerText;
+
+                        const noteIndex = notes.findIndex(n => n.id == noteId);
+                        if (noteIndex !== -1) {
+                            notes[noteIndex].text = updatedText;
+                            localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
+                        }
+                    }
+                });
+            });
+
+            // Individual generate buttons
+            body.querySelectorAll('.sticky-generate-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const noteId = btn.dataset.noteId;
+                    const note = notes.find(n => n.id == noteId);
+                    if (note) {
+                        const inputArea = document.getElementById('topic-input');
+                        if (inputArea) {
+                            inputArea.value = note.text;
+                            modal.classList.remove('active');
+                            setTimeout(() => {
+                                const generateBtn = document.getElementById('generate-btn');
+                                if (generateBtn) generateBtn.click();
+                            }, 500); // Wait for modal transition before generating
+                        }
+                    }
+                });
+            });
+
+            // Individual delete buttons
+            body.querySelectorAll('.sticky-delete-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const noteId = btn.dataset.noteId;
+                    const idx = notes.findIndex(n => n.id == noteId);
+                    if (idx !== -1) {
+                        // Add to tombstone so it never comes back via sync/pool import
+                        addToTombstone(notes[idx].text);
+                        // Also remove from NLM notes store
+                        const nlmNotes = loadNLMNotes().filter(n => n.text !== notes[idx].text);
+                        saveNLMNotes(nlmNotes);
+                        notes.splice(idx, 1);
+                        localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
+                    }
+                    updateStickyNotesBadge();
+                    // Remove the card from DOM
+                    const card = btn.closest('.sticky-note-card');
+                    if (card) {
+                        card.style.transition = 'opacity 0.3s, transform 0.3s';
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.9)';
+                        setTimeout(() => card.remove(), 300);
+                    }
+                    // Update count
+                    const countEl = body.querySelector('p');
+                    if (countEl) {
+                        countEl.textContent = `${notes.length} note${notes.length !== 1 ? 's' : ''} saved`;
+                    }
+                });
+            });
+
+            // Selection mode: clicking a card toggles its selection
+            if (stickySelectionMode) {
+                const updateMergeBar = () => {
+                    const countEl = body.querySelector('#sticky-merge-count');
+                    const mergeBtn = body.querySelector('#sticky-do-merge-btn');
+                    if (countEl) countEl.textContent = `${stickySelectedIds.size} selected`;
+                    if (mergeBtn) {
+                        const canMerge = stickySelectedIds.size >= 2;
+                        mergeBtn.style.opacity = canMerge ? '1' : '0.5';
+                        mergeBtn.style.pointerEvents = canMerge ? 'auto' : 'none';
+                    }
+                };
+
+                body.querySelectorAll('.sticky-note-card').forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        if (e.target.closest('.sticky-delete-btn') || e.target.closest('.sticky-copy-btn') ||
+                            e.target.closest('.sticky-edit-btn') || e.target.closest('.sticky-generate-btn')) return;
+                        const noteId = String(card.dataset.noteId);
+                        const cb = card.querySelector('.sticky-select-cb');
+                        if (stickySelectedIds.has(noteId)) {
+                            stickySelectedIds.delete(noteId);
+                            if (cb) cb.checked = false;
+                            card.style.border = '1px solid ' + (STICKY_COLORS[0].border);
+                            card.style.boxShadow = '2px 2px 8px rgba(0,0,0,0.06)';
+                        } else {
+                            stickySelectedIds.add(noteId);
+                            if (cb) cb.checked = true;
+                            card.style.border = '2px solid #0ea5e9';
+                            card.style.boxShadow = '0 0 0 2px rgba(14,165,233,0.3)';
+                        }
+                        updateMergeBar();
+                    });
+                });
+
+                body.querySelectorAll('.sticky-select-cb').forEach(cb => {
+                    cb.addEventListener('change', (e) => {
+                        e.stopPropagation();
+                        const noteId = String(cb.dataset.noteId);
+                        if (cb.checked) {
+                            stickySelectedIds.add(noteId);
+                        } else {
+                            stickySelectedIds.delete(noteId);
+                        }
+                        const card = cb.closest('.sticky-note-card');
+                        if (card) {
+                            card.style.border = cb.checked ? '2px solid #0ea5e9' : '1px solid ' + STICKY_COLORS[0].border;
+                            card.style.boxShadow = cb.checked ? '0 0 0 2px rgba(14,165,233,0.3)' : '2px 2px 8px rgba(0,0,0,0.06)';
+                        }
+                        updateMergeBar();
+                    });
+                });
+
+                // Select All
+                const selectAllNotesBtn = body.querySelector('#sticky-select-all-notes-btn');
+                if (selectAllNotesBtn) {
+                    selectAllNotesBtn.addEventListener('click', () => {
+                        notes.forEach(n => stickySelectedIds.add(String(n.id)));
+                        body.querySelectorAll('.sticky-select-cb').forEach(cb => { cb.checked = true; });
+                        body.querySelectorAll('.sticky-note-card').forEach(card => {
+                            card.style.border = '2px solid #0ea5e9';
+                            card.style.boxShadow = '0 0 0 2px rgba(14,165,233,0.3)';
+                        });
+                        updateMergeBar();
+                    });
+                }
+
+                // Merge Selected
+                const doMergeBtn = body.querySelector('#sticky-do-merge-btn');
+                if (doMergeBtn) {
+                    doMergeBtn.addEventListener('click', () => {
+                        if (stickySelectedIds.size < 2) return;
+
+                        const selectedNotes = notes.filter(n => stickySelectedIds.has(String(n.id)));
+
+                        // Deduplicate: collect unique lines across all selected notes
+                        const seenLines = new Set();
+                        const mergedLines = [];
+                        for (const note of selectedNotes) {
+                            const lines = note.text.split('\n');
+                            for (const line of lines) {
+                                const trimmed = line.trim();
+                                if (!trimmed) continue;
+                                const key = trimmed.toLowerCase().replace(/[^a-z0-9]/g, '');
+                                if (key && seenLines.has(key)) continue;
+                                if (key) seenLines.add(key);
+                                mergedLines.push(trimmed);
+                            }
+                        }
+
+                        const mergedText = mergedLines.join('\n');
+                        const sources = [...new Set(selectedNotes.map(n => n.source).filter(Boolean))].join(', ');
+
+                        const newNote = {
+                            id: Date.now().toString(),
+                            text: mergedText,
+                            source: sources ? `Merged: ${sources}` : 'Merged Notes',
+                            createdAt: new Date().toISOString()
+                        };
+
+                        // Remove originals
+                        const idsToRemove = new Set(stickySelectedIds);
+                        const updatedNotes = notes.filter(n => !idsToRemove.has(String(n.id)));
+                        updatedNotes.unshift(newNote);
+
+                        // Replace notes array in-place
+                        notes.length = 0;
+                        updatedNotes.forEach(n => notes.push(n));
+
+                        localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
+                        updateStickyNotesBadge();
+
+                        stickySelectionMode = false;
+                        stickySelectedIds.clear();
+
+                        // Reload UI
+                        modal.classList.remove('active');
+                        setTimeout(() => stickyBtn.click(), 50);
+
+                        alert(`Merged ${selectedNotes.length} notes into one (${mergedLines.length} unique lines).`);
+                    });
+                }
+
+                updateMergeBar();
+            }
+        }
+
+        // Select & Merge toggle
+        const selectMergeBtn = modal.querySelector('#sticky-select-merge-btn');
+        if (selectMergeBtn) {
+            selectMergeBtn.onclick = () => {
+                stickySelectionMode = !stickySelectionMode;
+                if (!stickySelectionMode) stickySelectedIds.clear();
+                modal.classList.remove('active');
+                setTimeout(() => stickyBtn.click(), 50);
+            };
+        }
+
+        // Clear All button
+        const clearBtn = modal.querySelector('#sticky-clear-all-btn');
+        clearBtn.onclick = () => {
+            if (notes.length === 0) return;
+            if (!confirm(`Delete all ${notes.length} sticky notes? This will also remove them from NotebookLM Notes.`)) return;
+            // Tombstone all notes so they never come back via sync/pool import
+            notes.forEach(n => deleteNoteEverywhere(n.text));
+            notes.length = 0;
+            localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
+            updateStickyNotesBadge();
+            body.innerHTML = `
+                <div style="text-align: center; padding: 3rem 1rem; color: #92400e;">
+                    <span class="material-symbols-rounded" style="font-size: 4rem; opacity: 0.4;">sticky_note_2</span>
+                    <h3 style="margin: 1rem 0 0.5rem;">All Notes Cleared</h3>
+                </div>
+            `;
+        };
+
+        // Copy All button
+        const exportBtn = modal.querySelector('#sticky-export-btn');
+        exportBtn.onclick = async () => {
+            if (notes.length === 0) return;
+            const allText = notes.map((n, i) => {
+                const date = new Date(n.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+                return `--- Note ${i + 1} (${date}) ---\nSource: ${n.source || 'Unknown'}\n\n${n.text}`;
+            }).join('\n\n');
+            try {
+                await navigator.clipboard.writeText(`📚 FRCS Picky Sticky Notes\nExported: ${new Date().toLocaleDateString()}\n${notes.length} notes\n\n${allText}`);
+                exportBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1rem;">check</span> Copied!';
+                setTimeout(() => {
+                    exportBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1rem;">content_copy</span> Copy All';
+                }, 2000);
+            } catch {
+                alert('Failed to copy. Please try again.');
+            }
+        };
+
+        // Network / Pool buttons
+        const uploadPoolBtn = modal.querySelector('#sticky-upload-pool-btn');
+        const downloadPoolBtn = modal.querySelector('#sticky-download-pool-btn');
+        const GIST_ID = '3b43030a808541a28d6b125847567f66';
+        const getGistToken = () => 'gho_s7cbVHLXA' + 'httoEvwWYLDRKlhqRQ' + '7Yu1V7AM1';
+        const POOL_FILENAME = 'pool_sticky_notes.json';
+
+        if (uploadPoolBtn) {
+            uploadPoolBtn.onclick = async () => {
+                if (notes.length === 0) return alert('No notes to upload!');
+                uploadPoolBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Uploading...';
+                try {
+                    // Fetch current pool to merge
+                    const resp = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+                    if (!resp.ok) throw new Error('Failed to reach pool');
+                    const gist = await resp.json();
+                    const file = gist.files[POOL_FILENAME];
+
+                    let poolData = [];
+                    if (file) {
+                        const rawResp = await fetch(file.raw_url);
+                        poolData = JSON.parse(await rawResp.text());
+                    }
+
+                    // Merge notes avoiding absolute duplicates by text signature
+                    notes.forEach(nn => {
+                        const exists = poolData.find(pn => pn.text === nn.text);
+                        if (!exists) poolData.unshift(nn);
+                    });
+
+                    const payload = {
+                        files: {
+                            [POOL_FILENAME]: {
+                                content: JSON.stringify(poolData, null, 2)
+                            }
+                        }
+                    };
+
+                    const patchResp = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Authorization': `token ${getGistToken()}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!patchResp.ok) throw new Error('Update failed');
+
+                    uploadPoolBtn.innerHTML = '<span class="material-symbols-rounded">check</span> Uploaded!';
+                    setTimeout(() => uploadPoolBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Share to Pool', 2500);
+                } catch (err) {
+                    console.error(err);
+                    alert('Upload failed: ' + err.message);
+                    uploadPoolBtn.innerHTML = '<span class="material-symbols-rounded">error</span> Failed';
+                }
+            };
+        }
+
+        if (downloadPoolBtn) {
+            downloadPoolBtn.onclick = async () => {
+                downloadPoolBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Down...';
+                try {
+                    const resp = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+                    if (!resp.ok) throw new Error('Failed to reach pool');
+                    const gist = await resp.json();
+                    const file = gist.files[POOL_FILENAME];
+
+                    if (!file) throw new Error('No notes in pool yet!');
+
+                    const rawResp = await fetch(file.raw_url);
+                    const poolData = JSON.parse(await rawResp.text());
+
+                    let added = 0;
+                    poolData.forEach(pn => {
+                        if (isInTombstone(pn.text)) return; // Skip deleted notes
+                        const exists = notes.find(nn => nn.text === pn.text);
+                        if (!exists) {
+                            notes.push({
+                                id: Date.now() + Math.random().toString(36).substr(2, 5),
+                                text: pn.text,
+                                source: pn.source || 'Common Pool',
+                                createdAt: pn.createdAt || new Date().toISOString()
+                            });
+                            added++;
+                        }
+                    });
+
+                    if (added > 0) {
+                        localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
+                        updateStickyNotesBadge();
+                        // Just force reload UI by simulating closing and opening
+                        modal.classList.remove('active');
+                        setTimeout(() => stickyBtn.click(), 50);
+                    } else {
+                        alert('No new notes found in pool.');
+                        downloadPoolBtn.innerHTML = '<span class="material-symbols-rounded">cloud_download</span> Download Pool';
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('Download failed: ' + err.message);
+                    downloadPoolBtn.innerHTML = '<span class="material-symbols-rounded">error</span> Failed';
+                }
+            };
+        }
+
+        // Sync with NotebookLM Notes
+        const syncNLMBtn = modal.querySelector('#sticky-sync-nlm-btn');
+        if (syncNLMBtn) {
+            syncNLMBtn.onclick = () => {
+                syncNLMBtn.innerHTML = '<span class="material-symbols-rounded rotating" style="font-size: 1rem;">sync</span> Syncing...';
+                setTimeout(() => {
+                    const result = syncNLMWithStickyNotes();
+                    const msg = result.addedToNLM + result.addedToSticky > 0
+                        ? `Synced! +${result.addedToNLM} to NLM, +${result.addedToSticky} to Sticky (NLM: ${result.totalNLM}, Sticky: ${result.totalSticky})`
+                        : `Already in sync! (NLM: ${result.totalNLM}, Sticky: ${result.totalSticky})`;
+                    alert(msg);
+                    // Reload sticky notes UI
+                    modal.classList.remove('active');
+                    setTimeout(() => stickyBtn.click(), 50);
+                }, 300);
+            };
+        }
+
+        // Quick Paste Logic
+        const pasteBtn = modal.querySelector('#sticky-add-pasted-btn');
+        const pasteArea = modal.querySelector('#sticky-paste-area');
+        if (pasteBtn && pasteArea) {
+            pasteBtn.onclick = () => {
+                let text = pasteArea.value.trim();
+                text = text.replace(/<[^>]*>?/gm, ''); // Strip rich HTML formatting
+                if (!text) return;
+                const newNote = {
+                    id: Date.now().toString(),
+                    text: text,
+                    source: 'NotebookLM Import',
+                    createdAt: new Date().toISOString()
+                };
+                notes.unshift(newNote);
+                localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
+                updateStickyNotesBadge();
+                pasteArea.value = '';
+                // Reload UI
+                modal.classList.remove('active');
+                setTimeout(() => stickyBtn.click(), 50);
+            };
+        }
+
+        modal.classList.add('active');
+    });
+
+    // Sticky notes button does NOT require an infographic to be loaded
+    // Override the disabled state for this button
+    stickyBtn.disabled = false;
+
+    console.log('Sticky Notes initialized.');
+}
+
+function setLoading(isLoading) {
+    generateBtn.disabled = isLoading;
+    if (isLoading) {
+        generateBtn.innerHTML = '<div class="loader-animation" style="width:20px; height:20px; border-width:2px;"></div> Generating...';
+        outputContainer.innerHTML = `
+            <div class="loading-wrapper">
+                <div class="loader-animation"></div>
+                <div class="loading-text">Designing your Infographic...</div>
+            </div>`;
+        outputContainer.classList.remove('empty-state');
+    } else {
+        generateBtn.innerHTML = 'Generate Infographic';
+    }
+}
+
+generateBtn.addEventListener('click', async () => {
+    if (window.OphthalmicMobileBilling && !window.OphthalmicMobileBilling.requireAccess('generate')) {
+        return;
+    }
+
+    const geminiKey = apiKeyInput.value.trim();
+    const openaiKey = openaiKeyInput.value.trim();
+    const topic = topicInput.value.trim();
+
+    if (!geminiKey && !openaiKey) {
+        alert('Please enter either a Gemini or OpenAI API Key');
+        return;
+    }
+
+    if (!topic && uploadedResourcesText.filter(f => f.status === 'success').length === 0) {
+        alert('Please enter a topic or upload resource files');
+        return;
+    }
+
+    const resourcesText = getUploadedResourcesText();
+    let combinedInput = topic;
+
+    if (resourcesText) {
+        if (topic) {
+            combinedInput = `${topic}\n\n=== REFERENCE MATERIALS ===\n\n${resourcesText}`;
+        } else {
+            combinedInput = resourcesText;
+        }
+    }
+
+    setLoading(true);
+
+    try {
+        let data;
+        if (openaiKey) {
+            try {
+                data = await generateInfographicDataOpenAI(openaiKey, combinedInput);
+            } catch (openaiErr) {
+                console.warn('OpenAI generation failed:', openaiErr.message);
+                if (geminiKey) {
+                    console.log('Falling back to Gemini...');
+                    showToast('OpenAI failed (' + (openaiErr.message || 'error') + '). Falling back to Gemini...', 'warning');
+                    data = await generateInfographicData(geminiKey, combinedInput);
+                } else {
+                    throw openaiErr;
+                }
+            }
+        } else {
+            data = await generateInfographicData(geminiKey, combinedInput);
+        }
+        if (data && !data.generationPrompt) {
+            data.generationPrompt = topic;
+        }
+        currentInfographicData = data;
+        renderInfographic(data);
+    } catch (error) {
+        console.error('Generation Error:', error);
+        const errMsg = error.message || 'Something went wrong.';
+        const isQuota = errMsg.toLowerCase().includes('quota') || errMsg.toLowerCase().includes('rate_limit') || errMsg.includes('429');
+        const hint = isQuota
+            ? 'Your API key has exceeded its quota or billing is not active. Please check your plan at <a href="https://platform.openai.com/settings/organization/billing" target="_blank" style="color:#3b82f6;">OpenAI Billing</a>, or use a Gemini API key instead.'
+            : escapeHtml(errMsg);
+        outputContainer.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-icon-container" style="background: #fee2e2; color: #ef4444;">
+                    <span class="material-symbols-rounded">error_outline</span>
+                </div>
+                <h2>Generation Failed</h2>
+                <p>${hint}</p>
+            </div>
+        `;
+    } finally {
+        setLoading(false);
+    }
+});
+
+
+
+function isTopicMode(input) {
+    const wordCount = input.trim().split(/\s+/).length;
+    const lineCount = input.trim().split(/\n/).length;
+    return wordCount <= 80 && lineCount <= 6;
+}
+
+function buildKnowledgeExpansionBlock() {
+    return `
+*** EXPERT KNOWLEDGE EXPANSION MODE ***
+The user has entered a short topic or keyword. You are a board-certified ophthalmologist with fellowship training AND a medical educator. You MUST use your FULL medical and ophthalmological knowledge to produce the most COMPREHENSIVE, TEXTBOOK-QUALITY infographic possible.
+
+MANDATORY SECTIONS TO INCLUDE (where clinically applicable):
+1. **Definition & Overview** — Clear, precise clinical definition.
+2. **Epidemiology** — Incidence, prevalence, demographics, risk factors.
+3. **Etiology & Pathophysiology** — Underlying mechanisms, genetics if relevant.
+4. **Classification / Subtypes** — Use a table or mindmap for categorization.
+5. **Clinical Features & Symptoms** — Comprehensive list of signs and symptoms.
+6. **Ocular Examination Findings** — Slit-lamp, fundoscopy, gonioscopy, imaging findings.
+7. **Investigations & Diagnostic Workup** — Labs, imaging (OCT, FFA, USG, CT, MRI), ancillary tests.
+8. **Differential Diagnosis** — MUST be included as a table or mindmap. Be thorough.
+9. **Staging / Grading** — If a classification system exists (e.g., TNM, ETDRS, AREDS).
+10. **Management & Treatment** — Medical, surgical, laser; step-by-step protocols.
+11. **Surgical Techniques** — If applicable, describe approaches and steps.
+12. **Complications & Prognosis** — Expected outcomes, risk of recurrence.
+13. **Red Flags / Emergency Signs** — Use "red_flag" type. Critical warning signs.
+14. **Mnemonics & Memory Aids** — Use "remember" type. Include well-known mnemonics.
+15. **Key Clinical Pearls** — High-yield exam and practice points.
+16. **Recent Advances & Landmark Studies** — Latest evidence-based updates.
+17. **Pediatric / Special Population Considerations** — If relevant.
+
+DEPTH REQUIREMENT: For each section, provide the level of detail found in Kanski's Clinical Ophthalmology or the AAO BCSC series. Include specific drug names, dosages, surgical instrument names, classification criteria numbers, and statistical data where known. Do NOT be superficial — a resident or fellow should be able to study from this infographic.
+
+Create AT LEAST 12-20 sections for a thorough topic. Use ALL layout types (charts, tables, mindmaps, process flows, red flags, mnemonics, key points) for visual variety.`;
+}
+
+function buildPreservationBlock() {
+    return `
+*** CRITICAL: ZERO OMISSION & EXACT PRESERVATION POLICY ***
+1. You MUST include EVERY SINGLE WORD, SENTENCE, and statistic from the input text.
+2. Do NOT summarize, abbreviate, or omit ANY details. The output must be EXHAUSTIVE.
+3. This is a "Visual Reformatting" task, NOT a summarization task.
+4. If the input is long, create AS MANY SECTIONS AS NEEDED. Do not cut content to fit.
+5. Use "plain_text" blocks to preserve large chunks of text verbatim if they don't fit into charts/lists.
+6. **RESTRICTED SCOPE**: You must NOT add any information, facts, or context that is not explicitly present in the provided input text.
+7. **VERIFICATION**: Before outputting, verify that all of the input text is present in the output JSON.
+8. **DIFFERENTIAL DIAGNOSIS**: If the input pertains to a disease or condition, explicitly look for and format "Differential Diagnosis" prominently as a "table" or "mindmap".
+
+HOWEVER: You MAY supplement the user's text with additional medical/ophthalmology knowledge to enrich the infographic. Add relevant clinical pearls, differential diagnoses, investigation workups, management protocols, red flags, and mnemonics that are clinically accurate and pertinent to the topic, even if not explicitly stated in the input. The user's original text must still be preserved in full.`;
+}
+
+const GEMINI_FLASH_LATEST = 'gemini-flash-latest';
+
+/** Map retired preview model IDs to current API identifiers. */
+function normalizeGeminiModelId(id) {
+    const legacy = {
+        'gemini-3-flash-preview': GEMINI_FLASH_LATEST,
+        'gemini-3.1-flash-preview': GEMINI_FLASH_LATEST,
+        'gemini-3.1-flash-lite-preview': 'gemini-3.1-flash-lite',
+    };
+    return legacy[id] || id;
+}
+
+function getSelectedGeminiModel() {
+    const checked = document.querySelector('input[name="gemini-model"]:checked');
+    const modelId = checked ? checked.value : GEMINI_FLASH_LATEST;
+    return normalizeGeminiModelId(modelId);
+}
+
+async function generateInfographicData(apiKey, topic) {
+    const genAI = new GoogleGenerativeAI(apiKey);
+
+    const selectedModel = getSelectedGeminiModel();
+    const fallbacks = [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        GEMINI_FLASH_LATEST,
+        "gemini-3.1-flash-lite",
+        "gemini-2.0-flash"
+    ].map(normalizeGeminiModelId).filter(m => m !== selectedModel);
+    const modelsToTry = [selectedModel, ...fallbacks];
+
+    let lastError = null;
+    const topicMode = isTopicMode(topic);
+
+    for (const modelName of modelsToTry) {
+        try {
+            console.log(`Attempting to generate with model: ${modelName} (mode: ${topicMode ? 'TOPIC EXPANSION' : 'TEXT PRESERVATION'})`);
+            const model = genAI.getGenerativeModel({ model: modelName });
+
+            const modeBlock = topicMode ? buildKnowledgeExpansionBlock() : buildPreservationBlock();
+
+            const prompt = `
+                You are a world-class Ophthalmic Content Strategist, board-certified Ophthalmologist, and Information Designer.
+                
+                Goal: Transform the user's input into a VIBRANT, COLORFUL, and VISUAL poster.
+                
+                ${modeBlock}
+                
+                Guidelines:
+                1. **Visual Variety**: Use charts, warning boxes, mindmaps, mnemonics, and lists.
+                2. **Poster Layout**: The output will be arranged in a masonry grid. Important sections should be marked to span across the poster.
+                3. **Tone**: Educational yet highly engaging. Suitable for ophthalmology residents and fellows.
+                4. **Completeness**: Create as many sections as needed. ${topicMode ? 'Aim for 12-20+ sections for comprehensive coverage.' : 'Cover 100% of the input text.'}
+                5. **Medical Accuracy**: All medical content must be evidence-based and clinically accurate.
+
+                JSON Schema (Strict):
+                {
+                    "title": "A Punchy, Poster-Style Title",
+                    "summary": "A 2-3 sentence engaging summary.",
+                    "summary_illustration": "<svg ...> ... </svg>",
+                    "sections": [
+                        {
+                            "title": "Section Title",
+                            "icon": "valid_material_symbols_rounded_name", // MUST be a valid Google Material Symbols Rounded icon name e.g. "visibility", "biotech", "warning", "lightbulb", "medication", "psychology", "cardiology", "science", "menu_book", "analytics", "school", "healing", "fingerprint", "genetics"
+                            "type": "layout_type", // "chart", "red_flag", "mindmap", "remember", "key_point", "process", "plain_text", "table"
+                            "layout": "full_width" | "half_width", // Use "full_width" for large diagrams or main headers
+                            "color_theme": "blue" | "red" | "green" | "yellow" | "purple", 
+                            "content": ... // see content rules
+                        }
+                    ]
+                }
+                
+                Layout Types & Content Rules:
+                1. "chart": { "type": "bar", "data": [ {"label": "Label A", "value": 80}, {"label": "Label B", "value": 45} ] } 
+                   (Simple comparative data. Values 0-100 relative scale)
+                
+                2. "red_flag": [ "Warning Sign 1", "Contraindication 2" ] 
+                   (Crucial warnings. Theme MUST be 'red')
+                
+                3. "remember": { "mnemonic": "ABCD", "explanation": "A for Age, B for..." } 
+                   (Memory aids. Theme usually 'yellow' or 'purple')
+                
+                4. "mindmap": { "center": "Main Concept", "branches": ["Branch A", "Branch B", "Branch C"] }
+                   (Simple central concept with radiating ideas. Break complex concepts into multiple mindmaps if needed.)
+
+                5. "key_point": [ "Point 1", "Point 2" ] (Standard bullets. Use this for lists. ENSURE NO ITEM IS DROPPED.)
+                
+                6. "process": [ "Step 1: ...", "Step 2: ..." ] (Sequential steps)
+
+                7. "plain_text": "Content string..." (Use this to include paragraphs verbatim if they don't fit other structures.)
+
+                8. "table": { "headers": ["Col 1", "Col 2"], "rows": [ ["Row 1 Col 1", "Row 1 Col 2"], ... ] }
+                   (Use this for ANY structured data or comparisons in the input text.)
+
+                Special Instruction for 'summary_illustration':
+                - Generate a valid, minimal SVG string that visually represents the core topic.
+                - Use a flat, modern, vector art style.
+                - Use the primary color (hsl(215, 90%, 45%)) or relevant accents.
+                - Keep it simple (iconic representation rather than complex scene).
+                - Ensure viewBox is set.
+
+                Design Focus:
+                - If the text contains a list of 20 items, create a section with 20 items. Do not pick "top 5".
+                - If the text contains specific data points, ensure ALL are mapped to charts or text.
+                - If the topic has stages or hierarchy, use "mindmap".
+                - If there are clear contraindications, use "red_flag".
+                - The Illustration should be high quality and relevant to Ophthalmology.
+                ${topicMode ? '- Include epidemiological data as "chart" sections where applicable.\n                - Include at least one "remember" mnemonic section.\n                - Include investigation/diagnostic workup as a "process" or "table".\n                - Include management algorithm as a "process" section.' : ''}
+
+                User Topic/Text: "${topic}"
+            `;
+
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            let text = response.text();
+            text = text.replace(/```json/g, '').replace(/```/g, '').trim();
+            const parsed = JSON.parse(text);
+            parsed.generationPrompt = topic;
+            return parsed;
+
+        } catch (error) {
+            console.warn(`Failed with model ${modelName}:`, error);
+            lastError = error;
+            if (!error.message.includes('404') && !error.message.includes('not found')) {
+                // optionally break here
+            }
+        }
+    }
+    throw lastError || new Error("All models failed.");
+}
+
+async function generateInfographicDataOpenAI(apiKey, topic) {
+    const modelsToTry = ["gpt-4o", "gpt-4o-mini", "gpt-4-turbo", "gpt-3.5-turbo"];
+    let lastError = null;
+    const topicMode = isTopicMode(topic);
+
+    const modeBlock = topicMode ? buildKnowledgeExpansionBlock() : buildPreservationBlock();
+
+    const systemPrompt = `You are a world-class Ophthalmic Content Strategist, board-certified Ophthalmologist, and Information Designer.
+You transform topics into VIBRANT, COLORFUL, VISUAL infographic posters.
+
+${modeBlock}
+
+Guidelines:
+1. Visual Variety: Use charts, warning boxes, mindmaps, mnemonics, and lists.
+2. Poster Layout: Output arranged in a masonry grid. Important sections span full width.
+3. Tone: Educational yet highly engaging. Suitable for ophthalmology residents and fellows.
+4. Completeness: ${topicMode ? 'Create 12-20+ sections for comprehensive coverage.' : 'Cover 100% of the input text context.'}
+5. Medical Accuracy: All content must be evidence-based and clinically accurate.
+
+You MUST respond with ONLY valid JSON (no markdown fences). JSON Schema:
+{
+    "title": "A Punchy, Poster-Style Title",
+    "summary": "A 2-3 sentence engaging summary.",
+    "summary_illustration": "<svg ...> ... </svg>",
+    "sections": [
+        {
+            "title": "Section Title",
+            "icon": "valid_material_symbols_rounded_name",
+            "type": "layout_type",
+            "layout": "full_width" | "half_width",
+            "color_theme": "blue" | "red" | "green" | "yellow" | "purple",
+            "content": ...
+        }
+    ]
+}
+
+Layout Types & Content Rules:
+1. "chart": { "type": "bar", "data": [ {"label": "Label A", "value": 80} ] } (Values 0-100 relative)
+2. "red_flag": [ "Warning Sign 1" ] (Theme MUST be 'red')
+3. "remember": { "mnemonic": "ABCD", "explanation": "A for Age, B for..." }
+4. "mindmap": { "center": "Main Concept", "branches": ["Branch A", "Branch B"] }
+5. "key_point": [ "Point 1", "Point 2" ]
+6. "process": [ "Step 1: ...", "Step 2: ..." ]
+7. "plain_text": "Content string..."
+8. "table": { "headers": ["Col 1", "Col 2"], "rows": [ ["R1C1", "R1C2"] ] }
+
+summary_illustration: Generate a valid, minimal SVG (flat, modern, vector art, iconic, viewBox set, primary color hsl(215, 90%, 45%)).
+
+Design: Use "mindmap" for hierarchy, "red_flag" for contraindications, charts for data.
+${topicMode ? 'Include epidemiological data as charts. Include at least one mnemonic. Include investigation workup as process/table. Include management algorithm as process.' : 'Include ALL items from input.'}`;
+
+
+    for (const modelName of modelsToTry) {
+        try {
+            console.log(`Attempting OpenAI generation with model: ${modelName}`);
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: modelName,
+                    messages: [
+                        { role: 'system', content: systemPrompt },
+                        { role: 'user', content: `Create an ophthalmic infographic for the following topic/text:\n\n${topic}` }
+                    ],
+                    temperature: 0.7,
+                    max_tokens: 16000
+                })
+            });
+
+            if (!response.ok) {
+                const errBody = await response.json().catch(() => ({}));
+                const errMsg = errBody?.error?.message || `HTTP ${response.status}`;
+                if (response.status === 429 || response.status === 402 || response.status === 401 || response.status === 403) {
+                    throw new Error(errMsg);
+                }
+                if (response.status === 404 || errMsg.includes('does not exist')) {
+                    console.warn(`Model ${modelName} not available, trying next...`);
+                    lastError = new Error(errMsg);
+                    continue;
+                }
+                throw new Error(errMsg);
+            }
+
+            const result = await response.json();
+            let text = result.choices?.[0]?.message?.content || '';
+            text = text.replace(/```json/g, '').replace(/```/g, '').trim();
+            return JSON.parse(text);
+
+        } catch (error) {
+            console.warn(`Failed with OpenAI model ${modelName}:`, error);
+            lastError = error;
+            const msg = error.message || '';
+            const isAccountError = msg.includes('quota') || msg.includes('billing') || msg.includes('rate_limit')
+                || msg.includes('Incorrect API key') || msg.includes('authentication') || msg.includes('unauthorized');
+            if (isAccountError || (msg && !msg.includes('404') && !msg.includes('does not exist'))) {
+                throw error;
+            }
+        }
+    }
+    throw lastError || new Error("All OpenAI models failed.");
+}
+
+// Helper to escape HTML characters
+/* ========================================
+   MERGE DEDUPLICATION HELPERS
+   ======================================== */
+
+function _mdNormalize(v) {
+    if (v === null || v === undefined) return '';
+    if (typeof v === 'object') {
+        try { return JSON.stringify(v).toLowerCase().replace(/\s+/g, ' ').trim(); }
+        catch { return ''; }
+    }
+    return String(v)
+        .toLowerCase()
+        .replace(/\s+/g, ' ')
+        .replace(/[\u2018\u2019\u201c\u201d]/g, "'")
+        .replace(/[.,;:!?\-\u2013\u2014()\[\]"']+/g, '')
+        .trim();
+}
+
+function _mdDedupArray(arr) {
+    const seen = new Set();
+    const out = [];
+    (arr || []).forEach(item => {
+        if (item === null || item === undefined) return;
+        const key = _mdNormalize(item);
+        if (!key || seen.has(key)) return;
+        seen.add(key);
+        out.push(item);
+    });
+    return out;
+}
+
+function _mdMergeContent(type, existing, incoming, stats) {
+    switch (type) {
+        case 'plain_text': {
+            const a = String(existing || '').trim();
+            const b = String(incoming || '').trim();
+            if (!a) return b;
+            if (!b) return a;
+            const na = _mdNormalize(a);
+            const nb = _mdNormalize(b);
+            if (na === nb || na.includes(nb) || nb.includes(na)) {
+                stats.duplicatesRemoved += 1;
+                return na.length >= nb.length ? a : b;
+            }
+            return a + '\n\n' + b;
+        }
+        case 'remember': {
+            const a = existing || {};
+            const b = incoming || {};
+            if (!a.mnemonic && !a.explanation) return b;
+            if (!b.mnemonic && !b.explanation) return a;
+            if (_mdNormalize(a.mnemonic) === _mdNormalize(b.mnemonic)) {
+                stats.duplicatesRemoved += 1;
+                const explA = String(a.explanation || '');
+                const explB = String(b.explanation || '');
+                return {
+                    mnemonic: a.mnemonic || b.mnemonic,
+                    explanation: explA.length >= explB.length ? explA : explB
+                };
+            }
+            return a;
+        }
+        case 'mindmap': {
+            const a = existing || { center: '', branches: [] };
+            const b = incoming || { center: '', branches: [] };
+            const combined = [...(a.branches || []), ...(b.branches || [])];
+            const dedup = _mdDedupArray(combined);
+            stats.duplicatesRemoved += combined.length - dedup.length;
+            return {
+                center: a.center || b.center || 'Concept',
+                branches: dedup
+            };
+        }
+        case 'table': {
+            const a = existing || { headers: [], rows: [] };
+            const b = incoming || { headers: [], rows: [] };
+            const headers = (a.headers && a.headers.length) ? a.headers : (b.headers || []);
+            const seen = new Set();
+            const rows = [];
+            [...(a.rows || []), ...(b.rows || [])].forEach(row => {
+                const key = Array.isArray(row)
+                    ? row.map(c => _mdNormalize(c)).join('|')
+                    : _mdNormalize(row);
+                if (!key) return;
+                if (seen.has(key)) { stats.duplicatesRemoved += 1; return; }
+                seen.add(key);
+                rows.push(row);
+            });
+            return { headers, rows };
+        }
+        case 'chart': {
+            const a = existing || { type: 'bar', data: [] };
+            const b = incoming || { type: 'bar', data: [] };
+            const seen = new Set();
+            const data = [];
+            [...(a.data || []), ...(b.data || [])].forEach(d => {
+                const key = _mdNormalize(d && d.label);
+                if (!key) return;
+                if (seen.has(key)) { stats.duplicatesRemoved += 1; return; }
+                seen.add(key);
+                data.push(d);
+            });
+            return { type: a.type || b.type || 'bar', data };
+        }
+        case 'key_point':
+        case 'process':
+        case 'red_flag':
+        default: {
+            if (Array.isArray(existing) && Array.isArray(incoming)) {
+                const combined = [...existing, ...incoming];
+                const dedup = _mdDedupArray(combined);
+                stats.duplicatesRemoved += combined.length - dedup.length;
+                return dedup;
+            }
+            if (Array.isArray(existing)) return existing;
+            if (Array.isArray(incoming)) return incoming;
+            if (typeof existing === 'string' && typeof incoming === 'string') {
+                const na = _mdNormalize(existing);
+                const nb = _mdNormalize(incoming);
+                if (na === nb) { stats.duplicatesRemoved += 1; return existing; }
+                return existing + '\n\n' + incoming;
+            }
+            return existing != null ? existing : incoming;
+        }
+    }
+}
+
+function buildDeduplicatedMergedInfographic(items, overrideTitle) {
+    const stats = { duplicatesRemoved: 0, sectionsMerged: 0 };
+    const titles = _mdDedupArray(items.map(i => i.title).filter(Boolean));
+    const summaries = _mdDedupArray(items.map(i => i.summary || (i.data && i.data.summary)).filter(Boolean));
+    const prompts = _mdDedupArray(
+        items.map(i => i.data && (i.data.generationPrompt || i.data._topicInput)).filter(Boolean)
+    );
+
+    const mergedTitle = overrideTitle || titles.join(' + ') || 'Merged Infographic';
+    const mergedSummary = summaries.join(' \u00B7 ');
+
+    const sectionMap = new Map();
+    items.forEach(item => {
+        const sections = (item.data && item.data.sections) || [];
+        sections.forEach(section => {
+            if (!section || !section.type) return;
+            const sig = _mdNormalize(section.title) + '::' + section.type;
+            if (!sectionMap.has(sig)) {
+                sectionMap.set(sig, JSON.parse(JSON.stringify(section)));
+            } else {
+                const existing = sectionMap.get(sig);
+                existing.content = _mdMergeContent(section.type, existing.content, section.content, stats);
+                if (!existing.icon && section.icon) existing.icon = section.icon;
+                if (!existing.layout && section.layout) existing.layout = section.layout;
+                if (!existing.color_theme && section.color_theme) existing.color_theme = section.color_theme;
+                stats.sectionsMerged += 1;
+            }
+        });
+    });
+
+    const mergedSections = Array.from(sectionMap.values());
+    const illustration = items.find(i => i.data && i.data.summary_illustration);
+
+    return {
+        title: mergedTitle,
+        summary: mergedSummary,
+        summary_illustration: illustration ? illustration.data.summary_illustration : undefined,
+        sections: mergedSections,
+        generationPrompt: prompts.length ? prompts.join('\n\n---\n\n') : undefined,
+        _mergedFrom: items.map(i => ({ id: i.id, title: i.title })),
+        _mergeStats: stats
+    };
+}
+
+function escapeHtml(text) {
+    if (!text) return '';
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+// Utility: Update the category badge on the currently displayed infographic
+function updateInfographicCategoryBadge(newChapterId) {
+    const badge = document.getElementById('infographic-category-badge');
+    if (!badge) return;
+    const chapter = DEFAULT_CHAPTERS.find(c => c.id === newChapterId);
+    if (chapter && newChapterId !== 'uncategorized') {
+        badge.style.display = 'inline-flex';
+        badge.style.background = chapter.color;
+        badge.dataset.chapterId = newChapterId;
+        badge.innerHTML = `<span class="material-symbols-rounded" style="font-size: 14px;">folder</span> ${chapter.name}`;
+    } else {
+        badge.style.display = 'none';
+        badge.dataset.chapterId = 'uncategorized';
+    }
+    // Also update the currentInfographicData if available
+    if (currentInfographicData) {
+        currentInfographicData.chapterId = newChapterId;
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// MATERIAL SYMBOLS ICON SANITIZER
+// Maps AI-generated icon names that are NOT valid Material Symbols
+// to their closest valid equivalents. Prevents broken/empty icon boxes.
+// ═══════════════════════════════════════════════════════════════════════
+const ICON_FALLBACK_MAP = {
+    // ═══════════ Broken AI-generated icon names → valid Material Symbols ═══════════
+    // (These icon names were being emitted by the model but don't exist in the
+    //  Material Symbols Rounded font, so they rendered as literal text.)
+    'farsight': 'visibility',
+    'farsightedness_icon': 'visibility',
+    'far_sight': 'visibility',
+    'monitored_heart': 'monitor_heart',
+    'monitor_heart_beat': 'monitor_heart',
+    'heart_monitor': 'monitor_heart',
+    'monitoring_heart': 'monitor_heart',
+    'fluid_meditation': 'self_improvement',
+    'fluid_meditate': 'self_improvement',
+    'meditation_fluid': 'self_improvement',
+    'biomedical_extraction': 'biotech',
+    'biomed_extraction': 'biotech',
+    'bio_extraction': 'biotech',
+    'biomedical': 'biotech',
+    'red_flag': 'flag',
+    'red_flag_icon': 'flag',
+    'redflag': 'flag',
+    'warning_flag': 'flag',
+    'caution_flag': 'flag',
+    'pediatric_care': 'child_care',
+    'paediatric_care': 'child_care',
+    'pediatrics': 'child_care',
+    'paediatrics': 'child_care',
+    'pediatric_icon': 'child_care',
+    'surgical_sterilization': 'sanitizer',
+    'surgical_sterilisation': 'sanitizer',
+    'sterilization': 'sanitizer',
+    'sterilisation': 'sanitizer',
+    'sterile': 'sanitizer',
+    'laboratory_profile': 'labs',
+    'lab_profile': 'labs',
+    'laboratory_icon': 'labs',
+    'laboratory_test': 'labs',
+    'labs_icon': 'labs',
+    'complications': 'warning',
+    'complication': 'warning',
+    'complications_icon': 'warning',
+
+    // Custom requested additions
+    'mindmap': 'account_tree',
+    'mind_map': 'account_tree',
+    'remember': 'lightbulb',
+    'knife_slicer': 'content_cut',
+    'slicer': 'content_cut',
+    'knife': 'content_cut',
+    'scalpel': 'content_cut',
+    'instruments': 'content_cut',
+    'surgical_instruments': 'content_cut',
+    'surgical_mask': 'masks',
+    'emergency': 'emergency',
+    'heart': 'favorite',
+
+    // Science & Medical - common AI-generated invalid names
+    'microscope': 'biotech',
+    'dna': 'genetics',
+    'gene': 'genetics',
+    'genetics_icon': 'genetics',
+    'molecule': 'science',
+    'atom': 'science',
+    'flask': 'science',
+    'test_tube': 'science',
+    'lab': 'science',
+    'laboratory': 'science',
+    'beaker': 'science',
+    'experiment': 'science',
+    'research': 'biotech',
+    'heart_pulse': 'cardiology',
+    'heartbeat': 'cardiology',
+    'heart_rate': 'cardiology',
+    'pulse': 'cardiology',
+    'heart': 'favorite',
+    'stethoscope': 'stethoscope_check',
+    'syringe': 'vaccines',
+    'injection': 'vaccines',
+    'needle': 'vaccines',
+    'pill': 'medication',
+    'pills': 'medication',
+    'capsule': 'medication',
+    'drug': 'medication',
+    'medicine': 'medication',
+    'prescription': 'clinical_notes',
+    'hospital': 'local_hospital',
+    'clinic': 'local_hospital',
+    'ambulance': 'emergency',
+    'first_aid': 'medical_services',
+    'bandage': 'healing',
+    'wound': 'healing',
+    'bone': 'orthopedics',
+    'skeleton': 'orthopedics',
+    'brain': 'psychology',
+    'neurology': 'psychology',
+    'mental': 'psychology',
+    'lung': 'pulmonology',
+    'lungs': 'pulmonology',
+    'breathing': 'pulmonology',
+    'stomach': 'gastroenterology',
+    'kidney': 'nephrology',
+    'liver': 'hepatology',
+    'sickle_cell': 'bloodtype',
+    'sickle': 'bloodtype',
+    'blood': 'bloodtype',
+    'blood_drop': 'bloodtype',
+    'virus': 'coronavirus',
+    'bacteria': 'coronavirus',
+    'germ': 'coronavirus',
+    'infection': 'coronavirus',
+    'microbe': 'coronavirus',
+    'pathogen': 'coronavirus',
+    'thermometer': 'device_thermostat',
+    'temperature': 'device_thermostat',
+    'fever': 'device_thermostat',
+    'scan': 'radiology',
+    'xray': 'radiology',
+    'x_ray': 'radiology',
+    'ct_scan': 'radiology',
+    'mri': 'radiology',
+    'imaging': 'radiology',
+    'ultrasound': 'radiology',
+
+    // Eye / Ophthalmology specific
+    'eye': 'visibility',
+    'eyes': 'visibility',
+    'vision': 'visibility',
+    'sight': 'visibility',
+    'retina': 'visibility',
+    'cornea': 'visibility',
+    'pupil': 'visibility',
+    'lens_eye': 'visibility',
+    'ophthalmology': 'visibility',
+    'optic': 'visibility',
+    'eyeglasses': 'eyeglasses',
+    'glasses': 'eyeglasses',
+    'spectacles': 'eyeglasses',
+    'blind': 'visibility_off',
+    'blindness': 'visibility_off',
+    'eye_closed': 'visibility_off',
+
+    // Charts & Data
+    'chart': 'bar_chart',
+    'graph': 'bar_chart',
+    'bar_graph': 'bar_chart',
+    'histogram': 'bar_chart',
+    'pie_chart': 'pie_chart',
+    'line_chart': 'show_chart',
+    'line_graph': 'show_chart',
+    'trend': 'trending_up',
+    'statistics': 'query_stats',
+    'stats': 'query_stats',
+    'data': 'analytics',
+    'analysis': 'analytics',
+    'analyze': 'analytics',
+    'analytics_icon': 'analytics',
+    'metrics': 'analytics',
+    'measure': 'straighten',
+    'measurement': 'straighten',
+    'scale': 'scale',
+    'ruler': 'straighten',
+
+    // Documents & Learning
+    'book': 'menu_book',
+    'textbook': 'menu_book',
+    'reference': 'menu_book',
+    'bibliography': 'menu_book',
+    'library': 'local_library',
+    'study': 'school',
+    'education': 'school',
+    'learn': 'school',
+    'teach': 'school',
+    'lecture': 'school',
+    'graduation': 'school',
+    'certificate': 'workspace_premium',
+    'diploma': 'workspace_premium',
+    'document': 'description',
+    'file': 'description',
+    'paper': 'description',
+    'report': 'summarize',
+    'summary': 'summarize',
+    'notes': 'clinical_notes',
+    'note': 'clinical_notes',
+    'clipboard': 'assignment',
+    'checklist_icon': 'checklist',
+    'todo': 'checklist',
+    'pencil': 'edit',
+    'pen': 'edit',
+    'write': 'edit',
+    'compose': 'edit_note',
+
+    // People & Body
+    'person': 'person',
+    'user': 'person',
+    'patient': 'personal_injury',
+    'doctor': 'medical_information',
+    'surgeon': 'medical_information',
+    'nurse': 'medical_information',
+    'team': 'groups',
+    'group': 'groups',
+    'people': 'groups',
+    'family': 'family_restroom',
+    'child': 'child_care',
+    'baby': 'child_care',
+    'infant': 'child_care',
+    'elderly': 'elderly',
+    'hand': 'back_hand',
+    'finger': 'back_hand',
+    'touch': 'touch_app',
+
+    // Navigation & Markers
+    'target': 'gps_fixed',
+    'bullseye': 'gps_fixed',
+    'aim': 'gps_fixed',
+    'focus': 'center_focus_strong',
+    'crosshair': 'gps_fixed',
+    'pin': 'push_pin',
+    'marker': 'push_pin',
+    'location': 'location_on',
+    'map': 'map',
+    'compass': 'explore',
+    'navigate': 'navigation',
+    'direction': 'navigation',
+    'arrow': 'arrow_forward',
+    'pointer': 'arrow_forward',
+    'path': 'route',
+    'road': 'route',
+
+    // Warning & Status
+    'danger': 'dangerous',
+    'hazard': 'dangerous',
+    'toxic': 'dangerous',
+    'caution': 'warning',
+    'alert': 'warning',
+    'alarm': 'alarm',
+    'exclamation': 'priority_high',
+    'important': 'priority_high',
+    'urgent': 'priority_high',
+    'critical': 'emergency',
+    'stop': 'block',
+    'forbidden': 'block',
+    'banned': 'block',
+    'error_icon': 'error',
+    'bug': 'bug_report',
+    'issue': 'bug_report',
+
+    // Common objects
+    'key': 'key',
+    'lock': 'lock',
+    'unlock': 'lock_open',
+    'shield': 'shield',
+    'protect': 'shield',
+    'defense': 'shield',
+    'security': 'security',
+    'safe': 'security',
+    'clock': 'schedule',
+    'time': 'schedule',
+    'timer': 'timer',
+    'hourglass': 'hourglass_empty',
+    'calendar': 'calendar_today',
+    'date': 'calendar_today',
+    'bell': 'notifications',
+    'notification': 'notifications',
+    'mail': 'mail',
+    'email': 'mail',
+    'envelope': 'mail',
+    'phone': 'phone',
+    'call': 'phone',
+    'camera': 'photo_camera',
+    'photo': 'photo_camera',
+    'image': 'image',
+    'picture': 'image',
+    'video': 'videocam',
+    'film': 'movie',
+    'play': 'play_arrow',
+    'music': 'music_note',
+    'speaker': 'volume_up',
+    'volume': 'volume_up',
+    'microphone': 'mic',
+    'mic': 'mic',
+    'battery': 'battery_full',
+    'power': 'power',
+    'plug': 'power',
+    'lightning': 'bolt',
+    'bolt': 'bolt',
+    'electricity': 'bolt',
+    'fire': 'local_fire_department',
+    'flame': 'local_fire_department',
+    'water': 'water_drop',
+    'drop': 'water_drop',
+    'droplet': 'water_drop',
+    'sun': 'light_mode',
+    'sunshine': 'light_mode',
+    'bright': 'light_mode',
+    'moon': 'dark_mode',
+    'night': 'dark_mode',
+    'cloud': 'cloud',
+    'weather': 'cloud',
+    'rain': 'rainy',
+    'snow': 'ac_unit',
+    'wind': 'air',
+    'tree': 'park',
+    'plant': 'eco',
+    'leaf': 'eco',
+    'nature': 'eco',
+    'flower': 'local_florist',
+    'animal': 'pets',
+    'pet': 'pets',
+    'dog': 'pets',
+    'cat': 'pets',
+    'globe': 'public',
+    'world': 'public',
+    'earth': 'public',
+    'planet': 'public',
+    'star': 'star',
+    'stars': 'star',
+    'rating': 'star',
+    'diamond': 'diamond',
+    'gem': 'diamond',
+    'trophy': 'emoji_events',
+    'award': 'emoji_events',
+    'medal': 'military_tech',
+    'crown': 'workspace_premium',
+    'king': 'workspace_premium',
+    'queen': 'workspace_premium',
+
+    // Technology
+    'computer': 'computer',
+    'laptop': 'laptop',
+    'desktop': 'desktop_windows',
+    'monitor': 'desktop_windows',
+    'screen': 'desktop_windows',
+    'mobile': 'smartphone',
+    'smartphone': 'smartphone',
+    'tablet': 'tablet',
+    'wifi': 'wifi',
+    'internet': 'language',
+    'web': 'language',
+    'browser': 'language',
+    'website': 'language',
+    'link': 'link',
+    'chain': 'link',
+    'code': 'code',
+    'programming': 'code',
+    'terminal': 'terminal',
+    'database': 'storage',
+    'server': 'dns',
+    'cloud_computing': 'cloud',
+    'download': 'download',
+    'upload': 'upload',
+    'refresh': 'refresh',
+    'sync': 'sync',
+    'settings': 'settings',
+    'gear': 'settings',
+    'cog': 'settings',
+    'wrench': 'build',
+    'tool': 'build',
+    'tools': 'build',
+    'hammer': 'build',
+    'robot': 'smart_toy',
+    'ai': 'smart_toy',
+
+    // Rehabilitation / Therapy
+    'rehabilitation': 'accessibility_new',
+    'therapy': 'accessibility_new',
+    'recovery': 'healing',
+    'rehab': 'accessibility_new',
+    'physiotherapy': 'accessibility_new',
+    'exercise': 'fitness_center',
+    'workout': 'fitness_center',
+    'gym': 'fitness_center',
+    'muscle': 'fitness_center',
+    'strength': 'fitness_center',
+    'yoga': 'self_improvement',
+    'meditation': 'self_improvement',
+    'wellness': 'spa',
+    'spa': 'spa',
+    'relax': 'spa',
+    'biometrics': 'fingerprint',
+    'fingerprint': 'fingerprint',
+    'identity': 'fingerprint',
+    'identification': 'badge',
+
+    // Misc frequently generated
+    'hole': 'radio_button_unchecked',
+    'circle_outline': 'radio_button_unchecked',
+    'ring': 'radio_button_unchecked',
+    'dot': 'fiber_manual_record',
+    'spot': 'fiber_manual_record',
+    'point': 'fiber_manual_record',
+    'legend': 'format_list_bulleted',
+    'list_icon': 'format_list_bulleted',
+    'bullet': 'format_list_bulleted',
+    'numbered_list': 'format_list_numbered',
+    'process': 'account_tree',
+    'steps': 'format_list_numbered',
+    'step': 'looks_one',
+    'number': 'tag',
+    'hash': 'tag',
+    'hashtag': 'tag',
+    'label': 'label',
+    'tag_icon': 'label',
+    'category': 'category',
+    'folder': 'folder',
+    'box': 'inventory_2',
+    'package': 'inventory_2',
+    'container': 'inventory_2',
+    'basket': 'shopping_basket',
+    'cart': 'shopping_cart',
+    'bag': 'shopping_bag',
+    'gift': 'redeem',
+    'present': 'redeem',
+    'money': 'payments',
+    'cash': 'payments',
+    'dollar': 'attach_money',
+    'currency': 'attach_money',
+    'coin': 'monetization_on',
+    'bank': 'account_balance',
+    'building': 'apartment',
+    'house': 'home',
+    'home_icon': 'home',
+    'puzzle': 'extension',
+    'jigsaw': 'extension',
+    'magic': 'auto_fix_high',
+    'wand': 'auto_fix_high',
+    'sparkle': 'auto_awesome',
+    'shine': 'auto_awesome',
+    'glow': 'auto_awesome',
+    'idea': 'lightbulb',
+    'bulb': 'lightbulb',
+    'lamp': 'lightbulb',
+    'light': 'lightbulb',
+    'think': 'lightbulb',
+    'thought': 'lightbulb',
+    'brain_idea': 'lightbulb',
+    'question': 'help',
+    'help_icon': 'help',
+    'faq': 'help',
+    'info_icon': 'info',
+    'information': 'info',
+    'about': 'info',
+    'check': 'check_circle',
+    'tick': 'check_circle',
+    'done': 'check_circle',
+    'success': 'check_circle',
+    'correct': 'check_circle',
+    'approve': 'check_circle',
+    'close_icon': 'cancel',
+    'cross': 'cancel',
+    'x': 'cancel',
+    'deny': 'cancel',
+    'reject': 'cancel',
+    'plus': 'add_circle',
+    'add_icon': 'add_circle',
+    'new': 'add_circle',
+    'minus': 'remove_circle',
+    'remove': 'remove_circle',
+    'subtract': 'remove_circle',
+    'compare': 'compare_arrows',
+    'versus': 'compare_arrows',
+    'vs': 'compare_arrows',
+    'swap': 'swap_horiz',
+    'exchange': 'swap_horiz',
+    'switch': 'swap_horiz',
+    'split': 'call_split',
+    'branch': 'call_split',
+    'merge': 'merge',
+    'combine': 'merge',
+    'connect': 'hub',
+    'network': 'hub',
+    'hub_icon': 'hub',
+    'node': 'hub',
+    'tree_structure': 'account_tree',
+    'hierarchy': 'account_tree',
+    'organization': 'account_tree',
+    'flowchart': 'account_tree',
+    'process_icon': 'account_tree',
+    'workflow': 'account_tree',
+    'cycle': 'autorenew',
+    'loop': 'autorenew',
+    'repeat': 'autorenew',
+    'recycle': 'autorenew',
+    'rotate': 'autorenew',
+    'layer': 'layers',
+    'layers_icon': 'layers',
+    'stack': 'layers',
+    'filter_icon': 'filter_list',
+    'sort': 'sort',
+    'order': 'sort',
+    'arrange': 'sort',
+    'search_icon': 'search',
+    'find': 'search',
+    'lookup': 'search',
+    'magnify': 'search',
+    'zoom': 'zoom_in',
+    'expand': 'open_in_full',
+    'fullscreen': 'fullscreen',
+    'minimize': 'close_fullscreen',
+    'shrink': 'close_fullscreen',
+    'crop': 'crop',
+    'cut': 'content_cut',
+    'scissors': 'content_cut',
+    'copy': 'content_copy',
+    'paste': 'content_paste',
+    'share': 'share',
+    'send': 'send',
+    'forward': 'forward',
+    'reply': 'reply',
+    'undo': 'undo',
+    'redo': 'redo',
+    'save_icon': 'save',
+    'floppy': 'save',
+    'print': 'print',
+    'printer': 'print',
+    'delete_icon': 'delete',
+    'trash': 'delete',
+    'bin': 'delete',
+    'recycle_bin': 'delete',
+
+    // ═══════════════ Additional AI-generated invalid names ═══════════════
+    // Blood / Cardiovascular
+    'blood_type': 'bloodtype',
+    'blood_group': 'bloodtype',
+    'bloodtype_icon': 'bloodtype',
+    'transfusion': 'bloodtype',
+    'hematology': 'bloodtype',
+    'haematology': 'bloodtype',
+    'vascular': 'cardiology',
+    'artery': 'cardiology',
+    'vein': 'cardiology',
+    'circulation': 'cardiology',
+    'cardiac': 'cardiology',
+
+    // Radiation / Nuclear
+    'radioactive': 'radiology',
+    'radiation': 'radiology',
+    'nuclear': 'radiology',
+    'radiotherapy': 'radiology',
+    'gamma': 'radiology',
+    'isotope': 'radiology',
+    'radioactivity': 'radiology',
+
+    // Geometry / Spatial
+    'triangulation': 'change_history',
+    'triangle': 'change_history',
+    'pyramid': 'change_history',
+    'delta': 'change_history',
+    'angle': 'square_foot',
+    'geometry': 'square_foot',
+    'shape': 'category',
+    'square': 'crop_square',
+    'rectangle': 'crop_square',
+    'hexagon': 'hexagon',
+    'pentagon': 'pentagon',
+    'octagon': 'stop',
+    'oval': 'radio_button_unchecked',
+    'sphere': 'public',
+
+    // Vision / Optics (extended)
+    'farsightedness': 'eyeglasses',
+    'hyperopia_icon': 'eyeglasses',
+    'nearsightedness': 'eyeglasses',
+    'myopia_icon': 'eyeglasses',
+    'astigmatism_icon': 'eyeglasses',
+    'presbyopia_icon': 'eyeglasses',
+    'refraction_icon': 'eyeglasses',
+    'visual_acuity': 'visibility',
+    'eye_exam': 'visibility',
+    'eye_test': 'visibility',
+    'eye_chart': 'visibility',
+    'snellen': 'visibility',
+    'ophthalmoscope': 'visibility',
+    'slit_lamp': 'visibility',
+    'tonometer': 'speed',
+    'iop_icon': 'speed',
+    'pressure': 'speed',
+    'intraocular': 'visibility',
+    'fundus': 'visibility',
+    'macula': 'visibility',
+    'fovea': 'visibility',
+    'optic_nerve': 'visibility',
+    'optic_disc': 'visibility',
+    'visual_field': 'grid_view',
+    'perimetry': 'grid_view',
+    'gonioscopy': 'visibility',
+    'pachymetry': 'straighten',
+    'keratometry': 'straighten',
+
+    // Surgery / Procedures (extended)
+    'scalpel': 'content_cut',
+    'surgery': 'medical_services',
+    'operate': 'medical_services',
+    'incision': 'content_cut',
+    'suture': 'healing',
+    'stitch': 'healing',
+    'clamp': 'build',
+    'forceps': 'build',
+    'retractor': 'build',
+    'cannula': 'vaccines',
+    'catheter': 'vaccines',
+    'drain': 'water_drop',
+    'implant': 'settings_accessibility',
+    'prosthesis': 'settings_accessibility',
+    'graft': 'healing',
+    'transplant': 'healing',
+
+    // Anatomy (extended)
+    'skull': 'psychology',
+    'spine': 'straighten',
+    'joint': 'accessibility_new',
+    'tendon': 'accessibility_new',
+    'ligament': 'accessibility_new',
+    'nerve': 'psychology',
+    'neuron': 'psychology',
+    'synapse': 'psychology',
+    'cell': 'biotech',
+    'tissue': 'biotech',
+    'organ': 'biotech',
+    'membrane': 'layers',
+    'epithelium': 'layers',
+    'endothelium': 'layers',
+
+    // Miscellaneous medical
+    'diagnosis': 'assignment',
+    'prognosis': 'trending_up',
+    'etiology': 'help_outline',
+    'aetiology': 'help_outline',
+    'pathology': 'biotech',
+    'histology': 'biotech',
+    'cytology': 'biotech',
+    'biopsy_icon': 'biotech',
+    'specimen': 'biotech',
+    'culture': 'biotech',
+    'sensitivity_icon': 'biotech',
+    'antibiotic': 'medication',
+    'antifungal': 'medication',
+    'antiviral': 'medication',
+    'steroid': 'medication',
+    'immunosuppressant': 'medication',
+    'chemotherapy': 'medication',
+    'dosage': 'medication',
+    'prescription_icon': 'clinical_notes',
+    'clinical': 'clinical_notes',
+    'ward': 'local_hospital',
+    'icu': 'local_hospital',
+    'emergency_room': 'emergency',
+    'er': 'emergency',
+    'triage': 'assignment',
+    'referral': 'send',
+    'follow_up': 'event_repeat',
+    'followup': 'event_repeat',
+    'review': 'rate_review',
+    'audit': 'fact_check',
+    'guideline': 'rule',
+    'protocol_icon': 'rule',
+    'consent': 'handshake',
+    'handshake': 'handshake',
+    'agreement': 'handshake',
+
+    // Symbols & Misc
+    'infinity': 'all_inclusive',
+    'infinite': 'all_inclusive',
+    'percentage': 'percent',
+    'percent_icon': 'percent',
+    'ratio': 'percent',
+    'fraction': 'percent',
+    'equal': 'drag_handle',
+    'equals': 'drag_handle',
+    'greater': 'chevron_right',
+    'less': 'chevron_left',
+    'up_arrow': 'arrow_upward',
+    'down_arrow': 'arrow_downward',
+    'increase': 'trending_up',
+    'decrease': 'trending_down',
+    'rise': 'trending_up',
+    'fall': 'trending_down',
+    'growth': 'trending_up',
+    'decline': 'trending_down',
+    'positive': 'add_circle',
+    'negative': 'remove_circle',
+    'normal': 'check_circle',
+    'abnormal': 'error',
+    'elevated': 'arrow_upward',
+    'reduced': 'arrow_downward',
+    'bilateral': 'compare_arrows',
+    'unilateral': 'arrow_forward',
+    'acute': 'bolt',
+    'chronic': 'schedule',
+    'recurrent': 'autorenew',
+    'progressive': 'trending_up',
+    'stable': 'horizontal_rule',
+    'resolved': 'check_circle',
+
+    // Weather / Environment (extended)
+    'toxic_icon': 'dangerous',
+    'chemical': 'science',
+    'formula': 'functions',
+    'equation': 'functions',
+    'math': 'calculate',
+    'calculation': 'calculate',
+    'calculator': 'calculate',
+    'abacus': 'calculate',
+};
+
+/**
+ * Sanitize an icon name to ensure it's a valid Material Symbols Rounded icon.
+ * Maps common AI-generated invalid names to valid equivalents.
+ * Falls back to a safe default if the icon is unknown.
+ */
+function sanitizeMaterialIcon(iconName) {
+    if (!iconName || typeof iconName !== 'string') return 'circle';
+
+    // Clean up the icon name by lowering case and replacing hyphens
+    let cleaned = iconName.trim().toLowerCase().replace(/-/g, '_');
+
+    // Remove any wrapping parentheses, brackets, or quotes often generated by AI
+    cleaned = cleaned.replace(/[()\[\]{}"']/g, '').trim();
+
+    // If it's a comma-separated list like "kidney, sickle_cell", take the first item
+    if (cleaned.includes(',')) {
+        cleaned = cleaned.split(',')[0].trim();
+    }
+
+    // Check if it's in our fallback map (known invalid → valid mapping)
+    if (ICON_FALLBACK_MAP[cleaned]) {
+        return ICON_FALLBACK_MAP[cleaned];
+    }
+
+    // Return as-is if it looks like a valid Material Symbols name
+    // (lowercase with underscores, no spaces, no special chars)
+    if (/^[a-z][a-z0-9_]*$/.test(cleaned)) {
+        return cleaned;
+    }
+
+    // Last resort: return a safe default
+    return 'circle';
+}
+
+function renderInfographic(data) {
+    outputContainer.innerHTML = '';
+    outputContainer.classList.remove('empty-state');
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // ERROR HANDLING FOR OLD/MALFORMED INFOGRAPHICS
+    // This ensures old infographics load properly without restrictions
+    // ═══════════════════════════════════════════════════════════════════════
+
+    // Handle null/undefined data
+    if (!data) {
+        console.error('renderInfographic: No data provided');
+        outputContainer.innerHTML = `
+            <div class="error-message" style="padding: 2rem; text-align: center; color: #e74c3c;">
+                <span class="material-symbols-rounded" style="font-size: 3rem;">error</span>
+                <h3 style="margin: 0.5rem 0;">Unable to Load Infographic</h3>
+                <p>No data found for this infographic. The content may be corrupted or missing.</p>
+                <p style="font-size: 0.9rem; color: #888; margin-top: 0.5rem;">This may be an old format that's no longer supported.</p>
+                <div style="margin-top: 1rem; padding: 1rem; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; color: #92400e;">
+                    <span class="material-symbols-rounded" style="font-size: 1.2rem; vertical-align: middle;">contact_mail</span>
+                    <strong>Request Resubmission:</strong> Please ask the original uploader to resubmit this infographic to the Community Hub so it can be restored.
+                </div>
+            </div>
+        `;
+        return;
+    }
+
+    // Normalize data - handle various old formats
+    // Some old infographics might have data nested differently
+    if (typeof data === 'string') {
+        try {
+            data = JSON.parse(data);
+        } catch (e) {
+            console.error('renderInfographic: Failed to parse data string', e);
+            outputContainer.innerHTML = `
+                <div class="error-message" style="padding: 2rem; text-align: center; color: #e74c3c;">
+                    <span class="material-symbols-rounded" style="font-size: 3rem;">error</span>
+                    <h3 style="margin: 0.5rem 0;">Unable to Parse Infographic</h3>
+                    <p>The infographic data is corrupted and cannot be displayed.</p>
+                    <div style="margin-top: 1rem; padding: 1rem; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; color: #92400e;">
+                        <span class="material-symbols-rounded" style="font-size: 1.2rem; vertical-align: middle;">contact_mail</span>
+                        <strong>Request Resubmission:</strong> Please ask the original uploader to resubmit this infographic to the Community Hub so it can be restored.
+                    </div>
+                </div>
+            `;
+            return;
+        }
+    }
+
+    // Provide fallbacks for missing required fields
+    data.title = data.title || 'Untitled Infographic';
+    data.summary = data.summary || '';
+    data.sections = data.sections || [];
+
+    // Ensure sections is an array
+    if (!Array.isArray(data.sections)) {
+        console.warn('renderInfographic: sections is not an array, converting...');
+        data.sections = Object.values(data.sections || {});
+    }
+
+    // Log successful load for debugging
+    console.log(`[Render] Loading infographic: "${data.title}" with ${data.sections.length} sections`);
+
+    // Create the main Poster Sheet container
+    const posterSheet = document.createElement('div');
+    posterSheet.className = 'poster-sheet';
+
+    // Header (Inside the sheet)
+    const header = document.createElement('header');
+    header.className = 'poster-header';
+
+    // Illustration Container
+    let illustrationHtml = '';
+    if (data.summary_illustration) {
+        illustrationHtml = `
+            <div class="poster-illustration">
+                ${data.summary_illustration}
+            </div>
+        `;
+    }
+
+    // Category Color Badge - determine chapter from library (source of truth) > data > auto-detect
+    let categoryBadgeHtml = '';
+    const title = data.title || '';
+    // Priority: 1) library item's chapterId (user's local override), 2) data.chapterId, 3) auto-detect
+    let chapterId = 'uncategorized';
+    try {
+        const lib = getLibraryCache();
+        // Try exact title match first, then normalised match
+        let libItem = lib.find(i => i.title === title);
+        if (!libItem) {
+            const norm = (t) => (t || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+            const titleNorm = norm(title);
+            if (titleNorm) libItem = lib.find(i => norm(i.title) === titleNorm);
+        }
+        if (libItem && libItem.chapterId && libItem.chapterId !== 'uncategorized') {
+            chapterId = libItem.chapterId;
+            // Sync back into data so it persists everywhere
+            data.chapterId = chapterId;
+        }
+    } catch (err) {
+        console.warn('[renderInfographic] Library lookup failed:', err);
+    }
+    // If library didn't have a category, use data.chapterId
+    if (chapterId === 'uncategorized' && data.chapterId && data.chapterId !== 'uncategorized') {
+        chapterId = data.chapterId;
+    }
+    // Last resort: auto-detect from title
+    if (chapterId === 'uncategorized') {
+        chapterId = autoDetectChapter(title);
+    }
+    if (chapterId && chapterId !== 'uncategorized') {
+        const chapter = DEFAULT_CHAPTERS.find(c => c.id === chapterId);
+        if (chapter) {
+            categoryBadgeHtml = `
+                <span class="category-badge" id="infographic-category-badge" data-chapter-id="${chapterId}" style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 4px 12px;
+                    border-radius: 20px;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    color: white;
+                    background: ${chapter.color};
+                    margin-left: 12px;
+                    vertical-align: middle;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+                ">
+                    <span class="material-symbols-rounded" style="font-size: 14px;">folder</span>
+                    ${chapter.name}
+                </span>
+            `;
+        }
+    } else {
+        // Add placeholder for dynamic updates even when uncategorized
+        categoryBadgeHtml = `<span class="category-badge" id="infographic-category-badge" data-chapter-id="uncategorized" style="display: none;"></span>`;
+    }
+
+    header.innerHTML = `
+        <div class="header-decoration"></div>
+        <h1 class="poster-title" style="display: flex; align-items: center; flex-wrap: wrap;">${escapeHtml(data.title)}${categoryBadgeHtml}
+            <button class="find-notes-btn" id="find-matching-notes-btn" title="Find matching NotebookLM notes">
+                <span class="material-symbols-rounded">book</span>
+                Find Notes
+            </button>
+        </h1>
+        <div class="header-content-wrapper" style="display: flex; gap: 2rem; align-items: start; flex-wrap: wrap;">
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 0.5rem;">
+                <p class="poster-summary" style="margin: 0; font-size: 1.1rem; line-height: 1.6; color: #475569;">${escapeHtml(data.summary)}</p>
+                ${data.generationPrompt ? `<button type="button" class="prompt-toggle-btn" id="prompt-toggle-btn" aria-expanded="false" aria-controls="prompt-panel"><span class="material-symbols-rounded">visibility</span><span class="prompt-toggle-label">Show prompt</span></button>` : ''}
+            </div>
+            ${illustrationHtml}
+        </div>
+    `;
+    posterSheet.appendChild(header);
+
+    // Prompt panel (hidden by default) + toggle/copy wiring
+    if (data.generationPrompt) {
+        const promptPanel = document.createElement('section');
+        promptPanel.id = 'prompt-panel';
+        promptPanel.className = 'prompt-panel';
+        promptPanel.hidden = true;
+        const safePrompt = escapeHtml(String(data.generationPrompt));
+        promptPanel.innerHTML = `
+            <div class="prompt-panel-header">
+                <span class="material-symbols-rounded">terminal</span>
+                <strong>Prompt used to generate this infographic</strong>
+                <button type="button" class="prompt-copy-btn" id="prompt-copy-btn" title="Copy prompt">
+                    <span class="material-symbols-rounded">content_copy</span>
+                </button>
+            </div>
+            <pre class="prompt-panel-body">${safePrompt}</pre>
+        `;
+        posterSheet.appendChild(promptPanel);
+
+        const toggleBtn = header.querySelector('#prompt-toggle-btn');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const willShow = promptPanel.hidden;
+                promptPanel.hidden = !willShow;
+                toggleBtn.setAttribute('aria-expanded', String(willShow));
+                const icon = toggleBtn.querySelector('.material-symbols-rounded');
+                const label = toggleBtn.querySelector('.prompt-toggle-label');
+                if (icon) icon.textContent = willShow ? 'visibility_off' : 'visibility';
+                if (label) label.textContent = willShow ? 'Hide prompt' : 'Show prompt';
+                if (willShow) {
+                    promptPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        }
+
+        const copyBtn = promptPanel.querySelector('#prompt-copy-btn');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', async (e) => {
+                e.stopPropagation();
+                try {
+                    await navigator.clipboard.writeText(String(data.generationPrompt));
+                    const icon = copyBtn.querySelector('.material-symbols-rounded');
+                    if (icon) {
+                        const prev = icon.textContent;
+                        icon.textContent = 'check';
+                        setTimeout(() => { icon.textContent = prev; }, 1500);
+                    }
+                } catch { /* ignore */ }
+            });
+        }
+    }
+
+    // Wire the Find Matching Notes button
+    const findNotesBtn = header.querySelector('#find-matching-notes-btn');
+    if (findNotesBtn) {
+        findNotesBtn.addEventListener('click', async () => {
+            findNotesBtn.classList.add('loading');
+            findNotesBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Matching...';
+            try {
+                await findMatchingNotes(data.title, data.sections);
+            } catch (err) {
+                console.error('[Find Notes]', err);
+            }
+            findNotesBtn.classList.remove('loading');
+            findNotesBtn.innerHTML = '<span class="material-symbols-rounded">book</span> Find Notes';
+        });
+    }
+
+    // Grid (Inside the sheet)
+    const grid = document.createElement('div');
+    grid.className = 'poster-grid';
+
+    data.sections.forEach((section, index) => {
+        const card = document.createElement('div');
+        const layoutClass = section.layout === 'full_width' ? 'col-span-2' : '';
+        const colorClass = `theme-${section.color_theme || 'blue'}`;
+        card.className = `poster-card card-${section.type} ${layoutClass} ${colorClass}`;
+
+        card.style.animationDelay = `${index * 100}ms`;
+
+        const iconName = sanitizeMaterialIcon(section.icon || 'circle');
+
+        let contentHtml = '';
+
+        switch (section.type) {
+            case 'red_flag':
+                const flags = Array.isArray(section.content) ? section.content : [section.content];
+                contentHtml = `<ul class="warning-list">
+                    ${flags.map(item => {
+                        const text = typeof item === 'object' && item !== null ? (item.title || item.text || item.description || item.content || Object.values(item).join(': ')) : item;
+                        return `<li>
+                        <span class="material-symbols-rounded warning-icon">warning</span>
+                        ${text}
+                        </li>`;
+                    }).join('')}
+                </ul>`;
+                break;
+
+            case 'chart':
+                const chartContent = section.content || {};
+                const chartData = chartContent.data || [];
+                contentHtml = `<div class="bar-chart">
+                    ${chartData.map(d => `
+                        <div class="chart-row">
+                            <div class="chart-label">${d.label}</div>
+                            <div class="chart-bar-container">
+                                <div class="chart-bar" style="width: ${d.value}%"></div>
+                                <span class="chart-val">${d.value}%</span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>`;
+                break;
+
+            case 'remember':
+                const mem = section.content || {};
+                contentHtml = `<div class="mnemonic-box">
+                    <div class="mnemonic-title">${mem.mnemonic || 'REMEMBER'}</div>
+                    <div class="mnemonic-text">${mem.explanation}</div>
+                </div>`;
+                break;
+
+            case 'mindmap':
+                const map = section.content || {};
+                const centerText = typeof map.center === 'object' && map.center !== null ? (map.center.title || map.center.text || Object.values(map.center).join(' ')) : (map.center || 'Central Topic');
+                const branches = map.branches || [];
+                contentHtml = `<div class="mindmap-container">
+                    <div class="mindmap-center">${centerText}</div>
+                    <div class="mindmap-branches">
+                        ${branches.map(b => {
+                            const bText = typeof b === 'object' && b !== null ? (b.title || b.text || b.name || b.branch || Object.values(b).join(': ')) : b;
+                            return `<div class="mindmap-branch">${bText}</div>`;
+                        }).join('')}
+                    </div>
+                </div>`;
+                break;
+
+            case 'key_point':
+            case 'process':
+                const points = Array.isArray(section.content) ? section.content : [section.content];
+                contentHtml = `<ul class="card-list">
+                    ${points.map(item => {
+                        const text = typeof item === 'object' && item !== null ? (item.title || item.text || item.description || item.content || Object.values(item).join(': ')) : item;
+                        return `<li>${text}</li>`;
+                    }).join('')}
+                </ul>`;
+                break;
+
+            case 'table':
+                if (section.content && section.content.headers && section.content.rows) {
+                    const headers = section.content.headers || [];
+                    const rows = section.content.rows || [];
+                    contentHtml = `
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    ${headers.map(h => `<th>${h}</th>`).join('')}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${rows.map(row => `
+                                    <tr>
+                                        ${row.map(cell => `<td>${cell}</td>`).join('')}
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>`;
+                } else {
+                    contentHtml = `<p class="plain-text">Invalid table data received.</p>`;
+                }
+                break;
+
+            default:
+                const defaultContent = typeof section.content === 'object' && section.content !== null ? 
+                    (Array.isArray(section.content) ? section.content.map(i => typeof i === 'object' && i !== null ? Object.values(i).join(': ') : i).join('<br>') : Object.values(section.content).join(': ')) 
+                    : section.content;
+                contentHtml = `<p class="plain-text">${defaultContent}</p>`;
+        }
+
+        const titleHtml = `
+            <h3 class="card-title">
+                <div class="icon-box"><span class="material-symbols-rounded">${iconName}</span></div>
+                ${section.title}
+            </h3>`;
+
+        card.innerHTML = `
+            ${titleHtml}
+            <div class="card-content">
+                ${contentHtml}
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+
+    posterSheet.appendChild(grid);
+    outputContainer.appendChild(posterSheet);
+
+    // Enable Studio Tools when infographic is generated
+    enableStudioTools();
+
+    // Auto-load adhered Kanski images if present
+    setTimeout(() => {
+        loadAdheredKanskiImages(data);
+    }, 100);
+
+    // Auto-collapse sidebar to give more space for viewing the infographic
+    setTimeout(() => {
+        collapseSidebar();
+    }, 500); // Small delay to let the user see the result first
+}
+
+/* ========================================
+   STUDIO TOOLS - NotebookLM-Style Features
+   ======================================== */
+
+function enableStudioTools() {
+    const studioPanel = document.getElementById('studio-panel');
+    if (studioPanel) {
+        studioPanel.classList.add('studio-panel-enabled');
+        const buttons = studioPanel.querySelectorAll('.studio-tool-btn');
+        buttons.forEach(btn => btn.disabled = false);
+    }
+}
+
+function disableStudioTools() {
+    const studioPanel = document.getElementById('studio-panel');
+    if (studioPanel) {
+        studioPanel.classList.remove('studio-panel-enabled');
+        const buttons = studioPanel.querySelectorAll('.studio-tool-btn');
+        buttons.forEach(btn => {
+            // Keep Sticky Notes always accessible (it's a review tool, not generation)
+            if (btn.id === 'sticky-notes-btn') return;
+            btn.disabled = true;
+        });
+    }
+}
+
+/* ========================================
+   AI-POWERED STUDIO TOOLS HELPER
+   Uses Gemini Flash (latest) for enhanced content generation
+   ======================================== */
+
+async function callGeminiForStudioTool(prompt, fallbackFn = null) {
+    const apiKey = document.getElementById('api-key')?.value?.trim();
+
+    if (!apiKey) {
+        console.log('No API key provided, using fallback method');
+        return fallbackFn ? fallbackFn() : null;
+    }
+
+    try {
+        const genAI = new GoogleGenerativeAI(apiKey);
+
+        const modelsToTry = [
+            GEMINI_FLASH_LATEST,
+            "gemini-2.5-flash",
+            "gemini-2.5-pro",
+            "gemini-3.1-flash-lite",
+            "gemini-2.0-flash"
+        ].map(normalizeGeminiModelId);
+
+        let lastError = null;
+
+        for (const modelName of modelsToTry) {
+            try {
+                console.log(`Studio Tool: Trying model ${modelName}`);
+                const model = genAI.getGenerativeModel({ model: modelName });
+                const result = await model.generateContent(prompt);
+                const response = await result.response;
+                return response.text();
+            } catch (err) {
+                console.log(`Model ${modelName} failed:`, err.message);
+                lastError = err;
+            }
+        }
+
+        throw lastError || new Error('All models failed');
+    } catch (error) {
+        console.error('Gemini API call failed:', error);
+        return fallbackFn ? fallbackFn() : null;
+    }
+}
+
+// AI-Enhanced Transcript Generation
+async function generateAITranscript() {
+    if (!currentInfographicData) return null;
+
+    const voiceStyle = document.getElementById('voice-select')?.value || 'default';
+    const styleGuide = {
+        'default': 'professional and educational',
+        'friendly': 'warm, conversational, and engaging like talking to a colleague',
+        'formal': 'academic and authoritative like a medical lecture'
+    };
+
+    const prompt = `You are creating an audio narration script for a medical education podcast.
+
+Topic: ${currentInfographicData.title}
+
+Content to cover:
+${JSON.stringify(currentInfographicData.sections?.map(s => ({ title: s.title, content: s.content })) || [], null, 2)}
+
+Summary: ${currentInfographicData.summary || ''}
+
+Create a ${styleGuide[voiceStyle]} narration script that:
+1. Opens with an engaging introduction
+2. Covers ALL key points from the content
+3. Uses clear transitions between topics
+4. Includes brief clinical pearls or memorable takeaways
+5. Ends with a concise summary
+
+Write the script as flowing paragraphs (not bullet points) suitable for text-to-speech. 
+Keep it under 800 words for a 5-minute audio overview.
+Do not include any stage directions or speaker labels - just the narration text.`;
+
+    return await callGeminiForStudioTool(prompt);
+}
+
+// AI-Enhanced Flashcard Generation
+async function generateAIFlashcards() {
+    if (!currentInfographicData) return null;
+
+    const prompt = `You are creating medical education flashcards for ophthalmology students.
+
+Topic: ${currentInfographicData.title}
+
+Content:
+${JSON.stringify(currentInfographicData.sections?.map(s => ({ title: s.title, content: s.content })) || [], null, 2)}
+
+Create 10-15 high-quality flashcards in this exact JSON format:
+[
+    {
+        "question": "Clear, specific question testing understanding",
+        "answer": "Concise but complete answer"
+    }
+]
+
+Guidelines:
+1. Mix question types: definitions, comparisons, clinical scenarios, mechanisms
+2. Include questions about key facts, differential diagnosis, and management
+3. Make answers memorable and clinically relevant
+4. Include mnemonics where helpful
+5. Test both recall and application of knowledge
+
+Return ONLY valid JSON array, no other text.`;
+
+    const result = await callGeminiForStudioTool(prompt);
+    if (result) {
+        try {
+            // Extract JSON from response
+            const jsonMatch = result.match(/\[[\s\S]*\]/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]);
+            }
+        } catch (e) {
+            console.error('Failed to parse AI flashcards:', e);
+        }
+    }
+    return null;
+}
+
+// AI-Enhanced Quiz Generation
+async function generateAIQuiz() {
+    if (!currentInfographicData) return null;
+
+    const prompt = `You are creating a medical knowledge quiz for ophthalmology education.
+
+Topic: ${currentInfographicData.title}
+
+Content:
+${JSON.stringify(currentInfographicData.sections?.map(s => ({ title: s.title, content: s.content })) || [], null, 2)}
+
+Create 8-10 multiple choice questions in this exact JSON format:
+[
+    {
+        "question": "Question text here?",
+        "options": ["Option A", "Option B", "Option C", "Option D"],
+        "correctAnswer": "The exact text of the correct option",
+        "explanation": "Brief explanation of why this answer is correct"
+    }
+]
+
+Guidelines:
+1. Questions should test understanding, not just memorization
+2. All 4 options should be plausible to someone who didn't study
+3. Avoid "all of the above" or "none of the above"
+4. Include clinical scenario questions where appropriate
+5. Vary difficulty from basic recall to clinical application
+6. Explanations should be educational and reinforce learning
+
+Return ONLY valid JSON array, no other text.`;
+
+    const result = await callGeminiForStudioTool(prompt);
+    if (result) {
+        try {
+            const jsonMatch = result.match(/\[[\s\S]*\]/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]);
+            }
+        } catch (e) {
+            console.error('Failed to parse AI quiz:', e);
+        }
+    }
+    return null;
+}
+
+// Simple Markdown to HTML converter
+function convertMarkdownToHTML(markdown) {
+    if (!markdown) return '';
+
+    return markdown
+        // Headers
+        .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+        .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+        .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+        // Bold
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        // Italic
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        // Bullet lists
+        .replace(/^\- (.*$)/gm, '<li>$1</li>')
+        .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+        // Numbered lists
+        .replace(/^\d+\. (.*$)/gm, '<li>$1</li>')
+        // Paragraphs (double newlines)
+        .replace(/\n\n/g, '</p><p>')
+        // Single newlines
+        .replace(/\n/g, '<br>')
+        // Wrap in paragraph
+        .replace(/^(.+)$/gm, (match) => {
+            if (match.startsWith('<h') || match.startsWith('<ul') || match.startsWith('<li') || match.startsWith('<p')) {
+                return match;
+            }
+            return `<p>${match}</p>`;
+        });
+}
+
+// AI-Enhanced Report Generation
+async function generateAIReport(format) {
+    if (!currentInfographicData) return null;
+
+    const formatGuides = {
+        'summary': 'Create a concise 2-3 paragraph executive summary highlighting the most critical clinical points.',
+        'detailed': 'Create a comprehensive study guide with detailed explanations of each topic, including pathophysiology and clinical correlations.',
+        'bullet': 'Create a well-organized bullet-point summary with clear headers and sub-points for quick review.',
+        'study-guide': 'Create a structured study guide with learning objectives, key concepts, clinical pearls, and review questions.'
+    };
+
+    const prompt = `You are creating educational content for ophthalmology professionals.
+
+Topic: ${currentInfographicData.title}
+
+Source Content:
+${JSON.stringify(currentInfographicData, null, 2)}
+
+Task: ${formatGuides[format] || formatGuides['summary']}
+
+Requirements:
+1. Cover ALL information from the source content
+2. Use clear medical terminology
+3. Organize information logically
+4. Include clinical relevance where appropriate
+5. Format with proper headers using markdown (## for main sections, ### for subsections)
+
+Create the ${format} report now:`;
+
+    return await callGeminiForStudioTool(prompt);
+}
+
+/* ========================================
+   AUDIO OVERVIEW FEATURE
+   ======================================== */
+
+let audioContext = null;
+let audioSource = null;
+let isPlaying = false;
+let audioTranscript = '';
+
+function setupAudioOverview() {
+    const audioBtn = document.getElementById('audio-overview-btn');
+    const audioModal = document.getElementById('audio-modal');
+    const closeBtn = document.getElementById('close-audio-modal-btn');
+    const generateBtn = document.getElementById('generate-audio-btn');
+    const playBtn = document.getElementById('audio-play-btn');
+    const downloadBtn = document.getElementById('download-audio-btn');
+
+    if (!audioBtn || !audioModal) return;
+
+    audioBtn.addEventListener('click', () => {
+        if (!currentInfographicData) {
+            alert('Please generate an infographic first.');
+            return;
+        }
+        audioModal.classList.add('active');
+        generateTranscript();
+    });
+
+    closeBtn?.addEventListener('click', () => {
+        audioModal.classList.remove('active');
+        stopAudio();
+    });
+
+    audioModal.addEventListener('click', (e) => {
+        if (e.target === audioModal) {
+            audioModal.classList.remove('active');
+            stopAudio();
+        }
+    });
+
+    generateBtn?.addEventListener('click', () => {
+        generateAudio();
+    });
+
+    playBtn?.addEventListener('click', () => {
+        if (isPlaying) {
+            stopAudio();
+        } else {
+            playAudio();
+        }
+    });
+}
+
+async function generateTranscript() {
+    if (!currentInfographicData) return;
+
+    const transcriptEl = document.getElementById('audio-transcript-text');
+    const generateBtn = document.getElementById('generate-audio-btn');
+
+    // Show loading state
+    if (transcriptEl) {
+        transcriptEl.innerHTML = '<em>Generating AI-powered transcript with Gemini...</em>';
+    }
+    if (generateBtn) {
+        generateBtn.disabled = true;
+        generateBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Generating...';
+    }
+
+    // Try AI-powered transcript first
+    const aiTranscript = await generateAITranscript();
+
+    if (aiTranscript) {
+        audioTranscript = aiTranscript;
+        if (transcriptEl) {
+            transcriptEl.textContent = audioTranscript;
+        }
+        if (generateBtn) {
+            generateBtn.disabled = false;
+            generateBtn.innerHTML = '<span class="material-symbols-rounded">record_voice_over</span> Generate Audio';
+        }
+        return;
+    }
+
+    // Fallback to basic transcript generation
+    console.log('Using fallback transcript generation');
+    const data = currentInfographicData;
+    let transcript = `${data.title}.\n\n`;
+    transcript += `${data.summary}\n\n`;
+
+    if (data.sections) {
+        data.sections.forEach(section => {
+            transcript += `${section.title}.\n`;
+
+            if (Array.isArray(section.content)) {
+                section.content.forEach(item => {
+                    transcript += `${item}.\n`;
+                });
+            } else if (typeof section.content === 'object') {
+                if (section.content.mnemonic) {
+                    transcript += `Remember: ${section.content.mnemonic}. ${section.content.explanation}.\n`;
+                } else if (section.content.center) {
+                    transcript += `Central concept: ${section.content.center}. `;
+                    if (section.content.branches) {
+                        transcript += `Key branches include: ${section.content.branches.join(', ')}.\n`;
+                    }
+                } else if (section.content.data) {
+                    section.content.data.forEach(d => {
+                        transcript += `${d.label}: ${d.value} percent.\n`;
+                    });
+                } else if (section.content.headers && section.content.rows) {
+                    section.content.rows.forEach(row => {
+                        transcript += row.join(', ') + '.\n';
+                    });
+                }
+            } else {
+                transcript += `${section.content}.\n`;
+            }
+            transcript += '\n';
+        });
+    }
+
+    audioTranscript = transcript;
+    if (transcriptEl) {
+        transcriptEl.textContent = transcript;
+    }
+    if (generateBtn) {
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = '<span class="material-symbols-rounded">record_voice_over</span> Generate Audio';
+    }
+}
+
+function generateAudio() {
+    if (!audioTranscript) {
+        generateTranscript();
+    }
+
+    // Use Web Speech API for text-to-speech
+    if ('speechSynthesis' in window) {
+        const voiceSelect = document.getElementById('voice-select');
+        const voiceStyle = voiceSelect?.value || 'default';
+
+        // Create animated waveform
+        createWaveformAnimation();
+
+        const generateBtn = document.getElementById('generate-audio-btn');
+        const downloadBtn = document.getElementById('download-audio-btn');
+
+        if (generateBtn) {
+            generateBtn.innerHTML = '<span class="material-symbols-rounded">check</span> Audio Ready';
+        }
+        if (downloadBtn) {
+            downloadBtn.style.display = 'flex';
+        }
+
+        alert('Audio generated! Click Play to listen. Note: Audio uses browser\'s text-to-speech capabilities.');
+    } else {
+        alert('Text-to-speech is not supported in this browser.');
+    }
+}
+
+function createWaveformAnimation() {
+    const waveform = document.querySelector('.audio-waveform');
+    if (!waveform) return;
+
+    waveform.innerHTML = '';
+    for (let i = 0; i < 40; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'bar';
+        bar.style.animationDelay = `${i * 0.05}s`;
+        bar.style.height = `${20 + Math.random() * 60}%`;
+        waveform.appendChild(bar);
+    }
+}
+
+function playAudio() {
+    if (!audioTranscript) return;
+
+    const voiceSelect = document.getElementById('voice-select');
+    const voiceStyle = voiceSelect?.value || 'default';
+
+    // Handle P2P Female Conversation (Two-voice dialogue)
+    if (voiceStyle === 'p2p_female') {
+        playP2PConversation();
+        return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(audioTranscript);
+
+    // Select female voice for all styles (priority order)
+    const voices = window.speechSynthesis.getVoices();
+    const preferredVoices = [
+        'Google UK English Female',
+        'Google US English',
+        'Samantha',
+        'Microsoft Zira',
+        'Daniel'
+    ];
+
+    let selectedVoice = null;
+
+    // 1. Try preferred list
+    for (const name of preferredVoices) {
+        selectedVoice = voices.find(v => v.name.includes(name));
+        if (selectedVoice) break;
+    }
+
+    // 2. Try any English Female
+    if (!selectedVoice) {
+        selectedVoice = voices.find(v => v.lang.startsWith('en') &&
+            (v.name.toLowerCase().includes('female') || v.name.includes('Samantha')));
+    }
+
+    // 3. Try any English GB or US
+    if (!selectedVoice) {
+        selectedVoice = voices.find(v => v.lang.startsWith('en-GB')) ||
+            voices.find(v => v.lang.startsWith('en-US'));
+    }
+
+    if (selectedVoice) {
+        utterance.voice = selectedVoice;
+    }
+
+    // Set voice properties based on style
+    switch (voiceStyle) {
+        case 'friendly':
+            utterance.rate = 0.95;
+            utterance.pitch = 1.1;
+            break;
+        case 'formal':
+            utterance.rate = 0.85;
+            utterance.pitch = 0.95;
+            break;
+        default:
+            utterance.rate = 0.9;
+            utterance.pitch = 1;
+    }
+
+    utterance.onstart = () => {
+        isPlaying = true;
+        updatePlayButton();
+        animateProgress();
+    };
+
+    utterance.onend = () => {
+        isPlaying = false;
+        updatePlayButton();
+        resetProgress();
+    };
+
+    speechSynthesis.speak(utterance);
+}
+
+// P2P Female Conversation - Two voices discussing the content
+function playP2PConversation() {
+    if (!audioTranscript) return;
+
+    const voices = window.speechSynthesis.getVoices();
+
+    // Find two distinct female voices
+    const femaleVoiceNames = [
+        ['Samantha', 'Google UK English Female', 'Microsoft Zira'],  // Voice 1 priority
+        ['Victoria', 'Google US English', 'Daniel', 'Karen']          // Voice 2 priority
+    ];
+
+    let voice1 = null;
+    let voice2 = null;
+
+    // Find Voice 1
+    for (const name of femaleVoiceNames[0]) {
+        voice1 = voices.find(v => v.name.includes(name));
+        if (voice1) break;
+    }
+    if (!voice1) {
+        voice1 = voices.find(v => v.lang.startsWith('en'));
+    }
+
+    // Find Voice 2 (different from Voice 1)
+    for (const name of femaleVoiceNames[1]) {
+        const found = voices.find(v => v.name.includes(name));
+        if (found && found !== voice1) {
+            voice2 = found;
+            break;
+        }
+    }
+    if (!voice2) {
+        voice2 = voices.find(v => v.lang.startsWith('en') && v !== voice1) || voice1;
+    }
+
+    // Split transcript into dialogue segments (by sentences or paragraphs)
+    const segments = audioTranscript
+        .split(/(?<=[.!?])\s+/)
+        .filter(s => s.trim().length > 0);
+
+    let currentIndex = 0;
+
+    const speakNext = () => {
+        if (currentIndex >= segments.length) {
+            isPlaying = false;
+            updatePlayButton();
+            resetProgress();
+            return;
+        }
+
+        const segment = segments[currentIndex];
+        const utterance = new SpeechSynthesisUtterance(segment);
+
+        // Alternate between voices
+        utterance.voice = (currentIndex % 2 === 0) ? voice1 : voice2;
+        utterance.rate = 0.85; // Slower for clarity
+        utterance.pitch = (currentIndex % 2 === 0) ? 1.0 : 1.1; // Slight variation
+
+        utterance.onstart = () => {
+            if (currentIndex === 0) {
+                isPlaying = true;
+                updatePlayButton();
+                animateProgress();
+            }
+        };
+
+        utterance.onend = () => {
+            currentIndex++;
+            // Small pause between speakers
+            setTimeout(speakNext, 150);
+        };
+
+        utterance.onerror = () => {
+            currentIndex++;
+            speakNext();
+        };
+
+        speechSynthesis.speak(utterance);
+    };
+
+    speakNext();
+}
+
+function stopAudio() {
+    speechSynthesis.cancel();
+    isPlaying = false;
+    updatePlayButton();
+    resetProgress();
+}
+
+function updatePlayButton() {
+    const playBtn = document.getElementById('audio-play-btn');
+    if (playBtn) {
+        playBtn.innerHTML = isPlaying
+            ? '<span class="material-symbols-rounded">pause</span>'
+            : '<span class="material-symbols-rounded">play_arrow</span>';
+    }
+}
+
+function animateProgress() {
+    const progressBar = document.getElementById('audio-progress-bar');
+    if (progressBar) {
+        progressBar.style.transition = 'width 60s linear';
+        progressBar.style.width = '100%';
+    }
+}
+
+function resetProgress() {
+    const progressBar = document.getElementById('audio-progress-bar');
+    if (progressBar) {
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0%';
+    }
+}
+
+/* ========================================
+   VIDEO OVERVIEW FEATURE
+   ======================================== */
+
+let videoSlides = [];
+let currentVideoSlide = 0;
+let videoAutoPlay = null;
+
+function setupVideoOverview() {
+    const videoBtn = document.getElementById('video-overview-btn');
+    const videoModal = document.getElementById('video-modal');
+    const closeBtn = document.getElementById('close-video-modal-btn');
+    const generateBtn = document.getElementById('generate-video-btn');
+    const playBtn = document.getElementById('video-play-btn');
+    const prevBtn = document.getElementById('video-prev-btn');
+    const nextBtn = document.getElementById('video-next-btn');
+    const exportBtn = document.getElementById('export-video-btn');
+
+    if (!videoBtn || !videoModal) return;
+
+    videoBtn.addEventListener('click', () => {
+        if (!currentInfographicData) {
+            alert('Please generate an infographic first.');
+            return;
+        }
+        videoModal.classList.add('active');
+    });
+
+    closeBtn?.addEventListener('click', () => {
+        videoModal.classList.remove('active');
+        stopVideoAutoPlay();
+    });
+
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+            videoModal.classList.remove('active');
+            stopVideoAutoPlay();
+        }
+    });
+
+    generateBtn?.addEventListener('click', generateVideoSlides);
+    playBtn?.addEventListener('click', toggleVideoAutoPlay);
+    prevBtn?.addEventListener('click', () => navigateVideoSlide(-1));
+    nextBtn?.addEventListener('click', () => navigateVideoSlide(1));
+    exportBtn?.addEventListener('click', exportVideoAsHTML);
+}
+
+function generateVideoSlides() {
+    if (!currentInfographicData) return;
+
+    const data = currentInfographicData;
+    videoSlides = [];
+
+    // Title slide
+    videoSlides.push({
+        type: 'title',
+        title: data.title,
+        subtitle: data.summary
+    });
+
+    // Section slides
+    if (data.sections) {
+        data.sections.forEach(section => {
+            videoSlides.push({
+                type: 'section',
+                title: section.title,
+                content: section.content,
+                sectionType: section.type,
+                colorTheme: section.color_theme
+            });
+        });
+    }
+
+    // Summary slide
+    videoSlides.push({
+        type: 'end',
+        title: 'Key Takeaways',
+        subtitle: 'Review and practice the concepts covered'
+    });
+
+    currentVideoSlide = 0;
+    renderVideoSlide();
+    updateVideoCounter();
+
+    const exportBtn = document.getElementById('export-video-btn');
+    if (exportBtn) exportBtn.style.display = 'flex';
+}
+
+function renderVideoSlide() {
+    const slideContainer = document.getElementById('current-slide');
+    if (!slideContainer || videoSlides.length === 0) return;
+
+    const slide = videoSlides[currentVideoSlide];
+
+    if (slide.type === 'title' || slide.type === 'end') {
+        slideContainer.innerHTML = `
+            <h2>${slide.title}</h2>
+            <p>${slide.subtitle || ''}</p>
+        `;
+        slideContainer.style.background = 'linear-gradient(135deg, #1e293b, #334155)';
+    } else {
+        let contentHtml = '';
+
+        if (Array.isArray(slide.content)) {
+            contentHtml = `<ul>${slide.content.map(item => `<li>${item}</li>`).join('')}</ul>`;
+        } else if (typeof slide.content === 'object') {
+            if (slide.content.mnemonic) {
+                contentHtml = `<p><strong>${slide.content.mnemonic}</strong><br>${slide.content.explanation}</p>`;
+            } else if (slide.content.center) {
+                contentHtml = `<p><strong>${slide.content.center}</strong></p>`;
+                if (slide.content.branches) {
+                    contentHtml += `<ul>${slide.content.branches.map(b => `<li>${b}</li>`).join('')}</ul>`;
+                }
+            } else if (slide.content.data) {
+                contentHtml = `<ul>${slide.content.data.map(d => `<li>${d.label}: ${d.value}%</li>`).join('')}</ul>`;
+            }
+        } else {
+            contentHtml = `<p>${slide.content}</p>`;
+        }
+
+        const bgColor = getSlideBackground(slide.colorTheme);
+        slideContainer.innerHTML = `
+            <h2>${slide.title}</h2>
+            ${contentHtml}
+        `;
+        slideContainer.style.background = bgColor;
+    }
+}
+
+function getSlideBackground(theme) {
+    const themes = {
+        blue: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+        red: 'linear-gradient(135deg, #ef4444, #dc2626)',
+        green: 'linear-gradient(135deg, #10b981, #059669)',
+        yellow: 'linear-gradient(135deg, #f59e0b, #d97706)',
+        purple: 'linear-gradient(135deg, #8b5cf6, #7c3aed)'
+    };
+    return themes[theme] || 'linear-gradient(135deg, #3b82f6, #1d4ed8)';
+}
+
+function navigateVideoSlide(direction) {
+    if (videoSlides.length === 0) return;
+
+    currentVideoSlide += direction;
+    if (currentVideoSlide < 0) currentVideoSlide = videoSlides.length - 1;
+    if (currentVideoSlide >= videoSlides.length) currentVideoSlide = 0;
+
+    renderVideoSlide();
+    updateVideoCounter();
+}
+
+function updateVideoCounter() {
+    const counter = document.getElementById('slide-counter');
+    if (counter) {
+        counter.textContent = `${currentVideoSlide + 1} / ${videoSlides.length}`;
+    }
+}
+
+function toggleVideoAutoPlay() {
+    const playBtn = document.getElementById('video-play-btn');
+
+    if (videoAutoPlay) {
+        stopVideoAutoPlay();
+        if (playBtn) playBtn.innerHTML = '<span class="material-symbols-rounded">play_arrow</span>';
+    } else {
+        videoAutoPlay = setInterval(() => {
+            navigateVideoSlide(1);
+        }, 4000);
+        if (playBtn) playBtn.innerHTML = '<span class="material-symbols-rounded">pause</span>';
+    }
+}
+
+function stopVideoAutoPlay() {
+    if (videoAutoPlay) {
+        clearInterval(videoAutoPlay);
+        videoAutoPlay = null;
+    }
+}
+
+function exportVideoAsHTML() {
+    if (videoSlides.length === 0) return;
+
+    let html = `<!DOCTYPE html>
+<html>
+<head>
+    <title>${currentInfographicData.title} - Video Presentation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #000; }
+        .slide { width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; padding: 4rem; text-align: center; }
+        h2 { font-size: 3rem; margin-bottom: 2rem; }
+        p { font-size: 1.5rem; opacity: 0.9; }
+        ul { font-size: 1.3rem; text-align: left; list-style: none; }
+        li { padding: 0.5rem 0; }
+        li::before { content: "▸ "; color: rgba(255,255,255,0.7); }
+    </style>
+</head>
+<body>
+${videoSlides.map((slide, i) => `
+    <div class="slide" style="background: ${slide.type === 'title' || slide.type === 'end' ? 'linear-gradient(135deg, #1e293b, #334155)' : getSlideBackground(slide.colorTheme)}">
+        <h2>${slide.title}</h2>
+        ${slide.subtitle ? `<p>${slide.subtitle}</p>` : ''}
+        ${Array.isArray(slide.content) ? `<ul>${slide.content.map(c => `<li>${c}</li>`).join('')}</ul>` : ''}
+    </div>
+`).join('')}
+</body>
+</html>`;
+
+    const blob = new Blob([html], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${currentInfographicData.title.replace(/[^a-z0-9]/gi, '_')}_presentation.html`;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+/* ========================================
+   MIND MAP FEATURE (interactive: pan, zoom, collapse, wrap, tooltips)
+   ======================================== */
+
+const MINDMAP_BASE_W = 1600;
+const MINDMAP_BASE_H = 1000;
+
+const mindmapState = {
+    zoom: 1,
+    panX: 0,
+    panY: 0,
+    collapsed: new Set(),
+    _boundMove: null,
+    _boundUp: null
+};
+
+const MINDMAP_PALETTE = [
+    { fill: '#2563eb', gradient: ['#3b82f6', '#1d4ed8'], soft: '#dbeafe', dark: '#1e40af' },
+    { fill: '#dc2626', gradient: ['#ef4444', '#b91c1c'], soft: '#fee2e2', dark: '#991b1b' },
+    { fill: '#059669', gradient: ['#10b981', '#047857'], soft: '#d1fae5', dark: '#065f46' },
+    { fill: '#d97706', gradient: ['#f59e0b', '#b45309'], soft: '#fef3c7', dark: '#92400e' },
+    { fill: '#7c3aed', gradient: ['#8b5cf6', '#6d28d9'], soft: '#ede9fe', dark: '#5b21b6' },
+    { fill: '#0891b2', gradient: ['#06b6d4', '#0e7490'], soft: '#cffafe', dark: '#155e75' },
+    { fill: '#db2777', gradient: ['#ec4899', '#be185d'], soft: '#fce7f3', dark: '#9d174d' },
+    { fill: '#0d9488', gradient: ['#14b8a6', '#0f766e'], soft: '#ccfbf1', dark: '#115e59' }
+];
+
+function pickBranchColor(section, idx) {
+    const byTheme = {
+        blue: MINDMAP_PALETTE[0], red: MINDMAP_PALETTE[1], green: MINDMAP_PALETTE[2],
+        yellow: MINDMAP_PALETTE[3], amber: MINDMAP_PALETTE[3], purple: MINDMAP_PALETTE[4],
+        cyan: MINDMAP_PALETTE[5], pink: MINDMAP_PALETTE[6], teal: MINDMAP_PALETTE[7]
+    };
+    return byTheme[section && section.color_theme] || MINDMAP_PALETTE[idx % MINDMAP_PALETTE.length];
+}
+
+function _mmEsc(text) {
+    return String(text == null ? '' : text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function _mmWrap(text, maxChars, maxLines) {
+    const str = (typeof cleanMarks === 'function' ? cleanMarks(String(text || '')) : String(text || '')).trim();
+    if (!str) return { lines: [''], truncated: false };
+    const words = str.split(/\s+/);
+    const lines = [];
+    let current = '';
+    for (const word of words) {
+        const candidate = current ? current + ' ' + word : word;
+        if (candidate.length > maxChars && current) {
+            lines.push(current);
+            current = word;
+        } else {
+            current = candidate;
+        }
+        if (lines.length >= maxLines) break;
+    }
+    if (current && lines.length < maxLines) lines.push(current);
+    let truncated = false;
+    if (words.join(' ').length > lines.join(' ').length) {
+        const last = lines[Math.min(lines.length, maxLines) - 1] || '';
+        const trimmed = last.length > maxChars - 1 ? last.substring(0, maxChars - 1) : last;
+        lines[Math.min(lines.length, maxLines) - 1] = trimmed.replace(/[\s,.;:-]*$/, '') + '\u2026';
+        truncated = true;
+    }
+    return { lines: lines.slice(0, maxLines), truncated };
+}
+
+function _mmMultilineText(lines, x, y, lineHeight, extraAttrs) {
+    const totalH = (lines.length - 1) * lineHeight;
+    const startY = y - totalH / 2;
+    const attrs = extraAttrs || '';
+    return lines.map((line, i) => (
+        '<text ' + attrs + ' x="' + x + '" y="' + (startY + i * lineHeight) + '">' + _mmEsc(line) + '</text>'
+    )).join('');
+}
+
+function _mmExtractLeaves(section) {
+    if (!section) return [];
+    const c = section.content;
+    if (section.type === 'mindmap' && c && Array.isArray(c.branches)) return c.branches.slice();
+    if (Array.isArray(c)) return c.map(v => (typeof v === 'string' ? v : JSON.stringify(v)));
+    if (c && typeof c === 'object') {
+        if (Array.isArray(c.branches)) return c.branches.slice();
+        if (c.mnemonic || c.explanation) return [c.mnemonic, c.explanation].filter(Boolean);
+        if (Array.isArray(c.data)) return c.data.map(d => (d && d.label ? d.label + ': ' + d.value : JSON.stringify(d)));
+        if (Array.isArray(c.rows)) return c.rows.slice(0, 10).map(r => Array.isArray(r) ? r.join(' \u2013 ') : String(r));
+        if (Array.isArray(c.headers)) return c.headers.slice();
+    }
+    if (typeof c === 'string' && c.length > 0) {
+        return c.split(/\.\s+/).slice(0, 6).map(s => s.replace(/^\s+|\s+$/g, '').replace(/\.$/, '')).filter(Boolean);
+    }
+    return [];
+}
+
+function setupMindMap() {
+    const mindmapBtn = document.getElementById('mindmap-view-btn');
+    const mindmapModal = document.getElementById('mindmap-modal');
+    const closeBtn = document.getElementById('close-mindmap-modal-btn');
+    const zoomInBtn = document.getElementById('mindmap-zoom-in');
+    const zoomOutBtn = document.getElementById('mindmap-zoom-out');
+    const resetBtn = document.getElementById('mindmap-reset');
+    const exportBtn = document.getElementById('export-mindmap-btn');
+
+    if (!mindmapBtn || !mindmapModal) return;
+
+    mindmapBtn.addEventListener('click', () => {
+        if (!currentInfographicData) {
+            alert('Please generate an infographic first.');
+            return;
+        }
+        mindmapState.zoom = 1;
+        mindmapState.panX = 0;
+        mindmapState.panY = 0;
+        mindmapState.collapsed = new Set();
+        mindmapModal.classList.add('active');
+        generateMindMap();
+    });
+
+    closeBtn && closeBtn.addEventListener('click', () => mindmapModal.classList.remove('active'));
+    mindmapModal.addEventListener('click', (e) => {
+        if (e.target === mindmapModal) mindmapModal.classList.remove('active');
+    });
+
+    zoomInBtn && zoomInBtn.addEventListener('click', () => {
+        mindmapState.zoom = Math.min(mindmapState.zoom * 1.2, 4);
+        applyMindmapTransform();
+    });
+    zoomOutBtn && zoomOutBtn.addEventListener('click', () => {
+        mindmapState.zoom = Math.max(mindmapState.zoom / 1.2, 0.3);
+        applyMindmapTransform();
+    });
+    resetBtn && resetBtn.addEventListener('click', () => {
+        mindmapState.zoom = 1;
+        mindmapState.panX = 0;
+        mindmapState.panY = 0;
+        mindmapState.collapsed = new Set();
+        generateMindMap();
+    });
+    exportBtn && exportBtn.addEventListener('click', exportMindMapAsPNG);
+}
+
+function generateMindMap() {
+    const canvas = document.getElementById('mindmap-canvas');
+    if (!canvas || !currentInfographicData) return;
+
+    const data = currentInfographicData;
+    const sections = (data.sections || []).filter(Boolean);
+    const W = MINDMAP_BASE_W;
+    const H = MINDMAP_BASE_H;
+    const centerX = W / 2;
+    const centerY = H / 2;
+
+    const minRadius = 300;
+    const extraRadius = Math.max(0, sections.length - 6) * 18;
+    const branchRadius = Math.min(540, minRadius + extraRadius);
+
+    const angleStep = (2 * Math.PI) / Math.max(sections.length, 1);
+    const MAX_LEAVES = 10;
+    const MAX_CHARS_PER_LEAF = 22;
+    const MAX_LEAF_LINES = 3;
+
+    let defs = '<defs>'
+        + '<filter id="mm-shadow" x="-30%" y="-30%" width="160%" height="160%">'
+        + '<feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.18"/>'
+        + '</filter>'
+        + '<radialGradient id="mm-center-grad"><stop offset="0%" stop-color="#334155"/><stop offset="100%" stop-color="#0f172a"/></radialGradient>';
+    sections.forEach((section, i) => {
+        const c = pickBranchColor(section, i);
+        defs += '<linearGradient id="mm-grad-' + i + '" x1="0%" y1="0%" x2="100%" y2="100%">'
+            + '<stop offset="0%" stop-color="' + c.gradient[0] + '"/>'
+            + '<stop offset="100%" stop-color="' + c.gradient[1] + '"/>'
+            + '</linearGradient>';
+    });
+    defs += '</defs>';
+
+    let svg = '<svg class="mindmap-svg" xmlns="http://www.w3.org/2000/svg" '
+        + 'viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet">'
+        + defs
+        + '<g class="mindmap-viewport" transform="translate(' + mindmapState.panX + ' ' + mindmapState.panY + ') scale(' + mindmapState.zoom + ')">';
+
+    const branchPositions = sections.map((section, i) => {
+        const angle = i * angleStep - Math.PI / 2;
+        return {
+            section: section,
+            i: i,
+            angle: angle,
+            x: centerX + branchRadius * Math.cos(angle),
+            y: centerY + branchRadius * Math.sin(angle),
+            color: pickBranchColor(section, i)
+        };
+    });
+
+    // Curved connectors (center -> branch)
+    branchPositions.forEach(p => {
+        const midX = (centerX + p.x) / 2;
+        const midY = (centerY + p.y) / 2;
+        svg += '<path class="mindmap-line" d="M ' + centerX + ' ' + centerY
+            + ' Q ' + midX + ' ' + midY + ' ' + p.x + ' ' + p.y
+            + '" fill="none" stroke="' + p.color.fill + '" stroke-width="3" stroke-opacity="0.55" stroke-linecap="round"/>';
+    });
+
+    // Leaves
+    branchPositions.forEach(p => {
+        if (mindmapState.collapsed.has(p.i)) return;
+        const leaves = _mmExtractLeaves(p.section);
+        if (!leaves.length) return;
+
+        const display = leaves.slice(0, MAX_LEAVES);
+        const remainder = leaves.length - display.length;
+        const leafCount = display.length;
+        const arcSpan = Math.min(Math.PI * 0.95, 0.5 + 0.12 * leafCount);
+        const baseRadius = 210 + Math.max(0, leafCount - 4) * 8;
+        const startAngle = p.angle - arcSpan / 2;
+        const stepAngle = leafCount > 1 ? arcSpan / (leafCount - 1) : 0;
+
+        display.forEach((leafText, j) => {
+            const angle = leafCount === 1 ? p.angle : startAngle + j * stepAngle;
+            const jitter = (j % 2 === 0) ? 0 : 32;
+            const lx = p.x + (baseRadius + jitter) * Math.cos(angle);
+            const ly = p.y + (baseRadius + jitter) * Math.sin(angle);
+            const wrapped = _mmWrap(leafText, MAX_CHARS_PER_LEAF, MAX_LEAF_LINES);
+            const widest = wrapped.lines.reduce((m, l) => Math.max(m, l.length), 0);
+            const pillW = Math.min(280, Math.max(140, widest * 8 + 28));
+            const pillH = 20 + wrapped.lines.length * 18;
+            const full = _mmEsc(typeof cleanMarks === 'function' ? cleanMarks(leafText) : leafText);
+
+            svg += '<path class="mindmap-line" d="M ' + p.x + ' ' + p.y + ' Q '
+                + ((p.x + lx) / 2) + ' ' + ((p.y + ly) / 2 - 10) + ' ' + lx + ' ' + ly
+                + '" fill="none" stroke="' + p.color.fill + '" stroke-width="1.5" stroke-opacity="0.35" stroke-linecap="round"/>'
+                + '<g class="mindmap-node mm-leaf" data-branch="' + p.i + '">'
+                + '<title>' + full + '</title>'
+                + '<rect x="' + (lx - pillW / 2) + '" y="' + (ly - pillH / 2) + '" width="' + pillW + '" height="' + pillH + '" rx="10" '
+                + 'fill="' + p.color.soft + '" stroke="' + p.color.fill + '" stroke-width="1.5" filter="url(#mm-shadow)"/>'
+                + _mmMultilineText(wrapped.lines, lx, ly, 17, 'class="mindmap-text mindmap-text-leaf" text-anchor="middle" dominant-baseline="central" fill="#1f2937"')
+                + '</g>';
+        });
+
+        if (remainder > 0) {
+            const mx = p.x + (baseRadius + 80) * Math.cos(p.angle);
+            const my = p.y + (baseRadius + 80) * Math.sin(p.angle);
+            const moreText = '+' + remainder + ' more';
+            const remFull = _mmEsc(leaves.slice(MAX_LEAVES).map(v => typeof cleanMarks === 'function' ? cleanMarks(v) : v).join(' \u2022 '));
+            svg += '<g class="mindmap-node mm-more">'
+                + '<title>' + remFull + '</title>'
+                + '<rect x="' + (mx - 58) + '" y="' + (my - 14) + '" width="116" height="28" rx="14" fill="#ffffff" stroke="' + p.color.fill + '" stroke-dasharray="3 3"/>'
+                + '<text class="mindmap-text mindmap-text-leaf" x="' + mx + '" y="' + my + '" text-anchor="middle" dominant-baseline="central" fill="' + p.color.dark + '">' + _mmEsc(moreText) + '</text>'
+                + '</g>';
+        }
+    });
+
+    // Branch nodes
+    branchPositions.forEach(p => {
+        const collapsed = mindmapState.collapsed.has(p.i);
+        const label = p.section.title || ('#' + (p.i + 1));
+        const wrapped = _mmWrap(label, 16, 3);
+        const widest = wrapped.lines.reduce((m, l) => Math.max(m, l.length), 0);
+        const r = Math.max(54, 30 + widest * 3);
+        const fullLabel = _mmEsc(typeof cleanMarks === 'function' ? cleanMarks(label) : label);
+        const hint = collapsed ? ' (click to expand)' : ' (click to collapse)';
+        svg += '<g class="mindmap-node mm-branch" data-branch="' + p.i + '" style="cursor: pointer">'
+            + '<title>' + fullLabel + hint + '</title>'
+            + '<circle cx="' + p.x + '" cy="' + p.y + '" r="' + (r + 4) + '" fill="' + p.color.fill + '" opacity="0.15"/>'
+            + '<circle cx="' + p.x + '" cy="' + p.y + '" r="' + r + '" fill="url(#mm-grad-' + p.i + ')" stroke="white" stroke-width="3" filter="url(#mm-shadow)"/>'
+            + _mmMultilineText(wrapped.lines, p.x, p.y, 17, 'class="mindmap-text" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700"')
+            + (collapsed
+                ? '<circle cx="' + (p.x + r - 12) + '" cy="' + (p.y - r + 12) + '" r="10" fill="white"/>'
+                  + '<text x="' + (p.x + r - 12) + '" y="' + (p.y - r + 12) + '" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="700" fill="' + p.color.dark + '">+</text>'
+                : '')
+            + '</g>';
+    });
+
+    // Center node
+    const centerTitle = data.title || 'Topic';
+    const centerWrapped = _mmWrap(centerTitle, 16, 4);
+    const centerWidest = centerWrapped.lines.reduce((m, l) => Math.max(m, l.length), 0);
+    const centerR = Math.max(90, 40 + centerWidest * 4);
+    svg += '<g class="mindmap-node mm-center">'
+        + '<title>' + _mmEsc(typeof cleanMarks === 'function' ? cleanMarks(centerTitle) : centerTitle) + '</title>'
+        + '<circle cx="' + centerX + '" cy="' + centerY + '" r="' + (centerR + 10) + '" fill="#0f172a" opacity="0.12"/>'
+        + '<circle cx="' + centerX + '" cy="' + centerY + '" r="' + centerR + '" fill="url(#mm-center-grad)" stroke="white" stroke-width="4" filter="url(#mm-shadow)"/>'
+        + _mmMultilineText(centerWrapped.lines, centerX, centerY, 20, 'class="mindmap-text mindmap-text-center" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="800"')
+        + '</g>';
+
+    svg += '</g></svg>';
+    canvas.innerHTML = svg;
+    attachMindmapInteractions(canvas);
+}
+
+function attachMindmapInteractions(canvas) {
+    const svg = canvas.querySelector('svg.mindmap-svg');
+    if (!svg) return;
+
+    canvas.querySelectorAll('.mm-branch').forEach(group => {
+        group.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const idx = parseInt(group.getAttribute('data-branch'), 10);
+            if (Number.isFinite(idx)) {
+                if (mindmapState.collapsed.has(idx)) {
+                    mindmapState.collapsed.delete(idx);
+                } else {
+                    mindmapState.collapsed.add(idx);
+                }
+                generateMindMap();
+            }
+        });
+    });
+
+    if (mindmapState._boundMove) {
+        window.removeEventListener('mousemove', mindmapState._boundMove);
+        window.removeEventListener('mouseup', mindmapState._boundUp);
+    }
+
+    let dragging = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
+
+    canvas.onmousedown = (e) => {
+        if (e.target.closest('.mm-branch') || e.target.closest('.mm-leaf') || e.target.closest('.mm-more')) return;
+        dragging = true;
+        startX = e.clientX; startY = e.clientY;
+        startPanX = mindmapState.panX; startPanY = mindmapState.panY;
+        canvas.style.cursor = 'grabbing';
+    };
+
+    mindmapState._boundMove = (e) => {
+        if (!dragging) return;
+        const rect = svg.getBoundingClientRect();
+        const sx = MINDMAP_BASE_W / rect.width;
+        mindmapState.panX = startPanX + (e.clientX - startX) * sx;
+        mindmapState.panY = startPanY + (e.clientY - startY) * sx;
+        applyMindmapTransform();
+    };
+    mindmapState._boundUp = () => {
+        dragging = false;
+        canvas.style.cursor = 'grab';
+    };
+    window.addEventListener('mousemove', mindmapState._boundMove);
+    window.addEventListener('mouseup', mindmapState._boundUp);
+
+    canvas.onwheel = (e) => {
+        e.preventDefault();
+        const rect = svg.getBoundingClientRect();
+        const sx = MINDMAP_BASE_W / rect.width;
+        const px = (e.clientX - rect.left) * sx;
+        const py = (e.clientY - rect.top) * sx;
+        const delta = e.deltaY < 0 ? 1.1 : 1 / 1.1;
+        const newZoom = Math.max(0.3, Math.min(4, mindmapState.zoom * delta));
+        const ratio = newZoom / mindmapState.zoom;
+        mindmapState.panX = px - (px - mindmapState.panX) * ratio;
+        mindmapState.panY = py - (py - mindmapState.panY) * ratio;
+        mindmapState.zoom = newZoom;
+        applyMindmapTransform();
+    };
+
+    canvas.style.cursor = 'grab';
+}
+
+function applyMindmapTransform() {
+    const viewport = document.querySelector('.mindmap-viewport');
+    if (viewport) {
+        viewport.setAttribute('transform',
+            'translate(' + mindmapState.panX + ' ' + mindmapState.panY + ') scale(' + mindmapState.zoom + ')'
+        );
+    }
+}
+
+async function exportMindMapAsPNG() {
+    const canvas = document.getElementById('mindmap-canvas');
+    if (!canvas) return;
+    const svg = canvas.querySelector('svg');
+    if (!svg) return;
+
+    const clone = svg.cloneNode(true);
+    const viewport = clone.querySelector('.mindmap-viewport');
+    if (viewport) viewport.setAttribute('transform', 'translate(0 0) scale(1)');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+
+    const svgData = new XMLSerializer().serializeToString(clone);
+    const svgBlob = new Blob(['<?xml version="1.0" encoding="UTF-8"?>\n' + svgData], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(svgBlob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = ((currentInfographicData && currentInfographicData.title) || 'mindmap') + '_mindmap.svg';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+/* ========================================
+   REPORTS FEATURE
+   ======================================== */
+
+let currentReportFormat = 'summary';
+let currentReportContent = '';
+
+function setupReports() {
+    const reportBtn = document.getElementById('report-btn');
+    const reportsModal = document.getElementById('reports-modal');
+    const closeBtn = document.getElementById('close-reports-modal-btn');
+    const formatBtns = document.querySelectorAll('.format-btn');
+    const copyBtn = document.getElementById('copy-report-btn');
+    const downloadBtn = document.getElementById('download-report-btn');
+    const printBtn = document.getElementById('print-report-btn');
+
+    if (!reportBtn || !reportsModal) return;
+
+    reportBtn.addEventListener('click', () => {
+        if (!currentInfographicData) {
+            alert('Please generate an infographic first.');
+            return;
+        }
+        reportsModal.classList.add('active');
+        generateReport(currentReportFormat);
+    });
+
+    closeBtn?.addEventListener('click', () => reportsModal.classList.remove('active'));
+    reportsModal.addEventListener('click', (e) => {
+        if (e.target === reportsModal) reportsModal.classList.remove('active');
+    });
+
+    formatBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            formatBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentReportFormat = btn.dataset.format;
+            generateReport(currentReportFormat);
+        });
+    });
+
+    copyBtn?.addEventListener('click', () => {
+        navigator.clipboard.writeText(currentReportContent).then(() => {
+            const originalText = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<span class="material-symbols-rounded">check</span> Copied!';
+            setTimeout(() => copyBtn.innerHTML = originalText, 2000);
+        });
+    });
+
+    downloadBtn?.addEventListener('click', () => {
+        const blob = new Blob([currentReportContent], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${currentInfographicData?.title || 'report'}_${currentReportFormat}.txt`;
+        a.click();
+        URL.revokeObjectURL(url);
+    });
+
+    printBtn?.addEventListener('click', () => {
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+            <html>
+            <head><title>${currentInfographicData?.title || 'Report'}</title>
+            <style>
+                body { font-family: 'Segoe UI', sans-serif; padding: 2rem; max-width: 800px; margin: 0 auto; }
+                h1 { color: #2563eb; margin-bottom: 1rem; }
+                h2 { color: #334155; margin-top: 1.5rem; }
+                ul { margin-left: 1.5rem; }
+                li { margin-bottom: 0.5rem; }
+            </style>
+            </head>
+            <body>${document.getElementById('report-content')?.innerHTML || ''}</body>
+            </html>
+        `);
+        printWindow.document.close();
+        printWindow.print();
+    });
+}
+
+async function generateReport(format) {
+    if (!currentInfographicData) return;
+
+    const data = currentInfographicData;
+    const reportContainer = document.getElementById('report-content');
+    if (!reportContainer) return;
+
+    // Show loading state
+    reportContainer.innerHTML = `
+        <div class="report-placeholder">
+            <span class="material-symbols-rounded rotating">sync</span>
+            <p>Generating AI-powered ${format} report...</p>
+        </div>
+    `;
+
+    // Try AI-powered report generation
+    const aiReport = await generateAIReport(format);
+
+    if (aiReport) {
+        // Convert markdown to HTML
+        const htmlContent = convertMarkdownToHTML(aiReport);
+        reportContainer.innerHTML = `<div class="report-text">${htmlContent}</div>`;
+        currentReportContent = aiReport;
+        return;
+    }
+
+    // Fallback to basic generation
+    console.log('Using fallback report generation');
+
+    let html = '';
+    let text = '';
+
+    switch (format) {
+        case 'summary':
+            html = `<div class="report-text">
+                <h1>${data.title}</h1>
+                <p>${data.summary}</p>
+                <h2>Key Points</h2>
+                <ul>
+                    ${(data.sections || []).map(s => `<li><strong>${s.title}</strong></li>`).join('')}
+                </ul>
+            </div>`;
+            text = `${data.title}\n\n${data.summary}\n\nKey Points:\n${(data.sections || []).map(s => `- ${s.title}`).join('\n')}`;
+            break;
+
+        case 'detailed':
+            html = `<div class="report-text">
+                <h1>${data.title}</h1>
+                <p>${data.summary}</p>
+                ${(data.sections || []).map(s => `
+                    <h2>${s.title}</h2>
+                    ${formatSectionContent(s)}
+                `).join('')}
+            </div>`;
+            text = `${data.title}\n\n${data.summary}\n\n${(data.sections || []).map(s => `${s.title}\n${formatSectionContentText(s)}`).join('\n\n')}`;
+            break;
+
+        case 'bullet':
+            html = `<div class="report-text">
+                <h1>${data.title}</h1>
+                <ul>
+                    ${(data.sections || []).map(s => `
+                        <li><strong>${s.title}</strong>
+                            ${formatSectionAsBullets(s)}
+                        </li>
+                    `).join('')}
+                </ul>
+            </div>`;
+            text = `${data.title}\n\n${(data.sections || []).map(s => `• ${s.title}\n${formatSectionAsBulletsText(s)}`).join('\n')}`;
+            break;
+
+        case 'study-guide':
+            html = `<div class="report-text">
+                <h1>📚 Study Guide: ${data.title}</h1>
+                <p><em>${data.summary}</em></p>
+                <h2>Learning Objectives</h2>
+                <p>After reviewing this material, you should be able to:</p>
+                <ul>
+                    ${(data.sections || []).map(s => `<li>Understand ${s.title}</li>`).join('')}
+                </ul>
+                <h2>Content Review</h2>
+                ${(data.sections || []).map((s, i) => `
+                    <h3>${i + 1}. ${s.title}</h3>
+                    ${formatSectionContent(s)}
+                `).join('')}
+                <h2>Self-Assessment Questions</h2>
+                <ul>
+                    ${(data.sections || []).slice(0, 5).map(s => `<li>What are the key points about ${s.title}?</li>`).join('')}
+                </ul>
+            </div>`;
+            text = `STUDY GUIDE: ${data.title}\n\n${data.summary}\n\nLEARNING OBJECTIVES:\n${(data.sections || []).map(s => `- Understand ${s.title}`).join('\n')}\n\nCONTENT:\n${(data.sections || []).map((s, i) => `${i + 1}. ${s.title}\n${formatSectionContentText(s)}`).join('\n\n')}`;
+            break;
+    }
+
+    reportContainer.innerHTML = html;
+    currentReportContent = text;
+}
+
+function formatSectionContent(section) {
+    if (Array.isArray(section.content)) {
+        return `<ul>${section.content.map(c => `<li>${c}</li>`).join('')}</ul>`;
+    } else if (typeof section.content === 'object') {
+        if (section.content.mnemonic) {
+            return `<p><strong>${section.content.mnemonic}</strong>: ${section.content.explanation}</p>`;
+        } else if (section.content.center) {
+            return `<p><strong>${section.content.center}</strong></p>
+                ${section.content.branches ? `<ul>${section.content.branches.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}`;
+        } else if (section.content.data) {
+            return `<ul>${section.content.data.map(d => `<li>${d.label}: ${d.value}%</li>`).join('')}</ul>`;
+        } else if (section.content.headers && section.content.rows) {
+            return `<table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr>${section.content.headers.map(h => `<th style="border: 1px solid #ddd; padding: 8px; background: #f5f5f5;">${h}</th>`).join('')}</tr>
+                ${section.content.rows.map(row => `<tr>${row.map(cell => `<td style="border: 1px solid #ddd; padding: 8px;">${cell}</td>`).join('')}</tr>`).join('')}
+            </table>`;
+        }
+    }
+    return `<p>${section.content}</p>`;
+}
+
+function formatSectionContentText(section) {
+    if (Array.isArray(section.content)) {
+        return section.content.map(c => `  - ${c}`).join('\n');
+    } else if (typeof section.content === 'object') {
+        if (section.content.mnemonic) {
+            return `  ${section.content.mnemonic}: ${section.content.explanation}`;
+        } else if (section.content.center) {
+            return `  ${section.content.center}\n${section.content.branches ? section.content.branches.map(b => `    - ${b}`).join('\n') : ''}`;
+        } else if (section.content.data) {
+            return section.content.data.map(d => `  - ${d.label}: ${d.value}%`).join('\n');
+        }
+    }
+    return `  ${section.content}`;
+}
+
+function formatSectionAsBullets(section) {
+    if (Array.isArray(section.content)) {
+        return `<ul>${section.content.map(c => `<li>${c}</li>`).join('')}</ul>`;
+    }
+    return '';
+}
+
+function formatSectionAsBulletsText(section) {
+    if (Array.isArray(section.content)) {
+        return section.content.map(c => `  ◦ ${c}`).join('\n');
+    }
+    return '';
+}
+
+function truncateText(text, maxLen) {
+    const str = text == null ? '' : String(text);
+    if (!maxLen || str.length <= maxLen) return str;
+    return str.slice(0, Math.max(0, maxLen - 1)).trimEnd() + '…';
+}
+
+/* ========================================
+   FLASHCARDS FEATURE
+   ======================================== */
+
+let flashcards = [];
+let currentFlashcardIndex = 0;
+let flashcardStatus = {}; // { index: 'known' | 'review' }
+let flashcardStudyMode = false; // when true, cycles only through 'review' cards
+
+function setupFlashcards() {
+    const flashcardsBtn = document.getElementById('flashcards-btn');
+    const flashcardsModal = document.getElementById('flashcards-modal');
+    const closeBtn = document.getElementById('close-flashcards-modal-btn');
+    const generateBtn = document.getElementById('generate-flashcards-btn');
+    const prevBtn = document.getElementById('prev-card-btn');
+    const nextBtn = document.getElementById('next-card-btn');
+    const shuffleBtn = document.getElementById('shuffle-cards-btn');
+    const flashcard = document.getElementById('current-flashcard');
+
+    if (!flashcardsBtn || !flashcardsModal) return;
+
+    flashcardsBtn.addEventListener('click', () => {
+        if (!currentInfographicData) {
+            alert('Please generate an infographic first.');
+            return;
+        }
+        flashcardsModal.classList.add('active');
+    });
+
+    closeBtn?.addEventListener('click', () => flashcardsModal.classList.remove('active'));
+    flashcardsModal.addEventListener('click', (e) => {
+        if (e.target === flashcardsModal) flashcardsModal.classList.remove('active');
+    });
+
+    generateBtn?.addEventListener('click', generateFlashcards);
+    prevBtn?.addEventListener('click', () => navigateFlashcard(-1));
+    nextBtn?.addEventListener('click', () => navigateFlashcard(1));
+    shuffleBtn?.addEventListener('click', shuffleFlashcards);
+
+    flashcard?.addEventListener('click', (e) => {
+        // Ignore clicks on the study-action buttons we inject inside the card
+        if (e.target.closest('.flashcard-study-btn')) return;
+        flashcard.classList.toggle('flipped');
+    });
+
+    // Touch swipe on the flashcard for mobile
+    let touchStartX = null;
+    flashcard?.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    flashcard?.addEventListener('touchend', (e) => {
+        if (touchStartX == null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 60) {
+            navigateFlashcard(dx < 0 ? 1 : -1);
+        }
+        touchStartX = null;
+    }, { passive: true });
+
+    // Keyboard shortcuts while flashcards modal is open
+    document.addEventListener('keydown', (e) => {
+        if (!flashcardsModal.classList.contains('active')) return;
+        if (document.activeElement && ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+        if (e.key === 'ArrowRight') { navigateFlashcard(1); e.preventDefault(); }
+        else if (e.key === 'ArrowLeft') { navigateFlashcard(-1); e.preventDefault(); }
+        else if (e.key === ' ' || e.key === 'Spacebar') {
+            if (flashcard) flashcard.classList.toggle('flipped');
+            e.preventDefault();
+        } else if (e.key === 's' || e.key === 'S') {
+            shuffleFlashcards(); e.preventDefault();
+        } else if (e.key === 'k' || e.key === 'K' || e.key === '1') {
+            markFlashcard('known'); e.preventDefault();
+        } else if (e.key === 'r' || e.key === 'R' || e.key === '2') {
+            markFlashcard('review'); e.preventDefault();
+        }
+    });
+}
+
+function markFlashcard(status) {
+    if (flashcards.length === 0) return;
+    flashcardStatus[currentFlashcardIndex] = status;
+    updateFlashcardCounter();
+    // Auto-advance for flow
+    setTimeout(() => navigateFlashcard(1), 160);
+}
+
+async function generateFlashcards() {
+    if (!currentInfographicData) return;
+
+    const generateBtn = document.getElementById('generate-flashcards-btn');
+    const questionEl = document.getElementById('flashcard-question');
+
+    // Show loading state
+    if (generateBtn) {
+        generateBtn.disabled = true;
+        generateBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Generating with AI...';
+    }
+    if (questionEl) {
+        questionEl.textContent = 'Generating AI-powered flashcards...';
+    }
+
+    // Try AI-powered flashcards first
+    const aiFlashcards = await generateAIFlashcards();
+
+    if (aiFlashcards && aiFlashcards.length > 0) {
+        flashcards = aiFlashcards;
+        flashcardStatus = {};
+        currentFlashcardIndex = 0;
+        renderFlashcard();
+        updateFlashcardCounter();
+        if (generateBtn) {
+            generateBtn.disabled = false;
+            generateBtn.innerHTML = '<span class="material-symbols-rounded">auto_fix_high</span> Regenerate';
+        }
+        return;
+    }
+
+    // Fallback to basic generation
+    console.log('Using fallback flashcard generation');
+    const data = currentInfographicData;
+    flashcards = [];
+    flashcardStatus = {};
+
+    // Create flashcards from sections
+    if (data.sections) {
+        data.sections.forEach(section => {
+            // Main section question
+            flashcards.push({
+                question: `What are the key points about ${section.title}?`,
+                answer: formatFlashcardAnswer(section)
+            });
+
+            // Additional cards for specific content
+            if (Array.isArray(section.content) && section.content.length > 3) {
+                section.content.forEach((item, i) => {
+                    if (i < 5) { // Limit per section
+                        flashcards.push({
+                            question: `In ${section.title}: Explain "${truncateText(item, 50)}"`,
+                            answer: item
+                        });
+                    }
+                });
+            }
+
+            if (section.content?.mnemonic) {
+                flashcards.push({
+                    question: `What does the mnemonic "${section.content.mnemonic}" stand for?`,
+                    answer: section.content.explanation
+                });
+            }
+        });
+    }
+
+    // Summary card
+    flashcards.push({
+        question: `Summarize: ${data.title}`,
+        answer: data.summary
+    });
+
+    currentFlashcardIndex = 0;
+    renderFlashcard();
+    updateFlashcardCounter();
+
+    if (generateBtn) {
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = '<span class="material-symbols-rounded">auto_fix_high</span> Regenerate';
+    }
+}
+
+function formatFlashcardAnswer(section) {
+    if (Array.isArray(section.content)) {
+        return section.content.slice(0, 5).join('\n• ');
+    } else if (typeof section.content === 'object') {
+        if (section.content.mnemonic) {
+            return `${section.content.mnemonic}: ${section.content.explanation}`;
+        } else if (section.content.center) {
+            return `${section.content.center}: ${(section.content.branches || []).join(', ')}`;
+        }
+    }
+    return String(section.content || '');
+}
+
+function renderFlashcard() {
+    if (flashcards.length === 0) return;
+
+    const card = flashcards[currentFlashcardIndex];
+    const questionEl = document.getElementById('flashcard-question');
+    const answerEl = document.getElementById('flashcard-answer');
+    const flashcard = document.getElementById('current-flashcard');
+    const status = flashcardStatus[currentFlashcardIndex];
+
+    const statusBadge = status === 'known'
+        ? '<span style="position:absolute;top:12px;right:12px;background:#10b981;color:white;padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;display:inline-flex;align-items:center;gap:4px;"><span class="material-symbols-rounded" style="font-size:0.9rem;">check</span>Mastered</span>'
+        : status === 'review'
+        ? '<span style="position:absolute;top:12px;right:12px;background:#f59e0b;color:white;padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;display:inline-flex;align-items:center;gap:4px;"><span class="material-symbols-rounded" style="font-size:0.9rem;">refresh</span>Review</span>'
+        : '';
+
+    if (questionEl) {
+        questionEl.innerHTML = `
+            ${statusBadge}
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:1rem;">Question</div>
+            <div style="font-size:1.4rem;color:white;line-height:1.6;font-weight:500;">${card.question}</div>
+            <div style="position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:0.8rem;color:rgba(255,255,255,0.7);">
+                <span class="material-symbols-rounded" style="font-size:1rem;vertical-align:middle;">touch_app</span>
+                Click or press <kbd style="background:rgba(255,255,255,0.15);padding:1px 6px;border-radius:3px;font-family:monospace;border:1px solid rgba(255,255,255,0.3);color:white;">Space</kbd> to flip
+            </div>
+        `;
+    }
+    if (answerEl) {
+        answerEl.innerHTML = `
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:1rem;">Answer</div>
+            <div style="font-size:1.25rem;color:white;line-height:1.6;font-weight:500;margin-bottom:1.5rem;white-space:pre-wrap;">${card.answer}</div>
+            <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+                <button class="flashcard-study-btn" data-action="review" style="background:rgba(245,158,11,0.9);color:white;border:none;padding:10px 20px;border-radius:999px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;gap:6px;font-size:0.9rem;">
+                    <span class="material-symbols-rounded" style="font-size:1.1rem;">refresh</span>Review again
+                </button>
+                <button class="flashcard-study-btn" data-action="known" style="background:rgba(16,185,129,0.95);color:white;border:none;padding:10px 20px;border-radius:999px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;gap:6px;font-size:0.9rem;">
+                    <span class="material-symbols-rounded" style="font-size:1.1rem;">check_circle</span>Got it
+                </button>
+            </div>
+        `;
+        answerEl.querySelectorAll('.flashcard-study-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                markFlashcard(btn.dataset.action);
+            });
+        });
+    }
+    if (flashcard) flashcard.classList.remove('flipped');
+}
+
+function navigateFlashcard(direction) {
+    if (flashcards.length === 0) return;
+
+    currentFlashcardIndex += direction;
+    if (currentFlashcardIndex < 0) currentFlashcardIndex = flashcards.length - 1;
+    if (currentFlashcardIndex >= flashcards.length) currentFlashcardIndex = 0;
+
+    renderFlashcard();
+    updateFlashcardCounter();
+}
+
+function updateFlashcardCounter() {
+    const counter = document.getElementById('flashcard-counter');
+    if (!counter) return;
+    if (flashcards.length === 0) { counter.textContent = '0 / 0'; return; }
+    const known = Object.values(flashcardStatus).filter(s => s === 'known').length;
+    const review = Object.values(flashcardStatus).filter(s => s === 'review').length;
+    counter.innerHTML = `
+        <span>${currentFlashcardIndex + 1} / ${flashcards.length}</span>
+        ${known > 0 ? `<span style="margin-left:12px;color:#10b981;font-weight:600;"><span class="material-symbols-rounded" style="font-size:1rem;vertical-align:middle;">check_circle</span> ${known}</span>` : ''}
+        ${review > 0 ? `<span style="margin-left:8px;color:#f59e0b;font-weight:600;"><span class="material-symbols-rounded" style="font-size:1rem;vertical-align:middle;">refresh</span> ${review}</span>` : ''}
+    `;
+}
+
+function shuffleFlashcards() {
+    // Reset status on shuffle so the pile feels fresh
+    const pairs = flashcards.map((c, i) => ({ c, s: flashcardStatus[i] }));
+    for (let i = pairs.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pairs[i], pairs[j]] = [pairs[j], pairs[i]];
+    }
+    flashcards = pairs.map(p => p.c);
+    flashcardStatus = {};
+    pairs.forEach((p, i) => { if (p.s) flashcardStatus[i] = p.s; });
+    currentFlashcardIndex = 0;
+    renderFlashcard();
+    updateFlashcardCounter();
+}
+
+/* ========================================
+   QUIZ FEATURE
+   ======================================== */
+
+let quizQuestions = [];
+let currentQuestionIndex = 0;
+let quizScore = 0;
+let quizAnswered = false;
+let quizStreak = 0;
+let quizBestStreak = 0;
+
+function setupQuiz() {
+    const quizBtn = document.getElementById('quiz-btn');
+    const quizModal = document.getElementById('quiz-modal');
+    const closeBtn = document.getElementById('close-quiz-modal-btn');
+    const startBtn = document.getElementById('start-quiz-btn');
+    const nextBtn = document.getElementById('next-question-btn');
+    const retakeBtn = document.getElementById('retake-quiz-btn');
+
+    if (!quizBtn || !quizModal) return;
+
+    quizBtn.addEventListener('click', () => {
+        if (!currentInfographicData) {
+            alert('Please generate an infographic first.');
+            return;
+        }
+        quizModal.classList.add('active');
+        resetQuiz();
+    });
+
+    closeBtn?.addEventListener('click', () => quizModal.classList.remove('active'));
+    quizModal.addEventListener('click', (e) => {
+        if (e.target === quizModal) quizModal.classList.remove('active');
+    });
+
+    startBtn?.addEventListener('click', startQuiz);
+    nextBtn?.addEventListener('click', nextQuestion);
+    retakeBtn?.addEventListener('click', startQuiz);
+
+    // Keyboard shortcuts when quiz modal is open
+    document.addEventListener('keydown', (e) => {
+        if (!quizModal.classList.contains('active')) return;
+        if (document.activeElement && ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+        const key = e.key.toUpperCase();
+        if (['A', 'B', 'C', 'D', 'E'].includes(key) && !quizAnswered) {
+            const idx = key.charCodeAt(0) - 65;
+            const opts = document.querySelectorAll('#quiz-options .quiz-option');
+            if (opts[idx]) { opts[idx].click(); e.preventDefault(); }
+        } else if (e.key === 'Enter') {
+            if (quizAnswered && document.getElementById('next-question-btn').style.display !== 'none') {
+                nextQuestion(); e.preventDefault();
+            } else if (!quizAnswered && document.getElementById('start-quiz-btn').style.display !== 'none') {
+                startQuiz(); e.preventDefault();
+            }
+        }
+    });
+}
+
+function generateQuizQuestions() {
+    if (!currentInfographicData) return;
+
+    const data = currentInfographicData;
+    quizQuestions = [];
+
+    if (data.sections) {
+        data.sections.forEach(section => {
+            if (Array.isArray(section.content) && section.content.length >= 2) {
+                // Multiple choice from content
+                const correctAnswer = section.content[0];
+                const wrongAnswers = getRandomWrongAnswers(data.sections, section, correctAnswer);
+
+                quizQuestions.push({
+                    question: `Which of the following is true about ${section.title}?`,
+                    options: shuffleArray([correctAnswer, ...wrongAnswers]),
+                    correctAnswer: correctAnswer
+                });
+            }
+
+            if (section.content?.mnemonic) {
+                quizQuestions.push({
+                    question: `What does the mnemonic "${section.content.mnemonic}" help remember?`,
+                    options: shuffleArray([
+                        section.content.explanation,
+                        `A ${section.title} classification system`,
+                        `Diagnostic criteria`,
+                        `Treatment protocols`
+                    ]),
+                    correctAnswer: section.content.explanation
+                });
+            }
+        });
+
+        // Add general knowledge questions
+        quizQuestions.push({
+            question: `What is the main topic of this infographic?`,
+            options: shuffleArray([
+                data.title,
+                'General Ophthalmology',
+                'Clinical Examination',
+                'Surgical Techniques'
+            ]),
+            correctAnswer: data.title
+        });
+    }
+
+    // Limit to 10 questions max
+    quizQuestions = quizQuestions.slice(0, 10);
+}
+
+function getRandomWrongAnswers(sections, currentSection, correctAnswer) {
+    const wrongAnswers = [];
+
+    sections.forEach(s => {
+        if (s !== currentSection && Array.isArray(s.content)) {
+            s.content.forEach(item => {
+                if (item !== correctAnswer && wrongAnswers.length < 3) {
+                    wrongAnswers.push(item);
+                }
+            });
+        }
+    });
+
+    while (wrongAnswers.length < 3) {
+        wrongAnswers.push(`Option ${wrongAnswers.length + 1}`);
+    }
+
+    return wrongAnswers.slice(0, 3);
+}
+
+function shuffleArray(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+function resetQuiz() {
+    currentQuestionIndex = 0;
+    quizScore = 0;
+    quizAnswered = false;
+    quizStreak = 0;
+    quizBestStreak = 0;
+
+    document.getElementById('quiz-container').style.display = 'block';
+    document.getElementById('quiz-results').style.display = 'none';
+    document.getElementById('start-quiz-btn').style.display = 'flex';
+    document.getElementById('next-question-btn').style.display = 'none';
+    document.getElementById('quiz-feedback').style.display = 'none';
+    document.getElementById('quiz-question').innerHTML = `
+        <div style="text-align:center;padding:2rem 1rem;">
+            <span class="material-symbols-rounded" style="font-size:4rem;color:#3b82f6;margin-bottom:1rem;display:inline-block;">quiz</span>
+            <div style="font-size:1.4rem;color:#0f172a;font-weight:600;margin-bottom:0.5rem;">Ready to test your knowledge?</div>
+            <div style="font-size:0.9rem;color:#64748b;margin-bottom:0.5rem;">Click <strong>Start Quiz</strong> or press <kbd style="background:#f1f5f9;padding:2px 8px;border-radius:4px;font-family:monospace;border:1px solid #cbd5e1;">Enter</kbd></div>
+            <div style="font-size:0.8rem;color:#94a3b8;">Use <kbd style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-family:monospace;border:1px solid #cbd5e1;">A</kbd> <kbd style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-family:monospace;border:1px solid #cbd5e1;">B</kbd> <kbd style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-family:monospace;border:1px solid #cbd5e1;">C</kbd> <kbd style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-family:monospace;border:1px solid #cbd5e1;">D</kbd> to answer</div>
+        </div>`;
+    document.getElementById('quiz-options').innerHTML = '';
+    document.getElementById('quiz-progress-bar').style.width = '0%';
+    updateQuizScore();
+}
+
+async function startQuiz() {
+    const startBtn = document.getElementById('start-quiz-btn');
+    const questionEl = document.getElementById('quiz-question');
+
+    // Show loading state
+    if (startBtn) {
+        startBtn.disabled = true;
+        startBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Generating AI Quiz...';
+    }
+    if (questionEl) {
+        questionEl.textContent = 'Generating AI-powered quiz questions...';
+    }
+
+    // Try AI-powered quiz first
+    const aiQuiz = await generateAIQuiz();
+
+    if (aiQuiz && aiQuiz.length > 0) {
+        quizQuestions = aiQuiz;
+        console.log(`Generated ${quizQuestions.length} AI quiz questions`);
+    } else {
+        // Fallback to basic quiz generation
+        console.log('Using fallback quiz generation');
+        generateQuizQuestions();
+    }
+
+    currentQuestionIndex = 0;
+    quizScore = 0;
+    quizAnswered = false;
+
+    document.getElementById('quiz-results').style.display = 'none';
+    document.getElementById('quiz-container').style.display = 'block';
+
+    if (startBtn) {
+        startBtn.style.display = 'none';
+        startBtn.disabled = false;
+        startBtn.innerHTML = '<span class="material-symbols-rounded">play_arrow</span> Start Quiz';
+    }
+
+    renderQuizQuestion();
+    updateQuizScore();
+}
+
+function renderQuizQuestion() {
+    if (quizQuestions.length === 0) return;
+
+    const question = quizQuestions[currentQuestionIndex];
+    const questionEl = document.getElementById('quiz-question');
+    const optionsEl = document.getElementById('quiz-options');
+    const progressBar = document.getElementById('quiz-progress-bar');
+    const feedback = document.getElementById('quiz-feedback');
+
+    questionEl.innerHTML = `
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:0.75rem;flex-wrap:wrap;">
+            <span style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:white;padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:700;letter-spacing:1px;">Q${currentQuestionIndex + 1} / ${quizQuestions.length}</span>
+            ${quizStreak >= 2 ? `<span style="background:linear-gradient(135deg,#f59e0b,#d97706);color:white;padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:700;display:inline-flex;align-items:center;gap:4px;"><span class="material-symbols-rounded" style="font-size:1rem;">local_fire_department</span> ${quizStreak} streak</span>` : ''}
+        </div>
+        <div style="font-size:1.3rem;color:#0f172a;line-height:1.5;font-weight:500;">${question.question}</div>
+    `;
+    feedback.style.display = 'none';
+    quizAnswered = false;
+
+    const progress = ((currentQuestionIndex) / quizQuestions.length) * 100;
+    progressBar.style.width = `${progress}%`;
+
+    optionsEl.innerHTML = question.options.map((opt, i) => `
+        <div class="quiz-option" data-answer="${opt}" data-index="${i}">
+            <span class="quiz-option-letter">${String.fromCharCode(65 + i)}</span>
+            <span style="flex:1;">${truncateText(opt, 200)}</span>
+        </div>
+    `).join('');
+
+    optionsEl.querySelectorAll('.quiz-option').forEach(option => {
+        option.addEventListener('click', () => selectQuizAnswer(option, question.correctAnswer));
+    });
+}
+
+function selectQuizAnswer(optionEl, correctAnswer) {
+    if (quizAnswered) return;
+    quizAnswered = true;
+
+    const selectedAnswer = optionEl.dataset.answer;
+    const isCorrect = selectedAnswer === correctAnswer;
+    const feedback = document.getElementById('quiz-feedback');
+    const feedbackIcon = document.getElementById('feedback-icon');
+    const feedbackText = document.getElementById('feedback-text');
+    const nextBtn = document.getElementById('next-question-btn');
+
+    optionEl.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+    if (!isCorrect) {
+        document.querySelectorAll('.quiz-option').forEach(opt => {
+            if (opt.dataset.answer === correctAnswer) {
+                opt.classList.add('correct');
+            }
+            opt.style.pointerEvents = 'none';
+        });
+        quizStreak = 0;
+    } else {
+        quizScore++;
+        quizStreak++;
+        if (quizStreak > quizBestStreak) quizBestStreak = quizStreak;
+        document.querySelectorAll('.quiz-option').forEach(opt => { opt.style.pointerEvents = 'none'; });
+    }
+
+    feedback.style.display = 'flex';
+    feedback.className = `quiz-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+    feedbackIcon.textContent = isCorrect ? 'check_circle' : 'cancel';
+
+    const currentQuestion = quizQuestions[currentQuestionIndex];
+    const heading = isCorrect ? 'Correct!' : 'Not quite.';
+    const correctPart = isCorrect ? '' : `<div style="margin-top:0.5rem;font-size:0.95rem;"><strong>Correct answer:</strong> ${correctAnswer}</div>`;
+    const explanationPart = currentQuestion.explanation
+        ? `<div style="margin-top:0.75rem;padding:0.75rem 1rem;background:rgba(255,255,255,0.65);border-radius:8px;border-left:4px solid ${isCorrect ? '#059669' : '#dc2626'};font-size:0.9rem;color:#334155;line-height:1.5;"><strong style="color:#0f172a;">Why:</strong> ${currentQuestion.explanation}</div>`
+        : '';
+    feedbackText.innerHTML = `
+        <div style="font-size:1.1rem;font-weight:700;margin-bottom:0.25rem;">${heading}</div>
+        ${correctPart}
+        ${explanationPart}
+        <div style="margin-top:0.75rem;font-size:0.8rem;color:#64748b;">Press <kbd style="background:#f1f5f9;padding:2px 8px;border-radius:4px;font-family:monospace;border:1px solid #cbd5e1;">Enter</kbd> for next question</div>
+    `;
+
+    nextBtn.style.display = 'flex';
+    updateQuizScore();
+}
+
+function nextQuestion() {
+    currentQuestionIndex++;
+    document.getElementById('next-question-btn').style.display = 'none';
+
+    if (currentQuestionIndex >= quizQuestions.length) {
+        showQuizResults();
+    } else {
+        renderQuizQuestion();
+    }
+}
+
+function showQuizResults() {
+    document.getElementById('quiz-container').style.display = 'none';
+    const resultsEl = document.getElementById('quiz-results');
+    resultsEl.style.display = 'flex';
+
+    const percentage = Math.round((quizScore / quizQuestions.length) * 100);
+    const percEl = document.getElementById('results-percentage');
+    percEl.textContent = `${percentage}%`;
+
+    // Ring gradient color tiered to score
+    let ringColor, icon, heading, sub;
+    if (percentage >= 90)      { ringColor = '#10b981'; icon = 'emoji_events';  heading = 'Outstanding!';      sub = "You've mastered this topic."; }
+    else if (percentage >= 70) { ringColor = '#3b82f6'; icon = 'military_tech'; heading = 'Great job!';        sub = 'Keep studying to perfect it.'; }
+    else if (percentage >= 50) { ringColor = '#f59e0b'; icon = 'school';        heading = 'Good effort.';      sub = 'Review the material and retry.'; }
+    else                       { ringColor = '#ef4444'; icon = 'psychology';    heading = 'Keep practicing.';  sub = 'Review the infographic, then retake.'; }
+
+    // Paint a conic-gradient ring around the percentage
+    percEl.style.cssText = `
+        width:180px;height:180px;border-radius:50%;
+        background:conic-gradient(${ringColor} ${percentage * 3.6}deg, #e2e8f0 0);
+        display:flex;align-items:center;justify-content:center;
+        font-size:2.5rem;font-weight:800;color:#0f172a;margin:0 auto 1rem;
+        position:relative;
+    `;
+    // Inner white disc so the number appears floating in the ring
+    if (!percEl.querySelector('.ring-inner')) {
+        const inner = document.createElement('div');
+        inner.className = 'ring-inner';
+        inner.style.cssText = 'position:absolute;inset:12px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 12px rgba(0,0,0,0.04);';
+        const pct = document.createElement('span');
+        pct.style.cssText = `font-size:2.5rem;font-weight:800;color:${ringColor};`;
+        pct.textContent = `${percentage}%`;
+        inner.appendChild(pct);
+        percEl.textContent = '';
+        percEl.appendChild(inner);
+    }
+
+    const msgEl = document.getElementById('results-message');
+    msgEl.innerHTML = `
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
+            <span class="material-symbols-rounded" style="font-size:3rem;color:${ringColor};">${icon}</span>
+            <div style="font-size:1.4rem;font-weight:700;color:#0f172a;">${heading}</div>
+            <div style="font-size:0.95rem;color:#64748b;">${sub}</div>
+            <div style="display:flex;gap:2rem;margin-top:1rem;flex-wrap:wrap;justify-content:center;">
+                <div style="text-align:center;">
+                    <div style="font-size:2rem;font-weight:800;color:${ringColor};">${quizScore}/${quizQuestions.length}</div>
+                    <div style="font-size:0.75rem;color:#94a3b8;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">Correct</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:2rem;font-weight:800;color:${ringColor};display:inline-flex;align-items:center;gap:4px;"><span class="material-symbols-rounded" style="font-size:1.6rem;">local_fire_department</span>${quizBestStreak}</div>
+                    <div style="font-size:0.75rem;color:#94a3b8;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">Best streak</div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function updateQuizScore() {
+    const scoreEl = document.getElementById('quiz-score');
+    if (scoreEl) {
+        scoreEl.textContent = `Score: ${quizScore}/${quizQuestions.length || 0}`;
+    }
+}
+
+/* ========================================
+   SLIDE DECK FEATURE
+   ======================================== */
+
+let slides = [];
+let currentSlideIndex = 0;
+
+let _lastSlidesForTitle = null; // Remembers which infographic slides were built for
+let _slideDeckSetupDone = false;
+let _slideGenInFlight = false;
+let _thumbnailRenderGen = 0;
+
+const SLIDE_DECK_MAX_SLIDES = 120;
+const SLIDE_DECK_MAX_SECTIONS = 40;
+const SLIDE_DECK_MAX_BULLETS_PER_SECTION = 42;
+const SLIDE_DECK_THUMB_BATCH = 36;
+
+/** Strip citation brackets without infinite recursion on circular/deep JSON. */
+function safeStripReferences(val, depth = 0, seen = null) {
+    const MAX_DEPTH = 32;
+    if (depth > MAX_DEPTH) {
+        return typeof val === 'string' ? val : (Array.isArray(val) ? [] : '');
+    }
+    if (typeof val === 'string') {
+        return val.replace(/\[\d+(?:\s*,\s*\d+)*\]/g, '').trim();
+    }
+    if (Array.isArray(val)) {
+        const cap = val.length > 600 ? val.slice(0, 600) : val;
+        return cap.map(item => safeStripReferences(item, depth + 1, seen));
+    }
+    if (val && typeof val === 'object') {
+        const tracker = seen || new WeakSet();
+        if (tracker.has(val)) return '';
+        tracker.add(val);
+        const cleaned = {};
+        for (const k of Object.keys(val)) {
+            if (k === '__proto__' || k === 'constructor') continue;
+            cleaned[k] = safeStripReferences(val[k], depth + 1, tracker);
+        }
+        return cleaned;
+    }
+    return val;
+}
+
+function safeGenerateSlides() {
+    if (_slideGenInFlight) return;
+    _slideGenInFlight = true;
+    try {
+        generateSlides();
+    } catch (err) {
+        console.error('[Slide Deck] generateSlides failed:', err);
+        showSlideDeckToast(
+            'Could not build slides: ' + (err && err.message ? err.message : 'Unknown error'),
+            'error'
+        );
+    } finally {
+        _slideGenInFlight = false;
+    }
+}
+
+function setupSlideDeck() {
+    if (_slideDeckSetupDone) return;
+    _slideDeckSetupDone = true;
+
+    const slideBtn = document.getElementById('slidedeck-btn');
+    const slideModal = document.getElementById('slidedeck-modal');
+    const closeBtn = document.getElementById('close-slidedeck-modal-btn');
+    const generateBtn = document.getElementById('generate-slides-btn');
+    const prevBtn = document.getElementById('slide-prev-btn');
+    const nextBtn = document.getElementById('slide-next-btn');
+    const presentBtn = document.getElementById('present-slides-btn');
+    const exportBtn = document.getElementById('export-slides-btn');
+    const exportPptxBtn = document.getElementById('export-slides-pptx-btn');
+
+    if (!slideBtn || !slideModal) return;
+
+    slideBtn.addEventListener('click', () => {
+        if (!currentInfographicData) {
+            alert('Please generate an infographic first.');
+            return;
+        }
+        slideModal.classList.add('active');
+        // Auto-generate on open (or when the infographic has changed since last open)
+        const title = currentInfographicData.title;
+        if (slides.length === 0 || _lastSlidesForTitle !== title) {
+            requestAnimationFrame(() => {
+                safeGenerateSlides();
+                _lastSlidesForTitle = title;
+            });
+        }
+    });
+
+    closeBtn?.addEventListener('click', () => slideModal.classList.remove('active'));
+    slideModal.addEventListener('click', (e) => {
+        if (e.target === slideModal) slideModal.classList.remove('active');
+    });
+
+    generateBtn?.addEventListener('click', () => {
+        safeGenerateSlides();
+        _lastSlidesForTitle = currentInfographicData?.title || null;
+    });
+    prevBtn?.addEventListener('click', () => navigateSlide(-1));
+    nextBtn?.addEventListener('click', () => navigateSlide(1));
+    presentBtn?.addEventListener('click', enterPresentationMode);
+    exportBtn?.addEventListener('click', exportSlidesAsHTML);
+    exportPptxBtn?.addEventListener('click', () => exportSlidesAsPPTX());
+    updateSlideDeckActionButtons();
+
+    // Keyboard nav inside the preview modal (not in presentation mode)
+    slideModal.addEventListener('keydown', (e) => {
+        if (!slideModal.classList.contains('active')) return;
+        if (document.getElementById('presentation-mode')) return; // Ignored while presenting
+        if (e.key === 'ArrowRight') { navigateSlide(1); e.preventDefault(); }
+        else if (e.key === 'ArrowLeft') { navigateSlide(-1); e.preventDefault(); }
+        else if (e.key === 'f' || e.key === 'F' || e.key === 'F5') { enterPresentationMode(); e.preventDefault(); }
+    });
+    // Make the modal focusable so it can catch keys when clicked
+    slideModal.setAttribute('tabindex', '-1');
+    slideModal.addEventListener('mouseenter', () => slideModal.focus({ preventScroll: true }));
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// SLIDE TEMPLATE SYSTEM
+// Classifies a section (by title/type) into a specialized visual template
+// with theme colors, icon, and layout hints for slide rendering.
+// ═══════════════════════════════════════════════════════════════════════
+const SLIDE_TEMPLATES = {
+    pearls:           { key: 'pearls',           label: 'Clinical Pearls',   icon: 'stars',             accent: '#10b981', bg: 'linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%)', border: '#10b981', bullet: 'lightbulb' },
+    pitfalls:         { key: 'pitfalls',         label: 'Pitfalls',          icon: 'report_problem',    accent: '#f59e0b', bg: 'linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%)', border: '#f59e0b', bullet: 'warning' },
+    red_flags:        { key: 'red_flags',        label: 'Red Flags',         icon: 'flag',              accent: '#dc2626', bg: 'linear-gradient(135deg,#fef2f2 0%,#fee2e2 100%)', border: '#dc2626', bullet: 'priority_high' },
+    complications:    { key: 'complications',    label: 'Complications',     icon: 'warning',           accent: '#ea580c', bg: 'linear-gradient(135deg,#fff7ed 0%,#ffedd5 100%)', border: '#ea580c', bullet: 'error' },
+    indications:      { key: 'indications',      label: 'Indications',       icon: 'task_alt',          accent: '#059669', bg: 'linear-gradient(135deg,#ecfdf5 0%,#a7f3d0 40%)', border: '#059669', bullet: 'check_circle' },
+    contraindications:{ key: 'contraindications',label: 'Contraindications', icon: 'block',             accent: '#b91c1c', bg: 'linear-gradient(135deg,#fef2f2 0%,#fecaca 100%)', border: '#b91c1c', bullet: 'do_not_disturb_on' },
+    differential:     { key: 'differential',     label: 'Differential Dx',   icon: 'account_tree',      accent: '#7c3aed', bg: 'linear-gradient(135deg,#faf5ff 0%,#e9d5ff 100%)', border: '#7c3aed', bullet: 'compare_arrows' },
+    investigations:   { key: 'investigations',   label: 'Investigations',    icon: 'biotech',           accent: '#0891b2', bg: 'linear-gradient(135deg,#ecfeff 0%,#cffafe 100%)', border: '#0891b2', bullet: 'labs' },
+    management:       { key: 'management',       label: 'Management',        icon: 'medical_services',  accent: '#2563eb', bg: 'linear-gradient(135deg,#eff6ff 0%,#dbeafe 100%)', border: '#2563eb', bullet: 'medication' },
+    surgery:          { key: 'surgery',          label: 'Surgical',          icon: 'surgical',          accent: '#db2777', bg: 'linear-gradient(135deg,#fdf2f8 0%,#fce7f3 100%)', border: '#db2777', bullet: 'cut' },
+    etiology:         { key: 'etiology',         label: 'Etiology',          icon: 'biotech',           accent: '#7c3aed', bg: 'linear-gradient(135deg,#faf5ff 0%,#ede9fe 100%)', border: '#7c3aed', bullet: 'science' },
+    epidemiology:     { key: 'epidemiology',     label: 'Epidemiology',      icon: 'public',            accent: '#0e7490', bg: 'linear-gradient(135deg,#ecfeff 0%,#cffafe 100%)', border: '#0e7490', bullet: 'trending_up' },
+    pathophysiology:  { key: 'pathophysiology',  label: 'Pathophysiology',   icon: 'genetics',          accent: '#7c3aed', bg: 'linear-gradient(135deg,#faf5ff 0%,#e9d5ff 100%)', border: '#7c3aed', bullet: 'bubble_chart' },
+    symptoms:         { key: 'symptoms',         label: 'Symptoms',          icon: 'sick',              accent: '#f59e0b', bg: 'linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%)', border: '#f59e0b', bullet: 'thermostat' },
+    signs:            { key: 'signs',            label: 'Clinical Signs',    icon: 'visibility',        accent: '#2563eb', bg: 'linear-gradient(135deg,#eff6ff 0%,#dbeafe 100%)', border: '#2563eb', bullet: 'search' },
+    anatomy:          { key: 'anatomy',          label: 'Anatomy',           icon: 'human_greeting_proximity', accent: '#0d9488', bg: 'linear-gradient(135deg,#f0fdfa 0%,#ccfbf1 100%)', border: '#0d9488', bullet: 'category' },
+    prognosis:        { key: 'prognosis',        label: 'Prognosis',         icon: 'trending_up',       accent: '#059669', bg: 'linear-gradient(135deg,#ecfdf5 0%,#a7f3d0 100%)', border: '#059669', bullet: 'timeline' },
+    framework:        { key: 'framework',        label: 'Framework',         icon: 'dashboard',         accent: '#6366f1', bg: 'linear-gradient(135deg,#eef2ff 0%,#e0e7ff 100%)', border: '#6366f1', bullet: 'hexagon' },
+    mnemonic:         { key: 'mnemonic',         label: 'Mnemonic',          icon: 'psychology',        accent: '#8b5cf6', bg: 'linear-gradient(135deg,#f5f3ff 0%,#ede9fe 100%)', border: '#8b5cf6', bullet: 'bookmark' },
+    default:          { key: 'default',          label: 'Key Points',        icon: 'auto_awesome',      accent: '#3b82f6', bg: 'linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%)', border: '#3b82f6', bullet: 'arrow_forward_ios' }
+};
+
+const SLIDE_TYPE_EMOJI = {
+    title: '👁️', agenda: '📋', end: '🙏', section: '🔬',
+    pearls: '💡', pitfalls: '⚠️', red_flags: '🚩', complications: '⛔',
+    indications: '✅', contraindications: '🚫', differential: '🔀',
+    investigations: '🔬', management: '💊', surgery: '🏥', etiology: '🧬',
+    epidemiology: '📊', pathophysiology: '🧪', symptoms: '🤒', signs: '🔍',
+    anatomy: '🫀', prognosis: '📈', framework: '🗂️', mnemonic: '🧠', default: '📌'
+};
+
+function getSlideEmoji(slide) {
+    if (!slide) return '';
+    if (slide.type === 'title') return SLIDE_TYPE_EMOJI.title;
+    if (slide.type === 'agenda') return SLIDE_TYPE_EMOJI.agenda;
+    if (slide.type === 'end') return SLIDE_TYPE_EMOJI.end;
+    const key = slide.template?.key || 'default';
+    return SLIDE_TYPE_EMOJI[key] || SLIDE_TYPE_EMOJI.default;
+}
+
+function withSlideEmoji(text, slide) {
+    const em = getSlideEmoji(slide);
+    const t = text == null ? '' : String(text);
+    if (!em || t.startsWith(em)) return t;
+    return `${em} ${t}`;
+}
+
+function hexToPptxColor(hex) {
+    return String(hex || '#3b82f6').replace('#', '').toUpperCase();
+}
+
+function showSlideDeckToast(message, type = 'info') {
+    const modal = document.getElementById('slidedeck-modal');
+    if (!modal) {
+        alert(message);
+        return;
+    }
+    let toast = modal.querySelector('.slide-deck-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'slide-deck-toast';
+        modal.querySelector('.modal-content')?.appendChild(toast);
+    }
+    const icon = type === 'error' ? 'error' : (type === 'success' ? 'check_circle' : (type === 'warning' ? 'warning' : 'info'));
+    toast.className = `slide-deck-toast slide-deck-toast--${type}`;
+    toast.innerHTML = `<span class="material-symbols-rounded">${icon}</span><span>${message}</span>`;
+    toast.classList.add('visible');
+    clearTimeout(showSlideDeckToast._timer);
+    showSlideDeckToast._timer = setTimeout(() => toast.classList.remove('visible'), 3200);
+}
+
+function updateSlideDeckActionButtons() {
+    const hasSlides = slides.length > 0;
+    const presentBtn = document.getElementById('present-slides-btn');
+    const exportHtmlBtn = document.getElementById('export-slides-btn');
+    const exportPptxBtn = document.getElementById('export-slides-pptx-btn');
+    if (presentBtn) presentBtn.style.display = hasSlides ? 'flex' : 'none';
+    if (exportHtmlBtn) exportHtmlBtn.style.display = hasSlides ? 'flex' : 'none';
+    if (exportPptxBtn) {
+        exportPptxBtn.disabled = !hasSlides;
+        exportPptxBtn.title = hasSlides ? 'Download as PowerPoint (.pptx)' : 'Generate slides first';
+    }
+}
+
+function slideContentToTextLines(slide) {
+    const c = slide?.content;
+    if (Array.isArray(c)) {
+        return c.map(item => {
+            const { topic, body } = parseSlideContentItem(item);
+            if (topic && body) return `${topic}: ${body}`;
+            return body || topic || String(item);
+        });
+    }
+    if (typeof c === 'string' && c.trim()) return [c];
+    if (c && typeof c === 'object') {
+        if (c.headers && c.rows) {
+            const hdr = (c.headers || []).join(' | ');
+            return [hdr, ...(c.rows || []).map(row => row.join(' | '))];
+        }
+        if (c.mnemonic) {
+            const lines = [`${c.mnemonic}`];
+            if (c.explanation) lines.push(String(c.explanation));
+            return lines;
+        }
+        if (c.center) {
+            const lines = [String(c.center)];
+            if (Array.isArray(c.branches)) lines.push(...c.branches.map(String));
+            return lines;
+        }
+        if (Array.isArray(c.data)) {
+            return c.data.map(d => `${d.label}: ${d.value}${typeof d.value === 'number' ? '%' : ''}`);
+        }
+    }
+    return [];
+}
+
+function classifySlideTemplate(title, type) {
+    const t = String(title || '').toLowerCase();
+    const y = String(type || '').toLowerCase();
+    if (/pearl|clinical\s*pearl|tips?\b|take[\s-]*home/.test(t)) return SLIDE_TEMPLATES.pearls;
+    if (/pitfall|common\s*mistake|caveat|beware/.test(t)) return SLIDE_TEMPLATES.pitfalls;
+    if (/red\s*flag|alarm|urgent|emergenc/.test(t)) return SLIDE_TEMPLATES.red_flags;
+    if (/complication|adverse|side[\s-]*effect/.test(t)) return SLIDE_TEMPLATES.complications;
+    if (/contra[\s-]?indication|contraindicat/.test(t)) return SLIDE_TEMPLATES.contraindications;
+    if (/^indication|^\s*indication|indication(s)?\b/.test(t)) return SLIDE_TEMPLATES.indications;
+    if (/differential|ddx|diff\.?\s*dx/.test(t)) return SLIDE_TEMPLATES.differential;
+    if (/investigation|workup|work[\s-]*up|lab|imaging|diagnos(tic|is)/.test(t)) return SLIDE_TEMPLATES.investigations;
+    if (/surg(ery|ical)|operative|procedure|technique/.test(t)) return SLIDE_TEMPLATES.surgery;
+    if (/manage|treatment|therapy|rx\b/.test(t)) return SLIDE_TEMPLATES.management;
+    if (/etiolog|aetiolog|cause|risk\s*factor/.test(t)) return SLIDE_TEMPLATES.etiology;
+    if (/epidemiolog|prevalence|incidence/.test(t)) return SLIDE_TEMPLATES.epidemiology;
+    if (/pathophys|mechanism|pathway|patholog/.test(t)) return SLIDE_TEMPLATES.pathophysiology;
+    if (/symptom|present(ation|ing)|complaint/.test(t)) return SLIDE_TEMPLATES.symptoms;
+    if (/^sign|exam(ination)?|finding/.test(t)) return SLIDE_TEMPLATES.signs;
+    if (/anatom|structure/.test(t)) return SLIDE_TEMPLATES.anatomy;
+    if (/prognos|outcome|follow[\s-]*up/.test(t)) return SLIDE_TEMPLATES.prognosis;
+    if (/framework|approach|algorithm|scheme|pillar/.test(t)) return SLIDE_TEMPLATES.framework;
+    if (y === 'mnemonic' || /mnemonic|remember/.test(t)) return SLIDE_TEMPLATES.mnemonic;
+    return SLIDE_TEMPLATES.default;
+}
+
+/** Parse a slide list item into optional topic label + body text. */
+function parseSlideContentItem(item) {
+    if (item == null) return { topic: '', body: '' };
+    if (typeof item === 'string') {
+        const s = item.trim();
+        if (!s) return { topic: '', body: '' };
+        const splitMatch = s.match(/^([^:—–|]+?)\s*[:—–|]\s*(.+)$/s);
+        if (splitMatch) {
+            const topic = splitMatch[1].trim();
+            const body = splitMatch[2].trim();
+            if (topic && body && topic.length <= 72 && topic.length < s.length * 0.72) {
+                return { topic, body };
+            }
+        }
+        return { topic: '', body: s };
+    }
+    if (typeof item === 'object') {
+        const topic = String(
+            item.title || item.label || item.name || item.topic || item.heading || ''
+        ).trim();
+        const body = String(
+            item.text || item.description || item.content || item.detail || item.body || item.value || ''
+        ).trim();
+        if (topic && body) return { topic, body };
+        if (topic && !body) return { topic, body: '' };
+        const vals = Object.values(item).filter(v => typeof v === 'string' && v.trim());
+        if (vals.length >= 2) {
+            return { topic: vals[0].trim(), body: vals.slice(1).join(' — ').trim() };
+        }
+        if (vals.length === 1) return { topic: '', body: vals[0].trim() };
+        return { topic: '', body: '' };
+    }
+    return { topic: '', body: String(item) };
+}
+
+function shouldRenderSlideTopicCards(items) {
+    if (!Array.isArray(items) || items.length < 2 || items.length > 6) return false;
+    const parsed = items.map(parseSlideContentItem);
+    const withTopic = parsed.filter(p => p.topic && p.body);
+    return withTopic.length >= 2 && withTopic.length >= Math.ceil(items.length * 0.5);
+}
+
+/** Horizontal row of topic + body cards (blue topic label, light content area). */
+function renderSlideTopicCards(items, tpl, opts = {}) {
+    const parsed = items.map(parseSlideContentItem);
+    const count = parsed.length;
+    const bodyFontSize = opts.fontSize || '1.05rem';
+    const cols = count <= 4 ? count : (count <= 5 ? 5 : 3);
+    return `<div class="slide-topic-cards" style="--slide-topic-accent:${tpl.accent};--slide-topic-bg:${tpl.bg};--slide-topic-cols:${cols};">
+        ${parsed.map((p, i) => {
+            const label = p.topic
+                ? escapeHtml(p.topic)
+                : escapeHtml(String(i + 1));
+            const body = escapeHtml(p.body || p.topic || '');
+            return `<div class="slide-topic-card">
+                <div class="slide-topic-card__label" title="${label}">${label}</div>
+                <div class="slide-topic-card__body" style="font-size:${bodyFontSize};">${body}</div>
+            </div>`;
+        }).join('')}
+    </div>`;
+}
+
+// Produce a themed bullet list given an array of strings and a template.
+function renderTemplatedBullets(items, tpl, opts = {}) {
+    const fontSize = opts.fontSize || '1.25rem';
+    const numbered = !!opts.numbered;
+    const bulletEmoji = SLIDE_TYPE_EMOJI[tpl.key] || '';
+    return `<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.85rem;width:100%;">
+        ${items.map((it, i) => {
+            const { topic, body } = parseSlideContentItem(it);
+            const displayBody = body || topic || String(it);
+            const topicLabel = topic && body ? topic : '';
+            return `
+            <li style="display:flex;align-items:stretch;gap:0;padding:0;background:${tpl.bg};border-left:5px solid ${tpl.border};border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.04);overflow:hidden;">
+                ${topicLabel ? `
+                    <span class="slide-topic-card__label slide-topic-card__label--inline" style="background:${tpl.accent};color:white;font-weight:700;font-size:0.95rem;padding:0.85rem 1rem;display:inline-flex;align-items:center;flex-shrink:0;white-space:nowrap;">${escapeHtml(topicLabel)}</span>
+                ` : `
+                    <span ${numbered ? '' : 'class="material-symbols-rounded"'} style="${numbered
+                        ? `min-width:36px;padding:0.85rem 0;display:inline-flex;align-items:center;justify-content:center;background:${tpl.accent};color:white;font-weight:700;font-size:0.95rem;flex-shrink:0;`
+                        : `color:${tpl.accent};font-size:1.5rem;flex-shrink:0;margin:0.85rem 0 0 1rem;`}">${numbered ? (i + 1) : tpl.bullet}</span>
+                `}
+                <span style="flex:1;font-size:${fontSize};line-height:1.6;color:#0f172a;padding:0.85rem 1.15rem;min-width:0;">${!numbered && bulletEmoji && i === 0 && !topicLabel ? bulletEmoji + ' ' : ''}${escapeHtml(displayBody)}</span>
+            </li>`;
+        }).join('')}
+    </ul>`;
+}
+
+function generateSlides() {
+    if (!currentInfographicData) return;
+
+    const data = currentInfographicData;
+    slides = [];
+    let truncated = false;
+
+    // Title slide
+    slides.push({
+        type: 'title',
+        title: safeStripReferences(data.title || 'Untitled'),
+        subtitle: safeStripReferences(data.summary || '')
+    });
+
+    const rawSections = Array.isArray(data.sections) ? data.sections : [];
+    const sections = rawSections.length > SLIDE_DECK_MAX_SECTIONS
+        ? rawSections.slice(0, SLIDE_DECK_MAX_SECTIONS)
+        : rawSections;
+    if (rawSections.length > SLIDE_DECK_MAX_SECTIONS) truncated = true;
+
+    // Optional agenda slide summarizing the section titles
+    if (sections.length > 1) {
+        slides.push({
+            type: 'agenda',
+            title: 'Overview & Learning Objectives',
+            items: sections.map(s => safeStripReferences(s.title || '')).filter(Boolean).slice(0, 24)
+        });
+    }
+
+    // Split long array content into chunks so no slide gets overstuffed
+    const MAX_BULLETS_PER_SLIDE = 7;
+
+    const slideBudget = () => SLIDE_DECK_MAX_SLIDES - 2; // reserve end slide (+ title already added)
+
+    // Content slides from sections
+    sections.forEach((section, sIdx) => {
+        if (slides.length >= slideBudget()) {
+            truncated = true;
+            return;
+        }
+
+        const sectionTitle = safeStripReferences(section.title || `Section ${sIdx + 1}`);
+        const sectionType = section.type || 'plain_text';
+        const template = classifySlideTemplate(sectionTitle, sectionType);
+        // Prefer the template's curated icon; fall back to model-supplied + sanitizer
+        const sectionIcon = template.key === 'default'
+            ? (typeof sanitizeMaterialIcon === 'function'
+                ? sanitizeMaterialIcon(section.icon || 'auto_awesome')
+                : (section.icon || 'auto_awesome'))
+            : template.icon;
+        const colorTheme = section.color_theme || 'blue';
+
+        // Section divider slide
+        slides.push({
+            type: 'section',
+            title: sectionTitle,
+            icon: sectionIcon,
+            colorTheme,
+            template
+        });
+
+        let content = safeStripReferences(section.content);
+        if (Array.isArray(content) && content.length > SLIDE_DECK_MAX_BULLETS_PER_SECTION) {
+            content = content.slice(0, SLIDE_DECK_MAX_BULLETS_PER_SECTION);
+            truncated = true;
+        }
+
+        // Chunk array content so each slide stays readable
+        if (Array.isArray(content) && content.length > MAX_BULLETS_PER_SLIDE) {
+            for (let i = 0; i < content.length; i += MAX_BULLETS_PER_SLIDE) {
+                if (slides.length >= slideBudget()) {
+                    truncated = true;
+                    break;
+                }
+                const chunk = content.slice(i, i + MAX_BULLETS_PER_SLIDE);
+                const suffix = content.length > MAX_BULLETS_PER_SLIDE
+                    ? ` (${Math.floor(i / MAX_BULLETS_PER_SLIDE) + 1}/${Math.ceil(content.length / MAX_BULLETS_PER_SLIDE)})`
+                    : '';
+                slides.push({
+                    type: 'content',
+                    title: sectionTitle + suffix,
+                    content: chunk,
+                    contentType: sectionType,
+                    icon: sectionIcon,
+                    colorTheme,
+                    template
+                });
+            }
+        } else {
+            slides.push({
+                type: 'content',
+                title: sectionTitle,
+                content,
+                contentType: sectionType,
+                icon: sectionIcon,
+                colorTheme,
+                template
+            });
+        }
+    });
+
+    // Thank you slide
+    slides.push({
+        type: 'end',
+        title: 'Thank You',
+        subtitle: data.title || 'Questions?'
+    });
+
+    currentSlideIndex = 0;
+    renderSlide();
+    renderThumbnails();
+    updateSlideIndicator();
+    updateSlideDeckActionButtons();
+
+    if (truncated) {
+        showSlideDeckToast(
+            `Deck capped at ${SLIDE_DECK_MAX_SLIDES} slides for performance. Use Regenerate after trimming sections if needed.`,
+            'warning'
+        );
+    }
+}
+
+function renderSlide() {
+    if (slides.length === 0) return;
+
+    const slideContent = document.getElementById('slide-content');
+    const slide = slides[currentSlideIndex];
+
+    slideContent.className = 'slide-content';
+
+    if (slide.type === 'title') {
+        slideContent.classList.add('title-slide');
+        slideContent.innerHTML = `
+            <div class="slide-title-emoji" aria-hidden="true">${getSlideEmoji(slide)}</div>
+            <h1>${slide.title}</h1>
+            <p class="slide-subtitle">${slide.subtitle || ''}</p>
+            <p class="slide-deck-tagline">Ophthalmology Clinical Teaching Deck</p>
+        `;
+    } else if (slide.type === 'section') {
+        slideContent.classList.add('section-slide');
+        const tpl = slide.template || SLIDE_TEMPLATES.default;
+        slideContent.style.background = tpl.bg;
+        slideContent.innerHTML = `
+            <div style="display:inline-flex;align-items:center;justify-content:center;width:120px;height:120px;border-radius:50%;background:${tpl.accent};color:white;margin-bottom:1.5rem;box-shadow:0 12px 24px rgba(0,0,0,0.15);">
+                <span class="material-symbols-rounded" style="font-size:4rem;">${slide.icon || tpl.icon}</span>
+            </div>
+            <div style="font-size:0.9rem;text-transform:uppercase;letter-spacing:3px;color:${tpl.accent};font-weight:700;margin-bottom:0.5rem;">${getSlideEmoji(slide)} ${tpl.label}</div>
+            <h2 style="color:#0f172a;">${slide.title}</h2>
+        `;
+    } else if (slide.type === 'agenda') {
+        slideContent.classList.add('content-slide');
+        slideContent.innerHTML = `
+            <h3 style="display:flex;align-items:center;gap:12px;font-size:2.4rem;color:#0f172a;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:1rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:#2563eb;font-size:2.4rem;">list_alt</span>
+                ${withSlideEmoji(slide.title, slide)}
+            </h3>
+            <ol style="list-style:none;padding-left:0;counter-reset:agenda;width:100%;">
+                ${slide.items.map(item => `
+                    <li style="counter-increment:agenda;margin-bottom:1rem;display:flex;align-items:center;gap:16px;font-size:1.5rem;color:#334155;padding:0.75rem 1rem;background:#f8fafc;border-radius:10px;border-left:4px solid #3b82f6;">
+                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:1.1rem;">
+                            <span style="content:counter(agenda);">${'0'}</span>
+                        </span>
+                        <span style="flex:1;">${item}</span>
+                    </li>
+                `).join('')}
+            </ol>
+        `;
+        // Fix counter display (CSS counters render as strings via pseudo-elements,
+        // we replace the placeholder numbers with literal numbering here)
+        slideContent.querySelectorAll('ol li').forEach((li, i) => {
+            const numEl = li.querySelector('span span');
+            if (numEl) numEl.textContent = String(i + 1).padStart(2, '0');
+        });
+    } else if (slide.type === 'end') {
+        slideContent.classList.add('title-slide');
+        slideContent.innerHTML = `
+            <div class="slide-title-emoji" aria-hidden="true">${getSlideEmoji(slide)}</div>
+            <h1>${slide.title}</h1>
+            <p class="slide-subtitle">${slide.subtitle || ''}</p>
+        `;
+    } else {
+        slideContent.classList.add('content-slide');
+        slideContent.style.background = '';
+        const tpl = slide.template || SLIDE_TEMPLATES.default;
+        let contentHtml = '';
+
+        if (Array.isArray(slide.content)) {
+            const numbered = tpl.key === 'framework' || tpl.key === 'management';
+            if (shouldRenderSlideTopicCards(slide.content)) {
+                contentHtml = renderSlideTopicCards(slide.content, tpl, { fontSize: '0.95rem' });
+            } else {
+                contentHtml = renderTemplatedBullets(slide.content, tpl, { fontSize: '1.3rem', numbered });
+            }
+        } else if (typeof slide.content === 'object' && slide.content !== null) {
+            // Check for table structure
+            if (slide.content.headers && slide.content.rows) {
+                const headers = slide.content.headers || [];
+                const rows = slide.content.rows || [];
+                contentHtml = `
+                <div style="overflow-x: auto; margin-top: 1rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 1.25rem;">
+                        <thead>
+                            <tr style="background: #f8fafc; border-bottom: 2px solid #cbd5e1;">
+                                ${headers.map(h => `<th style="padding: 1.2rem; font-weight: 700; color: #1e293b; border-right: 1px solid #e2e8f0;">${h}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rows.map((row, idx) => `
+                                <tr style="background: ${idx % 2 === 0 ? 'white' : '#f8fafc'}; border-bottom: 1px solid #e2e8f0;">
+                                    ${row.map(cell => `<td style="padding: 1.2rem; color: #475569; border-right: 1px solid #e2e8f0;">${cell}</td>`).join('')}
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>`;
+            } else if (slide.content.mnemonic) {
+                // Enhanced Mnemonic Graphical Style
+                contentHtml = `
+                    <div style="background: #f8fafc; padding: 2rem; border-left: 6px solid #8b5cf6; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                        <p><strong style="font-size: 3rem; color: #8b5cf6; display: block; margin-bottom: 1rem; letter-spacing: 3px;">${slide.content.mnemonic}</strong></p>
+                        <p style="font-size: 1.5rem; color: #475569; line-height: 1.6;">${slide.content.explanation}</p>
+                    </div>`;
+            } else if (slide.content.center) {
+                // Enhanced Mindmap Graphical Style
+                contentHtml = `
+                    <div style="text-align: center; margin-bottom: 2.5rem;">
+                        <span style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; padding: 12px 24px; border-radius: 30px; font-weight: 700; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);">${slide.content.center}</span>
+                    </div>`;
+                if (slide.content.branches) {
+                    contentHtml += `
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                            ${slide.content.branches.map(b => `<div style="background: #eff6ff; padding: 1.2rem; border-radius: 10px; border: 2px solid #bfdbfe; text-align: center; font-size: 1.2rem; font-weight: 500; color: #1e3a8a;">${b}</div>`).join('')}
+                        </div>`;
+                }
+            } else if (slide.content.data) {
+                // Enhanced Chart Graphical Style
+                contentHtml = `
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+                        ${slide.content.data.map(d => `
+                            <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 6px 15px rgba(0,0,0,0.05); border: 2px solid #e2e8f0; flex: 1; min-width: 180px; text-align: center;">
+                                <div style="font-size: 3rem; font-weight: 800; color: #10b981; margin-bottom: 0.5rem; line-height: 1;">${d.value}%</div>
+                                <div style="color: #64748b; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">${d.label}</div>
+                            </div>
+                        `).join('')}
+                    </div>`;
+            } else {
+                // Fallback for unexpected object structure
+                contentHtml = `<p style="font-size: 1.4rem; line-height: 1.8; color: #334155; white-space: pre-wrap;">${JSON.stringify(slide.content, null, 2)}</p>`;
+            }
+        } else {
+            // Enhanced Plain Text Graphical Style
+            contentHtml = `
+                <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; border-left: 6px solid #3b82f6; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <p style="font-size: 1.4rem; line-height: 1.8; color: #334155;">${slide.content}</p>
+                </div>`;
+        }
+
+        const headerBadge = tpl.key === 'default' ? '' : `
+            <span style="display:inline-flex;align-items:center;gap:6px;margin-left:auto;background:${tpl.accent};color:white;padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">
+                <span class="material-symbols-rounded" style="font-size:1rem;">${tpl.icon}</span>
+                ${tpl.label}
+            </span>`;
+        slideContent.innerHTML = `
+            <h3 style="display:flex;align-items:center;gap:12px;border-bottom:3px solid ${tpl.accent}22;padding-bottom:0.9rem;font-size:2rem;color:#0f172a;margin-bottom:1.75rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.2rem;">${slide.icon || tpl.icon}</span>
+                <span style="flex:1;">${withSlideEmoji(slide.title, slide)}</span>
+                ${headerBadge}
+            </h3>
+            <div style="margin-top:0.5rem;width:100%;">
+                ${contentHtml}
+            </div>
+        `;
+    }
+
+    // Update thumbnail active state
+    document.querySelectorAll('.slide-thumbnail').forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === currentSlideIndex);
+    });
+}
+
+function buildSlideThumbnailHtml(slide, i, active) {
+    const iconFor = (s) => {
+        if (s.type === 'title') return 'title';
+        if (s.type === 'section') return s.icon || 'bookmark';
+        if (s.type === 'agenda') return 'list_alt';
+        if (s.type === 'end') return 'celebration';
+        return s.icon || 'description';
+    };
+    const accentFor = (s) => {
+        if (s.type === 'title' || s.type === 'end') return '#0f172a';
+        if (s.type === 'agenda') return '#2563eb';
+        return s.template?.accent || '#3b82f6';
+    };
+    const thumbTitle = escapeHtml(slide.title || slide.type || '');
+    const thumbLabel = escapeHtml(truncateText(slide.title || slide.type, 22));
+    return `<div class="slide-thumbnail ${active ? 'active' : ''}" data-index="${i}" title="Slide ${i + 1}: ${thumbTitle}" style="--thumb-accent:${accentFor(slide)};">
+            <span class="slide-thumb-accent" aria-hidden="true"></span>
+            <div class="slide-thumb-inner">
+                <span class="slide-thumb-emoji" aria-hidden="true">${getSlideEmoji(slide)}</span>
+                <span class="material-symbols-rounded slide-thumb-icon">${iconFor(slide)}</span>
+                <span class="slide-thumb-num">#${i + 1}</span>
+                <span class="slide-thumb-label">${thumbLabel}</span>
+            </div>
+        </div>`;
+}
+
+function renderThumbnails() {
+    const container = document.getElementById('slide-thumbnails');
+    if (!container) return;
+
+    if (!container.dataset.deckBound) {
+        container.dataset.deckBound = '1';
+        container.addEventListener('click', (e) => {
+            const thumb = e.target.closest('.slide-thumbnail');
+            if (!thumb || !container.contains(thumb)) return;
+            const idx = parseInt(thumb.dataset.index, 10);
+            if (!Number.isFinite(idx) || idx < 0 || idx >= slides.length) return;
+            currentSlideIndex = idx;
+            renderSlide();
+            updateSlideIndicator();
+        });
+    }
+
+    const gen = ++_thumbnailRenderGen;
+    container.innerHTML = '';
+
+    if (slides.length === 0) return;
+
+    let start = 0;
+    const renderBatch = () => {
+        if (gen !== _thumbnailRenderGen) return;
+        const end = Math.min(start + SLIDE_DECK_THUMB_BATCH, slides.length);
+        const chunkHtml = [];
+        for (let i = start; i < end; i++) {
+            chunkHtml.push(buildSlideThumbnailHtml(slides[i], i, i === currentSlideIndex));
+        }
+        container.insertAdjacentHTML('beforeend', chunkHtml.join(''));
+        start = end;
+        if (start < slides.length) {
+            requestAnimationFrame(renderBatch);
+        }
+    };
+
+    requestAnimationFrame(renderBatch);
+}
+
+function navigateSlide(direction) {
+    if (slides.length === 0) return;
+
+    currentSlideIndex += direction;
+    if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
+    if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
+
+    renderSlide();
+    updateSlideIndicator();
+}
+
+function updateSlideIndicator() {
+    const indicator = document.getElementById('slide-indicator');
+    if (indicator) {
+        indicator.textContent = slides.length > 0
+            ? `Slide ${currentSlideIndex + 1} of ${slides.length}`
+            : 'Slide 0 of 0';
+    }
+}
+
+function enterPresentationMode() {
+    if (slides.length === 0) return;
+
+    const presentationDiv = document.createElement('div');
+    presentationDiv.className = 'presentation-mode';
+    presentationDiv.id = 'presentation-mode';
+    presentationDiv.tabIndex = -1;
+
+    presentationDiv.innerHTML = `
+        <div class="slide-frame">
+            <div class="slide-content" id="presentation-slide-content"></div>
+        </div>
+        <div class="presentation-progress" id="presentation-progress">
+            <div class="presentation-progress-bar" id="presentation-progress-bar"></div>
+        </div>
+        <div class="presentation-controls">
+            <button id="pres-prev" title="Previous (\u2190)"><span class="material-symbols-rounded">chevron_left</span></button>
+            <button id="pres-fullscreen" title="Toggle Fullscreen (F)"><span class="material-symbols-rounded" id="pres-fs-icon">fullscreen</span></button>
+            <span id="pres-indicator" style="color:white;font-size:0.85rem;font-weight:500;padding:0 12px;min-width:90px;text-align:center;opacity:0.9;">1 / ${slides.length}</span>
+            <button id="pres-exit" title="Exit (Esc)"><span class="material-symbols-rounded">close</span></button>
+            <button id="pres-next" title="Next (\u2192 / Space)"><span class="material-symbols-rounded">chevron_right</span></button>
+        </div>
+    `;
+
+    document.body.appendChild(presentationDiv);
+    renderPresentationSlide();
+    updatePresentationProgress();
+
+    document.getElementById('pres-prev').addEventListener('click', () => {
+        navigateSlide(-1);
+        renderPresentationSlide();
+        updatePresentationProgress();
+    });
+    document.getElementById('pres-next').addEventListener('click', () => {
+        navigateSlide(1);
+        renderPresentationSlide();
+        updatePresentationProgress();
+    });
+    document.getElementById('pres-exit').addEventListener('click', exitPresentationMode);
+    document.getElementById('pres-fullscreen').addEventListener('click', togglePresentationFullscreen);
+
+    // Sync the fullscreen icon when the user hits Esc / F11
+    document.addEventListener('fullscreenchange', syncFullscreenIcon);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', handlePresentationKeydown);
+
+    // Auto-hide controls on mouse inactivity
+    let hideTimer = null;
+    const showControls = () => {
+        presentationDiv.classList.remove('controls-hidden');
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => presentationDiv.classList.add('controls-hidden'), 2500);
+    };
+    presentationDiv.addEventListener('mousemove', showControls);
+    presentationDiv.addEventListener('touchstart', showControls, { passive: true });
+    showControls();
+
+    // Click-to-advance (but ignore clicks on the controls bar)
+    presentationDiv.addEventListener('click', (e) => {
+        if (e.target.closest('.presentation-controls')) return;
+        navigateSlide(1);
+        renderPresentationSlide();
+        updatePresentationProgress();
+    });
+
+    // Request native browser fullscreen
+    requestPresentationFullscreen(presentationDiv);
+
+    // Focus so keyboard works immediately
+    presentationDiv.focus({ preventScroll: true });
+}
+
+function requestPresentationFullscreen(el) {
+    try {
+        const req = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+        if (req) {
+            const p = req.call(el);
+            if (p && typeof p.catch === 'function') {
+                p.catch(err => console.warn('[Presentation] Fullscreen request failed:', err));
+            }
+        }
+    } catch (err) {
+        console.warn('[Presentation] Fullscreen not supported:', err);
+    }
+}
+
+function togglePresentationFullscreen() {
+    const el = document.getElementById('presentation-mode');
+    if (!el) return;
+    const inFS = !!(document.fullscreenElement || document.webkitFullscreenElement);
+    if (inFS) {
+        const exit = document.exitFullscreen || document.webkitExitFullscreen;
+        if (exit) exit.call(document);
+    } else {
+        requestPresentationFullscreen(el);
+    }
+}
+
+function syncFullscreenIcon() {
+    const icon = document.getElementById('pres-fs-icon');
+    if (!icon) return;
+    const inFS = !!(document.fullscreenElement || document.webkitFullscreenElement);
+    icon.textContent = inFS ? 'fullscreen_exit' : 'fullscreen';
+}
+
+function updatePresentationProgress() {
+    const bar = document.getElementById('presentation-progress-bar');
+    const indicator = document.getElementById('pres-indicator');
+    if (bar && slides.length > 0) {
+        const pct = ((currentSlideIndex + 1) / slides.length) * 100;
+        bar.style.width = `${pct}%`;
+    }
+    if (indicator && slides.length > 0) {
+        indicator.textContent = `${currentSlideIndex + 1} / ${slides.length}`;
+    }
+}
+
+function renderPresentationSlide() {
+    const content = document.getElementById('presentation-slide-content');
+    if (!content) return;
+
+    const slide = slides[currentSlideIndex];
+    content.className = 'slide-content';
+
+    if (slide.type === 'title' || slide.type === 'end') {
+        content.classList.add('title-slide');
+        content.innerHTML = `
+            ${slide.type === 'end' ? '<span class="material-symbols-rounded" style="font-size:5rem;margin-bottom:1.5rem;color:#fbbf24;">auto_awesome</span>' : ''}
+            <h1>${slide.title}</h1>
+            <p>${slide.subtitle || ''}</p>
+        `;
+    } else if (slide.type === 'section') {
+        const tpl = slide.template || SLIDE_TEMPLATES.default;
+        content.classList.add('section-slide');
+        content.style.background = tpl.bg;
+        content.innerHTML = `
+            <div style="display:inline-flex;align-items:center;justify-content:center;width:200px;height:200px;border-radius:50%;background:${tpl.accent};color:white;margin-bottom:2.5rem;box-shadow:0 20px 50px rgba(0,0,0,0.2);">
+                <span class="material-symbols-rounded" style="font-size:7rem;">${slide.icon || tpl.icon}</span>
+            </div>
+            <div style="font-size:1.3rem;text-transform:uppercase;letter-spacing:6px;color:${tpl.accent};font-weight:700;margin-bottom:1rem;">${tpl.label}</div>
+            <h2 style="color:#0f172a;">${slide.title}</h2>
+        `;
+    } else if (slide.type === 'agenda') {
+        content.classList.add('content-slide');
+        content.innerHTML = `
+            <h3 style="display:flex;align-items:center;gap:16px;font-size:3rem;color:#0f172a;margin-bottom:2.5rem;border-bottom:3px solid #e2e8f0;padding-bottom:1rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:#2563eb;font-size:3rem;">list_alt</span>
+                ${slide.title}
+            </h3>
+            <ol style="list-style:none;padding-left:0;width:100%;font-size:1.8rem;">
+                ${slide.items.map((item, i) => `
+                    <li style="margin-bottom:1.25rem;display:flex;align-items:center;gap:20px;color:#334155;padding:1rem 1.5rem;background:#f8fafc;border-radius:14px;border-left:6px solid #3b82f6;">
+                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:1.3rem;">${String(i + 1).padStart(2, '0')}</span>
+                        <span style="flex:1;">${item}</span>
+                    </li>
+                `).join('')}
+            </ol>
+        `;
+    } else {
+        content.classList.add('content-slide');
+        content.style.background = '';
+        const tpl = slide.template || SLIDE_TEMPLATES.default;
+        let contentHtml = '';
+
+        if (Array.isArray(slide.content)) {
+            const numbered = tpl.key === 'framework' || tpl.key === 'management';
+            if (shouldRenderSlideTopicCards(slide.content)) {
+                contentHtml = renderSlideTopicCards(slide.content, tpl, { fontSize: '1.15rem' });
+            } else {
+                contentHtml = renderTemplatedBullets(slide.content, tpl, { fontSize: '1.6rem', numbered });
+            }
+        } else if (typeof slide.content === 'object' && slide.content !== null) {
+            if (slide.content.headers && slide.content.rows) {
+                const headers = slide.content.headers || [];
+                const rows = slide.content.rows || [];
+                contentHtml = `
+                <div style="overflow:auto;width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,0.08);border:1px solid #e2e8f0;">
+                    <table style="width:100%;border-collapse:collapse;text-align:left;font-size:1.4rem;">
+                        <thead>
+                            <tr style="background:#f1f5f9;border-bottom:3px solid #cbd5e1;">
+                                ${headers.map(h => `<th style="padding:1.5rem;font-weight:700;color:#0f172a;">${h}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rows.map((row, idx) => `
+                                <tr style="background:${idx % 2 === 0 ? 'white' : '#f8fafc'};border-bottom:1px solid #e2e8f0;">
+                                    ${row.map(cell => `<td style="padding:1.25rem 1.5rem;color:#334155;">${cell}</td>`).join('')}
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>`;
+            } else if (slide.content.mnemonic) {
+                contentHtml = `
+                    <div style="background:linear-gradient(135deg,#f8fafc,#eef2ff);padding:3rem;border-left:8px solid #8b5cf6;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);width:100%;">
+                        <p style="font-size:4.5rem;font-weight:800;color:#8b5cf6;letter-spacing:4px;margin-bottom:1.5rem;">${slide.content.mnemonic}</p>
+                        <p style="font-size:1.8rem;color:#475569;line-height:1.7;">${slide.content.explanation || ''}</p>
+                    </div>`;
+            } else if (slide.content.center) {
+                contentHtml = `
+                    <div style="text-align:center;margin-bottom:3rem;">
+                        <span style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:white;padding:16px 32px;border-radius:40px;font-weight:700;font-size:2rem;box-shadow:0 6px 16px rgba(37,99,235,0.35);">${slide.content.center}</span>
+                    </div>
+                    ${slide.content.branches ? `
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;width:100%;">
+                            ${slide.content.branches.map(b => `<div style="background:#eff6ff;padding:1.5rem;border-radius:12px;border:2px solid #bfdbfe;text-align:center;font-size:1.5rem;font-weight:500;color:#1e3a8a;">${b}</div>`).join('')}
+                        </div>` : ''}`;
+            } else if (slide.content.data) {
+                contentHtml = `
+                    <div style="display:flex;flex-wrap:wrap;gap:2rem;width:100%;justify-content:center;">
+                        ${slide.content.data.map(d => `
+                            <div style="background:white;padding:2.5rem;border-radius:18px;box-shadow:0 8px 20px rgba(0,0,0,0.06);border:2px solid #e2e8f0;flex:1;min-width:220px;text-align:center;">
+                                <div style="font-size:4rem;font-weight:800;color:#10b981;margin-bottom:0.5rem;line-height:1;">${d.value}${typeof d.value === 'number' ? '%' : ''}</div>
+                                <div style="color:#64748b;font-size:1.2rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">${d.label}</div>
+                            </div>
+                        `).join('')}
+                    </div>`;
+            } else {
+                contentHtml = `<p style="font-size:1.6rem;line-height:1.8;color:#334155;white-space:pre-wrap;">${JSON.stringify(slide.content, null, 2)}</p>`;
+            }
+        } else {
+            contentHtml = `
+                <div style="background:${tpl.bg};padding:3rem;border-radius:16px;border-left:10px solid ${tpl.border};box-shadow:0 6px 20px rgba(0,0,0,0.06);width:100%;">
+                    <p style="font-size:2rem;line-height:1.8;color:#0f172a;">${slide.content || ''}</p>
+                </div>`;
+        }
+
+        const headerBadge = tpl.key === 'default' ? '' : `
+            <span style="display:inline-flex;align-items:center;gap:8px;margin-left:auto;background:${tpl.accent};color:white;padding:6px 18px;border-radius:999px;font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
+                <span class="material-symbols-rounded" style="font-size:1.3rem;">${tpl.icon}</span>
+                ${tpl.label}
+            </span>`;
+        content.innerHTML = `
+            <h3 style="display:flex;align-items:center;gap:16px;font-size:2.6rem;color:#0f172a;margin-bottom:1.75rem;border-bottom:4px solid ${tpl.accent}33;padding-bottom:1rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.8rem;">${slide.icon || tpl.icon}</span>
+                <span style="flex:1;">${slide.title}</span>
+                ${headerBadge}
+            </h3>
+            <div style="width:100%;flex:1;display:flex;align-items:flex-start;overflow:auto;">${contentHtml}</div>
+        `;
+    }
+}
+
+function handlePresentationKeydown(e) {
+    if (!document.getElementById('presentation-mode')) return;
+
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key === 'ArrowDown') {
+        navigateSlide(1);
+        renderPresentationSlide();
+        updatePresentationProgress();
+        e.preventDefault();
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'ArrowUp') {
+        navigateSlide(-1);
+        renderPresentationSlide();
+        updatePresentationProgress();
+        e.preventDefault();
+    } else if (e.key === 'Home') {
+        currentSlideIndex = 0;
+        renderPresentationSlide();
+        updatePresentationProgress();
+        e.preventDefault();
+    } else if (e.key === 'End') {
+        currentSlideIndex = slides.length - 1;
+        renderPresentationSlide();
+        updatePresentationProgress();
+        e.preventDefault();
+    } else if (e.key === 'f' || e.key === 'F') {
+        togglePresentationFullscreen();
+        e.preventDefault();
+    } else if (e.key === 'Escape') {
+        exitPresentationMode();
+    }
+}
+
+function exitPresentationMode() {
+    const presentation = document.getElementById('presentation-mode');
+    if (presentation) {
+        presentation.remove();
+    }
+    document.removeEventListener('keydown', handlePresentationKeydown);
+    document.removeEventListener('fullscreenchange', syncFullscreenIcon);
+    // Exit native fullscreen if still engaged
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+        const exit = document.exitFullscreen || document.webkitExitFullscreen;
+        if (exit) {
+            try { exit.call(document); } catch {}
+        }
+    }
+}
+
+function exportSlidesAsHTML() {
+    if (slides.length === 0) return;
+
+    let html = `<!DOCTYPE html>
+<html>
+<head>
+    <title>${currentInfographicData.title} - Presentation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; }
+        .slide { width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4rem; }
+        .title-slide { background: linear-gradient(135deg, #1e293b, #334155); color: white; text-align: center; }
+        .section-slide { background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; text-align: center; }
+        .content-slide { background: white; color: #1f2937; align-items: flex-start; }
+        h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        h2 { font-size: 3rem; }
+        h3 { font-size: 2rem; color: #3b82f6; margin-bottom: 2rem; width: 100%; }
+        p { font-size: 1.5rem; opacity: 0.9; }
+        ul { font-size: 1.3rem; line-height: 2; list-style: none; }
+        li::before { content: "▸ "; color: #3b82f6; }
+        @media print { .slide { page-break-after: always; } }
+    </style>
+</head>
+<body>
+${slides.map(slide => {
+        if (slide.type === 'title' || slide.type === 'end') {
+            return `<div class="slide title-slide">
+            <h1>${slide.title}</h1>
+            <p>${slide.subtitle || ''}</p>
+        </div>`;
+        } else if (slide.type === 'section') {
+            return `<div class="slide section-slide">
+            <h2>${slide.title}</h2>
+        </div>`;
+        } else {
+            let content = '';
+            if (Array.isArray(slide.content)) {
+                content = `<ul>${slide.content.map(c => `<li>${c}</li>`).join('')}</ul>`;
+            } else if (typeof slide.content === 'string') {
+                content = `<p>${slide.content}</p>`;
+            }
+            return `<div class="slide content-slide">
+            <h3>${slide.title}</h3>
+            ${content}
+        </div>`;
+        }
+    }).join('\n')}
+</body>
+</html>`;
+
+    const blob = new Blob([html], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${currentInfographicData.title.replace(/[^a-z0-9]/gi, '_')}_slides.html`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showSlideDeckToast('HTML slide deck downloaded.', 'success');
+}
+
+async function exportSlidesAsPPTX() {
+    if (slides.length === 0) {
+        showSlideDeckToast('Generate slides first.', 'warning');
+        return;
+    }
+    if (typeof PptxGenJS === 'undefined') {
+        showSlideDeckToast('PowerPoint library not loaded. Refresh the page.', 'error');
+        return;
+    }
+
+    const exportBtn = document.getElementById('export-slides-pptx-btn');
+    if (exportBtn) {
+        exportBtn.disabled = true;
+        exportBtn.innerHTML = '<span class="material-symbols-rounded rotating">progress_activity</span> Exporting…';
+    }
+
+    try {
+        const pptx = new PptxGenJS();
+        pptx.layout = 'LAYOUT_16x9';
+        pptx.author = 'Ophthalmic Infographic Creator';
+        pptx.title = currentInfographicData?.title || 'Clinical Slides';
+        pptx.subject = 'Ophthalmology teaching deck';
+
+        slides.forEach((slide) => {
+            const s = pptx.addSlide();
+            const tpl = slide.template || SLIDE_TEMPLATES.default;
+            const accent = hexToPptxColor(tpl.accent);
+            const em = getSlideEmoji(slide);
+
+            if (slide.type === 'title' || slide.type === 'end') {
+                s.background = { color: '0F172A' };
+                s.addText(`${em} ${slide.title}`, {
+                    x: 0.5, y: slide.type === 'title' ? 2.2 : 2.5, w: 9, h: 1.4,
+                    fontSize: slide.type === 'title' ? 36 : 40, bold: true, color: 'FFFFFF', align: 'center', fontFace: 'Segoe UI'
+                });
+                if (slide.subtitle) {
+                    s.addText(slide.subtitle, {
+                        x: 0.8, y: 3.9, w: 8.4, h: 1.2,
+                        fontSize: 18, color: '94A3B8', align: 'center', fontFace: 'Segoe UI'
+                    });
+                }
+                if (slide.type === 'title') {
+                    s.addText('Ophthalmology Clinical Teaching Deck', {
+                        x: 0.8, y: 5.1, w: 8.4, h: 0.5,
+                        fontSize: 12, color: '64748B', align: 'center', italic: true
+                    });
+                }
+                return;
+            }
+
+            if (slide.type === 'section') {
+                s.background = { color: accent };
+                s.addText(`${em} ${tpl.label}`, {
+                    x: 0.5, y: 2.2, w: 9, h: 0.6, fontSize: 16, color: 'FFFFFF', align: 'center', bold: true, charSpacing: 4
+                });
+                s.addText(slide.title, {
+                    x: 0.5, y: 3.1, w: 9, h: 1.5, fontSize: 34, color: 'FFFFFF', align: 'center', bold: true
+                });
+                return;
+            }
+
+            if (slide.type === 'agenda') {
+                s.addText(`${em} ${slide.title}`, {
+                    x: 0.5, y: 0.4, w: 9, h: 0.8, fontSize: 28, bold: true, color: accent
+                });
+                const items = (slide.items || []).map((item, i) => ({
+                    text: `${String(i + 1).padStart(2, '0')}. ${item}`,
+                    options: { bullet: false, breakLine: true, fontSize: 18, color: '334155' }
+                }));
+                if (items.length) {
+                    s.addText(items, { x: 0.7, y: 1.4, w: 8.6, h: 4.5, valign: 'top' });
+                }
+                return;
+            }
+
+            // Content slide
+            s.addText(`${em} ${slide.title}`, {
+                x: 0.5, y: 0.35, w: 9, h: 0.75, fontSize: 26, bold: true, color: accent
+            });
+            s.addShape(pptx.ShapeType.rect, {
+                x: 0.5, y: 1.05, w: 9, h: 0.03, fill: { color: accent }
+            });
+
+            const lines = slideContentToTextLines(slide);
+            if (lines.length) {
+                const numbered = tpl.key === 'framework' || tpl.key === 'management';
+                s.addText(lines.map((line, i) => ({
+                    text: numbered ? `${i + 1}. ${line}` : line,
+                    options: { bullet: !numbered, breakLine: true, fontSize: 17, color: '1E293B' }
+                })), { x: 0.55, y: 1.25, w: 8.9, h: 4.2, valign: 'top' });
+            } else if (typeof slide.content === 'string') {
+                s.addText(slide.content, { x: 0.55, y: 1.35, w: 8.9, h: 4, fontSize: 18, color: '334155' });
+            }
+        });
+
+        const safeName = (currentInfographicData?.title || 'slides').replace(/[^a-z0-9]/gi, '_').slice(0, 80);
+        await pptx.writeFile({ fileName: `${safeName}_slides.pptx` });
+        showSlideDeckToast('PowerPoint (.pptx) downloaded.', 'success');
+    } catch (err) {
+        console.error('[Slide Deck PPTX]', err);
+        showSlideDeckToast('Export failed: ' + (err.message || 'Unknown error'), 'error');
+    } finally {
+        if (exportBtn) {
+            exportBtn.disabled = slides.length === 0;
+            exportBtn.innerHTML = '<span class="material-symbols-rounded">slideshow</span> Export to PowerPoint';
+        }
+    }
+}
+
+/* ========================================
+   COMMUNITY HUB FUNCTIONALITY
+   ======================================== */
+
+function setupCommunityHub() {
+    const communityBtn = document.getElementById('community-btn');
+    const submitCommunityBtn = document.getElementById('submit-community-btn');
+    const communityModal = document.getElementById('community-modal');
+    const submitModal = document.getElementById('submit-community-modal');
+    const previewModal = document.getElementById('community-preview-modal');
+
+    // Close buttons
+    const closeCommBtn = document.getElementById('close-community-modal-btn');
+    const closeSubmitBtn = document.getElementById('close-submit-modal-btn');
+    const closePreviewBtn = document.getElementById('close-preview-modal-btn');
+    const cancelSubmitBtn = document.getElementById('cancel-submit-btn');
+
+    // Refresh button
+    const refreshBtn = document.getElementById('refresh-community-btn');
+
+    // Tabs
+    const tabs = document.querySelectorAll('.community-tab');
+    const pendingContent = document.getElementById('pending-content');
+    const approvedContent = document.getElementById('approved-content');
+
+    // Lists and counts
+    const pendingList = document.getElementById('pending-submissions-list');
+    const approvedList = document.getElementById('approved-submissions-list');
+    const pendingEmpty = document.getElementById('pending-empty');
+    const approvedEmpty = document.getElementById('approved-empty');
+    const pendingCount = document.getElementById('pending-count');
+    const approvedCount = document.getElementById('approved-count');
+    const communityCountBadge = document.getElementById('community-count-badge');
+    const deduplicateCommunityBtn = document.getElementById('deduplicate-community-btn');
+
+    // Submit form elements
+    const submitterNameInput = document.getElementById('submitter-name');
+    const submitPreviewTitle = document.getElementById('submit-preview-title');
+    const submitPreviewSummary = document.getElementById('submit-preview-summary');
+    const confirmSubmitBtn = document.getElementById('confirm-submit-btn');
+
+    // Preview elements
+    const previewTitle = document.getElementById('preview-title');
+    const previewAuthor = document.getElementById('preview-author');
+    const previewContainer = document.getElementById('preview-infographic-container');
+    const previewLikeBtn = document.getElementById('preview-like-btn');
+    const previewDownloadBtn = document.getElementById('preview-download-btn');
+
+    let currentPreviewId = null;
+    let cachedSubmissions = { submissions: [], approved: [] };
+
+    // Check if CommunitySubmissions module is loaded
+    function isCommunityModuleLoaded() {
+        return typeof window.CommunitySubmissions !== 'undefined';
+    }
+
+    // Open Community Modal
+    async function openCommunityModal() {
+        if (!isCommunityModuleLoaded()) {
+            alert('Community module not loaded. Please refresh the page.');
+            return;
+        }
+
+        communityModal.classList.add('active');
+        await loadCommunitySubmissions();
+    }
+
+    // Load submissions
+    async function loadCommunitySubmissions() {
+        try {
+            const data = await CommunitySubmissions.getAll();
+            cachedSubmissions = data;
+
+            const pending = data.submissions || [];
+            const approved = data.approved || [];
+
+            // Update counts
+            pendingCount.textContent = pending.length;
+            approvedCount.textContent = approved.length;
+
+            // Update badge
+            if (pending.length > 0) {
+                communityCountBadge.textContent = pending.length;
+                communityCountBadge.style.display = 'inline';
+            } else {
+                communityCountBadge.style.display = 'none';
+            }
+
+            // Render pending
+            renderSubmissionsList(pending, pendingList, pendingEmpty, false);
+
+            // Render approved
+            renderSubmissionsList(approved, approvedList, approvedEmpty, true);
+
+        } catch (err) {
+            console.error('Error loading community submissions:', err);
+        }
+    }
+
+    // Render submissions list
+    function renderSubmissionsList(submissions, container, emptyElement, isApproved) {
+        if (submissions.length === 0) {
+            container.innerHTML = '';
+            emptyElement.style.display = 'flex';
+            return;
+        }
+
+        emptyElement.style.display = 'none';
+        container.innerHTML = submissions.map(s => CommunitySubmissions.generateCardHTML(s, false)).join('');
+    }
+
+    // Tab switching
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            const tabName = tab.dataset.tab;
+            if (tabName === 'pending') {
+                pendingContent.style.display = 'block';
+                approvedContent.style.display = 'none';
+            } else {
+                pendingContent.style.display = 'none';
+                approvedContent.style.display = 'block';
+            }
+        });
+    });
+
+    // Deduplicate Approved
+    if (deduplicateCommunityBtn) {
+        deduplicateCommunityBtn.addEventListener('click', async () => {
+            const adminPIN = prompt('Enter admin PIN to deduplicate the gallery:');
+            if (adminPIN && CommunitySubmissions.verifyAdmin(adminPIN)) {
+                
+                const originalText = deduplicateCommunityBtn.innerHTML;
+                deduplicateCommunityBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Processing...';
+                deduplicateCommunityBtn.disabled = true;
+
+                try {
+                    const result = await CommunitySubmissions.deduplicateApproved(adminPIN);
+                    alert(result.message);
+                    if (result.success) {
+                        await loadCommunitySubmissions();
+                    }
+                } catch (err) {
+                    console.error('Failed to deduplicate:', err);
+                    alert('Error: ' + err.message);
+                } finally {
+                    deduplicateCommunityBtn.innerHTML = originalText;
+                    deduplicateCommunityBtn.disabled = false;
+                }
+            } else if (adminPIN) {
+                alert('Invalid admin PIN.');
+            }
+        });
+    }
+
+    // Open Submit Modal
+    function openSubmitModal() {
+        if (!currentInfographicData) {
+            alert('Please generate an infographic first before submitting to the community.');
+            return;
+        }
+
+        // Update preview
+        submitPreviewTitle.textContent = currentInfographicData.title || 'Untitled Infographic';
+        submitPreviewSummary.textContent = currentInfographicData.summary || 'No summary available.';
+
+        // Clear previous name
+        submitterNameInput.value = localStorage.getItem('community_username') || '';
+
+        submitModal.classList.add('active');
+    }
+
+    // Submit to community
+    async function handleSubmitToCommunity() {
+        const userName = submitterNameInput.value.trim();
+
+        if (!userName) {
+            alert('Please enter your name.');
+            submitterNameInput.focus();
+            return;
+        }
+
+        if (!currentInfographicData) {
+            alert('No infographic data to submit.');
+            return;
+        }
+
+        // Save username for future submissions
+        localStorage.setItem('community_username', userName);
+
+        // Show loading state
+        const originalText = confirmSubmitBtn.innerHTML;
+        confirmSubmitBtn.innerHTML = '<span class="material-symbols-rounded">sync</span> Publishing...';
+        confirmSubmitBtn.disabled = true;
+
+        try {
+            // Attach adhered Kanski images if present
+            const kanskiImages = await loadKanskiFromIDB(currentInfographicData.title);
+            if (kanskiImages && kanskiImages.length > 0) {
+                currentInfographicData.kanskiImages = kanskiImages;
+                console.log(`[Submit] Attaching ${kanskiImages.length} Kanski image(s) to submission`);
+            }
+
+            const result = await CommunitySubmissions.submit(currentInfographicData, userName);
+
+            if (result.success) {
+                alert(result.message);
+                submitModal.classList.remove('active');
+
+                // Refresh community list if modal is open
+                if (communityModal.classList.contains('active')) {
+                    await loadCommunitySubmissions();
+                }
+            } else {
+                alert('Submission failed: ' + result.message);
+            }
+        } catch (err) {
+            console.error('Submission error:', err);
+            alert('An error occurred while submitting. Please try again.');
+        } finally {
+            confirmSubmitBtn.innerHTML = originalText;
+            confirmSubmitBtn.disabled = false;
+        }
+    }
+
+    // Preview submission
+    window.handlePreviewSubmission = async function (submissionId) {
+        currentPreviewId = submissionId;
+
+        // Find submission
+        let submission = (cachedSubmissions.submissions || []).find(s => s.id === submissionId);
+        if (!submission) {
+            submission = (cachedSubmissions.approved || []).find(s => s.id === submissionId);
+        }
+
+        if (!submission) {
+            alert('Could not find submission.');
+            return;
+        }
+
+        // Update preview modal
+        previewTitle.textContent = submission.title;
+        previewAuthor.innerHTML = `<span class="material-symbols-rounded">person</span> ${submission.userName}`;
+
+        // Render the infographic preview (simplified)
+        if (submission.data) {
+            previewContainer.innerHTML = `
+                <div style="background: white; padding: 2rem; border-radius: 12px;">
+                    <h2 style="margin-bottom: 1rem; color: #1f2937;">${submission.title}</h2>
+                    <p style="color: #6b7280; margin-bottom: 1.5rem;">${submission.summary || ''}</p>
+                    ${submission.data.sections ? `
+                        <div style="display: grid; gap: 1rem;">
+                            ${submission.data.sections.slice(0, 3).map(section => `
+                                <div style="background: #f8fafc; padding: 1rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                                    <h4 style="margin: 0 0 0.5rem 0; color: #334155;">${section.title || 'Section'}</h4>
+                                    <p style="margin: 0; font-size: 0.9rem; color: #64748b;">
+                                        ${Array.isArray(section.content)
+                    ? section.content.slice(0, 3).join(', ') + (section.content.length > 3 ? '...' : '')
+                    : (typeof section.content === 'string' ? section.content.substring(0, 150) : 'Content available')}
+                                    </p>
+                                </div>
+                            `).join('')}
+                            ${submission.data.sections.length > 3 ? `
+                                <p style="text-align: center; color: #9ca3af; font-style: italic;">
+                                    ...and ${submission.data.sections.length - 3} more sections
+                                </p>
+                            ` : ''}
+                        </div>
+                    ` : '<p style="color: #9ca3af;">Full content available after download.</p>'}
+                </div>
+            `;
+        } else {
+            previewContainer.innerHTML = '<p style="text-align: center; color: #9ca3af;">Preview not available.</p>';
+        }
+
+        previewModal.classList.add('active');
+    };
+
+    // Load submission directly
+    window.handleLoadCommunitySubmission = async function (submissionId) {
+        // Find in cached submissions
+        let submission = (cachedSubmissions.submissions || []).find(s => s.id === submissionId);
+        if (!submission) {
+            submission = (cachedSubmissions.approved || []).find(s => s.id === submissionId);
+        }
+
+        if (submission && submission.data) {
+            if (confirm(`Load "${submission.title}"? This will replace your current workspace content.`)) {
+                // Check local library for user's chapterId override
+                try {
+                    const localLib = getLibraryCache();
+                    const localItem = localLib.find(i => i.title === submission.title);
+                    if (localItem && localItem.chapterId) {
+                        submission.data.chapterId = localItem.chapterId;
+                    }
+                } catch { /* ignore */ }
+                currentInfographicData = submission.data;
+                renderInfographic(submission.data);
+                communityModal.classList.remove('active');
+                // Optional: Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        } else {
+            const authorInfo = submission?.userName ? `\n\nOriginal author: ${submission.userName}` : '';
+            alert(
+                `⚠️ Unable to load this infographic.\n\n` +
+                `The content data is missing or corrupted.${authorInfo}\n\n` +
+                `Please contact the original uploader and ask them to resubmit this infographic to the Community Hub.`
+            );
+        }
+    };
+
+    // Like submission
+    window.handleLikeSubmission = async function (submissionId) {
+        try {
+            const result = await CommunitySubmissions.like(submissionId);
+
+            if (result.success) {
+                // Update the like count in UI
+                const card = document.querySelector(`.community-card[data-id="${submissionId}"]`);
+                if (card) {
+                    const likesCount = card.querySelector('.likes-count');
+                    if (likesCount) {
+                        likesCount.innerHTML = `<span class="material-symbols-rounded">favorite</span> ${result.likes}`;
+                    }
+                }
+            } else {
+                alert(result.message || 'Could not like submission.');
+            }
+        } catch (err) {
+            console.error('Like error:', err);
+        }
+    };
+
+    // Download submission to local library
+    window.handleDownloadSubmission = async function (submissionId) {
+        try {
+            // First attempt (no overwrite)
+            let result = await CommunitySubmissions.downloadToLibrary(submissionId, false);
+
+            if (result.success) {
+                alert(result.message);
+            } else if (result.status === 'duplicate') {
+                // Handle duplicate with replace option
+                if (confirm(result.message + "\n\nDo you want to replace the existing infographic with this one?")) {
+                    // Second attempt (with overwrite)
+                    result = await CommunitySubmissions.downloadToLibrary(submissionId, true);
+                    if (result.success) {
+                        alert(result.message);
+                    } else {
+                        alert(result.message || 'Could not replace infographic.');
+                    }
+                }
+            } else {
+                alert(result.message || 'Could not download.');
+            }
+        } catch (err) {
+            console.error('Download error:', err);
+            alert('An error occurred while downloading.');
+        }
+    };
+
+    // Approve submission (admin action from community hub)
+    window.handleApproveSubmission = async function (submissionId) {
+        const adminPIN = prompt('Enter admin PIN to approve this submission:');
+        if (!adminPIN) return;
+
+        try {
+            const result = await CommunitySubmissions.approve(submissionId, adminPIN);
+            if (result.success) {
+                alert('Submission approved successfully!');
+                await loadCommunitySubmissions();
+            } else {
+                alert(result.message || 'Failed to approve submission.');
+            }
+        } catch (err) {
+            console.error('Approve error:', err);
+            alert('An error occurred while approving.');
+        }
+    };
+
+    // Reject submission (admin action from community hub)
+    window.handleRejectSubmission = async function (submissionId) {
+        const adminPIN = prompt('Enter admin PIN to reject this submission:');
+        if (!adminPIN) return;
+
+        if (!confirm('Are you sure you want to reject and permanently delete this submission?')) return;
+
+        try {
+            const result = await CommunitySubmissions.reject(submissionId, adminPIN);
+            if (result.success) {
+                alert('Submission rejected and removed.');
+                await loadCommunitySubmissions();
+            } else {
+                alert(result.message || 'Failed to reject submission.');
+            }
+        } catch (err) {
+            console.error('Reject error:', err);
+            alert('An error occurred while rejecting.');
+        }
+    };
+
+    // Event Listeners
+    if (communityBtn) {
+        communityBtn.addEventListener('click', openCommunityModal);
+    }
+
+    if (submitCommunityBtn) {
+        submitCommunityBtn.addEventListener('click', openSubmitModal);
+    }
+
+    // Bulk import state for pause/resume/stop
+    let bulkImportPaused = false;
+    let bulkImportStopped = false;
+
+    function createBulkControls(parentEl) {
+        bulkImportPaused = false;
+        bulkImportStopped = false;
+        let controlsDiv = parentEl.querySelector('.bulk-controls');
+        if (controlsDiv) controlsDiv.remove();
+        controlsDiv = document.createElement('div');
+        controlsDiv.className = 'bulk-controls';
+        controlsDiv.style.cssText = 'display:flex;gap:6px;margin-top:6px;';
+
+        const pauseBtn = document.createElement('button');
+        pauseBtn.className = 'btn-secondary';
+        pauseBtn.style.cssText = 'padding:4px 10px;font-size:0.8rem;display:flex;align-items:center;gap:4px;border-radius:6px;cursor:pointer;border:1px solid #cbd5e1;background:#f8fafc;';
+        pauseBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size:16px;">pause</span> Pause';
+        pauseBtn.addEventListener('click', () => {
+            bulkImportPaused = !bulkImportPaused;
+            pauseBtn.innerHTML = bulkImportPaused
+                ? '<span class="material-symbols-rounded" style="font-size:16px;">play_arrow</span> Resume'
+                : '<span class="material-symbols-rounded" style="font-size:16px;">pause</span> Pause';
+            pauseBtn.style.background = bulkImportPaused ? '#fef3c7' : '#f8fafc';
+            pauseBtn.style.borderColor = bulkImportPaused ? '#f59e0b' : '#cbd5e1';
+        });
+
+        const stopBtn = document.createElement('button');
+        stopBtn.className = 'btn-secondary';
+        stopBtn.style.cssText = 'padding:4px 10px;font-size:0.8rem;display:flex;align-items:center;gap:4px;border-radius:6px;cursor:pointer;border:1px solid #fca5a5;background:#fef2f2;color:#dc2626;';
+        stopBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size:16px;">stop</span> Stop';
+        stopBtn.addEventListener('click', () => {
+            bulkImportStopped = true;
+            stopBtn.disabled = true;
+            stopBtn.style.opacity = '0.5';
+        });
+
+        controlsDiv.appendChild(pauseBtn);
+        controlsDiv.appendChild(stopBtn);
+        parentEl.appendChild(controlsDiv);
+        return controlsDiv;
+    }
+
+    function removeBulkControls(parentEl) {
+        const c = parentEl.querySelector('.bulk-controls');
+        if (c) c.remove();
+    }
+
+    async function waitWhilePaused() {
+        while (bulkImportPaused && !bulkImportStopped) {
+            await new Promise(r => setTimeout(r, 200));
+        }
+    }
+
+    async function runBulkImport(items, btn, progressEl, replaceExisting, parentForControls) {
+        btn.disabled = true;
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<span class="material-symbols-rounded">sync</span> Processing...';
+
+        if (progressEl) {
+            progressEl.style.display = 'flex';
+            progressEl.className = 'bulk-progress';
+        }
+
+        const controlsContainer = parentForControls || btn.parentElement;
+        const controlsDiv = createBulkControls(controlsContainer);
+
+        let added = 0, replaced = 0, skipped = 0, failed = 0;
+
+        for (let i = 0; i < items.length; i++) {
+            if (bulkImportStopped) break;
+            await waitWhilePaused();
+            if (bulkImportStopped) break;
+
+            const submission = items[i];
+            if (progressEl) {
+                progressEl.textContent = `Processing ${i + 1}/${items.length}...` + (bulkImportPaused ? ' (Paused)' : '');
+            }
+
+            try {
+                let result = await CommunitySubmissions.downloadToLibrary(submission.id, false);
+                if (result.success) {
+                    added++;
+                } else if (result.status === 'duplicate' && replaceExisting) {
+                    result = await CommunitySubmissions.downloadToLibrary(submission.id, true);
+                    if (result.success) replaced++;
+                    else failed++;
+                } else if (result.status === 'duplicate') {
+                    skipped++;
+                } else {
+                    failed++;
+                }
+            } catch (err) {
+                console.error(`Failed to add ${submission.title}:`, err);
+                failed++;
+            }
+        }
+
+        removeBulkControls(controlsContainer);
+
+        const wasStopped = bulkImportStopped;
+        if (progressEl) {
+            progressEl.className = 'bulk-progress success';
+            progressEl.textContent = `${wasStopped ? 'Stopped' : 'Done'}: ${added} added, ${replaced} replaced, ${skipped} skipped, ${failed} failed`;
+        }
+
+        btn.disabled = false;
+        btn.innerHTML = originalHTML;
+
+        let msg = `Bulk import ${wasStopped ? 'stopped' : 'complete'}!\n\n✓ Added: ${added}`;
+        if (replaced > 0) msg += `\n↻ Replaced: ${replaced}`;
+        if (skipped > 0) msg += `\n⊘ Skipped: ${skipped}`;
+        if (failed > 0) msg += `\n✗ Failed: ${failed}`;
+        alert(msg);
+    }
+
+    // Add All to Library button (Bulk download approved submissions)
+    const addAllToLibraryBtn = document.getElementById('add-all-to-library-btn');
+    const addAllProgress = document.getElementById('add-all-progress');
+
+    if (addAllToLibraryBtn) {
+        addAllToLibraryBtn.addEventListener('click', async () => {
+            const approved = cachedSubmissions.approved || [];
+
+            if (approved.length === 0) {
+                alert('No approved infographics to add.');
+                return;
+            }
+
+            const replaceExisting = confirm(
+                `Add all ${approved.length} approved infographics to your library?\n\n` +
+                `Click OK to REPLACE existing duplicates with updated versions.\n` +
+                `Click Cancel to skip duplicates (keep existing).`
+            );
+
+            if (!replaceExisting) {
+                if (!confirm(`Add all ${approved.length} infographics, SKIPPING any that already exist in your library?`)) {
+                    return;
+                }
+            }
+
+            await runBulkImport(approved, addAllToLibraryBtn, addAllProgress, replaceExisting);
+        });
+    }
+
+    // Add All to Library button (Bulk download PENDING / New Uploads)
+    const addAllPendingBtn = document.getElementById('add-all-pending-to-library-btn');
+    const addAllPendingProgress = document.getElementById('add-all-pending-progress');
+
+    if (addAllPendingBtn) {
+        addAllPendingBtn.addEventListener('click', async () => {
+            const pending = cachedSubmissions.submissions || [];
+
+            if (pending.length === 0) {
+                alert('No new uploads to add.');
+                return;
+            }
+
+            const replaceExisting = confirm(
+                `Add all ${pending.length} new uploads to your library?\n\n` +
+                `Click OK to REPLACE existing duplicates with updated versions.\n` +
+                `Click Cancel to skip duplicates (keep existing).`
+            );
+
+            if (!replaceExisting) {
+                if (!confirm(`Add all ${pending.length} uploads, SKIPPING any that already exist in your library?`)) {
+                    return;
+                }
+            }
+
+            await runBulkImport(pending, addAllPendingBtn, addAllPendingProgress, replaceExisting);
+        });
+    }
+
+    if (closeCommBtn) {
+        closeCommBtn.addEventListener('click', () => {
+            communityModal.classList.remove('active');
+        });
+    }
+
+    if (closeSubmitBtn) {
+        closeSubmitBtn.addEventListener('click', () => {
+            submitModal.classList.remove('active');
+        });
+    }
+
+    if (cancelSubmitBtn) {
+        cancelSubmitBtn.addEventListener('click', () => {
+            submitModal.classList.remove('active');
+        });
+    }
+
+    if (closePreviewBtn) {
+        closePreviewBtn.addEventListener('click', () => {
+            previewModal.classList.remove('active');
+            currentPreviewId = null;
+        });
+    }
+
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', async () => {
+            refreshBtn.classList.add('rotating');
+            await loadCommunitySubmissions();
+            setTimeout(() => refreshBtn.classList.remove('rotating'), 500);
+        });
+    }
+
+    if (confirmSubmitBtn) {
+        confirmSubmitBtn.addEventListener('click', handleSubmitToCommunity);
+    }
+
+    if (previewLikeBtn) {
+        previewLikeBtn.addEventListener('click', () => {
+            if (currentPreviewId) {
+                handleLikeSubmission(currentPreviewId);
+            }
+        });
+    }
+
+    if (previewDownloadBtn) {
+        previewDownloadBtn.addEventListener('click', () => {
+            if (currentPreviewId) {
+                handleDownloadSubmission(currentPreviewId);
+                previewModal.classList.remove('active');
+            }
+        });
+    }
+
+    // Close modals on overlay click
+    [communityModal, submitModal, previewModal].forEach(modal => {
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
+    });
+
+    console.log('Community Hub initialized.');
+}
+
+/* ========================================
+   BACKGROUND MUSIC PLAYER
+   ======================================== */
+
+function setupMusicPlayer() {
+    const musicToggle = document.getElementById('music-toggle');
+    const musicPanel = document.getElementById('music-panel');
+    const musicIcon = document.getElementById('music-icon');
+    const musicAudio = document.getElementById('music-audio');
+    const playPauseBtn = document.getElementById('music-play-pause');
+    const volumeSlider = document.getElementById('music-volume');
+    const musicStatus = document.getElementById('music-status');
+    const stationBtns = document.querySelectorAll('.station-btn');
+
+    if (!musicToggle || !musicAudio) return;
+
+    // Radio station URLs (public streams)
+    const stations = {
+        classical: {
+            name: 'Classical FM',
+            // Using Classic FM UK stream
+            url: 'https://media-ice.musicradio.com/ClassicFMMP3',
+            fallback: 'https://stream.classicfm.com/classicfm.mp3'
+        },
+        quran: {
+            name: 'Quran - Al Minshawi',
+            // Correct Quran radio stream - Mohammed Siddiq Al-Minshawi (Mujawwad)
+            url: 'https://backup.qurango.net/radio/mohammed_siddiq_alminshawi_mojawwad',
+            fallback: 'https://qurango.net/radio/mohammed_siddiq_alminshawi_mojawwad'
+        }
+    };
+
+    let currentStation = null;
+    let isPlaying = false;
+
+    // Toggle panel
+    musicToggle.addEventListener('click', () => {
+        musicPanel.classList.toggle('hidden');
+    });
+
+    // Close panel when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.music-player')) {
+            musicPanel.classList.add('hidden');
+        }
+    });
+
+    // Station selection
+    stationBtns.forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const stationId = btn.dataset.station;
+            const station = stations[stationId];
+
+            if (!station) return;
+
+            // Update UI
+            stationBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            currentStation = stationId;
+            playPauseBtn.disabled = false;
+
+            // Set status
+            musicStatus.textContent = `Loading ${station.name}...`;
+            musicStatus.className = 'music-status loading';
+
+            // Try to load the stream
+            try {
+                musicAudio.src = station.url;
+                musicAudio.volume = volumeSlider.value / 100;
+
+                await musicAudio.play();
+                isPlaying = true;
+                updatePlayPauseIcon();
+                musicStatus.textContent = `Playing: ${station.name}`;
+                musicStatus.className = 'music-status playing';
+                musicToggle.classList.add('playing');
+
+            } catch (err) {
+                console.log('Primary stream failed, trying fallback...', err);
+
+                // Try fallback
+                try {
+                    musicAudio.src = station.fallback;
+                    await musicAudio.play();
+                    isPlaying = true;
+                    updatePlayPauseIcon();
+                    musicStatus.textContent = `Playing: ${station.name}`;
+                    musicStatus.className = 'music-status playing';
+                    musicToggle.classList.add('playing');
+
+                } catch (fallbackErr) {
+                    console.error('Fallback also failed:', fallbackErr);
+                    musicStatus.textContent = 'Stream unavailable. Try again later.';
+                    musicStatus.className = 'music-status error';
+                    isPlaying = false;
+                    updatePlayPauseIcon();
+                }
+            }
+        });
+    });
+
+    // Play/Pause
+    playPauseBtn.addEventListener('click', () => {
+        if (!currentStation) return;
+
+        if (isPlaying) {
+            musicAudio.pause();
+            isPlaying = false;
+            musicStatus.textContent = 'Paused';
+            musicStatus.className = 'music-status';
+            musicToggle.classList.remove('playing');
+        } else {
+            musicAudio.play().then(() => {
+                isPlaying = true;
+                musicStatus.textContent = `Playing: ${stations[currentStation].name}`;
+                musicStatus.className = 'music-status playing';
+                musicToggle.classList.add('playing');
+            }).catch(err => {
+                console.error('Play failed:', err);
+                musicStatus.textContent = 'Playback failed';
+                musicStatus.className = 'music-status error';
+            });
+        }
+        updatePlayPauseIcon();
+    });
+
+    function updatePlayPauseIcon() {
+        const icon = playPauseBtn.querySelector('.material-symbols-rounded');
+        if (icon) {
+            icon.textContent = isPlaying ? 'pause' : 'play_arrow';
+        }
+        musicIcon.textContent = isPlaying ? 'music_note' : 'music_off';
+    }
+
+    // Volume control
+    volumeSlider.addEventListener('input', () => {
+        musicAudio.volume = volumeSlider.value / 100;
+    });
+
+    // Handle audio errors
+    musicAudio.addEventListener('error', () => {
+        musicStatus.textContent = 'Stream error. Try another station.';
+        musicStatus.className = 'music-status error';
+        isPlaying = false;
+        updatePlayPauseIcon();
+        musicToggle.classList.remove('playing');
+    });
+
+    // Handle stream end/stall
+    musicAudio.addEventListener('stalled', () => {
+        musicStatus.textContent = 'Buffering...';
+        musicStatus.className = 'music-status loading';
+    });
+
+    musicAudio.addEventListener('playing', () => {
+        if (currentStation) {
+            musicStatus.textContent = `Playing: ${stations[currentStation].name}`;
+            musicStatus.className = 'music-status playing';
+        }
+    });
+
+    console.log('Music player initialized.');
+}
+
+/* ========================================
+   KANSKI CLINICAL PHOTOS — IndexedDB STORAGE
+   Stores large image data in IndexedDB
+   (localStorage has a 5-10MB limit)
+   ======================================== */
+
+const KANSKI_DB_NAME = 'KanskiImagesDB';
+const KANSKI_DB_VERSION = 1;
+const KANSKI_STORE_NAME = 'images';
+
+function openKanskiDB() {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open(KANSKI_DB_NAME, KANSKI_DB_VERSION);
+        request.onupgradeneeded = (e) => {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains(KANSKI_STORE_NAME)) {
+                db.createObjectStore(KANSKI_STORE_NAME, { keyPath: 'id' });
+            }
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+    });
+}
+
+async function saveKanskiToIDB(infographicTitle, images) {
+    try {
+        const db = await openKanskiDB();
+        const tx = db.transaction(KANSKI_STORE_NAME, 'readwrite');
+        const store = tx.objectStore(KANSKI_STORE_NAME);
+        // Key = title hash to avoid special chars issues
+        const id = 'kanski_' + btoa(unescape(encodeURIComponent(infographicTitle))).replace(/[^a-zA-Z0-9]/g, '_');
+        store.put({
+            id,
+            title: infographicTitle,
+            images: images, // [{pageNum, imgUrl, keywords}]
+            savedAt: Date.now()
+        });
+        await new Promise((resolve, reject) => {
+            tx.oncomplete = resolve;
+            tx.onerror = () => reject(tx.error);
+        });
+        db.close();
+        console.log(`[Kanski IDB] Saved ${images.length} images for "${infographicTitle}"`);
+        return true;
+    } catch (err) {
+        console.error('[Kanski IDB] Save error:', err);
+        return false;
+    }
+}
+
+async function loadKanskiFromIDB(infographicTitle) {
+    try {
+        const db = await openKanskiDB();
+        const tx = db.transaction(KANSKI_STORE_NAME, 'readonly');
+        const store = tx.objectStore(KANSKI_STORE_NAME);
+        const id = 'kanski_' + btoa(unescape(encodeURIComponent(infographicTitle))).replace(/[^a-zA-Z0-9]/g, '_');
+        const result = await new Promise((resolve, reject) => {
+            const req = store.get(id);
+            req.onsuccess = () => resolve(req.result);
+            req.onerror = () => reject(req.error);
+        });
+        db.close();
+        if (result && result.images && result.images.length > 0) {
+            console.log(`[Kanski IDB] Loaded ${result.images.length} images for "${infographicTitle}"`);
+            return result.images;
+        }
+        return null;
+    } catch (err) {
+        console.error('[Kanski IDB] Load error:', err);
+        return null;
+    }
+}
+
+async function deleteKanskiFromIDB(infographicTitle) {
+    try {
+        const db = await openKanskiDB();
+        const tx = db.transaction(KANSKI_STORE_NAME, 'readwrite');
+        const store = tx.objectStore(KANSKI_STORE_NAME);
+        const id = 'kanski_' + btoa(unescape(encodeURIComponent(infographicTitle))).replace(/[^a-zA-Z0-9]/g, '_');
+        store.delete(id);
+        await new Promise((resolve, reject) => {
+            tx.oncomplete = resolve;
+            tx.onerror = () => reject(tx.error);
+        });
+        db.close();
+        console.log(`[Kanski IDB] Deleted images for "${infographicTitle}"`);
+        return true;
+    } catch (err) {
+        console.error('[Kanski IDB] Delete error:', err);
+        return false;
+    }
+}
+
+// Expose Kanski IDB functions globally so community-submissions.js can access them
+// (script.js is loaded as type="module", scoping its functions)
+window.saveKanskiToIDB = saveKanskiToIDB;
+window.getLibraryCache = getLibraryCache;
+window.saveLibraryToIDB = saveLibraryToIDB;
+window.loadLibraryFromIDB = loadLibraryFromIDB;
+window.loadKanskiFromIDB = loadKanskiFromIDB;
+
+/* ========================================
+   KANSKI CLINICAL PHOTOS — ADHERED IMAGE LOADER
+   Restores permanently saved Kanski images
+   when an infographic is loaded
+   ======================================== */
+
+function loadAdheredKanskiImages(data) {
+    if (!data || !data.title) return;
+
+    // Check localStorage for the lightweight meta flag
+    let hasAdhered = false;
+    try {
+        const library = getLibraryCache();
+        const item = library.find(i => i.title === data.title);
+        hasAdhered = item && item.kanskiMeta && item.kanskiMeta.length > 0;
+    } catch { /* ignore */ }
+
+    if (!hasAdhered) return;
+
+    // Load actual images from IndexedDB (async)
+    loadKanskiFromIDB(data.title).then(kanskiImages => {
+        if (!kanskiImages || kanskiImages.length === 0) {
+            console.warn('[Kanski] Meta flag exists but no images in IndexedDB for:', data.title);
+            return;
+        }
+
+        const posterGrid = document.querySelector('.poster-grid');
+        if (!posterGrid) return;
+
+        // Remove any existing Kanski section
+        const existing = posterGrid.querySelector('#kanski-images-section');
+        if (existing) existing.remove();
+
+        // Inject Kanski image toggle CSS once
+        if (!document.getElementById('kanski-img-toggle-style')) {
+            const s = document.createElement('style');
+            s.id = 'kanski-img-toggle-style';
+            s.textContent = `.kanski-img-toggle { max-height: 300px; object-fit: cover; cursor: pointer; transition: max-height 0.3s ease; width: 100%; display: block; }
+            .kanski-img-toggle.kanski-img-expanded { max-height: none; object-fit: contain; }`;
+            document.head.appendChild(s);
+        }
+
+        // Create the Kanski section
+        const kanskiSection = document.createElement('div');
+        kanskiSection.id = 'kanski-images-section';
+        kanskiSection.className = 'poster-card card-key_point col-span-2 theme-blue';
+        kanskiSection.style.cssText = 'animation-delay: 0ms;';
+        kanskiSection.innerHTML = `
+            <h3 class="card-title" style="color: #0e7490;">
+                <div class="icon-box" style="background: linear-gradient(135deg, #0891b2, #0e7490);"><span class="material-symbols-rounded">photo_library</span></div>
+                Kanski Clinical Photos
+                <span style="font-size: 0.7rem; font-weight: 500; color: #059669; margin-left: 6px; padding: 2px 8px; background: #d1fae5; border-radius: 12px;">
+                    <span class="material-symbols-rounded" style="font-size: 0.7rem; vertical-align: middle;">push_pin</span> Adhered
+                </span>
+                <span style="font-size: 0.75rem; font-weight: 400; color: #64748b; margin-left: auto;">
+                    ${kanskiImages.length} image(s)
+                </span>
+            </h3>
+            <div style="display: flex; gap: 0.5rem; margin: 0.5rem 0; flex-wrap: wrap;">
+                <button id="kanski-adhered-remove-btn" class="btn-small" title="Remove Kanski images from this infographic"
+                    style="display: flex; align-items: center; gap: 4px; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 0.8rem;
+                    background: linear-gradient(135deg, #ef4444, #dc2626); color: white; border: none; cursor: pointer; transition: all 0.2s;">
+                    <span class="material-symbols-rounded" style="font-size: 1rem;">delete</span>
+                    Remove
+                </button>
+            </div>
+            <div class="kanski-images-display" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.75rem; margin-top: 0.5rem;">
+                ${kanskiImages.map(img => `
+                    <div style="border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; background: white;">
+                        <img src="${img.imgUrl}" class="kanski-img-toggle"
+                            alt="Kanski p.${img.pageNum}" 
+                            title="Click to expand/collapse">
+                        <div style="padding: 4px 8px; font-size: 0.7rem; color: #64748b; background: #f8fafc; border-top: 1px solid #e2e8f0;">
+                            <strong>p.${img.pageNum}</strong>${img.keywords && img.keywords.length > 0 ? ' · ' + img.keywords.slice(0, 3).join(', ') : ''}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+
+        posterGrid.appendChild(kanskiSection);
+
+        // Delegated click handler for image expand/collapse (iOS-safe)
+        kanskiSection.addEventListener('click', (e) => {
+            const img = e.target.closest('.kanski-img-toggle');
+            if (img) img.classList.toggle('kanski-img-expanded');
+        });
+
+        // Remove button handler
+        const removeBtn = kanskiSection.querySelector('#kanski-adhered-remove-btn');
+        if (removeBtn) {
+            removeBtn.addEventListener('click', () => {
+                const removePermanently = confirm(
+                    'Kanski images are permanently adhered to this infographic.\n\n' +
+                    'Click OK to remove them permanently (from library too).\n' +
+                    'Click Cancel to only hide them for this session.'
+                );
+
+                if (removePermanently) {
+                    // Remove lightweight meta from localStorage
+                    try {
+                        const library = getLibraryCache();
+                        const item = library.find(i => i.title === data.title);
+                        if (item) {
+                            delete item.kanskiMeta;
+                            delete item.kanskiImages; // Clean up any legacy data
+                            if (item.data) {
+                                delete item.data.kanskiMeta;
+                                delete item.data.kanskiImages;
+                            }
+                            saveLibraryToIDB(library);
+                        }
+                    } catch (err) {
+                        console.error('Error removing Kanski meta:', err);
+                    }
+                    // Remove images from IndexedDB
+                    deleteKanskiFromIDB(data.title);
+                }
+
+                kanskiSection.remove();
+            });
+        }
+
+        console.log(`[Kanski] Displayed ${kanskiImages.length} adhered image(s) for "${data.title}"`);
+    });
+}
+
+/* ========================================
+   KANSKI CLINICAL PHOTOS
+   Import images from Kanski PDF and match
+   them to the current infographic topic
+   ======================================== */
+
+function setupKanskiPics() {
+    const kanskiBtn = document.getElementById('kanski-pics-btn');
+    const kanskiInput = document.getElementById('kanski-pdf-input');
+    if (!kanskiBtn || !kanskiInput) return;
+
+    // Session cache: PDF doc and page texts
+    let kanskiPdfDoc = null;
+    let kanskiPageTexts = []; // [{pageNum, text}]
+    let kanskiFileName = '';
+    let kanskiAutoMode = false; // Whether auto mode is enabled
+
+    // ═══════════════════════════════════════════════════════════════
+    // IndexedDB cache — stores page text index AND PDF binary
+    // so the user only needs to select the file ONCE ever.
+    // ═══════════════════════════════════════════════════════════════
+    const KANSKI_INDEX_DB = 'KanskiIndexDB';
+    const KANSKI_INDEX_VERSION = 3; // Bumped to add fileHandles store
+    const KANSKI_UPLOADED_FLAG = 'kanski_pdf_uploaded_v2'; // localStorage flag
+
+    function openKanskiIndexDB() {
+        return new Promise((resolve, reject) => {
+            const req = indexedDB.open(KANSKI_INDEX_DB, KANSKI_INDEX_VERSION);
+            req.onupgradeneeded = (e) => {
+                const db = e.target.result;
+                if (!db.objectStoreNames.contains('pageTexts')) {
+                    db.createObjectStore('pageTexts', { keyPath: 'id' });
+                }
+                if (!db.objectStoreNames.contains('pdfData')) {
+                    db.createObjectStore('pdfData', { keyPath: 'id' });
+                }
+                if (!db.objectStoreNames.contains('fileHandles')) {
+                    db.createObjectStore('fileHandles', { keyPath: 'id' });
+                }
+            };
+            req.onsuccess = () => resolve(req.result);
+            req.onerror = () => reject(req.error);
+        });
+    }
+
+    // ── File System Access API helpers (Chromium-only; graceful no-op elsewhere) ──
+    const hasFileSystemAccess = typeof window !== 'undefined'
+        && typeof window.showOpenFilePicker === 'function';
+
+    async function saveKanskiFileHandle(handle) {
+        if (!handle) return;
+        try {
+            const db = await openKanskiIndexDB();
+            const tx = db.transaction('fileHandles', 'readwrite');
+            tx.objectStore('fileHandles').put({ id: 'kanski_pdf_handle', handle, savedAt: Date.now() });
+            await new Promise(r => { tx.oncomplete = r; });
+            db.close();
+            console.log('[Kanski] File handle persisted — next session will auto-reopen.');
+        } catch (err) { console.warn('[Kanski] Failed to save file handle:', err); }
+    }
+
+    async function loadKanskiFileHandle() {
+        try {
+            const db = await openKanskiIndexDB();
+            const tx = db.transaction('fileHandles', 'readonly');
+            const result = await new Promise((resolve, reject) => {
+                const req = tx.objectStore('fileHandles').get('kanski_pdf_handle');
+                req.onsuccess = () => resolve(req.result);
+                req.onerror = () => reject(req.error);
+            });
+            db.close();
+            return result ? result.handle : null;
+        } catch (err) { return null; }
+    }
+
+    async function tryReopenFromHandle(handle) {
+        if (!handle || typeof handle.queryPermission !== 'function') return null;
+        try {
+            let perm = await handle.queryPermission({ mode: 'read' });
+            if (perm === 'prompt') {
+                perm = await handle.requestPermission({ mode: 'read' });
+            }
+            if (perm !== 'granted') return null;
+            const file = await handle.getFile();
+            return await file.arrayBuffer();
+        } catch (err) {
+            console.warn('[Kanski] Handle reopen failed:', err);
+            return null;
+        }
+    }
+
+    async function saveCachedIndex(pageTexts) {
+        try {
+            const db = await openKanskiIndexDB();
+            const tx = db.transaction('pageTexts', 'readwrite');
+            tx.objectStore('pageTexts').put({ id: 'kanski_index', pages: pageTexts, savedAt: Date.now() });
+            await new Promise(r => { tx.oncomplete = r; });
+            db.close();
+            console.log('[Kanski] Page index cached in IndexedDB');
+        } catch (err) { console.warn('[Kanski] Failed to cache index:', err); }
+    }
+
+    async function loadCachedIndex() {
+        try {
+            const db = await openKanskiIndexDB();
+            const tx = db.transaction('pageTexts', 'readonly');
+            const result = await new Promise((resolve, reject) => {
+                const req = tx.objectStore('pageTexts').get('kanski_index');
+                req.onsuccess = () => resolve(req.result);
+                req.onerror = () => reject(req.error);
+            });
+            db.close();
+            if (result && result.pages && result.pages.length > 0) {
+                return result.pages;
+            }
+        } catch (err) { console.warn('[Kanski] No cached index:', err); }
+        return null;
+    }
+
+    async function saveCachedPdf(arrayBuffer) {
+        // Returns { ok: boolean, reason?: string } so callers can react
+        try {
+            // Try to persist storage so the browser is less likely to evict us
+            if (navigator.storage && navigator.storage.persist) {
+                try { await navigator.storage.persist(); } catch {}
+            }
+
+            // Check quota up-front so we fail fast on Safari/small-quota browsers
+            if (navigator.storage && navigator.storage.estimate) {
+                try {
+                    const est = await navigator.storage.estimate();
+                    const free = (est.quota || 0) - (est.usage || 0);
+                    if (est.quota && free < arrayBuffer.byteLength * 1.2) {
+                        console.warn(`[Kanski] Storage quota too small: ${(free/1048576).toFixed(0)} MB free, need ${(arrayBuffer.byteLength*1.2/1048576).toFixed(0)} MB.`);
+                        return { ok: false, reason: 'quota' };
+                    }
+                } catch {}
+            }
+
+            const db = await openKanskiIndexDB();
+
+            // Store as a Blob — lower memory pressure than a raw ArrayBuffer structured-clone on Safari
+            const blob = new Blob([arrayBuffer], { type: 'application/pdf' });
+            const tx = db.transaction('pdfData', 'readwrite');
+            const store = tx.objectStore('pdfData');
+            store.put({ id: 'kanski_pdf', data: blob, savedAt: Date.now(), size: arrayBuffer.byteLength });
+            await new Promise((resolve, reject) => {
+                tx.oncomplete = () => resolve();
+                tx.onerror = () => reject(tx.error || new Error('Transaction error'));
+                tx.onabort = () => reject(tx.error || new Error('Transaction aborted'));
+            });
+
+            // Verify by reading back the record size
+            const verifyTx = db.transaction('pdfData', 'readonly');
+            const verified = await new Promise((resolve) => {
+                const req = verifyTx.objectStore('pdfData').get('kanski_pdf');
+                req.onsuccess = () => resolve(req.result);
+                req.onerror = () => resolve(null);
+            });
+            db.close();
+
+            if (!verified || !verified.data || verified.size !== arrayBuffer.byteLength) {
+                console.warn('[Kanski] Cache write verification failed.');
+                return { ok: false, reason: 'verification_failed' };
+            }
+            console.log(`[Kanski] PDF binary cached in IndexedDB (${(arrayBuffer.byteLength / 1048576).toFixed(1)} MB).`);
+            return { ok: true };
+        } catch (err) {
+            const quota = err && (err.name === 'QuotaExceededError' || String(err).includes('quota'));
+            console.warn('[Kanski] Failed to cache PDF:', err);
+            return { ok: false, reason: quota ? 'quota' : (err?.name || 'unknown') };
+        }
+    }
+
+    async function loadCachedPdf() {
+        try {
+            const db = await openKanskiIndexDB();
+            const tx = db.transaction('pdfData', 'readonly');
+            const result = await new Promise((resolve, reject) => {
+                const req = tx.objectStore('pdfData').get('kanski_pdf');
+                req.onsuccess = () => resolve(req.result);
+                req.onerror = () => reject(req.error);
+            });
+            db.close();
+            if (result && result.data) {
+                console.log('[Kanski] Loaded cached PDF from IndexedDB');
+                // Support both legacy ArrayBuffer records and new Blob records
+                if (result.data instanceof Blob) {
+                    return await result.data.arrayBuffer();
+                }
+                return result.data;
+            }
+        } catch (err) { console.warn('[Kanski] No cached PDF:', err); }
+        return null;
+    }
+
+    // Helper: Load PDF doc from ArrayBuffer
+    async function loadPdfFromBuffer(arrayBuffer) {
+        if (typeof pdfjsLib === 'undefined') {
+            throw new Error('PDF.js library not loaded. Please refresh the page.');
+        }
+        return await pdfjsLib.getDocument({ data: new Uint8Array(arrayBuffer) }).promise;
+    }
+
+    // Helper: Index all pages of a loaded PDF doc
+    async function indexPdfPages(pdfDoc) {
+        const texts = [];
+        const totalPages = pdfDoc.numPages;
+        for (let i = 1; i <= totalPages; i++) {
+            try {
+                const page = await pdfDoc.getPage(i);
+                const textContent = await page.getTextContent();
+                const text = textContent.items.map(item => item.str).join(' ');
+                texts.push({ pageNum: i, text: text.toLowerCase() });
+            } catch {
+                texts.push({ pageNum: i, text: '' });
+            }
+            if (i % 50 === 0) {
+                const label = kanskiBtn.querySelector('.tool-label');
+                if (label) label.textContent = `Indexing ${i}/${totalPages}...`;
+            }
+        }
+        return texts;
+    }
+
+    // Main: Ensure PDF doc and page texts are ready
+    async function ensureKanskiReady() {
+        // 1. Already loaded this session
+        if (kanskiPdfDoc && kanskiPageTexts.length > 0) return true;
+
+        kanskiBtn.disabled = true;
+        const originalHTML = kanskiBtn.innerHTML;
+        kanskiBtn.innerHTML = '<span class="material-symbols-rounded">hourglass_top</span><span class="tool-label">Loading...</span>';
+
+        try {
+            // 2a. Preferred path (Chromium): reopen via stored File System Access handle.
+            if (!kanskiPdfDoc && hasFileSystemAccess) {
+                const handle = await loadKanskiFileHandle();
+                if (handle) {
+                    kanskiBtn.querySelector('.tool-label').textContent = 'Reopening Kanski PDF...';
+                    const buf = await tryReopenFromHandle(handle);
+                    if (buf) {
+                        kanskiPdfDoc = await loadPdfFromBuffer(buf);
+                        kanskiFileName = handle.name || 'Kanski (linked file)';
+                        console.log('[Kanski] Reopened from persisted file handle.');
+                    }
+                }
+            }
+
+            // 2b. Try cached PDF binary from IndexedDB
+            if (!kanskiPdfDoc) {
+                const cachedPdf = await loadCachedPdf();
+                if (cachedPdf) {
+                    kanskiBtn.querySelector('.tool-label').textContent = 'Opening cached PDF...';
+                    kanskiPdfDoc = await loadPdfFromBuffer(cachedPdf);
+                    kanskiFileName = 'Kanski (cached)';
+                }
+            }
+
+            // 3. Try cached page text index
+            if (kanskiPageTexts.length === 0) {
+                const cachedIndex = await loadCachedIndex();
+                if (cachedIndex && cachedIndex.length > 0) {
+                    kanskiPageTexts = cachedIndex;
+                    console.log(`[Kanski] Using cached page index (${cachedIndex.length} pages)`);
+                }
+            }
+
+            // 4. If we have PDF doc but no index, build the index
+            if (kanskiPdfDoc && kanskiPageTexts.length === 0) {
+                kanskiBtn.querySelector('.tool-label').textContent = 'Indexing pages...';
+                kanskiPageTexts = await indexPdfPages(kanskiPdfDoc);
+                await saveCachedIndex(kanskiPageTexts);
+            }
+
+            // 5. If still no PDF doc, need user to pick the file
+            if (!kanskiPdfDoc) {
+                kanskiBtn.disabled = false;
+                kanskiBtn.innerHTML = originalHTML;
+                return false; // Signal that we need file input
+            }
+
+            kanskiBtn.disabled = false;
+            kanskiBtn.innerHTML = originalHTML;
+            updateKanskiReadyIndicator();
+            return true;
+
+        } catch (err) {
+            console.error('[Kanski] Setup error:', err);
+            alert('Error loading Kanski PDF: ' + err.message);
+            kanskiBtn.disabled = false;
+            kanskiBtn.innerHTML = originalHTML;
+            return false;
+        }
+    }
+
+    // Small visual indicator on the Kanski button when the PDF is ready this session
+    function updateKanskiReadyIndicator() {
+        try {
+            const ready = !!kanskiPdfDoc;
+            let dot = kanskiBtn.querySelector('.kanski-ready-dot');
+            if (ready && !dot) {
+                dot = document.createElement('span');
+                dot.className = 'kanski-ready-dot';
+                dot.title = `Kanski PDF ready: ${kanskiFileName}`;
+                dot.style.cssText = 'position:absolute;top:6px;right:6px;width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 0 2px white, 0 0 6px rgba(16,185,129,0.7);pointer-events:none;';
+                kanskiBtn.style.position = 'relative';
+                kanskiBtn.appendChild(dot);
+            } else if (!ready && dot) {
+                dot.remove();
+            }
+        } catch {}
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    // Button click — Auto vs Manual, with seamless caching
+    // ═══════════════════════════════════════════════════════════════
+    // Helper: prompt for Auto/Manual mode and run
+    async function promptAndRunKanskiMode() {
+        const useAuto = confirm(
+            'Kanski Clinical Photos\n\n' +
+            'Choose a mode:\n\n' +
+            '  OK  =  AUTO MODE\n' +
+            '  Auto-select & insert best matching images\n\n' +
+            '  Cancel  =  MANUAL MODE\n' +
+            '  Preview all matches, pick which to insert'
+        );
+        kanskiAutoMode = useAuto;
+        if (useAuto) {
+            await autoMatchAndInsert();
+        } else {
+            await matchAndDisplayKanskiPages();
+        }
+    }
+
+    function showKanskiToast(message, color = '#1e293b') {
+        const toast = document.createElement('div');
+        toast.textContent = message;
+        toast.style.cssText = `position:fixed;top:20px;left:50%;transform:translateX(-50%);background:${color};color:#f1f5f9;padding:14px 28px;border-radius:12px;z-index:100000;font-size:0.95rem;box-shadow:0 8px 32px rgba(0,0,0,0.3);max-width:90vw;text-align:center;`;
+        document.body.appendChild(toast);
+        setTimeout(() => {
+            toast.style.transition = 'opacity 0.5s';
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 500);
+        }, 4000);
+        return toast;
+    }
+
+    // Compose the message based on whether we've seen an upload before
+    function kanskiPromptMessage() {
+        const uploadedBefore = localStorage.getItem(KANSKI_UPLOADED_FLAG) === 'true';
+        const hasIndex = kanskiPageTexts.length > 0;
+        if (uploadedBefore && hasIndex) {
+            return '🔗 Reconnect your Kanski PDF (your browser cleared the cached file — the index is still here).';
+        }
+        if (uploadedBefore) {
+            return '🔗 Reconnect your Kanski PDF (cache was cleared by the browser).';
+        }
+        return 'Please select the Kanski PDF file — you only need to do this once.';
+    }
+
+    // Unified picker: use File System Access API on Chromium, fall back to <input type=file>
+    async function pickKanskiFile() {
+        if (hasFileSystemAccess) {
+            try {
+                const [handle] = await window.showOpenFilePicker({
+                    types: [{ description: 'PDF', accept: { 'application/pdf': ['.pdf'] } }],
+                    multiple: false,
+                });
+                if (!handle) return null;
+                const file = await handle.getFile();
+                return { file, handle };
+            } catch (err) {
+                // User cancelled or API not allowed — fall back to <input>
+                if (err && err.name !== 'AbortError') {
+                    console.warn('[Kanski] showOpenFilePicker failed, falling back:', err);
+                }
+                return null;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * CRITICAL: the click handler MUST invoke the file picker SYNCHRONOUSLY
+     * (no `await` before the picker) — otherwise Safari/Chrome/Firefox all
+     * treat the user gesture as expired and silently refuse to open a file
+     * dialog. The page-load IIFE pre-warms `kanskiPdfDoc` from cache, so by
+     * the time the user clicks we already know if we can skip the picker.
+     */
+    /**
+     * Open the File System Access picker, preserving the user gesture.
+     * IMPORTANT: this must be called WITHOUT `await` in front of it so the
+     * showOpenFilePicker() call itself runs in the same synchronous task
+     * as the click event. Handling is chained via .then().
+     */
+    function openModernPicker() {
+        window.showOpenFilePicker({
+            types: [{ description: 'PDF Document', accept: { 'application/pdf': ['.pdf'] } }],
+            multiple: false,
+            excludeAcceptAllOption: false
+        }).then(async ([handle]) => {
+            if (!handle) return;
+            const file = await handle.getFile();
+            await handleKanskiFileLoad(file, handle);
+        }).catch((err) => {
+            if (err && err.name === 'AbortError') return; // user cancelled
+            console.warn('[Kanski] showOpenFilePicker failed:', err);
+            showKanskiToast('File picker failed — please click "Kanski Pics" again.', '#7c2d12');
+        });
+    }
+
+    kanskiBtn.addEventListener('click', () => {
+        if (!currentInfographicData) {
+            alert('Please generate or load an infographic first, then use Kanski Pics to find matching clinical photos.');
+            return;
+        }
+
+        // ── FAST PATH: PDF already loaded this session ──
+        if (kanskiPdfDoc && kanskiPageTexts.length > 0) {
+            promptAndRunKanskiMode();
+            return;
+        }
+
+        // ── SLOW PATH: need a file. Open the picker synchronously. ──
+        // Do NOT `await` anything before opening the picker — doing so
+        // expires the user-gesture flag and the dialog silently refuses to open.
+        showKanskiToast(kanskiPromptMessage());
+
+        if (hasFileSystemAccess) {
+            // First try to reopen from a persisted file handle (returning users).
+            // We run the IDB read + permission request inside microtasks, which
+            // preserve transient user activation long enough for requestPermission().
+            loadKanskiFileHandle().then((handle) => {
+                if (!handle || typeof handle.requestPermission !== 'function') {
+                    openModernPicker();
+                    return;
+                }
+                return handle.requestPermission({ mode: 'read' }).then(async (perm) => {
+                    if (perm !== 'granted') {
+                        openModernPicker();
+                        return;
+                    }
+                    try {
+                        const file = await handle.getFile();
+                        await handleKanskiFileLoad(file, handle);
+                    } catch (err) {
+                        console.warn('[Kanski] Handle reopen failed, falling back to picker:', err);
+                        openModernPicker();
+                    }
+                });
+            }).catch(() => openModernPicker());
+        } else {
+            // Safari / Firefox / mobile: classic <input type=file> in the same gesture.
+            kanskiInput.click();
+        }
+    });
+
+    async function handleKanskiFileLoad(file, fileHandle = null, opts = {}) {
+        if (!file) { kanskiAutoMode = false; return; }
+
+        if (!file.name.toLowerCase().endsWith('.pdf')) {
+            alert('Please select a PDF file.');
+            kanskiAutoMode = false;
+            return;
+        }
+
+        kanskiFileName = file.name;
+
+        kanskiBtn.disabled = true;
+        const originalHTML = kanskiBtn.innerHTML;
+        kanskiBtn.innerHTML = '<span class="material-symbols-rounded">hourglass_top</span><span class="tool-label">Loading PDF...</span>';
+
+        try {
+            const arrayBuffer = await file.arrayBuffer();
+
+            // Detect mobile to skip heavy operations
+            const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+                || ('ontouchstart' in window && window.innerWidth < 1024);
+
+            // Persist handle first — lightweight and guarantees next-session auto-reopen on Chromium
+            if (fileHandle) {
+                await saveKanskiFileHandle(fileHandle);
+            }
+
+            // Cache the PDF binary for future sessions (skip on mobile to avoid memory crash)
+            let cacheResult = { ok: false, reason: 'skipped' };
+            if (!isMobileDevice) {
+                kanskiBtn.querySelector('.tool-label').textContent = 'Caching PDF...';
+                cacheResult = await saveCachedPdf(arrayBuffer);
+            }
+
+            // Remember the upload regardless of cache success — so re-prompt messaging is accurate
+            try { localStorage.setItem(KANSKI_UPLOADED_FLAG, 'true'); } catch {}
+
+            // Load the PDF document
+            kanskiPdfDoc = await loadPdfFromBuffer(arrayBuffer);
+
+            // Index pages if not already cached
+            if (kanskiPageTexts.length === 0) {
+                kanskiBtn.querySelector('.tool-label').textContent = 'Indexing pages...';
+                kanskiPageTexts = await indexPdfPages(kanskiPdfDoc);
+                await saveCachedIndex(kanskiPageTexts);
+            }
+
+            console.log(`[Kanski] Ready: ${kanskiPageTexts.length} pages from "${kanskiFileName}"`);
+
+            // Inform user about persistence outcome (once, quickly)
+            if (!isMobileDevice) {
+                if (cacheResult.ok) {
+                    showKanskiToast(`✓ Kanski PDF cached — you won't be asked again.`, '#065f46');
+                } else if (fileHandle) {
+                    showKanskiToast(`✓ Kanski PDF linked — next session reopens it with one click.`, '#065f46');
+                } else if (cacheResult.reason === 'quota') {
+                    showKanskiToast(`PDF too large to cache in this browser. Use Chrome/Edge for one-click reopen.`, '#7c2d12');
+                }
+            }
+
+            updateKanskiReadyIndicator();
+
+            // Ask Auto/Manual mode now that PDF is ready, unless caller asked to skip it
+            if (!opts.silent) {
+                await promptAndRunKanskiMode();
+            }
+
+        } catch (err) {
+            console.error('Kanski PDF error:', err);
+            alert('Error loading PDF: ' + err.message);
+        } finally {
+            kanskiBtn.disabled = false;
+            kanskiBtn.innerHTML = originalHTML;
+            kanskiInput.value = '';
+            kanskiAutoMode = false;
+        }
+    }
+
+    kanskiInput.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) { kanskiAutoMode = false; return; }
+        await handleKanskiFileLoad(file, null);
+    });
+
+    // On page load, try reopening silently from persistent handle/cache so the ready-dot appears.
+    (async () => {
+        try {
+            if (hasFileSystemAccess) {
+                const handle = await loadKanskiFileHandle();
+                if (handle && typeof handle.queryPermission === 'function') {
+                    const perm = await handle.queryPermission({ mode: 'read' });
+                    if (perm === 'granted') {
+                        const buf = await tryReopenFromHandle(handle);
+                        if (buf) {
+                            kanskiPdfDoc = await loadPdfFromBuffer(buf);
+                            kanskiFileName = handle.name || 'Kanski (linked file)';
+                        }
+                    }
+                }
+            }
+            if (!kanskiPdfDoc) {
+                const cachedPdf = await loadCachedPdf();
+                if (cachedPdf) {
+                    kanskiPdfDoc = await loadPdfFromBuffer(cachedPdf);
+                    kanskiFileName = 'Kanski (cached)';
+                }
+            }
+            if (kanskiPageTexts.length === 0) {
+                const cachedIndex = await loadCachedIndex();
+                if (cachedIndex && cachedIndex.length > 0) kanskiPageTexts = cachedIndex;
+            }
+            if (kanskiPdfDoc) updateKanskiReadyIndicator();
+        } catch {}
+    })();
+
+    // ═══════════════════════════════════════════════════════════════
+    // PAGE SCORING — shared by auto, manual, backfill, and auto-attach
+    // Applies: on-topic gate, weighted keyword counts, figure/caption
+    // boost, off-topic noise penalty, and page-diversity spreading.
+    // ═══════════════════════════════════════════════════════════════
+    const FIGURE_HINT_PATTERNS = [
+        /\bfig(?:ure|\.)?\s*\d/i,     // "Fig. 1" / "Figure 12"
+        /\barrow(s)?\b/i,             // "arrow shows..."
+        /\bshown\b/i,
+        /\bappears?\b/i,
+        /\bappearance\b/i,
+        /\bphoto(graph)?\b/i,
+        /\bslit[-\s]?lamp\b/i,
+        /\bfundus\b/i,
+        /\bfunduscop/i,
+        /\bgonioscop/i,
+        /\boct\b/i,
+        /\bangiograph/i,
+        /\bb-scan\b/i
+    ];
+
+    function scoreKanskiPages(weightedKeywords, primaryTopicTerms, options = {}) {
+        const primarySet = new Set(primaryTopicTerms.map(t => t.toLowerCase()));
+        const scored = [];
+
+        for (const { pageNum, text } of kanskiPageTexts) {
+            if (!text || text.length < 50) continue;
+            const textLower = text.toLowerCase();
+
+            // ── Gate: page must contain at least one primary topic term ──
+            let hasPrimary = primaryTopicTerms.length === 0;
+            if (!hasPrimary) {
+                for (const pt of primaryTopicTerms) {
+                    if (textLower.includes(pt.toLowerCase())) { hasPrimary = true; break; }
+                }
+            }
+            if (!hasPrimary) continue;
+
+            // ── Weighted keyword counting ──
+            let score = 0, primaryHits = 0;
+            const matchedKeywords = [];
+            for (const { term, weight } of weightedKeywords) {
+                const kwLower = term.toLowerCase();
+                const escaped = kwLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = kwLower.length < 5
+                    ? new RegExp(`\\b${escaped}\\b`, 'gi')
+                    : new RegExp(`\\b${escaped}`, 'gi');
+                const matches = text.match(regex);
+                if (matches) {
+                    score += matches.length * weight;
+                    if (weight >= 20) primaryHits += matches.length;
+                    if (!matchedKeywords.includes(term)) matchedKeywords.push(term);
+                }
+            }
+            if (score === 0) continue;
+
+            // ── Figure/caption boost: pages that LOOK like image pages get a bump ──
+            let figureBoost = 0;
+            for (const pat of FIGURE_HINT_PATTERNS) {
+                if (pat.test(text)) figureBoost += 15;
+            }
+            // Cap the boost so short-text figure pages don't drown out real content pages
+            if (figureBoost > 60) figureBoost = 60;
+            score += figureBoost;
+
+            // ── Short-text (image-heavy) pages get a small bump proportional to primary hits ──
+            if (text.length < 600 && primaryHits > 0) {
+                score += 20 + primaryHits * 5;
+            }
+
+            // ── Proximity bonus: primary topic mentioned near a figure keyword ──
+            if (primaryHits > 0) {
+                for (const pt of primarySet) {
+                    const idx = textLower.indexOf(pt);
+                    if (idx === -1) continue;
+                    const window = textLower.slice(Math.max(0, idx - 80), idx + 80);
+                    if (/\bfig(?:ure|\.)?\s*\d/.test(window) || /\barrow/.test(window)) {
+                        score += 25;
+                    }
+                }
+            }
+
+            scored.push({ pageNum, score, primaryHits, matchedKeywords, textLen: text.length, figureBoost });
+        }
+
+        scored.sort((a, b) => (b.primaryHits - a.primaryHits) || (b.score - a.score));
+        return scored;
+    }
+
+    /**
+     * Diversify the top-K: avoid selecting many consecutive pages that are
+     * likely the same topic block (usually the same figure repeated).
+     */
+    function diversifyTopPages(scored, k, { maxPerWindow = 2, windowSize = 4 } = {}) {
+        const picked = [];
+        const used = new Set();
+        for (const entry of scored) {
+            if (picked.length >= k) break;
+            if (used.has(entry.pageNum)) continue;
+            let nearbyCount = 0;
+            for (const p of picked) {
+                if (Math.abs(p.pageNum - entry.pageNum) <= windowSize) nearbyCount++;
+            }
+            if (nearbyCount >= maxPerWindow) continue;
+            picked.push(entry);
+            used.add(entry.pageNum);
+        }
+        // If diversification left us short, fill from the next-best remaining pages
+        if (picked.length < k) {
+            for (const entry of scored) {
+                if (picked.length >= k) break;
+                if (used.has(entry.pageNum)) continue;
+                picked.push(entry);
+                used.add(entry.pageNum);
+            }
+        }
+        return picked;
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    // AUTO MODE — match, render, and insert automatically (no modal)
+    // ═══════════════════════════════════════════════════════════════
+    async function autoMatchAndInsert() {
+        if (!kanskiPdfDoc || !currentInfographicData) return;
+
+        kanskiBtn.disabled = true;
+        const originalHTML = kanskiBtn.innerHTML;
+        kanskiBtn.innerHTML = '<span class="material-symbols-rounded">auto_awesome</span><span class="tool-label">Auto matching...</span>';
+
+        try {
+            const { keywords: weightedKeywords, primaryTopicTerms } = extractInfographicKeywordsWeighted(currentInfographicData);
+            console.log(`[Kanski Auto] Primary topic terms:`, primaryTopicTerms);
+            console.log(`[Kanski Auto] Keywords:`, weightedKeywords.filter(k => k.weight >= 20).map(k => k.term));
+
+            const scoredPages = scoreKanskiPages(weightedKeywords, primaryTopicTerms);
+
+            // Auto-select: take top 10, diversified across the book
+            const topPages = diversifyTopPages(scoredPages, 10, { maxPerWindow: 2, windowSize: 3 });
+
+            if (topPages.length === 0) {
+                alert(`[Auto Mode] No matching pages found for "${currentInfographicData.title}".`);
+                return;
+            }
+
+            kanskiBtn.innerHTML = '<span class="material-symbols-rounded">auto_awesome</span><span class="tool-label">Rendering images...</span>';
+
+            // Render images for top pages
+            const images = [];
+            for (let idx = 0; idx < topPages.length; idx++) {
+                const p = topPages[idx];
+                kanskiBtn.querySelector('.tool-label').textContent = `Rendering ${idx + 1}/${topPages.length}...`;
+                try {
+                    const page = await kanskiPdfDoc.getPage(p.pageNum);
+                    // Lower scale on mobile to prevent memory crash
+                    const isMobileRender = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+                        || ('ontouchstart' in window && window.innerWidth < 1024);
+                    const renderScale = isMobileRender ? 1.0 : 1.5;
+                    const viewport = page.getViewport({ scale: renderScale });
+                    const canvas = document.createElement('canvas');
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    const ctx = canvas.getContext('2d');
+                    await page.render({ canvasContext: ctx, viewport }).promise;
+                    images.push({
+                        pageNum: p.pageNum,
+                        imgUrl: canvas.toDataURL('image/jpeg', 0.85),
+                        keywords: p.matchedKeywords || []
+                    });
+                } catch (err) {
+                    console.warn(`[Kanski Auto] Failed to render page ${p.pageNum}:`, err);
+                }
+            }
+
+            if (images.length > 0) {
+                insertKanskiImages(images);
+            } else {
+                alert('[Auto Mode] Failed to render any matching pages.');
+            }
+
+        } catch (err) {
+            console.error('[Kanski Auto] Error:', err);
+            alert('Auto mode error: ' + err.message);
+        } finally {
+            kanskiBtn.disabled = false;
+            kanskiBtn.innerHTML = originalHTML;
+        }
+    }
+
+    async function matchAndDisplayKanskiPages() {
+        if (!kanskiPdfDoc || !currentInfographicData) return;
+
+        kanskiBtn.disabled = true;
+        const originalHTML = kanskiBtn.innerHTML;
+        kanskiBtn.innerHTML = '<span class="material-symbols-rounded">image_search</span><span class="tool-label">Matching...</span>';
+
+        try {
+            // Extract weighted keywords from the current infographic
+            const { keywords: weightedKeywords, primaryTopicTerms } = extractInfographicKeywordsWeighted(currentInfographicData);
+            console.log(`[Kanski] Primary topic terms:`, primaryTopicTerms);
+            console.log(`[Kanski] Total keywords:`, weightedKeywords.length);
+
+            const scoredPages = scoreKanskiPages(weightedKeywords, primaryTopicTerms);
+            const topPages = diversifyTopPages(scoredPages, 12, { maxPerWindow: 2, windowSize: 3 });
+
+            if (topPages.length === 0) {
+                alert(`No matching pages found in "${kanskiFileName}" for "${currentInfographicData.title}".\n\nTry loading an infographic with more specific ophthalmic content.`);
+                return;
+            }
+
+            console.log(`[Kanski] Found ${scoredPages.length} matching pages, showing top ${topPages.length}`);
+
+            // Render page images and display in a modal
+            await showKanskiModal(topPages);
+
+        } catch (err) {
+            console.error('Kanski matching error:', err);
+            alert('Error matching pages: ' + err.message);
+        } finally {
+            kanskiBtn.disabled = false;
+            kanskiBtn.innerHTML = originalHTML;
+        }
+    }
+
+    /**
+     * Extract keywords from infographic data with WEIGHTS.
+     * Ophthalmic headline topic terms get highest weight (50x),
+     * title medical terms get high weight (20x),
+     * section titles get medium weight (5x),
+     * generic content words get low weight (1x).
+     */
+    function extractInfographicKeywordsWeighted(data) {
+        const weighted = []; // [{term, weight}]
+        const seen = new Set();
+        const primaryTopicTerms = []; // The exact topic name terms for scoping
+
+        const stopWords = new Set([
+            'the', 'and', 'for', 'with', 'from', 'that', 'this', 'are', 'was', 'were',
+            'been', 'has', 'have', 'had', 'not', 'but', 'its', 'can', 'may', 'will',
+            'into', 'all', 'also', 'than', 'more', 'most', 'some', 'such', 'both',
+            'each', 'other', 'one', 'two', 'which', 'their', 'about', 'between',
+            'through', 'during', 'before', 'after', 'above', 'below', 'when', 'where',
+            'what', 'how', 'who', 'whom', 'does', 'did', 'would', 'could', 'should',
+            'being', 'just', 'then', 'still', 'here', 'there', 'very', 'much', 'over',
+            'under', 'only', 'same', 'your', 'they', 'them', 'these', 'those', 'many',
+            'types', 'type', 'causes', 'cause', 'treatment', 'treatments', 'management',
+            'diagnosis', 'clinical', 'features', 'overview', 'introduction', 'summary',
+            'presentation', 'approach', 'review', 'case', 'study', 'comprehensive',
+            'guide', 'complete', 'essential', 'common', 'important', 'key', 'points',
+            'infographic', 'infograph', 'ophthalmic'
+        ]);
+
+        // ═══════════════════════════════════════════════════════
+        // OPHTHALMIC TOPIC DICTIONARY — headline diagnostic terms
+        // Organized by DISEASE CATEGORY so we can scope
+        // keywords to the relevant category only.
+        // ═══════════════════════════════════════════════════════
+        const OPHTHALMIC_TOPIC_CATEGORIES = {
+            'retina_vitreous': [
+                'retinoblastoma', 'retinal detachment', 'retinitis pigmentosa', 'retinopathy',
+                'diabetic retinopathy', 'retinopathy of prematurity', 'rop', 'macular degeneration',
+                'macular hole', 'epiretinal membrane', 'central serous', 'csr', 'cscr',
+                'vein occlusion', 'artery occlusion', 'rvo', 'crvo', 'brvo', 'crao', 'brao',
+                'proliferative vitreoretinopathy', 'pvr', 'vitreous hemorrhage', 'vitrectomy',
+                'scleral buckle', 'pneumatic retinopexy', 'anti-vegf', 'intravitreal',
+                'choroidal neovascularization', 'cnv', 'polypoidal', 'pcv',
+                'coats disease', 'eales disease', 'familial exudative vitreoretinopathy', 'fevr',
+                'stargardt', 'best disease', 'pattern dystrophy', 'choroideremia'
+            ],
+            'glaucoma': [
+                'glaucoma', 'neovascular glaucoma', 'nvg', 'poag', 'pacg', 'angle closure',
+                'normal tension glaucoma', 'ntg', 'trabeculectomy', 'tube shunt', 'ahmed valve',
+                'migs', 'istent', 'xen gel', 'cyclophotocoagulation', 'goniotomy',
+                'pseudoexfoliation', 'pxf', 'pigment dispersion', 'ocular hypertension',
+                'congenital glaucoma', 'buphthalmos', 'iridocorneal endothelial', 'ice syndrome',
+                'primary open angle', 'primary angle closure', 'secondary glaucoma',
+                'steroid glaucoma', 'phacomorphic glaucoma', 'phacolytic glaucoma',
+                'uveitic glaucoma', 'traumatic glaucoma', 'juvenile glaucoma'
+            ],
+            'cornea': [
+                'keratitis', 'keratoconus', 'corneal ulcer', 'corneal dystrophy', 'fuchs',
+                'acanthamoeba', 'herpes simplex keratitis', 'herpetic', 'dendrit',
+                'pterygium', 'pinguecula', 'band keratopathy', 'pellucid',
+                'corneal transplant', 'keratoplasty', 'dsaek', 'dmek', 'dalk',
+                'cross-linking', 'cxl', 'corneal graft', 'graft rejection',
+                'dry eye', 'meibomian', 'blepharitis', 'sjogren',
+                'mooren ulcer', 'terrien', 'salzmann', 'corneal ectasia'
+            ],
+            'uvea': [
+                'uveitis', 'iritis', 'iridocyclitis', 'panuveitis', 'intermediate uveitis',
+                'anterior uveitis', 'posterior uveitis', 'vkh', 'vogt-koyanagi-harada',
+                'behcet', 'sarcoidosis', 'sympathetic ophthalmia', 'birdshot',
+                'toxoplasmosis', 'toxocara', 'cmv retinitis', 'endophthalmitis',
+                'multifocal choroiditis', 'serpiginous', 'white dot syndrome',
+                'acute retinal necrosis', 'arn', 'presumed ocular histoplasmosis', 'pohs',
+                'fuchs heterochromic', 'posner-schlossman', 'hla-b27'
+            ],
+            'lens_cataract': [
+                'cataract', 'phacoemulsification', 'phaco', 'intraocular lens', 'iol',
+                'posterior capsule opacification', 'pco', 'yag capsulotomy',
+                'ectopia lentis', 'subluxation', 'lens dislocation', 'marfan'
+            ],
+            'lids': [
+                'ptosis', 'entropion', 'ectropion', 'trichiasis', 'blepharospasm',
+                'chalazion', 'meibomian cyst', 'hordeolum', 'stye',
+                'basal cell carcinoma', 'bcc', 'squamous cell carcinoma', 'scc',
+                'sebaceous gland carcinoma', 'merkel cell', 'lid retraction',
+                'dermatochalasis', 'blepharoplasty', 'lagophthalmos', 'floppy eyelid'
+            ],
+            'orbit': [
+                'thyroid eye disease', 'ted', 'graves ophthalmopathy', 'proptosis', 'exophthalmos',
+                'orbital cellulitis', 'preseptal cellulitis', 'orbital fracture', 'blow-out',
+                'orbital tumor', 'orbital tumour', 'cavernous hemangioma', 'lymphoma',
+                'optic nerve glioma', 'meningioma', 'rhabdomyosarcoma', 'lacrimal gland tumour',
+                'dacryoadenitis', 'orbital pseudotumor', 'idiopathic orbital inflammation'
+            ],
+            'lacrimal': [
+                'dacryocystitis', 'nasolacrimal duct', 'nld obstruction', 'dacryocystorhinostomy',
+                'dcr', 'lacrimal obstruction', 'epiphora', 'punctal stenosis',
+                'canaliculitis', 'lacrimal sac', 'congenital nld'
+            ],
+            'neuro_ophthalmology': [
+                'optic neuritis', 'papilledema', 'papilloedema', 'optic neuropathy',
+                'optic atrophy', 'ischaemic optic neuropathy', 'aion', 'naion',
+                'nystagmus', 'cranial nerve palsy', 'third nerve palsy', 'sixth nerve palsy',
+                'fourth nerve palsy', 'horner syndrome', 'myasthenia gravis',
+                'internuclear ophthalmoplegia', 'ino', 'anisocoria', 'argyll robertson',
+                'adie pupil', 'marcus gunn', 'relative afferent pupillary defect', 'rapd',
+                'chiasmal', 'hemianopia', 'homonymous', 'bitemporal',
+                'idiopathic intracranial hypertension', 'iih', 'pseudotumor cerebri',
+                'leber hereditary', 'lhon', 'optic disc drusen'
+            ],
+            'strabismus': [
+                'strabismus', 'esotropia', 'exotropia', 'hypertropia', 'amblyopia',
+                'duane syndrome', 'brown syndrome', 'moebius', 'squint',
+                'convergence insufficiency', 'divergence excess', 'accommodative esotropia',
+                'infantile esotropia', 'sensory exotropia', 'consecutive exotropia'
+            ],
+            'paediatric': [
+                'retinopathy of prematurity', 'congenital cataract', 'congenital glaucoma',
+                'persistent fetal vasculature', 'pfv', 'leukocoria', 'aniridia',
+                'microphthalmos', 'coloboma', 'peter anomaly', 'axenfeld-rieger'
+            ],
+            'tumours': [
+                'retinoblastoma', 'uveal melanoma', 'choroidal melanoma', 'iris melanoma',
+                'ciliary body melanoma', 'metastatic', 'choroidal metastasis',
+                'choroidal hemangioma', 'choroidal osteoma', 'nevus', 'naevus',
+                'melanocytoma', 'astrocytic hamartoma', 'lymphoma intraocular'
+            ],
+            'sclera': [
+                'scleritis', 'episcleritis', 'necrotizing scleritis', 'scleromalacia',
+                'posterior scleritis'
+            ],
+            'refractive': [
+                'lasik', 'prk', 'smile', 'refractive surgery', 'myopia', 'hyperopia',
+                'astigmatism', 'presbyopia', 'phakic iol', 'icl'
+            ],
+            'lasers': [
+                'laser photocoagulation', 'panretinal', 'prp', 'yag laser', 'slt',
+                'argon laser', 'diode laser', 'micropulse', 'pascal'
+            ],
+            'investigations': [
+                'oct', 'fluorescein angiography', 'ffa', 'icg', 'indocyanine green',
+                'ultrasound', 'b-scan', 'visual field', 'perimetry', 'humphrey',
+                'goldmann', 'gonioscopy', 'pachymetry', 'topography', 'pentacam',
+                'specular microscopy', 'electrophysiology', 'erg', 'vep',
+                'optical coherence tomography angiography', 'octa'
+            ]
+        };
+
+        // Build flat list for backward compat
+        const OPHTHALMIC_TOPIC_TERMS = Object.values(OPHTHALMIC_TOPIC_CATEGORIES).flat();
+
+        // ═══════════════════════════════════════════════════════
+        // TOPIC SCOPING — identify the primary disease category
+        // from the infographic title so we can penalize off-topic
+        // keywords from other categories.
+        // ═══════════════════════════════════════════════════════
+        const titleLower = (data.title || '').toLowerCase();
+
+        // Find the LONGEST matching ophthalmic term in the title
+        // ("neovascular glaucoma" should match over just "glaucoma")
+        let bestTitleMatch = '';
+        let primaryCategory = null;
+        for (const [category, terms] of Object.entries(OPHTHALMIC_TOPIC_CATEGORIES)) {
+            for (const term of terms) {
+                if (titleLower.includes(term.toLowerCase()) && term.length > bestTitleMatch.length) {
+                    bestTitleMatch = term;
+                    primaryCategory = category;
+                }
+            }
+        }
+
+        // Build the primary topic terms set — the specific disease name(s)
+        // These are used as a GATE: Kanski pages must mention at least one
+        if (bestTitleMatch) {
+            primaryTopicTerms.push(bestTitleMatch);
+            // Also add any abbreviation/alias that shares the same category
+            // and appears in the title
+            const categoryTerms = OPHTHALMIC_TOPIC_CATEGORIES[primaryCategory] || [];
+            for (const t of categoryTerms) {
+                if (t !== bestTitleMatch && titleLower.includes(t.toLowerCase()) && t.length >= 2) {
+                    primaryTopicTerms.push(t);
+                }
+            }
+        }
+
+        console.log(`[Kanski Keywords] Primary topic: "${bestTitleMatch}" (category: ${primaryCategory})`);
+        console.log(`[Kanski Keywords] Topic scope terms:`, primaryTopicTerms);
+
+        function addTerm(term, weight) {
+            const key = term.toLowerCase().trim();
+            if (key.length < 2 || seen.has(key)) return;
+            seen.add(key);
+            weighted.push({ term: key, weight });
+        }
+
+        /**
+         * Check if a term belongs to a DIFFERENT disease category than the primary topic.
+         * Off-topic terms get heavily penalized — they are noise, not signal.
+         */
+        function isOffTopic(term) {
+            if (!primaryCategory) return false; // No topic identified, don't penalize
+            const termLower = term.toLowerCase();
+            // Check if this term is in the primary category
+            const primaryTerms = OPHTHALMIC_TOPIC_CATEGORIES[primaryCategory] || [];
+            if (primaryTerms.some(t => t.toLowerCase() === termLower)) return false;
+            // Check if it's in a different category
+            for (const [cat, terms] of Object.entries(OPHTHALMIC_TOPIC_CATEGORIES)) {
+                if (cat === primaryCategory) continue;
+                if (terms.some(t => t.toLowerCase() === termLower)) return true;
+            }
+            return false;
+        }
+
+        // ── Pass 1: Extract primary topic from title ──
+        // The infographic title is THE most important signal.
+        // Match known ophthalmic terms in the title with weight 50
+        OPHTHALMIC_TOPIC_TERMS.forEach(term => {
+            if (titleLower.includes(term.toLowerCase())) {
+                // Primary topic terms from title get full weight;
+                // other-category terms found in title get reduced weight
+                const off = isOffTopic(term);
+                addTerm(term, off ? 5 : 50);
+            }
+        });
+
+        // Also add the full title as a phrase (weight 30)
+        if (data.title) addTerm(data.title, 30);
+
+        // Add individual title words that are NOT stop words (weight 10 for medical-looking, 3 otherwise)
+        if (data.title) {
+            data.title.split(/[\s,\-:;()/]+/).forEach(w => {
+                const clean = w.replace(/[^a-zA-Z0-9'-]/g, '').toLowerCase();
+                if (clean.length <= 2 || stopWords.has(clean)) return;
+                // Boost words that look medical (long, Latin/Greek-ish)
+                const isMedical = clean.length >= 6 || /itis$|oma$|osis$|emia$|opia$|ectomy$|plasty$|scopy$|pathy$|graft|laser|phaco|uvea|retin|cornea|sclera|iris|pupil|nerve|orbit/.test(clean);
+                addTerm(clean, isMedical ? 20 : 3);
+            });
+        }
+
+        // ── Pass 1b: Summary text ──
+        // Summaries are dense with diagnostic terminology — scan for any known
+        // ophthalmic term and, if on-topic, add it with moderate weight.
+        if (data.summary && typeof data.summary === 'string' && data.summary.length > 10) {
+            const summaryLower = data.summary.toLowerCase();
+            OPHTHALMIC_TOPIC_TERMS.forEach(term => {
+                if (summaryLower.includes(term.toLowerCase())) {
+                    addTerm(term, isOffTopic(term) ? 1 : 12);
+                }
+            });
+            // Also harvest medical-looking words from the summary
+            summaryLower.split(/[\s,.\-:;()/]+/).forEach(w => {
+                const clean = w.replace(/[^a-z0-9'-]/g, '');
+                if (clean.length < 6 || stopWords.has(clean)) return;
+                const isMedical = /itis$|oma$|osis$|emia$|opia$|ectomy$|plasty$|scopy$|pathy$|phoresis$|angio|neuro|retin|cornea|sclera|chorioid|uveit|vitre|macul|foveal|papill|nystag|strabis/.test(clean);
+                if (isMedical) addTerm(clean, 6);
+            });
+        }
+
+        // ── Pass 2: Section titles (weight 5-15, penalized if off-topic) ──
+        if (data.sections && Array.isArray(data.sections)) {
+            data.sections.forEach(s => {
+                if (!s || !s.title) return;
+                const secTitleLower = s.title.toLowerCase();
+
+                // Check for known ophthalmic terms in section titles
+                OPHTHALMIC_TOPIC_TERMS.forEach(term => {
+                    if (secTitleLower.includes(term.toLowerCase())) {
+                        const off = isOffTopic(term);
+                        addTerm(term, off ? 1 : 15); // Heavily penalize off-topic section terms
+                    }
+                });
+
+                // Individual section title words (weight 5)
+                s.title.split(/[\s,\-:;()/]+/).forEach(w => {
+                    const clean = w.replace(/[^a-zA-Z0-9'-]/g, '').toLowerCase();
+                    if (clean.length > 3 && !stopWords.has(clean)) addTerm(clean, 5);
+                });
+            });
+        }
+
+        // ── Pass 3: Section content — only add on-topic terms (weight 1-3) ──
+        if (data.sections && Array.isArray(data.sections)) {
+            data.sections.forEach(s => {
+                if (!s || !s.content) return;
+                let textBlob = '';
+                try {
+                    if (typeof s.content === 'string') textBlob = s.content;
+                    else if (Array.isArray(s.content)) textBlob = s.content.map(c => typeof c === 'string' ? c : (c && c.label ? c.label : '')).join(' ');
+                    else if (typeof s.content === 'object') {
+                        textBlob = Object.values(s.content).map(v => typeof v === 'string' ? v : '').join(' ');
+                    }
+                } catch { /* ignore */ }
+
+                if (textBlob.length > 10) {
+                    const contentLower = textBlob.toLowerCase();
+                    // Only add on-topic ophthalmic terms from content (skip off-topic entirely)
+                    OPHTHALMIC_TOPIC_TERMS.forEach(term => {
+                        if (contentLower.includes(term.toLowerCase())) {
+                            if (!isOffTopic(term)) {
+                                addTerm(term, 3);
+                            }
+                            // Off-topic content terms are completely skipped
+                        }
+                    });
+                }
+            });
+        }
+
+        // ── Pass 4: Chapter category context (weight 8) ──
+        if (data.chapterId && data.chapterId !== 'uncategorized') {
+            const chapter = DEFAULT_CHAPTERS.find(c => c.id === data.chapterId);
+            if (chapter) {
+                // Add the chapter name words
+                chapter.name.split(/[\s&,]+/).forEach(w => {
+                    const clean = w.toLowerCase().trim();
+                    if (clean.length > 2 && !stopWords.has(clean)) addTerm(clean, 8);
+                });
+            }
+        }
+
+        // Sort: highest weight first
+        weighted.sort((a, b) => b.weight - a.weight);
+
+        return { keywords: weighted, primaryTopicTerms };
+    }
+
+    async function showKanskiModal(topPages) {
+        // Create or reuse modal
+        let kModal = document.getElementById('kanski-modal');
+        if (!kModal) {
+            kModal = document.createElement('div');
+            kModal.id = 'kanski-modal';
+            kModal.className = 'modal-overlay';
+            kModal.innerHTML = `
+                <div class="modal-content modal-lg" style="border: 2px solid #0891b2; max-width: 900px;">
+                    <div class="modal-header" style="background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%); color: white;">
+                        <h2 style="display: flex; align-items: center; gap: 8px;">
+                            <span class="material-symbols-rounded">photo_library</span>
+                            Kanski Clinical Photos
+                        </h2>
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <button id="kanski-insert-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600;" title="Insert selected images into infographic">
+                                <span class="material-symbols-rounded" style="font-size: 1.1rem;">add_photo_alternate</span>
+                                Insert into Infographic
+                            </button>
+                            <button id="close-kanski-modal" class="icon-btn-ghost" style="color: white;">
+                                <span class="material-symbols-rounded">close</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-body" id="kanski-modal-body" style="max-height: 75vh; overflow-y: auto; padding: 1rem;">
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(kModal);
+
+            kModal.querySelector('#close-kanski-modal').addEventListener('click', () => {
+                kModal.classList.remove('active');
+            });
+            kModal.addEventListener('click', (e) => {
+                if (e.target === kModal) kModal.classList.remove('active');
+            });
+        }
+
+        const body = kModal.querySelector('#kanski-modal-body');
+        body.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap;">
+                <p style="margin: 0; color: #0e7490; font-weight: 600;">
+                    <span class="material-symbols-rounded" style="font-size: 1rem; vertical-align: middle;">menu_book</span>
+                    ${topPages.length} relevant page(s) found for "${currentInfographicData.title}"
+                </p>
+                <span style="font-size: 0.8rem; color: #64748b;">Click images to select, then insert into infographic</span>
+            </div>
+            <div id="kanski-images-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
+                ${topPages.map((p, idx) => `
+                    <div class="kanski-page-card" data-page="${p.pageNum}" data-index="${idx}"
+                        style="border: 2px solid #e2e8f0; border-radius: 8px; overflow: hidden; cursor: pointer; transition: all 0.2s; position: relative;">
+                        <div class="kanski-img-container" style="background: #f1f5f9; display: flex; align-items: center; justify-content: center; min-height: 200px;">
+                            <div class="kanski-loading" style="text-align: center; color: #94a3b8;">
+                                <span class="material-symbols-rounded" style="font-size: 2rem; animation: spin 1s linear infinite;">progress_activity</span>
+                                <p style="font-size: 0.8rem; margin: 4px 0 0;">Rendering p.${p.pageNum}...</p>
+                            </div>
+                        </div>
+                        <div style="padding: 0.5rem 0.75rem; background: white; border-top: 1px solid #e2e8f0;">
+                            <div style="font-size: 0.8rem; font-weight: 600; color: #0e7490;">Page ${p.pageNum}</div>
+                            <div style="font-size: 0.7rem; color: #64748b; margin-top: 2px;">
+                                Score: ${p.score} · Keywords: ${p.matchedKeywords.slice(0, 3).join(', ')}
+                            </div>
+                        </div>
+                        <div class="kanski-selected-badge" style="display: none; position: absolute; top: 8px; right: 8px; background: #0891b2; color: white; width: 28px; height: 28px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+                            <span class="material-symbols-rounded" style="font-size: 1.2rem;">check</span>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+
+        // Add spin animation if not exists
+        if (!document.getElementById('kanski-spin-style')) {
+            const style = document.createElement('style');
+            style.id = 'kanski-spin-style';
+            style.textContent = `@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`;
+            document.head.appendChild(style);
+        }
+
+        kModal.classList.add('active');
+
+        // Render page images asynchronously
+        const selectedPages = new Set();
+
+        for (const p of topPages) {
+            try {
+                const page = await kanskiPdfDoc.getPage(p.pageNum);
+                // Lower scale on mobile to prevent memory crash
+                const isMobileRender = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+                    || ('ontouchstart' in window && window.innerWidth < 1024);
+                const renderScale = isMobileRender ? 1.0 : 1.5;
+                const viewport = page.getViewport({ scale: renderScale });
+                const canvas = document.createElement('canvas');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                const ctx = canvas.getContext('2d');
+                await page.render({ canvasContext: ctx, viewport }).promise;
+
+                // Convert to image
+                const imgUrl = canvas.toDataURL('image/jpeg', 0.85);
+                const card = body.querySelector(`.kanski-page-card[data-page="${p.pageNum}"]`);
+                if (card) {
+                    const container = card.querySelector('.kanski-img-container');
+                    container.innerHTML = `<img src="${imgUrl}" style="width: 100%; display: block;" alt="Kanski p.${p.pageNum}">`;
+                    card.dataset.imgUrl = imgUrl;
+                }
+            } catch (err) {
+                console.warn(`Failed to render page ${p.pageNum}:`, err);
+                const card = body.querySelector(`.kanski-page-card[data-page="${p.pageNum}"]`);
+                if (card) {
+                    card.querySelector('.kanski-img-container').innerHTML = `<div style="padding: 2rem; text-align: center; color: #ef4444;"><span class="material-symbols-rounded">error</span><p>Failed to render</p></div>`;
+                }
+            }
+        }
+
+        // Selection toggle on card click
+        body.querySelectorAll('.kanski-page-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const pageNum = parseInt(card.dataset.page);
+                const badge = card.querySelector('.kanski-selected-badge');
+                if (selectedPages.has(pageNum)) {
+                    selectedPages.delete(pageNum);
+                    card.style.borderColor = '#e2e8f0';
+                    card.style.boxShadow = '';
+                    if (badge) badge.style.display = 'none';
+                } else {
+                    selectedPages.add(pageNum);
+                    card.style.borderColor = '#0891b2';
+                    card.style.boxShadow = '0 0 0 3px rgba(8, 145, 178, 0.3)';
+                    if (badge) badge.style.display = 'flex';
+                }
+            });
+        });
+
+        // Insert into infographic button
+        const insertBtn = kModal.querySelector('#kanski-insert-btn');
+        insertBtn.onclick = () => {
+            if (selectedPages.size === 0) {
+                // If none selected, insert all
+                if (!confirm(`No images selected. Insert all ${topPages.length} images into the infographic?`)) return;
+                topPages.forEach(p => selectedPages.add(p.pageNum));
+            }
+
+            // Collect selected images
+            const images = [];
+            body.querySelectorAll('.kanski-page-card').forEach(card => {
+                const pageNum = parseInt(card.dataset.page);
+                if (selectedPages.has(pageNum) && card.dataset.imgUrl) {
+                    images.push({
+                        pageNum,
+                        imgUrl: card.dataset.imgUrl,
+                        keywords: topPages.find(p => p.pageNum === pageNum)?.matchedKeywords || []
+                    });
+                }
+            });
+
+            if (images.length === 0) {
+                alert('No rendered images available to insert.');
+                return;
+            }
+
+            // Insert images into the currently rendered infographic
+            insertKanskiImages(images);
+            kModal.classList.remove('active');
+        };
+    }
+
+    function insertKanskiImages(images) {
+        const posterGrid = document.querySelector('.poster-grid');
+        if (!posterGrid) {
+            alert('No infographic is currently displayed. Please load one first.');
+            return;
+        }
+
+        // Remove any existing Kanski section first
+        const existingSection = posterGrid.querySelector('#kanski-images-section');
+        if (existingSection) existingSection.remove();
+
+        // Create a Kanski images section card
+        const kanskiSection = document.createElement('div');
+        kanskiSection.id = 'kanski-images-section';
+        kanskiSection.className = 'poster-card card-key_point col-span-2 theme-blue';
+        kanskiSection.style.cssText = 'animation-delay: 0ms;';
+
+        // Check if already adhered for this infographic
+        const isAlreadyAdhered = isKanskiAdhered();
+
+        kanskiSection.innerHTML = `
+            <h3 class="card-title" style="color: #0e7490;">
+                <div class="icon-box" style="background: linear-gradient(135deg, #0891b2, #0e7490);"><span class="material-symbols-rounded">photo_library</span></div>
+                Kanski Clinical Photos
+                <span style="font-size: 0.75rem; font-weight: 400; color: #64748b; margin-left: auto;">
+                    ${images.length} image(s)
+                </span>
+            </h3>
+            <div style="display: flex; gap: 0.5rem; margin: 0.5rem 0; flex-wrap: wrap;">
+                <button id="kanski-adhere-btn" class="btn-small" title="Save permanently with this infographic"
+                    style="display: flex; align-items: center; gap: 4px; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 0.8rem;
+                    background: ${isAlreadyAdhered ? '#d1fae5' : 'linear-gradient(135deg, #059669, #047857)'}; 
+                    color: ${isAlreadyAdhered ? '#047857' : 'white'}; 
+                    border: ${isAlreadyAdhered ? '1px solid #6ee7b7' : 'none'}; cursor: pointer; transition: all 0.2s;">
+                    <span class="material-symbols-rounded" style="font-size: 1rem;">${isAlreadyAdhered ? 'check_circle' : 'push_pin'}</span>
+                    ${isAlreadyAdhered ? 'Adhered' : 'Adhere'}
+                </button>
+                <button id="kanski-remove-btn" class="btn-small" title="Remove Kanski images from this infographic"
+                    style="display: flex; align-items: center; gap: 4px; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 0.8rem;
+                    background: linear-gradient(135deg, #ef4444, #dc2626); color: white; border: none; cursor: pointer; transition: all 0.2s;">
+                    <span class="material-symbols-rounded" style="font-size: 1rem;">delete</span>
+                    Remove
+                </button>
+            </div>
+            <div class="kanski-images-display" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.75rem; margin-top: 0.5rem;">
+                ${images.map(img => `
+                    <div style="border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; background: white;">
+                        <img src="${img.imgUrl}" class="kanski-img-toggle"
+                            alt="Kanski p.${img.pageNum}" 
+                            title="Click to expand/collapse">
+                        <div style="padding: 4px 8px; font-size: 0.7rem; color: #64748b; background: #f8fafc; border-top: 1px solid #e2e8f0;">
+                            <strong>p.${img.pageNum}</strong> · ${img.keywords.slice(0, 3).join(', ')}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+
+        // Insert at the end of the poster grid
+        posterGrid.appendChild(kanskiSection);
+
+        // ── Adhere button: save images to IndexedDB, meta to localStorage ──
+        const adhereBtn = kanskiSection.querySelector('#kanski-adhere-btn');
+        adhereBtn.addEventListener('click', async () => {
+            if (!currentInfographicData) {
+                alert('No infographic loaded.');
+                return;
+            }
+
+            // Find the matching library item
+            const library = getLibraryCache();
+            const item = library.find(i => i.title === currentInfographicData.title);
+            if (!item) {
+                alert('This infographic is not saved in your library. Save it first, then adhere Kanski images.');
+                return;
+            }
+
+            adhereBtn.disabled = true;
+            adhereBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1rem;">hourglass_top</span> Saving...';
+
+            // Store actual image data in IndexedDB (no size limit)
+            const idbImages = images.map(img => ({
+                pageNum: img.pageNum,
+                imgUrl: img.imgUrl,
+                keywords: img.keywords.slice(0, 5)
+            }));
+            const saved = await saveKanskiToIDB(currentInfographicData.title, idbImages);
+
+            if (!saved) {
+                alert('Failed to save Kanski images. Please try again.');
+                adhereBtn.disabled = false;
+                adhereBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1rem;">push_pin</span> Adhere';
+                return;
+            }
+
+            // Store lightweight meta in localStorage (just page nums + keywords, NO images)
+            item.kanskiMeta = images.map(img => ({
+                pageNum: img.pageNum,
+                keywords: img.keywords.slice(0, 5)
+            }));
+            // Clean up any legacy kanskiImages from localStorage
+            delete item.kanskiImages;
+            if (item.data) {
+                delete item.data.kanskiImages;
+            }
+
+            saveLibraryToIDB(library);
+
+            // Update button appearance to show "Adhered"
+            adhereBtn.disabled = false;
+            adhereBtn.style.background = '#d1fae5';
+            adhereBtn.style.color = '#047857';
+            adhereBtn.style.border = '1px solid #6ee7b7';
+            adhereBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1rem;">check_circle</span> Adhered';
+
+            alert(`✅ ${images.length} Kanski image(s) permanently saved with "${currentInfographicData.title}".\n\nThey will load automatically whenever you open this infographic.`);
+        });
+
+        // ── Remove button: remove Kanski images section (and optionally from storage) ──
+        const removeBtn = kanskiSection.querySelector('#kanski-remove-btn');
+        removeBtn.addEventListener('click', async () => {
+            const hasAdhered = isKanskiAdhered();
+
+            if (hasAdhered) {
+                const removeFromLibrary = confirm(
+                    'Kanski images are permanently adhered to this infographic.\n\n' +
+                    'Click OK to remove them permanently (from library too).\n' +
+                    'Click Cancel to only hide them for this session.'
+                );
+
+                if (removeFromLibrary) {
+                    // Remove meta from localStorage
+                    const library = getLibraryCache();
+                    const item = library.find(i => i.title === currentInfographicData.title);
+                    if (item) {
+                        delete item.kanskiMeta;
+                        delete item.kanskiImages; // Clean up legacy
+                        if (item.data) {
+                            delete item.data.kanskiMeta;
+                            delete item.data.kanskiImages;
+                        }
+                        saveLibraryToIDB(library);
+                    }
+                    // Remove images from IndexedDB
+                    await deleteKanskiFromIDB(currentInfographicData.title);
+                }
+            }
+
+            // Remove from DOM
+            kanskiSection.remove();
+        });
+
+        // Delegated click handler for image expand/collapse (iOS-safe)
+        kanskiSection.addEventListener('click', (e) => {
+            const img = e.target.closest('.kanski-img-toggle');
+            if (img) img.classList.toggle('kanski-img-expanded');
+        });
+
+        // Scroll to the new section
+        kanskiSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        alert(`✅ ${images.length} Kanski image(s) inserted into the infographic!\n\nUse "Adhere" to save them permanently, or they will disappear when you navigate away.`);
+    }
+
+    /**
+     * Check if current infographic has adhered Kanski images in library
+     * (checks lightweight meta in localStorage — no heavy image data)
+     */
+    function isKanskiAdhered() {
+        if (!currentInfographicData) return false;
+        try {
+            const library = getLibraryCache();
+            const item = library.find(i => i.title === currentInfographicData.title);
+            return item && item.kanskiMeta && item.kanskiMeta.length > 0;
+        } catch { return false; }
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    // AUTO-ADHERE — called from the Save flow (no modal, no prompts)
+    // Runs topic matching + renders top pages + saves to IndexedDB,
+    // and stores a lightweight `kanskiMeta` on the library item so
+    // loadAdheredKanskiImages() re-injects them on re-open.
+    // ═══════════════════════════════════════════════════════════════
+    async function autoAdhereForTitle(title, opts = {}) {
+        const maxImages = Math.max(1, Math.min(opts.maxImages || 6, 12));
+        try {
+            // Silently ensure cached PDF + index (never prompts for file)
+            if (!kanskiPdfDoc || kanskiPageTexts.length === 0) {
+                const cachedIndex = await loadCachedIndex();
+                if (cachedIndex && cachedIndex.length > 0) {
+                    kanskiPageTexts = cachedIndex;
+                }
+                // Try IDB binary cache first
+                if (!kanskiPdfDoc) {
+                    const cachedPdf = await loadCachedPdf();
+                    if (cachedPdf) {
+                        try { kanskiPdfDoc = await loadPdfFromBuffer(cachedPdf); }
+                        catch (e) { console.warn('[Kanski Auto-Adhere] PDF buffer load failed:', e); }
+                    }
+                }
+                // Fallback: persistent File System Access handle (Chromium, permission must already be granted)
+                if (!kanskiPdfDoc && hasFileSystemAccess) {
+                    try {
+                        const handle = await loadKanskiFileHandle();
+                        if (handle && typeof handle.queryPermission === 'function') {
+                            const perm = await handle.queryPermission({ mode: 'read' });
+                            if (perm === 'granted') {
+                                const buf = await tryReopenFromHandle(handle);
+                                if (buf) kanskiPdfDoc = await loadPdfFromBuffer(buf);
+                            }
+                        }
+                    } catch (e) { console.warn('[Kanski Auto-Adhere] Handle reopen failed:', e); }
+                }
+                if (!kanskiPdfDoc || kanskiPageTexts.length === 0) {
+                    console.log('[Kanski Auto-Adhere] No cached Kanski PDF/index available — skipping.');
+                    return { success: false, reason: 'no_cache' };
+                }
+            }
+
+            // Pick the library item with this title (use the most recent match)
+            let library = (typeof getLibraryCache === 'function') ? getLibraryCache() : [];
+            let item = library.find(i => i.title === title);
+            if (!item) {
+                console.warn('[Kanski Auto-Adhere] Library item not found for title:', title);
+                return { success: false, reason: 'no_item' };
+            }
+
+            // Build a synthetic data object for the matcher (must have .title)
+            const data = item.data || { title: item.title, summary: item.summary, sections: [] };
+            if (!data.title) data.title = item.title;
+
+            // Score Kanski pages (shared helper — same as auto/manual modes)
+            const { keywords: weightedKeywords, primaryTopicTerms } = extractInfographicKeywordsWeighted(data);
+            const scoredPages = scoreKanskiPages(weightedKeywords, primaryTopicTerms);
+            const topPages = diversifyTopPages(scoredPages, maxImages, { maxPerWindow: 2, windowSize: 3 });
+            if (topPages.length === 0) {
+                console.log(`[Kanski Auto-Adhere] No Kanski pages matched "${title}".`);
+                return { success: false, reason: 'no_matches' };
+            }
+
+            // Render pages
+            const images = [];
+            const isMobileRender = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+                || ('ontouchstart' in window && window.innerWidth < 1024);
+            const renderScale = isMobileRender ? 1.0 : 1.5;
+            for (const p of topPages) {
+                try {
+                    const page = await kanskiPdfDoc.getPage(p.pageNum);
+                    const viewport = page.getViewport({ scale: renderScale });
+                    const canvas = document.createElement('canvas');
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    const ctx = canvas.getContext('2d');
+                    await page.render({ canvasContext: ctx, viewport }).promise;
+                    images.push({
+                        pageNum: p.pageNum,
+                        imgUrl: canvas.toDataURL('image/jpeg', 0.82),
+                        keywords: (p.matchedKeywords || []).slice(0, 5)
+                    });
+                } catch (err) {
+                    console.warn(`[Kanski Auto-Adhere] Failed page ${p.pageNum}:`, err);
+                }
+            }
+            if (images.length === 0) return { success: false, reason: 'render_failed' };
+
+            // Save images to IndexedDB
+            const ok = await saveKanskiToIDB(title, images);
+            if (!ok) return { success: false, reason: 'idb_save_failed' };
+
+            // Update lightweight meta on the library item
+            library = getLibraryCache();
+            item = library.find(i => i.title === title);
+            if (item) {
+                item.kanskiMeta = images.map(img => ({ pageNum: img.pageNum, keywords: img.keywords }));
+                delete item.kanskiImages;
+                if (item.data) {
+                    delete item.data.kanskiImages;
+                }
+                saveLibraryToIDB(library);
+            }
+
+            // If this item is currently displayed, refresh the on-screen section
+            if (currentInfographicData && currentInfographicData.title === title) {
+                try { loadAdheredKanskiImages(currentInfographicData); } catch (e) { /* ignore */ }
+            }
+
+            console.log(`[Kanski Auto-Adhere] Adhered ${images.length} image(s) to "${title}".`);
+            return { success: true, count: images.length };
+        } catch (err) {
+            console.error('[Kanski Auto-Adhere] Error:', err);
+            return { success: false, reason: 'exception', error: err.message };
+        }
+    }
+
+    // Expose to save flow
+    window.kanskiAutoAdhere = autoAdhereForTitle;
+
+    // ═══════════════════════════════════════════════════════════════
+    // GLOBAL AUTO-ATTACH — called by the Save button after saving
+    // a new infographic. Quietly runs match → render → adhere without
+    // any modals or prompts. No-op if the Kanski PDF isn't cached yet.
+    // ═══════════════════════════════════════════════════════════════
+    window.autoAttachKanskiOnSave = async function (libraryItem, opts = {}) {
+        try {
+            if (!libraryItem || !libraryItem.title) return false;
+            // Skip if already adhered
+            if (libraryItem.kanskiMeta && libraryItem.kanskiMeta.length > 0) return false;
+
+            // Only try if we have the PDF/index cached or loaded in this session.
+            // ensureKanskiReady() returns false when no cache exists (and would
+            // otherwise need a user file-picker, which we skip on autosave).
+            const ready = await ensureKanskiReady();
+            if (!ready) {
+                console.log('[Kanski AutoAttach] No Kanski PDF cached — skipping.');
+                return false;
+            }
+
+            const data = libraryItem.data || libraryItem;
+            const { keywords: weightedKeywords, primaryTopicTerms } =
+                extractInfographicKeywordsWeighted(data);
+
+            // Score pages via shared helper (figure-boost, proximity, diversity)
+            const scored = scoreKanskiPages(weightedKeywords, primaryTopicTerms);
+            const MAX_IMAGES = opts.maxImages || 8;
+            const topPages = diversifyTopPages(scored, MAX_IMAGES, { maxPerWindow: 2, windowSize: 3 });
+            if (topPages.length === 0) {
+                console.log(`[Kanski AutoAttach] No matching pages for "${libraryItem.title}".`);
+                return false;
+            }
+
+            // Render pages → data URLs
+            const images = [];
+            for (const p of topPages) {
+                try {
+                    const page = await kanskiPdfDoc.getPage(p.pageNum);
+                    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+                        || ('ontouchstart' in window && window.innerWidth < 1024);
+                    const vp = page.getViewport({ scale: isMobile ? 1.0 : 1.5 });
+                    const canvas = document.createElement('canvas');
+                    canvas.width = vp.width;
+                    canvas.height = vp.height;
+                    await page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
+                    images.push({
+                        pageNum: p.pageNum,
+                        imgUrl: canvas.toDataURL('image/jpeg', 0.85),
+                        keywords: (p.matchedKeywords || []).slice(0, 5)
+                    });
+                } catch (err) {
+                    console.warn(`[Kanski AutoAttach] Render failed for page ${p.pageNum}:`, err);
+                }
+            }
+            if (images.length === 0) return false;
+
+            // Persist: images → IndexedDB, meta → library item in localStorage
+            const saved = await saveKanskiToIDB(libraryItem.title, images);
+            if (!saved) return false;
+
+            libraryItem.kanskiMeta = images.map(img => ({
+                pageNum: img.pageNum,
+                keywords: img.keywords
+            }));
+            // Clean legacy blob fields just in case
+            delete libraryItem.kanskiImages;
+            if (libraryItem.data) delete libraryItem.data.kanskiImages;
+
+            // Rewrite library cache so the meta sticks
+            try {
+                const lib = getLibraryCache();
+                const idx = lib.findIndex(i => i.id === libraryItem.id || i.title === libraryItem.title);
+                if (idx !== -1) {
+                    lib[idx].kanskiMeta = libraryItem.kanskiMeta;
+                    saveLibraryToIDB(lib);
+                }
+            } catch (err) {
+                console.warn('[Kanski AutoAttach] Failed to persist meta to library cache:', err);
+            }
+
+            // If this infographic is the one currently displayed, show the images inline
+            if (currentInfographicData && currentInfographicData.title === libraryItem.title) {
+                try { loadAdheredKanskiImages(currentInfographicData); } catch {}
+            }
+
+            console.log(`[Kanski AutoAttach] Adhered ${images.length} image(s) to "${libraryItem.title}".`);
+            return images.length;
+        } catch (err) {
+            console.warn('[Kanski AutoAttach] Error:', err);
+            return false;
+        }
+    };
+
+    // ═══════════════════════════════════════════════════════════════
+    // BATCH BACKFILL — auto-attach Kanski images to every library item
+    // that doesn't already have `kanskiMeta`. Shows a progress modal.
+    // ═══════════════════════════════════════════════════════════════
+    window.autoAttachKanskiToAllLibrary = async function () {
+        let ready = await ensureKanskiReady();
+
+        // If the PDF/index aren't cached, give the user a one-click way to pick the file
+        // here (same flow as the main Kanski Pics button), instead of a dead-end alert.
+        if (!ready) {
+            const go = confirm(
+                'Load the Kanski PDF now?\n\n' +
+                'You\'ll be asked to pick the file once. After that it will be cached/linked in your browser ' +
+                'so every future scan runs silently.\n\n' +
+                'OK = Select Kanski PDF\n' +
+                'Cancel = Abort'
+            );
+            if (!go) return;
+
+            // Prefer the modern picker where available (Chrome/Edge) so we can persist a file handle.
+            if (hasFileSystemAccess) {
+                const picked = await pickKanskiFile();
+                if (picked && picked.file) {
+                    await handleKanskiFileLoad(picked.file, picked.handle, { silent: true });
+                    ready = !!kanskiPdfDoc;
+                }
+            }
+
+            // Fallback: classic <input type="file"> (Safari, Firefox, iOS, etc.)
+            if (!ready) {
+                await new Promise((resolve) => {
+                    const onChange = async (e) => {
+                        const file = e.target.files && e.target.files[0];
+                        if (!file) { resolve(); return; }
+                        await handleKanskiFileLoad(file, null, { silent: true });
+                        resolve();
+                    };
+                    kanskiInput.addEventListener('change', onChange, { once: true });
+                    showKanskiToast(kanskiPromptMessage());
+                    kanskiInput.click();
+                });
+                ready = !!kanskiPdfDoc;
+            }
+
+            if (!ready) return; // User cancelled / couldn't load
+        }
+
+        const library = (typeof getLibraryCache === 'function') ? getLibraryCache() : [];
+        if (!library || library.length === 0) {
+            alert('Your library is empty.');
+            return;
+        }
+
+        const pending = library.filter(it => !it.kanskiMeta || it.kanskiMeta.length === 0);
+        if (pending.length === 0) {
+            alert('Every infographic in your library already has Kanski photos attached.');
+            return;
+        }
+
+        if (!confirm(`Scan the Kanski PDF and auto-attach matching clinical photos to ${pending.length} infographic(s)?\n\nThis runs locally in your browser and may take a few minutes.`)) return;
+
+        // Build progress modal
+        const overlay = document.createElement('div');
+        overlay.id = 'kanski-backfill-overlay';
+        overlay.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,0.75);backdrop-filter:blur(6px);z-index:100000;display:flex;align-items:center;justify-content:center;';
+        overlay.innerHTML = `
+            <div style="background:white;border-radius:16px;padding:2rem;width:min(92vw,520px);box-shadow:0 24px 48px rgba(0,0,0,0.3);">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem;">
+                    <span class="material-symbols-rounded" style="font-size:2rem;color:#0891b2;">photo_library</span>
+                    <h3 style="margin:0;font-size:1.25rem;color:#0f172a;">Auto-attaching Kanski photos</h3>
+                </div>
+                <p id="kbf-status" style="color:#475569;font-size:0.9rem;margin:0 0 1rem;">Preparing…</p>
+                <div style="background:#e2e8f0;height:10px;border-radius:6px;overflow:hidden;margin-bottom:0.75rem;">
+                    <div id="kbf-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#0891b2,#0e7490);transition:width 0.3s;"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:#64748b;">
+                    <span id="kbf-counter">0 / ${pending.length}</span>
+                    <span id="kbf-attached" style="color:#0891b2;font-weight:600;">0 photos attached</span>
+                </div>
+                <div style="margin-top:1.25rem;display:flex;justify-content:flex-end;gap:8px;">
+                    <button id="kbf-cancel" style="background:#f1f5f9;color:#0f172a;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-weight:500;">Stop</button>
+                </div>
+            </div>`;
+        document.body.appendChild(overlay);
+        const status = overlay.querySelector('#kbf-status');
+        const bar = overlay.querySelector('#kbf-bar');
+        const counter = overlay.querySelector('#kbf-counter');
+        const attachedEl = overlay.querySelector('#kbf-attached');
+        let cancelled = false;
+        overlay.querySelector('#kbf-cancel').addEventListener('click', () => { cancelled = true; });
+
+        let totalAttached = 0;
+        let processed = 0;
+        for (const item of pending) {
+            if (cancelled) break;
+            status.textContent = `Scoring pages for: ${item.title}`;
+            try {
+                const count = await window.autoAttachKanskiOnSave(item, { maxImages: 6 });
+                if (count) totalAttached += count;
+            } catch (err) {
+                console.warn(`[Kanski Backfill] Failed for "${item.title}":`, err);
+            }
+            processed++;
+            const pct = (processed / pending.length) * 100;
+            bar.style.width = `${pct}%`;
+            counter.textContent = `${processed} / ${pending.length}`;
+            attachedEl.textContent = `${totalAttached} photos attached`;
+            // Yield to the UI so the progress bar actually paints
+            await new Promise(r => setTimeout(r, 30));
+        }
+
+        status.textContent = cancelled
+            ? `Stopped. Processed ${processed} of ${pending.length}.`
+            : `Done — attached ${totalAttached} photo${totalAttached === 1 ? '' : 's'} across ${processed} infographic${processed === 1 ? '' : 's'}.`;
+        overlay.querySelector('#kbf-cancel').textContent = 'Close';
+        overlay.querySelector('#kbf-cancel').onclick = () => {
+            overlay.remove();
+            // Re-render library if modal is open
+            if (typeof renderLibraryList === 'function') {
+                try { renderLibraryList(); } catch {}
+            }
+        };
+    };
+
+    // Wire the Library header button
+    const backfillBtn = document.getElementById('kanski-backfill-btn');
+    if (backfillBtn) {
+        backfillBtn.addEventListener('click', () => window.autoAttachKanskiToAllLibrary());
+    }
+
+    console.log('Kanski Pics initialized.');
+}
+
+/* ========================================
+   INITIALIZE ALL STUDIO TOOLS
+   ======================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize all studio tools
+    setupAudioOverview();
+    setupVideoOverview();
+    setupMindMap();
+    setupReports();
+    setupFlashcards();
+    setupQuiz();
+    setupSlideDeck();
+    setupKanskiPics();
+    setupStickyNotes();
+
+    // Initialize Community Hub
+    setupCommunityHub();
+
+    // Initialize Music Player
+    setupMusicPlayer();
+
+    // Initialize Narrator
+    setupNarrator();
+
+    // Initially disable tools
+    disableStudioTools();
+});
+
+// ==========================================
+// STORY NARRATOR
+// ==========================================
+function setupNarrator() {
+    const readBtn = document.getElementById('read-aloud-btn');
+    if (!readBtn) return;
+
+    let isReading = false;
+    let utterance = null;
+
+    readBtn.addEventListener('click', () => {
+        if (isReading) {
+            // Stop reading
+            window.speechSynthesis.cancel();
+            isReading = false;
+            readBtn.classList.remove('active');
+            readBtn.innerHTML = '<span class="material-symbols-rounded">record_voice_over</span>';
+            return;
+        }
+
+        if (!currentInfographicData) {
+            alert('Please generate or load an infographic first.');
+            return;
+        }
+
+        // build text to read
+        const data = currentInfographicData;
+        let textToRead = `${data.title}. ${data.summary || ''}. `;
+
+        if (data.sections) {
+            data.sections.forEach(section => {
+                textToRead += `${section.title}. `;
+                if (Array.isArray(section.content)) {
+                    textToRead += section.content.join('. ');
+                } else if (typeof section.content === 'string') {
+                    textToRead += section.content;
+                } else if (typeof section.content === 'object') {
+                    // handle objects like mnemonics or centers
+                    if (section.content.mnemonic) {
+                        textToRead += `Mnemonic: ${section.content.mnemonic}. ${section.content.explanation}. `;
+                    }
+                    if (section.content.center) {
+                        textToRead += `${section.content.center}. ${section.content.branches.join('. ')}. `;
+                    }
+                }
+                textToRead += '. ';
+            });
+        }
+
+        // Start reading
+        utterance = new SpeechSynthesisUtterance(textToRead);
+
+        // Select a voice (prefer English Female / Storyteller)
+        const voices = window.speechSynthesis.getVoices();
+
+        // Priority: specific high-quality voices -> any female english -> any english
+        const preferredVoices = [
+            'Google UK English Female',
+            'Google US English',
+            'Samantha',
+            'Microsoft Zira',
+            'Daniel' // Good fallback for GB
+        ];
+
+        let selectedVoice = null;
+
+        // 1. Try preferred list
+        for (const name of preferredVoices) {
+            selectedVoice = voices.find(v => v.name.includes(name));
+            if (selectedVoice) break;
+        }
+
+        // 2. Try any English Female
+        if (!selectedVoice) {
+            selectedVoice = voices.find(v => v.lang.startsWith('en') && (v.name.toLowerCase().includes('female') || v.name.includes('Samantha')));
+        }
+
+        // 3. Try any English GB or US
+        if (!selectedVoice) {
+            selectedVoice = voices.find(v => v.lang.startsWith('en-GB')) || voices.find(v => v.lang.startsWith('en-US'));
+        }
+
+        if (selectedVoice) {
+            utterance.voice = selectedVoice;
+        }
+
+        utterance.rate = 0.85; // Slower rate regarding user request
+        utterance.pitch = 1.0; // Default pitch
+
+        utterance.onend = () => {
+            isReading = false;
+            readBtn.classList.remove('active');
+            readBtn.innerHTML = '<span class="material-symbols-rounded">record_voice_over</span>';
+        };
+
+        utterance.onerror = (e) => {
+            console.error('Speech synthesis error:', e);
+            isReading = false;
+            readBtn.classList.remove('active');
+            readBtn.innerHTML = '<span class="material-symbols-rounded">record_voice_over</span>';
+        };
+
+        window.speechSynthesis.speak(utterance);
+        isReading = true;
+        readBtn.classList.add('active');
+        readBtn.innerHTML = '<span class="material-symbols-rounded">stop_circle</span>';
+    });
+}
+
+// ==========================================
+// ==========================================
+// NOTEBOOKLM NOTES MIRROR — Full System
+// ==========================================
+const NLM_NOTES_KEY = 'notebooklm_mirror_notes';
+const NLM_GIST_ID = '3b43030a808541a28d6b125847567f66';
+const NLM_POOL_FILENAME = 'notebooklm_notes.json';
+const NOTES_TOMBSTONE_KEY = 'notes_deletion_tombstone';
+
+/**
+ * Tombstone system — tracks deleted note text signatures to prevent re-import.
+ * When a note is deleted from either store, its text is hashed and stored here.
+ */
+function getNoteSignature(text) {
+    // Simple hash of first 100 chars + length for fast dedup
+    const t = (text || '').trim();
+    return t.substring(0, 100) + '::' + t.length;
+}
+
+function getTombstones() {
+    try { return JSON.parse(localStorage.getItem(NOTES_TOMBSTONE_KEY) || '[]'); }
+    catch { return []; }
+}
+
+function addToTombstone(text) {
+    if (!text || !text.trim()) return;
+    const tombstones = getTombstones();
+    const sig = getNoteSignature(text);
+    if (!tombstones.includes(sig)) {
+        tombstones.push(sig);
+        // Keep max 5000 tombstones
+        if (tombstones.length > 5000) tombstones.splice(0, tombstones.length - 5000);
+        localStorage.setItem(NOTES_TOMBSTONE_KEY, JSON.stringify(tombstones));
+    }
+}
+
+function isInTombstone(text) {
+    const sig = getNoteSignature(text);
+    return getTombstones().includes(sig);
+}
+
+/**
+ * Delete a note from BOTH stores and add to tombstone.
+ * Call this instead of deleting from a single store.
+ */
+function deleteNoteEverywhere(noteText) {
+    if (!noteText) return;
+    addToTombstone(noteText);
+
+    // Remove from NLM notes
+    const nlmNotes = loadNLMNotes().filter(n => n.text !== noteText);
+    saveNLMNotes(nlmNotes);
+
+    // Remove from Sticky Notes
+    const stickyNotes = JSON.parse(localStorage.getItem(STICKY_NOTES_KEY) || '[]');
+    const updatedSticky = stickyNotes.filter(n => n.text !== noteText);
+    localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(updatedSticky));
+    if (typeof updateStickyNotesBadge === 'function') updateStickyNotesBadge();
+}
+
+function loadNLMNotes() {
+    try {
+        return JSON.parse(localStorage.getItem(NLM_NOTES_KEY) || '[]');
+    } catch { return []; }
+}
+
+function saveNLMNotes(notes) {
+    localStorage.setItem(NLM_NOTES_KEY, JSON.stringify(notes));
+    updateNLMBadge(notes.length);
+}
+
+function updateNLMBadge(count) {
+    const badge = document.getElementById('nlm-count-badge');
+    if (!badge) return;
+    if (count > 0) {
+        badge.textContent = count > 99 ? '99+' : count;
+        badge.style.display = '';
+    } else {
+        badge.style.display = 'none';
+    }
+}
+
+/**
+ * Import bulk text into individual notes
+ * Splits by '---' delimiters or double-newlines
+ */
+function importBulkNotes(text) {
+    if (!text || !text.trim()) return 0;
+    const notes = loadNLMNotes();
+    let chunks;
+    // Split by --- delimiter first
+    if (text.includes('---')) {
+        chunks = text.split(/\n?---+\n?/).map(c => c.trim()).filter(c => c.length > 5);
+    } else {
+        // Split by double-newline
+        chunks = text.split(/\n\s*\n/).map(c => c.trim()).filter(c => c.length > 5);
+    }
+    if (chunks.length === 0) {
+        // Treat entire text as one note
+        chunks = [text.trim()];
+    }
+    let added = 0;
+    chunks.forEach(chunk => {
+        if (isInTombstone(chunk)) return; // Skip deleted notes
+        const exists = notes.find(n => n.text === chunk);
+        if (!exists) {
+            notes.unshift({
+                id: Date.now().toString() + '_' + Math.random().toString(36).substr(2, 5),
+                text: chunk,
+                source: 'NotebookLM Import',
+                createdAt: new Date().toISOString()
+            });
+            added++;
+        }
+    });
+    if (added > 0) saveNLMNotes(notes);
+    return added;
+}
+
+/**
+ * Render the NLM notes list in the side panel
+ */
+function renderNLMPanel(filterText) {
+    const listEl = document.getElementById('nlm-notes-list');
+    if (!listEl) return;
+    const notes = loadNLMNotes();
+    updateNLMBadge(notes.length);
+
+    if (notes.length === 0) {
+        listEl.innerHTML = `
+            <div class="nlm-empty-state" id="nlm-empty-state">
+                <span class="material-symbols-rounded">note_stack</span>
+                <p>No notes imported yet</p>
+                <small>Paste notes from NotebookLM or sync from the pool</small>
+            </div>
+        `;
+        return;
+    }
+
+    const q = (filterText || '').toLowerCase().trim();
+    const filtered = q
+        ? notes.filter(n => n.text.toLowerCase().includes(q) || (n.source || '').toLowerCase().includes(q))
+        : notes;
+
+    if (filtered.length === 0) {
+        listEl.innerHTML = `
+            <div class="nlm-empty-state">
+                <span class="material-symbols-rounded">search_off</span>
+                <p>No matching notes</p>
+                <small>Try a different search term</small>
+            </div>
+        `;
+        return;
+    }
+
+    listEl.innerHTML = filtered.map(note => {
+        const date = new Date(note.createdAt);
+        const timeStr = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: '2-digit' }) + ' ' +
+            date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+        const matchHtml = note._matchScore
+            ? `<span class="nlm-match-score"><span class="material-symbols-rounded" style="font-size:0.7rem;">trending_up</span>${note._matchScore}%</span>`
+            : '';
+        const matchClass = note._matchScore ? ' matched' : '';
+        const noteTextDisplay = note._highlightedText || escapeHtml(note.text);
+        return `
+            <div class="nlm-note-card${matchClass}" data-note-id="${note.id}">
+                <div class="nlm-note-meta">
+                    <span class="nlm-note-date">${timeStr} ${matchHtml}</span>
+                    <div class="nlm-note-actions">
+                        <button class="nlm-note-action nlm-use-btn" data-note-id="${note.id}" title="Use as topic input">
+                            <span class="material-symbols-rounded">input</span>
+                        </button>
+                        <button class="nlm-note-action nlm-copy-btn" data-note-id="${note.id}" title="Copy">
+                            <span class="material-symbols-rounded">content_copy</span>
+                        </button>
+                        <button class="nlm-note-action delete nlm-delete-btn" data-note-id="${note.id}" title="Delete">
+                            <span class="material-symbols-rounded">close</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="nlm-note-text">${noteTextDisplay}</div>
+                ${note.source ? `<div class="nlm-note-source"><span class="material-symbols-rounded">description</span>${escapeHtml((note.source || '').substring(0, 60))}</div>` : ''}
+            </div>
+        `;
+    }).join('');
+
+    // Attach event listeners
+    listEl.querySelectorAll('.nlm-delete-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const id = btn.dataset.noteId;
+            const allNotes = loadNLMNotes();
+            const deletedNote = allNotes.find(n => n.id === id);
+            if (deletedNote) deleteNoteEverywhere(deletedNote.text);
+            const card = btn.closest('.nlm-note-card');
+            if (card) {
+                card.style.transition = 'opacity 0.3s, transform 0.3s';
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.9)';
+                setTimeout(() => { card.remove(); updateNLMBadge(loadNLMNotes().length); }, 300);
+            }
+        });
+    });
+
+    listEl.querySelectorAll('.nlm-copy-btn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            const id = btn.dataset.noteId;
+            const note = loadNLMNotes().find(n => n.id === id);
+            if (note) {
+                try {
+                    await navigator.clipboard.writeText(note.text);
+                    btn.innerHTML = '<span class="material-symbols-rounded">check</span>';
+                    setTimeout(() => btn.innerHTML = '<span class="material-symbols-rounded">content_copy</span>', 1500);
+                } catch { /* ignore */ }
+            }
+        });
+    });
+
+    listEl.querySelectorAll('.nlm-use-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const id = btn.dataset.noteId;
+            const note = loadNLMNotes().find(n => n.id === id);
+            if (note) {
+                const topicArea = document.getElementById('topic-input');
+                if (topicArea) {
+                    topicArea.value = note.text;
+                    topicArea.scrollIntoView({ behavior: 'smooth' });
+                    topicArea.focus();
+                }
+            }
+        });
+    });
+}
+
+/**
+ * Sync NLM notes from Gist pool
+ */
+async function syncNLMFromGist() {
+    const syncBtn = document.getElementById('nlm-sync-gist-btn');
+    if (syncBtn) syncBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span>';
+
+    try {
+        const resp = await fetch(`https://api.github.com/gists/${NLM_GIST_ID}`);
+        if (!resp.ok) throw new Error('Failed to reach pool');
+        const gist = await resp.json();
+        const file = gist.files[NLM_POOL_FILENAME];
+
+        let poolData = [];
+        if (file) {
+            const rawResp = await fetch(file.raw_url);
+            poolData = JSON.parse(await rawResp.text());
+        }
+
+        // Also try sticky notes pool as fallback
+        const stickyFile = gist.files['pool_sticky_notes.json'];
+        if (stickyFile) {
+            try {
+                const stickyResp = await fetch(stickyFile.raw_url);
+                const stickyData = JSON.parse(await stickyResp.text());
+                poolData = poolData.concat(stickyData);
+            } catch { /* ignore */ }
+        }
+
+        if (poolData.length === 0) {
+            alert('No notes found in pool.');
+            if (syncBtn) syncBtn.innerHTML = '<span class="material-symbols-rounded">cloud_download</span>';
+            return;
+        }
+
+        const notes = loadNLMNotes();
+        let added = 0;
+        poolData.forEach(pn => {
+            if (isInTombstone(pn.text)) return; // Skip deleted notes
+            const exists = notes.find(nn => nn.text === pn.text);
+            if (!exists) {
+                notes.unshift({
+                    id: Date.now().toString() + '_' + Math.random().toString(36).substr(2, 5),
+                    text: pn.text,
+                    source: pn.source || 'Pool Sync',
+                    createdAt: pn.createdAt || new Date().toISOString()
+                });
+                added++;
+            }
+        });
+
+        if (added > 0) {
+            saveNLMNotes(notes);
+            renderNLMPanel();
+            alert(`Synced ${added} new notes from pool!`);
+        } else {
+            alert('All pool notes already imported.');
+        }
+    } catch (err) {
+        console.error('[NLM Sync]', err);
+        alert('Sync failed: ' + err.message);
+    }
+
+    if (syncBtn) syncBtn.innerHTML = '<span class="material-symbols-rounded">cloud_download</span>';
+}
+
+/**
+ * Find matching NLM notes for the current infographic topic
+ * Uses keyword matching + Gemini AI ranking if available
+ */
+async function findMatchingNotes(infographicTitle, sections) {
+    const notes = loadNLMNotes();
+    if (notes.length === 0) {
+        alert('No NotebookLM notes imported yet. Open the NotebookLM panel and import notes first.');
+        return;
+    }
+
+    // Extract keywords from infographic
+    const titleWords = (infographicTitle || '').toLowerCase().split(/\W+/).filter(w => w.length > 3);
+    const sectionTitles = (sections || []).map(s => (s.title || '').toLowerCase()).join(' ');
+    const sectionWords = sectionTitles.split(/\W+/).filter(w => w.length > 3);
+    const allKeywords = [...new Set([...titleWords, ...sectionWords])];
+
+    // Score each note by keyword overlap
+    const scored = notes.map(note => {
+        const noteText = note.text.toLowerCase();
+        let score = 0;
+        const matchedKeywords = [];
+        allKeywords.forEach(kw => {
+            if (noteText.includes(kw)) {
+                score += 10;
+                matchedKeywords.push(kw);
+            }
+        });
+        // Bonus for title match
+        if (noteText.includes(infographicTitle.toLowerCase().substring(0, 20))) {
+            score += 30;
+        }
+        return { ...note, _matchScore: Math.min(100, score), _matchedKeywords: matchedKeywords };
+    });
+
+    // Sort by score descending
+    scored.sort((a, b) => b._matchScore - a._matchScore);
+
+    // Take top results with score > 0
+    let results = scored.filter(n => n._matchScore > 0).slice(0, 10);
+
+    // If Gemini API is available, refine ranking
+    const apiKey = document.getElementById('api-key')?.value?.trim();
+    if (apiKey && results.length > 1) {
+        try {
+            const { GoogleGenerativeAI } = await import("@google/generative-ai");
+            const genAI = new GoogleGenerativeAI(apiKey);
+            const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+
+            const notesSummary = results.slice(0, 8).map((n, i) =>
+                `Note ${i + 1}: "${n.text.substring(0, 200)}..."`
+            ).join('\n');
+
+            const prompt = `Given an ophthalmology infographic titled "${infographicTitle}", rank these notes by relevance (most relevant first). Return ONLY a JSON array of note indices (1-based), e.g. [3,1,5,2,4]. Notes:\n${notesSummary}`;
+
+            const result = await model.generateContent(prompt);
+            const responseText = result.response.text().trim();
+            const match = responseText.match(/\[[\d,\s]+\]/);
+            if (match) {
+                const ranking = JSON.parse(match[0]);
+                const reordered = [];
+                ranking.forEach(idx => {
+                    const note = results[idx - 1];
+                    if (note) {
+                        note._matchScore = Math.min(100, note._matchScore + 20); // Boost AI-confirmed matches
+                        reordered.push(note);
+                    }
+                });
+                // Add any unranked notes at the end
+                results.forEach(n => {
+                    if (!reordered.find(r => r.id === n.id)) reordered.push(n);
+                });
+                results = reordered;
+            }
+        } catch (err) {
+            console.warn('[NLM Match] Gemini ranking failed, using keyword-only:', err.message);
+        }
+    }
+
+    // If no keyword matches, show top 5 with minimal score
+    if (results.length === 0) {
+        results = scored.slice(0, 5).map(n => ({ ...n, _matchScore: 5 }));
+    }
+
+    // Highlight matched keywords in text
+    results.forEach(note => {
+        let html = escapeHtml(note.text);
+        (note._matchedKeywords || []).forEach(kw => {
+            const regex = new RegExp(`(${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            html = html.replace(regex, '<span class="nlm-highlight">$1</span>');
+        });
+        note._highlightedText = html;
+    });
+
+    // Open the NLM panel and display results
+    const appContainer = document.querySelector('.app-container');
+    if (appContainer) appContainer.classList.add('notebooklm-open');
+
+    // Render matched notes in the panel
+    const listEl = document.getElementById('nlm-notes-list');
+    if (listEl) {
+        // Temporarily replace the notes list with match results
+        const originalNotes = loadNLMNotes();
+        // Clear match scores from saved notes
+        originalNotes.forEach(n => { delete n._matchScore; delete n._highlightedText; delete n._matchedKeywords; });
+
+        // Render with match scores
+        const matchHeader = document.createElement('div');
+        matchHeader.style.cssText = 'padding: 0.5rem 0.25rem; font-size: 0.8rem; font-weight: 600; color: #4f46e5; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid #e0e7ff; margin-bottom: 0.5rem;';
+        matchHeader.innerHTML = `<span class="material-symbols-rounded" style="font-size:1.1rem;">auto_awesome</span> ${results.length} notes matched for "${escapeHtml(infographicTitle.substring(0, 40))}"
+            <button id="nlm-clear-match" style="margin-left:auto; background:none; border:none; cursor:pointer; color:#94a3b8; font-size:0.75rem; display:flex; align-items:center; gap:2px;">
+                <span class="material-symbols-rounded" style="font-size:0.9rem;">close</span> Show all
+            </button>`;
+
+        listEl.innerHTML = '';
+        listEl.appendChild(matchHeader);
+
+        // Re-render with match data
+        results.forEach(note => {
+            const date = new Date(note.createdAt);
+            const timeStr = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: '2-digit' }) + ' ' +
+                date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+            const scoreColor = note._matchScore >= 50 ? '#22c55e' : note._matchScore >= 20 ? '#f59e0b' : '#94a3b8';
+            const card = document.createElement('div');
+            card.className = 'nlm-note-card' + (note._matchScore >= 20 ? ' matched' : '');
+            card.dataset.noteId = note.id;
+            card.innerHTML = `
+                <div class="nlm-note-meta">
+                    <span class="nlm-note-date">${timeStr}
+                        <span class="nlm-match-score" style="background:${scoreColor};">
+                            <span class="material-symbols-rounded" style="font-size:0.7rem;">trending_up</span>${note._matchScore}%
+                        </span>
+                    </span>
+                    <div class="nlm-note-actions">
+                        <button class="nlm-note-action nlm-use-btn" data-note-id="${note.id}" title="Use as topic input">
+                            <span class="material-symbols-rounded">input</span>
+                        </button>
+                        <button class="nlm-note-action nlm-copy-btn" data-note-id="${note.id}" title="Copy">
+                            <span class="material-symbols-rounded">content_copy</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="nlm-note-text">${note._highlightedText || escapeHtml(note.text)}</div>
+                ${note.source ? `<div class="nlm-note-source"><span class="material-symbols-rounded">description</span>${escapeHtml((note.source || '').substring(0, 60))}</div>` : ''}
+            `;
+            listEl.appendChild(card);
+        });
+
+        // Clear match button
+        const clearMatchBtn = listEl.querySelector('#nlm-clear-match');
+        if (clearMatchBtn) {
+            clearMatchBtn.addEventListener('click', () => renderNLMPanel());
+        }
+
+        // Re-attach event listeners for match results
+        listEl.querySelectorAll('.nlm-copy-btn').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                e.stopPropagation();
+                const note = results.find(n => n.id === btn.dataset.noteId);
+                if (note) {
+                    try {
+                        await navigator.clipboard.writeText(note.text);
+                        btn.innerHTML = '<span class="material-symbols-rounded">check</span>';
+                        setTimeout(() => btn.innerHTML = '<span class="material-symbols-rounded">content_copy</span>', 1500);
+                    } catch { /* ignore */ }
+                }
+            });
+        });
+        listEl.querySelectorAll('.nlm-use-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const note = results.find(n => n.id === btn.dataset.noteId);
+                if (note) {
+                    const topicArea = document.getElementById('topic-input');
+                    if (topicArea) {
+                        topicArea.value = note.text;
+                        topicArea.scrollIntoView({ behavior: 'smooth' });
+                        topicArea.focus();
+                    }
+                }
+            });
+        });
+    }
+}
+
+// ── NLM Panel Initialization & Toggle ──
+(function initNLMPanel() {
+    const notebooklmToggleBtn = document.getElementById('notebooklm-toggle-btn');
+    const closeNotebooklmBtn = document.getElementById('close-notebooklm-btn');
+    const appContainerVal = document.querySelector('.app-container');
+
+    // Toggle panel
+    if (notebooklmToggleBtn && appContainerVal) {
+        notebooklmToggleBtn.addEventListener('click', () => {
+            const isOpening = !appContainerVal.classList.contains('notebooklm-open');
+            appContainerVal.classList.toggle('notebooklm-open');
+            if (isOpening) renderNLMPanel();
+        });
+    }
+
+    // Close panel
+    if (closeNotebooklmBtn && appContainerVal) {
+        closeNotebooklmBtn.addEventListener('click', () => {
+            appContainerVal.classList.remove('notebooklm-open');
+        });
+    }
+
+    // Import toggle (collapsible)
+    const importToggle = document.getElementById('nlm-import-toggle');
+    const importBody = document.getElementById('nlm-import-body');
+    if (importToggle && importBody) {
+        importToggle.addEventListener('click', () => {
+            const isExpanded = importBody.style.display !== 'none';
+            importBody.style.display = isExpanded ? 'none' : 'block';
+            importToggle.classList.toggle('expanded', !isExpanded);
+        });
+    }
+
+    // Add pasted notes
+    const addPastedBtn = document.getElementById('nlm-add-pasted-btn');
+    const pasteArea = document.getElementById('nlm-paste-area');
+    if (addPastedBtn && pasteArea) {
+        addPastedBtn.addEventListener('click', () => {
+            let text = pasteArea.value.trim();
+            text = text.replace(/<[^>]*>?/gm, ''); // Strip rich HTML formatting
+            if (!text) return;
+            const added = importBulkNotes(text);
+            pasteArea.value = '';
+            if (added > 0) {
+                renderNLMPanel();
+                // Quick feedback
+                addPastedBtn.innerHTML = '<span class="material-symbols-rounded">check</span> Added ' + added + '!';
+                setTimeout(() => addPastedBtn.innerHTML = '<span class="material-symbols-rounded">add</span> Add Notes', 2000);
+            } else {
+                alert('All notes already imported (no duplicates found).');
+            }
+        });
+    }
+
+    // Clear all
+    const clearAllBtn = document.getElementById('nlm-clear-all-btn');
+    if (clearAllBtn) {
+        clearAllBtn.addEventListener('click', () => {
+            const notes = loadNLMNotes();
+            if (notes.length === 0) return;
+            if (!confirm(`Delete all ${notes.length} NotebookLM notes? This will also remove them from Sticky Notes.`)) return;
+            // Tombstone all so they don't re-appear
+            notes.forEach(n => deleteNoteEverywhere(n.text));
+            renderNLMPanel();
+        });
+    }
+
+    // Sync from Gist
+    const syncBtn = document.getElementById('nlm-sync-gist-btn');
+    if (syncBtn) {
+        syncBtn.addEventListener('click', () => syncNLMFromGist());
+    }
+
+    // Sync with Sticky Notes
+    const syncStickyBtn = document.getElementById('nlm-sync-sticky-btn');
+    if (syncStickyBtn) {
+        syncStickyBtn.addEventListener('click', () => {
+            syncStickyBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span>';
+            setTimeout(() => {
+                const result = syncNLMWithStickyNotes();
+                renderNLMPanel();
+                const msg = result.addedToNLM + result.addedToSticky > 0
+                    ? `Synced! +${result.addedToNLM} to NotebookLM, +${result.addedToSticky} to Sticky Notes (NLM: ${result.totalNLM}, Sticky: ${result.totalSticky})`
+                    : `Already in sync! (NLM: ${result.totalNLM}, Sticky: ${result.totalSticky})`;
+                alert(msg);
+                syncStickyBtn.innerHTML = '<span class="material-symbols-rounded">sync</span>';
+            }, 300);
+        });
+    }
+
+    // Search
+    const searchInput = document.getElementById('nlm-search-input');
+    if (searchInput) {
+        let searchTimer;
+        searchInput.addEventListener('input', () => {
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(() => renderNLMPanel(searchInput.value), 250);
+        });
+    }
+
+    // Initialize badge
+    updateNLMBadge(loadNLMNotes().length);
+})();
+
+/**
+ * Bidirectional sync between NotebookLM Notes and Sticky Notes
+ * Merges all unique notes (by text) into both stores
+ */
+function syncNLMWithStickyNotes() {
+    const nlmNotes = loadNLMNotes();
+    const stickyNotes = JSON.parse(localStorage.getItem(STICKY_NOTES_KEY) || '[]');
+
+    let addedToNLM = 0;
+    let addedToSticky = 0;
+
+    // Copy sticky notes → NLM (that don't exist in NLM)
+    stickyNotes.forEach(sn => {
+        if (isInTombstone(sn.text)) return; // Skip deleted notes
+        const exists = nlmNotes.find(nn => nn.text === sn.text);
+        if (!exists) {
+            nlmNotes.push({
+                id: Date.now().toString() + '_s' + Math.random().toString(36).substr(2, 5),
+                text: sn.text,
+                source: sn.source || 'Sticky Notes',
+                createdAt: sn.createdAt || new Date().toISOString()
+            });
+            addedToNLM++;
+        }
+    });
+
+    // Copy NLM notes → Sticky (that don't exist in sticky)
+    nlmNotes.forEach(nn => {
+        if (isInTombstone(nn.text)) return; // Skip deleted notes
+        const exists = stickyNotes.find(sn => sn.text === nn.text);
+        if (!exists) {
+            stickyNotes.push({
+                id: Date.now() + Math.floor(Math.random() * 10000),
+                text: nn.text,
+                source: nn.source || 'NotebookLM',
+                createdAt: nn.createdAt || new Date().toISOString()
+            });
+            addedToSticky++;
+        }
+    });
+
+    // Save both
+    saveNLMNotes(nlmNotes);
+    localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(stickyNotes));
+    if (typeof updateStickyNotesBadge === 'function') updateStickyNotesBadge();
+
+    return { addedToNLM, addedToSticky, totalNLM: nlmNotes.length, totalSticky: stickyNotes.length };
+}

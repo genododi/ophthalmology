@@ -1,0 +1,176 @@
+{
+  "id": 1768063437179,
+  "title": "PACG: Primary Angle-Closure Glaucoma",
+  "summary": "Primary Angle-Closure Glaucoma (PACG) is a critical ophthalmic condition where the iris physically obstructs the trabecular meshwork. This leads to elevated intraocular pressure (IOP) and progressive, irreversible optic neuropathy.",
+  "date": "2026-01-10T16:43:57.179Z",
+  "data": {
+    "title": "PACG: Primary Angle-Closure Glaucoma",
+    "summary": "Primary Angle-Closure Glaucoma (PACG) is a critical ophthalmic condition where the iris physically obstructs the trabecular meshwork. This leads to elevated intraocular pressure (IOP) and progressive, irreversible optic neuropathy.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M50 10 Q 90 50 50 90' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M55 35 Q 75 50 55 65' fill='hsl(215, 90%, 45%)' opacity='0.6'/><path d='M75 45 L 85 45 M 75 55 L 85 55' stroke='red' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Core Definition of PACG",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "PACG stands for Primary Angle-Closure Glaucoma.",
+          "It is defined by appositional or synechial closure of the anterior chamber angle.",
+          "The primary cause is an anatomical predisposition that leads to the iris blocking the drainage of aqueous humor.",
+          "It results in characteristic optic nerve damage and visual field loss."
+        ]
+      },
+      {
+        "title": "Major Risk Factors",
+        "icon": "groups",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "PACG Risk Profiles",
+          "branches": [
+            "Demographics: Female Gender & Age >40",
+            "Ethnicity: Highest in East Asian & Inuit populations",
+            "Refractive Error: Hyperopia (Farsightedness)",
+            "Anatomy: Shallow Anterior Chamber & Short Axial Length",
+            "Family History: Genetic predisposition"
+          ]
+        }
+      },
+      {
+        "title": "Stages of Angle Closure",
+        "icon": "format_list_numbered",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Stage",
+            "Anterior Chamber Angle",
+            "IOP / PAS",
+            "Optic Nerve Status"
+          ],
+          "rows": [
+            [
+              "Primary Angle-Closure Suspect (PACS)",
+              "Appositional contact in ≥2 quadrants",
+              "Normal IOP; No Peripheral Anterior Synechiae (PAS)",
+              "Healthy Optic Nerve"
+            ],
+            [
+              "Primary Angle-Closure (PAC)",
+              "Appositional contact or closure",
+              "Elevated IOP or presence of PAS",
+              "No signs of glaucomatous damage"
+            ],
+            [
+              "Primary Angle-Closure Glaucoma (PACG)",
+              "Closed Angle",
+              "Elevated IOP & Structural damage",
+              "Evidence of Glaucomatous Optic Neuropathy"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Pathophysiological Process",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Relative pupillary block occurs as the lens moves forward.",
+          "Step 2: Pressure in the posterior chamber increases relative to the anterior chamber.",
+          "Step 3: Iris Bombé: The peripheral iris bows forward toward the cornea.",
+          "Step 4: The iris makes contact with the trabecular meshwork, closing the angle.",
+          "Step 5: Aqueous outflow is obstructed, causing a spike in Intraocular Pressure (IOP)."
+        ]
+      },
+      {
+        "title": "RED FLAG: Acute Angle-Closure Crisis",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden, severe ocular pain and headache",
+          "Nausea and vomiting (often misdiagnosed as GI issues)",
+          "Dramatic blurring of vision",
+          "Halos around lights (rainbow-colored)",
+          "Fixed, mid-dilated pupil and 'stony hard' eye globe"
+        ]
+      },
+      {
+        "title": "Prevalence by Ethnicity",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Asian Populations",
+              "value": 85
+            },
+            {
+              "label": "Inuit Populations",
+              "value": 95
+            },
+            {
+              "label": "Caucasian Populations",
+              "value": 15
+            },
+            {
+              "label": "African Populations",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Diagnosis Mnemonic: ANGLE",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "ANGLE",
+          "explanation": "A for Apposition (Gonioscopy), N for Nerve damage assessment, G for Goldmann Applanation Tonometry, L for Lens position/thickness check, E for Examination of the Fundus."
+        }
+      },
+      {
+        "title": "Diagnostic Toolbox",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Gonioscopy: The Gold Standard for visualizing the angle.",
+          "AS-OCT: Anterior Segment Optical Coherence Tomography for cross-sectional imaging.",
+          "Tonometry: Measuring Intraocular Pressure.",
+          "Slit-Lamp Biomicroscopy: Checking for shallow chambers and iris status.",
+          "Fundus Examination: Vertical C/D ratio and neuroretinal rim health."
+        ]
+      },
+      {
+        "title": "Management & Treatment Strategy",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Laser Peripheral Iridotomy (LPI): The first-line treatment to eliminate pupillary block.",
+          "Medical Management: Topical miotics (Pilocarpine), Beta-blockers, Alpha-agonists, and Carbonic Anhydrase Inhibitors (CAIs).",
+          "Systemic Treatment: Oral or IV Acetazolamide and Hyperosmotic agents (Mannitol) for acute attacks.",
+          "Lens Extraction: Removing the crystalline lens (cataract surgery) to open the angle surgically.",
+          "Surgical Options: Trabeculectomy or Glaucoma Drainage Devices for refractory cases."
+        ]
+      }
+    ]
+  },
+  "chapterId": "glaucoma",
+  "seqId": 65,
+  "_serverSynced": true
+}

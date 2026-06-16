@@ -1,0 +1,250 @@
+{
+  "id": 1769622318613,
+  "seqId": 158,
+  "title": "STRABISMUS: THE COMPREHENSIVE OUTLINE",
+  "summary": "An exhaustive clinical guide to deviations of the eye, distinguishing between true and pseudo-deviations, latent and manifest states, and the specific classifications of esodeviations and exodeviations.",
+  "date": "2026-01-28T17:45:18.613Z",
+  "data": {
+    "title": "STRABISMUS: THE COMPREHENSIVE OUTLINE",
+    "summary": "An exhaustive clinical guide to deviations of the eye, distinguishing between true and pseudo-deviations, latent and manifest states, and the specific classifications of esodeviations and exodeviations.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='60' cy='50' r='25' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='60' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><circle cx='140' cy='50' r='25' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='125' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M40 20 Q60 10 80 20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M120 20 Q140 10 160 20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Is There a Deviation?",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Pseudo-Esodeviation Simulators",
+          "branches": [
+            "Abnormalities of the face",
+            "Abnormalities of the globe",
+            "Abnormalities of the retina",
+            "Angle kappa (difference between pupillary and optical axis)",
+            "Foveal positioning (Negative angle/nasal fovea)"
+          ]
+        }
+      },
+      {
+        "title": "Understanding Angle Kappa",
+        "icon": "straighten",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Angle kappa is the difference between the pupillary axis and the optical axis.",
+          "Usually slightly positive.",
+          "A negative angle occurs due to abnormal nasal positioning of the fovea (high myopia, traction, etc.).",
+          "Negative angle kappa simulates an esodeviation (see table 17.6)."
+        ]
+      },
+      {
+        "title": "Esodeviations: The ‘In-turning’ Eye",
+        "icon": "arrow_forward_ios",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "Esophoria vs esotropia: phorias are latent deviations that are controlled by fusion. In certain circumstances (specific visual tasks, fatigue, illness, etc.), fusion can no longer be maintained and decompensation occurs. tropias are manifest deviations. Some individuals may be phoric in one situation (e.g. for distance) and tropic in another (e.g. for near) (see table 17.7)."
+      },
+      {
+        "title": "Exodeviations: The ‘Out-turning’ Eye",
+        "icon": "arrow_back_ios",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Exophoria vs exotropia: exophorias are latent divergent deviations that are common and generally asymptomatic. However, when fusion can no longer be maintained, they decompensate. Exotropias are manifest divergent deviations that may be variable or constant. Fusion may allow control at one viewing distance, with a manifest deviation at a different viewing distance (i.e. simulated distance exotropia) (see table 17.8)."
+      },
+      {
+        "title": "Red Flags: Exophoria Decompensation",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Asthenopia",
+          "Blurred vision",
+          "Photalgia (closing one eye in bright light)",
+          "Diplopia"
+        ]
+      },
+      {
+        "title": "Table 17.6 Causes of Pseudosquint",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Category",
+            "Pseudoesotropia",
+            "Pseudoexotropia"
+          ],
+          "rows": [
+            [
+              "Specific",
+              "epicanthic folds; narrow IpD; negative angle kappa",
+              "Wide IpD; positive angle kappa"
+            ],
+            [
+              "General",
+              "Face—asymmetry",
+              "globe—proptosis/enophthalmos"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 17.7 Esotropia Classification",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Subtype",
+            "Clinical Features",
+            "Diagnosis"
+          ],
+          "rows": [
+            [
+              "1°",
+              "Accommodative",
+              "Varies with accommodation; normal AC:A ratio; Resolves with hypermetropic correction",
+              "Fully accommodative esotropia"
+            ],
+            [
+              "1°",
+              "Accommodative",
+              "normal AC:A ratio; Improves with hypermetropic correction",
+              "Partially accommodative esotropia"
+            ],
+            [
+              "1°",
+              "Accommodative",
+              "High AC:A ratio",
+              "Convergence excess esotropia"
+            ],
+            [
+              "1°",
+              "Nonaccommodative (Constant)",
+              "Starting <6mo",
+              "Infantile esotropia"
+            ],
+            [
+              "1°",
+              "Nonaccommodative (Constant)",
+              "Starting >6mo",
+              "Basic esotropia"
+            ],
+            [
+              "1°",
+              "Varies with fixation distance",
+              "Near fixation only (despite relief of accommodation)",
+              "Near esotropia (non-accommodative convergence excess)"
+            ],
+            [
+              "1°",
+              "Varies with fixation distance",
+              "Distance fixation only (despite relief of accommodation)",
+              "Distance esotropia (divergence insufficiency)"
+            ],
+            [
+              "1°",
+              "Varies with time",
+              "Cyclical",
+              "Cyclic esotropia"
+            ],
+            [
+              "2°",
+              "Organic dVA",
+              "e.g. media opacities",
+              "2° esotropia(sensory)"
+            ],
+            [
+              "2°",
+              "Post-exo",
+              "previous surgery for exotropia",
+              "Consecutive esotropia"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 17.8 Exotropia Classification",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Subtype",
+            "Clinical Features",
+            "Diagnosis"
+          ],
+          "rows": [
+            [
+              "1°",
+              "Constant",
+              "Starting <6mo",
+              "Infantile exotropia"
+            ],
+            [
+              "1°",
+              "Constant",
+              "Starting >6mo",
+              "Basic exotropia"
+            ],
+            [
+              "1°",
+              "Variable",
+              "Worse for near",
+              "Near exotropia"
+            ],
+            [
+              "1°",
+              "Variable",
+              "Worse for distance; High AC:A ratio",
+              "Simulated distance exotropia"
+            ],
+            [
+              "1°",
+              "Variable",
+              "Worse for distance; normal AC:A ratio",
+              "True distance exotropia"
+            ],
+            [
+              "2°",
+              "Organic dVA",
+              "e.g. media opacities",
+              "2° exotropia"
+            ],
+            [
+              "2°",
+              "Post-eso",
+              "Often develops with time in absence of fusion",
+              "Consecutive exotropia"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Reference Note",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "St RABISMUS : OU t LI ne 835"
+      }
+    ],
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "_newlyImported": 1769622318613,
+  "communityId": "sub_1769618268159_cp1lluhfr5fblz",
+  "communityAuthor": "Dodiii",
+  "communityDate": "2026-01-28T16:37:48.159Z",
+  "_serverSynced": true
+}

@@ -1,0 +1,440 @@
+{
+  "id": 1768231631462,
+  "seqId": 93,
+  "title": "Cataract: The Definitive Clinical Guide",
+  "summary": "An exhaustive overview of cataract epidemiology, pathogenesis, morphological classification, and surgical management. Cataracts account for 40% of global blindness, necessitating precise preoperative assessment and informed surgical planning.",
+  "date": "2026-01-12T15:27:11.462Z",
+  "data": {
+    "title": "Cataract: The Definitive Clinical Guide",
+    "summary": "An exhaustive overview of cataract epidemiology, pathogenesis, morphological classification, and surgical management. Cataracts account for 40% of global blindness, necessitating precise preoperative assessment and informed surgical planning.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' stroke='#1d4ed8' stroke-width='2' fill='none'/><circle cx='50' cy='50' r='15' fill='#1d4ed8' opacity='0.3'/><path d='M30 50 Q 50 20 70 50 Q 50 80 30 50' stroke='#1d4ed8' fill='none' stroke-width='1'/><path d='M40 45 L60 55 M40 55 L60 45' stroke='#1d4ed8' stroke-width='0.5'/><circle cx='50' cy='50' r='8' fill='white' opacity='0.6'/></svg>",
+    "sections": [
+      {
+        "title": "Global Burden & Introduction",
+        "icon": "public",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Cataracts account for about 40% of global blindness.",
+          "This represents about 16 million people worldwide.",
+          "Ubiquitous in almost every ageing population.",
+          "Inequity of eye care: 99% of these blinding cases are seen in developing countries."
+        ]
+      },
+      {
+        "title": "Prevalence by Age (UK Data)",
+        "icon": "equalizer",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Aged 65–69y",
+              "value": 16
+            },
+            {
+              "label": "Aged 75–79y",
+              "value": 42
+            },
+            {
+              "label": "Aged >85y",
+              "value": 71
+            }
+          ]
+        }
+      },
+      {
+        "title": "Risk Factors",
+        "icon": "warning",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Risk Factors",
+          "branches": [
+            "Age (Primary)",
+            "Sunlight",
+            "Smoking",
+            "Alcohol",
+            "Dehydration",
+            "Radiation",
+            "Corticosteroid use",
+            "Diabetes mellitus"
+          ]
+        }
+      },
+      {
+        "title": "Pathogenesis: How Cataracts Form",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "How these factors cause cataracts is unclear, although a common pathway appears to be protein denaturation, e.g. by oxidation. Metabolic disturbance (hyperglycaemia in diabetes mellitus or hyperuraemia in dehydration or renal failure), toxins (e.g. smoking, alcohol), loss of antioxidant enzymes, membrane disruption, reduced metabolism, failure of active transport, and loss of ionic/osmotic balance may all contribute to this process."
+      },
+      {
+        "title": "Common Clinical Presentations",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Change in vision: reducing acuity, contrast sensitivity, or colour appreciation, glare, monocular diplopia, polyplopia, or ghosting.",
+          "Change in refraction: typically myopic shift in nuclear sclerosis or changing astigmatism.",
+          "Change in fundal view: optometrists and ophthalmologists may have difficulty ‘looking in’, long before the patient feels they have difficulties ‘looking out’. This may be a problem when trying to monitor/treat posterior segment disease such as DR."
+        ]
+      },
+      {
+        "title": "Uncommon & Sight-Threatening Presentations",
+        "icon": "report_problem",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Presentation & Characteristics"
+          ],
+          "rows": [
+            [
+              "Phacomorphic glaucoma",
+              "Large lens causes anterior bowing of iris with 2° angle closure. Acute/chronic closure with high IoP, shallow AC, fixed semi-dilated pupil. Distinguish from PACg by ipsilateral swollen lens and contralateral deep AC/open angle."
+            ],
+            [
+              "Phacolytic glaucoma",
+              "Hypermature cataract loses soluble proteins through intact capsule. Trabecular obstruction results in 2° open-angle glaucoma. Raised IoP, lens protein in deep AC (pseudohypopyon), open angles."
+            ],
+            [
+              "Phacoanaphylactic uveitis",
+              "Inflammatory response to lens protein (traumatic capsular rupture or post-op retention). Distinguish from endophthalmitis. IoP may be high, normal, or low."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Classification Systems",
+        "icon": "category",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Age of onset: Congenital, juvenile/presenile, or age-related (senile).",
+          "Morphology: Fibre-based (anatomical pattern) or non-fibre-based (random distribution).",
+          "Grade: From direct ophthalmoscopy to Lens Opacities Classification System II (slit-lamp vs. standard photographs for nuclear, cortical, and posterior subcapsular).",
+          "Maturity: Immature (incomplete), Mature (total), Hypermature (lysis/shrinkage/wrinkling), Morgagnian (liquefaction/nucleus drops inferiorly)."
+        ]
+      },
+      {
+        "title": "Table 9.1: Classification of Cataract Morphology",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Class",
+            "Sub-type",
+            "Specific Types"
+          ],
+          "rows": [
+            [
+              "Fibre-based",
+              "Sutural",
+              "Congenital sutural, Concussion, Storage disorder, Deposition"
+            ],
+            [
+              "Fibre-based",
+              "Non-sutural",
+              "Lamellar, nuclear, Cortical"
+            ],
+            [
+              "Non-fibre-based",
+              "Subcapsular",
+              "Lamellar, Coronary, Blue dot, Christmas tree"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 9.2: Detailed Cataract Types & Causes",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Properties",
+            "Cause/Associations"
+          ],
+          "rows": [
+            [
+              "Sutural",
+              "Congenital",
+              "Non-progressive"
+            ],
+            [
+              "Concussion",
+              "Flower-shaped (lens fibre separation/fluid entry)",
+              "Anterior and posterior trauma"
+            ],
+            [
+              "Storage disorder",
+              "Usually start posteriorly",
+              "Fabry disease, mannosidosis"
+            ],
+            [
+              "Deposition",
+              "Usually start anteriorly",
+              "Copper, gold, silver, iron, chlorpromazine"
+            ],
+            [
+              "Nuclear",
+              "Congenital: embryonic/centralis pulverulenta; Age-related: white scatter/brunescence",
+              "Congenital or Age-related"
+            ],
+            [
+              "Lamellar",
+              "Localized to particular lamella ± extensions (riders)",
+              "Inherited, rubella, diabetes, galactosaemia, hypocalcaemia"
+            ],
+            [
+              "Coronary",
+              "Round opacities in deep cortex (crown)",
+              "Sporadic, occasionally inherited"
+            ],
+            [
+              "Cortical",
+              "Spoke-like opacities in superficial cortex",
+              "Age-related; spreads along fibres at unpredictable rate"
+            ],
+            [
+              "Subcapsular",
+              "Granular material beneath capsule; posterior is commoner/significant",
+              "Age-related, Diabetes, corticosteroids, uveitis, radiation"
+            ],
+            [
+              "Polar",
+              "Anterior: ± pupillary membrane, lenticonus, Peter’s; Posterior: ± PHPV, Mittendorf dots, lenticonus",
+              "Congenital"
+            ],
+            [
+              "Diffuse",
+              "Focal blue dots (insignificant); Christmas tree (reflective crystals)",
+              "Blue dot: Congenital/Lowe syndrome; Christmas tree: Age-related"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Success & Statistics",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Median age for first eye surgery: 77y (UK NOD study of 180,114 operations).",
+          "90% of patients attain BCVA ≥6/12 within 3mo.",
+          ">80% are within 1D of predicted refraction.",
+          "Sight-threatening complications are rare due to careful preparation.",
+          "Reference 2: Day AC et al. Eye (Lond). 2015;29:552–60.",
+          "Reference 3: Jaycock P et al. Eye. 2009;23:38–49."
+        ]
+      },
+      {
+        "title": "Referral & Listing Criteria",
+        "icon": "assignment_turned_in",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Referral source: 1° care physician or direct from optometrist.",
+          "Criteria: Cataract responsible for complaint and compromising lifestyle.",
+          "Process: Risks/benefits discussed; written info provided; patient wants operation.",
+          "Include: Copy of recent sight test in referral.",
+          "Listing considerations: VA, glare, contrast sensitivity, and functional disability.",
+          "Coexisting disease: Discuss PXF or AMD and give guarded prognosis.",
+          "Younger patients: Investigate causes (trauma, steroids, Table 18.29)."
+        ]
+      },
+      {
+        "title": "Table 9.3: Initial Assessment Protocol",
+        "icon": "fact_check",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Category",
+            "Assessments & Factors to Check"
+          ],
+          "rows": [
+            [
+              "Visual symptoms",
+              "Blur distance/near, glare, distortion, colour perception, ‘second sight’ (myopic shift)"
+            ],
+            [
+              "POH",
+              "Previous acuity, amblyopia, strabismus, previous surgery (refractive), trauma, concurrent eye disease, optometrist refraction"
+            ],
+            [
+              "PMH",
+              "Diabetes, HTN, COPD, ability to lie flat/still for 30min, anaesthetic history (GA)"
+            ],
+            [
+              "SH",
+              "Occupation, driving, hobbies, daily tasks"
+            ],
+            [
+              "Dx",
+              "Warfarin, antiplatelets, α1-adrenoreceptor blockers (e.g. tamsulosin), topical medication"
+            ],
+            [
+              "VA & Pupils",
+              "VA (unaided/BCVA/pinhole); RAPD, adequate dilatation"
+            ],
+            [
+              "Cataract",
+              "Morphology, density, maturity"
+            ],
+            [
+              "Ocular Anatomy",
+              "Globe (deep-set, size), Lids (blepharitis, malposition), Nasolacrimal (mucocele), Cornea (scarring, guttata), AC depth, IoP, Iris (PXF, PS, mydriasis), Lens (phacodonesis), Optic disc, Macula, Fundus"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Preoperative Preparation",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: History (PMH, drugs, allergies) & SH (support, transport, drops management).",
+          "Step 2: Education (Surgery, post-op care, leaflets).",
+          "Step 3: Investigations (Biometry/IOL power, Focimetry).",
+          "Step 4: Pre-op Treatment (Blepharitis care, Mydriatic drops: cyclopentolate 1% + phenylephrine 2.5% + diclofenac 0.1%).",
+          "Step 5: Post-op Prescription (Steroid/Antibiotic e.g. Tobradex® 4×/d for 4wk; IoP agents e.g. timolol or acetazolamide)."
+        ]
+      },
+      {
+        "title": "Informed Consent & Risks",
+        "icon": "gavel",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Definition: 'The clear lens has become cloudy; we replace it with plastic.'",
+          "Sight-threatening (0.1%): Endophthalmitis, Retinal detachment/tear, Choroidal haemorrhage.",
+          "Second operation/GA required: 0.5% (Dropped nucleus/IOL).",
+          "Commonest Intraoperative: Posterior capsule rupture + vitreous loss (4%).",
+          "Commonest Post-operative: Posterior capsule opacification (PCO) (10% in 2y).",
+          "Local Anaesthesia Risks: Globe rupture (0.006–0.1%), Brainstem anaesthesia, Oculocardiac reflex (0.03%)."
+        ]
+      },
+      {
+        "title": "Table 9.4: Common Technical Issues & Strategies",
+        "icon": "build",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Risk",
+            "Strategy"
+          ],
+          "rows": [
+            [
+              "Cervical spondylosis",
+              "Head-up posture",
+              "Tilt feet up"
+            ],
+            [
+              "Deep-set eye",
+              "Poor access",
+              "Temporal approach"
+            ],
+            [
+              "Oily tear film",
+              "Aberrant reflexes",
+              "External methylcellulose"
+            ],
+            [
+              "Poor red reflex",
+              "Difficult capsulorhexis",
+              "Vision blue"
+            ],
+            [
+              "Short axial length",
+              "Crowded AC",
+              "High viscosity viscoelastic"
+            ],
+            [
+              "Poor dilation",
+              "Inadequate access",
+              "Iris hooks/stretch techniques"
+            ],
+            [
+              "Age >90y / PXF",
+              "Zonular dehiscence",
+              "Minimize lens movement"
+            ],
+            [
+              "Phacodonesis",
+              "Zonular dehiscence",
+              "Vitreoretinal approach"
+            ],
+            [
+              "White cataract",
+              "Zonular dehiscence",
+              "Consider M-SICS/ECCE/chopping"
+            ],
+            [
+              "Shallow AC depth",
+              "Iris/PC trauma",
+              "High-viscosity viscoelastic"
+            ],
+            [
+              "Posterior polar",
+              "PC rupture",
+              "Vitreoretinal approach"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Specific Risks & Guarded Prognosis",
+        "icon": "visibility_off",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Guarded Visual Prognosis: Amblyopia, corneal/vitreous opacities, macular/optic nerve disease.",
+          "Endophthalmitis Risk: Blepharitis, diabetes, nasolacrimal obstruction (pre-treat lid hygiene/antibiotics).",
+          "Retinal Detachment: High myopia, lattice degeneration.",
+          "Choroidal Haemorrhage: HTN, age, arteriosclerosis.",
+          "Corneal Decompensation: Fuchs’ endothelial dystrophy.",
+          "PC Rupture: Commoner with high numbers of previous intravitreal injections (Reference 4: Lee AY et al. Ophthalmology 2016)."
+        ]
+      },
+      {
+        "title": "Refractive Planning & Outcomes",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Emmetropia (Default): Distance is clear; reading glasses required.",
+          "High Ametropia: Risk of anisometropia/aniseikonia. Options: (1) Second eye within 6wk; (2) Aim for emmetropia but leave up to 2D difference; (3) Contact lens for second eye.",
+          "Astigmatism: Operate 'on-meridian', use refractive incisions, or use a Toric IOL."
+        ]
+      }
+    ]
+  },
+  "chapterId": "medical_retina",
+  "_serverSynced": true
+}

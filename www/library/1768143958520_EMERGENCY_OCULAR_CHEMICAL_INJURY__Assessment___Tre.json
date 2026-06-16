@@ -1,0 +1,358 @@
+{
+  "id": 1768143958520,
+  "seqId": 68,
+  "title": "EMERGENCY OCULAR CHEMICAL INJURY: Assessment & Treatment Protocol",
+  "summary": "Chemical injuries are among the most destructive traumatic insults to the eye, requiring an immediate 'treat first, ask questions later' approach. This guide covers the pathophysiology of alkali vs. acid burns, severity classifications (Roper-Hall and Dua), and a comprehensive multi-stage treatment strategy from emergency irrigation to long-term surgical reconstruction.",
+  "date": "2026-01-11T15:05:58.520Z",
+  "data": {
+    "title": "EMERGENCY OCULAR CHEMICAL INJURY: Assessment & Treatment Protocol",
+    "summary": "Chemical injuries are among the most destructive traumatic insults to the eye, requiring an immediate 'treat first, ask questions later' approach. This guide covers the pathophysiology of alkali vs. acid burns, severity classifications (Roper-Hall and Dua), and a comprehensive multi-stage treatment strategy from emergency irrigation to long-term surgical reconstruction.",
+    "summary_illustration": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"2\"/><path d=\"M30 50 Q50 20 70 50 Q50 80 30 50\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"8\" fill=\"#1d4ed8\"/><path d=\"M50 15 V25 M50 75 V85 M15 50 H25 M75 50 H85\" stroke=\"#ef4444\" stroke-width=\"2\"/><path d=\"M65 15 L55 30\" fill=\"#3b82f6\" d=\"M50 5 L50 20 M50 80 L50 95\" /><path d=\"M80 30 Q85 40 80 50\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" stroke-linecap=\"round\"><animate attributeName=\"d\" values=\"M80 30 Q85 40 80 50;M80 35 Q85 45 80 55;M80 30 Q85 40 80 50\" dur=\"2s\" repeatCount=\"indefinite\"/></path></svg>",
+    "sections": [
+      {
+        "title": "EMERGENCY MANDATE",
+        "icon": "priority_high",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "For chemical injuries, treat first; ask questions later (see E Chemical injury: treatment, pp. 116–18).",
+          "Chemical injuries are among the most destructive of all traumatic insults suffered by the eye.",
+          "They may occur in domestic, industrial, and military settings."
+        ]
+      },
+      {
+        "title": "Pathophysiology & Mechanism",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Chemical Type",
+            "Type of Necrosis",
+            "Action/Penetration"
+          ],
+          "rows": [
+            [
+              "Alkalis",
+              "Liquefactive necrosis",
+              "Penetrate the eye to a greater extent than acids."
+            ],
+            [
+              "Acids",
+              "Coagulative necrosis",
+              "Remain localized on the surface of the eye."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Determining Severity: Prognostic Factors",
+        "icon": "query_stats",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "pH: alkaline agents generally cause more severe injuries than acids, although very acidic solutions may behave similarly; most domestic chemical agents are alkaline (or neutral), rather than acidic.",
+          "Duration of contact.",
+          "Corneal involvement: surface area, duration of contact.",
+          "Limbal involvement: corneal re-epithelialization relies on proliferation and differentiation from the limbal stem cell niche.",
+          "Conjunctival involvement: when corneal and limbal epithelia are completely lost and the limbal stem cell niche damaged, corneal epithelialization with conjunctiva may occur, i.e. conjunctivalization.",
+          "Beware the conjunctival fornix, which may retain chemical compounds that cause continuing damage if not actively sought for and removed.",
+          "Associated non-chemical injury: blunt trauma, thermal injury."
+        ]
+      },
+      {
+        "title": "Clinical Features Checklist",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Conjunctival inflammation (red eye) or ischaemia (beware the ‘white’ eye)",
+          "± chemosis, haemorrhage, epithelial defects, ulceration, necrosis, or complete loss of conjunctiva",
+          "Perilimbal ischaemia (blanched vessels with no visible blood flow)",
+          "Corneal epitheliopathy (punctate to complete loss; NB May stain poorly and uniformly with fluorescein)",
+          "Corneal oedema; corneal stromal necrosis",
+          "AC activity and fibrin",
+          "Traumatic mydriasis",
+          "Increased IOP (consider Icare® and Tono-Pen®, rather than Goldmann)",
+          "Rarely: scleral necrosis, vitritis, necrotic retinopathy."
+        ]
+      },
+      {
+        "title": "Table 3.4 Roper-Hall Classification",
+        "icon": "grid_on",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Grade",
+            "Corneal appearance",
+            "Limbal ischaemia",
+            "Prognosis"
+          ],
+          "rows": [
+            [
+              "I",
+              "Clear cornea",
+              "Nil",
+              "Good"
+            ],
+            [
+              "II",
+              "Hazy cornea: iris details visible",
+              "<1/3",
+              "Good"
+            ],
+            [
+              "III",
+              "Opaque cornea: iris details obscured",
+              "1/3 to 1/2",
+              "Guarded"
+            ],
+            [
+              "IV",
+              "Opaque cornea: iris details obscured",
+              ">1/2",
+              "Poor"
+            ],
+            [
+              "Note",
+              "reproduced from roper-Hall Mj. Thermal and chemical burns. Trans Ophthalmol Soc UK 1965;85:631–53 with permission from elsevier.",
+              "-",
+              "-"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 3.5 Dua Classification",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Grade",
+            "Limbal involvement (clock hours)",
+            "Conjunctival involvement (%)",
+            "Prognosis"
+          ],
+          "rows": [
+            [
+              "I",
+              "0",
+              "0",
+              "Very good"
+            ],
+            [
+              "II",
+              "≤3",
+              "≤30",
+              "Good"
+            ],
+            [
+              "III",
+              ">3–6",
+              ">30–50",
+              "Good"
+            ],
+            [
+              "IV",
+              ">6–9",
+              ">50–75",
+              "Good to guarded"
+            ],
+            [
+              "V",
+              ">9–12",
+              ">75–<100",
+              "Guarded to poor"
+            ],
+            [
+              "VI",
+              "12 (total)",
+              "100 (total)",
+              "Very poor"
+            ],
+            [
+              "Notes",
+              "Information can be presented in component form, e.g. 4.5/40 indicates 4.5 clock hours of limbus and 40% conjunctiva involved. Conjunctiva refers to bulbar conjunctiva up to, and including, the fornices.",
+              "reproduced from Dua HS et al. a new classification of ocular surface burns. Br J Ophthalmol 2001;85:1379–83 with permission from the BMJ.",
+              "-"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Immediate Treatment: Irrigation Protocol",
+        "icon": "water_drop",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Neutralization of pH by irrigation before full history and examination.",
+          "2. Test pH, then instil topical anaesthetic (e.g. proxymetacaine).",
+          "3. Insert a speculum if immediately available.",
+          "4. Irrigate with water, normal saline, Diphoterine® or Hartmann’s solution through IV tubing.",
+          "5. Deliver a minimum of 2L or until normal pH is restored. Delay to obtain irrigants other than water is not warranted."
+        ]
+      },
+      {
+        "title": "Inspection & Indicator Testing",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Evert the lids (double-evert the upper lid), and inspect the fornices.",
+          "Remove retained particulate matter (e.g. lime, cement) using a cotton bud. Embedded particles may require forceps or microscissors.",
+          "Indicator test: Test pH at end of irrigation and 5min after completion.",
+          "If pH neutral/near neutral (up to ~7.4), begin examination/further treatment. Recheck pH after 20min.",
+          "If pH abnormal, repeat irrigation cycle (another 2L) until pH normal.",
+          "In severe injuries, record pH daily until ocular surface is healed."
+        ]
+      },
+      {
+        "title": "Table 3.6 Common Substances & pH",
+        "icon": "warning",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Substance",
+            "Chemical",
+            "pH"
+          ],
+          "rows": [
+            [
+              "Oven cleaning fluid",
+              "Sodium hydroxide",
+              "14"
+            ],
+            [
+              "Drain cleaning fluid",
+              "Sodium (or potassium) hydroxide",
+              "14"
+            ],
+            [
+              "Plaster",
+              "Calcium hydroxide",
+              "14"
+            ],
+            [
+              "Fertilizers (some)",
+              "Ammonium hydroxide",
+              "13"
+            ],
+            [
+              "Battery fluid",
+              "Sulfuric acid",
+              "1"
+            ],
+            [
+              "Lavatory cleaning fluid",
+              "Sulfuric acid",
+              "1"
+            ],
+            [
+              "Bleach",
+              "Sodium hypochlorite",
+              "1"
+            ],
+            [
+              "Pool cleaning fluid",
+              "Sodium (or calcium) hypochlorite",
+              "1"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Acute Management: All Injuries",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Topical medication should be preservative-free where possible.",
+          "Topical antibiotics: prophylaxis (e.g. preservative-free chloramphenicol 0.5% 4×/d).",
+          "Topical cycloplegia: for comfort/AC activity (e.g. preservative-free cyclopentolate 1% 3×/d or atropine 1% once daily).",
+          "Subconjunctival mydricaine if posterior synechiae (PS) formation.",
+          "Topical lubricants (preservative free, e.g. carmellose 1%) 1- to 4-hourly day and night + liquid paraffin nocte.",
+          "Oral analgesia (e.g. paracetamol ± codeine)."
+        ]
+      },
+      {
+        "title": "Acute Management: Severe Injuries",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Consider admission if Dua grade II or more (mandatory for grades IV/ V).",
+          "Topical glucocorticoids: e.g. prednisolone 0.5–1% at least 4×/d for <10d (frequent/stronger for severe).",
+          "Topical ascorbic acid: e.g. sodium ascorbate 10% up to 2-hourly for <10d (DO NOT use topically in acid burns).",
+          "Oral ascorbic acid: e.g. 1g 2×/d.",
+          "Systemic tetracyclines: e.g. doxycycline 50–100mg 1×/d or oxytetracycline 500mg 4×/d for 3mo.",
+          "Topical sodium citrate 10% (less common; reduces neutrophil chemotaxis/inhibits collagenases; painful).",
+          "Paracentesis and replacement of aqueous with buffered phosphate solution (helps normalize AC pH)."
+        ]
+      },
+      {
+        "title": "Mechanism & Contraindications",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Ascorbic acid is essential for collagen formation and is an effective scavenger of damaging free radicals. Doxycycline is a proteinase inhibitor and serves to prevent tissue necrosis, facilitates healing, and is anti-inflammatory. TETRACYCLINE CONTRAINDICATIONS: children <12, pregnant/breastfeeding women, and in hepatic and renal impairment. Citation: Paterson Ca, Pfister rr, Levinson ra. aqueous humor pH changes after experimental alkali burns. Am J Ophthalmol. 1975;79:414–19."
+      },
+      {
+        "title": "Acute: Injuries with Increased IOP",
+        "icon": "speed",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Acetazolamide 250mg 4×/d",
+          "± Topical β-blocker (e.g. preservative-free timolol 0.5% 2×/d)."
+        ]
+      },
+      {
+        "title": "Complications: Ocular Surface & Globe",
+        "icon": "report_problem",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Conjunctival burns: cicatrization (scarring), symblepharon and ankyloblepharon formation, loss of goblet cells, keratinization.",
+          "Significant limbal ischaemia: corneal conjunctivalization, vascularization, and opacification.",
+          "Full-thickness burns: scleritis; vitritis; retinitis; glaucomatous optic neuropathy or hypotony; iris, ciliary body, and lenticular damage; very poor prognosis; may progress to phthisis bulbi.",
+          "Periorbital burns: first-/second-/third-degree chemical burns of periorbital tissues. Beware late corneal exposure from lid contractures (ensure 1- to 2-week follow-up even if globe is uninjured)."
+        ]
+      },
+      {
+        "title": "Long-term: Complicated Cases & Surgery",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Poor corneal healing: Medical treatment as for persistent epithelial defects (p. 272).",
+          "Techniques for epithelial migration: Amniotic membrane (AM) transplantation or carrier devices (ProKera®, OmniLenz™).",
+          "Re-epithelialization: Limbal stem cell transplantation (pp. 274–5).",
+          "Obliterated fornices/Pseudopterygium: Excision + conjunctival autograft (if host conjunctiva adequate) or AM facilitated by anti-proliferatives (intraoperative mitomicin C (MMC)).",
+          "Forniceal reconstruction: Division of symblepharon and mucous membrane or amniotic membrane grafting (AMG).",
+          "Corneal opacification: Limbal epithelial stem cell transplantation followed by penetrating keratoplasty (PK) if adequate tear film.",
+          "Bilateral cases: Keratoprosthesis remains a surgical option in severely damaged eyes."
+        ]
+      }
+    ]
+  },
+  "chapterId": "trauma",
+  "_serverSynced": true
+}

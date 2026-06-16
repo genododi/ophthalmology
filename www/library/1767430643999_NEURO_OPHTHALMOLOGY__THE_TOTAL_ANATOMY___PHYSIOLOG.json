@@ -1,0 +1,290 @@
+{
+  "id": 1767430643999,
+  "title": "NEURO-OPHTHALMOLOGY: THE TOTAL ANATOMY & PHYSIOLOGY MAP",
+  "summary": "An exhaustive visual guide to the visual pathway, ocular motor nerves, autonomic supply, and cerebrospinal fluid dynamics. This poster maps everything from retinal transduction to the complex processing of the visual cortex and cranial nerve nuclei.",
+  "date": "2026-01-03T08:57:23.999Z",
+  "data": {
+    "title": "NEURO-OPHTHALMOLOGY: THE TOTAL ANATOMY & PHYSIOLOGY MAP",
+    "summary": "An exhaustive visual guide to the visual pathway, ocular motor nerves, autonomic supply, and cerebrospinal fluid dynamics. This poster maps everything from retinal transduction to the complex processing of the visual cortex and cranial nerve nuclei.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='100' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M80 100 Q140 100 180 60 M80 100 Q140 100 180 140' stroke='hsl(215, 90%, 45%)' stroke-width='3' fill='none'/><path d='M160 40 L190 40 L190 160 L160 160 Z' fill='hsl(215, 90%, 45%)' opacity='0.2'/><path d='M120 80 L120 120 M140 70 L140 130' stroke='hsl(30, 90%, 50%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Retinal Transduction & Ganglion Populations",
+        "icon": "visibility",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Photoreceptors transduce photons into electrical impulses.",
+          "Step 2: Impulses are relayed via bipolar cells to the retinal ganglion cell.",
+          "Population A: Parvocellular system for fine VA and colour.",
+          "Population B: Magnocellular system for motion detection and coarser-form vision.",
+          "Note: This division is preserved both in the LGN and the visual cortex."
+        ]
+      },
+      {
+        "title": "The Optic Nerve: Dimensions & Parts",
+        "icon": "straighten",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Part",
+            "Length",
+            "Anatomical Details & Diameter"
+          ],
+          "rows": [
+            [
+              "Total Nerve",
+              "50mm",
+              "Carries 1.2 million axons; runs from optic disc to chiasm."
+            ],
+            [
+              "Intraocular",
+              "1mm",
+              "Unmyelinated axons pass through lamina cribrosa; become myelinated, doubling diameter (1.5mm prelaminar to 3.0mm retrolaminar)."
+            ],
+            [
+              "Intraorbital",
+              "25mm",
+              "Full meningeal sheath (dura, arachnoid, subarachnoid space, pia mater). Dura continuous with sclera (ant) and sphenoid periosteum (post). 8mm 'slack' for motility."
+            ],
+            [
+              "Intracanalicular",
+              "5–9mm",
+              "Enters optic foramen; travels through optic canal within lesser wing of sphenoid."
+            ],
+            [
+              "Intracranial",
+              "12–16mm",
+              "4.5mm diameter. Runs up, posteriorly, and medially to form chiasm. Near frontal lobes (sup), ICA (lat), and ophthalmic artery (inferolat)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Blood Supply of the Visual Pathway",
+        "icon": "bloodtype",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Ophthalmic artery originates from ICA.",
+          "Ophthalmic artery lies inferolateral to intracranial nerve and inferior to intracanalicular part.",
+          "Perforates intraorbital part 8–12mm behind globe to become central retinal artery.",
+          "Intracranial, intracanalicular, and intraorbital portions: supplied by pial plexus (ophthalmic artery branches) and superior hypophyseal artery (most posteriorly).",
+          "Intraocular part (optic nerve head): Circle of Zinn–Haller (fed mainly by short posterior ciliary arteries)."
+        ]
+      },
+      {
+        "title": "The Optic Chiasm & Relationships",
+        "icon": "hub",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Dimensions: 8mm long, 12mm wide.",
+          "Function: Joining of optic nerves, hemidecussation of nasal fibres, emergence of optic tracts.",
+          "Location: Directly above pituitary gland (80%); can be prefixed (anterior) or post-fixed (posterior).",
+          "Pituitary context: Sella turcica of sphenoid; roofed by diaphragma sellae (dura between anterior/posterior clinoids).",
+          "Neighboring structures: Cavernous sinus and ICA inferolaterally; third ventricle posteriorly."
+        ]
+      },
+      {
+        "title": "Fiber Decussation & Wilbrand's Knee",
+        "icon": "shuffle",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Within the chiasm, fibres from the superonasal retina are found to decussate relatively posteriorly, while inferonasal fibres decussate more anteriorly; some of these inferonasal fibres appear to loop so far forward as to join the contralateral optic nerve to form Wilbrand’s knee. Macular fibres decussate in the central and posterior chiasm."
+      },
+      {
+        "title": "Optic Tract & Lateral Geniculate Nucleus (LGN)",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "LGN Layer",
+            "Source",
+            "System Type",
+            "Retinal Origin"
+          ],
+          "rows": [
+            [
+              "Layer 1",
+              "Contralateral",
+              "Magnocellular",
+              "Superior retina: Synapse medially"
+            ],
+            [
+              "Layer 2",
+              "Ipsilateral",
+              "Magnocellular",
+              "Inferior retina: Synapse laterally"
+            ],
+            [
+              "Layer 3",
+              "Ipsilateral",
+              "Parvocellular",
+              "Macular fibres: Central and posterior LGN"
+            ],
+            [
+              "Layer 4",
+              "Contralateral",
+              "Parvocellular",
+              "Other pathways: K cells located between layers"
+            ],
+            [
+              "Layer 5",
+              "Ipsilateral",
+              "Parvocellular",
+              "Tract Organization: Parvo (central), Magno (outside)"
+            ],
+            [
+              "Layer 6",
+              "Contralateral",
+              "Parvocellular",
+              "Blood: MCA branches & Thalamogeniculate (PCA)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Optic Radiation & Visual Cortex (V1)",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Visual Projection",
+          "branches": [
+            "Superior Retina: Project posteriorly through parietal lobe",
+            "Inferior Retina: Project through temporal lobe; deviate round inferior horn of lateral ventricle (Meyer’s loop)",
+            "Macular Fibres: Generally lie between these two courses",
+            "Visual Cortex (V1): Brodmann area 17, striate cortex, medial surfaces of occipital lobes, calcarine sulcus",
+            "V1 Blood Supply: PCA (Main), MCA (anterior and lateral margins)"
+          ]
+        }
+      },
+      {
+        "title": "Visual Cortex Organization & Complexity",
+        "icon": "grid_view",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "V1 Six Layers: Optic radiations synapse mainly with layer IV.",
+          "Layer Projections: II and III to 2° visual cortex; IV to superior colliculus; VI back to LGN.",
+          "Retinotopic Map: Superior retina (superiorly), Inferior retina (inferiorly), Macula (most posteriorly), Extreme temporal periphery/temporal crescent (anteriorly).",
+          "Hypercolumns: Right/left ocular dominance columns and orientation columns (divided into blobs for colour and interblobs for orientation).",
+          "Cell Complexity: (1) Circularly symmetrical: response to small central stimulus. (2) Simple: required orientated, moving, centrally located single contrast stimulus. (3) Complex: Similar to simple but not requiring central location. (4) Hypercomplex: Requires specific stimulus length.",
+          "Visual Association Areas: Subspecialization in V3 (depth perception, dynamic form), V4 (colour), and V5 (motion, maintenance of fixation). Also integrates head/eye movement nuclei."
+        ]
+      },
+      {
+        "title": "Ocular Motor Nerves: CN III Oculomotor",
+        "icon": "settings_input_component",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "The III nucleus lies in the midbrain, anterior to the periaqueductal grey matter, at the level of the superior colliculus. It consists of a single central nucleus (innervating both LPS muscles) and separate subnuclei for SR (contralateral), MR, IR, and IO (all ipsilateral). The IIIn fasciculus travels through the MLF, red nucleus, and cerebral peduncle. It emerges in the interpeduncular fossa, passing beneath the PCA, above the superior cerebellar artery, and lateral to the posterior communicating artery. It travels in the lateral wall of the cavernous sinus, dividing into: (1) Superior branch (LPS, SR) and (2) Inferior branch (MR, IR, IO, pupillary sphincter). Parasympathetic fibres from E-W nucleus travel in the IO branch to the ciliary ganglion, then via short ciliary nerves to ciliary muscle and sphincter."
+      },
+      {
+        "title": "Ocular Motor Nerves: CN IV & CN VI",
+        "icon": "directions",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Nerve",
+            "Nucleus Location",
+            "Course & Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Fourth (Trochlear)",
+              "Lower midbrain (Inf. colliculus level), below III nucleus.",
+              "Fasciculus decussates in anterior medullary velum; exits midbrain posteriorly. Curves round midbrain between PCA and superior cerebellar arteries. Lat wall of cavernous sinus (inf-lat to IIIn, sup to Va). Orbit via SOF (sup to annulus of Zinn). Terminate in SO."
+            ],
+            [
+              "Sixth (Abducens)",
+              "Lower pons, ant. to 4th ventricle (Facial colliculus level).",
+              "Most axons to ipsilateral LR; 40% project via MLF to contralateral MR subnucleus. Fasciculus travels through medial lemniscus/corticospinal tract. Emerges at pontomedullary junction; ascends between pons and clivus. Turns over petrous apex under petroclinoid ligament. Runs within cavernous sinus (lat to ICA, inf-med to IIIn, IVn, Va). Orbit via SOF and annulus of Zinn to LR."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Reference to Ocular Motor Nerves Diagram",
+        "icon": "image",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "See Fig. 16.1. Fig. 16.1 Cranial nerves III, IV, and VI. VI nerve. III nerve Posterior communicating artery. IV nerve."
+      },
+      {
+        "title": "CN VII: The Facial Nerve",
+        "icon": "face",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Three Nuclei (Lower Pons): (1) Main motor nucleus, (2) Parasympathetic superior salivatory/lacrimal nuclei, (3) Sensory nucleus (tractus solitarius).",
+          "Nervus Intermedius: Formed by parasympathetic and sensory nuclei.",
+          "Course: Motor nucleus pass around VIn nuclei; emerge at lower border of pons; pass over cerebellopontine angle into internal auditory canal. Transverse petrous temporal bone; exit stylomastoid foramen.",
+          "Terminal Branches: Temporal, zygomatic, buccal, mandibular, cervical.",
+          "Motor Functions: Muscles of facial expression, movement, platysma, stapedius.",
+          "Sensory/Secretory: Lacrimal gland (via greater superficial petrosal nerve); Salivary glands (via chorda tympani, taste for ant. 2/3 tongue)."
+        ]
+      },
+      {
+        "title": "Autonomic Supply: Sympathetic",
+        "icon": "bolt",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1st Order: Posterior hypothalamus -> Brainstem -> Ciliospinal centre of Budge (C8–T2).",
+          "2nd Order: Ventral root (near lung apex) -> Ascend sympathetic chain -> Superior cervical ganglion.",
+          "3rd Order: Ascend ICA -> Cavernous sinus -> Nasociliary branch of Va -> Long ciliary nerves -> Dilator pupillae."
+        ]
+      },
+      {
+        "title": "Autonomic Supply: Parasympathetic",
+        "icon": "auto_fix_normal",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Light Reflex Afferent: Retinal ganglion cells -> Ipsilateral pretectal nucleus -> Interneurones -> Bilateral E–W nuclei.",
+          "Near Reflex Afferent: Cortical influences (frontal/occipital) -> Midbrain centre (ant to pretectal nucleus).",
+          "Efferent Arm: Preganglionic from E–W -> IIIn -> Inferior division of IIIn -> Nerve to IO -> Ciliary ganglion.",
+          "Terminal Path: Post-ganglionic from short ciliary nerves -> Constrictor pupillae and ciliary muscle."
+        ]
+      },
+      {
+        "title": "Cerebrospinal Fluid (CSF) Dynamics",
+        "icon": "water_drop",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Production: Choroid plexus in lateral and third ventricles.",
+          "Flow 1: Lateral ventricles -> Foramen of Munro -> Third ventricle.",
+          "Flow 2: Third ventricle -> Aqueduct of Sylvius -> Fourth ventricle.",
+          "Exit: Lateral foramina of Luschka or medial foramen of Magendie.",
+          "Circulation: Bathe spinal cord and cerebral hemispheres in subarachnoid space.",
+          "Absorption: Arachnoid granulations into cerebral venous system.",
+          "Continuity: The subarachnoid space is continuous with the optic nerve sheath."
+        ]
+      }
+    ]
+  },
+  "chapterId": "neuro",
+  "seqId": 11,
+  "_serverSynced": true
+}

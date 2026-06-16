@@ -1,0 +1,281 @@
+{
+  "id": 1770233206967,
+  "seqId": 180,
+  "title": "Comprehensive Cardiopulmonary Resuscitation (CPR) & Advanced Life Support (ALS) for FRCS (GLASG)",
+  "summary": "An exhaustive clinical protocol for managing cardiorespiratory arrest, defining cardiac arrest rhythms, and detailing both Basic and Advanced Life Support sequences according to UK 2005 standards. This guide covers everything from initial diagnosis to post-resuscitation procedures and ethical considerations for the cessation of care.",
+  "date": "2026-02-04T19:26:46.967Z",
+  "data": {
+    "title": "Comprehensive Cardiopulmonary Resuscitation (CPR) & Advanced Life Support (ALS) for FRCS (GLASG)",
+    "summary": "An exhaustive clinical protocol for managing cardiorespiratory arrest, defining cardiac arrest rhythms, and detailing both Basic and Advanced Life Support sequences according to UK 2005 standards. This guide covers everything from initial diagnosis to post-resuscitation procedures and ethical considerations for the cessation of care.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='48' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M25 50 L40 50 L45 35 L55 65 L60 50 L75 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/><path d='M40 70 Q50 85 60 70' fill='none' stroke='hsl(0, 80%, 50%)' stroke-width='3'/><path d='M50 20 L50 30 M80 50 L70 50 M50 80 L50 70 M20 50 L30 50' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Sudden Cardiac Arrest: Understanding the Emergency",
+        "icon": "emergency",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Sudden Cardiac Arrest (SCA)",
+          "branches": [
+            "Sudden, unexpected loss of heart function, breathing & consciousness",
+            "Medical Emergency: Fatal if not treated immediately (Sudden Cardiac Death)",
+            "Electrical Disturbance: Ventricular fibrillation, pulseless VT, Asystole, or PEA",
+            "Loss of Cardiac Output: Blood stops flowing to the rest of the body",
+            "Survival possible with fast, appropriate care (CPR/Chest Compressions)",
+            "Context: Almost always occurs with underlying heart problems, especially Coronary Artery Disease"
+          ]
+        }
+      },
+      {
+        "title": "Cardiac Arrest vs. Heart Attack",
+        "icon": "compare",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Mechanism"
+          ],
+          "rows": [
+            [
+              "Sudden Cardiac Arrest",
+              "Usually results from an electrical disturbance in the heart that disrupts pumping action."
+            ],
+            [
+              "Heart Attack",
+              "Occurs when blood flow to a portion of the heart is blocked, depriving heart muscle of oxygen."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnosis of Cardiac Arrest Rhythms",
+        "icon": "monitor_heart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Rhythm Type",
+            "Clinical Characteristics",
+            "ECG Findings / Prognosis"
+          ],
+          "rows": [
+            [
+              "Ventricular Fibrillation (VF)",
+              "Most common and easily treatable; rapid ineffective uncoordinated movement of ventricles; NO pulse.",
+              "ECG: Rapid, bizarre & irregular ventricular complexes."
+            ],
+            [
+              "Pulseless Ventricular Tachycardia (VT)",
+              "Rapid rate prevents effective mechanical contraction/relaxation, especially with severe LT ventricular impairment.",
+              "May degenerate into VF."
+            ],
+            [
+              "Asystole",
+              "No electrical activity within ventricles; failure of conducting tissue or massive damage complicating MI.",
+              "Conducting tissue failure requires permanent pacemaker if survival occurs."
+            ],
+            [
+              "Pulseless Electrical Activity (PEA)",
+              "No effective cardiac output despite organised electrical activity (Electromechanical Dissociation/EMD).",
+              "Poor prognosis. Caused by reversible conditions (hypovolaemia, tamponade, tension pneumothorax) or catastrophic events (rupture, massive PE)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Initial Response & Diagnosis",
+        "icon": "notification_important",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Confirm diagnosis in a second: Unconscious, absent carotid pulse, apnoeic.",
+          "2. Shout for help: Ask someone to call the cardiac arrest team.",
+          "3. Request AED: Ask to bring the defibrillator.",
+          "4. Note the time.",
+          "5. Start BLS: Aim to maintain low level circulation until ALS is available."
+        ]
+      },
+      {
+        "title": "Basic Life Support (BLS) - The ABC Sequence",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "A: Establish a patent Airway (Protect cervical spine if injury possible; assess for obstruction).",
+          "A: Techniques: Head tilt (if no spinal injury suspected), Chin lift, Jaw thrust, Clear the mouth.",
+          "B: Breathing Assessment: Look, listen, and feel for 10 seconds max (chest movements, breath sounds, breath on cheek).",
+          "B: Compromised Breathing: Give high concentration O2; manage findings like tension pneumothorax.",
+          "B: Arrest (No effort): 2 breaths after 1st set of compressions (1s inflation; use Ambu bag/mask if 2 resuscitators present, else mouth-to-mouth).",
+          "C: Circulation: Check carotid pulse (10s); if no pulse, start CPR immediately. Check BP, capillary refill & evidence of haemorrhage (treat shock)."
+        ]
+      },
+      {
+        "title": "How to Perform High-Quality CPR",
+        "icon": "compress",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "mnemonic": "CPR Mechanics",
+          "explanation": "Perform on a firm surface, centered over the lower 1/3 of the sternum. Ratio is 30 chest compressions to 2 breaths (30:2). Use heels of hands, one on top of the other, with straight elbows (vertical body weight). Aim for 4 cm depth at a rate of 100/min. Allow complete recoil. Interrupt infrequently (only for DC/intubation). Do 20 cycles (of 30:2) then recheck."
+        }
+      },
+      {
+        "title": "D & E: Disability & Exposure",
+        "icon": "accessibility_new",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Disability: Assess level of consciousness using AVPU score or Glasgow Coma Scale if time allows.",
+          "Disability: Check pupils (size, equality, and reaction).",
+          "Exposure: Undress patient to facilitate assessment but cover to avoid hypothermia."
+        ]
+      },
+      {
+        "title": "History (H): Key Data to Gather",
+        "icon": "history",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Events surrounding onset of illness.",
+          "Evidence of overdose, suicide attempt, or trauma.",
+          "Past Medical History: DM, asthma, COPD, drug abuse, epilepsy, or recent head injury.",
+          "Current Medications and known Allergies."
+        ]
+      },
+      {
+        "title": "Advanced Life Support (ALS) Protocols",
+        "icon": "bolt",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "1. ALS Aims: Restore normal rhythm via DC shock (tachyarrhythmia), correct reversible causes, administer IV drugs, and Endotracheal intubation.",
+          "2. Initial Step: Place defibrillator paddles (monophasic) on chest (apex and under Rt. clavicle) and set monitor to read through paddles.",
+          "3. Rhythm Assessment: Determine if VF/Pulseless VT or Asystole/PEA.",
+          "4. VF/VT Treatment: Immediate Defibrillation (360J monophasic or 150-360J biphasic). Resume CPR 30:2 for 2 mins immediately without pulse check. Repeat shocks every 2 mins.",
+          "5. Asystole/PEA Treatment: Immediately resume CPR 30:2 for 2 minutes. Continue until normal breathing. Transverse cardiac pacing may be tried.",
+          "6. Reversible Causes: Correct '4H, 4T' as per Algorithm."
+        ]
+      },
+      {
+        "title": "Medications During CPR/ALS",
+        "icon": "vaccines",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Drug",
+            "Dosage & Administration",
+            "Indications / Notes"
+          ],
+          "rows": [
+            [
+              "Oxygen",
+              "100%",
+              "Maintain oxygenation."
+            ],
+            [
+              "Adrenaline",
+              "1mg/ml IV every 3 minutes",
+              "Routine circulatory support."
+            ],
+            [
+              "Amiodarone",
+              "300mg IV initial; 150mg further; then infusion (1mg/min for 6h, 0.5mg/min for 6h)",
+              "Used in resistant VF/VT."
+            ],
+            [
+              "Atropine",
+              "3mg IV (once)",
+              "Used in Asystole/PEA."
+            ],
+            [
+              "Sodium Bicarbonate",
+              "50ml of 8.4% solution IVI",
+              "Only in severe acidosis after prolonged resuscitation. May worsen intracellular acidosis & precipitate arrhythmias."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Warnings & Critical Notes",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Intracardiac injection is NOT recommended.",
+          "If IV access fails: Give drugs down tracheal tube (2-3 times IV dose, diluted in ≥ 10ml 0.9% saline, followed by 5 ventilations).",
+          "Management must include checking patient notes/usual doctor for cause clues.",
+          "Note: BLS/ALS Algorithm UK © 2005 / Waleed Badr, FRCS 2016."
+        ]
+      },
+      {
+        "title": "When to Stop or Withhold CPR",
+        "icon": "stop_circle",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Stop Criteria",
+            "DNR / Do Not Resuscitate"
+          ],
+          "rows": [
+            [
+              "Normal rhythm occurs; Core temp > 33°C; pH and K+ are normal.",
+              "Resuscitation is unlikely to succeed."
+            ],
+            [
+              "Significant delay (BLS > 5min or ALS > 30min).",
+              "Mentally competent patient refusal (stated or recorded)."
+            ],
+            [
+              "After 20 mins of refractory Asystole/PEA.",
+              "Not in patient's interest / would lead to poor quality of life."
+            ],
+            [
+              "N/A",
+              "When in doubt: Resuscitate."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "After Successful Resuscitation",
+        "icon": "health_and_safety",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Transfer to CCU or ICU.",
+          "2. Monitor vital signs continuously.",
+          "3. Order investigations: ECG, CXR, Glucose, Blood Gases, FBC, CK/Troponin.",
+          "4. Seek expert advice from a cardiologist.",
+          "5. Explain the outcome and events to the patient’s relatives."
+        ]
+      },
+      {
+        "title": "Source Information",
+        "icon": "description",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "INTERNAL & EMERGENCY MEDICINE FOR FRCS (GLASG) EXAM 2016. Prepared by Waleed Badr, FRCS. Includes Adult BLS Algorithm (UK) © 2005 and semilateral position guidelines for management of cardiorespiratory arrest."
+      }
+    ]
+  },
+  "chapterId": "clinical_skills",
+  "_chapterUpdated": 1770233241138,
+  "_serverSynced": true
+}

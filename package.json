@@ -5,7 +5,13 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build:mobile": "node scripts/build-mobile.js",
+    "cap:sync": "npm run build:mobile && npx cap sync",
+    "android:debug": "npm run build:mobile && npx cap sync android && cd android && JAVA_HOME=/Users/mahmoudsami/.local/jdks/temurin-21/Contents/Home ANDROID_HOME=/Users/mahmoudsami/Library/Android/sdk ANDROID_SDK_ROOT=/Users/mahmoudsami/Library/Android/sdk ./gradlew assembleDebug",
+    "android:bundle": "npm run build:mobile && npx cap sync android && cd android && JAVA_HOME=/Users/mahmoudsami/.local/jdks/temurin-21/Contents/Home ANDROID_HOME=/Users/mahmoudsami/Library/Android/sdk ANDROID_SDK_ROOT=/Users/mahmoudsami/Library/Android/sdk ./gradlew bundleRelease",
+    "ios": "npm run cap:sync && npx cap open ios",
+    "android": "npm run cap:sync && npx cap open android"
   },
   "keywords": [
     "ophthalmology",
@@ -16,6 +22,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@capacitor/android": "^7.6.6",
+    "@capacitor/cli": "^7.6.6",
+    "@capacitor/core": "^7.6.6",
+    "@capacitor/ios": "^7.6.6",
+    "@revenuecat/purchases-capacitor": "^11.3.2",
     "ftp-srv": "^4.6.3"
   }
 }

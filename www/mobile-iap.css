@@ -21,13 +21,14 @@ body.mobile-entitlement-locked .app-container {
 }
 
 .mobile-paywall-card {
-    width: min(430px, 100%);
+    width: min(520px, 100%);
+    max-height: calc(100vh - 36px);
     border-radius: 8px;
     background: #ffffff;
     color: #0f172a;
     border: 1px solid rgba(148, 163, 184, 0.35);
     box-shadow: 0 24px 80px rgba(15, 23, 42, 0.35);
-    overflow: hidden;
+    overflow: auto;
 }
 
 .mobile-paywall-header {
@@ -53,26 +54,64 @@ body.mobile-entitlement-locked .app-container {
     padding: 18px 22px 22px;
 }
 
-.mobile-paywall-list {
-    margin: 0 0 18px;
-    padding: 0;
-    list-style: none;
+.mobile-tier-grid {
     display: grid;
-    gap: 10px;
+    gap: 12px;
+    margin-bottom: 14px;
 }
 
-.mobile-paywall-list li {
+.mobile-tier-card {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 14px;
+    background: #ffffff;
+}
+
+.mobile-tier-card.highlighted {
+    border-color: #0f766e;
+    background: #f0fdfa;
+}
+
+.mobile-tier-heading {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
-    color: #334155;
-    line-height: 1.4;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
 }
 
-.mobile-paywall-list .material-symbols-rounded {
+.mobile-tier-heading h3 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+    line-height: 1.2;
+    letter-spacing: 0;
+}
+
+.mobile-tier-heading p {
+    margin: 0;
     color: #0f766e;
-    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.mobile-tier-badge {
     flex: 0 0 auto;
+    border-radius: 999px;
+    padding: 4px 8px;
+    background: #0f766e;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.mobile-tier-benefits {
+    margin: 0 0 18px;
+    padding-left: 18px;
+    display: grid;
+    gap: 7px;
+    color: #334155;
+    font-size: 0.9rem;
+    line-height: 1.35;
 }
 
 .mobile-paywall-actions {
@@ -89,6 +128,7 @@ body.mobile-entitlement-locked .app-container {
 }
 
 .mobile-paywall-primary {
+    width: 100%;
     background: #0f766e;
     color: #fff;
 }
@@ -116,4 +156,30 @@ body.mobile-entitlement-locked .app-container {
     color: #64748b;
     font-size: 0.78rem;
     line-height: 1.35;
+}
+
+@media (max-width: 420px) {
+    .mobile-paywall-backdrop {
+        align-items: stretch;
+        padding: 10px;
+    }
+
+    .mobile-paywall-card {
+        max-height: calc(100vh - 20px);
+    }
+
+    .mobile-paywall-header,
+    .mobile-paywall-body {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .mobile-tier-heading {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .mobile-tier-badge {
+        align-self: flex-start;
+    }
 }

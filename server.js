@@ -274,7 +274,8 @@ const server = http.createServer(async (req, res) => {
     }
 
     // Static file serving
-    let filePath = req.url === '/' ? '/index.html' : req.url;
+    const requestPath = new URL(req.url, `http://${req.headers.host || 'localhost'}`).pathname;
+    let filePath = requestPath === '/' ? '/index.html' : requestPath;
     filePath = path.join(__dirname, filePath);
 
     const ext = path.extname(filePath);

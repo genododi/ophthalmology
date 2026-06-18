@@ -28,7 +28,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" />
     <link rel="stylesheet" href="style.css?v=2026051603">
-    <link rel="stylesheet" href="mobile-iap.css?v=2026060301">
+    <link rel="stylesheet" href="mobile-iap.css?v=2026061701">
     <!-- Import map for ES modules - works on hosted servers -->
     <script type="importmap">
       {
@@ -68,6 +68,28 @@
             </div>
 
             <div class="control-group">
+                <label>Generation Source</label>
+                <div class="source-selector" role="radiogroup" aria-label="Generation Source">
+                    <label class="model-radio source-radio">
+                        <input type="radio" name="generation-source" value="web-llm" checked style="accent-color:#2563eb;">
+                        <span class="material-symbols-rounded">public</span>
+                        Web LLM
+                    </label>
+                    <label class="model-radio source-radio">
+                        <input type="radio" name="generation-source" value="gemini" style="accent-color:#2563eb;">
+                        <span class="material-symbols-rounded">auto_awesome</span>
+                        Gemini
+                    </label>
+                    <label class="model-radio source-radio">
+                        <input type="radio" name="generation-source" value="openai" style="accent-color:#2563eb;">
+                        <span class="material-symbols-rounded">hub</span>
+                        OpenAI
+                    </label>
+                </div>
+                <small class="hint" id="generation-source-hint">Default: use the current top web LLM without any backend API.</small>
+            </div>
+
+            <div class="control-group" id="gemini-key-group">
                 <label for="api-key">Gemini API Key</label>
                 <div class="input-wrapper">
                     <span class="material-symbols-rounded input-icon">key</span>
@@ -75,7 +97,7 @@
                 </div>
             </div>
 
-            <div class="control-group">
+            <div class="control-group" id="openai-key-group">
                 <label for="openai-api-key">OpenAI API Key <span style="font-size: 0.75rem; color: #64748b; font-weight: 400;">(optional)</span></label>
                 <div class="input-wrapper">
                     <span class="material-symbols-rounded input-icon">key</span>
@@ -84,7 +106,7 @@
                 <small class="hint">Provide either key. OpenAI is session-only. Gemini key is saved in this browser (localStorage) after entry or local setup.</small>
             </div>
 
-            <div class="control-group">
+            <div class="control-group" id="gemini-model-group">
                 <label>Gemini Model</label>
                 <div style="display:flex;gap:8px;flex-wrap:wrap;">
                     <label class="model-radio">
@@ -1041,8 +1063,8 @@
     <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
     <script src="firebase-storage.js"></script>
     <script src="community-submissions.js?v=2026031507"></script>
-    <script src="mobile-billing-config.js?v=2026060301"></script>
-    <script src="mobile-iap.js?v=2026060301"></script>
+    <script src="mobile-billing-config.js?v=2026061701"></script>
+    <script src="mobile-iap.js?v=2026061701"></script>
     <!-- Load Google Generative AI as fallback for local file:// protocol -->
     <script>
         if (window.location.protocol === 'file:') {

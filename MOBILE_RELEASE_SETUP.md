@@ -39,7 +39,14 @@ npm run ios
 
 ## In-App Purchases And Trial
 
-The app code expects RevenueCat entitlement `pro` and a default offering containing a subscription product with a 7-day free trial.
+The app code uses RevenueCat and expects two annual mobile purchase tiers:
+
+| Tier | Price | Entitlement | iOS product ID | Android product ID |
+| --- | ---: | --- | --- | --- |
+| Pro Annual | `$100/year` | `pro` | `ophthalmic_infograph_pro_annual_100` | `ophthalmic_infograph_pro_annual_100` |
+| Utmost Annual | `$200/year` | `utmost` | `ophthalmic_infograph_utmost_annual_200` | `ophthalmic_infograph_utmost_annual_200` |
+
+Either entitlement unlocks the app. The `utmost` entitlement is reserved for the highest-benefit annual tier and future premium-only mobile features.
 
 Project config file:
 
@@ -56,8 +63,16 @@ androidApiKey: 'goog_REPLACE_WITH_REVENUECAT_ANDROID_PUBLIC_KEY'
 
 External dashboard setup required:
 
-1. Create App Store Connect subscription product with a 7-day introductory free trial.
-2. Create Google Play Console subscription product/base plan/offer with a 7-day free trial.
-3. Connect both products in RevenueCat.
-4. Create RevenueCat entitlement `pro`.
-5. Create/default a RevenueCat offering that includes the subscription package.
+1. Create the two App Store Connect auto-renewable annual subscription products listed above. Set the customer-facing prices to `$100/year` and `$200/year`.
+2. Create the matching Google Play Console annual subscription products/base plans. Set the customer-facing prices to `$100/year` and `$200/year`.
+3. Optional: add a 7-day introductory free trial on the store products/base-plan offers.
+4. Connect both products in RevenueCat.
+5. Create RevenueCat entitlement `pro` for the `$100/year` product.
+6. Create RevenueCat entitlement `utmost` for the `$200/year` product.
+7. Create/default a RevenueCat offering that includes both annual packages. Use package identifier `$rc_annual` for Pro and `utmost_annual` for Utmost, or keep the product IDs exactly as listed above.
+
+After changing mobile billing files, refresh the native projects with:
+
+```bash
+npm run cap:sync
+```

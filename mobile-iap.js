@@ -1,14 +1,53 @@
 (function () {
     const config = window.OphthalmicBillingConfig || {};
-    const entitlementId = config.entitlementId || 'pro';
     const trialDays = Number(config.trialDays || 7);
+    const appName = config.appName || 'Ophthalmic Infograph';
     const placeholderPattern = /REPLACE_WITH|^appl_REPLACE|^goog_REPLACE/;
+
+    const defaultTiers = [
+        {
+            id: 'pro_annual',
+            name: 'Pro Annual',
+            entitlementId: 'pro',
+            displayPrice: '$100/year',
+            packageIdentifier: '$rc_annual',
+            cta: 'Start Pro annual',
+            benefits: [
+                'Full mobile app access',
+                'Infographic generation from topics, notes, PDFs, and DOCX resources',
+                'Clinical library, reports, flashcards, quizzes, mind maps, and slide decks'
+            ]
+        },
+        {
+            id: 'utmost_annual',
+            name: 'Utmost Annual',
+            entitlementId: 'utmost',
+            displayPrice: '$200/year',
+            packageIdentifier: 'utmost_annual',
+            cta: 'Unlock Utmost benefits',
+            highlighted: true,
+            benefits: [
+                'Everything in Pro Annual',
+                'Highest-benefit annual access tier for advanced users',
+                'Priority access positioning for future premium mobile features'
+            ]
+        }
+    ];
+
+    const tiers = Array.isArray(config.tiers) && config.tiers.length ? config.tiers : defaultTiers;
+    const accessEntitlementIds = Array.isArray(config.accessEntitlementIds) && config.accessEntitlementIds.length
+        ? config.accessEntitlementIds
+        : tiers.map(tier => tier.entitlementId).filter(Boolean);
+    const ultimateEntitlementId = config.ultimateEntitlementId || tiers.find(tier => tier.highlighted)?.entitlementId || 'utmost';
 
     const state = {
         isNative: false,
         configured: false,
         hasAccess: false,
-        packageToPurchase: null,
+        activeEntitlements: [],
+        activeTierId: null,
+        offerings: null,
+        packagesByTier: {},
         initializing: false
     };
 
@@ -40,13 +79,24 @@
         return typeof key === 'string' ? key.trim() : '';
     }
 
+    function getTierProductId(tier) {
+        const platform = getPlatform();
+        return platform === 'ios' ? tier.iosProductId : tier.androidProductId;
+    }
+
     function isConfiguredKey(key) {
         return key && !placeholderPattern.test(key);
     }
 
-    function hasActiveEntitlement(customerInfo) {
-        const active = customerInfo?.entitlements?.active || {};
-        return Boolean(active[entitlementId]);
+    function getActiveEntitlements(customerInfo) {
+        return Object.keys(customerInfo?.entitlements?.active || {});
+    }
+
+    function updateAccess(customerInfo) {
+        state.activeEntitlements = getActiveEntitlements(customerInfo);
+        state.activeTierId = tiers.find(tier => state.activeEntitlements.includes(tier.entitlementId))?.id || null;
+        state.hasAccess = accessEntitlementIds.some(entitlementId => state.activeEntitlements.includes(entitlementId));
+        setLocked(!state.hasAccess);
     }
 
     function setStatus(message, type) {
@@ -59,17 +109,64 @@
     function setLocked(locked) {
         document.body.classList.toggle('mobile-entitlement-locked', locked);
         window.dispatchEvent(new CustomEvent('ophthalmic:entitlement', {
-            detail: { hasAccess: !locked }
+            detail: {
+                hasAccess: !locked,
+                activeTierId: state.activeTierId,
+                activeEntitlements: state.activeEntitlements
+            }
         }));
     }
 
-    function pickPurchasePackage(offerings) {
+    function getOffering(offerings) {
         const offeringId = config.offeringIdentifier;
-        const offering = offeringId
-            ? offerings?.all?.[offeringId]
-            : offerings?.current;
-        if (!offering) return null;
-        return offering.availablePackages?.[0] || offering.monthly || offering.annual || null;
+        return offeringId ? offerings?.all?.[offeringId] : offerings?.current;
+    }
+
+    function getPackageProductId(pkg) {
+        return pkg?.product?.identifier
+            || pkg?.product?.productIdentifier
+            || pkg?.storeProduct?.identifier
+            || pkg?.storeProduct?.productIdentifier
+            || pkg?.productIdentifier
+            || '';
+    }
+
+    function packageMatchesTier(pkg, tier) {
+        const tierProductId = getTierProductId(tier);
+        const pkgProductId = getPackageProductId(pkg);
+        return Boolean(
+            (tierProductId && pkgProductId === tierProductId)
+            || (tier.packageIdentifier && pkg?.identifier === tier.packageIdentifier)
+        );
+    }
+
+    function findPackageForTier(offerings, tier) {
+        const offering = getOffering(offerings);
+        const packages = offering?.availablePackages || [];
+        return packages.find(pkg => packageMatchesTier(pkg, tier))
+            || (tier.id === config.defaultTierId ? offering?.annual : null)
+            || null;
+    }
+
+    function renderTierCards() {
+        return tiers.map(tier => {
+            const benefits = (tier.benefits || []).map(item => `<li>${item}</li>`).join('');
+            return `
+                <article class="mobile-tier-card${tier.highlighted ? ' highlighted' : ''}">
+                    <div class="mobile-tier-heading">
+                        <div>
+                            <h3>${tier.name}</h3>
+                            <p>${tier.displayPrice}</p>
+                        </div>
+                        ${tier.highlighted ? '<span class="mobile-tier-badge">Best benefits</span>' : ''}
+                    </div>
+                    <ul class="mobile-tier-benefits">${benefits}</ul>
+                    <button type="button" class="mobile-paywall-primary" data-purchase-tier="${tier.id}">
+                        ${tier.cta || `Choose ${tier.name}`}
+                    </button>
+                </article>
+            `;
+        }).join('');
     }
 
     function renderPaywall() {
@@ -81,27 +178,24 @@
         backdrop.innerHTML = `
             <section class="mobile-paywall-card" role="dialog" aria-modal="true" aria-labelledby="mobile-paywall-title">
                 <div class="mobile-paywall-header">
-                    <h2 id="mobile-paywall-title">Ophthalmic Infograph Pro</h2>
-                    <p>Start your ${trialDays}-day trial to use the mobile app.</p>
+                    <h2 id="mobile-paywall-title">${appName}</h2>
+                    <p>Choose annual mobile access. Store pricing and trials are managed by Apple, Google, and RevenueCat.</p>
                 </div>
                 <div class="mobile-paywall-body">
-                    <ul class="mobile-paywall-list">
-                        <li><span class="material-symbols-rounded">auto_awesome</span><span>Generate ophthalmic infographics from topics, notes, PDFs, and DOCX resources.</span></li>
-                        <li><span class="material-symbols-rounded">inventory_2</span><span>Use the bundled clinical library and save your own knowledge base locally.</span></li>
-                        <li><span class="material-symbols-rounded">school</span><span>Create reports, flashcards, quizzes, mind maps, and slide decks from your work.</span></li>
-                    </ul>
+                    <div class="mobile-tier-grid">${renderTierCards()}</div>
                     <div class="mobile-paywall-actions">
-                        <button type="button" class="mobile-paywall-primary" id="mobile-start-trial-btn">Start ${trialDays}-day free trial</button>
                         <button type="button" class="mobile-paywall-secondary" id="mobile-restore-btn">Restore purchases</button>
                     </div>
                     <div class="mobile-paywall-status" id="mobile-paywall-status">Checking subscription...</div>
-                    <p class="mobile-paywall-footnote">The free trial is configured on your App Store Connect and Google Play subscription products through RevenueCat.</p>
+                    <p class="mobile-paywall-footnote">Configure the $100 annual Pro product and $200 annual Utmost product in App Store Connect and Google Play, then attach them to the RevenueCat offering. A ${trialDays}-day free trial can be enabled on the store products.</p>
                 </div>
             </section>
         `;
         document.body.appendChild(backdrop);
 
-        document.getElementById('mobile-start-trial-btn')?.addEventListener('click', purchasePackage);
+        backdrop.querySelectorAll('[data-purchase-tier]').forEach(button => {
+            button.addEventListener('click', () => purchaseTier(button.dataset.purchaseTier));
+        });
         document.getElementById('mobile-restore-btn')?.addEventListener('click', restorePurchases);
     }
 
@@ -124,34 +218,39 @@
     async function refreshCustomerInfo() {
         const Purchases = getPurchasesPlugin();
         const result = await Purchases.getCustomerInfo();
-        state.hasAccess = hasActiveEntitlement(result.customerInfo);
-        setLocked(!state.hasAccess);
+        updateAccess(result.customerInfo);
         return result.customerInfo;
     }
 
     async function loadOffering() {
         const Purchases = getPurchasesPlugin();
         const result = await Purchases.getOfferings();
-        const offerings = result.offerings || result;
-        state.packageToPurchase = pickPurchasePackage(offerings);
+        state.offerings = result.offerings || result;
+        state.packagesByTier = tiers.reduce((packages, tier) => {
+            packages[tier.id] = findPackageForTier(state.offerings, tier);
+            return packages;
+        }, {});
     }
 
-    async function purchasePackage() {
+    async function purchaseTier(tierId) {
         if (!state.configured) return;
+        const tier = tiers.find(item => item.id === tierId) || tiers.find(item => item.id === config.defaultTierId) || tiers[0];
         const Purchases = getPurchasesPlugin();
+
         try {
-            setStatus('Opening secure purchase sheet...');
-            if (!state.packageToPurchase) {
+            setStatus(`Opening secure purchase sheet for ${tier.name}...`);
+            if (!state.offerings) {
                 await loadOffering();
             }
-            if (!state.packageToPurchase) {
-                throw new Error('No RevenueCat offering/package is available. Check product setup in App Store Connect, Google Play, and RevenueCat.');
+
+            const packageToPurchase = state.packagesByTier[tier.id];
+            if (!packageToPurchase) {
+                throw new Error(`No RevenueCat package was found for ${tier.name}. Check the ${getPlatform()} product ID, offering, and entitlement setup.`);
             }
 
-            const result = await Purchases.purchasePackage({ aPackage: state.packageToPurchase });
-            state.hasAccess = hasActiveEntitlement(result.customerInfo);
-            setLocked(!state.hasAccess);
-            setStatus(state.hasAccess ? 'Subscription active. Welcome in.' : 'Purchase completed, but the pro entitlement is not active yet.');
+            const result = await Purchases.purchasePackage({ aPackage: packageToPurchase });
+            updateAccess(result.customerInfo);
+            setStatus(state.hasAccess ? `${tier.name} is active. Welcome in.` : 'Purchase completed, but no active entitlement was returned yet.');
         } catch (error) {
             const cancelled = error?.code === 'PURCHASE_CANCELLED_ERROR' || /cancel/i.test(error?.message || '');
             setStatus(cancelled ? 'Purchase cancelled.' : (error?.message || 'Purchase failed.'), cancelled ? '' : 'error');
@@ -164,9 +263,8 @@
         try {
             setStatus('Restoring purchases...');
             const result = await Purchases.restorePurchases();
-            state.hasAccess = hasActiveEntitlement(result.customerInfo);
-            setLocked(!state.hasAccess);
-            setStatus(state.hasAccess ? 'Purchases restored.' : 'No active pro subscription was found.');
+            updateAccess(result.customerInfo);
+            setStatus(state.hasAccess ? 'Purchases restored.' : 'No active annual subscription was found.');
         } catch (error) {
             setStatus(error?.message || 'Restore failed.', 'error');
         }
@@ -176,6 +274,8 @@
         state.isNative = isNativeMobile();
         window.OphthalmicMobileBilling = {
             hasAccess: () => !state.isNative || state.hasAccess,
+            hasUltimateAccess: () => !state.isNative || state.activeEntitlements.includes(ultimateEntitlementId),
+            getActiveTier: () => state.activeTierId,
             requireAccess: () => {
                 if (!state.isNative || state.hasAccess) return true;
                 setLocked(true);
@@ -195,7 +295,7 @@
             await refreshCustomerInfo();
             if (!state.hasAccess) {
                 await loadOffering();
-                setStatus(`Start your ${trialDays}-day trial to unlock the app.`);
+                setStatus(`Choose Pro Annual ($100/year) or Utmost Annual ($200/year) to unlock the mobile app.`);
             }
         } catch (error) {
             setLocked(true);

@@ -5,6 +5,17 @@ const apiKeyInput = document.getElementById('api-key');
 const openaiKeyInput = document.getElementById('openai-api-key');
 const topicInput = document.getElementById('topic-input');
 const outputContainer = document.getElementById('output-container');
+const generationSourceHint = document.getElementById('generation-source-hint');
+const geminiKeyGroup = document.getElementById('gemini-key-group');
+const openaiKeyGroup = document.getElementById('openai-key-group');
+const geminiModelGroup = document.getElementById('gemini-model-group');
+
+const BEST_WEB_LLM = Object.freeze({
+    name: 'Claude Fable 5',
+    provider: 'Anthropic',
+    url: 'https://claude.ai/new',
+    verifiedLabel: 'current web pick, checked June 18, 2026'
+});
 
 // Gemini API key: localStorage + default seed (Pages) + localhost Keychain bootstrap
 const GEMINI_API_KEY_STORAGE = 'geminiApiKey';
@@ -134,6 +145,42 @@ async function initGeminiApiKey() {
 function initTopicDefault() {
     if (!topicInput || topicInput.value.trim()) return;
     topicInput.value = TOPIC_DEFAULT_SEED;
+}
+
+function getSelectedGenerationSource() {
+    const checked = document.querySelector('input[name="generation-source"]:checked');
+    return checked ? checked.value : 'web-llm';
+}
+
+function setGenerationGroupState(group, disabled) {
+    if (!group) return;
+    group.classList.toggle('is-disabled', disabled);
+    group.querySelectorAll('input, button, select, textarea').forEach(el => {
+        el.disabled = disabled;
+    });
+}
+
+function updateGenerationSourceUI() {
+    const source = getSelectedGenerationSource();
+    setGenerationGroupState(geminiKeyGroup, source !== 'gemini');
+    setGenerationGroupState(openaiKeyGroup, source !== 'openai');
+    if (geminiModelGroup) geminiModelGroup.hidden = source !== 'gemini';
+
+    if (!generationSourceHint) return;
+    if (source === 'web-llm') {
+        generationSourceHint.textContent = `${BEST_WEB_LLM.provider} ${BEST_WEB_LLM.name} is the default ${BEST_WEB_LLM.verifiedLabel}; opens on the web and uses no backend API.`;
+    } else if (source === 'gemini') {
+        generationSourceHint.textContent = 'Use a browser-side Gemini API key for direct in-app generation.';
+    } else {
+        generationSourceHint.textContent = 'Use a browser-side OpenAI API key for direct in-app generation.';
+    }
+}
+
+function initGenerationSourceSelector() {
+    document.querySelectorAll('input[name="generation-source"]').forEach(input => {
+        input.addEventListener('change', updateGenerationSourceUI);
+    });
+    updateGenerationSourceUI();
 }
 
 // ============================================
@@ -5341,6 +5388,7 @@ let currentInfographicData = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
     await initGeminiApiKey();
+    initGenerationSourceSelector();
     initTopicDefault();
     await initLibraryCache();
     // ── Migration: purge legacy kanskiImages blobs from localStorage ──
@@ -6251,10 +6299,16 @@ generateBtn.addEventListener('click', async () => {
 
     const geminiKey = apiKeyInput.value.trim();
     const openaiKey = openaiKeyInput.value.trim();
+    const generationSource = getSelectedGenerationSource();
     const topic = topicInput.value.trim();
 
-    if (!geminiKey && !openaiKey) {
-        alert('Please enter either a Gemini or OpenAI API Key');
+    if (generationSource === 'gemini' && !geminiKey) {
+        alert('Please enter a Gemini API Key or switch Generation Source to Web LLM');
+        return;
+    }
+
+    if (generationSource === 'openai' && !openaiKey) {
+        alert('Please enter an OpenAI API Key or switch Generation Source to Web LLM');
         return;
     }
 
@@ -6274,11 +6328,16 @@ generateBtn.addEventListener('click', async () => {
         }
     }
 
+    if (generationSource === 'web-llm') {
+        showWebLLMInfographicFlow(combinedInput);
+        return;
+    }
+
     setLoading(true);
 
     try {
         let data;
-        if (openaiKey) {
+        if (generationSource === 'openai') {
             try {
                 data = await generateInfographicDataOpenAI(openaiKey, combinedInput);
             } catch (openaiErr) {
@@ -6295,7 +6354,7 @@ generateBtn.addEventListener('click', async () => {
             data = await generateInfographicData(geminiKey, combinedInput);
         }
         if (data && !data.generationPrompt) {
-            data.generationPrompt = topic;
+            data.generationPrompt = combinedInput;
         }
         currentInfographicData = data;
         renderInfographic(data);
@@ -6320,6 +6379,156 @@ generateBtn.addEventListener('click', async () => {
     }
 });
 
+
+function buildWebLLMInfographicPrompt(topic) {
+    const topicMode = isTopicMode(topic);
+    const modeBlock = topicMode ? buildKnowledgeExpansionBlock() : buildPreservationBlock();
+
+    return `You are a world-class Ophthalmic Content Strategist, board-certified Ophthalmologist, and Information Designer.
+
+Your task is to transform the user's input into a vibrant, colorful, visual ophthalmology infographic poster.
+
+${modeBlock}
+
+Return ONLY valid JSON. Do not include markdown fences, commentary, citations outside the JSON, or any text before/after the JSON.
+
+JSON Schema (strict):
+{
+  "title": "A Punchy, Poster-Style Title",
+  "summary": "A 2-3 sentence engaging summary.",
+  "summary_illustration": "<svg ...> ... </svg>",
+  "sections": [
+    {
+      "title": "Section Title",
+      "icon": "valid_material_symbols_rounded_name",
+      "type": "chart | red_flag | mindmap | remember | key_point | process | plain_text | table",
+      "layout": "full_width | half_width",
+      "color_theme": "blue | red | green | yellow | purple",
+      "content": {}
+    }
+  ]
+}
+
+Content rules:
+1. "chart": { "type": "bar", "data": [ { "label": "Label A", "value": 80 } ] } with values on a 0-100 relative scale.
+2. "red_flag": [ "Warning Sign 1", "Contraindication 2" ]; use red theme.
+3. "remember": { "mnemonic": "ABCD", "explanation": "A for Age, B for..." }.
+4. "mindmap": { "center": "Main Concept", "branches": [ "Branch A", "Branch B", "Branch C" ] }.
+5. "key_point": [ "Point 1", "Point 2" ].
+6. "process": [ "Step 1: ...", "Step 2: ..." ].
+7. "plain_text": "Content string...".
+8. "table": { "headers": [ "Col 1", "Col 2" ], "rows": [ [ "Row 1 Col 1", "Row 1 Col 2" ] ] }.
+
+summary_illustration rules:
+- Generate a valid, minimal SVG string representing the core ophthalmic topic.
+- Use flat modern vector art, a viewBox, and primary color hsl(215, 90%, 45%) with relevant accents.
+- Keep the SVG simple enough to render inside a poster header.
+
+Design focus:
+- Use chart, table, mindmap, process, red_flag, remember, key_point, and plain_text sections where they fit.
+- If the input contains many items, include every item. Do not pick only the top few.
+- If the topic has stages, classification, hierarchy, or differential diagnoses, use tables or mindmaps.
+- If there are contraindications or emergency signs, use red_flag.
+${topicMode ? '- Include epidemiological data as chart sections where applicable.\n- Include at least one mnemonic.\n- Include investigation/diagnostic workup as process or table.\n- Include management algorithm as process.' : '- Preserve the full user-provided text and facts.'}
+
+User Topic/Text:
+${topic}`;
+}
+
+async function copyTextToClipboard(text) {
+    if (!navigator.clipboard || !window.isSecureContext) {
+        return false;
+    }
+    try {
+        await navigator.clipboard.writeText(text);
+        return true;
+    } catch (_) {
+        return false;
+    }
+}
+
+function showWebLLMInfographicFlow(topic) {
+    const promptText = buildWebLLMInfographicPrompt(topic);
+    outputContainer.classList.remove('empty-state');
+    outputContainer.innerHTML = `
+        <div class="web-llm-panel">
+            <div class="web-llm-header">
+                <div>
+                    <span class="material-symbols-rounded">public</span>
+                    <strong>Generate with ${escapeHtml(BEST_WEB_LLM.provider)} ${escapeHtml(BEST_WEB_LLM.name)}</strong>
+                </div>
+                <span class="web-llm-badge">${escapeHtml(BEST_WEB_LLM.verifiedLabel)}</span>
+            </div>
+            <div class="web-llm-actions">
+                <button type="button" class="btn-primary" id="web-llm-open-btn">
+                    <span class="material-symbols-rounded">open_in_new</span>
+                    Open Web LLM
+                </button>
+                <button type="button" class="btn-secondary" id="web-llm-copy-btn">
+                    <span class="material-symbols-rounded">content_copy</span>
+                    Copy Prompt
+                </button>
+            </div>
+            <label class="web-llm-label" for="web-llm-prompt">Prompt sent to the web LLM</label>
+            <textarea id="web-llm-prompt" class="web-llm-textarea" readonly></textarea>
+            <label class="web-llm-label" for="web-llm-json">Paste the JSON response here</label>
+            <textarea id="web-llm-json" class="web-llm-textarea web-llm-json" placeholder="{ &quot;title&quot;: ... }"></textarea>
+            <button type="button" class="primary-btn web-llm-render-btn" id="web-llm-render-btn">
+                Render Infographic
+            </button>
+        </div>
+    `;
+
+    const promptArea = document.getElementById('web-llm-prompt');
+    const jsonArea = document.getElementById('web-llm-json');
+    const openBtn = document.getElementById('web-llm-open-btn');
+    const copyBtn = document.getElementById('web-llm-copy-btn');
+    const renderBtn = document.getElementById('web-llm-render-btn');
+
+    if (promptArea) promptArea.value = promptText;
+
+    const openWebLLM = () => {
+        const opened = window.open(BEST_WEB_LLM.url, '_blank');
+        if (opened) opened.opener = null;
+        if (!opened) {
+            showToast('Popup blocked. Use Open Web LLM after copying the prompt.', 'warning');
+        }
+    };
+
+    openBtn?.addEventListener('click', openWebLLM);
+    copyBtn?.addEventListener('click', async () => {
+        const copied = await copyTextToClipboard(promptText);
+        if (copied) {
+            showToast('Prompt copied. Paste it into the web LLM.', 'success');
+        } else {
+            promptArea?.focus();
+            promptArea?.select();
+            showToast('Select and copy the prompt manually.', 'warning');
+        }
+    });
+
+    renderBtn?.addEventListener('click', () => {
+        const raw = jsonArea?.value?.trim() || '';
+        if (!raw) {
+            alert('Paste the JSON response from the web LLM first.');
+            return;
+        }
+        try {
+            const data = parseInfographicJsonResponse(raw);
+            data.generationPrompt = topic;
+            data.generatedWith = `${BEST_WEB_LLM.provider} ${BEST_WEB_LLM.name} via web`;
+            currentInfographicData = data;
+            renderInfographic(data);
+            showToast('Web LLM infographic rendered.', 'success');
+        } catch (error) {
+            alert('Could not parse the pasted JSON. Ask the web LLM to return ONLY valid JSON, then paste it again.\n\n' + (error.message || error));
+        }
+    });
+
+    copyTextToClipboard(promptText).then(copied => {
+        if (copied) showToast('Prompt copied. Open the web LLM and paste it there.', 'success');
+    });
+}
 
 
 function isTopicMode(input) {
@@ -6388,6 +6597,25 @@ function getSelectedGeminiModel() {
     const checked = document.querySelector('input[name="gemini-model"]:checked');
     const modelId = checked ? checked.value : GEMINI_FLASH_LATEST;
     return normalizeGeminiModelId(modelId);
+}
+
+function parseInfographicJsonResponse(text) {
+    let cleaned = String(text || '')
+        .replace(/```json/gi, '')
+        .replace(/```/g, '')
+        .trim();
+
+    try {
+        return JSON.parse(cleaned);
+    } catch (directError) {
+        const start = cleaned.indexOf('{');
+        const end = cleaned.lastIndexOf('}');
+        if (start >= 0 && end > start) {
+            cleaned = cleaned.slice(start, end + 1);
+            return JSON.parse(cleaned);
+        }
+        throw directError;
+    }
 }
 
 async function generateInfographicData(apiKey, topic) {
@@ -6487,8 +6715,7 @@ async function generateInfographicData(apiKey, topic) {
             const result = await model.generateContent(prompt);
             const response = await result.response;
             let text = response.text();
-            text = text.replace(/```json/g, '').replace(/```/g, '').trim();
-            const parsed = JSON.parse(text);
+            const parsed = parseInfographicJsonResponse(text);
             parsed.generationPrompt = topic;
             return parsed;
 
@@ -6591,8 +6818,9 @@ ${topicMode ? 'Include epidemiological data as charts. Include at least one mnem
 
             const result = await response.json();
             let text = result.choices?.[0]?.message?.content || '';
-            text = text.replace(/```json/g, '').replace(/```/g, '').trim();
-            return JSON.parse(text);
+            const parsed = parseInfographicJsonResponse(text);
+            parsed.generationPrompt = topic;
+            return parsed;
 
         } catch (error) {
             console.warn(`Failed with OpenAI model ${modelName}:`, error);

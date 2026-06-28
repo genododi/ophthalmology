@@ -11589,7 +11589,7 @@ async function exportSlidesAsPPTX() {
                 const s = pptx.addSlide();
                 const tplKey = (typeof slide.template === 'object' && slide.template) ? (slide.template.key || 'default') : (String(slide.template || 'default'));
                 const tpl = SLIDE_TEMPLATES[tplKey] || SLIDE_TEMPLATES.default;
-                const accent = (typeof tpl.accent === 'string' ? tpl.accent.replace('#', '').toUpperCase() : '3B82F6');
+                const accent = hexToPptxColor(tpl.accent);
 
                 if (slide.type === 'title' || slide.type === 'end') {
                     s.background = { color: '1E293B' };
@@ -11604,13 +11604,98 @@ async function exportSlidesAsPPTX() {
                     return;
                 }
 
-                const lines = slideContentToTextLines(slide);
-                if (lines.length > 0) {
-                    lines.forEach(function(line, idx) {
-                        s.addText(String(line), { x: 0.85, y: 1.3 + idx * 0.6, w: 11.63, h: 0.5, fontSize: 18, color: '1E293B' });
+                if (slide.type === 'agenda') {
+                    s.background = { color: 'FFFFFF' };
+                    s.addText('list_alt  ' + String(slide.title || ''), { x: 0.65, y: 0.35, w: 12.03, h: 0.7, fontSize: 28, bold: true, color: accent });
+                    (slide.items || []).forEach((item, idx) => {
+                        s.addText(String(idx + 1).padStart(2, '0') + '    ' + String(item), { x: 1.2, y: 1.3 + idx * 0.55, w: 11.0, h: 0.45, fontSize: 18, color: '1E293B' });
                     });
-                } else if (typeof slide.content === 'string') {
-                    s.addText(String(slide.content), { x: 0.85, y: 1.3, w: 11.63, h: 5.5, fontSize: 18, color: '334155' });
+                    return;
+                }
+
+                const headerIcon = slide.icon || tpl.icon || '';
+                const headerTitle = String(slide.title || '');
+                s.addText((headerIcon ? headerIcon + '  ' : '') + headerTitle, { x: 0.65, y: 0.25, w: 10.5, h: 0.7, fontSize: 24, bold: true, color: accent });
+
+                if (tpl.label && tpl.key !== 'default') {
+                    s.addText(String(tpl.label), { x: 10.65, y: 0.3, w: 2.5, h: 0.5, fontSize: 11, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle' });
+                }
+
+                const content = slide.content;
+                const contentY = 1.35;
+
+                if (Array.isArray(content) && shouldRenderSlideTopicCards(content)) {
+                    const cards = content.map(parseSlideContentItem);
+                    const count = cards.length;
+                    const cols = count <= 2 ? count : (count === 3 ? 3 : (count === 4 ? 2 : 3));
+                    const rows = Math.ceil(count / cols);
+                    const x0 = 0.65, y0 = contentY, areaW = 12.03, areaH = 5.5, gap = 0.25;
+                    const cardW = (areaW - gap * (cols - 1)) / cols;
+                    const cardH = (areaH - gap * (rows - 1)) / rows;
+                    const hdrH = Math.min(0.65, cardH * 0.3);
+                    cards.forEach((card, i) => {
+                        const col = i % cols, row = Math.floor(i / cols);
+                        const cx = x0 + col * (cardW + gap), cy = y0 + row * (cardH + gap);
+                        s.addText(String(i + 1).padStart(2, '0') + '  ' + String(card.topic || ''), { x: cx + 0.1, y: cy + 0.05, w: cardW - 0.2, h: hdrH - 0.1, fontSize: 11, bold: true, color: 'FFFFFF', valign: 'middle' });
+                        s.addText(String(card.body || card.topic || ''), { x: cx + 0.15, y: cy + hdrH + 0.05, w: cardW - 0.3, h: cardH - hdrH - 0.15, fontSize: 12, color: '1E293B', valign: 'top' });
+                    });
+                    return;
+                }
+
+                if (content && typeof content === 'object' && !Array.isArray(content)) {
+                    if (content.headers && content.rows) {
+                        const { headers, rows } = normalizeSlideTable(content);
+                        if (headers.length && rows.length) {
+                            const colW = 11.63 / headers.length, rowH = 0.45;
+                            const maxRows = Math.min(rows.length, 10);
+                            headers.forEach((h, i) => {
+                                s.addText(String(h || ''), { x: 0.65 + i * colW + 0.08, y: contentY, w: colW - 0.16, h: rowH, fontSize: 11, bold: true, color: 'FFFFFF', valign: 'middle', align: 'center' });
+                            });
+                            rows.slice(0, maxRows).forEach((row, ri) => {
+                                const ry = contentY + rowH + ri * rowH;
+                                row.forEach((cell, ci) => {
+                                    s.addText(String(cell == null ? '' : cell), { x: 0.65 + ci * colW + 0.08, y: ry, w: colW - 0.16, h: rowH, fontSize: 10, color: '334155', valign: 'middle' });
+                                });
+                            });
+                        }
+                        return;
+                    }
+                    if (content.mnemonic) {
+                        s.addText(String(content.mnemonic), { x: 1.0, y: contentY + 0.3, w: 11.33, h: 1.2, fontSize: 38, bold: true, color: '7C3AED', align: 'center' });
+                        if (content.explanation) { s.addText(String(content.explanation), { x: 1.0, y: contentY + 1.7, w: 11.33, h: 1.5, fontSize: 16, color: '475569', align: 'center' }); }
+                        return;
+                    }
+                    if (content.center) {
+                        s.addText(String(content.center), { x: 1.5, y: contentY + 0.2, w: 10.33, h: 0.7, fontSize: 20, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle' });
+                        if (Array.isArray(content.branches)) {
+                            content.branches.slice(0, 8).forEach((b, i) => {
+                                s.addText('\u2022  ' + String(b == null ? '' : b), { x: 1.25, y: contentY + 1.3 + i * 0.5, w: 10.83, h: 0.4, fontSize: 14, color: '334155' });
+                            });
+                        }
+                        return;
+                    }
+                    if (Array.isArray(content.data)) {
+                        content.data.slice(0, 8).forEach((d, i) => {
+                            const label = String(d?.label ?? d?.name ?? d?.title ?? '');
+                            const value = String(d?.value ?? d ?? '');
+                            s.addText(label + ': ' + value, { x: 0.85, y: contentY + i * 0.55, w: 11.63, h: 0.45, fontSize: 16, color: '1E293B' });
+                        });
+                        return;
+                    }
+                }
+
+                if (Array.isArray(content)) {
+                    const numbered = tpl.key === 'framework' || tpl.key === 'management';
+                    content.slice(0, 12).forEach((item, idx) => {
+                        const { topic, body } = parseSlideContentItem(item);
+                        const text = body || topic || displayText(item);
+                        s.addText((numbered ? String(idx + 1) + '. ' : '\u2022  ') + String(text), { x: 1.1, y: contentY + idx * 0.5, w: 11.1, h: 0.42, fontSize: 16, color: '1E293B' });
+                    });
+                    return;
+                }
+
+                if (typeof content === 'string') {
+                    s.addText(String(content), { x: 0.85, y: contentY + 0.2, w: 11.63, h: 5.0, fontSize: 20, color: '334155', valign: 'top' });
                 }
             } catch (slideErr) {
                 console.warn('[PPTX] Slide #' + (sidx + 1) + ' (' + String(slide.title || slide.type || '') + ') failed:', slideErr);

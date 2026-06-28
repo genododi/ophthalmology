@@ -2662,6 +2662,7 @@ textarea:focus {
 .slide-content.content-slide {
     background: white;
     align-items: flex-start;
+    justify-content: flex-start;
     text-align: left;
     padding: 3.5rem 4rem;
     overflow: hidden;
@@ -2979,8 +2980,6 @@ textarea:focus {
     background: white;
     box-shadow: none;
 }
-
-
 
 /* Progress bar along the bottom */
 .presentation-progress {

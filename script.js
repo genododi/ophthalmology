@@ -13589,7 +13589,7 @@ function setupKanskiPics() {
             'papilledema': ['papilloedema', 'optic disc swelling', 'disc oedema', 'disc edema'],
             'cranial nerve palsy': ['cranial neuropathy', 'nerve palsy'],
             'myasthenia gravis': ['mg', 'myasthenic', 'ocular myasthenia'],
-            'horner syndrome': ['horner', 'oculosympathetic palsy', 'sympathetic',
+            'horner syndrome': ['horner', 'oculosympathetic palsy', 'sympathetic'],
             'diabetes': ['diabetic', 'dm', 'diabetes mellitus'],
             'hypertension': ['htn', 'hypertensive'],
             'trauma': ['traumatic', 'injury', 'fracture'],

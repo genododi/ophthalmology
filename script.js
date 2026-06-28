@@ -11351,37 +11351,47 @@ function renderPresentationSlide() {
     if (slide.type === 'title' || slide.type === 'end') {
         content.classList.add('title-slide');
         content.innerHTML = `
-            ${slide.type === 'end' ? '<span class="material-symbols-rounded" style="font-size:5rem;margin-bottom:1.5rem;color:#fbbf24;">auto_awesome</span>' : ''}
+            <div class="slide-title-emoji" aria-hidden="true">${getSlideEmoji(slide)}</div>
             <h1>${escapeHtml(slide.title)}</h1>
-            <p>${escapeHtml(slide.subtitle || '')}</p>
+            <p class="slide-subtitle">${escapeHtml(slide.subtitle || '')}</p>
+            ${slide.type === 'end' ? '' : '<p class="slide-deck-tagline">Ophthalmology Clinical Teaching Deck</p>'}
         `;
     } else if (slide.type === 'section') {
         const tpl = slide.template || SLIDE_TEMPLATES.default;
         content.classList.add('section-slide');
         content.style.background = tpl.bg;
         content.innerHTML = `
-            <div style="display:inline-flex;align-items:center;justify-content:center;width:200px;height:200px;border-radius:50%;background:${tpl.accent};color:white;margin-bottom:2.5rem;box-shadow:0 20px 50px rgba(0,0,0,0.2);">
-                <span class="material-symbols-rounded" style="font-size:7rem;">${escapeHtml(slide.icon || tpl.icon)}</span>
+            <div style="display:inline-flex;align-items:center;justify-content:center;width:120px;height:120px;border-radius:50%;background:${tpl.accent};color:white;margin-bottom:1.5rem;box-shadow:0 12px 24px rgba(0,0,0,0.15);">
+                <span class="material-symbols-rounded" style="font-size:4rem;">${escapeHtml(slide.icon || tpl.icon)}</span>
             </div>
-            <div style="font-size:1.3rem;text-transform:uppercase;letter-spacing:6px;color:${tpl.accent};font-weight:700;margin-bottom:1rem;">${escapeHtml(tpl.label)}</div>
+            <div style="font-size:0.9rem;text-transform:uppercase;letter-spacing:3px;color:${tpl.accent};font-weight:700;margin-bottom:0.5rem;">${getSlideEmoji(slide)} ${escapeHtml(tpl.label)}</div>
             <h2 style="color:#0f172a;">${escapeHtml(slide.title)}</h2>
         `;
     } else if (slide.type === 'agenda') {
         content.classList.add('content-slide');
         content.innerHTML = `
-            <h3 style="display:flex;align-items:center;gap:16px;font-size:3rem;color:#0f172a;margin-bottom:2.5rem;border-bottom:3px solid #e2e8f0;padding-bottom:1rem;width:100%;">
-                <span class="material-symbols-rounded" style="color:#2563eb;font-size:3rem;">list_alt</span>
+            <h3 style="display:flex;align-items:center;gap:12px;font-size:2.4rem;color:#0f172a;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:1rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:#2563eb;font-size:2.4rem;">list_alt</span>
                 ${escapeHtml(withSlideEmoji(slide.title, slide))}
             </h3>
-            <ol style="list-style:none;padding-left:0;width:100%;font-size:1.8rem;">
-                ${slide.items.map((item, i) => `
-                    <li style="margin-bottom:1.25rem;display:flex;align-items:center;gap:20px;color:#334155;padding:1rem 1.5rem;background:#f8fafc;border-radius:14px;border-left:6px solid #3b82f6;">
-                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:1.3rem;">${String(i + 1).padStart(2, '0')}</span>
+            <ol style="list-style:none;padding-left:0;counter-reset:agenda;width:100%;">
+                ${slide.items.map(item => `
+                    <li style="counter-increment:agenda;margin-bottom:1rem;display:flex;align-items:center;gap:16px;font-size:1.5rem;color:#334155;padding:0.75rem 1rem;background:#f8fafc;border-radius:10px;border-left:4px solid #3b82f6;">
+                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:1.1rem;">
+                            <span>${'0'}</span>
+                        </span>
                         <span style="flex:1;">${escapeHtml(item)}</span>
                     </li>
                 `).join('')}
             </ol>
         `;
+        // Fix counter display (replace placeholder with literal numbering)
+        requestAnimationFrame(() => {
+            content.querySelectorAll('ol li').forEach((li, i) => {
+                const numEl = li.querySelector('span span');
+                if (numEl) numEl.textContent = String(i + 1).padStart(2, '0');
+            });
+        });
     } else {
         content.classList.add('content-slide');
         content.style.background = '';
@@ -11391,31 +11401,33 @@ function renderPresentationSlide() {
         if (Array.isArray(slide.content)) {
             const numbered = tpl.key === 'framework' || tpl.key === 'management';
             if (shouldRenderSlideTopicCards(slide.content)) {
-                contentHtml = renderSlideTopicCards(slide.content, tpl, { fontSize: '1.15rem' });
+                contentHtml = renderSlideTopicCards(slide.content, tpl, { fontSize: '0.95rem' });
             } else {
-                contentHtml = renderTemplatedBullets(slide.content, tpl, { fontSize: '1.6rem', numbered });
+                contentHtml = renderTemplatedBullets(slide.content, tpl, { fontSize: '1.3rem', numbered });
             }
         } else if (typeof slide.content === 'object' && slide.content !== null) {
-            contentHtml = renderSlideStructuredContent(slide, tpl, { mode: 'presentation' });
+            contentHtml = renderSlideStructuredContent(slide, tpl, { mode: 'preview' });
         } else {
             contentHtml = `
-                <div style="background:${tpl.bg};padding:3rem;border-radius:16px;border-left:10px solid ${tpl.border};box-shadow:0 6px 20px rgba(0,0,0,0.06);width:100%;">
-                    <p style="font-size:2rem;line-height:1.8;color:#0f172a;">${escapeHtml(slide.content || '')}</p>
+                <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; border-left: 6px solid #3b82f6; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <p style="font-size: 1.4rem; line-height: 1.8; color: #334155;">${escapeHtml(slide.content)}</p>
                 </div>`;
         }
 
         const headerBadge = tpl.key === 'default' ? '' : `
-            <span style="display:inline-flex;align-items:center;gap:8px;margin-left:auto;background:${tpl.accent};color:white;padding:6px 18px;border-radius:999px;font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
-                <span class="material-symbols-rounded" style="font-size:1.3rem;">${escapeHtml(tpl.icon)}</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;margin-left:auto;background:${tpl.accent};color:white;padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">
+                <span class="material-symbols-rounded" style="font-size:1rem;">${escapeHtml(tpl.icon)}</span>
                 ${escapeHtml(tpl.label)}
             </span>`;
         content.innerHTML = `
-            <h3 style="display:flex;align-items:center;gap:16px;font-size:2.6rem;color:#0f172a;margin-bottom:1.75rem;border-bottom:4px solid ${tpl.accent}33;padding-bottom:1rem;width:100%;">
-                <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.8rem;">${escapeHtml(slide.icon || tpl.icon)}</span>
+            <h3 style="display:flex;align-items:center;gap:12px;border-bottom:3px solid ${tpl.accent}22;padding-bottom:0.9rem;font-size:2rem;color:#0f172a;margin-bottom:1.75rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.2rem;">${escapeHtml(slide.icon || tpl.icon)}</span>
                 <span style="flex:1;">${escapeHtml(withSlideEmoji(slide.title, slide))}</span>
                 ${headerBadge}
             </h3>
-            <div style="width:100%;flex:1;display:flex;align-items:flex-start;overflow:auto;">${contentHtml}</div>
+            <div style="margin-top:0.5rem;width:100%;">
+                ${contentHtml}
+            </div>
         `;
     }
     requestAnimationFrame(() => syncSlideCanvasScale(content.closest('.slide-frame')));

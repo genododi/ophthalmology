@@ -2758,21 +2758,6 @@ textarea:focus {
     word-break: normal;
 }
 
-.presentation-mode .slide-topic-cards {
-    gap: 1rem;
-}
-
-.presentation-mode .slide-topic-card__label {
-    font-size: 1.05rem;
-    min-height: 4.25rem;
-    padding: 0.9rem 1rem;
-}
-
-.presentation-mode .slide-topic-card__body {
-    font-size: 1.15rem;
-    padding: 1rem 1.15rem;
-}
-
 .slide-thumbnails {
     display: flex;
     gap: 0.5rem;
@@ -2993,41 +2978,6 @@ textarea:focus {
     aspect-ratio: 16 / 9;
     background: white;
     box-shadow: none;
-}
-
-.presentation-mode .slide-content {
-    padding: clamp(2.25rem, 4vh, 4rem) clamp(3rem, 5vw, 6rem);
-    max-width: none;
-    max-height: none;
-    overflow: hidden;
-}
-
-.presentation-mode .slide-content.title-slide,
-.presentation-mode .slide-content.section-slide {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.presentation-mode .slide-content.content-slide {
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-.presentation-mode .slide-content.title-slide h1 {
-    font-size: 5.5rem;
-}
-
-.presentation-mode .slide-content.section-slide h2 {
-    font-size: 5rem;
-}
-
-.presentation-mode .slide-content.content-slide h3 {
-    font-size: 3rem;
-}
-
-.presentation-mode .slide-content ul {
-    font-size: 1.8rem;
 }
 
 /* Progress bar along the bottom */

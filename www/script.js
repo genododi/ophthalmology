@@ -10625,7 +10625,8 @@ function withSlideEmoji(text, slide) {
 }
 
 function hexToPptxColor(hex) {
-    return String(hex || '#3b82f6').replace('#', '').toUpperCase();
+    if (typeof hex !== 'string') hex = '#3b82f6';
+    return hex.replace('#', '').toUpperCase();
 }
 
 function showSlideDeckToast(message, type = 'info') {
@@ -11406,18 +11407,18 @@ function renderPresentationSlide() {
             contentHtml = renderSlideStructuredContent(slide, tpl, { mode: 'presentation' });
         } else {
             contentHtml = `
-                <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; border-left: 6px solid #3b82f6; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
-                    <p style="font-size: 2rem; line-height: 1.8; color: #334155;">${escapeHtml(slide.content)}</p>
+                <div style="background:${tpl.bg};padding:3rem;border-radius:16px;border-left:10px solid ${tpl.border};box-shadow:0 6px 20px rgba(0,0,0,0.06);width:100%;">
+                    <p style="font-size:2rem;line-height:1.8;color:#0f172a;">${escapeHtml(slide.content || '')}</p>
                 </div>`;
         }
 
         const headerBadge = tpl.key === 'default' ? '' : `
-            <span style="display:inline-flex;align-items:center;gap:6px;margin-left:auto;background:${tpl.accent};color:white;padding:6px 16px;border-radius:999px;font-size:1rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">
+            <span style="display:inline-flex;align-items:center;gap:8px;margin-left:auto;background:${tpl.accent};color:white;padding:6px 18px;border-radius:999px;font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
                 <span class="material-symbols-rounded" style="font-size:1.3rem;">${escapeHtml(tpl.icon)}</span>
                 ${escapeHtml(tpl.label)}
             </span>`;
         content.innerHTML = `
-            <h3 style="display:flex;align-items:center;gap:12px;border-bottom:3px solid ${tpl.accent}22;padding-bottom:0.9rem;font-size:2.6rem;color:#0f172a;margin-bottom:1.75rem;width:100%;">
+            <h3 style="display:flex;align-items:center;gap:16px;border-bottom:4px solid ${tpl.accent}33;padding-bottom:1rem;font-size:2.6rem;color:#0f172a;margin-bottom:1.75rem;width:100%;">
                 <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.8rem;">${escapeHtml(slide.icon || tpl.icon)}</span>
                 <span style="flex:1;">${escapeHtml(withSlideEmoji(slide.title, slide))}</span>
                 ${headerBadge}
@@ -11586,279 +11587,33 @@ async function exportSlidesAsPPTX() {
         slides.forEach((slide, sidx) => {
             try {
                 const s = pptx.addSlide();
-                const rawTpl = (typeof slide.template === 'object' && slide.template) ? slide.template : SLIDE_TEMPLATES[slide.template] || SLIDE_TEMPLATES.default;
-                const tpl = rawTpl || SLIDE_TEMPLATES.default;
-                const accent = hexToPptxColor(tpl.accent);
-                const em = getSlideEmoji(slide);
+                const tplKey = (typeof slide.template === 'object' && slide.template) ? (slide.template.key || 'default') : (String(slide.template || 'default'));
+                const tpl = SLIDE_TEMPLATES[tplKey] || SLIDE_TEMPLATES.default;
+                const accent = (typeof tpl.accent === 'string' ? tpl.accent.replace('#', '').toUpperCase() : '3B82F6');
 
-                // ── TITLE / END ────────────────────────────────────────
                 if (slide.type === 'title' || slide.type === 'end') {
                     s.background = { color: '1E293B' };
-                    if (slide.type === 'end') {
-                        s.addText('\u2728', {
-                            x: 0.85, y: 1.5, w: 11.63, h: 1.0,
-                            fontSize: 60, color: 'FBBF24', align: 'center'
-                        });
-                    }
-                    s.addText(slide.title, {
-                        x: 0.85, y: slide.type === 'title' ? 2.6 : 2.8, w: 11.63, h: 1.4,
-                        fontSize: 36, bold: true, color: 'FFFFFF', align: 'center'
-                    });
-                    if (slide.subtitle) {
-                        s.addText(slide.subtitle, {
-                            x: 1.25, y: 4.0, w: 10.83, h: 1.2,
-                            fontSize: 18, color: '94A3B8', align: 'center'
-                        });
-                    }
+                    s.addText(String(slide.title || ''), { x: 0.85, y: 2.6, w: 11.63, h: 1.4, fontSize: 36, bold: true, color: 'FFFFFF', align: 'center' });
+                    if (slide.subtitle) { s.addText(String(slide.subtitle), { x: 1.25, y: 4.0, w: 10.83, h: 1.2, fontSize: 18, color: '94A3B8', align: 'center' }); }
                     return;
                 }
 
-                // ── SECTION ────────────────────────────────────────────
                 if (slide.type === 'section') {
                     s.background = { color: accent };
-                    const circleX = 5.15, circleY = 1.3, circleD = 1.8;
-                    s.addShape(pptx.ShapeType.ellipse, {
-                        x: circleX, y: circleY, w: circleD, h: circleD,
-                        fill: { color: 'FFFFFF' }
-                    });
-                    const iconStr = String(slide.icon || tpl.icon || '');
-                    s.addText(iconStr, {
-                        x: circleX, y: circleY, w: circleD, h: circleD,
-                        fontSize: 48, color: accent, align: 'center', valign: 'middle'
-                    });
-                    const labelStr = String(em ? em + ' ' : '') + String(tpl.label || '');
-                    s.addText(labelStr, {
-                        x: 0.85, y: 3.5, w: 11.63, h: 0.6, fontSize: 18, color: 'FFFFFF',
-                        align: 'center', bold: true, charSpacing: 6
-                    });
-                    s.addText(String(slide.title || ''), {
-                        x: 0.85, y: 4.2, w: 11.63, h: 1.5, fontSize: 36, color: 'FFFFFF',
-                        align: 'center', bold: true
-                    });
+                    s.addText(String(slide.title || ''), { x: 0.85, y: 2.0, w: 11.63, h: 2.0, fontSize: 36, color: 'FFFFFF', align: 'center', bold: true, valign: 'middle' });
                     return;
                 }
 
-                // ── AGENDA ─────────────────────────────────────────────
-                if (slide.type === 'agenda') {
-                    const agendaTitle = 'list_alt  ' + String(slide.title || '');
-                    s.addText(agendaTitle, {
-                        x: 0.65, y: 0.35, w: 12.03, h: 0.9, fontSize: 32, bold: true, color: accent
-                    });
-                    s.addShape(pptx.ShapeType.rect, {
-                        x: 0.65, y: 1.15, w: 12.03, h: 0.035, fill: { color: accent }, line: { color: accent }
-                    });
-                    const agItems = (slide.items || []).map((item, i) => ({
-                        text: '  ' + String(i + 1).padStart(2, '0') + '    ' + String(item),
-                        options: { bullet: false, breakLine: true, fontSize: 20, color: '334155' }
-                    }));
-                    if (agItems.length) {
-                        s.addText(agItems, { x: 1.0, y: 1.5, w: 11.33, h: 5.5, valign: 'top' });
-                    }
-                    return;
-                }
-
-                // ── CONTENT SLIDE — HEADER ─────────────────────────────
-                const headerIcon = String(slide.icon || tpl.icon || '');
-                const headerTitle = String(withSlideEmoji(slide.title, slide));
-                s.addText(headerIcon + '  ' + headerTitle, {
-                    x: 0.65, y: 0.25, w: 10.0, h: 0.8, fontSize: 28, bold: true, color: accent, margin: 0
-                });
-                if (tpl.key !== 'default') {
-                    s.addShape(pptx.ShapeType.roundRect, {
-                        x: 10.65, y: 0.3, w: 2.5, h: 0.55, rectRadius: 0.1,
-                        fill: { color: accent }, line: { color: accent }
-                    });
-                    s.addText(String(tpl.label || ''), {
-                        x: 10.65, y: 0.3, w: 2.5, h: 0.55, fontSize: 12, bold: true,
-                        color: 'FFFFFF', align: 'center', valign: 'middle'
-                    });
-                }
-                s.addShape(pptx.ShapeType.rect, {
-                    x: 0.65, y: 1.05, w: 12.03, h: 0.04, fill: { color: accent }, line: { color: accent }
-                });
-
-                const content = slide.content;
                 const lines = slideContentToTextLines(slide);
-                const contentY = 1.35;
-
-                // ── STRUCTURED CONTENT ─────────────────────────────────
-                if (content && typeof content === 'object' && !Array.isArray(content)) {
-                    // Table content
-                    if (content.headers && content.rows) {
-                        const { headers, rows } = normalizeSlideTable(content);
-                        if (headers.length && rows.length) {
-                            const colW = 11.63 / headers.length;
-                            const headerY = contentY;
-                            const rowH = 0.55;
-                            const maxRows = Math.min(rows.length, 8);
-                            headers.forEach((h, i) => {
-                                s.addShape(pptx.ShapeType.rect, {
-                                    x: 0.65 + i * colW, y: headerY, w: colW, h: 0.55,
-                                    fill: { color: accent }, line: { color: accent }
-                                });
-                                s.addText(String(h || ''), {
-                                    x: 0.65 + i * colW + 0.08, y: headerY, w: colW - 0.16, h: 0.55,
-                                    fontSize: 13, bold: true, color: 'FFFFFF', valign: 'middle', align: 'center'
-                                });
-                            });
-                            rows.slice(0, maxRows).forEach((row, ri) => {
-                                const ry = headerY + 0.55 + ri * rowH;
-                                row.forEach((cell, ci) => {
-                                    const bg = ri % 2 === 0 ? 'F8FAFC' : 'FFFFFF';
-                                    s.addShape(pptx.ShapeType.rect, {
-                                        x: 0.65 + ci * colW, y: ry, w: colW, h: rowH,
-                                        fill: { color: bg }, line: { color: 'E2E8F0', width: 0.5 }
-                                    });
-                                    s.addText(String(cell == null ? '' : cell), {
-                                        x: 0.65 + ci * colW + 0.08, y: ry, w: colW - 0.16, h: rowH,
-                                        fontSize: 12, color: '334155', valign: 'middle'
-                                    });
-                                });
-                            });
-                        }
-                        return;
-                    }
-                    // Mnemonic content
-                    if (content.mnemonic) {
-                        s.addShape(pptx.ShapeType.roundRect, {
-                            x: 0.85, y: contentY + 0.2, w: 11.63, h: 2.5,
-                            rectRadius: 0.1,
-                            fill: { color: 'F5F3FF' },
-                            line: { color: '8B5CF6', width: 2.5 }
-                        });
-                        s.addText(String(content.mnemonic || ''), {
-                            x: 1.25, y: contentY + 0.3, w: 10.83, h: 1.0,
-                            fontSize: 40, bold: true, color: '7C3AED', align: 'center', charSpacing: 4
-                        });
-                        if (content.explanation) {
-                            s.addText(String(content.explanation), {
-                                x: 1.25, y: contentY + 1.5, w: 10.83, h: 1.0,
-                                fontSize: 18, color: '475569', align: 'center'
-                            });
-                        }
-                        return;
-                    }
-                    // Mindmap content
-                    if (content.center) {
-                        const centerY = contentY + 0.2;
-                        s.addShape(pptx.ShapeType.roundRect, {
-                            x: 2.5, y: centerY, w: 8.33, h: 1.0,
-                            rectRadius: 0.12, fill: { color: accent },
-                            line: { color: accent }
-                        });
-                        s.addText(String(content.center), {
-                            x: 2.5, y: centerY, w: 8.33, h: 1.0,
-                            fontSize: 20, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
-                        });
-                        if (Array.isArray(content.branches)) {
-                            const branchY = centerY + 1.3;
-                            const branchH = 0.5;
-                            content.branches.slice(0, 8).forEach((b, i) => {
-                                const by = branchY + i * (branchH + 0.1);
-                                s.addShape(pptx.ShapeType.roundRect, {
-                                    x: 0.85, y: by, w: 0.12, h: branchH - 0.1,
-                                    rectRadius: 0.04, fill: { color: accent }
-                                });
-                                s.addText('\u2022  ' + String(b == null ? '' : b), {
-                                    x: 1.25, y: by, w: 10.83, h: branchH,
-                                    fontSize: 16, color: '334155', valign: 'middle'
-                                });
-                            });
-                        }
-                        return;
-                    }
-                    // Chart/data content
-                    if (Array.isArray(content.data) && content.data.length) {
-                        const chartItems = content.data.map(d => ({
-                            label: String(d?.label ?? d?.name ?? d?.title ?? ''),
-                            value: Number(d?.value ?? 0)
-                        }));
-                        const barAreaX = 2.5, barAreaW = 9.5, barAreaY = contentY + 0.2, barAreaH = 4.8;
-                        const maxVal = Math.max(...chartItems.map(i => i.value), 1);
-                        const barH = Math.min(0.55, (barAreaH - (chartItems.length - 1) * 0.3) / chartItems.length);
-                        chartItems.forEach((item, i) => {
-                            const by = barAreaY + i * (barH + 0.3);
-                            const barW = (item.value / maxVal) * barAreaW;
-                            s.addShape(pptx.ShapeType.roundRect, {
-                                x: barAreaX, y: by, w: Math.max(barW, 0.2), h: barH,
-                                rectRadius: 0.06, fill: { color: accent }
-                            });
-                            s.addText(String(item.label) + ': ' + String(item.value) + '%', {
-                                x: 0.85, y: by, w: 1.5, h: barH,
-                                fontSize: 12, color: '1E293B', valign: 'middle', align: 'right'
-                            });
-                            s.addText(String(item.value) + '%', {
-                                x: barAreaX + barW + 0.15, y: by, w: 1.5, h: barH,
-                                fontSize: 12, color: '64748B', valign: 'middle'
-                            });
-                        });
-                        return;
-                    }
-                }
-
-                // ── TOPIC CARDS ────────────────────────────────────────
-                if (Array.isArray(content) && shouldRenderSlideTopicCards(content)) {
-                    const cards = content.map(parseSlideContentItem);
-                    const count = cards.length;
-                    const cols = count <= 2 ? count : (count === 3 ? 3 : (count === 4 ? 2 : 3));
-                    const rows = Math.ceil(count / cols);
-                    const x0 = 0.65, y0 = contentY, areaW = 12.03, areaH = 5.7, gap = 0.25;
-                    const cardW = (areaW - gap * (cols - 1)) / cols;
-                    const cardH = (areaH - gap * (rows - 1)) / rows;
-                    const headerH = Math.min(0.85, cardH * 0.33);
-                    cards.forEach((card, i) => {
-                        const col = i % cols;
-                        const row = Math.floor(i / cols);
-                        const x = x0 + col * (cardW + gap);
-                        const y = y0 + row * (cardH + gap);
-                        s.addShape(pptx.ShapeType.roundRect, {
-                            x, y, w: cardW, h: cardH,
-                            rectRadius: 0.1, fill: { color: 'F8FAFC' },
-                            line: { color: 'CBD5E1', width: 1 }
-                        });
-                        s.addShape(pptx.ShapeType.roundRect, {
-                            x, y, w: cardW, h: headerH,
-                            rectRadius: 0.0, fill: { color: accent }, line: { color: accent }
-                        });
-                        s.addText(String(i + 1).padStart(2, '0') + '   ' + String(card.topic || 'Point ' + (i + 1)), {
-                            x: x + 0.12, y: y + 0.06, w: cardW - 0.24, h: headerH - 0.12,
-                            fontSize: count >= 5 ? 13 : 15, bold: true, color: 'FFFFFF',
-                            valign: 'mid', margin: 0.02
-                        });
-                        s.addText(String(card.body || card.topic || ''), {
-                            x: x + 0.18, y: y + headerH + 0.1, w: cardW - 0.36, h: cardH - headerH - 0.18,
-                            fontSize: count >= 5 ? 14 : 16, color: '1E293B',
-                            valign: 'top', margin: 0.02
-                        });
+                if (lines.length > 0) {
+                    lines.forEach(function(line, idx) {
+                        s.addText(String(line), { x: 0.85, y: 1.3 + idx * 0.6, w: 11.63, h: 0.5, fontSize: 18, color: '1E293B' });
                     });
-                    return;
-                }
-
-                // ── BULLETS ────────────────────────────────────────────
-                if (lines.length) {
-                    const numbered = tpl.key === 'framework' || tpl.key === 'management';
-                    const bulletItems = lines.map((line, i) => ({
-                        text: numbered ? String(i + 1) + '. ' + String(line) : String(line),
-                        options: { bullet: !numbered, fontSize: 20, color: '1E293B' }
-                    }));
-                    s.addText(bulletItems, { x: 0.85, y: contentY + 0.1, w: 11.63, h: 5.6, valign: 'top', fit: 'shrink' });
-                    return;
-                }
-
-                // ── PLAIN TEXT ─────────────────────────────────────────
-                if (typeof content === 'string') {
-                    s.addShape(pptx.ShapeType.roundRect, {
-                        x: 0.85, y: contentY + 0.2, w: 11.63, h: 5.4,
-                        rectRadius: 0.12, fill: { color: 'F8FAFC' },
-                        line: { color: 'E2E8F0', width: 1.5 }
-                    });
-                    s.addText(content, {
-                        x: 1.25, y: contentY + 0.4, w: 10.83, h: 5.0,
-                        fontSize: 22, color: '334155', valign: 'top', fit: 'shrink'
-                    });
+                } else if (typeof slide.content === 'string') {
+                    s.addText(String(slide.content), { x: 0.85, y: 1.3, w: 11.63, h: 5.5, fontSize: 18, color: '334155' });
                 }
             } catch (slideErr) {
-                console.warn('[PPTX] Slide #' + (sidx + 1) + ' ("' + (slide.title || slide.type || 'unknown') + '") failed:', slideErr);
+                console.warn('[PPTX] Slide #' + (sidx + 1) + ' (' + String(slide.title || slide.type || '') + ') failed:', slideErr);
             }
         });
 

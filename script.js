@@ -11351,10 +11351,9 @@ function renderPresentationSlide() {
     if (slide.type === 'title' || slide.type === 'end') {
         content.classList.add('title-slide');
         content.innerHTML = `
-            <div class="slide-title-emoji" aria-hidden="true">${getSlideEmoji(slide)}</div>
+            ${slide.type === 'end' ? '<span class="material-symbols-rounded" style="font-size:5rem;margin-bottom:1.5rem;color:#fbbf24;">auto_awesome</span>' : ''}
             <h1>${escapeHtml(slide.title)}</h1>
-            <p class="slide-subtitle">${escapeHtml(slide.subtitle || '')}</p>
-            ${slide.type === 'end' ? '' : '<p class="slide-deck-tagline">Ophthalmology Clinical Teaching Deck</p>'}
+            <p>${escapeHtml(slide.subtitle || '')}</p>
         `;
     } else if (slide.type === 'section') {
         const tpl = slide.template || SLIDE_TEMPLATES.default;

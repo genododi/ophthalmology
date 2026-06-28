@@ -2,6 +2,11 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const generateBtn = document.getElementById('generate-btn');
 const apiKeyInput = document.getElementById('api-key');
+const geminiKeyEntry = document.getElementById('gemini-key-entry');
+const geminiKeyAddBtn = document.getElementById('gemini-key-add-btn');
+const geminiKeyPoolElement = document.getElementById('gemini-key-pool');
+const geminiKeySummary = document.getElementById('gemini-key-summary');
+const geminiKeyVisibilityBtn = document.getElementById('gemini-key-visibility-btn');
 const openaiKeyInput = document.getElementById('openai-api-key');
 const topicInput = document.getElementById('topic-input');
 const outputContainer = document.getElementById('output-container');
@@ -17,17 +22,17 @@ const BEST_WEB_LLM = Object.freeze({
     verifiedLabel: 'current web pick, checked June 18, 2026'
 });
 
-// Gemini API key: localStorage + default seed (Pages) + localhost Keychain bootstrap
+// Gemini API keys stay browser-local. A localhost Keychain value can seed the pool.
 const GEMINI_API_KEY_STORAGE = 'geminiApiKey';
-const GEMINI_API_KEY_USER_EDITED_FLAG = 'geminiApiKeyUserEdited';
+const GEMINI_API_KEYS_STORAGE = 'geminiApiKeys';
+const GEMINI_API_KEY_SELECTED_STORAGE = 'geminiApiKeySelected';
 const LOCAL_DEV_KEY_ENDPOINT = '/local-dev/gemini-api-key';
 const KEYCHAIN_ACCOUNT_LABEL = 'SMILE';
-/** Public seed when storage is empty and user has not edited (rotate if repo is public). */
-const GEMINI_API_KEY_DEFAULT_SEED = 'AIzaSyAvtf0-Dbu_Ue5aw03m0xpiRmphYK5YydA';
 /** Default topic when the topic field is empty on first load. */
 const TOPIC_DEFAULT_SEED = "today's trendy articles in ophthalmic journals";
 
-let geminiKeyProgrammaticUpdate = false;
+let geminiApiKeys = [];
+let revealGeminiApiKeys = false;
 
 function isLocalDevHost() {
     if (isCapacitorNativeApp()) return false;
@@ -46,44 +51,47 @@ function isCapacitorNativeApp() {
 function isValidGeminiApiKey(key) {
     if (!key || typeof key !== 'string') return false;
     const v = key.trim();
-    return v.length > 0 && v !== KEYCHAIN_ACCOUNT_LABEL;
+    return v.startsWith('AIza') && v.length >= 30 && v !== KEYCHAIN_ACCOUNT_LABEL;
 }
 
-function isGeminiApiKeyUserEdited() {
+function createGeminiKeyRecord(key) {
+    return {
+        id: `gemini-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+        key: key.trim(),
+        status: 'ready',
+        message: ''
+    };
+}
+
+function persistGeminiApiKeys() {
     try {
-        return localStorage.getItem(GEMINI_API_KEY_USER_EDITED_FLAG) === 'true';
+        localStorage.setItem(GEMINI_API_KEYS_STORAGE, JSON.stringify(geminiApiKeys));
+    } catch (e) {
+        console.warn('[Gemini API] Could not persist key pool', e);
+    }
+}
+
+function getSelectedGeminiKeyId() {
+    try {
+        return localStorage.getItem(GEMINI_API_KEY_SELECTED_STORAGE) || '';
     } catch (_) {
-        return false;
+        return '';
     }
 }
 
-function setGeminiApiKeyUserEdited(edited) {
+function getSelectedGeminiKeyRecord() {
+    const selectedId = getSelectedGeminiKeyId();
+    return geminiApiKeys.find(item => item.id === selectedId) || geminiApiKeys[0] || null;
+}
+
+function selectGeminiApiKey(id) {
+    const selected = geminiApiKeys.find(item => item.id === id) || geminiApiKeys[0] || null;
     try {
-        if (edited) localStorage.setItem(GEMINI_API_KEY_USER_EDITED_FLAG, 'true');
-        else localStorage.removeItem(GEMINI_API_KEY_USER_EDITED_FLAG);
-    } catch (e) {
-        console.warn('[Gemini API] Could not persist user-edited flag', e);
-    }
-}
-
-function getDefaultGeminiApiKeySeed() {
-    return isValidGeminiApiKey(GEMINI_API_KEY_DEFAULT_SEED) ? GEMINI_API_KEY_DEFAULT_SEED : '';
-}
-
-function applyGeminiApiKeyToInput(key) {
-    if (!isValidGeminiApiKey(key) || !apiKeyInput) return;
-    geminiKeyProgrammaticUpdate = true;
-    apiKeyInput.value = key.trim();
-    geminiKeyProgrammaticUpdate = false;
-}
-
-function persistGeminiApiKey(key) {
-    if (!key) return;
-    try {
-        localStorage.setItem(GEMINI_API_KEY_STORAGE, key);
-    } catch (e) {
-        console.warn('[Gemini API] Could not persist key to localStorage', e);
-    }
+        if (selected) localStorage.setItem(GEMINI_API_KEY_SELECTED_STORAGE, selected.id);
+        else localStorage.removeItem(GEMINI_API_KEY_SELECTED_STORAGE);
+    } catch (_) { /* private mode */ }
+    if (apiKeyInput) apiKeyInput.value = selected?.key || '';
+    renderGeminiKeyPool();
 }
 
 async function fetchLocalDevGeminiKey() {
@@ -97,49 +105,135 @@ async function fetchLocalDevGeminiKey() {
     return null;
 }
 
-function handleGeminiApiKeyUserInput() {
-    if (geminiKeyProgrammaticUpdate) return;
-    const v = apiKeyInput.value.trim();
-    if (isValidGeminiApiKey(v)) {
-        persistGeminiApiKey(v);
-        if (v !== GEMINI_API_KEY_DEFAULT_SEED) setGeminiApiKeyUserEdited(true);
-    } else {
-        try { localStorage.removeItem(GEMINI_API_KEY_STORAGE); } catch (_) {}
-        setGeminiApiKeyUserEdited(true);
-    }
+function splitGeminiApiKeys(raw) {
+    return String(raw || '')
+        .split(/[\s,;]+/)
+        .map(key => key.trim())
+        .filter(isValidGeminiApiKey);
 }
 
-async function initGeminiApiKey() {
-    if (!apiKeyInput) return;
+function maskGeminiApiKey(key) {
+    if (revealGeminiApiKeys) return key;
+    return `${key.slice(0, 6)}${'\u2022'.repeat(12)}${key.slice(-5)}`;
+}
 
-    let key = '';
-    const userEdited = isGeminiApiKeyUserEdited();
+function renderGeminiKeyPool() {
+    if (!geminiKeyPoolElement) return;
+    const selected = getSelectedGeminiKeyRecord();
+
+    if (!geminiApiKeys.length) {
+        geminiKeyPoolElement.innerHTML = '<div class="gemini-key-empty">No keys saved</div>';
+    } else {
+        geminiKeyPoolElement.innerHTML = geminiApiKeys.map((item, index) => `
+            <div class="gemini-key-item status-${escapeHtml(item.status)}" title="${escapeHtml(item.message || 'Ready to use')}">
+                <label class="gemini-key-select">
+                    <input type="radio" name="gemini-api-key-choice" value="${escapeHtml(item.id)}" ${selected?.id === item.id ? 'checked' : ''}>
+                    <span class="gemini-key-name">Key ${index + 1}</span>
+                    <code>${escapeHtml(maskGeminiApiKey(item.key))}</code>
+                </label>
+                <span class="gemini-key-status">${escapeHtml(item.status)}</span>
+                <button type="button" class="icon-btn gemini-key-remove" data-key-id="${escapeHtml(item.id)}" title="Remove key" aria-label="Remove Key ${index + 1}">
+                    <span class="material-symbols-rounded">close</span>
+                </button>
+            </div>
+        `).join('');
+    }
+
+    if (geminiKeySummary) {
+        const failed = geminiApiKeys.filter(item => item.status === 'failed').length;
+        geminiKeySummary.textContent = `${geminiApiKeys.length} saved${failed ? `, ${failed} failed` : ''}`;
+    }
+    if (geminiKeyVisibilityBtn) {
+        geminiKeyVisibilityBtn.innerHTML = `<span class="material-symbols-rounded">${revealGeminiApiKeys ? 'visibility_off' : 'visibility'}</span>`;
+        geminiKeyVisibilityBtn.title = revealGeminiApiKeys ? 'Mask saved keys' : 'Reveal saved keys';
+    }
+
+    geminiKeyPoolElement.querySelectorAll('input[name="gemini-api-key-choice"]').forEach(input => {
+        input.addEventListener('change', () => selectGeminiApiKey(input.value));
+    });
+    geminiKeyPoolElement.querySelectorAll('.gemini-key-remove').forEach(button => {
+        button.addEventListener('click', () => removeGeminiApiKey(button.dataset.keyId));
+    });
+}
+
+function addGeminiApiKeys(raw) {
+    const keys = splitGeminiApiKeys(raw);
+    let added = 0;
+    keys.forEach(key => {
+        if (geminiApiKeys.some(item => item.key === key)) return;
+        geminiApiKeys.push(createGeminiKeyRecord(key));
+        added += 1;
+    });
+    if (!added) return 0;
+    persistGeminiApiKeys();
+    if (!getSelectedGeminiKeyId()) selectGeminiApiKey(geminiApiKeys[0].id);
+    else renderGeminiKeyPool();
+    return added;
+}
+
+function removeGeminiApiKey(id) {
+    geminiApiKeys = geminiApiKeys.filter(item => item.id !== id);
+    persistGeminiApiKeys();
+    selectGeminiApiKey(getSelectedGeminiKeyRecord()?.id || '');
+}
+
+function setGeminiApiKeyStatus(id, status, message = '') {
+    const item = geminiApiKeys.find(keyItem => keyItem.id === id);
+    if (!item) return;
+    item.status = status;
+    item.message = message;
+    persistGeminiApiKeys();
+    renderGeminiKeyPool();
+}
+
+function getGeminiApiKeyRotation() {
+    const selected = getSelectedGeminiKeyRecord();
+    if (!selected) return [];
+    return [selected, ...geminiApiKeys.filter(item => item.id !== selected.id)];
+}
+
+function handleAddGeminiApiKeys() {
+    const raw = geminiKeyEntry?.value || '';
+    const added = addGeminiApiKeys(raw);
+    if (geminiKeyEntry) geminiKeyEntry.value = '';
+    showToast(added ? `${added} Gemini key${added === 1 ? '' : 's'} added.` : 'No new valid Gemini keys found.', added ? 'success' : 'warning');
+}
+
+async function initGeminiApiKeys() {
     try {
-        key = localStorage.getItem(GEMINI_API_KEY_STORAGE) || '';
-    } catch (_) { /* private mode */ }
-
-    if (key && !isValidGeminiApiKey(key)) {
-        try { localStorage.removeItem(GEMINI_API_KEY_STORAGE); } catch (_) {}
-        key = '';
+        const stored = JSON.parse(localStorage.getItem(GEMINI_API_KEYS_STORAGE) || '[]');
+        if (Array.isArray(stored)) {
+            geminiApiKeys = stored
+                .filter(item => isValidGeminiApiKey(item?.key))
+                .map(item => ({ ...createGeminiKeyRecord(item.key), ...item, status: item.status === 'trying' ? 'ready' : (item.status || 'ready') }));
+        }
+        const legacyKey = localStorage.getItem(GEMINI_API_KEY_STORAGE) || '';
+        if (isValidGeminiApiKey(legacyKey) && !geminiApiKeys.some(item => item.key === legacyKey)) {
+            geminiApiKeys.unshift(createGeminiKeyRecord(legacyKey));
+        }
+        localStorage.removeItem(GEMINI_API_KEY_STORAGE);
+    } catch (_) {
+        geminiApiKeys = [];
     }
 
-    if (key) {
-        applyGeminiApiKeyToInput(key);
-    } else if (!userEdited) {
-        if (isLocalDevHost()) {
-            key = (await fetchLocalDevGeminiKey()) || '';
-        }
-        if (!key) {
-            key = getDefaultGeminiApiKeySeed();
-        }
-        if (key) {
-            applyGeminiApiKeyToInput(key);
-            persistGeminiApiKey(key);
-        }
+    if (!geminiApiKeys.length && isLocalDevHost()) {
+        const localKey = await fetchLocalDevGeminiKey();
+        if (localKey) addGeminiApiKeys(localKey);
     }
+    persistGeminiApiKeys();
+    selectGeminiApiKey(getSelectedGeminiKeyRecord()?.id || '');
 
-    apiKeyInput.addEventListener('input', handleGeminiApiKeyUserInput);
-    apiKeyInput.addEventListener('change', handleGeminiApiKeyUserInput);
+    geminiKeyAddBtn?.addEventListener('click', handleAddGeminiApiKeys);
+    geminiKeyEntry?.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            handleAddGeminiApiKeys();
+        }
+    });
+    geminiKeyVisibilityBtn?.addEventListener('click', () => {
+        revealGeminiApiKeys = !revealGeminiApiKeys;
+        renderGeminiKeyPool();
+    });
 }
 
 function initTopicDefault() {
@@ -5387,7 +5481,7 @@ function setupFTPServer() {
 let currentInfographicData = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
-    await initGeminiApiKey();
+    await initGeminiApiKeys();
     initGenerationSourceSelector();
     initTopicDefault();
     await initLibraryCache();
@@ -6297,13 +6391,12 @@ generateBtn.addEventListener('click', async () => {
         return;
     }
 
-    const geminiKey = apiKeyInput.value.trim();
     const openaiKey = openaiKeyInput.value.trim();
     const generationSource = getSelectedGenerationSource();
     const topic = topicInput.value.trim();
 
-    if (generationSource === 'gemini' && !geminiKey) {
-        alert('Please enter a Gemini API Key or switch Generation Source to Web LLM');
+    if (generationSource === 'gemini' && !getGeminiApiKeyRotation().length) {
+        alert('Please add a Gemini API key or switch Generation Source to Web LLM');
         return;
     }
 
@@ -6342,16 +6435,16 @@ generateBtn.addEventListener('click', async () => {
                 data = await generateInfographicDataOpenAI(openaiKey, combinedInput);
             } catch (openaiErr) {
                 console.warn('OpenAI generation failed:', openaiErr.message);
-                if (geminiKey) {
+                if (getGeminiApiKeyRotation().length) {
                     console.log('Falling back to Gemini...');
                     showToast('OpenAI failed (' + (openaiErr.message || 'error') + '). Falling back to Gemini...', 'warning');
-                    data = await generateInfographicData(geminiKey, combinedInput);
+                    data = await generateInfographicDataWithKeyRotation(combinedInput);
                 } else {
                     throw openaiErr;
                 }
             }
         } else {
-            data = await generateInfographicData(geminiKey, combinedInput);
+            data = await generateInfographicDataWithKeyRotation(combinedInput);
         }
         if (data && !data.generationPrompt) {
             data.generationPrompt = combinedInput;
@@ -6618,6 +6711,42 @@ function parseInfographicJsonResponse(text) {
     }
 }
 
+function getGeminiErrorMessage(error) {
+    return String(error?.message || error || 'Unknown Gemini error').replace(/\s+/g, ' ').trim();
+}
+
+function isGeminiCredentialError(error) {
+    const message = getGeminiErrorMessage(error).toLowerCase();
+    return ['401', '403', '429', 'api key', 'api_key', 'quota', 'rate limit', 'rate_limit',
+        'resource_exhausted', 'permission denied', 'permission_denied', 'unauthorized', 'forbidden',
+        'billing', 'expired', 'leaked'].some(marker => message.includes(marker));
+}
+
+async function generateInfographicDataWithKeyRotation(topic) {
+    const rotation = getGeminiApiKeyRotation();
+    if (!rotation.length) throw new Error('No Gemini API keys are available.');
+
+    let lastError = null;
+    for (let index = 0; index < rotation.length; index += 1) {
+        const keyRecord = rotation[index];
+        setGeminiApiKeyStatus(keyRecord.id, 'trying', `Attempt ${index + 1} of ${rotation.length}`);
+        try {
+            const data = await generateInfographicData(keyRecord.key, topic);
+            selectGeminiApiKey(keyRecord.id);
+            setGeminiApiKeyStatus(keyRecord.id, 'success', 'Last generation succeeded');
+            return data;
+        } catch (error) {
+            lastError = error;
+            const message = getGeminiErrorMessage(error);
+            setGeminiApiKeyStatus(keyRecord.id, 'failed', message.slice(0, 180));
+            if (index < rotation.length - 1) {
+                showToast(`Gemini Key ${geminiApiKeys.indexOf(keyRecord) + 1} failed. Trying the next saved key...`, 'warning');
+            }
+        }
+    }
+    throw lastError || new Error('All saved Gemini API keys failed.');
+}
+
 async function generateInfographicData(apiKey, topic) {
     const genAI = new GoogleGenerativeAI(apiKey);
 
@@ -6722,9 +6851,7 @@ async function generateInfographicData(apiKey, topic) {
         } catch (error) {
             console.warn(`Failed with model ${modelName}:`, error);
             lastError = error;
-            if (!error.message.includes('404') && !error.message.includes('not found')) {
-                // optionally break here
-            }
+            if (isGeminiCredentialError(error)) throw error;
         }
     }
     throw lastError || new Error("All models failed.");
@@ -10292,6 +10419,52 @@ const SLIDE_DECK_MAX_SLIDES = 120;
 const SLIDE_DECK_MAX_SECTIONS = 40;
 const SLIDE_DECK_MAX_BULLETS_PER_SECTION = 42;
 const SLIDE_DECK_THUMB_BATCH = 36;
+const SLIDE_CANVAS_WIDTH = 1600;
+const SLIDE_CANVAS_HEIGHT = 900;
+
+function syncSlideCanvasScale(frame) {
+    if (!frame) return;
+    const content = frame.querySelector('.slide-content');
+    if (!content || !frame.clientWidth || !frame.clientHeight) return;
+    const scale = Math.min(
+        frame.clientWidth / SLIDE_CANVAS_WIDTH,
+        frame.clientHeight / SLIDE_CANVAS_HEIGHT
+    );
+    content.style.setProperty('--slide-canvas-scale', String(scale));
+}
+
+function syncPreviewFrameSize(frame) {
+    if (!frame || frame.closest('.presentation-mode')) return;
+    const host = frame.parentElement;
+    if (!host || !host.clientWidth || !host.clientHeight) return;
+    const styles = getComputedStyle(host);
+    const availableWidth = host.clientWidth
+        - (parseFloat(styles.paddingLeft) || 0)
+        - (parseFloat(styles.paddingRight) || 0);
+    const availableHeight = host.clientHeight
+        - (parseFloat(styles.paddingTop) || 0)
+        - (parseFloat(styles.paddingBottom) || 0);
+    const width = Math.min(availableWidth, availableHeight * (16 / 9));
+    frame.style.width = `${width}px`;
+    frame.style.height = `${width * (9 / 16)}px`;
+}
+
+function observeSlideFrame(frame) {
+    if (!frame || frame.dataset.scaleObserved) return;
+    frame.dataset.scaleObserved = '1';
+    if (typeof ResizeObserver !== 'undefined') {
+        const observer = new ResizeObserver(() => {
+            syncPreviewFrameSize(frame);
+            syncSlideCanvasScale(frame);
+        });
+        observer.observe(frame.closest('.presentation-mode') ? frame : frame.parentElement);
+        frame._slideScaleObserver = observer;
+    }
+    requestAnimationFrame(() => {
+        syncPreviewFrameSize(frame);
+        syncSlideCanvasScale(frame);
+    });
+}
 
 /** Strip citation brackets without infinite recursion on circular/deep JSON. */
 function safeStripReferences(val, depth = 0, seen = null) {
@@ -10383,6 +10556,7 @@ function setupSlideDeck() {
     exportBtn?.addEventListener('click', exportSlidesAsHTML);
     exportPptxBtn?.addEventListener('click', () => exportSlidesAsPPTX());
     updateSlideDeckActionButtons();
+    observeSlideFrame(document.getElementById('slide-frame'));
 
     // Keyboard nav inside the preview modal (not in presentation mode)
     slideModal.addEventListener('keydown', (e) => {
@@ -10594,7 +10768,9 @@ function renderSlideTopicCards(items, tpl, opts = {}) {
     const parsed = items.map(parseSlideContentItem);
     const count = parsed.length;
     const bodyFontSize = opts.fontSize || '1.05rem';
-    const cols = count <= 4 ? count : (count <= 5 ? 5 : 3);
+    // Preserve readable clinical terms instead of squeezing long headings into
+    // narrow strips. Four cards become 2x2; five and six use three columns.
+    const cols = count <= 2 ? count : (count === 3 ? 3 : (count === 4 ? 2 : 3));
     return `<div class="slide-topic-cards" style="--slide-topic-accent:${tpl.accent};--slide-topic-bg:${tpl.bg};--slide-topic-cols:${cols};">
         ${parsed.map((p, i) => {
             const label = p.topic
@@ -10602,7 +10778,10 @@ function renderSlideTopicCards(items, tpl, opts = {}) {
                 : escapeHtml(String(i + 1));
             const body = escapeHtml(p.body || p.topic || '');
             return `<div class="slide-topic-card">
-                <div class="slide-topic-card__label" title="${label}">${label}</div>
+                <div class="slide-topic-card__label" title="${label}">
+                    <span class="slide-topic-card__number">${String(i + 1).padStart(2, '0')}</span>
+                    <span>${label}</span>
+                </div>
                 <div class="slide-topic-card__body" style="font-size:${bodyFontSize};">${body}</div>
             </div>`;
         }).join('')}
@@ -10954,6 +11133,7 @@ function renderSlide() {
     document.querySelectorAll('.slide-thumbnail').forEach((thumb, i) => {
         thumb.classList.toggle('active', i === currentSlideIndex);
     });
+    requestAnimationFrame(() => syncSlideCanvasScale(document.getElementById('slide-frame')));
 }
 
 function buildSlideThumbnailHtml(slide, i, active) {
@@ -11067,6 +11247,7 @@ function enterPresentationMode() {
     `;
 
     document.body.appendChild(presentationDiv);
+    observeSlideFrame(presentationDiv.querySelector('.slide-frame'));
     renderPresentationSlide();
     updatePresentationProgress();
 
@@ -11237,6 +11418,7 @@ function renderPresentationSlide() {
             <div style="width:100%;flex:1;display:flex;align-items:flex-start;overflow:auto;">${contentHtml}</div>
         `;
     }
+    requestAnimationFrame(() => syncSlideCanvasScale(content.closest('.slide-frame')));
 }
 
 function handlePresentationKeydown(e) {
@@ -11294,6 +11476,9 @@ function exportSlidesAsHTML() {
         const tpl = slide.template || SLIDE_TEMPLATES.default;
         if (Array.isArray(slide.content)) {
             const numbered = tpl.key === 'framework' || tpl.key === 'management';
+            if (shouldRenderSlideTopicCards(slide.content)) {
+                return renderSlideTopicCards(slide.content, tpl, { fontSize: '1rem' });
+            }
             return renderTemplatedBullets(slide.content, tpl, { fontSize: '1.25rem', numbered });
         }
         if (slide.content && typeof slide.content === 'object') {
@@ -11398,18 +11583,18 @@ async function exportSlidesAsPPTX() {
             if (slide.type === 'title' || slide.type === 'end') {
                 s.background = { color: '0F172A' };
                 s.addText(`${em} ${slide.title}`, {
-                    x: 0.5, y: slide.type === 'title' ? 2.2 : 2.5, w: 9, h: 1.4,
+                    x: 0.85, y: slide.type === 'title' ? 2.2 : 2.5, w: 11.63, h: 1.4,
                     fontSize: slide.type === 'title' ? 36 : 40, bold: true, color: 'FFFFFF', align: 'center', fontFace: 'Segoe UI'
                 });
                 if (slide.subtitle) {
                     s.addText(slide.subtitle, {
-                        x: 0.8, y: 3.9, w: 8.4, h: 1.2,
+                        x: 1.25, y: 3.9, w: 10.83, h: 1.2,
                         fontSize: 18, color: '94A3B8', align: 'center', fontFace: 'Segoe UI'
                     });
                 }
                 if (slide.type === 'title') {
                     s.addText('Ophthalmology Clinical Teaching Deck', {
-                        x: 0.8, y: 5.1, w: 8.4, h: 0.5,
+                        x: 1.25, y: 5.35, w: 10.83, h: 0.5,
                         fontSize: 12, color: '64748B', align: 'center', italic: true
                     });
                 }
@@ -11419,47 +11604,265 @@ async function exportSlidesAsPPTX() {
             if (slide.type === 'section') {
                 s.background = { color: accent };
                 s.addText(`${em} ${tpl.label}`, {
-                    x: 0.5, y: 2.2, w: 9, h: 0.6, fontSize: 16, color: 'FFFFFF', align: 'center', bold: true, charSpacing: 4
+                    x: 0.85, y: 2.2, w: 11.63, h: 0.6, fontSize: 16, color: 'FFFFFF', align: 'center', bold: true, charSpacing: 4
                 });
                 s.addText(slide.title, {
-                    x: 0.5, y: 3.1, w: 9, h: 1.5, fontSize: 34, color: 'FFFFFF', align: 'center', bold: true
+                    x: 0.85, y: 3.1, w: 11.63, h: 1.5, fontSize: 34, color: 'FFFFFF', align: 'center', bold: true
                 });
                 return;
             }
 
             if (slide.type === 'agenda') {
                 s.addText(`${em} ${slide.title}`, {
-                    x: 0.5, y: 0.4, w: 9, h: 0.8, fontSize: 28, bold: true, color: accent
+                    x: 0.65, y: 0.4, w: 12.03, h: 0.8, fontSize: 28, bold: true, color: accent
                 });
                 const items = (slide.items || []).map((item, i) => ({
                     text: `${String(i + 1).padStart(2, '0')}. ${item}`,
                     options: { bullet: false, breakLine: true, fontSize: 18, color: '334155' }
                 }));
                 if (items.length) {
-                    s.addText(items, { x: 0.7, y: 1.4, w: 8.6, h: 4.5, valign: 'top' });
+                    s.addText(items, { x: 0.85, y: 1.4, w: 11.63, h: 5.35, valign: 'top', breakLine: false });
                 }
                 return;
             }
 
-            // Content slide
+            // Content slide - title and accent line
             s.addText(`${em} ${slide.title}`, {
-                x: 0.5, y: 0.35, w: 9, h: 0.75, fontSize: 26, bold: true, color: accent
+                x: 0.65, y: 0.35, w: 12.03, h: 0.75, fontSize: 24, bold: true, color: accent, margin: 0
             });
             s.addShape(pptx.ShapeType.rect, {
-                x: 0.5, y: 1.05, w: 9, h: 0.03, fill: { color: accent }
+                x: 0.65, y: 1.08, w: 12.03, h: 0.035, fill: { color: accent }, line: { color: accent }
             });
 
+            const content = slide.content;
             const lines = slideContentToTextLines(slide);
-            if (lines.length) {
+
+            // Structured content detection and rendering
+            if (content && typeof content === 'object' && !Array.isArray(content)) {
+                // Table content
+                if (content.headers && content.rows) {
+                    const { headers, rows } = normalizeSlideTable(content);
+                    if (headers.length && rows.length) {
+                        const colW = 11.63 / headers.length;
+                        const headerY = 1.35;
+                        const rowH = 0.55;
+                        const maxRows = Math.min(rows.length, 8);
+                        headers.forEach((h, i) => {
+                            s.addShape(pptx.ShapeType.rect, {
+                                x: 0.65 + i * colW, y: headerY, w: colW, h: 0.55,
+                                fill: { color: accent }, line: { color: accent }
+                            });
+                            s.addText(h, {
+                                x: 0.65 + i * colW + 0.08, y: headerY, w: colW - 0.16, h: 0.55,
+                                fontSize: 12, bold: true, color: 'FFFFFF', valign: 'middle', align: 'center'
+                            });
+                        });
+                        rows.slice(0, maxRows).forEach((row, ri) => {
+                            const ry = headerY + 0.55 + ri * rowH;
+                            row.forEach((cell, ci) => {
+                                const bg = ri % 2 === 0 ? 'F8FAFC' : 'FFFFFF';
+                                s.addShape(pptx.ShapeType.rect, {
+                                    x: 0.65 + ci * colW, y: ry, w: colW, h: rowH,
+                                    fill: { color: bg }, line: { color: 'E2E8F0', width: 0.5 }
+                                });
+                                s.addText(String(cell), {
+                                    x: 0.65 + ci * colW + 0.08, y: ry, w: colW - 0.16, h: rowH,
+                                    fontSize: 11, color: '334155', valign: 'middle'
+                                });
+                            });
+                        });
+                    }
+                    return;
+                }
+                // Mnemonic content
+                if (content.mnemonic) {
+                    s.addShape(pptx.ShapeType.roundRect, {
+                        x: 0.85, y: 1.5, w: 11.63, h: 1.8,
+                        rectRadius: 0.1,
+                        fill: { color: 'F5F3FF' },
+                        line: { color: '8B5CF6', width: 2 }
+                    });
+                    s.addText(content.mnemonic, {
+                        x: 1.25, y: 1.6, w: 10.83, h: 0.8,
+                        fontSize: 36, bold: true, color: '7C3AED', align: 'center', charSpacing: 3
+                    });
+                    if (content.explanation) {
+                        s.addText(String(content.explanation), {
+                            x: 1.25, y: 2.5, w: 10.83, h: 0.7,
+                            fontSize: 16, color: '475569', align: 'center'
+                        });
+                    }
+                    return;
+                }
+                // Mindmap content
+                if (content.center) {
+                    const centerY = 1.5;
+                    s.addShape(pptx.ShapeType.roundRect, {
+                        x: 3.5, y: centerY, w: 6.63, h: 0.8,
+                        rectRadius: 0.12, fill: { color: accent },
+                        line: { color: accent }
+                    });
+                    s.addText(String(content.center), {
+                        x: 3.5, y: centerY, w: 6.63, h: 0.8,
+                        fontSize: 16, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
+                    });
+                    if (Array.isArray(content.branches)) {
+                        const branchY = centerY + 1.1;
+                        const branchH = 0.5;
+                        content.branches.slice(0, 8).forEach((b, i) => {
+                            const by = branchY + i * (branchH + 0.08);
+                            s.addText(`\u2022  ${String(b)}`, {
+                                x: 1.25, y: by, w: 10.83, h: branchH,
+                                fontSize: 14, color: '334155', valign: 'middle'
+                            });
+                        });
+                    }
+                    return;
+                }
+                // Chart/data content
+                if (Array.isArray(content.data) && content.data.length) {
+                    const items = content.data.map(d => ({
+                        label: String(d?.label ?? d?.name ?? d?.title ?? ''),
+                        value: Number(d?.value ?? 0)
+                    }));
+                    const barAreaX = 2.5, barAreaW = 9.5, barAreaY = 1.5, barAreaH = 4.5;
+                    const maxVal = Math.max(...items.map(i => i.value), 1);
+                    const barH = Math.min(0.5, (barAreaH - (items.length - 1) * 0.25) / items.length);
+                    items.forEach((item, i) => {
+                        const by = barAreaY + i * (barH + 0.25);
+                        const barW = (item.value / maxVal) * barAreaW;
+                        s.addShape(pptx.ShapeType.roundRect, {
+                            x: barAreaX, y: by, w: Math.max(barW, 0.2), h: barH,
+                            rectRadius: 0.06, fill: { color: accent }
+                        });
+                        s.addText(`${item.label}: ${item.value}%`, {
+                            x: 0.85, y: by, w: 1.5, h: barH,
+                            fontSize: 11, color: '1E293B', valign: 'middle', align: 'right'
+                        });
+                        s.addText(`${item.value}%`, {
+                            x: barAreaX + barW + 0.15, y: by, w: 1.5, h: barH,
+                            fontSize: 11, color: '64748B', valign: 'middle'
+                        });
+                    });
+                    return;
+                }
+            }
+
+            // Array content — render with topic cards or bullets
+            if (Array.isArray(content) && shouldRenderSlideTopicCards(content)) {
+                const cards = content.map(parseSlideContentItem);
+                const count = cards.length;
+                const cols = count <= 2 ? count : (count === 3 ? 3 : (count === 4 ? 2 : 3));
+                const rows = Math.ceil(count / cols);
+                const x0 = 0.65, y0 = 1.35, areaW = 12.03, areaH = 5.55, gap = 0.2;
+                const cardW = (areaW - gap * (cols - 1)) / cols;
+                const cardH = (areaH - gap * (rows - 1)) / rows;
+                const headerH = Math.min(0.82, cardH * 0.34);
+                cards.forEach((card, i) => {
+                    const col = i % cols;
+                    const row = Math.floor(i / cols);
+                    const x = x0 + col * (cardW + gap);
+                    const y = y0 + row * (cardH + gap);
+                    s.addShape(pptx.ShapeType.roundRect, {
+                        x, y, w: cardW, h: cardH,
+                        rectRadius: 0.08, fill: { color: 'F8FAFC' },
+                        line: { color: 'CBD5E1', width: 1 }
+                    });
+                    s.addShape(pptx.ShapeType.rect, {
+                        x, y, w: cardW, h: headerH,
+                        fill: { color: accent }, line: { color: accent }
+                    });
+                    s.addText(`${String(i + 1).padStart(2, '0')}   ${card.topic || `Point ${i + 1}`}`, {
+                        x: x + 0.12, y: y + 0.08, w: cardW - 0.24, h: headerH - 0.16,
+                        fontSize: count >= 5 ? 12 : 14, bold: true, color: 'FFFFFF',
+                        valign: 'mid', margin: 0.02, breakLine: false, fit: 'shrink'
+                    });
+                    s.addText(card.body || card.topic || '', {
+                        x: x + 0.18, y: y + headerH + 0.12, w: cardW - 0.36, h: cardH - headerH - 0.24,
+                        fontSize: count >= 5 ? 13 : 15, color: '1E293B',
+                        valign: 'top', margin: 0.02, breakLine: false, fit: 'shrink'
+                    });
+                });
+            } else if (lines.length) {
                 const numbered = tpl.key === 'framework' || tpl.key === 'management';
                 s.addText(lines.map((line, i) => ({
                     text: numbered ? `${i + 1}. ${line}` : line,
-                    options: { bullet: !numbered, breakLine: true, fontSize: 17, color: '1E293B' }
-                })), { x: 0.55, y: 1.25, w: 8.9, h: 4.2, valign: 'top' });
-            } else if (typeof slide.content === 'string') {
-                s.addText(slide.content, { x: 0.55, y: 1.35, w: 8.9, h: 4, fontSize: 18, color: '334155' });
+                    options: { bullet: !numbered, breakLine: true, fontSize: 16, color: '1E293B' }
+                })), { x: 0.85, y: 1.35, w: 11.63, h: 5.45, valign: 'top', breakLine: false, fit: 'shrink' });
+            } else if (typeof content === 'string') {
+                s.addShape(pptx.ShapeType.roundRect, {
+                    x: 0.85, y: 1.45, w: 11.63, h: 5.15,
+                    rectRadius: 0.1, fill: { color: 'F8FAFC' },
+                    line: { color: 'E2E8F0', width: 1 }
+                });
+                s.addText(content, {
+                    x: 1.25, y: 1.65, w: 10.83, h: 4.75,
+                    fontSize: 16, color: '334155', valign: 'top', fit: 'shrink'
+                });
             }
         });
+
+        // Append Kanski clinical photos as dedicated slides
+        try {
+            const kanskiImages = currentInfographicData?.kanskiImages || await loadKanskiFromIDB(currentInfographicData?.title || '');
+            if (kanskiImages && kanskiImages.length > 0) {
+                const photoAccent = '0891B2';
+                const chunkSize = 2;
+                for (let start = 0; start < kanskiImages.length; start += chunkSize) {
+                    const chunk = kanskiImages.slice(start, start + chunkSize);
+                    const ks = pptx.addSlide();
+                    ks.background = { color: 'F0FDFA' };
+
+                    ks.addText(`\uD83D\uDCF7 Kanski Clinical Photos`, {
+                        x: 0.65, y: 0.3, w: 12.03, h: 0.65,
+                        fontSize: 22, bold: true, color: photoAccent, margin: 0
+                    });
+                    ks.addShape(pptx.ShapeType.rect, {
+                        x: 0.65, y: 0.92, w: 12.03, h: 0.03,
+                        fill: { color: photoAccent }, line: { color: photoAccent }
+                    });
+
+                    const imgAreaW = 5.5, imgAreaH = 4.5;
+                    const imgY = 1.2;
+                    const gap = 0.5;
+                    const totalW = chunk.length * imgAreaW + (chunk.length - 1) * gap;
+                    const startX = (13.33 - totalW) / 2;
+
+                    for (let i = 0; i < chunk.length; i++) {
+                        const img = chunk[i];
+                        if (img.imgUrl) {
+                            const ix = startX + i * (imgAreaW + gap);
+                            try {
+                                const response = await fetch(img.imgUrl);
+                                const blob = await response.blob();
+                                const dataUri = await new Promise((resolve) => {
+                                    const reader = new FileReader();
+                                    reader.onloadend = () => resolve(reader.result);
+                                    reader.readAsDataURL(blob);
+                                });
+                                ks.addImage({
+                                    data: dataUri,
+                                    x: ix, y: imgY, w: imgAreaW, h: imgAreaH,
+                                    rounding: true
+                                });
+                            } catch (imgErr) {
+                                ks.addText(`[Image p.${img.pageNum || ''} could not be loaded]`, {
+                                    x: ix, y: imgY, w: imgAreaW, h: imgAreaH,
+                                    fontSize: 12, color: '94A3B8', align: 'center', valign: 'middle'
+                                });
+                            }
+                            const caption = `Kanski p.${img.pageNum || ''}${img.keywords?.length ? ' \u00b7 ' + img.keywords.slice(0, 3).join(', ') : ''}`;
+                            ks.addText(caption, {
+                                x: ix, y: imgY + imgAreaH + 0.05, w: imgAreaW, h: 0.35,
+                                fontSize: 10, color: '64748B', align: 'center'
+                            });
+                        }
+                    }
+                }
+            }
+        } catch (kanskiErr) {
+            console.warn('[PPTX] Could not attach Kanski images:', kanskiErr);
+        }
 
         const safeName = (currentInfographicData?.title || 'slides').replace(/[^a-z0-9]/gi, '_').slice(0, 80);
         await pptx.writeFile({ fileName: `${safeName}_slides.pptx` });

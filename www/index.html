@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" />
-    <link rel="stylesheet" href="style.css?v=2026051603">
+    <link rel="stylesheet" href="style.css?v=2026062104">
     <link rel="stylesheet" href="mobile-iap.css?v=2026061701">
     <!-- Import map for ES modules - works on hosted servers -->
     <script type="importmap">
@@ -90,11 +90,23 @@
             </div>
 
             <div class="control-group" id="gemini-key-group">
-                <label for="api-key">Gemini API Key</label>
-                <div class="input-wrapper">
+                <label for="gemini-key-entry">Gemini API Key Pool</label>
+                <div class="input-wrapper gemini-key-entry-row">
                     <span class="material-symbols-rounded input-icon">key</span>
-                    <input type="password" id="api-key" placeholder="Enter your Gemini key here">
+                    <input type="password" id="gemini-key-entry" placeholder="Paste one or more keys">
+                    <button type="button" class="icon-btn gemini-key-add-btn" id="gemini-key-add-btn" title="Add Gemini keys" aria-label="Add Gemini keys">
+                        <span class="material-symbols-rounded">add</span>
+                    </button>
                 </div>
+                <input type="hidden" id="api-key">
+                <div class="gemini-key-pool" id="gemini-key-pool" role="radiogroup" aria-label="Saved Gemini API keys"></div>
+                <div class="gemini-key-pool-footer">
+                    <span id="gemini-key-summary">No saved keys</span>
+                    <button type="button" class="icon-btn" id="gemini-key-visibility-btn" title="Reveal saved keys" aria-label="Reveal saved keys">
+                        <span class="material-symbols-rounded">visibility</span>
+                    </button>
+                </div>
+                <small class="hint">Paste keys separated by spaces or new lines. The selected key is tried first, then failed keys rotate automatically. Keys stay in this browser.</small>
             </div>
 
             <div class="control-group" id="openai-key-group">
@@ -1071,7 +1083,7 @@
             console.warn('Running locally via file:// protocol. ES modules may not work. Please use a local server (e.g., npx serve) or access via GitHub Pages.');
         }
     </script>
-    <script type="module" src="script.js?v=2026051605"></script>
+    <script type="module" src="script.js?v=2026062104"></script>
     <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.03.15.07</div>
 </body>
 

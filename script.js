@@ -11613,7 +11613,7 @@ async function exportSlidesAsPPTX() {
 
             // ── SECTION ────────────────────────────────────────────────
             if (slide.type === 'section') {
-                s.background = { fill: { color: accent } };
+                s.background = { color: accent };
                 const circleX = 5.15, circleY = 1.3, circleD = 1.8;
                 s.addShape(pptx.ShapeType.ellipse, {
                     x: circleX, y: circleY, w: circleD, h: circleD,
@@ -11658,10 +11658,13 @@ async function exportSlidesAsPPTX() {
                 x: 0.65, y: 0.25, w: 10.0, h: 0.8, fontSize: 28, bold: true, color: accent, margin: 0, fontFace: 'Segoe UI'
             });
             if (tpl.key !== 'default') {
+                s.addShape(pptx.ShapeType.roundRect, {
+                    x: 10.65, y: 0.3, w: 2.5, h: 0.55, rectRadius: 0.1,
+                    fill: { color: accent }, line: { color: accent }
+                });
                 s.addText(tpl.label, {
                     x: 10.65, y: 0.3, w: 2.5, h: 0.55, fontSize: 12, bold: true,
-                    color: 'FFFFFF', align: 'center', valign: 'middle',
-                    fill: { color: accent }, rectRadius: 0.12
+                    color: 'FFFFFF', align: 'center', valign: 'middle'
                 });
             }
             s.addShape(pptx.ShapeType.rect, {

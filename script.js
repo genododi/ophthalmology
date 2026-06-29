@@ -10631,14 +10631,14 @@ function hexToPptxColor(hex) {
 
 function pptIcon(name) {
     const map = {
-        stars:'⭐', report_problem:'⚠️', flag:'🚩', warning:'⚠️', task_alt:'✅',
-        block:'🚫', account_tree:'🔀', biotech:'🔬', medical_services:'💊',
+        stars:'💎', report_problem:'🚧', flag:'🚩', warning:'⚠️', task_alt:'✅',
+        block:'🚫', account_tree:'🔀', biotech:'🧪', medical_services:'💊',
         surgical:'🔪', public:'🌍', genetics:'🧬', sick:'🤒', visibility:'👁️',
         human_greeting_proximity:'🧑', trending_up:'📈', dashboard:'📊',
         psychology:'🧠', auto_awesome:'✨', lightbulb:'💡', priority_high:'❗',
         error:'❌', check_circle:'✅', do_not_disturb_on:'⛔', compare_arrows:'🔄',
         labs:'🧪', medication:'💊', cut:'✂️', science:'🔬', bubble_chart:'🔵',
-        thermostat:'🌡️', search:'🔍', category:'📁', timeline:'⏱️', hexagon:'🔶',
+        thermostat:'🌡️', search:'🔍', category:'📁', timeline:'⏱️', hexagon:'⬡',
         bookmark:'🔖', arrow_forward_ios:'➡️', list_alt:'📋', apps:'📱',
         table_chart:'📊', assignment:'📝', help_outline:'❓', medical_information:'🩺',
         topic:'📌', neurology:'🧠', ophthalmology:'👁️', emergency:'🚨',
@@ -10647,11 +10647,46 @@ function pptIcon(name) {
         oncology:'🎗️', dermatology:'🧴', hematology:'🩸', infectious:'🦠',
         surgery:'🔬', anatomy:'🦴', pathology:'🔬', physiology:'⚡',
         pharmacology:'💊', radiology:'🔬', obstetrics:'🤰', gynecology:'👩',
-        anesthesia:'💉', microbiology:'🔬', genetics:'🧬'
+        anesthesia:'💉', microbiology:'🔬', genetics:'🧬',
+        spine:'🦴', ent:'👂', dental:'🦷', allergy:'🌸', urology:'🚽',
+        hepatology:'🫁', neonatology:'👶', toxicology:'☠️', palliative:'🕊️',
+        sports:'🏃', occupational:'👷', environmental:'🌍', geriatrics:'👴',
+        critical:'🆘', emergency_medicine:'🚑', nutrition:'🥗', preventive:'🛡️',
+        epidemiology:'📊', biostatistics:'📊', reproductive:'🫄',
+        musculoskeletal:'🦴', psychiatric:'🧠', mental:'🧠', behavior:'🧠',
+        developmental:'🌱', growth:'🌱', genetic:'🧬', molecular:'🧬',
+        cellular:'🔬', histology:'🔬', embryology:'🥚', immunopathology:'🛡️',
+        neuroanatomy:'🧠', neurophysiology:'⚡', neuropathology:'🧠',
+        pharmacology:'💊', pharmacokinetics:'💊', pharmacodynamics:'💊',
+        therapeutics:'💊', chemotherapy:'💉', radiotherapy:'☢️',
+        ophthalmoscopy:'👁️', retinoscopy:'👁️', perimetry:'👁️',
+        tonometry:'👁️', fluorescein:'🟢', angiography:'🔬', oct:'👁️',
+        visual_field:'👁️', slit_lamp:'🔬', fundoscopy:'👁️',
+        optometry:'👓', orthoptics:'👁️', low_vision:'👓',
+        cataract:'👁️', glaucoma:'👁️', retina:'👁️', cornea:'👁️',
+        lens:'👁️', vitreous:'👁️', choroid:'👁️', sclera:'👁️',
+        extraocular:'👁️', lacrimal:'👁️', orbit:'👁️', eyelid:'👁️',
+        conjunctiva:'👁️', uvea:'👁️', optic:'👁️', visual:'👁️',
+        blindness:'🦯', color_blind:'🎨', night:'🌙', photophobia:'☀️',
+        diplopia:'👁️', strabismus:'👁️', nystagmus:'👁️',
+        amblyopia:'👁️', presbyopia:'👓', myopia:'👓', hyperopia:'👓',
+        astigmatism:'👓', contact_lens:'👓', spectacle:'👓',
+        lasik:'⚡', prk:'⚡', refractive:'👓', intraocular:'👁️',
+        pupil:'👁️', iris:'👁️', macula:'👁️', fovea:'👁️',
+        photoreceptor:'👁️', bipolar:'👁️', ganglion:'👁️',
+        horizontal:'↔️', vertical:'↕️', oblique:'↗️',
+        abduction:'↔️', adduction:'↔️', elevation:'⬆️', depression:'⬇️',
+        intorsion:'🔄', extorsion:'🔄', convergence:'👁️', divergence:'👁️',
+        saccade:'👁️', smooth_pursuit:'👁️', vergence:'👁️',
+        accommodation:'👁️', pupillary:'👁️', light_reflex:'👁️',
+        near_reflex:'👁️', relative_afferent:'👁️', swinging_flashlight:'🔦',
+        cover_test:'👁️', alternate_cover:'👁️', prism:'🔷',
+        duction:'👁️', version:'👁️', comitance:'👁️', incomitance:'👁️',
+        a_pattern:'🅰️', v_pattern:'🆚️'
     };
-    if (!name || typeof name !== 'string') return '';
+    if (!name || typeof name !== 'string') return '\u25C9';
     const key = name.replace(/^material-symbols-rounded\s*/i, '').replace(/\s+/g, '_').trim();
-    return map[key.toLowerCase()] || map[name.toLowerCase().replace(/[_-]/g, '_')] || '';
+    return map[key.toLowerCase()] || map[name.toLowerCase().replace(/[_-]/g, '_')] || '\u25C9';
 }
 
 function showSlideDeckToast(message, type = 'info') {
@@ -11635,11 +11670,19 @@ async function exportSlidesAsPPTX() {
                     s.background = { color: '1E293B' };
                     if (slide.type === 'end') {
                         s.addText(pptIcon('auto_awesome') || '\u2728', { x: 0, y: 1.2, w: 13.33, h: 1.0, fontSize: 60, color: 'FBBF24', align: 'center' });
+                        s.addText(String(slide.title) + '  ' + (pptIcon('auto_awesome') || '\u2728'), { x: ML, y: 2.8, w: CW, h: 1.4, fontSize: 36, bold: true, color: 'FFFFFF', align: 'center' });
+                    } else {
+                        s.addText(pptIcon('auto_awesome') || '', { x: 0, y: 2.5, w: 13.33, h: 1.0, fontSize: 48, color: 'FBBF24', align: 'center' });
+                        s.addText(String(slide.title || ''), { x: ML, y: 3.2, w: CW, h: 1.4, fontSize: 36, bold: true, color: 'FFFFFF', align: 'center' });
                     }
-                    s.addText(String(slide.title || ''), { x: ML, y: slide.type === 'title' ? 2.6 : 2.8, w: CW, h: 1.4, fontSize: 36, bold: true, color: 'FFFFFF', align: 'center' });
                     if (slide.subtitle) {
-                        s.addText(String(slide.subtitle), { x: ML + 0.4, y: 4.0, w: CW - 0.8, h: 1.2, fontSize: 18, color: '94A3B8', align: 'center' });
+                        s.addText(String(slide.subtitle), { x: ML + 0.4, y: 4.6, w: CW - 0.8, h: 1.2, fontSize: 18, color: '94A3B8', align: 'center' });
                     }
+                    // decorative line
+                    s.addShape(pptx.ShapeType.rect, {
+                        x: CW * 0.3, y: slide.subtitle ? 5.9 : 5.0, w: CW * 0.4, h: 0.03,
+                        fill: { color: '334155' }
+                    });
                     return;
                 }
 
@@ -11653,9 +11696,15 @@ async function exportSlidesAsPPTX() {
                     });
                     const iconEmoji = pptIcon(slide.icon || tpl.icon || '');
                     s.addText(iconEmoji, { x: cx - cd / 2, y: cy - cd / 2, w: cd, h: cd, fontSize: 56, color: accent, align: 'center', valign: 'middle' });
+                    // label with diamond ornaments
                     const labelStr = (getSlideEmoji(slide) ? getSlideEmoji(slide) + ' ' : '') + String(tpl.label || '');
-                    s.addText(labelStr, { x: ML, y: 3.8, w: CW, h: 0.6, fontSize: 14, color: 'FFFFFF', align: 'center', bold: true });
+                    s.addText('\u25C6  ' + labelStr + '  \u25C6', { x: ML, y: 3.8, w: CW, h: 0.6, fontSize: 14, color: 'FFFFFF', align: 'center', bold: true });
                     s.addText(String(slide.title || ''), { x: ML, y: 4.5, w: CW, h: 1.5, fontSize: 32, color: 'FFFFFF', align: 'center', bold: true });
+                    // decorative underline
+                    s.addShape(pptx.ShapeType.rect, {
+                        x: cx - 0.8, y: 6.1, w: 1.6, h: 0.035,
+                        fill: { color: 'FFFFFF33' }
+                    });
                     return;
                 }
 
@@ -11749,9 +11798,10 @@ async function exportSlidesAsPPTX() {
                         if (headers.length && rows.length) {
                             const maxRows = Math.min(rows.length, 10);
                             const colW = CW / headers.length;
+                            const tblIcon = pptIcon(tpl.icon);
                             const tblRows = [
-                                headers.map(h => ({
-                                    text: String(h || ''),
+                                headers.map((h, hi) => ({
+                                    text: (hi === 0 && tblIcon ? tblIcon + '  ' : '') + String(h || ''),
                                     options: {
                                         fill: { color: hexToPptxColor(tpl.accent) },
                                         bold: true, fontSize: 10, color: 'FFFFFF',
@@ -11760,8 +11810,8 @@ async function exportSlidesAsPPTX() {
                                     }
                                 })),
                                 ...rows.slice(0, maxRows).map((row, ri) =>
-                                    row.map(cell => ({
-                                        text: String(cell == null ? '' : cell),
+                                    row.map((cell, ci) => ({
+                                        text: (ci === 0 && tblIcon ? tblIcon + ' ' : '') + String(cell == null ? '' : cell),
                                         options: {
                                             fill: { color: ri % 2 === 0 ? 'F8FAFC' : 'FFFFFF' },
                                             fontSize: 9, color: '334155', valign: 'middle',
@@ -11887,6 +11937,7 @@ async function exportSlidesAsPPTX() {
                 if (Array.isArray(content)) {
                     const numbered = tpl.key === 'framework' || tpl.key === 'management';
                     const bulletEmoji = pptIcon(tpl.bullet || '');
+                    const tplEmoji = pptIcon(tpl.icon);
                     const n = Math.min(content.length, 14);
                     const bodySize = n > 10 ? 10 : (n > 7 ? 11 : 13);
                     const topicSize = n > 10 ? 7 : (n > 7 ? 8 : 9);
@@ -11896,6 +11947,8 @@ async function exportSlidesAsPPTX() {
                         const { topic, body } = parseSlideContentItem(item);
                         const displayBody = body || topic || displayText(item);
                         const topicLabel = topic && body ? topic : '';
+                        const bodyPrefix = !topicLabel && bulletEmoji ? bulletEmoji + ' ' : '';
+                        const prefixedBody = bodyPrefix + String(displayBody);
                         const itemY = contentY + idx * rowH;
                         const labelW = topicLabel ? 1.6 : 0.4;
                         s.addShape(pptx.ShapeType.roundRect, {
@@ -11918,7 +11971,7 @@ async function exportSlidesAsPPTX() {
                                 fontSize: markerSize, color: hexToPptxColor(tpl.accent), align: 'center', valign: 'middle'
                             });
                         }
-                        s.addText(String(displayBody), {
+                        s.addText(String(prefixedBody), {
                             x: ML + 0.2 + labelW + 0.08, y: itemY, w: CW - labelW - 0.45, h: rowH - 0.02,
                             fontSize: bodySize, color: '1E293B', valign: 'middle'
                         });

@@ -10649,6 +10649,24 @@ function showSlideDeckToast(message, type = 'info') {
     showSlideDeckToast._timer = setTimeout(() => toast.classList.remove('visible'), 3200);
 }
 
+function showToast(message, type) {
+    const existing = document.getElementById('app-toast');
+    if (existing) existing.remove();
+    const toast = document.createElement('div');
+    toast.id = 'app-toast';
+    const bg = type === 'error' ? '#991b1b' : type === 'warning' ? '#92400e' : type === 'success' ? '#065f46' : '#1e40af';
+    const icon = type === 'error' ? 'error' : type === 'success' ? 'check_circle' : type === 'warning' ? 'warning' : 'info';
+    toast.style.cssText = 'position:fixed;top:20px;right:20px;z-index:99999;background:' + bg + ';color:#fff;padding:14px 20px;border-radius:10px;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;box-shadow:0 8px 30px rgba(0,0,0,0.3);max-width:420px;animation:toastIn 0.3s ease-out;';
+    toast.innerHTML = '<span class="material-symbols-rounded" style="font-size:1.3rem;">' + icon + '</span><span>' + message + '</span>';
+    document.body.appendChild(toast);
+    clearTimeout(showToast._timer);
+    showToast._timer = setTimeout(function() {
+        toast.style.transition = 'opacity 0.3s ease';
+        toast.style.opacity = '0';
+        setTimeout(function() { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 300);
+    }, 3500);
+}
+
 function updateSlideDeckActionButtons() {
     const hasSlides = slides.length > 0;
     const presentBtn = document.getElementById('present-slides-btn');
@@ -11707,19 +11725,49 @@ async function exportSlidesAsPPTX() {
             const kanskiImages = currentInfographicData?.kanskiImages || await loadKanskiFromIDB(currentInfographicData?.title || '');
             if (kanskiImages && kanskiImages.length > 0) {
                 const photoAccent = '0891B2';
+                const maxImages = 4;
+
+                // Score by keyword count (desc), diversify (skip consecutive pages)
+                const scored = kanskiImages.map(img => ({
+                    img,
+                    kwCount: (img.keywords || []).length
+                }));
+                scored.sort((a, b) => b.kwCount - a.kwCount || (a.img.pageNum - b.img.pageNum));
+                const picked = [];
+                const usedNums = new Set();
+                for (const entry of scored) {
+                    if (picked.length >= maxImages) break;
+                    if (usedNums.has(entry.img.pageNum)) continue;
+                    const near = picked.some(p => Math.abs(p.img.pageNum - entry.img.pageNum) <= 2);
+                    if (near) continue;
+                    picked.push(entry);
+                    usedNums.add(entry.img.pageNum);
+                }
+                if (picked.length === 0) picked.push(scored[0]);
+                const selected = picked.map(p => p.img);
+
+                // Title slide for the photo section
+                const titleSlide = pptx.addSlide();
+                titleSlide.background = { color: '0E7490' };
+                titleSlide.addText('\uD83D\uDCF7  Kanski Clinical Photos', {
+                    x: 0.85, y: 2.5, w: 11.63, h: 1.2,
+                    fontSize: 34, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
+                });
+                titleSlide.addText(selected.length + ' matched image(s)  \u00b7  p.' + selected.map(i => i.pageNum).join(', p.'), {
+                    x: 0.85, y: 3.9, w: 11.63, h: 0.8,
+                    fontSize: 16, color: 'BAE6FD', align: 'center'
+                });
+
+                // Image slides (2 per slide)
                 const chunkSize = 2;
-                for (let start = 0; start < kanskiImages.length; start += chunkSize) {
-                    const chunk = kanskiImages.slice(start, start + chunkSize);
+                for (let start = 0; start < selected.length; start += chunkSize) {
+                    const chunk = selected.slice(start, start + chunkSize);
                     const ks = pptx.addSlide();
                     ks.background = { color: 'F0FDFA' };
 
-                    ks.addText(`\uD83D\uDCF7 Kanski Clinical Photos`, {
+                    ks.addText('\uD83D\uDCF7  Kanski Clinical Photos', {
                         x: 0.65, y: 0.3, w: 12.03, h: 0.65,
-                        fontSize: 22, bold: true, color: photoAccent, margin: 0
-                    });
-                    ks.addShape(pptx.ShapeType.rect, {
-                        x: 0.65, y: 0.92, w: 12.03, h: 0.03,
-                        fill: { color: photoAccent }, line: { color: photoAccent }
+                        fontSize: 22, bold: true, color: photoAccent
                     });
 
                     const imgAreaW = 5.5, imgAreaH = 4.5;
@@ -11730,33 +11778,32 @@ async function exportSlidesAsPPTX() {
 
                     for (let i = 0; i < chunk.length; i++) {
                         const img = chunk[i];
-                        if (img.imgUrl) {
-                            const ix = startX + i * (imgAreaW + gap);
-                            try {
-                                const response = await fetch(img.imgUrl);
-                                const blob = await response.blob();
-                                const dataUri = await new Promise((resolve) => {
-                                    const reader = new FileReader();
-                                    reader.onloadend = () => resolve(reader.result);
-                                    reader.readAsDataURL(blob);
-                                });
-                                ks.addImage({
-                                    data: dataUri,
-                                    x: ix, y: imgY, w: imgAreaW, h: imgAreaH,
-                                    rounding: true
-                                });
-                            } catch (imgErr) {
-                                ks.addText(`[Image p.${img.pageNum || ''} could not be loaded]`, {
-                                    x: ix, y: imgY, w: imgAreaW, h: imgAreaH,
-                                    fontSize: 12, color: '94A3B8', align: 'center', valign: 'middle'
-                                });
-                            }
-                            const caption = `Kanski p.${img.pageNum || ''}${img.keywords?.length ? ' \u00b7 ' + img.keywords.slice(0, 3).join(', ') : ''}`;
-                            ks.addText(caption, {
-                                x: ix, y: imgY + imgAreaH + 0.05, w: imgAreaW, h: 0.35,
-                                fontSize: 10, color: '64748B', align: 'center'
+                        if (!img.imgUrl) continue;
+                        const ix = startX + i * (imgAreaW + gap);
+                        try {
+                            const response = await fetch(img.imgUrl);
+                            const blob = await response.blob();
+                            const dataUri = await new Promise((resolve) => {
+                                const reader = new FileReader();
+                                reader.onloadend = () => resolve(reader.result);
+                                reader.readAsDataURL(blob);
+                            });
+                            ks.addImage({
+                                data: dataUri,
+                                x: ix, y: imgY, w: imgAreaW, h: imgAreaH,
+                                rounding: true
+                            });
+                        } catch (imgErr) {
+                            ks.addText('[Image p.' + (img.pageNum || '') + ' could not be loaded]', {
+                                x: ix, y: imgY, w: imgAreaW, h: imgAreaH,
+                                fontSize: 12, color: '94A3B8', align: 'center', valign: 'middle'
                             });
                         }
+                        const kw = (img.keywords || []).slice(0, 5).join(', ');
+                        ks.addText('Kanski p.' + (img.pageNum || '') + (kw ? ' \u00b7 ' + kw : ''), {
+                            x: ix, y: imgY + imgAreaH + 0.05, w: imgAreaW, h: 0.35,
+                            fontSize: 10, color: '64748B', align: 'center'
+                        });
                     }
                 }
             }
@@ -13451,7 +13498,34 @@ function setupKanskiPics() {
         /\bdrawing\b/i,
         /\bdiagram\b/i,
         /\bschematic\b/i,
-        /\bgraph\b/i
+        /\bgraph\b/i,
+        /\boptic\b/i,
+        /\bcross[-\s]?section\b/i,
+        /\bexamination\b/i,
+        /\bcolour?\s+(photo|image|fundus)\b/i,
+        /\bautofluorescen\b/i,
+        /\bwidefield\b/i,
+        /\banterior segment\b/i,
+        /\bposterior segment\b/i,
+        /\bmacroscop\b/i,
+        /\bscanning electron\b/i,
+        /\bgadolinium\b/i,
+        /\bfat[-\s]?suppress\b/i,
+        /\bocta\b/i,
+        /\btransilluminat\b/i,
+        /\bexternal (eye|appearance|view)\b/i,
+        /\bmontage\b/i,
+        /\bhaemorrhage\b/i,
+        /\bexudat\b/i,
+        /\bdrusen\b/i,
+        /\bneovasculariz\b/i,
+        /\bleak\b/i,
+        /\bcotton[-\s]?wool\b/i,
+        /\bhard exudate\b/i,
+        /\bsoft exudate\b/i,
+        /\bmacular\s+(hole|pucker|oedema|edema|scar)\b/i,
+        /\blaser\s+(scar|spot|photocoagulation)\b/i,
+        /\bcryotherap\b/i
     ];
 
     function scoreKanskiPages(weightedKeywords, primaryTopicTerms, options = {}) {
@@ -13488,31 +13562,40 @@ function setupKanskiPics() {
             'ischaemic': ['ischemic', 'vascular'],
             'congenital': ['birth', 'developmental'],
             'idiopathic': ['primary', 'unknown cause'],
-            'giant cell arteritis': ['gca', 'temporal arteritis']
+            'giant cell arteritis': ['gca', 'temporal arteritis'],
+            'glaucoma': ['poag', 'pacg', 'ntg', 'open angle', 'angle closure', 'normal tension'],
+            'cataract': ['phaco', 'cataract surgery', 'lens opacification', 'nuclear sclerotic', 'cortical spokes', 'posterior subcapsular'],
+            'diabetic retinopathy': ['dr', 'proliferative diabetic', 'nonproliferative diabetic', 'npdr', 'pdr', 'diabetic maculopathy'],
+            'retinal detachment': ['rhegmatogenous', 'tractional detachment', 'exudative detachment'],
+            'macular degeneration': ['amd', 'armd', 'age-related macular', 'dry amd', 'wet amd', 'choroidal neovascular'],
+            'uveitis': ['anterior uveitis', 'posterior uveitis', 'panuveitis', 'intermediate uveitis', 'iridocyclitis'],
+            'keratitis': ['corneal inflammation', 'infectious keratitis', 'interstitial keratitis'],
+            'thyroid eye disease': ['graves ophthalmopathy', 'thyroid ophthalmopathy', 'ted', 'graves orbitopathy'],
+            'retinoblastoma': ['rb', 'retinal tumour', 'intraocular tumour childhood'],
+            'choroidal melanoma': ['uveal melanoma', 'ciliary body melanoma', 'iris melanoma'],
+            'scleritis': ['episcleritis', 'scleral inflammation', 'necrotizing scleritis'],
+            'dry eye': ['dry eye syndrome', 'keratoconjunctivitis sicca', 'ocular surface disease'],
+            'optic atrophy': ['optic nerve pallor', 'disc pallor', 'pale disc']
         };
 
         for (const { pageNum, text } of kanskiPageTexts) {
             if (!text || text.length < 50) continue;
             const textLower = text.toLowerCase();
 
-            // ── Gate: page must contain at least one primary topic term ──
+            // ── Determine if page contains a primary topic term ──
             let hasPrimary = primaryTopicTerms.length === 0;
             if (!hasPrimary) {
                 for (const pt of primaryTopicTerms) {
                     const ptLower = pt.toLowerCase();
-                    // Direct match
                     if (textLower.includes(ptLower)) { hasPrimary = true; break; }
-                    // Synonym match
                     const synonyms = SYNONYM_MAP[ptLower];
                     if (synonyms && synonyms.some(syn => textLower.includes(syn))) { hasPrimary = true; break; }
-                    // Individual keyword match (any meaningful word from the topic)
                     for (const word of primaryWords) {
                         if (word.length >= 4 && textLower.includes(word)) { hasPrimary = true; break; }
                     }
                     if (hasPrimary) break;
                 }
             }
-            if (!hasPrimary) continue;
 
             // ── Weighted keyword counting ──
             let score = 0, primaryHits = 0;
@@ -13531,6 +13614,9 @@ function setupKanskiPics() {
                 }
             }
             if (score === 0) continue;
+
+            // ── Relaxed gate: skip only if NO primary topic AND low keyword score ──
+            if (!hasPrimary && score < 25) continue;
 
             // ── Figure/caption boost: pages that LOOK like image pages get a bump ──
             let figureBoost = 0;

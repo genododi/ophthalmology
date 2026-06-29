@@ -11588,7 +11588,7 @@ async function exportSlidesAsPPTX() {
 
     try {
         const pptx = new PptxGenJS();
-        pptx.layout = 'LAYOUT_16x9';
+        pptx.layout = 'LAYOUT_WIDE';
         pptx.author = 'Ophthalmic Infographic Creator';
         pptx.title = currentInfographicData?.title || 'Clinical Slides';
         pptx.subject = 'Ophthalmology teaching deck';

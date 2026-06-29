@@ -11626,16 +11626,19 @@ async function exportSlidesAsPPTX() {
                 const tplKey = (typeof slide.template === 'object' && slide.template) ? (slide.template.key || 'default') : (String(slide.template || 'default'));
                 const tpl = SLIDE_TEMPLATES[tplKey] || SLIDE_TEMPLATES.default;
                 const accent = hexToPptxColor(tpl.accent);
+                const ML = 0.65, MR = 0.65, MT = 0.3, MB = 0.5;
+                const CW = 13.33 - ML - MR;
+                const MAX_CT_Y = 7.5 - MB;
 
                 // ── TITLE / END ──────────────────────────────────────────
                 if (slide.type === 'title' || slide.type === 'end') {
                     s.background = { color: '1E293B' };
                     if (slide.type === 'end') {
-                        s.addText(pptIcon('auto_awesome') || '\u2728', { x: 0.85, y: 1.2, w: 11.63, h: 1.0, fontSize: 60, color: 'FBBF24', align: 'center' });
+                        s.addText(pptIcon('auto_awesome') || '\u2728', { x: 0, y: 1.2, w: 13.33, h: 1.0, fontSize: 60, color: 'FBBF24', align: 'center' });
                     }
-                    s.addText(String(slide.title || ''), { x: 0.85, y: slide.type === 'title' ? 2.6 : 2.8, w: 11.63, h: 1.4, fontSize: 36, bold: true, color: 'FFFFFF', align: 'center' });
+                    s.addText(String(slide.title || ''), { x: ML, y: slide.type === 'title' ? 2.6 : 2.8, w: CW, h: 1.4, fontSize: 36, bold: true, color: 'FFFFFF', align: 'center' });
                     if (slide.subtitle) {
-                        s.addText(String(slide.subtitle), { x: 1.25, y: 4.0, w: 10.83, h: 1.2, fontSize: 18, color: '94A3B8', align: 'center' });
+                        s.addText(String(slide.subtitle), { x: ML + 0.4, y: 4.0, w: CW - 0.8, h: 1.2, fontSize: 18, color: '94A3B8', align: 'center' });
                     }
                     return;
                 }
@@ -11643,7 +11646,7 @@ async function exportSlidesAsPPTX() {
                 // ── SECTION ──────────────────────────────────────────────
                 if (slide.type === 'section') {
                     s.background = { color: accent };
-                    const cx = 6.665, cy = 1.9, cd = 2.4;
+                    const cx = 13.33 / 2, cy = 1.9, cd = 2.4;
                     s.addShape(pptx.ShapeType.ellipse, {
                         x: cx - cd / 2, y: cy - cd / 2, w: cd, h: cd,
                         fill: { color: 'FFFFFF' }
@@ -11651,29 +11654,33 @@ async function exportSlidesAsPPTX() {
                     const iconEmoji = pptIcon(slide.icon || tpl.icon || '');
                     s.addText(iconEmoji, { x: cx - cd / 2, y: cy - cd / 2, w: cd, h: cd, fontSize: 56, color: accent, align: 'center', valign: 'middle' });
                     const labelStr = (getSlideEmoji(slide) ? getSlideEmoji(slide) + ' ' : '') + String(tpl.label || '');
-                    s.addText(labelStr, { x: 0.85, y: 3.8, w: 11.63, h: 0.6, fontSize: 14, color: 'FFFFFF', align: 'center', bold: true });
-                    s.addText(String(slide.title || ''), { x: 0.85, y: 4.5, w: 11.63, h: 1.5, fontSize: 32, color: 'FFFFFF', align: 'center', bold: true });
+                    s.addText(labelStr, { x: ML, y: 3.8, w: CW, h: 0.6, fontSize: 14, color: 'FFFFFF', align: 'center', bold: true });
+                    s.addText(String(slide.title || ''), { x: ML, y: 4.5, w: CW, h: 1.5, fontSize: 32, color: 'FFFFFF', align: 'center', bold: true });
                     return;
                 }
 
                 // ── AGENDA ───────────────────────────────────────────────
                 if (slide.type === 'agenda') {
                     s.background = { color: 'FFFFFF' };
-                    s.addText((pptIcon('list_alt') || '\u25C9') + '  ' + String(slide.title || ''), { x: 0.65, y: 0.3, w: 12.03, h: 0.7, fontSize: 24, bold: true, color: accent });
+                    s.addText((pptIcon('list_alt') || '\u25C9') + '  ' + String(slide.title || ''), { x: ML, y: MT, w: CW, h: 0.7, fontSize: 24, bold: true, color: accent });
                     const items = slide.items || [];
                     const baseNum = slide.startIndex || 1;
+                    const n = items.length;
+                    const rowH = n > 8 ? 0.4 : 0.5;
+                    const badgeD = n > 8 ? 0.3 : 0.36;
+                    const fs = n > 8 ? 8 : 10;
                     items.forEach((item, idx) => {
                         const num = baseNum + idx;
-                        const itemY = 1.2 + idx * 0.5;
+                        const itemY = 1.2 + idx * rowH;
                         s.addShape(pptx.ShapeType.ellipse, {
-                            x: 0.75, y: itemY + 0.02, w: 0.36, h: 0.36,
+                            x: ML + 0.1, y: itemY + 0.02, w: badgeD, h: badgeD,
                             fill: { color: hexToPptxColor('#2563eb') }
                         });
                         s.addText(String(num).padStart(2, '0'), {
-                            x: 0.75, y: itemY + 0.02, w: 0.36, h: 0.36,
-                            fontSize: 10, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
+                            x: ML + 0.1, y: itemY + 0.02, w: badgeD, h: badgeD,
+                            fontSize: fs, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
                         });
-                        s.addText(String(item), { x: 1.3, y: itemY, w: 11.2, h: 0.42, fontSize: 14, color: '1E293B', valign: 'middle' });
+                        s.addText(String(item), { x: ML + 0.55, y: itemY, w: CW - 0.7, h: rowH - 0.04, fontSize: n > 8 ? 12 : 14, color: '1E293B', valign: 'middle' });
                     });
                     return;
                 }
@@ -11683,25 +11690,25 @@ async function exportSlidesAsPPTX() {
                 const headerTitle = String(withSlideEmoji(slide.title, slide));
                 const headerEmoji = pptIcon(headerIcon);
                 const headerText = (headerEmoji ? headerEmoji + '  ' : '') + headerTitle;
-                s.addText(headerText, { x: 0.65, y: 0.25, w: 10.5, h: 0.75, fontSize: 22, bold: true, color: accent });
+                s.addText(headerText, { x: ML, y: MT, w: CW * 0.82, h: 0.75, fontSize: 22, bold: true, color: accent });
 
                 if (tpl.label && tpl.key !== 'default') {
                     const badgeEmoji = pptIcon(tpl.icon || '');
                     const badgeText = (badgeEmoji ? badgeEmoji + ' ' : '') + String(tpl.label);
                     s.addShape(pptx.ShapeType.roundRect, {
-                        x: 10.65, y: 0.3, w: 2.5, h: 0.55, rectRadius: 0.2,
+                        x: ML + CW * 0.84, y: MT + 0.05, w: CW * 0.16, h: 0.55, rectRadius: 0.2,
                         fill: { color: hexToPptxColor(tpl.accent) }
                     });
-                    s.addText(badgeText, { x: 10.65, y: 0.3, w: 2.5, h: 0.55, fontSize: 10, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle' });
+                    s.addText(badgeText, { x: ML + CW * 0.84, y: MT + 0.05, w: CW * 0.16, h: 0.55, fontSize: 10, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle' });
                 }
 
                 s.addShape(pptx.ShapeType.rect, {
-                    x: 0.65, y: 1.05, w: 12.03, h: 0.035,
+                    x: ML, y: MT + 0.8, w: CW, h: 0.035,
                     fill: { color: hexToPptxColor(tpl.accent) }
                 });
 
                 const content = slide.content;
-                const contentY = 1.25;
+                const contentY = MT + 1.0;
 
                 // ── TOPIC CARDS ──────────────────────────────────────────
                 if (Array.isArray(content) && shouldRenderSlideTopicCards(content)) {
@@ -11709,20 +11716,28 @@ async function exportSlidesAsPPTX() {
                     const count = cards.length;
                     const cols = count <= 2 ? count : (count === 3 ? 3 : (count === 4 ? 2 : 3));
                     const rows = Math.ceil(count / cols);
-                    const x0 = 0.65, y0 = contentY, areaW = 12.03, areaH = 4.6, gap = 0.2;
-                    const cardW = (areaW - gap * (cols - 1)) / cols;
-                    const cardH = (areaH - gap * (rows - 1)) / rows;
+                    const areaH = Math.min(MAX_CT_Y - contentY - 0.2, 5.0);
+                    const cardW = (CW - 0.2 * (cols - 1)) / cols;
+                    const cardH = (areaH - 0.2 * (rows - 1)) / rows;
                     const hdrH = Math.min(0.55, cardH * 0.28);
                     const hdrColor = hexToPptxColor(tpl.accent);
+                    const hdrSize = count > 6 ? 8 : (count > 4 ? 9 : 11);
+                    const bodySize = count > 6 ? 9 : (count > 4 ? 10 : 12);
                     cards.forEach((card, i) => {
                         const col = i % cols, row = Math.floor(i / cols);
-                        const cx = x0 + col * (cardW + gap), cy = y0 + row * (cardH + gap);
+                        const cx = ML + col * (cardW + 0.2), cy = contentY + row * (cardH + 0.2);
                         s.addShape(pptx.ShapeType.rect, {
                             x: cx, y: cy, w: cardW, h: hdrH,
                             fill: { color: hdrColor }
                         });
-                        s.addText(String(i + 1).padStart(2, '0') + '  ' + String(card.topic || 'Point ' + (i + 1)), { x: cx + 0.08, y: cy + 0.03, w: cardW - 0.16, h: hdrH - 0.06, fontSize: count >= 5 ? 9 : 11, bold: true, color: 'FFFFFF', valign: 'middle' });
-                        s.addText(String(card.body || card.topic || ''), { x: cx + 0.1, y: cy + hdrH + 0.05, w: cardW - 0.2, h: cardH - hdrH - 0.1, fontSize: count >= 5 ? 10 : 12, color: '1E293B', valign: 'top' });
+                        s.addText(String(i + 1).padStart(2, '0') + '  ' + String(card.topic || 'Point ' + (i + 1)), {
+                            x: cx + 0.08, y: cy + 0.03, w: cardW - 0.16, h: hdrH - 0.06,
+                            fontSize: hdrSize, bold: true, color: 'FFFFFF', valign: 'middle'
+                        });
+                        s.addText(String(card.body || card.topic || ''), {
+                            x: cx + 0.1, y: cy + hdrH + 0.05, w: cardW - 0.2, h: cardH - hdrH - 0.1,
+                            fontSize: bodySize, color: '1E293B', valign: 'top'
+                        });
                     });
                     return;
                 }
@@ -11732,62 +11747,121 @@ async function exportSlidesAsPPTX() {
                     if (content.headers && content.rows) {
                         const { headers, rows } = normalizeSlideTable(content);
                         if (headers.length && rows.length) {
-                            const colW = 11.63 / headers.length, rowH = 0.35;
                             const maxRows = Math.min(rows.length, 10);
-                            headers.forEach((h, i) => {
-                                s.addShape(pptx.ShapeType.rect, {
-                                    x: 0.65 + i * colW, y: contentY, w: colW, h: rowH,
-                                    fill: { color: hexToPptxColor(tpl.accent) }
-                                });
-                                s.addText(String(h || ''), { x: 0.65 + i * colW + 0.05, y: contentY, w: colW - 0.1, h: rowH, fontSize: 10, bold: true, color: 'FFFFFF', valign: 'middle', align: 'center' });
-                            });
-                            rows.slice(0, maxRows).forEach((row, ri) => {
-                                const ry = contentY + rowH + ri * (rowH + 0.02);
-                                const bg = ri % 2 === 0 ? 'F8FAFC' : 'FFFFFF';
-                                row.forEach((cell, ci) => {
-                                    s.addShape(pptx.ShapeType.rect, {
-                                        x: 0.65 + ci * colW, y: ry, w: colW, h: rowH,
-                                        fill: { color: bg }
-                                    });
-                                    s.addText(String(cell == null ? '' : cell), { x: 0.65 + ci * colW + 0.05, y: ry, w: colW - 0.1, h: rowH, fontSize: 9, color: '334155', valign: 'middle' });
-                                });
+                            const colW = CW / headers.length;
+                            const tblRows = [
+                                headers.map(h => ({
+                                    text: String(h || ''),
+                                    options: {
+                                        fill: { color: hexToPptxColor(tpl.accent) },
+                                        bold: true, fontSize: 10, color: 'FFFFFF',
+                                        align: 'center', valign: 'middle',
+                                        margin: [3, 5, 3, 5]
+                                    }
+                                })),
+                                ...rows.slice(0, maxRows).map((row, ri) =>
+                                    row.map(cell => ({
+                                        text: String(cell == null ? '' : cell),
+                                        options: {
+                                            fill: { color: ri % 2 === 0 ? 'F8FAFC' : 'FFFFFF' },
+                                            fontSize: 9, color: '334155', valign: 'middle',
+                                            margin: [3, 5, 3, 5]
+                                        }
+                                    }))
+                                )
+                            ];
+                            s.addTable(tblRows, {
+                                x: ML, y: contentY, w: CW,
+                                colW: headers.map(() => colW),
+                                border: { type: 'solid', pt: 0.5, color: 'E2E8F0' },
+                                margin: [0, 0, 0, 0],
+                                autoPage: false
                             });
                         }
                         return;
                     }
                     if (content.mnemonic) {
-                        s.addText(String(content.mnemonic), { x: 1.0, y: contentY + 0.3, w: 11.33, h: 1.2, fontSize: 36, bold: true, color: '7C3AED', align: 'center' });
+                        const mBoxX = ML, mBoxY = contentY + 0.15, mBoxW = CW, mDefH = 1.8;
+                        s.addShape(pptx.ShapeType.roundRect, {
+                            x: mBoxX, y: mBoxY, w: mBoxW, h: mDefH,
+                            rectRadius: 0.12,
+                            fill: { color: 'F8FAFC' }
+                        });
+                        // purple left border
+                        s.addShape(pptx.ShapeType.roundRect, {
+                            x: mBoxX, y: mBoxY, w: 0.12, h: mDefH,
+                            rectRadius: 0.06,
+                            fill: { color: '8B5CF6' }
+                        });
+                        s.addText((pptIcon('psychology') || '\uD83E\uDDE0') + '  ' + String(content.mnemonic), {
+                            x: mBoxX + 0.3, y: mBoxY + 0.15, w: mBoxW - 0.5, h: 0.7,
+                            fontSize: 28, bold: true, color: '7C3AED', valign: 'middle'
+                        });
                         if (content.explanation) {
-                            s.addText(String(content.explanation), { x: 1.0, y: contentY + 1.6, w: 11.33, h: 1.2, fontSize: 14, color: '475569', align: 'center' });
+                            s.addText(String(content.explanation), {
+                                x: mBoxX + 0.3, y: mBoxY + 0.9, w: mBoxW - 0.5, h: 0.7,
+                                fontSize: 14, color: '475569', valign: 'top'
+                            });
                         }
                         return;
                     }
                     if (content.center) {
-                        s.addShape(pptx.ShapeType.roundRect, { x: 1.5, y: contentY + 0.1, w: 10.33, h: 0.7, rectRadius: 0.12, fill: { color: hexToPptxColor(tpl.accent) } });
-                        s.addText(String(content.center), { x: 1.5, y: contentY + 0.1, w: 10.33, h: 0.7, fontSize: 18, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle' });
+                        s.addShape(pptx.ShapeType.roundRect, {
+                            x: ML + 0.85, y: contentY + 0.1, w: CW - 1.7, h: 0.7,
+                            rectRadius: 0.12, fill: { color: hexToPptxColor(tpl.accent) }
+                        });
+                        s.addText(String(content.center), {
+                            x: ML + 0.85, y: contentY + 0.1, w: CW - 1.7, h: 0.7,
+                            fontSize: 18, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
+                        });
                         if (Array.isArray(content.branches)) {
-                            content.branches.slice(0, 8).forEach((b, i) => {
-                                s.addText('\u25CF  ' + String(b == null ? '' : b), { x: 1.25, y: contentY + 1.2 + i * 0.45, w: 10.83, h: 0.38, fontSize: 13, color: '334155' });
-                            });
+                            const branches = content.branches.slice(0, 8);
+                            if (branches.length <= 4) {
+                                branches.forEach((b, i) => {
+                                    const bY = contentY + 1.1 + i * 0.55;
+                                    s.addShape(pptx.ShapeType.roundRect, {
+                                        x: ML, y: bY, w: CW, h: 0.45,
+                                        rectRadius: 0.08, fill: { color: 'EFF6FF' }
+                                    });
+                                    s.addText('\u25CF  ' + String(b == null ? '' : b), {
+                                        x: ML + 0.15, y: bY, w: CW - 0.3, h: 0.45,
+                                        fontSize: 13, color: '1E3A8A', valign: 'middle'
+                                    });
+                                });
+                            } else {
+                                const cols = 2, rows = Math.ceil(branches.length / cols);
+                                const gap = 0.15, cellW = (CW - gap) / cols, cellH = 0.4;
+                                branches.forEach((b, i) => {
+                                    const col = i % cols, row = Math.floor(i / cols);
+                                    const bx = ML + col * (cellW + gap), by = contentY + 1.1 + row * (cellH + gap);
+                                    s.addShape(pptx.ShapeType.roundRect, {
+                                        x: bx, y: by, w: cellW, h: cellH,
+                                        rectRadius: 0.08, fill: { color: 'EFF6FF' }
+                                    });
+                                    s.addText(String(b == null ? '' : b), {
+                                        x: bx + 0.1, y: by, w: cellW - 0.2, h: cellH,
+                                        fontSize: 12, color: '1E3A8A', valign: 'middle'
+                                    });
+                                });
+                            }
                         }
                         return;
                     }
                     if (Array.isArray(content.data)) {
-                        const barW = 11.63, barH = 0.35;
-                        content.data.slice(0, 8).forEach((d, i) => {
+                        const dataArr = content.data.slice(0, 8);
+                        const barH = 0.35, barGap = Math.min(0.25, (MAX_CT_Y - contentY - 0.2) / dataArr.length - barH);
+                        dataArr.forEach((d, i) => {
                             const rawValue = d && typeof d === 'object' ? d.value : d;
                             const label = d && typeof d === 'object' ? (d.label || d.name || d.title || '') : '';
                             const pct = clampPercent(rawValue);
-                            const by = contentY + i * (barH + 0.25);
-                            // track
+                            const by = contentY + i * (barH + barGap);
                             s.addShape(pptx.ShapeType.roundRect, {
-                                x: 0.85, y: by + barH - 0.06, w: barW, h: 0.08, rectRadius: 0.04,
+                                x: ML + 0.2, y: by + barH - 0.06, w: CW - 0.4, h: 0.08, rectRadius: 0.04,
                                 fill: { color: 'E2E8F0' }
                             });
-                            // fill
                             if (pct > 0) {
                                 s.addShape(pptx.ShapeType.roundRect, {
-                                    x: 0.85, y: by + barH - 0.06, w: barW * pct / 100, h: 0.08, rectRadius: 0.04,
+                                    x: ML + 0.2, y: by + barH - 0.06, w: (CW - 0.4) * pct / 100, h: 0.08, rectRadius: 0.04,
                                     fill: { color: hexToPptxColor(tpl.accent) }
                                 });
                             }
@@ -11795,12 +11869,12 @@ async function exportSlidesAsPPTX() {
                                 ? String(displayText(rawValue)) + (String(rawValue).includes('%') ? '' : '%')
                                 : String(displayText(rawValue));
                             s.addText(valueLabel, {
-                                x: 0.85, y: by, w: 2.5, h: barH,
+                                x: ML + 0.2, y: by, w: 2.5, h: barH,
                                 fontSize: 18, bold: true, color: '10B981', valign: 'middle'
                             });
                             if (label) {
                                 s.addText(String(displayText(label)), {
-                                    x: 3.5, y: by, w: barW - 3.5, h: barH,
+                                    x: ML + 2.9, y: by, w: CW - 3.3, h: barH,
                                     fontSize: 12, color: '64748B', valign: 'middle'
                                 });
                             }
@@ -11813,40 +11887,40 @@ async function exportSlidesAsPPTX() {
                 if (Array.isArray(content)) {
                     const numbered = tpl.key === 'framework' || tpl.key === 'management';
                     const bulletEmoji = pptIcon(tpl.bullet || '');
-                    content.slice(0, 12).forEach((item, idx) => {
+                    const n = Math.min(content.length, 14);
+                    const bodySize = n > 10 ? 10 : (n > 7 ? 11 : 13);
+                    const topicSize = n > 10 ? 7 : (n > 7 ? 8 : 9);
+                    const markerSize = n > 10 ? 11 : (n > 7 ? 12 : 14);
+                    const rowH = n > 10 ? 0.38 : (n > 7 ? 0.42 : 0.48);
+                    content.slice(0, n).forEach((item, idx) => {
                         const { topic, body } = parseSlideContentItem(item);
                         const displayBody = body || topic || displayText(item);
                         const topicLabel = topic && body ? topic : '';
-                        const itemY = contentY + idx * 0.52;
-                        const labelW = topicLabel ? 1.6 : 0.45;
-                        // background shape
+                        const itemY = contentY + idx * rowH;
+                        const labelW = topicLabel ? 1.6 : 0.4;
                         s.addShape(pptx.ShapeType.roundRect, {
-                            x: 0.85, y: itemY, w: 11.63, h: 0.46, rectRadius: 0.08,
+                            x: ML + 0.2, y: itemY, w: CW - 0.4, h: rowH - 0.02, rectRadius: 0.06,
                             fill: { color: hexToPptxColor('#F8FAFC') }
                         });
                         if (topicLabel) {
                             s.addShape(pptx.ShapeType.roundRect, {
-                                x: 0.85, y: itemY, w: labelW, h: 0.46, rectRadius: 0.08,
-                                fill: { color: hexToPptxColor(tpl.accent) }
-                            });
-                            s.addShape(pptx.ShapeType.rect, {
-                                x: 0.85 + labelW, y: itemY, w: 0.06, h: 0.46,
+                                x: ML + 0.2, y: itemY, w: labelW, h: rowH - 0.02, rectRadius: 0.06,
                                 fill: { color: hexToPptxColor(tpl.accent) }
                             });
                             s.addText(String(topicLabel), {
-                                x: 0.85, y: itemY, w: labelW, h: 0.46,
-                                fontSize: 9, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
+                                x: ML + 0.2, y: itemY, w: labelW, h: rowH - 0.02,
+                                fontSize: topicSize, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
                             });
                         } else {
                             const marker = numbered ? String(idx + 1) : (bulletEmoji || '\u2022');
                             s.addText(marker, {
-                                x: 0.9, y: itemY, w: 0.35, h: 0.46,
-                                fontSize: 14, color: hexToPptxColor(tpl.accent), align: 'center', valign: 'middle'
+                                x: ML + 0.28, y: itemY, w: 0.3, h: rowH - 0.02,
+                                fontSize: markerSize, color: hexToPptxColor(tpl.accent), align: 'center', valign: 'middle'
                             });
                         }
                         s.addText(String(displayBody), {
-                            x: 0.85 + labelW + 0.1, y: itemY, w: 11.63 - labelW - 0.25, h: 0.46,
-                            fontSize: 13, color: '1E293B', valign: 'middle'
+                            x: ML + 0.2 + labelW + 0.08, y: itemY, w: CW - labelW - 0.45, h: rowH - 0.02,
+                            fontSize: bodySize, color: '1E293B', valign: 'middle'
                         });
                     });
                     return;
@@ -11854,19 +11928,23 @@ async function exportSlidesAsPPTX() {
 
                 // ── PLAIN TEXT ───────────────────────────────────────────
                 if (typeof content === 'string') {
-                    const boxX = 0.85, boxY = contentY + 0.1, boxW = 11.63, boxH = 4.0;
+                    const txtLen = String(content).length;
+                    const boxH = Math.min(MAX_CT_Y - contentY - 0.2, txtLen > 500 ? 5.2 : 4.0);
                     s.addShape(pptx.ShapeType.roundRect, {
-                        x: boxX, y: boxY, w: boxW, h: boxH,
+                        x: ML, y: contentY + 0.1, w: CW, h: boxH,
                         rectRadius: 0.12,
                         fill: { color: 'F8FAFC' }
                     });
-                    // accent left border
                     s.addShape(pptx.ShapeType.roundRect, {
-                        x: boxX, y: boxY, w: 0.12, h: boxH,
+                        x: ML, y: contentY + 0.1, w: 0.12, h: boxH,
                         rectRadius: 0.06,
                         fill: { color: hexToPptxColor(tpl.accent) }
                     });
-                    s.addText(String(content), { x: 1.25, y: boxY + 0.2, w: 10.8, h: boxH - 0.4, fontSize: 18, color: '334155', valign: 'top' });
+                    s.addText(String(content), {
+                        x: ML + 0.4, y: contentY + 0.3, w: CW - 0.65, h: boxH - 0.4,
+                        fontSize: txtLen > 800 ? 14 : (txtLen > 400 ? 16 : 18),
+                        color: '334155', valign: 'top'
+                    });
                 }
             } catch (slideErr) {
                 console.warn('[PPTX] Slide #' + (sidx + 1) + ' (' + String(slide.title || slide.type || '') + ') failed:', slideErr);

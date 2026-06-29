@@ -11726,7 +11726,7 @@ async function exportSlidesAsPPTX() {
                 }
 
                 // ── CONTENT SLIDE ────────────────────────────────────────
-                const headerTitle = String(withSlideEmoji(slide.title, slide));
+                const headerTitle = withSlideEmoji(stripHtml(slide.title), slide);
                 s.addText(headerTitle, { x: ML, y: MT, w: CW * 0.82, h: 0.75, fontSize: 22, bold: true, color: accent });
 
                 if (tpl.label && tpl.key !== 'default') {
@@ -11766,11 +11766,11 @@ async function exportSlidesAsPPTX() {
                             x: cx, y: cy, w: cardW, h: hdrH,
                             fill: { color: hdrColor }
                         });
-                        s.addText(String(i + 1).padStart(2, '0') + '  ' + String(card.topic || 'Point ' + (i + 1)), {
+                        s.addText(String(i + 1).padStart(2, '0') + '  ' + stripHtml(card.topic || 'Point ' + (i + 1)), {
                             x: cx + 0.08, y: cy + 0.03, w: cardW - 0.16, h: hdrH - 0.06,
                             fontSize: hdrSize, bold: true, color: 'FFFFFF', valign: 'middle'
                         });
-                        s.addText(String(card.body || card.topic || ''), {
+                        s.addText(stripHtml(card.body || card.topic || ''), {
                             x: cx + 0.1, y: cy + hdrH + 0.05, w: cardW - 0.2, h: cardH - hdrH - 0.1,
                             fontSize: bodySize, color: '1E293B', valign: 'top'
                         });
@@ -11788,7 +11788,7 @@ async function exportSlidesAsPPTX() {
                             const tblIcon = pptIcon(tpl.icon);
                             const tblRows = [
                                 headers.map((h, hi) => ({
-                                    text: (hi === 0 && tblIcon ? tblIcon + '  ' : '') + String(h || ''),
+                                    text: (hi === 0 && tblIcon ? tblIcon + '  ' : '') + stripHtml(h || ''),
                                     options: {
                                         fill: { color: hexToPptxColor(tpl.accent) },
                                         bold: true, fontSize: 10, color: 'FFFFFF',
@@ -11798,7 +11798,7 @@ async function exportSlidesAsPPTX() {
                                 })),
                                 ...rows.slice(0, maxRows).map((row, ri) =>
                                     row.map(cell => ({
-                                        text: String(cell == null ? '' : cell),
+                                        text: stripHtml(cell == null ? '' : cell),
                                         options: {
                                             fill: { color: ri % 2 === 0 ? 'F8FAFC' : 'FFFFFF' },
                                             fontSize: 9, color: '334155', valign: 'middle',
@@ -11847,7 +11847,7 @@ async function exportSlidesAsPPTX() {
                             x: ML + 0.85, y: contentY + 0.1, w: CW - 1.7, h: 0.7,
                             rectRadius: 0.12, fill: { color: hexToPptxColor(tpl.accent) }
                         });
-                        s.addText(String(content.center), {
+                        s.addText(stripHtml(content.center), {
                             x: ML + 0.85, y: contentY + 0.1, w: CW - 1.7, h: 0.7,
                             fontSize: 18, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
                         });
@@ -11860,7 +11860,7 @@ async function exportSlidesAsPPTX() {
                                         x: ML, y: bY, w: CW, h: 0.45,
                                         rectRadius: 0.08, fill: { color: 'EFF6FF' }
                                     });
-                                    s.addText('\u25CF  ' + String(b == null ? '' : b), {
+                                    s.addText('\u25CF  ' + stripHtml(b), {
                                         x: ML + 0.15, y: bY, w: CW - 0.3, h: 0.45,
                                         fontSize: 13, color: '1E3A8A', valign: 'middle'
                                     });
@@ -11875,7 +11875,7 @@ async function exportSlidesAsPPTX() {
                                         x: bx, y: by, w: cellW, h: cellH,
                                         rectRadius: 0.08, fill: { color: 'EFF6FF' }
                                     });
-                                    s.addText(String(b == null ? '' : b), {
+                                    s.addText(stripHtml(b), {
                                         x: bx + 0.1, y: by, w: cellW - 0.2, h: cellH,
                                         fontSize: 12, color: '1E3A8A', valign: 'middle'
                                     });
@@ -11903,14 +11903,14 @@ async function exportSlidesAsPPTX() {
                                 });
                             }
                             const valueLabel = Number.isFinite(Number.parseFloat(String(rawValue ?? '')))
-                                ? String(displayText(rawValue)) + (String(rawValue).includes('%') ? '' : '%')
-                                : String(displayText(rawValue));
+                                ? stripHtml(displayText(rawValue)) + (String(rawValue).includes('%') ? '' : '%')
+                                : stripHtml(displayText(rawValue));
                             s.addText(valueLabel, {
                                 x: ML + 0.2, y: by, w: 2.5, h: barH,
                                 fontSize: 18, bold: true, color: '10B981', valign: 'middle'
                             });
                             if (label) {
-                                s.addText(String(displayText(label)), {
+                                s.addText(stripHtml(displayText(label)), {
                                     x: ML + 2.9, y: by, w: CW - 3.3, h: barH,
                                     fontSize: 12, color: '64748B', valign: 'middle'
                                 });
@@ -11924,7 +11924,6 @@ async function exportSlidesAsPPTX() {
                 if (Array.isArray(content)) {
                     const numbered = tpl.key === 'framework' || tpl.key === 'management';
                     const bulletEmoji = pptIcon(tpl.bullet || '');
-                    const tplEmoji = pptIcon(tpl.icon);
                     const n = Math.min(content.length, 14);
                     const bodySize = n > 10 ? 10 : (n > 7 ? 11 : 13);
                     const topicSize = n > 10 ? 7 : (n > 7 ? 8 : 9);
@@ -11934,8 +11933,8 @@ async function exportSlidesAsPPTX() {
                         const { topic, body } = parseSlideContentItem(item);
                         const displayBody = body || topic || displayText(item);
                         const topicLabel = topic && body ? topic : '';
-                        const bodyPrefix = !topicLabel && bulletEmoji ? bulletEmoji + ' ' : '';
-                        const prefixedBody = bodyPrefix + String(displayBody);
+                        const hasEmoji = !topicLabel && !!bulletEmoji;
+                        const prefixedBody = hasEmoji ? bulletEmoji + ' ' + stripHtml(displayBody) : stripHtml(displayBody);
                         const itemY = contentY + idx * rowH;
                         const labelW = topicLabel ? 1.6 : 0.4;
                         s.addShape(pptx.ShapeType.roundRect, {
@@ -11947,18 +11946,18 @@ async function exportSlidesAsPPTX() {
                                 x: ML + 0.2, y: itemY, w: labelW, h: rowH - 0.02, rectRadius: 0.06,
                                 fill: { color: hexToPptxColor(tpl.accent) }
                             });
-                            s.addText(String(topicLabel), {
+                            s.addText(stripHtml(topicLabel), {
                                 x: ML + 0.2, y: itemY, w: labelW, h: rowH - 0.02,
                                 fontSize: topicSize, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
                             });
-                        } else {
-                            const marker = numbered ? String(idx + 1) : (bulletEmoji || '\u2022');
+                        } else if (!hasEmoji) {
+                            const marker = numbered ? String(idx + 1) : '\u2022';
                             s.addText(marker, {
                                 x: ML + 0.28, y: itemY, w: 0.3, h: rowH - 0.02,
                                 fontSize: markerSize, color: hexToPptxColor(tpl.accent), align: 'center', valign: 'middle'
                             });
                         }
-                        s.addText(String(prefixedBody), {
+                        s.addText(prefixedBody, {
                             x: ML + 0.2 + labelW + 0.08, y: itemY, w: CW - labelW - 0.45, h: rowH - 0.02,
                             fontSize: bodySize, color: '1E293B', valign: 'middle'
                         });

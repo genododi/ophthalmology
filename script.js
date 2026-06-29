@@ -10605,7 +10605,7 @@ const SLIDE_TYPE_EMOJI = {
     indications: '✅', contraindications: '🚫', differential: '🔀',
     investigations: '🔬', management: '💊', surgery: '🏥', etiology: '🧬',
     epidemiology: '📊', pathophysiology: '🧪', symptoms: '🤒', signs: '🔍',
-    anatomy: '🫀', prognosis: '📈', framework: '🗂️', mnemonic: '🧠', default: '📌'
+    anatomy: '🦴', prognosis: '📈', framework: '🗂️', mnemonic: '🧠', default: '📌'
 };
 
 function getSlideEmoji(slide) {
@@ -10639,11 +10639,11 @@ function pptIcon(name) {
         stars:'💎', report_problem:'🚧', flag:'🚩', warning:'⚠️', task_alt:'✅',
         block:'🚫', account_tree:'🔀', biotech:'🧪', medical_services:'💊',
         surgical:'🔪', public:'🌍', genetics:'🧬', sick:'🤒', visibility:'👁️',
-        human_greeting_proximity:'🧑', trending_up:'📈', dashboard:'📊',
+        human_greeting_proximity:'🧍', trending_up:'📈', dashboard:'📊',
         psychology:'🧠', auto_awesome:'✨', lightbulb:'💡', priority_high:'❗',
         error:'❌', check_circle:'✅', do_not_disturb_on:'⛔', compare_arrows:'🔄',
         labs:'🧪', medication:'💊', cut:'✂️', science:'🔬', bubble_chart:'🔵',
-        thermostat:'🌡️', search:'🔍', category:'📁', timeline:'⏱️', hexagon:'⬡',
+        thermostat:'🌡️', search:'🔍', category:'📁', timeline:'⏱️', hexagon:'🔶',
         bookmark:'🔖', arrow_forward_ios:'➡️', list_alt:'📋', apps:'📱',
         table_chart:'📊', assignment:'📝', help_outline:'❓', medical_information:'🩺',
         topic:'📌', neurology:'🧠', ophthalmology:'👁️', emergency:'🚨',
@@ -10654,7 +10654,7 @@ function pptIcon(name) {
         pharmacology:'💊', radiology:'🔬', obstetrics:'🤰', gynecology:'👩',
         anesthesia:'💉', microbiology:'🔬', genetics:'🧬',
         spine:'🦴', ent:'👂', dental:'🦷', allergy:'🌸', urology:'🚽',
-        hepatology:'🫁', neonatology:'👶', toxicology:'☠️', palliative:'🕊️',
+        hepatology:'🩺', neonatology:'👶', toxicology:'☠️', palliative:'🕊️',
         sports:'🏃', occupational:'👷', environmental:'🌍', geriatrics:'👴',
         critical:'🆘', emergency_medicine:'🚑', nutrition:'🥗', preventive:'🛡️',
         epidemiology:'📊', biostatistics:'📊', reproductive:'🫄',

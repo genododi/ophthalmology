@@ -10948,13 +10948,19 @@ function generateSlides() {
         : rawSections;
     if (rawSections.length > SLIDE_DECK_MAX_SECTIONS) truncated = true;
 
-    // Optional agenda slide summarizing the section titles
+    // Optional agenda slide(s) summarizing the section titles
+    const MAX_AGENDA_ITEMS_PER_SLIDE = 8;
     if (sections.length > 1) {
-        slides.push({
-            type: 'agenda',
-            title: 'Overview & Learning Objectives',
-            items: sections.map(s => safeStripReferences(s.title || '')).filter(Boolean).slice(0, 24)
-        });
+        const allItems = sections.map(s => safeStripReferences(s.title || '')).filter(Boolean).slice(0, 24);
+        for (let i = 0; i < allItems.length; i += MAX_AGENDA_ITEMS_PER_SLIDE) {
+            const chunk = allItems.slice(i, i + MAX_AGENDA_ITEMS_PER_SLIDE);
+            const suffix = allItems.length > MAX_AGENDA_ITEMS_PER_SLIDE ? ' (' + (Math.floor(i / MAX_AGENDA_ITEMS_PER_SLIDE) + 1) + '/' + Math.ceil(allItems.length / MAX_AGENDA_ITEMS_PER_SLIDE) + ')' : '';
+            slides.push({
+                type: 'agenda',
+                title: i === 0 ? 'Overview & Learning Objectives' : 'Overview & Learning Objectives' + suffix,
+                items: chunk
+            });
+        }
     }
 
     // Split long array content into chunks so no slide gets overstuffed
@@ -11080,27 +11086,19 @@ function renderSlide() {
     } else if (slide.type === 'agenda') {
         slideContent.classList.add('content-slide');
         slideContent.innerHTML = `
-            <h3 style="display:flex;align-items:center;gap:12px;font-size:2.4rem;color:#0f172a;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:1rem;width:100%;">
-                <span class="material-symbols-rounded" style="color:#2563eb;font-size:2.4rem;">list_alt</span>
+            <h3 style="display:flex;align-items:center;gap:10px;font-size:2rem;color:#0f172a;margin-bottom:1.2rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:#2563eb;font-size:2rem;">list_alt</span>
                 ${escapeHtml(withSlideEmoji(slide.title, slide))}
             </h3>
-            <ol style="list-style:none;padding-left:0;counter-reset:agenda;width:100%;">
-                ${slide.items.map(item => `
-                    <li style="counter-increment:agenda;margin-bottom:1rem;display:flex;align-items:center;gap:16px;font-size:1.5rem;color:#334155;padding:0.75rem 1rem;background:#f8fafc;border-radius:10px;border-left:4px solid #3b82f6;">
-                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:1.1rem;">
-                            <span style="content:counter(agenda);">${'0'}</span>
-                        </span>
+            <ol style="list-style:none;padding-left:0;width:100%;">
+                ${slide.items.map((item, i) => `
+                    <li style="margin-bottom:0.5rem;display:flex;align-items:center;gap:8px;color:#334155;padding:0.4rem 0.75rem;background:#f8fafc;border-radius:8px;border-left:3px solid #3b82f6;font-size:1.2rem;">
+                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:0.75rem;">${String(i + 1).padStart(2, '0')}</span>
                         <span style="flex:1;">${escapeHtml(item)}</span>
                     </li>
                 `).join('')}
             </ol>
         `;
-        // Fix counter display (CSS counters render as strings via pseudo-elements,
-        // we replace the placeholder numbers with literal numbering here)
-        slideContent.querySelectorAll('ol li').forEach((li, i) => {
-            const numEl = li.querySelector('span span');
-            if (numEl) numEl.textContent = String(i + 1).padStart(2, '0');
-        });
     } else if (slide.type === 'end') {
         slideContent.classList.add('title-slide');
         slideContent.innerHTML = `
@@ -11388,26 +11386,19 @@ function renderPresentationSlide() {
     } else if (slide.type === 'agenda') {
         content.classList.add('content-slide');
         content.innerHTML = `
-            <h3 style="display:flex;align-items:center;gap:16px;font-size:3rem;color:#0f172a;margin-bottom:2.5rem;border-bottom:3px solid #e2e8f0;padding-bottom:1rem;width:100%;">
-                <span class="material-symbols-rounded" style="color:#2563eb;font-size:3rem;">list_alt</span>
+            <h3 style="display:flex;align-items:center;gap:12px;font-size:2.2rem;color:#0f172a;margin-bottom:1.5rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.6rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:#2563eb;font-size:2.2rem;">list_alt</span>
                 ${escapeHtml(withSlideEmoji(slide.title, slide))}
             </h3>
-            <ol style="list-style:none;padding-left:0;width:100%;font-size:1.8rem;">
+            <ol style="list-style:none;padding-left:0;width:100%;">
                 ${slide.items.map((item, i) => `
-                    <li style="margin-bottom:1.25rem;display:flex;align-items:center;gap:20px;color:#334155;padding:1rem 1.5rem;background:#f8fafc;border-radius:14px;border-left:6px solid #3b82f6;">
-                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:1.3rem;">${String(i + 1).padStart(2, '0')}</span>
+                    <li style="margin-bottom:0.6rem;display:flex;align-items:center;gap:10px;color:#334155;padding:0.5rem 0.9rem;background:#f8fafc;border-radius:10px;border-left:4px solid #3b82f6;font-size:1.35rem;">
+                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:0.85rem;">${String(i + 1).padStart(2, '0')}</span>
                         <span style="flex:1;">${escapeHtml(item)}</span>
                     </li>
                 `).join('')}
             </ol>
         `;
-        // Fix counter display (replace placeholder with literal numbering)
-        requestAnimationFrame(() => {
-            content.querySelectorAll('ol li').forEach((li, i) => {
-                const numEl = li.querySelector('span span');
-                if (numEl) numEl.textContent = String(i + 1).padStart(2, '0');
-            });
-        });
     } else {
         content.classList.add('content-slide');
         content.style.background = '';
@@ -11624,9 +11615,9 @@ async function exportSlidesAsPPTX() {
 
                 if (slide.type === 'agenda') {
                     s.background = { color: 'FFFFFF' };
-                    s.addText('list_alt  ' + String(slide.title || ''), { x: 0.65, y: 0.35, w: 12.03, h: 0.7, fontSize: 28, bold: true, color: accent });
+                    s.addText('list_alt  ' + String(slide.title || ''), { x: 0.65, y: 0.35, w: 12.03, h: 0.7, fontSize: 24, bold: true, color: accent });
                     (slide.items || []).forEach((item, idx) => {
-                        s.addText(String(idx + 1).padStart(2, '0') + '    ' + String(item), { x: 1.2, y: 1.3 + idx * 0.55, w: 11.0, h: 0.45, fontSize: 18, color: '1E293B' });
+                        s.addText(String(idx + 1).padStart(2, '0') + '  ' + String(item), { x: 0.85, y: 1.2 + idx * 0.45, w: 11.63, h: 0.4, fontSize: 15, color: '1E293B' });
                     });
                     return;
                 }

@@ -10629,6 +10629,11 @@ function hexToPptxColor(hex) {
     return hex.replace('#', '').toUpperCase();
 }
 
+function stripHtml(s) {
+    if (s == null) return '';
+    return String(s).replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim();
+}
+
 function pptIcon(name) {
     const map = {
         stars:'💎', report_problem:'🚧', flag:'🚩', warning:'⚠️', task_alt:'✅',
@@ -11009,7 +11014,7 @@ function generateSlides() {
     if (rawSections.length > SLIDE_DECK_MAX_SECTIONS) truncated = true;
 
     // Optional agenda slide(s) summarizing the section titles
-    const MAX_AGENDA_ITEMS_PER_SLIDE = 8;
+    const MAX_AGENDA_ITEMS_PER_SLIDE = 12;
     if (sections.length > 1) {
         const allItems = sections.map(s => safeStripReferences(s.title || '')).filter(Boolean).slice(0, 24);
         for (let i = 0; i < allItems.length; i += MAX_AGENDA_ITEMS_PER_SLIDE) {
@@ -11025,7 +11030,7 @@ function generateSlides() {
     }
 
     // Split long array content into chunks so no slide gets overstuffed
-    const MAX_BULLETS_PER_SLIDE = 7;
+    const MAX_BULLETS_PER_SLIDE = 10;
 
     const slideBudget = () => SLIDE_DECK_MAX_SLIDES - 2; // reserve end slide (+ title already added)
 
@@ -11670,19 +11675,11 @@ async function exportSlidesAsPPTX() {
                     s.background = { color: '1E293B' };
                     if (slide.type === 'end') {
                         s.addText(pptIcon('auto_awesome') || '\u2728', { x: 0, y: 1.2, w: 13.33, h: 1.0, fontSize: 60, color: 'FBBF24', align: 'center' });
-                        s.addText(String(slide.title) + '  ' + (pptIcon('auto_awesome') || '\u2728'), { x: ML, y: 2.8, w: CW, h: 1.4, fontSize: 36, bold: true, color: 'FFFFFF', align: 'center' });
-                    } else {
-                        s.addText(pptIcon('auto_awesome') || '', { x: 0, y: 2.5, w: 13.33, h: 1.0, fontSize: 48, color: 'FBBF24', align: 'center' });
-                        s.addText(String(slide.title || ''), { x: ML, y: 3.2, w: CW, h: 1.4, fontSize: 36, bold: true, color: 'FFFFFF', align: 'center' });
                     }
+                    s.addText(String(slide.title || ''), { x: ML, y: slide.type === 'title' ? 2.6 : 2.8, w: CW, h: 1.4, fontSize: 36, bold: true, color: 'FFFFFF', align: 'center' });
                     if (slide.subtitle) {
-                        s.addText(String(slide.subtitle), { x: ML + 0.4, y: 4.6, w: CW - 0.8, h: 1.2, fontSize: 18, color: '94A3B8', align: 'center' });
+                        s.addText(String(slide.subtitle), { x: ML + 0.4, y: 4.0, w: CW - 0.8, h: 1.2, fontSize: 18, color: '94A3B8', align: 'center' });
                     }
-                    // decorative line
-                    s.addShape(pptx.ShapeType.rect, {
-                        x: CW * 0.3, y: slide.subtitle ? 5.9 : 5.0, w: CW * 0.4, h: 0.03,
-                        fill: { color: '334155' }
-                    });
                     return;
                 }
 
@@ -11696,15 +11693,9 @@ async function exportSlidesAsPPTX() {
                     });
                     const iconEmoji = pptIcon(slide.icon || tpl.icon || '');
                     s.addText(iconEmoji, { x: cx - cd / 2, y: cy - cd / 2, w: cd, h: cd, fontSize: 56, color: accent, align: 'center', valign: 'middle' });
-                    // label with diamond ornaments
                     const labelStr = (getSlideEmoji(slide) ? getSlideEmoji(slide) + ' ' : '') + String(tpl.label || '');
-                    s.addText('\u25C6  ' + labelStr + '  \u25C6', { x: ML, y: 3.8, w: CW, h: 0.6, fontSize: 14, color: 'FFFFFF', align: 'center', bold: true });
+                    s.addText(labelStr, { x: ML, y: 3.8, w: CW, h: 0.6, fontSize: 14, color: 'FFFFFF', align: 'center', bold: true });
                     s.addText(String(slide.title || ''), { x: ML, y: 4.5, w: CW, h: 1.5, fontSize: 32, color: 'FFFFFF', align: 'center', bold: true });
-                    // decorative underline
-                    s.addShape(pptx.ShapeType.rect, {
-                        x: cx - 0.8, y: 6.1, w: 1.6, h: 0.035,
-                        fill: { color: 'FFFFFF33' }
-                    });
                     return;
                 }
 
@@ -11735,15 +11726,11 @@ async function exportSlidesAsPPTX() {
                 }
 
                 // ── CONTENT SLIDE ────────────────────────────────────────
-                const headerIcon = slide.icon || tpl.icon || '';
                 const headerTitle = String(withSlideEmoji(slide.title, slide));
-                const headerEmoji = pptIcon(headerIcon);
-                const headerText = (headerEmoji ? headerEmoji + '  ' : '') + headerTitle;
-                s.addText(headerText, { x: ML, y: MT, w: CW * 0.82, h: 0.75, fontSize: 22, bold: true, color: accent });
+                s.addText(headerTitle, { x: ML, y: MT, w: CW * 0.82, h: 0.75, fontSize: 22, bold: true, color: accent });
 
                 if (tpl.label && tpl.key !== 'default') {
-                    const badgeEmoji = pptIcon(tpl.icon || '');
-                    const badgeText = (badgeEmoji ? badgeEmoji + ' ' : '') + String(tpl.label);
+                    const badgeText = String(tpl.label);
                     s.addShape(pptx.ShapeType.roundRect, {
                         x: ML + CW * 0.84, y: MT + 0.05, w: CW * 0.16, h: 0.55, rectRadius: 0.2,
                         fill: { color: hexToPptxColor(tpl.accent) }
@@ -11810,8 +11797,8 @@ async function exportSlidesAsPPTX() {
                                     }
                                 })),
                                 ...rows.slice(0, maxRows).map((row, ri) =>
-                                    row.map((cell, ci) => ({
-                                        text: (ci === 0 && tblIcon ? tblIcon + ' ' : '') + String(cell == null ? '' : cell),
+                                    row.map(cell => ({
+                                        text: String(cell == null ? '' : cell),
                                         options: {
                                             fill: { color: ri % 2 === 0 ? 'F8FAFC' : 'FFFFFF' },
                                             fontSize: 9, color: '334155', valign: 'middle',
@@ -11843,12 +11830,12 @@ async function exportSlidesAsPPTX() {
                             rectRadius: 0.06,
                             fill: { color: '8B5CF6' }
                         });
-                        s.addText((pptIcon('psychology') || '\uD83E\uDDE0') + '  ' + String(content.mnemonic), {
+                        s.addText(stripHtml(content.mnemonic), {
                             x: mBoxX + 0.3, y: mBoxY + 0.15, w: mBoxW - 0.5, h: 0.7,
                             fontSize: 28, bold: true, color: '7C3AED', valign: 'middle'
                         });
                         if (content.explanation) {
-                            s.addText(String(content.explanation), {
+                            s.addText(stripHtml(content.explanation), {
                                 x: mBoxX + 0.3, y: mBoxY + 0.9, w: mBoxW - 0.5, h: 0.7,
                                 fontSize: 14, color: '475569', valign: 'top'
                             });
@@ -11981,7 +11968,8 @@ async function exportSlidesAsPPTX() {
 
                 // ── PLAIN TEXT ───────────────────────────────────────────
                 if (typeof content === 'string') {
-                    const txtLen = String(content).length;
+                    const textContent = stripHtml(content);
+                    const txtLen = textContent.length;
                     const boxH = Math.min(MAX_CT_Y - contentY - 0.2, txtLen > 500 ? 5.2 : 4.0);
                     s.addShape(pptx.ShapeType.roundRect, {
                         x: ML, y: contentY + 0.1, w: CW, h: boxH,
@@ -11993,7 +11981,7 @@ async function exportSlidesAsPPTX() {
                         rectRadius: 0.06,
                         fill: { color: hexToPptxColor(tpl.accent) }
                     });
-                    s.addText(String(content), {
+                    s.addText(textContent, {
                         x: ML + 0.4, y: contentY + 0.3, w: CW - 0.65, h: boxH - 0.4,
                         fontSize: txtLen > 800 ? 14 : (txtLen > 400 ? 16 : 18),
                         color: '334155', valign: 'top'

@@ -10958,7 +10958,8 @@ function generateSlides() {
             slides.push({
                 type: 'agenda',
                 title: i === 0 ? 'Overview & Learning Objectives' : 'Overview & Learning Objectives' + suffix,
-                items: chunk
+                items: chunk,
+                startIndex: i + 1
             });
         }
     }
@@ -11093,7 +11094,7 @@ function renderSlide() {
             <ol style="list-style:none;padding-left:0;width:100%;">
                 ${slide.items.map((item, i) => `
                     <li style="margin-bottom:0.5rem;display:flex;align-items:center;gap:8px;color:#334155;padding:0.4rem 0.75rem;background:#f8fafc;border-radius:8px;border-left:3px solid #3b82f6;font-size:1.2rem;">
-                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:0.75rem;">${String(i + 1).padStart(2, '0')}</span>
+                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:0.75rem;">${String((slide.startIndex || 1) + i).padStart(2, '0')}</span>
                         <span style="flex:1;">${escapeHtml(item)}</span>
                     </li>
                 `).join('')}
@@ -11393,7 +11394,7 @@ function renderPresentationSlide() {
             <ol style="list-style:none;padding-left:0;width:100%;">
                 ${slide.items.map((item, i) => `
                     <li style="margin-bottom:0.6rem;display:flex;align-items:center;gap:10px;color:#334155;padding:0.5rem 0.9rem;background:#f8fafc;border-radius:10px;border-left:4px solid #3b82f6;font-size:1.35rem;">
-                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:0.85rem;">${String(i + 1).padStart(2, '0')}</span>
+                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:0.85rem;">${String((slide.startIndex || 1) + i).padStart(2, '0')}</span>
                         <span style="flex:1;">${escapeHtml(item)}</span>
                     </li>
                 `).join('')}
@@ -11544,9 +11545,10 @@ ${slides.map(slide => {
             <h2>${escapeHtml(slide.title)}</h2>
         </div>`;
         } else if (slide.type === 'agenda') {
+            const startNum = slide.startIndex || 1;
             return `<div class="slide content-slide">
             <h3>${escapeHtml(withSlideEmoji(slide.title, slide))}</h3>
-            <ol style="font-size:1.35rem;line-height:1.9;padding-left:2rem;">
+            <ol style="font-size:1.35rem;line-height:1.9;padding-left:2rem;" start="${startNum}">
                 ${(slide.items || []).map(item => `<li>${escapeHtml(item)}</li>`).join('')}
             </ol>
         </div>`;
@@ -11630,9 +11632,10 @@ async function exportSlidesAsPPTX() {
                     s.background = { color: 'FFFFFF' };
                     s.addText('list_alt  ' + String(slide.title || ''), { x: 0.65, y: 0.3, w: 12.03, h: 0.7, fontSize: 24, bold: true, color: accent });
                     const items = slide.items || [];
+                    const baseNum = slide.startIndex || 1;
                     items.forEach((item, idx) => {
                         const itemY = 1.2 + idx * 0.45;
-                        s.addText('\u25C9  ' + String(idx + 1).padStart(2, '0') + '    ' + String(item), { x: 0.85, y: itemY, w: 11.63, h: 0.4, fontSize: 14, color: '1E293B' });
+                        s.addText('\u25C9  ' + String(baseNum + idx).padStart(2, '0') + '    ' + String(item), { x: 0.85, y: itemY, w: 11.63, h: 0.4, fontSize: 14, color: '1E293B' });
                     });
                     return;
                 }

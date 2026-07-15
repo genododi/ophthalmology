@@ -6704,6 +6704,7 @@ function normalizeGeminiModelId(id) {
         'gemini-3-flash-preview': GEMINI_FLASH_LATEST,
         'gemini-3.1-flash-preview': GEMINI_FLASH_LATEST,
         'gemini-3.1-flash-lite-preview': 'gemini-3.1-flash-lite',
+        'gemini-3.5-flash-preview': 'gemini-3.5-flash',
     };
     return legacy[id] || id;
 }
@@ -6774,11 +6775,12 @@ async function generateInfographicData(apiKey, topic) {
 
     const selectedModel = getSelectedGeminiModel();
     const fallbacks = [
+        "gemini-3.5-flash",
+        "gemini-3.1-pro",
         "gemini-2.5-pro",
         "gemini-2.5-flash",
         GEMINI_FLASH_LATEST,
-        "gemini-3.1-flash-lite",
-        "gemini-2.0-flash"
+        "gemini-3.1-flash-lite"
     ].map(normalizeGeminiModelId).filter(m => m !== selectedModel);
     const modelsToTry = [selectedModel, ...fallbacks];
 
@@ -8371,10 +8373,11 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
 
         const modelsToTry = [
             GEMINI_FLASH_LATEST,
+            "gemini-3.5-flash",
+            "gemini-3.1-pro",
             "gemini-2.5-flash",
             "gemini-2.5-pro",
-            "gemini-3.1-flash-lite",
-            "gemini-2.0-flash"
+            "gemini-3.1-flash-lite"
         ].map(normalizeGeminiModelId);
 
         let lastError = null;
@@ -15850,7 +15853,7 @@ async function findMatchingNotes(infographicTitle, sections) {
         try {
             const { GoogleGenerativeAI } = await import("@google/generative-ai");
             const genAI = new GoogleGenerativeAI(apiKey);
-            const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+            const model = genAI.getGenerativeModel({ model: GEMINI_FLASH_LATEST });
 
             const notesSummary = results.slice(0, 8).map((n, i) =>
                 `Note ${i + 1}: "${n.text.substring(0, 200)}..."`

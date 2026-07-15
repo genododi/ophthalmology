@@ -27,6 +27,7 @@ const GEMINI_API_KEYS_STORAGE = 'geminiApiKeys';
 const GEMINI_API_KEY_SELECTED_STORAGE = 'geminiApiKeySelected';
 const LOCAL_DEV_KEY_ENDPOINT = '/local-dev/gemini-api-key';
 const KEYCHAIN_ACCOUNT_LABEL = 'SMILE';
+const GEMINI_API_KEY_PATTERN = /^AIza[\w-]{30,}$/;
 /** Default topic when the topic field is empty on first load. */
 const TOPIC_DEFAULT_SEED = "today's trendy articles in ophthalmic journals";
 
@@ -46,11 +47,15 @@ function isCapacitorNativeApp() {
     return platform === 'ios' || platform === 'android';
 }
 
-/** Reject Keychain account label or other non-key values wrongly persisted earlier. */
+/**
+ * Gemini Developer API keys are Google API keys (AIza...). OAuth tokens and
+ * arbitrary strings cannot authenticate a generateContent request sent with
+ * x-goog-api-key.
+ */
 function isValidGeminiApiKey(key) {
     if (!key || typeof key !== 'string') return false;
     const v = key.trim();
-    return (v.startsWith('AIza') || v.startsWith('AQ.')) && v.length >= 30 && v !== KEYCHAIN_ACCOUNT_LABEL;
+    return GEMINI_API_KEY_PATTERN.test(v) && v !== KEYCHAIN_ACCOUNT_LABEL;
 }
 
 function createGeminiKeyRecord(key) {
@@ -219,9 +224,6 @@ async function initGeminiApiKeys() {
         let seedKey = null;
         if (isLocalDevHost()) {
             seedKey = await fetchLocalDevGeminiKey();
-        }
-        if (!seedKey) {
-            seedKey = 'AQ.Ab8RN6KwqZpPpDELRX9zhaNM4MANOjKds5RXBLF28H3Zu7kBnw';
         }
         if (seedKey) addGeminiApiKeys(seedKey);
     }
@@ -6467,7 +6469,9 @@ generateBtn.addEventListener('click', async () => {
         renderInfographic(data);
     } catch (error) {
         console.error('Generation Error:', error);
-        const errMsg = error.message || 'Something went wrong.';
+        const errMsg = generationSource === 'gemini'
+            ? getGeminiGenerationErrorMessage(error)
+            : (error.message || 'Something went wrong.');
         const isQuota = errMsg.toLowerCase().includes('quota') || errMsg.toLowerCase().includes('rate_limit') || errMsg.includes('429');
         const hint = isQuota
             ? 'Your API key has exceeded its quota or billing is not active. Please check your plan at <a href="https://platform.openai.com/settings/organization/billing" target="_blank" style="color:#3b82f6;">OpenAI Billing</a>, or use a Gemini API key instead.'
@@ -6734,7 +6738,18 @@ function isGeminiCredentialError(error) {
     const message = getGeminiErrorMessage(error).toLowerCase();
     return ['401', '403', '429', 'api key', 'api_key', 'quota', 'rate limit', 'rate_limit',
         'resource_exhausted', 'permission denied', 'permission_denied', 'unauthorized', 'forbidden',
-        'billing', 'expired', 'leaked'].some(marker => message.includes(marker));
+        'authentication', 'credential', 'billing', 'expired', 'leaked'].some(marker => message.includes(marker));
+}
+
+function getGeminiGenerationErrorMessage(error) {
+    if (isGeminiCredentialError(error)) {
+        const message = getGeminiErrorMessage(error).toLowerCase();
+        if (message.includes('quota') || message.includes('billing') || message.includes('429')) {
+            return getGeminiErrorMessage(error);
+        }
+        return 'Gemini authentication failed. Remove the failed key and add a valid Gemini API key from Google AI Studio.';
+    }
+    return getGeminiErrorMessage(error);
 }
 
 async function generateInfographicDataWithKeyRotation(topic) {

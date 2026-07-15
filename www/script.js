@@ -6829,13 +6829,12 @@ User Topic/Text: "${topic}"`;
         try {
             console.log(`Attempting to generate with model: ${modelName} (mode: ${topicMode ? 'TOPIC EXPANSION' : 'TEXT PRESERVATION'})`);
 
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${encodeURIComponent(apiKey)}`;
             const body = JSON.stringify({
                 contents: [{ role: 'user', parts: [{ text: systemPrompt }] }],
                 generationConfig: { temperature: 0.7, maxOutputTokens: 8192 }
             });
 
-            const resp = await fetch(url, {
+            const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -6863,7 +6862,34 @@ User Topic/Text: "${topic}"`;
         } catch (error) {
             console.warn(`Failed with model ${modelName}:`, error);
             lastError = error;
-            if (isGeminiCredentialError(error)) throw error;
+            if (isGeminiCredentialError(error)) {
+                try {
+                    console.log(`Trying OpenAI-compatible endpoint for ${modelName}...`);
+                    const oaiResp = await fetch('https://generativelanguage.googleapis.com/v1beta/openai/chat/completions', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + apiKey
+                        },
+                        body: JSON.stringify({
+                            model: modelName,
+                            messages: [{ role: 'user', content: systemPrompt }],
+                            max_tokens: 8192,
+                            temperature: 0.7
+                        })
+                    });
+                    if (oaiResp.ok) {
+                        const oaiData = await oaiResp.json();
+                        const text = oaiData?.choices?.[0]?.message?.content || '';
+                        if (text) {
+                            const parsed = parseInfographicJsonResponse(text);
+                            parsed.generationPrompt = topic;
+                            return parsed;
+                        }
+                    }
+                } catch (_) {}
+                throw error;
+            }
         }
     }
     throw lastError || new Error("All models failed.");
@@ -8371,12 +8397,11 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
         for (const modelName of modelsToTry) {
             try {
                 console.log(`Studio Tool: Trying model ${modelName}`);
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${encodeURIComponent(apiKey)}`;
                 const body = JSON.stringify({
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
                     generationConfig: { temperature: 0.7, maxOutputTokens: 4096 }
                 });
-                const resp = await fetch(url, {
+                const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -8395,6 +8420,26 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
             } catch (err) {
                 console.log(`Model ${modelName} failed:`, err.message);
                 lastError = err;
+                try {
+                    const oaiResp = await fetch('https://generativelanguage.googleapis.com/v1beta/openai/chat/completions', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + apiKey
+                        },
+                        body: JSON.stringify({
+                            model: modelName,
+                            messages: [{ role: 'user', content: prompt }],
+                            max_tokens: 4096,
+                            temperature: 0.7
+                        })
+                    });
+                    if (oaiResp.ok) {
+                        const oaiData = await oaiResp.json();
+                        const text = oaiData?.choices?.[0]?.message?.content || '';
+                        if (text) return text;
+                    }
+                } catch (_) {}
             }
         }
 
@@ -15861,8 +15906,7 @@ async function findMatchingNotes(infographicTitle, sections) {
             const prompt = `Given an ophthalmology infographic titled "${infographicTitle}", rank these notes by relevance (most relevant first). Return ONLY a JSON array of note indices (1-based), e.g. [3,1,5,2,4]. Notes:\n${notesSummary}`;
 
             const modelName = GEMINI_FLASH_LATEST;
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${encodeURIComponent(apiKey)}`;
-            const resp = await fetch(url, {
+            const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
                 body: JSON.stringify({
@@ -15870,8 +15914,26 @@ async function findMatchingNotes(infographicTitle, sections) {
                     generationConfig: { temperature: 0.3, maxOutputTokens: 1024 }
                 })
             });
-            const data = await resp.json();
-            const responseText = (data?.candidates?.[0]?.content?.parts?.map(p => p.text).filter(Boolean).join('') || '').trim();
+            let responseText = '';
+            if (!resp.ok) {
+                const oaiResp = await fetch('https://generativelanguage.googleapis.com/v1beta/openai/chat/completions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
+                    body: JSON.stringify({
+                        model: modelName,
+                        messages: [{ role: 'user', content: prompt }],
+                        max_tokens: 1024,
+                        temperature: 0.3
+                    })
+                });
+                if (oaiResp.ok) {
+                    const oaiData = await oaiResp.json();
+                    responseText = (oaiData?.choices?.[0]?.message?.content || '').trim();
+                }
+            } else {
+                const data = await resp.json();
+                responseText = (data?.candidates?.[0]?.content?.parts?.map(p => p.text).filter(Boolean).join('') || '').trim();
+            }
             const match = responseText.match(/\[[\d,\s]+\]/);
             if (match) {
                 const ranking = JSON.parse(match[0]);

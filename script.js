@@ -1,4 +1,3 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const generateBtn = document.getElementById('generate-btn');
 const apiKeyInput = document.getElementById('api-key');
@@ -6764,8 +6763,6 @@ async function generateInfographicDataWithKeyRotation(topic) {
 }
 
 async function generateInfographicData(apiKey, topic) {
-    const genAI = new GoogleGenerativeAI(apiKey);
-
     const selectedModel = getSelectedGeminiModel();
     const fallbacks = [
         "gemini-3.5-flash",
@@ -6779,88 +6776,86 @@ async function generateInfographicData(apiKey, topic) {
 
     let lastError = null;
     const topicMode = isTopicMode(topic);
+    const modeBlock = topicMode ? buildKnowledgeExpansionBlock() : buildPreservationBlock();
+
+    const systemPrompt = `You are a world-class Ophthalmic Content Strategist, board-certified Ophthalmologist, and Information Designer.
+
+Goal: Transform the user's input into a VIBRANT, COLORFUL, and VISUAL poster.
+
+${modeBlock}
+
+Guidelines:
+1. **Visual Variety**: Use charts, warning boxes, mindmaps, mnemonics, and lists.
+2. **Poster Layout**: The output will be arranged in a masonry grid. Important sections should be marked to span across the poster.
+3. **Tone**: Educational yet highly engaging. Suitable for ophthalmology residents and fellows.
+4. **Completeness**: Create as many sections as needed. ${topicMode ? 'Aim for 12-20+ sections for comprehensive coverage.' : 'Cover 100% of the input text.'}
+5. **Medical Accuracy**: All medical content must be evidence-based and clinically accurate.
+
+JSON Schema (Strict):
+{
+    "title": "A Punchy, Poster-Style Title",
+    "summary": "A 2-3 sentence engaging summary.",
+    "summary_illustration": "<svg ...> ... </svg>",
+    "sections": [
+        {
+            "title": "Section Title",
+            "icon": "valid_material_symbols_rounded_name",
+            "type": "layout_type",
+            "layout": "full_width" | "half_width",
+            "color_theme": "blue" | "red" | "green" | "yellow" | "purple",
+            "content": ...
+        }
+    ]
+}
+
+Layout Types & Content Rules:
+1. "chart": { "type": "bar", "data": [ {"label": "Label A", "value": 80}, ... ] }
+2. "red_flag": [ "Warning Sign 1", "Contraindication 2" ]
+3. "remember": { "mnemonic": "ABCD", "explanation": "A for Age, B for..." }
+4. "mindmap": { "center": "Main Concept", "branches": ["Branch A", "Branch B", ...] }
+5. "key_point": [ "Point 1", "Point 2" ]
+6. "process": [ "Step 1: ...", "Step 2: ..." ]
+7. "plain_text": "Content string..."
+8. "table": { "headers": ["Col 1", "Col 2"], "rows": [ ["Row 1 Col 1", ...] ] }
+
+Design Focus:
+- Cover ALL items in the input text. Do not pick "top 5" if there are 20 items.
+- The Illustration should be high quality and relevant to Ophthalmology.
+${topicMode ? '- Include epidemiological data as "chart" sections.\n- Include at least one "remember" mnemonic section.\n- Include management algorithm as a "process" section.' : ''}
+
+User Topic/Text: "${topic}"`;
 
     for (const modelName of modelsToTry) {
         try {
             console.log(`Attempting to generate with model: ${modelName} (mode: ${topicMode ? 'TOPIC EXPANSION' : 'TEXT PRESERVATION'})`);
-            const model = genAI.getGenerativeModel({ model: modelName });
 
-            const modeBlock = topicMode ? buildKnowledgeExpansionBlock() : buildPreservationBlock();
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${encodeURIComponent(apiKey)}`;
+            const body = JSON.stringify({
+                contents: [{ role: 'user', parts: [{ text: systemPrompt }] }],
+                generationConfig: { temperature: 0.7, maxOutputTokens: 8192 }
+            });
 
-            const prompt = `
-                You are a world-class Ophthalmic Content Strategist, board-certified Ophthalmologist, and Information Designer.
-                
-                Goal: Transform the user's input into a VIBRANT, COLORFUL, and VISUAL poster.
-                
-                ${modeBlock}
-                
-                Guidelines:
-                1. **Visual Variety**: Use charts, warning boxes, mindmaps, mnemonics, and lists.
-                2. **Poster Layout**: The output will be arranged in a masonry grid. Important sections should be marked to span across the poster.
-                3. **Tone**: Educational yet highly engaging. Suitable for ophthalmology residents and fellows.
-                4. **Completeness**: Create as many sections as needed. ${topicMode ? 'Aim for 12-20+ sections for comprehensive coverage.' : 'Cover 100% of the input text.'}
-                5. **Medical Accuracy**: All medical content must be evidence-based and clinically accurate.
+            const resp = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-goog-api-key': apiKey
+                },
+                body
+            });
 
-                JSON Schema (Strict):
-                {
-                    "title": "A Punchy, Poster-Style Title",
-                    "summary": "A 2-3 sentence engaging summary.",
-                    "summary_illustration": "<svg ...> ... </svg>",
-                    "sections": [
-                        {
-                            "title": "Section Title",
-                            "icon": "valid_material_symbols_rounded_name", // MUST be a valid Google Material Symbols Rounded icon name e.g. "visibility", "biotech", "warning", "lightbulb", "medication", "psychology", "cardiology", "science", "menu_book", "analytics", "school", "healing", "fingerprint", "genetics"
-                            "type": "layout_type", // "chart", "red_flag", "mindmap", "remember", "key_point", "process", "plain_text", "table"
-                            "layout": "full_width" | "half_width", // Use "full_width" for large diagrams or main headers
-                            "color_theme": "blue" | "red" | "green" | "yellow" | "purple", 
-                            "content": ... // see content rules
-                        }
-                    ]
-                }
-                
-                Layout Types & Content Rules:
-                1. "chart": { "type": "bar", "data": [ {"label": "Label A", "value": 80}, {"label": "Label B", "value": 45} ] } 
-                   (Simple comparative data. Values 0-100 relative scale)
-                
-                2. "red_flag": [ "Warning Sign 1", "Contraindication 2" ] 
-                   (Crucial warnings. Theme MUST be 'red')
-                
-                3. "remember": { "mnemonic": "ABCD", "explanation": "A for Age, B for..." } 
-                   (Memory aids. Theme usually 'yellow' or 'purple')
-                
-                4. "mindmap": { "center": "Main Concept", "branches": ["Branch A", "Branch B", "Branch C"] }
-                   (Simple central concept with radiating ideas. Break complex concepts into multiple mindmaps if needed.)
+            if (!resp.ok) {
+                const errBody = await resp.json().catch(() => ({}));
+                const errMsg = errBody?.error?.message || `HTTP ${resp.status}`;
+                const err = new Error(errMsg);
+                err.status = resp.status;
+                throw err;
+            }
 
-                5. "key_point": [ "Point 1", "Point 2" ] (Standard bullets. Use this for lists. ENSURE NO ITEM IS DROPPED.)
-                
-                6. "process": [ "Step 1: ...", "Step 2: ..." ] (Sequential steps)
+            const data = await resp.json();
+            const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text).filter(Boolean).join('') || '';
+            if (!text) throw new Error('Empty response from model');
 
-                7. "plain_text": "Content string..." (Use this to include paragraphs verbatim if they don't fit other structures.)
-
-                8. "table": { "headers": ["Col 1", "Col 2"], "rows": [ ["Row 1 Col 1", "Row 1 Col 2"], ... ] }
-                   (Use this for ANY structured data or comparisons in the input text.)
-
-                Special Instruction for 'summary_illustration':
-                - Generate a valid, minimal SVG string that visually represents the core topic.
-                - Use a flat, modern, vector art style.
-                - Use the primary color (hsl(215, 90%, 45%)) or relevant accents.
-                - Keep it simple (iconic representation rather than complex scene).
-                - Ensure viewBox is set.
-
-                Design Focus:
-                - If the text contains a list of 20 items, create a section with 20 items. Do not pick "top 5".
-                - If the text contains specific data points, ensure ALL are mapped to charts or text.
-                - If the topic has stages or hierarchy, use "mindmap".
-                - If there are clear contraindications, use "red_flag".
-                - The Illustration should be high quality and relevant to Ophthalmology.
-                ${topicMode ? '- Include epidemiological data as "chart" sections where applicable.\n                - Include at least one "remember" mnemonic section.\n                - Include investigation/diagnostic workup as a "process" or "table".\n                - Include management algorithm as a "process" section.' : ''}
-
-                User Topic/Text: "${topic}"
-            `;
-
-            const result = await model.generateContent(prompt);
-            const response = await result.response;
-            let text = response.text();
             const parsed = parseInfographicJsonResponse(text);
             parsed.generationPrompt = topic;
             return parsed;
@@ -8362,8 +8357,6 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
     }
 
     try {
-        const genAI = new GoogleGenerativeAI(apiKey);
-
         const modelsToTry = [
             GEMINI_FLASH_LATEST,
             "gemini-3.5-flash",
@@ -8378,10 +8371,27 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
         for (const modelName of modelsToTry) {
             try {
                 console.log(`Studio Tool: Trying model ${modelName}`);
-                const model = genAI.getGenerativeModel({ model: modelName });
-                const result = await model.generateContent(prompt);
-                const response = await result.response;
-                return response.text();
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${encodeURIComponent(apiKey)}`;
+                const body = JSON.stringify({
+                    contents: [{ role: 'user', parts: [{ text: prompt }] }],
+                    generationConfig: { temperature: 0.7, maxOutputTokens: 4096 }
+                });
+                const resp = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-goog-api-key': apiKey
+                    },
+                    body
+                });
+                if (!resp.ok) {
+                    const errBody = await resp.json().catch(() => ({}));
+                    throw new Error(errBody?.error?.message || `HTTP ${resp.status}`);
+                }
+                const data = await resp.json();
+                const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text).filter(Boolean).join('') || '';
+                if (!text) throw new Error('Empty response');
+                return text;
             } catch (err) {
                 console.log(`Model ${modelName} failed:`, err.message);
                 lastError = err;
@@ -15844,18 +15854,24 @@ async function findMatchingNotes(infographicTitle, sections) {
     const apiKey = document.getElementById('api-key')?.value?.trim();
     if (apiKey && results.length > 1) {
         try {
-            const { GoogleGenerativeAI } = await import("@google/generative-ai");
-            const genAI = new GoogleGenerativeAI(apiKey);
-            const model = genAI.getGenerativeModel({ model: GEMINI_FLASH_LATEST });
-
             const notesSummary = results.slice(0, 8).map((n, i) =>
                 `Note ${i + 1}: "${n.text.substring(0, 200)}..."`
             ).join('\n');
 
             const prompt = `Given an ophthalmology infographic titled "${infographicTitle}", rank these notes by relevance (most relevant first). Return ONLY a JSON array of note indices (1-based), e.g. [3,1,5,2,4]. Notes:\n${notesSummary}`;
 
-            const result = await model.generateContent(prompt);
-            const responseText = result.response.text().trim();
+            const modelName = GEMINI_FLASH_LATEST;
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${encodeURIComponent(apiKey)}`;
+            const resp = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
+                body: JSON.stringify({
+                    contents: [{ role: 'user', parts: [{ text: prompt }] }],
+                    generationConfig: { temperature: 0.3, maxOutputTokens: 1024 }
+                })
+            });
+            const data = await resp.json();
+            const responseText = (data?.candidates?.[0]?.content?.parts?.map(p => p.text).filter(Boolean).join('') || '').trim();
             const match = responseText.match(/\[[\d,\s]+\]/);
             if (match) {
                 const ranking = JSON.parse(match[0]);

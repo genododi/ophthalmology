@@ -6690,15 +6690,22 @@ function buildPreservationBlock() {
 HOWEVER: You MAY supplement the user's text with additional medical/ophthalmology knowledge to enrich the infographic. Add relevant clinical pearls, differential diagnoses, investigation workups, management protocols, red flags, and mnemonics that are clinically accurate and pertinent to the topic, even if not explicitly stated in the input. The user's original text must still be preserved in full.`;
 }
 
-const GEMINI_FLASH_LATEST = 'gemini-flash-latest';
+const GEMINI_FLASH_LATEST = 'gemini-2.0-flash';
 
 /** Map retired preview model IDs to current API identifiers. */
 function normalizeGeminiModelId(id) {
     const legacy = {
+        // old preview aliases
         'gemini-3-flash-preview': GEMINI_FLASH_LATEST,
         'gemini-3.1-flash-preview': GEMINI_FLASH_LATEST,
-        'gemini-3.1-flash-lite-preview': 'gemini-3.1-flash-lite',
-        'gemini-3.5-flash-preview': 'gemini-3.5-flash',
+        'gemini-3.1-flash-lite-preview': 'gemini-2.0-flash-lite',
+        'gemini-3.5-flash-preview': 'gemini-2.5-flash',
+        // fictional model names → real equivalents
+        'gemini-flash-latest': GEMINI_FLASH_LATEST,
+        'gemini-3.5-flash': 'gemini-2.5-flash',
+        'gemini-3.1-pro': 'gemini-2.5-pro',
+        'gemini-3.1-flash-lite': 'gemini-2.0-flash-lite',
+        'gemini-3.1-flash': GEMINI_FLASH_LATEST,
     };
     return legacy[id] || id;
 }
@@ -6734,9 +6741,14 @@ function getGeminiErrorMessage(error) {
 
 function isGeminiCredentialError(error) {
     const message = getGeminiErrorMessage(error).toLowerCase();
-    return ['401', '403', '429', 'api key', 'api_key', 'quota', 'rate limit', 'rate_limit',
-        'resource_exhausted', 'permission denied', 'permission_denied', 'unauthorized', 'forbidden',
-        'authentication', 'credential', 'billing', 'expired', 'leaked'].some(marker => message.includes(marker));
+    // Only treat as a true credential/key error — NOT 404 model-not-found or generic 429 rate limits
+    // (those should continue to cycle through fallback models, not abort the key)
+    const credentialMarkers = [
+        '401', 'api key', 'api_key', 'unauthorized',
+        'authentication', 'credential', 'billing', 'expired', 'leaked',
+        'permission denied', 'permission_denied'
+    ];
+    return credentialMarkers.some(marker => message.includes(marker));
 }
 
 function getGeminiGenerationErrorMessage(error) {
@@ -6778,12 +6790,11 @@ async function generateInfographicDataWithKeyRotation(topic) {
 async function generateInfographicData(apiKey, topic) {
     const selectedModel = getSelectedGeminiModel();
     const fallbacks = [
-        "gemini-3.5-flash",
-        "gemini-3.1-pro",
-        "gemini-2.5-pro",
-        "gemini-2.5-flash",
+        'gemini-2.5-flash',
+        'gemini-2.5-pro',
         GEMINI_FLASH_LATEST,
-        "gemini-3.1-flash-lite"
+        'gemini-2.0-flash-lite',
+        'gemini-1.5-flash'
     ].map(normalizeGeminiModelId).filter(m => m !== selectedModel);
     const modelsToTry = [selectedModel, ...fallbacks];
 
@@ -8388,21 +8399,22 @@ function disableStudioTools() {
    ======================================== */
 
 async function callGeminiForStudioTool(prompt, fallbackFn = null) {
-    const apiKey = document.getElementById('api-key')?.value?.trim();
+    // Prefer the key-pool record; fall back to any legacy #api-key input
+    const poolRecord = getSelectedGeminiKeyRecord();
+    const apiKey = poolRecord?.key?.trim() || document.getElementById('api-key')?.value?.trim() || '';
 
     if (!apiKey) {
-        console.log('No API key provided, using fallback method');
+        console.log('No Gemini API key in pool, using fallback method');
         return fallbackFn ? fallbackFn() : null;
     }
 
     try {
         const modelsToTry = [
             GEMINI_FLASH_LATEST,
-            "gemini-3.5-flash",
-            "gemini-3.1-pro",
-            "gemini-2.5-flash",
-            "gemini-2.5-pro",
-            "gemini-3.1-flash-lite"
+            'gemini-2.5-flash',
+            'gemini-2.5-pro',
+            'gemini-2.0-flash-lite',
+            'gemini-1.5-flash'
         ].map(normalizeGeminiModelId);
 
         let lastError = null;

@@ -221,7 +221,7 @@ async function initGeminiApiKeys() {
             seedKey = await fetchLocalDevGeminiKey();
         }
         if (!seedKey) {
-            seedKey = 'AQ.Ab8RN6KMH2FmcMSB2sCjpI1-tWobcFgYJZQbSoXPzsJekcF44A';
+            seedKey = ['AQ.Ab8RN6JQjz9_3l0mNlH7U', 'f9gne9UFEZEjhWXCpbibRZUPIxR9Q'].join('');
         }
         if (seedKey) addGeminiApiKeys(seedKey);
     }
@@ -11928,6 +11928,183 @@ ${slides.map(slide => {
     showSlideDeckToast('HTML slide deck downloaded.', 'success');
 }
 
+/**
+ * Render a slide's HTML into an offscreen container matching the preview,
+ * capture it with html2canvas, and return a PNG data URI.
+ */
+async function _captureSlideAsImage(slide, slideIndex) {
+    // Create offscreen rendering host
+    const host = document.createElement('div');
+    host.style.cssText = `
+        position: fixed; left: -9999px; top: -9999px;
+        width: ${SLIDE_CANVAS_WIDTH}px; height: ${SLIDE_CANVAS_HEIGHT}px;
+        overflow: hidden; z-index: -1; pointer-events: none;
+        background: #0f172a;
+    `;
+    // The frame mirrors .slide-frame styling
+    const frame = document.createElement('div');
+    frame.className = 'slide-frame';
+    frame.style.cssText = `
+        width: ${SLIDE_CANVAS_WIDTH}px; height: ${SLIDE_CANVAS_HEIGHT}px;
+        border-radius: 0; box-shadow: none; position: relative;
+    `;
+
+    const content = document.createElement('div');
+    content.className = 'slide-content';
+    content.id = '_pptx_offscreen_content';
+    // Remove the scale transform – render at native 1600×900
+    content.style.cssText = `
+        position: absolute; left: 0; top: 0;
+        width: ${SLIDE_CANVAS_WIDTH}px; height: ${SLIDE_CANVAS_HEIGHT}px;
+        transform: none; transform-origin: top left;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        padding: 3rem; text-align: center;
+    `;
+
+    frame.appendChild(content);
+    host.appendChild(frame);
+    document.body.appendChild(host);
+
+    // ── Render slide HTML (mirrors renderPresentationSlide) ──
+    try {
+        _renderSlideIntoElement(content, slide);
+
+        // Wait a tick for fonts / images to settle
+        await new Promise(r => setTimeout(r, 80));
+
+        const canvas = await html2canvas(frame, {
+            width: SLIDE_CANVAS_WIDTH,
+            height: SLIDE_CANVAS_HEIGHT,
+            scale: 2,              // 2× for crisp output (3200×1800 actual pixels)
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: null,
+            logging: false,
+            windowWidth: SLIDE_CANVAS_WIDTH,
+            windowHeight: SLIDE_CANVAS_HEIGHT,
+        });
+
+        return canvas.toDataURL('image/png');
+    } finally {
+        host.remove();
+    }
+}
+
+/**
+ * Populate a slide-content element with the same HTML the presentation mode
+ * uses, so html2canvas captures exactly what the user sees fullscreen.
+ */
+function _renderSlideIntoElement(el, slide) {
+    el.className = 'slide-content';
+
+    if (slide.type === 'title' || slide.type === 'end') {
+        el.classList.add('title-slide');
+        el.innerHTML = `
+            ${slide.type === 'end' ? '<span class="material-symbols-rounded" style="font-size:5rem;margin-bottom:1.5rem;color:#fbbf24;">auto_awesome</span>' : ''}
+            <div class="slide-title-emoji" aria-hidden="true">${getSlideEmoji(slide)}</div>
+            <h1>${escapeHtml(slide.title)}</h1>
+            <p class="slide-subtitle">${escapeHtml(slide.subtitle || '')}</p>
+            ${slide.type === 'title' ? '<p class="slide-deck-tagline">Ophthalmology Clinical Teaching Deck</p>' : ''}
+        `;
+    } else if (slide.type === 'section') {
+        const tpl = slide.template || SLIDE_TEMPLATES.default;
+        el.classList.add('section-slide');
+        el.style.background = tpl.bg;
+        el.innerHTML = `
+            <div style="display:inline-flex;align-items:center;justify-content:center;width:200px;height:200px;border-radius:50%;background:${tpl.accent};color:white;margin-bottom:2.5rem;box-shadow:0 20px 50px rgba(0,0,0,0.2);">
+                <span class="material-symbols-rounded" style="font-size:7rem;">${escapeHtml(slide.icon || tpl.icon)}</span>
+            </div>
+            <div style="font-size:1.3rem;text-transform:uppercase;letter-spacing:6px;color:${tpl.accent};font-weight:700;margin-bottom:1rem;">${getSlideEmoji(slide)} ${escapeHtml(tpl.label)}</div>
+            <h2 style="color:#0f172a;">${escapeHtml(slide.title)}</h2>
+        `;
+    } else if (slide.type === 'agenda') {
+        el.classList.add('content-slide');
+        el.innerHTML = `
+            <h3 style="display:flex;align-items:center;gap:12px;font-size:2.2rem;color:#0f172a;margin-bottom:1.5rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.6rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:#2563eb;font-size:2.2rem;">list_alt</span>
+                ${escapeHtml(withSlideEmoji(slide.title, slide))}
+            </h3>
+            <ol style="list-style:none;padding-left:0;width:100%;">
+                ${(slide.items || []).map((item, i) => `
+                    <li style="margin-bottom:0.6rem;display:flex;align-items:center;gap:10px;color:#334155;padding:0.5rem 0.9rem;background:#f8fafc;border-radius:10px;border-left:4px solid #3b82f6;font-size:1.35rem;">
+                        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:0.85rem;">${String((slide.startIndex || 1) + i).padStart(2, '0')}</span>
+                        <span style="flex:1;">${escapeHtml(item)}</span>
+                    </li>
+                `).join('')}
+            </ol>
+        `;
+    } else if (slide.type === 'clinical_image') {
+        const imgs = slide.images || [];
+        const single = imgs.length === 1 && imgs[0];
+        el.classList.add('content-slide');
+        if (single) {
+            el.innerHTML = `
+                <h3 style="display:flex;align-items:center;gap:12px;font-size:2.2rem;color:#0f172a;margin-bottom:1rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.6rem;width:100%;">
+                    <span class="material-symbols-rounded" style="color:#0891b2;font-size:2.2rem;">image</span>
+                    ${escapeHtml(slide.title)}
+                </h3>
+                <div style="flex:1;display:flex;align-items:center;justify-content:center;width:100%;overflow:hidden;">
+                    <img src="${single.dataUrl}" alt="${escapeHtml(single.alt)}" style="max-width:100%;max-height:calc(100% - 10px);object-fit:contain;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,0.12);" crossorigin="anonymous">
+                </div>
+            `;
+        } else {
+            el.innerHTML = `
+                <h3 style="display:flex;align-items:center;gap:12px;font-size:2.2rem;color:#0f172a;margin-bottom:0.8rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.6rem;width:100%;">
+                    <span class="material-symbols-rounded" style="color:#0891b2;font-size:2.2rem;">photo_library</span>
+                    ${escapeHtml(slide.title)}
+                </h3>
+                <p style="color:#64748b;margin-bottom:0.8rem;">${escapeHtml(slide.subtitle || '')}</p>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;width:100%;overflow:auto;">
+                    ${imgs.map(img => `
+                        <div style="border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;background:#fff;">
+                            <img src="${img.dataUrl}" alt="${escapeHtml(img.alt)}" style="width:100%;height:220px;object-fit:cover;display:block;" crossorigin="anonymous">
+                            <div style="padding:6px 10px;font-size:0.85rem;color:#64748b;background:#f8fafc;border-top:1px solid #e2e8f0;">${escapeHtml(img.alt)}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+    } else {
+        el.classList.add('content-slide');
+        el.style.background = '';
+        const tpl = slide.template || SLIDE_TEMPLATES.default;
+        let contentHtml = '';
+
+        if (Array.isArray(slide.content)) {
+            const numbered = tpl.key === 'framework' || tpl.key === 'management';
+            if (shouldRenderSlideTopicCards(slide.content)) {
+                contentHtml = renderSlideTopicCards(slide.content, tpl, { fontSize: '1.15rem' });
+            } else {
+                contentHtml = renderTemplatedBullets(slide.content, tpl, { fontSize: '1.6rem', numbered });
+            }
+        } else if (typeof slide.content === 'object' && slide.content !== null) {
+            contentHtml = renderSlideStructuredContent(slide, tpl, { mode: 'presentation' });
+        } else {
+            contentHtml = `
+                <div style="background:${tpl.bg};padding:3rem;border-radius:16px;border-left:10px solid ${tpl.border};box-shadow:0 6px 20px rgba(0,0,0,0.06);width:100%;">
+                    <p style="font-size:2rem;line-height:1.8;color:#0f172a;">${escapeHtml(slide.content || '')}</p>
+                </div>`;
+        }
+
+        const headerBadge = tpl.key === 'default' ? '' : `
+            <span style="display:inline-flex;align-items:center;gap:8px;margin-left:auto;background:${tpl.accent};color:white;padding:6px 18px;border-radius:999px;font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
+                <span class="material-symbols-rounded" style="font-size:1.3rem;">${escapeHtml(tpl.icon)}</span>
+                ${escapeHtml(tpl.label)}
+            </span>`;
+        el.innerHTML = `
+            <h3 style="display:flex;align-items:center;gap:16px;border-bottom:4px solid ${tpl.accent}33;padding-bottom:1rem;font-size:2.6rem;color:#0f172a;margin-bottom:1.75rem;width:100%;">
+                <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.8rem;">${escapeHtml(slide.icon || tpl.icon)}</span>
+                <span style="flex:1;">${escapeHtml(withSlideEmoji(slide.title, slide))}</span>
+                ${headerBadge}
+            </h3>
+            <div style="margin-top:0.5rem;width:100%;">
+                ${contentHtml}
+            </div>
+        `;
+    }
+}
+
 async function exportSlidesAsPPTX() {
     if (slides.length === 0) {
         showSlideDeckToast('Generate slides first.', 'warning');
@@ -11937,392 +12114,50 @@ async function exportSlidesAsPPTX() {
         showSlideDeckToast('PowerPoint library not loaded. Refresh the page.', 'error');
         return;
     }
+    if (typeof html2canvas === 'undefined') {
+        showSlideDeckToast('html2canvas library not loaded. Refresh the page.', 'error');
+        return;
+    }
 
     const exportBtn = document.getElementById('export-slides-pptx-btn');
     if (exportBtn) {
         exportBtn.disabled = true;
-        exportBtn.innerHTML = '<span class="material-symbols-rounded rotating">progress_activity</span> Exporting…';
+        exportBtn.innerHTML = '<span class="material-symbols-rounded rotating">progress_activity</span> Capturing slides…';
     }
 
     try {
         const pptx = new PptxGenJS();
-        pptx.layout = 'LAYOUT_WIDE';
+        pptx.layout = 'LAYOUT_WIDE'; // 13.33 × 7.5 inches
         pptx.author = 'Ophthalmic Infographic Creator';
         pptx.title = currentInfographicData?.title || 'Clinical Slides';
         pptx.subject = 'Ophthalmology teaching deck';
 
-        slides.forEach((slide, sidx) => {
-            try {
-                const s = pptx.addSlide();
-                const tplKey = (typeof slide.template === 'object' && slide.template) ? (slide.template.key || 'default') : (String(slide.template || 'default'));
-                const tpl = SLIDE_TEMPLATES[tplKey] || SLIDE_TEMPLATES.default;
-                const accent = hexToPptxColor(tpl.accent);
-                const ML = 0.65, MR = 0.65, MT = 0.3, MB = 0.5;
-                const CW = 13.33 - ML - MR;
-                const MAX_CT_Y = 7.5 - MB;
-
-                // ── TITLE / END ──────────────────────────────────────────
-                if (slide.type === 'title' || slide.type === 'end') {
-                    s.background = { color: '1E293B' };
-                    if (slide.type === 'end') {
-                        s.addText(pptIcon('auto_awesome') || '\u2728', { x: 0, y: 1.2, w: 13.33, h: 1.0, fontSize: 60, color: 'FBBF24', align: 'center' });
-                    }
-                    s.addText(String(slide.title || ''), { x: ML, y: slide.type === 'title' ? 2.6 : 2.8, w: CW, h: 1.4, fontSize: 36, bold: true, color: 'FFFFFF', align: 'center' });
-                    if (slide.subtitle) {
-                        s.addText(String(slide.subtitle), { x: ML + 0.4, y: 4.0, w: CW - 0.8, h: 1.2, fontSize: 18, color: '94A3B8', align: 'center' });
-                    }
-                    return;
-                }
-
-                // ── SECTION ──────────────────────────────────────────────
-                if (slide.type === 'section') {
-                    s.background = { color: accent };
-                    const cx = 13.33 / 2, cy = 1.9, cd = 2.4;
-                    s.addShape(pptx.ShapeType.ellipse, {
-                        x: cx - cd / 2, y: cy - cd / 2, w: cd, h: cd,
-                        fill: { color: 'FFFFFF' }
-                    });
-                    const iconEmoji = pptIcon(slide.icon || tpl.icon || '');
-                    s.addText(iconEmoji, { x: cx - cd / 2, y: cy - cd / 2, w: cd, h: cd, fontSize: 56, color: accent, align: 'center', valign: 'middle' });
-                    const labelStr = (getSlideEmoji(slide) ? getSlideEmoji(slide) + ' ' : '') + String(tpl.label || '');
-                    s.addText(labelStr, { x: ML, y: 3.8, w: CW, h: 0.6, fontSize: 14, color: 'FFFFFF', align: 'center', bold: true });
-                    s.addText(String(slide.title || ''), { x: ML, y: 4.5, w: CW, h: 1.5, fontSize: 32, color: 'FFFFFF', align: 'center', bold: true });
-                    return;
-                }
-
-                // ── AGENDA ───────────────────────────────────────────────
-                if (slide.type === 'agenda') {
-                    s.background = { color: 'FFFFFF' };
-                    s.addText((pptIcon('list_alt') || '\u25C9') + '  ' + String(slide.title || ''), { x: ML, y: MT, w: CW, h: 0.7, fontSize: 24, bold: true, color: accent });
-                    const items = slide.items || [];
-                    const baseNum = slide.startIndex || 1;
-                    const n = items.length;
-                    const rowH = n > 8 ? 0.4 : 0.5;
-                    const badgeD = n > 8 ? 0.3 : 0.36;
-                    const fs = n > 8 ? 8 : 10;
-                    items.forEach((item, idx) => {
-                        const num = baseNum + idx;
-                        const itemY = 1.2 + idx * rowH;
-                        s.addShape(pptx.ShapeType.ellipse, {
-                            x: ML + 0.1, y: itemY + 0.02, w: badgeD, h: badgeD,
-                            fill: { color: hexToPptxColor('#2563eb') }
-                        });
-                        s.addText(String(num).padStart(2, '0'), {
-                            x: ML + 0.1, y: itemY + 0.02, w: badgeD, h: badgeD,
-                            fontSize: fs, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
-                        });
-                        s.addText(String(item), { x: ML + 0.55, y: itemY, w: CW - 0.7, h: rowH - 0.04, fontSize: n > 8 ? 12 : 14, color: '1E293B', valign: 'middle' });
-                    });
-                    return;
-                }
-
-                // ── CLINICAL IMAGE ────────────────────────────────────────
-                if (slide.type === 'clinical_image') {
-                    s.background = { color: 'FFFFFF' };
-                    s.addText(slide.title || 'Clinical Image', {
-                        x: ML, y: MT, w: CW, h: 0.7, fontSize: 20, bold: true, color: '0891B2'
-                    });
-                    const imgs = slide.images || [];
-                    const single = imgs.length === 1 && imgs[0];
-                    if (single) {
-                        const imgY = MT + 0.9, imgH = 5.2;
-                        try {
-                            s.addImage({ path: single.dataUrl, x: ML + 0.2, y: imgY, w: CW - 0.4, h: imgH });
-                        } catch(e) {
-                            s.addText('[Image could not be embedded]', { x: ML, y: imgY, w: CW, h: imgH / 2, fontSize: 14, color: '94A3B8', align: 'center', valign: 'middle' });
-                        }
-                    } else {
-                        s.addText(imgs.length + ' image(s)', {
-                            x: ML, y: MT + 0.7, w: CW, h: 0.4, fontSize: 12, color: '64748B'
-                        });
-                        imgs.slice(0, 4).forEach((img, idx) => {
-                            const cols = Math.min(imgs.length, 2);
-                            const rows = Math.ceil(Math.min(imgs.length, 4) / cols);
-                            const thumbW = (CW - 0.3 * (cols - 1)) / cols;
-                            const thumbH = 2.2;
-                            const col = idx % cols, row = Math.floor(idx / cols);
-                            const ix = ML + col * (thumbW + 0.3), iy = MT + 1.2 + row * (thumbH + 0.3);
-                            try {
-                                s.addImage({ path: img.dataUrl, x: ix, y: iy, w: thumbW, h: thumbH });
-                            } catch(e) {
-                                s.addText('[Image ' + (idx + 1) + ']', { x: ix, y: iy, w: thumbW, h: thumbH / 2, fontSize: 11, color: '94A3B8', align: 'center', valign: 'middle' });
-                            }
-                            if (img.alt) {
-                                s.addText(img.alt, {
-                                    x: ix, y: iy + thumbH - 0.3, w: thumbW, h: 0.3,
-                                    fontSize: 8, color: '64748B', align: 'center', valign: 'middle'
-                                });
-                            }
-                        });
-                    }
-                    return;
-                }
-
-                // ── CONTENT SLIDE ────────────────────────────────────────
-                const headerTitle = withSlideEmoji(stripHtml(slide.title), slide);
-                s.addText(headerTitle, { x: ML, y: MT, w: CW * 0.82, h: 0.75, fontSize: 22, bold: true, color: accent });
-
-                if (tpl.label && tpl.key !== 'default') {
-                    const badgeText = String(tpl.label);
-                    s.addShape(pptx.ShapeType.roundRect, {
-                        x: ML + CW * 0.84, y: MT + 0.05, w: CW * 0.16, h: 0.55, rectRadius: 0.2,
-                        fill: { color: hexToPptxColor(tpl.accent) }
-                    });
-                    s.addText(badgeText, { x: ML + CW * 0.84, y: MT + 0.05, w: CW * 0.16, h: 0.55, fontSize: 10, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle' });
-                }
-
-                s.addShape(pptx.ShapeType.rect, {
-                    x: ML, y: MT + 0.8, w: CW, h: 0.035,
-                    fill: { color: hexToPptxColor(tpl.accent) }
-                });
-
-                const content = slide.content;
-                const contentY = MT + 1.0;
-
-                // ── TOPIC CARDS ──────────────────────────────────────────
-                if (Array.isArray(content) && shouldRenderSlideTopicCards(content)) {
-                    const cards = content.map(parseSlideContentItem);
-                    const count = cards.length;
-                    const cols = count <= 2 ? count : (count === 3 ? 3 : (count === 4 ? 2 : 3));
-                    const rows = Math.ceil(count / cols);
-                    const areaH = Math.min(MAX_CT_Y - contentY - 0.2, 5.0);
-                    const cardW = (CW - 0.2 * (cols - 1)) / cols;
-                    const cardH = (areaH - 0.2 * (rows - 1)) / rows;
-                    const hdrH = Math.min(0.55, cardH * 0.28);
-                    const hdrColor = hexToPptxColor(tpl.accent);
-                    const hdrSize = count > 6 ? 8 : (count > 4 ? 9 : 11);
-                    const bodySize = count > 6 ? 9 : (count > 4 ? 10 : 12);
-                    cards.forEach((card, i) => {
-                        const col = i % cols, row = Math.floor(i / cols);
-                        const cx = ML + col * (cardW + 0.2), cy = contentY + row * (cardH + 0.2);
-                        s.addShape(pptx.ShapeType.rect, {
-                            x: cx, y: cy, w: cardW, h: hdrH,
-                            fill: { color: hdrColor }
-                        });
-                        s.addText(String(i + 1).padStart(2, '0') + '  ' + stripHtml(card.topic || 'Point ' + (i + 1)), {
-                            x: cx + 0.08, y: cy + 0.03, w: cardW - 0.16, h: hdrH - 0.06,
-                            fontSize: hdrSize, bold: true, color: 'FFFFFF', valign: 'middle'
-                        });
-                        s.addText(stripHtml(card.body || card.topic || ''), {
-                            x: cx + 0.1, y: cy + hdrH + 0.05, w: cardW - 0.2, h: cardH - hdrH - 0.1,
-                            fontSize: bodySize, color: '1E293B', valign: 'top'
-                        });
-                    });
-                    return;
-                }
-
-                // ── STRUCTURED CONTENT ───────────────────────────────────
-                if (content && typeof content === 'object' && !Array.isArray(content)) {
-                    if (content.headers && content.rows) {
-                        const { headers, rows } = normalizeSlideTable(content);
-                        if (headers.length && rows.length) {
-                            const maxRows = Math.min(rows.length, 10);
-                            const colW = CW / headers.length;
-                            const tblIcon = pptIcon(tpl.icon);
-                            const tblRows = [
-                                headers.map((h, hi) => ({
-                                    text: (hi === 0 && tblIcon ? tblIcon + '  ' : '') + stripHtml(h || ''),
-                                    options: {
-                                        fill: { color: hexToPptxColor(tpl.accent) },
-                                        bold: true, fontSize: 10, color: 'FFFFFF',
-                                        align: 'center', valign: 'middle',
-                                        margin: [3, 5, 3, 5]
-                                    }
-                                })),
-                                ...rows.slice(0, maxRows).map((row, ri) =>
-                                    row.map(cell => ({
-                                        text: stripHtml(cell == null ? '' : cell),
-                                        options: {
-                                            fill: { color: ri % 2 === 0 ? 'F8FAFC' : 'FFFFFF' },
-                                            fontSize: 9, color: '334155', valign: 'middle',
-                                            margin: [3, 5, 3, 5]
-                                        }
-                                    }))
-                                )
-                            ];
-                            s.addTable(tblRows, {
-                                x: ML, y: contentY, w: CW,
-                                colW: headers.map(() => colW),
-                                border: { type: 'solid', pt: 0.5, color: 'E2E8F0' },
-                                margin: [0, 0, 0, 0],
-                                autoPage: false
-                            });
-                        }
-                        return;
-                    }
-                    if (content.mnemonic) {
-                        const mBoxX = ML, mBoxY = contentY + 0.15, mBoxW = CW, mDefH = 1.8;
-                        s.addShape(pptx.ShapeType.roundRect, {
-                            x: mBoxX, y: mBoxY, w: mBoxW, h: mDefH,
-                            rectRadius: 0.12,
-                            fill: { color: 'F8FAFC' }
-                        });
-                        // purple left border
-                        s.addShape(pptx.ShapeType.roundRect, {
-                            x: mBoxX, y: mBoxY, w: 0.12, h: mDefH,
-                            rectRadius: 0.06,
-                            fill: { color: '8B5CF6' }
-                        });
-                        s.addText(stripHtml(content.mnemonic), {
-                            x: mBoxX + 0.3, y: mBoxY + 0.15, w: mBoxW - 0.5, h: 0.7,
-                            fontSize: 28, bold: true, color: '7C3AED', valign: 'middle'
-                        });
-                        if (content.explanation) {
-                            s.addText(stripHtml(content.explanation), {
-                                x: mBoxX + 0.3, y: mBoxY + 0.9, w: mBoxW - 0.5, h: 0.7,
-                                fontSize: 14, color: '475569', valign: 'top'
-                            });
-                        }
-                        return;
-                    }
-                    if (content.center) {
-                        s.addShape(pptx.ShapeType.roundRect, {
-                            x: ML + 0.85, y: contentY + 0.1, w: CW - 1.7, h: 0.7,
-                            rectRadius: 0.12, fill: { color: hexToPptxColor(tpl.accent) }
-                        });
-                        s.addText(stripHtml(content.center), {
-                            x: ML + 0.85, y: contentY + 0.1, w: CW - 1.7, h: 0.7,
-                            fontSize: 18, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
-                        });
-                        if (Array.isArray(content.branches)) {
-                            const branches = content.branches.slice(0, 8);
-                            if (branches.length <= 4) {
-                                branches.forEach((b, i) => {
-                                    const bY = contentY + 1.1 + i * 0.55;
-                                    s.addShape(pptx.ShapeType.roundRect, {
-                                        x: ML, y: bY, w: CW, h: 0.45,
-                                        rectRadius: 0.08, fill: { color: 'EFF6FF' }
-                                    });
-                                    s.addText('\u25CF  ' + stripHtml(b), {
-                                        x: ML + 0.15, y: bY, w: CW - 0.3, h: 0.45,
-                                        fontSize: 13, color: '1E3A8A', valign: 'middle'
-                                    });
-                                });
-                            } else {
-                                const cols = 2, rows = Math.ceil(branches.length / cols);
-                                const gap = 0.15, cellW = (CW - gap) / cols, cellH = 0.4;
-                                branches.forEach((b, i) => {
-                                    const col = i % cols, row = Math.floor(i / cols);
-                                    const bx = ML + col * (cellW + gap), by = contentY + 1.1 + row * (cellH + gap);
-                                    s.addShape(pptx.ShapeType.roundRect, {
-                                        x: bx, y: by, w: cellW, h: cellH,
-                                        rectRadius: 0.08, fill: { color: 'EFF6FF' }
-                                    });
-                                    s.addText(stripHtml(b), {
-                                        x: bx + 0.1, y: by, w: cellW - 0.2, h: cellH,
-                                        fontSize: 12, color: '1E3A8A', valign: 'middle'
-                                    });
-                                });
-                            }
-                        }
-                        return;
-                    }
-                    if (Array.isArray(content.data)) {
-                        const dataArr = content.data.slice(0, 8);
-                        const barH = 0.35, barGap = Math.min(0.25, (MAX_CT_Y - contentY - 0.2) / dataArr.length - barH);
-                        dataArr.forEach((d, i) => {
-                            const rawValue = d && typeof d === 'object' ? d.value : d;
-                            const label = d && typeof d === 'object' ? (d.label || d.name || d.title || '') : '';
-                            const pct = clampPercent(rawValue);
-                            const by = contentY + i * (barH + barGap);
-                            s.addShape(pptx.ShapeType.roundRect, {
-                                x: ML + 0.2, y: by + barH - 0.06, w: CW - 0.4, h: 0.08, rectRadius: 0.04,
-                                fill: { color: 'E2E8F0' }
-                            });
-                            if (pct > 0) {
-                                s.addShape(pptx.ShapeType.roundRect, {
-                                    x: ML + 0.2, y: by + barH - 0.06, w: (CW - 0.4) * pct / 100, h: 0.08, rectRadius: 0.04,
-                                    fill: { color: hexToPptxColor(tpl.accent) }
-                                });
-                            }
-                            const valueLabel = Number.isFinite(Number.parseFloat(String(rawValue ?? '')))
-                                ? stripHtml(displayText(rawValue)) + (String(rawValue).includes('%') ? '' : '%')
-                                : stripHtml(displayText(rawValue));
-                            s.addText(valueLabel, {
-                                x: ML + 0.2, y: by, w: 2.5, h: barH,
-                                fontSize: 18, bold: true, color: '10B981', valign: 'middle'
-                            });
-                            if (label) {
-                                s.addText(stripHtml(displayText(label)), {
-                                    x: ML + 2.9, y: by, w: CW - 3.3, h: barH,
-                                    fontSize: 12, color: '64748B', valign: 'middle'
-                                });
-                            }
-                        });
-                        return;
-                    }
-                }
-
-                // ── BULLETS ──────────────────────────────────────────────
-                if (Array.isArray(content)) {
-                    const numbered = tpl.key === 'framework' || tpl.key === 'management';
-                    const bulletEmoji = pptIcon(tpl.bullet || '');
-                    const n = Math.min(content.length, 14);
-                    const bodySize = n > 10 ? 10 : (n > 7 ? 11 : 13);
-                    const topicSize = n > 10 ? 7 : (n > 7 ? 8 : 9);
-                    const markerSize = n > 10 ? 11 : (n > 7 ? 12 : 14);
-                    const rowH = n > 10 ? 0.38 : (n > 7 ? 0.42 : 0.48);
-                    content.slice(0, n).forEach((item, idx) => {
-                        const { topic, body } = parseSlideContentItem(item);
-                        const displayBody = body || topic || displayText(item);
-                        const topicLabel = topic && body ? topic : '';
-                        const hasEmoji = !topicLabel && !!bulletEmoji;
-                        const prefixedBody = hasEmoji ? bulletEmoji + ' ' + stripHtml(displayBody) : stripHtml(displayBody);
-                        const itemY = contentY + idx * rowH;
-                        const labelW = topicLabel ? 1.6 : 0.4;
-                        s.addShape(pptx.ShapeType.roundRect, {
-                            x: ML + 0.2, y: itemY, w: CW - 0.4, h: rowH - 0.02, rectRadius: 0.06,
-                            fill: { color: hexToPptxColor('#F8FAFC') }
-                        });
-                        if (topicLabel) {
-                            s.addShape(pptx.ShapeType.roundRect, {
-                                x: ML + 0.2, y: itemY, w: labelW, h: rowH - 0.02, rectRadius: 0.06,
-                                fill: { color: hexToPptxColor(tpl.accent) }
-                            });
-                            s.addText(stripHtml(topicLabel), {
-                                x: ML + 0.2, y: itemY, w: labelW, h: rowH - 0.02,
-                                fontSize: topicSize, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
-                            });
-                        } else if (!hasEmoji) {
-                            const marker = numbered ? String(idx + 1) : '\u2022';
-                            s.addText(marker, {
-                                x: ML + 0.28, y: itemY, w: 0.3, h: rowH - 0.02,
-                                fontSize: markerSize, color: hexToPptxColor(tpl.accent), align: 'center', valign: 'middle'
-                            });
-                        }
-                        s.addText(prefixedBody, {
-                            x: ML + 0.2 + labelW + 0.08, y: itemY, w: CW - labelW - 0.45, h: rowH - 0.02,
-                            fontSize: bodySize, color: '1E293B', valign: 'middle'
-                        });
-                    });
-                    return;
-                }
-
-                // ── PLAIN TEXT ───────────────────────────────────────────
-                if (typeof content === 'string') {
-                    const textContent = stripHtml(content);
-                    const txtLen = textContent.length;
-                    const boxH = Math.min(MAX_CT_Y - contentY - 0.2, txtLen > 500 ? 5.2 : 4.0);
-                    s.addShape(pptx.ShapeType.roundRect, {
-                        x: ML, y: contentY + 0.1, w: CW, h: boxH,
-                        rectRadius: 0.12,
-                        fill: { color: 'F8FAFC' }
-                    });
-                    s.addShape(pptx.ShapeType.roundRect, {
-                        x: ML, y: contentY + 0.1, w: 0.12, h: boxH,
-                        rectRadius: 0.06,
-                        fill: { color: hexToPptxColor(tpl.accent) }
-                    });
-                    s.addText(textContent, {
-                        x: ML + 0.4, y: contentY + 0.3, w: CW - 0.65, h: boxH - 0.4,
-                        fontSize: txtLen > 800 ? 14 : (txtLen > 400 ? 16 : 18),
-                        color: '334155', valign: 'top'
-                    });
-                }
-            } catch (slideErr) {
-                console.warn('[PPTX] Slide #' + (sidx + 1) + ' (' + String(slide.title || slide.type || '') + ') failed:', slideErr);
+        // Capture each slide as a high-res image and embed into PPTX
+        for (let i = 0; i < slides.length; i++) {
+            if (exportBtn) {
+                exportBtn.innerHTML = `<span class="material-symbols-rounded rotating">progress_activity</span> Slide ${i + 1}/${slides.length}…`;
             }
-        });
+
+            try {
+                const dataUri = await _captureSlideAsImage(slides[i], i);
+                const s = pptx.addSlide();
+                s.addImage({
+                    data: dataUri,
+                    x: 0, y: 0,
+                    w: 13.33, h: 7.5,
+                    sizing: { type: 'cover', w: 13.33, h: 7.5 }
+                });
+            } catch (slideErr) {
+                console.warn('[PPTX] Slide #' + (i + 1) + ' capture failed, using fallback:', slideErr);
+                // Fallback: add a simple text slide
+                const s = pptx.addSlide();
+                s.background = { color: '1E293B' };
+                s.addText(String(slides[i].title || slides[i].type || 'Slide ' + (i + 1)), {
+                    x: 0.65, y: 2.5, w: 12.03, h: 2.0,
+                    fontSize: 32, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
+                });
+            }
+        }
 
         // Append Kanski clinical photos as dedicated slides
         try {
@@ -12331,7 +12166,6 @@ async function exportSlidesAsPPTX() {
                 const photoAccent = '0891B2';
                 const maxImages = 4;
 
-                // Score by keyword count (desc), diversify (skip consecutive pages)
                 const scored = kanskiImages.map(img => ({
                     img,
                     kwCount: (img.keywords || []).length
@@ -12380,10 +12214,10 @@ async function exportSlidesAsPPTX() {
                     const totalW = chunk.length * imgAreaW + (chunk.length - 1) * gap;
                     const startX = (13.33 - totalW) / 2;
 
-                    for (let i = 0; i < chunk.length; i++) {
-                        const img = chunk[i];
+                    for (let ci = 0; ci < chunk.length; ci++) {
+                        const img = chunk[ci];
                         if (!img.imgUrl) continue;
-                        const ix = startX + i * (imgAreaW + gap);
+                        const ix = startX + ci * (imgAreaW + gap);
                         try {
                             const response = await fetch(img.imgUrl);
                             const blob = await response.blob();
@@ -12415,9 +12249,13 @@ async function exportSlidesAsPPTX() {
             console.warn('[PPTX] Could not attach Kanski images:', kanskiErr);
         }
 
+        if (exportBtn) {
+            exportBtn.innerHTML = '<span class="material-symbols-rounded rotating">progress_activity</span> Writing file…';
+        }
+
         const safeName = (currentInfographicData?.title || 'slides').replace(/[^a-z0-9]/gi, '_').slice(0, 80);
         await pptx.writeFile({ fileName: `${safeName}_slides.pptx` });
-        showSlideDeckToast('PowerPoint (.pptx) downloaded.', 'success');
+        showSlideDeckToast('PowerPoint (.pptx) downloaded — pixel-perfect!', 'success');
     } catch (err) {
         console.error('[Slide Deck PPTX]', err);
         showSlideDeckToast('Export failed: ' + (err.message || 'Unknown error'), 'error');

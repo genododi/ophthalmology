@@ -51,7 +51,7 @@ function isCapacitorNativeApp() {
 function isValidGeminiApiKey(key) {
     if (!key || typeof key !== 'string') return false;
     const v = key.trim();
-    return v.startsWith('AIza') && v.length >= 30 && v !== KEYCHAIN_ACCOUNT_LABEL;
+    return (v.startsWith('AIza') || v.startsWith('AQ.')) && v.length >= 30 && v !== KEYCHAIN_ACCOUNT_LABEL;
 }
 
 function createGeminiKeyRecord(key) {
@@ -222,7 +222,7 @@ async function initGeminiApiKeys() {
             seedKey = await fetchLocalDevGeminiKey();
         }
         if (!seedKey) {
-            seedKey = 'AIzaSyDoRS_x6SV5WAvrHqaTE4A3V43vCfp-Vv0';
+            seedKey = 'AQ.Ab8RN6KMH2FmcMSB2sCjpI1-tWobcFgYJZQbSoXPzsJekcF44A';
         }
         if (seedKey) {
             if (isValidGeminiApiKey(seedKey)) {

@@ -825,6 +825,21 @@
                 <div class="slide-thumbnails" id="slide-thumbnails">
                     <!-- Thumbnails will be injected here -->
                 </div>
+                <details class="clinical-images-section" id="clinical-images-section" style="margin:0.5rem 0;padding:0.75rem;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;">
+                    <summary style="cursor:pointer;font-weight:600;font-size:0.85rem;color:#0f172a;display:flex;align-items:center;gap:6px;">
+                        <span class="material-symbols-rounded" style="font-size:1.1rem;color:#2563eb;">add_photo_alternate</span>
+                        Clinical Images
+                        <span id="clinical-images-count" style="font-size:0.75rem;color:#64748b;margin-left:auto;font-weight:400;"></span>
+                    </summary>
+                    <div style="margin-top:0.5rem;display:flex;flex-wrap:wrap;gap:0.4rem;" id="clinical-images-gallery"></div>
+                    <div style="margin-top:0.5rem;">
+                        <input type="file" id="clinical-image-input" accept="image/*" multiple hidden>
+                        <button class="btn-small" id="import-clinical-images-btn" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;font-size:0.8rem;border-radius:6px;background:#2563eb;color:white;border:none;cursor:pointer;">
+                            <span class="material-symbols-rounded" style="font-size:0.9rem;">upload</span>
+                            Import Images
+                        </button>
+                    </div>
+                </details>
                 <div class="slidedeck-controls">
                     <button class="slide-nav-btn" id="slide-prev-btn">
                         <span class="material-symbols-rounded">chevron_left</span>

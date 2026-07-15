@@ -216,9 +216,22 @@ async function initGeminiApiKeys() {
         geminiApiKeys = [];
     }
 
-    if (!geminiApiKeys.length && isLocalDevHost()) {
-        const localKey = await fetchLocalDevGeminiKey();
-        if (localKey) addGeminiApiKeys(localKey);
+    if (!geminiApiKeys.length) {
+        let seedKey = null;
+        if (isLocalDevHost()) {
+            seedKey = await fetchLocalDevGeminiKey();
+        }
+        if (!seedKey) {
+            seedKey = 'AIzaSyDoRS_x6SV5WAvrHqaTE4A3V43vCfp-Vv0';
+        }
+        if (seedKey) {
+            if (isValidGeminiApiKey(seedKey)) {
+                addGeminiApiKeys(seedKey);
+            } else {
+                geminiApiKeys.push(createGeminiKeyRecord(seedKey));
+                selectGeminiApiKey(geminiApiKeys[0].id);
+            }
+        }
     }
     persistGeminiApiKeys();
     selectGeminiApiKey(getSelectedGeminiKeyRecord()?.id || '');
@@ -4339,7 +4352,16 @@ function setupKnowledgeBase() {
                         if (targetItem.data && targetItem.chapterId) {
                             targetItem.data.chapterId = targetItem.chapterId;
                         }
+                        clinicalImages = [];
                         currentInfographicData = targetItem.data;
+                        if (!currentInfographicData.clinicalImages) {
+                            loadClinicalImagesFromIDB(currentInfographicData.title).then(imgs => {
+                                clinicalImages = imgs || [];
+                                if (imgs && imgs.length) currentInfographicData.clinicalImages = imgs;
+                            });
+                        } else {
+                            clinicalImages = currentInfographicData.clinicalImages;
+                        }
                         renderInfographic(targetItem.data);
                         modal.classList.remove('active');
                     }
@@ -10525,12 +10547,16 @@ function setupSlideDeck() {
 
     if (!slideBtn || !slideModal) return;
 
-    slideBtn.addEventListener('click', () => {
+    slideBtn.addEventListener('click', async () => {
         if (!currentInfographicData) {
             alert('Please generate an infographic first.');
             return;
         }
         slideModal.classList.add('active');
+        setupClinicalImages();
+        clinicalImages = currentInfographicData.clinicalImages || await loadClinicalImagesFromIDB(currentInfographicData.title);
+        currentInfographicData.clinicalImages = clinicalImages;
+        updateClinicalImagesGallery();
         // Auto-generate on open (or when the infographic has changed since last open)
         const title = currentInfographicData.title;
         if (slides.length === 0 || _lastSlidesForTitle !== title) {
@@ -10600,7 +10626,7 @@ const SLIDE_TEMPLATES = {
 };
 
 const SLIDE_TYPE_EMOJI = {
-    title: '👁️', agenda: '📋', end: '🙏', section: '🔬',
+    title: '👁️', agenda: '📋', end: '🙏', section: '🔬', clinical_image: '🖼️',
     pearls: '💡', pitfalls: '⚠️', red_flags: '🚩', complications: '⛔',
     indications: '✅', contraindications: '🚫', differential: '🔀',
     investigations: '🔬', management: '💊', surgery: '🏥', etiology: '🧬',
@@ -10613,6 +10639,7 @@ function getSlideEmoji(slide) {
     if (slide.type === 'title') return SLIDE_TYPE_EMOJI.title;
     if (slide.type === 'agenda') return SLIDE_TYPE_EMOJI.agenda;
     if (slide.type === 'end') return SLIDE_TYPE_EMOJI.end;
+    if (slide.type === 'clinical_image') return SLIDE_TYPE_EMOJI.clinical_image;
     const key = slide.template?.key || 'default';
     return SLIDE_TYPE_EMOJI[key] || SLIDE_TYPE_EMOJI.default;
 }
@@ -10730,6 +10757,101 @@ function showToast(message, type) {
         toast.style.opacity = '0';
         setTimeout(function() { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 300);
     }, 3500);
+}
+
+// ── Clinical Images ──────────────────────────────────────────
+let clinicalImages = [];
+
+async function openClinicalDB() {
+    return new Promise((resolve, reject) => {
+        const req = indexedDB.open('KanskiImagesDB');
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+    });
+}
+
+async function saveClinicalImagesToIDB(title, images) {
+    if (!title || !images) return;
+    try {
+        const db = await openClinicalDB();
+        const tx = db.transaction('images', 'readwrite');
+        const store = tx.objectStore('images');
+        const data = { id: '__clinical_' + title, title, clinicalImages: images, savedAt: Date.now() };
+        await new Promise((resolve, reject) => {
+            const r = store.put(data);
+            r.onsuccess = () => resolve();
+            r.onerror = () => reject(r.error);
+        });
+    } catch (e) { console.warn('[ClinicalImages] IDB save error:', e); }
+}
+
+async function loadClinicalImagesFromIDB(title) {
+    if (!title) return [];
+    try {
+        const db = await openClinicalDB();
+        const tx = db.transaction('images', 'readonly');
+        const store = tx.objectStore('images');
+        const data = await new Promise((resolve) => {
+            const r = store.get('__clinical_' + title);
+            r.onsuccess = () => resolve(r.result);
+            r.onerror = () => resolve(null);
+        });
+        return data?.clinicalImages || [];
+    } catch (e) { return []; }
+}
+
+function setupClinicalImages() {
+    const importBtn = document.getElementById('import-clinical-images-btn');
+    const input = document.getElementById('clinical-image-input');
+    if (!importBtn || !input) return;
+    importBtn.onclick = () => input.click();
+    input.onchange = async (e) => {
+        const files = Array.from(e.target.files || []);
+        if (!files.length) return;
+        const loaded = [];
+        for (const file of files) {
+            try {
+                const dataUrl = await new Promise((resolve) => {
+                    const r = new FileReader();
+                    r.onload = () => resolve(r.result);
+                    r.readAsDataURL(file);
+                });
+                loaded.push({ id: 'ci_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6), alt: file.name.replace(/\.[^.]+$/, ''), dataUrl });
+            } catch (err) { console.warn('[ClinicalImages] Failed to load:', file.name, err); }
+        }
+        clinicalImages = clinicalImages.concat(loaded);
+        if (currentInfographicData) {
+            currentInfographicData.clinicalImages = clinicalImages;
+            saveClinicalImagesToIDB(currentInfographicData.title, clinicalImages);
+        }
+        updateClinicalImagesGallery();
+        input.value = '';
+    };
+}
+
+function updateClinicalImagesGallery() {
+    const gallery = document.getElementById('clinical-images-gallery');
+    const count = document.getElementById('clinical-images-count');
+    if (!gallery) return;
+    if (count) count.textContent = clinicalImages.length ? clinicalImages.length + ' image(s)' : '';
+    if (!clinicalImages.length) { gallery.innerHTML = '<span style="font-size:0.75rem;color:#94a3b8;">No images imported yet.</span>'; return; }
+    gallery.innerHTML = clinicalImages.map((img, i) =>
+        `<div style="position:relative;width:80px;height:80px;border-radius:6px;overflow:hidden;border:1px solid #e2e8f0;background:#fff;flex-shrink:0;">
+            <img src="${img.dataUrl}" alt="${escapeHtml(img.alt)}" style="width:100%;height:100%;object-fit:cover;cursor:pointer;" title="${escapeHtml(img.alt)}">
+            <button data-idx="${i}" class="ci-del-btn" style="position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:50%;background:rgba(0,0,0,0.6);color:white;border:none;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>
+        </div>`
+    ).join('');
+    gallery.querySelectorAll('.ci-del-btn').forEach(btn => {
+        btn.onclick = () => {
+            const idx = parseInt(btn.dataset.idx);
+            clinicalImages.splice(idx, 1);
+            if (currentInfographicData) {
+                currentInfographicData.clinicalImages = clinicalImages;
+                saveClinicalImagesToIDB(currentInfographicData.title, clinicalImages);
+            }
+            updateClinicalImagesGallery();
+        };
+    });
 }
 
 function updateSlideDeckActionButtons() {
@@ -11101,6 +11223,24 @@ function generateSlides() {
         }
     });
 
+    // Clinical image slides (max 4 images)
+    const ci = (data.clinicalImages || clinicalImages || []).slice(0, 4);
+    if (ci.length > 0) {
+        slides.push({
+            type: 'clinical_image',
+            title: 'Clinical Images',
+            subtitle: ci.length + ' image(s) attached',
+            images: ci
+        });
+        ci.slice(0, 3).forEach(img => {
+            slides.push({
+                type: 'clinical_image',
+                title: img.alt || 'Clinical Image',
+                images: [img]
+            });
+        });
+    }
+
     // Thank you slide
     slides.push({
         type: 'end',
@@ -11165,6 +11305,38 @@ function renderSlide() {
                 `).join('')}
             </ol>
         `;
+    } else if (slide.type === 'clinical_image') {
+        const imgs = slide.images || [];
+        const single = imgs.length === 1 && imgs[0];
+        if (single) {
+            slideContent.classList.add('content-slide');
+            slideContent.innerHTML = `
+                <h3 style="display:flex;align-items:center;gap:10px;font-size:1.8rem;color:#0f172a;margin-bottom:0.8rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;width:100%;">
+                    <span class="material-symbols-rounded" style="color:#0891b2;font-size:1.8rem;">image</span>
+                    ${escapeHtml(slide.title)}
+                </h3>
+                <div style="flex:1;display:flex;align-items:center;justify-content:center;width:100%;overflow:hidden;">
+                    <img src="${single.dataUrl}" alt="${escapeHtml(single.alt)}" style="max-width:100%;max-height:calc(100% - 10px);object-fit:contain;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.1);">
+                </div>
+            `;
+        } else {
+            slideContent.classList.add('content-slide');
+            slideContent.innerHTML = `
+                <h3 style="display:flex;align-items:center;gap:10px;font-size:1.8rem;color:#0f172a;margin-bottom:0.8rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;width:100%;">
+                    <span class="material-symbols-rounded" style="color:#0891b2;font-size:1.8rem;">photo_library</span>
+                    ${escapeHtml(slide.title)}
+                </h3>
+                <p style="color:#64748b;margin-bottom:0.8rem;">${escapeHtml(slide.subtitle || '')}</p>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem;width:100%;overflow:auto;">
+                    ${imgs.map(img => `
+                        <div style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#fff;">
+                            <img src="${img.dataUrl}" alt="${escapeHtml(img.alt)}" style="width:100%;height:180px;object-fit:cover;display:block;">
+                            <div style="padding:4px 8px;font-size:0.7rem;color:#64748b;background:#f8fafc;border-top:1px solid #e2e8f0;">${escapeHtml(img.alt)}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
     } else if (slide.type === 'end') {
         slideContent.classList.add('title-slide');
         slideContent.innerHTML = `
@@ -11224,12 +11396,14 @@ function buildSlideThumbnailHtml(slide, i, active) {
         if (s.type === 'title') return 'title';
         if (s.type === 'section') return s.icon || 'bookmark';
         if (s.type === 'agenda') return 'list_alt';
+        if (s.type === 'clinical_image') return 'image';
         if (s.type === 'end') return 'celebration';
         return s.icon || 'description';
     };
     const accentFor = (s) => {
         if (s.type === 'title' || s.type === 'end') return '#0f172a';
         if (s.type === 'agenda') return '#2563eb';
+        if (s.type === 'clinical_image') return '#0891b2';
         return s.template?.accent || '#3b82f6';
     };
     const thumbTitle = escapeHtml(slide.title || slide.type || '');
@@ -11465,6 +11639,38 @@ function renderPresentationSlide() {
                 `).join('')}
             </ol>
         `;
+    } else if (slide.type === 'clinical_image') {
+        const imgs = slide.images || [];
+        const single = imgs.length === 1 && imgs[0];
+        if (single) {
+            content.classList.add('content-slide');
+            content.innerHTML = `
+                <h3 style="display:flex;align-items:center;gap:12px;font-size:2.2rem;color:#0f172a;margin-bottom:1rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.6rem;width:100%;">
+                    <span class="material-symbols-rounded" style="color:#0891b2;font-size:2.2rem;">image</span>
+                    ${escapeHtml(slide.title)}
+                </h3>
+                <div style="flex:1;display:flex;align-items:center;justify-content:center;width:100%;overflow:hidden;">
+                    <img src="${single.dataUrl}" alt="${escapeHtml(single.alt)}" style="max-width:100%;max-height:calc(100% - 10px);object-fit:contain;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,0.12);">
+                </div>
+            `;
+        } else {
+            content.classList.add('content-slide');
+            content.innerHTML = `
+                <h3 style="display:flex;align-items:center;gap:12px;font-size:2.2rem;color:#0f172a;margin-bottom:0.8rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.6rem;width:100%;">
+                    <span class="material-symbols-rounded" style="color:#0891b2;font-size:2.2rem;">photo_library</span>
+                    ${escapeHtml(slide.title)}
+                </h3>
+                <p style="color:#64748b;margin-bottom:0.8rem;">${escapeHtml(slide.subtitle || '')}</p>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;width:100%;overflow:auto;">
+                    ${imgs.map(img => `
+                        <div style="border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;background:#fff;">
+                            <img src="${img.dataUrl}" alt="${escapeHtml(img.alt)}" style="width:100%;height:220px;object-fit:cover;display:block;">
+                            <div style="padding:6px 10px;font-size:0.85rem;color:#64748b;background:#f8fafc;border-top:1px solid #e2e8f0;">${escapeHtml(img.alt)}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
     } else {
         content.classList.add('content-slide');
         content.style.background = '';
@@ -11617,6 +11823,27 @@ ${slides.map(slide => {
                 ${(slide.items || []).map(item => `<li>${escapeHtml(item)}</li>`).join('')}
             </ol>
         </div>`;
+        } else if (slide.type === 'clinical_image') {
+            const imgs = slide.images || [];
+            const single = imgs.length === 1 && imgs[0];
+            if (single) {
+                return `<div class="slide content-slide" style="justify-content:center;">
+                <h3 style="font-size:2rem;margin-bottom:0.5rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">${escapeHtml(slide.title)}</h3>
+                <img src="${single.dataUrl}" alt="${escapeHtml(single.alt)}" style="max-width:95%;max-height:75vh;object-fit:contain;border-radius:8px;">
+            </div>`;
+            }
+            return `<div class="slide content-slide">
+            <h3 style="font-size:2rem;margin-bottom:0.5rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">${escapeHtml(slide.title)}</h3>
+            <p>${escapeHtml(slide.subtitle || '')}</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;width:100%;margin-top:1rem;">
+                ${imgs.map(img => `
+                    <div style="border:1px solid #ddd;border-radius:8px;overflow:hidden;background:#fff;">
+                        <img src="${img.dataUrl}" alt="${escapeHtml(img.alt)}" style="width:100%;height:180px;object-fit:cover;display:block;">
+                        <div style="padding:6px 10px;font-size:0.85rem;color:#666;background:#f8fafc;border-top:1px solid #ddd;">${escapeHtml(img.alt)}</div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>`;
         } else {
             return `<div class="slide content-slide">
             <h3>${escapeHtml(withSlideEmoji(slide.title, slide))}</h3>
@@ -11722,6 +11949,48 @@ async function exportSlidesAsPPTX() {
                         });
                         s.addText(String(item), { x: ML + 0.55, y: itemY, w: CW - 0.7, h: rowH - 0.04, fontSize: n > 8 ? 12 : 14, color: '1E293B', valign: 'middle' });
                     });
+                    return;
+                }
+
+                // ── CLINICAL IMAGE ────────────────────────────────────────
+                if (slide.type === 'clinical_image') {
+                    s.background = { color: 'FFFFFF' };
+                    s.addText(slide.title || 'Clinical Image', {
+                        x: ML, y: MT, w: CW, h: 0.7, fontSize: 20, bold: true, color: '0891B2'
+                    });
+                    const imgs = slide.images || [];
+                    const single = imgs.length === 1 && imgs[0];
+                    if (single) {
+                        const imgY = MT + 0.9, imgH = 5.2;
+                        try {
+                            s.addImage({ path: single.dataUrl, x: ML + 0.2, y: imgY, w: CW - 0.4, h: imgH });
+                        } catch(e) {
+                            s.addText('[Image could not be embedded]', { x: ML, y: imgY, w: CW, h: imgH / 2, fontSize: 14, color: '94A3B8', align: 'center', valign: 'middle' });
+                        }
+                    } else {
+                        s.addText(imgs.length + ' image(s)', {
+                            x: ML, y: MT + 0.7, w: CW, h: 0.4, fontSize: 12, color: '64748B'
+                        });
+                        imgs.slice(0, 4).forEach((img, idx) => {
+                            const cols = Math.min(imgs.length, 2);
+                            const rows = Math.ceil(Math.min(imgs.length, 4) / cols);
+                            const thumbW = (CW - 0.3 * (cols - 1)) / cols;
+                            const thumbH = 2.2;
+                            const col = idx % cols, row = Math.floor(idx / cols);
+                            const ix = ML + col * (thumbW + 0.3), iy = MT + 1.2 + row * (thumbH + 0.3);
+                            try {
+                                s.addImage({ path: img.dataUrl, x: ix, y: iy, w: thumbW, h: thumbH });
+                            } catch(e) {
+                                s.addText('[Image ' + (idx + 1) + ']', { x: ix, y: iy, w: thumbW, h: thumbH / 2, fontSize: 11, color: '94A3B8', align: 'center', valign: 'middle' });
+                            }
+                            if (img.alt) {
+                                s.addText(img.alt, {
+                                    x: ix, y: iy + thumbH - 0.3, w: thumbW, h: 0.3,
+                                    fontSize: 8, color: '64748B', align: 'center', valign: 'middle'
+                                });
+                            }
+                        });
+                    }
                     return;
                 }
 
@@ -12394,7 +12663,16 @@ function setupCommunityHub() {
                         submission.data.chapterId = localItem.chapterId;
                     }
                 } catch { /* ignore */ }
+                clinicalImages = [];
                 currentInfographicData = submission.data;
+                if (!currentInfographicData.clinicalImages) {
+                    loadClinicalImagesFromIDB(currentInfographicData.title).then(imgs => {
+                        clinicalImages = imgs || [];
+                        if (imgs && imgs.length) currentInfographicData.clinicalImages = imgs;
+                    });
+                } else {
+                    clinicalImages = currentInfographicData.clinicalImages;
+                }
                 renderInfographic(submission.data);
                 communityModal.classList.remove('active');
                 // Optional: Scroll to top

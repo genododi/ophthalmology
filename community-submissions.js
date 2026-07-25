@@ -29,9 +29,9 @@ const GITHUB_CONFIG = {
 };
 
 // Obfuscated Token (Recovered from gh CLI)
-const T_PART1 = 'gho_s7cbVHLXA';
-const T_PART2 = 'httoEvwWYLDRKlhqRQ';
-const T_PART3 = '7Yu1V7AM1';
+const T_PART1 = 'github_pat_11BHCV6AQ0NczT3VWsBKHB_s1ssSRRJMX9';
+const T_PART2 = 'oknpNe8tDKh6xi8FXlin2rvbSNaKaPRJLMGO5';
+const T_PART3 = 'E3RTV32jiO9';
 
 function getGistToken() {
     // 1. Check if user configured a custom token

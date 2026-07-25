@@ -6690,11 +6690,12 @@ function buildPreservationBlock() {
 HOWEVER: You MAY supplement the user's text with additional medical/ophthalmology knowledge to enrich the infographic. Add relevant clinical pearls, differential diagnoses, investigation workups, management protocols, red flags, and mnemonics that are clinically accurate and pertinent to the topic, even if not explicitly stated in the input. The user's original text must still be preserved in full.`;
 }
 
-const GEMINI_FLASH_LATEST = 'gemini-flash-latest';
+const GEMINI_FLASH_LATEST = 'gemini-3.6-flash';
 
 /** Map retired preview model IDs to current API identifiers. */
 function normalizeGeminiModelId(id) {
     const legacy = {
+        'gemini-flash-latest': GEMINI_FLASH_LATEST,
         'gemini-3-flash-preview': GEMINI_FLASH_LATEST,
         'gemini-3.1-flash-preview': GEMINI_FLASH_LATEST,
         'gemini-3.1-flash-lite-preview': 'gemini-3.1-flash-lite',
@@ -6778,6 +6779,7 @@ async function generateInfographicDataWithKeyRotation(topic) {
 async function generateInfographicData(apiKey, topic) {
     const selectedModel = getSelectedGeminiModel();
     const fallbacks = [
+        'gemini-3.6-flash',
         "gemini-3.5-flash",
         "gemini-3.1-pro",
         "gemini-2.5-pro",
@@ -8398,6 +8400,7 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
     try {
         const modelsToTry = [
             GEMINI_FLASH_LATEST,
+            'gemini-3.6-flash',
             "gemini-3.5-flash",
             "gemini-3.1-pro",
             "gemini-2.5-flash",

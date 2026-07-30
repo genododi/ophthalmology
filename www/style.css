@@ -2054,11 +2054,21 @@ textarea:focus {
     padding: 0 !important;
     display: flex;
     flex-direction: column;
-    height: 70vh;
+    /* The generic modal body uses flex: 1 1 0%, which otherwise lets this
+       body shrink to the inspector and toolbar's intrinsic height. */
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+#mindmap-modal .modal-content {
+    width: min(1000px, calc(100vw - 2rem));
+    height: min(82vh, 860px);
 }
 
 .mindmap-canvas {
     flex: 1;
+    min-height: 220px;
     background: #f8fafc;
     background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
     background-size: 24px 24px;
@@ -5459,7 +5469,8 @@ textarea:focus {
     .audio-options, .video-options, .mindmap-actions, .quiz-actions { justify-content: stretch; flex-wrap: wrap; }
     .audio-options > *, .video-options > *, .quiz-actions > * { flex: 1 1 auto; }
     .quiz-length { align-self: stretch; justify-content: space-between; }
-    .mindmap-modal-body { height: min(66dvh, 580px); }
+    #mindmap-modal .modal-content { height: min(88dvh, 760px); }
+    .mindmap-modal-body { height: auto; }
     .mindmap-inspector { min-height: 70px; padding: 0.65rem 0.75rem; }
     .mindmap-actions { padding: 0.75rem; }
     .mindmap-actions .btn-secondary, .mindmap-actions .btn-primary { padding: 0.65rem 0.8rem; }

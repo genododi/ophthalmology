@@ -9626,18 +9626,41 @@ async function exportMindMapAsPNG() {
     const viewport = clone.querySelector('.mindmap-viewport');
     if (viewport) viewport.setAttribute('transform', 'translate(0 0) scale(1)');
     clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    clone.setAttribute('width', MINDMAP_BASE_W);
+    clone.setAttribute('height', MINDMAP_BASE_H);
 
     const svgData = new XMLSerializer().serializeToString(clone);
     const svgBlob = new Blob(['<?xml version="1.0" encoding="UTF-8"?>\n' + svgData], { type: 'image/svg+xml;charset=utf-8' });
     const url = URL.createObjectURL(svgBlob);
 
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = ((currentInfographicData && currentInfographicData.title) || 'mindmap') + '_mindmap.svg';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    const image = new Image();
+    image.onload = () => {
+        const output = document.createElement('canvas');
+        output.width = MINDMAP_BASE_W;
+        output.height = MINDMAP_BASE_H;
+        const context = output.getContext('2d');
+        context.fillStyle = '#f8fafc';
+        context.fillRect(0, 0, output.width, output.height);
+        context.drawImage(image, 0, 0, output.width, output.height);
+        URL.revokeObjectURL(url);
+
+        output.toBlob((pngBlob) => {
+            if (!pngBlob) return;
+            const downloadUrl = URL.createObjectURL(pngBlob);
+            const a = document.createElement('a');
+            a.href = downloadUrl;
+            a.download = ((currentInfographicData && currentInfographicData.title) || 'mindmap') + '_mindmap.png';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(downloadUrl);
+        }, 'image/png');
+    };
+    image.onerror = () => {
+        URL.revokeObjectURL(url);
+        alert('The mind map could not be exported as a PNG. Please try again.');
+    };
+    image.src = url;
 }
 
 /* ========================================

@@ -9192,6 +9192,8 @@ const mindmapState = {
     zoom: 1,
     panX: 0,
     panY: 0,
+    canvasWidth: MINDMAP_BASE_W,
+    canvasHeight: MINDMAP_BASE_H,
     collapsed: new Set(),
     branches: [],
     activeBranch: null,
@@ -9347,18 +9349,25 @@ function generateMindMap() {
     const sections = (data.sections || []).filter(Boolean);
     mindmapState.branches = sections;
     const W = MINDMAP_BASE_W;
-    const H = MINDMAP_BASE_H;
-    const centerX = W / 2;
-    const centerY = H / 2;
-
-    const minRadius = 300;
-    const extraRadius = Math.max(0, sections.length - 6) * 18;
-    const branchRadius = Math.min(540, minRadius + extraRadius);
-
-    const angleStep = (2 * Math.PI) / Math.max(sections.length, 1);
-    const MAX_LEAVES = 10;
-    const MAX_CHARS_PER_LEAF = 22;
+    const treeTop = 120;
+    const branchRowGap = 128;
+    const H = Math.max(MINDMAP_BASE_H, treeTop * 2 + Math.max(0, sections.length - 1) * branchRowGap);
+    const rootX = 250;
+    const rootY = H / 2;
+    const trunkX = 470;
+    const branchX = 760;
+    const leafX = 1230;
+    const MAX_LEAVES = 2;
+    const MAX_CHARS_PER_LEAF = 28;
     const MAX_LEAF_LINES = 3;
+    const centerTitle = data.title || 'Topic';
+    const centerWrapped = _mmWrap(centerTitle, 22, 4);
+    const centerWidest = centerWrapped.lines.reduce((m, l) => Math.max(m, l.length), 0);
+    const centerW = Math.min(310, Math.max(220, centerWidest * 10 + 48));
+    const centerH = Math.max(112, 36 + centerWrapped.lines.length * 24);
+    const rootRight = rootX + centerW / 2;
+    mindmapState.canvasWidth = W;
+    mindmapState.canvasHeight = H;
 
     let defs = '<defs>'
         + '<filter id="mm-shadow" x="-30%" y="-30%" width="160%" height="160%">'
@@ -9379,28 +9388,42 @@ function generateMindMap() {
         + defs
         + '<g class="mindmap-viewport" transform="translate(' + mindmapState.panX + ' ' + mindmapState.panY + ') scale(' + mindmapState.zoom + ')">';
 
-    const branchPositions = sections.map((section, i) => {
-        const angle = i * angleStep - Math.PI / 2;
-        return {
-            section: section,
-            i: i,
-            angle: angle,
-            x: centerX + branchRadius * Math.cos(angle),
-            y: centerY + branchRadius * Math.sin(angle),
-            color: pickBranchColor(section, i)
-        };
-    });
+    const branchPositions = sections.map((section, i) => ({
+        section: section,
+        i: i,
+        x: branchX,
+        y: sections.length <= 1 ? rootY : treeTop + i * ((H - treeTop * 2) / (sections.length - 1)),
+        color: pickBranchColor(section, i)
+    }));
 
-    // Curved connectors (center -> branch)
+    // Draw a trunk and right-angle connectors so the map reads as a hierarchy,
+    // not a radial diagram. Every branch remains independently interactive.
+    if (branchPositions.length) {
+        const firstY = branchPositions[0].y;
+        const lastY = branchPositions[branchPositions.length - 1].y;
+        svg += '<path class="mindmap-line mindmap-tree-trunk" d="M ' + rootRight + ' ' + rootY + ' H ' + trunkX
+            + ' M ' + trunkX + ' ' + firstY + ' V ' + lastY
+            + '" stroke="#64748b" stroke-width="5" stroke-opacity="0.55" stroke-linecap="round"/>';
+    }
+
     branchPositions.forEach(p => {
-        const midX = (centerX + p.x) / 2;
-        const midY = (centerY + p.y) / 2;
-        svg += '<path class="mindmap-line" d="M ' + centerX + ' ' + centerY
-            + ' Q ' + midX + ' ' + midY + ' ' + p.x + ' ' + p.y
-            + '" fill="none" stroke="' + p.color.fill + '" stroke-width="3" stroke-opacity="0.55" stroke-linecap="round"/>';
+        const label = p.section.title || ('Branch ' + (p.i + 1));
+        const wrapped = _mmWrap(label, 22, 3);
+        const widest = wrapped.lines.reduce((m, line) => Math.max(m, line.length), 0);
+        const branchW = Math.min(300, Math.max(210, widest * 9 + 42));
+        const branchH = Math.max(68, 24 + wrapped.lines.length * 20);
+        p.width = branchW;
+        p.height = branchH;
+        p.left = p.x - branchW / 2;
+        p.right = p.x + branchW / 2;
+        p.wrapped = wrapped;
+        svg += '<path class="mindmap-line mindmap-tree-connector" d="M ' + trunkX + ' ' + p.y + ' H ' + p.left
+            + '" stroke="' + p.color.fill + '" stroke-width="3" stroke-opacity="0.7" stroke-linecap="round"/>';
     });
 
-    // Leaves
+    // Child detail nodes grow from their branch to the right. Limiting the
+    // visible children to two keeps dense infographics readable; the remainder is
+    // preserved in the +more node and the branch inspector.
     branchPositions.forEach(p => {
         if (mindmapState.collapsed.has(p.i)) return;
         const leaves = _mmExtractLeaves(p.section);
@@ -9409,25 +9432,19 @@ function generateMindMap() {
         const display = leaves.slice(0, MAX_LEAVES);
         const remainder = leaves.length - display.length;
         const leafCount = display.length;
-        const arcSpan = Math.min(Math.PI * 0.95, 0.5 + 0.12 * leafCount);
-        const baseRadius = 210 + Math.max(0, leafCount - 4) * 8;
-        const startAngle = p.angle - arcSpan / 2;
-        const stepAngle = leafCount > 1 ? arcSpan / (leafCount - 1) : 0;
 
         display.forEach((leafText, j) => {
-            const angle = leafCount === 1 ? p.angle : startAngle + j * stepAngle;
-            const jitter = (j % 2 === 0) ? 0 : 32;
-            const lx = p.x + (baseRadius + jitter) * Math.cos(angle);
-            const ly = p.y + (baseRadius + jitter) * Math.sin(angle);
+            const lx = leafX;
+            const ly = p.y + (j - (leafCount - 1) / 2) * 44;
             const wrapped = _mmWrap(leafText, MAX_CHARS_PER_LEAF, MAX_LEAF_LINES);
             const widest = wrapped.lines.reduce((m, l) => Math.max(m, l.length), 0);
-            const pillW = Math.min(280, Math.max(140, widest * 8 + 28));
+            const pillW = Math.min(350, Math.max(190, widest * 8 + 32));
             const pillH = 20 + wrapped.lines.length * 18;
             const full = _mmEsc(typeof cleanMarks === 'function' ? cleanMarks(leafText) : leafText);
 
-            svg += '<path class="mindmap-line" d="M ' + p.x + ' ' + p.y + ' Q '
-                + ((p.x + lx) / 2) + ' ' + ((p.y + ly) / 2 - 10) + ' ' + lx + ' ' + ly
-                + '" fill="none" stroke="' + p.color.fill + '" stroke-width="1.5" stroke-opacity="0.35" stroke-linecap="round"/>'
+            svg += '<path class="mindmap-line mindmap-tree-leaf-connector" d="M ' + p.right + ' ' + p.y + ' H ' + (lx - pillW / 2 - 34)
+                + ' V ' + ly + ' H ' + (lx - pillW / 2)
+                + '" fill="none" stroke="' + p.color.fill + '" stroke-width="2" stroke-opacity="0.48" stroke-linecap="round"/>'
                 + '<g class="mindmap-node mm-leaf" data-branch="' + p.i + '">'
                 + '<title>' + full + '</title>'
                 + '<rect x="' + (lx - pillW / 2) + '" y="' + (ly - pillH / 2) + '" width="' + pillW + '" height="' + pillH + '" rx="10" '
@@ -9437,8 +9454,8 @@ function generateMindMap() {
         });
 
         if (remainder > 0) {
-            const mx = p.x + (baseRadius + 80) * Math.cos(p.angle);
-            const my = p.y + (baseRadius + 80) * Math.sin(p.angle);
+            const mx = leafX;
+            const my = p.y + ((leafCount + 1) / 2) * 44;
             const moreText = '+' + remainder + ' more';
             const remFull = _mmEsc(leaves.slice(MAX_LEAVES).map(v => typeof cleanMarks === 'function' ? cleanMarks(v) : v).join(' \u2022 '));
             svg += '<g class="mindmap-node mm-more">'
@@ -9449,37 +9466,28 @@ function generateMindMap() {
         }
     });
 
-    // Branch nodes
+    // Interactive branch nodes
     branchPositions.forEach(p => {
         const collapsed = mindmapState.collapsed.has(p.i);
-        const label = p.section.title || ('#' + (p.i + 1));
-        const wrapped = _mmWrap(label, 16, 3);
-        const widest = wrapped.lines.reduce((m, l) => Math.max(m, l.length), 0);
-        const r = Math.max(54, 30 + widest * 3);
+        const label = p.section.title || ('Branch ' + (p.i + 1));
         const fullLabel = _mmEsc(typeof cleanMarks === 'function' ? cleanMarks(label) : label);
         const hint = collapsed ? ' (click to expand)' : ' (click to collapse)';
         svg += '<g class="mindmap-node mm-branch" data-branch="' + p.i + '" role="button" tabindex="0" aria-label="' + fullLabel + hint + '" style="cursor: pointer">'
             + '<title>' + fullLabel + hint + '</title>'
-            + '<circle cx="' + p.x + '" cy="' + p.y + '" r="' + (r + 4) + '" fill="' + p.color.fill + '" opacity="0.15"/>'
-            + '<circle cx="' + p.x + '" cy="' + p.y + '" r="' + r + '" fill="url(#mm-grad-' + p.i + ')" stroke="white" stroke-width="3" filter="url(#mm-shadow)"/>'
-            + _mmMultilineText(wrapped.lines, p.x, p.y, 17, 'class="mindmap-text" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700"')
+            + '<rect x="' + p.left + '" y="' + (p.y - p.height / 2) + '" width="' + p.width + '" height="' + p.height + '" rx="18" fill="url(#mm-grad-' + p.i + ')" stroke="white" stroke-width="3" filter="url(#mm-shadow)"/>'
+            + _mmMultilineText(p.wrapped.lines, p.x, p.y, 19, 'class="mindmap-text" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700"')
             + (collapsed
-                ? '<circle cx="' + (p.x + r - 12) + '" cy="' + (p.y - r + 12) + '" r="10" fill="white"/>'
-                  + '<text x="' + (p.x + r - 12) + '" y="' + (p.y - r + 12) + '" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="700" fill="' + p.color.dark + '">+</text>'
+                ? '<circle cx="' + (p.right - 18) + '" cy="' + (p.y - p.height / 2 + 18) + '" r="11" fill="white"/>'
+                  + '<text x="' + (p.right - 18) + '" y="' + (p.y - p.height / 2 + 18) + '" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="700" fill="' + p.color.dark + '">+</text>'
                 : '')
             + '</g>';
     });
 
-    // Center node
-    const centerTitle = data.title || 'Topic';
-    const centerWrapped = _mmWrap(centerTitle, 16, 4);
-    const centerWidest = centerWrapped.lines.reduce((m, l) => Math.max(m, l.length), 0);
-    const centerR = Math.max(90, 40 + centerWidest * 4);
+    // Root node
     svg += '<g class="mindmap-node mm-center">'
         + '<title>' + _mmEsc(typeof cleanMarks === 'function' ? cleanMarks(centerTitle) : centerTitle) + '</title>'
-        + '<circle cx="' + centerX + '" cy="' + centerY + '" r="' + (centerR + 10) + '" fill="#0f172a" opacity="0.12"/>'
-        + '<circle cx="' + centerX + '" cy="' + centerY + '" r="' + centerR + '" fill="url(#mm-center-grad)" stroke="white" stroke-width="4" filter="url(#mm-shadow)"/>'
-        + _mmMultilineText(centerWrapped.lines, centerX, centerY, 20, 'class="mindmap-text mindmap-text-center" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="800"')
+        + '<rect x="' + (rootX - centerW / 2) + '" y="' + (rootY - centerH / 2) + '" width="' + centerW + '" height="' + centerH + '" rx="24" fill="url(#mm-center-grad)" stroke="white" stroke-width="4" filter="url(#mm-shadow)"/>'
+        + _mmMultilineText(centerWrapped.lines, rootX, rootY, 22, 'class="mindmap-text mindmap-text-center" text-anchor="middle" dominant-baseline="central" fill="white" font-weight="800"')
         + '</g>';
 
     svg += '</g></svg>';
@@ -9544,9 +9552,10 @@ function attachMindmapInteractions(canvas) {
     const zoomAt = (clientX, clientY, newZoom) => {
         const rect = svg.getBoundingClientRect();
         if (!rect.width || !rect.height) return;
-        const sx = MINDMAP_BASE_W / rect.width;
+        const sx = mindmapState.canvasWidth / rect.width;
+        const sy = mindmapState.canvasHeight / rect.height;
         const px = (clientX - rect.left) * sx;
-        const py = (clientY - rect.top) * sx;
+        const py = (clientY - rect.top) * sy;
         const ratio = newZoom / mindmapState.zoom;
         mindmapState.panX = px - (px - mindmapState.panX) * ratio;
         mindmapState.panY = py - (py - mindmapState.panY) * ratio;
@@ -9577,9 +9586,10 @@ function attachMindmapInteractions(canvas) {
             const midpoint = { x: (pair[0].x + pair[1].x) / 2, y: (pair[0].y + pair[1].y) / 2 };
             zoomAt(midpoint.x, midpoint.y, Math.max(0.3, Math.min(4, pinchStart.zoom * (distance(pair[0], pair[1]) / pinchStart.distance))));
         } else if (panStart) {
-            const scale = MINDMAP_BASE_W / rect.width;
-            mindmapState.panX = panStart.panX + (e.clientX - panStart.x) * scale;
-            mindmapState.panY = panStart.panY + (e.clientY - panStart.y) * scale;
+            const scaleX = mindmapState.canvasWidth / rect.width;
+            const scaleY = mindmapState.canvasHeight / rect.height;
+            mindmapState.panX = panStart.panX + (e.clientX - panStart.x) * scaleX;
+            mindmapState.panY = panStart.panY + (e.clientY - panStart.y) * scaleY;
             applyMindmapTransform();
         }
     }, listenerOptions);
@@ -9626,8 +9636,11 @@ async function exportMindMapAsPNG() {
     const viewport = clone.querySelector('.mindmap-viewport');
     if (viewport) viewport.setAttribute('transform', 'translate(0 0) scale(1)');
     clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    clone.setAttribute('width', MINDMAP_BASE_W);
-    clone.setAttribute('height', MINDMAP_BASE_H);
+    const viewBox = (clone.getAttribute('viewBox') || '').trim().split(/\s+/).map(Number);
+    const exportWidth = viewBox[2] || MINDMAP_BASE_W;
+    const exportHeight = viewBox[3] || MINDMAP_BASE_H;
+    clone.setAttribute('width', exportWidth);
+    clone.setAttribute('height', exportHeight);
 
     const svgData = new XMLSerializer().serializeToString(clone);
     const svgBlob = new Blob(['<?xml version="1.0" encoding="UTF-8"?>\n' + svgData], { type: 'image/svg+xml;charset=utf-8' });
@@ -9636,8 +9649,8 @@ async function exportMindMapAsPNG() {
     const image = new Image();
     image.onload = () => {
         const output = document.createElement('canvas');
-        output.width = MINDMAP_BASE_W;
-        output.height = MINDMAP_BASE_H;
+        output.width = exportWidth;
+        output.height = exportHeight;
         const context = output.getContext('2d');
         context.fillStyle = '#f8fafc';
         context.fillRect(0, 0, output.width, output.height);

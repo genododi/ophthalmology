@@ -2110,7 +2110,7 @@ textarea:focus {
 
 .mindmap-node { transition: opacity 0.15s ease; }
 .mindmap-node.mm-branch { cursor: pointer; }
-.mindmap-node.mm-branch:hover > circle:last-of-type { stroke: #0f172a; stroke-width: 3; }
+.mindmap-node.mm-branch:hover > rect { stroke: #0f172a; stroke-width: 4; }
 .mindmap-node.mm-leaf:hover > rect { filter: brightness(0.97); }
 .mindmap-node.mm-center > text { pointer-events: none; }
 

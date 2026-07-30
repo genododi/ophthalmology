@@ -8396,19 +8396,30 @@ Guidelines:
 
 Return ONLY valid JSON array, no other text.`;
 
-    const result = await callGeminiForStudioTool(prompt);
-    if (result) {
-        try {
-            // Extract JSON from response
-            const jsonMatch = result.match(/\[[\s\S]*\]/);
-            if (jsonMatch) {
-                return JSON.parse(jsonMatch[0]);
-            }
-        } catch (e) {
-            console.error('Failed to parse AI flashcards:', e);
-        }
+    return normalizeFlashcards(await callGeminiForStudioTool(prompt));
+}
+
+function normalizeFlashcards(rawCards) {
+    let cards = rawCards;
+    if (typeof rawCards === 'string') {
+        const cleaned = rawCards.replace(/```(?:json)?/gi, '').replace(/```/g, '').trim();
+        const jsonMatch = cleaned.match(/\[[\s\S]*\]/);
+        if (!jsonMatch) return null;
+        try { cards = JSON.parse(jsonMatch[0]); } catch (_) { return null; }
     }
-    return null;
+    if (!Array.isArray(cards)) return null;
+
+    const seen = new Set();
+    const normalized = cards.reduce((valid, card) => {
+        const question = String(card?.question || '').trim();
+        const answer = String(card?.answer || '').trim();
+        const key = question.toLowerCase().replace(/\s+/g, ' ');
+        if (question.length < 8 || answer.length < 2 || seen.has(key)) return valid;
+        seen.add(key);
+        valid.push({ question: truncateText(question, 260), answer: truncateText(answer, 500) });
+        return valid;
+    }, []);
+    return normalized.length ? normalized : null;
 }
 
 // AI-Enhanced Quiz Generation
@@ -9182,8 +9193,9 @@ const mindmapState = {
     panX: 0,
     panY: 0,
     collapsed: new Set(),
-    _boundMove: null,
-    _boundUp: null
+    branches: [],
+    activeBranch: null,
+    interactionController: null
 };
 
 const MINDMAP_PALETTE = [
@@ -9276,6 +9288,7 @@ function setupMindMap() {
     const zoomOutBtn = document.getElementById('mindmap-zoom-out');
     const resetBtn = document.getElementById('mindmap-reset');
     const expandAllBtn = document.getElementById('mindmap-expand-all');
+    const collapseAllBtn = document.getElementById('mindmap-collapse-all');
     const exportBtn = document.getElementById('export-mindmap-btn');
 
     if (!mindmapBtn || !mindmapModal) return;
@@ -9289,6 +9302,7 @@ function setupMindMap() {
         mindmapState.panX = 0;
         mindmapState.panY = 0;
         mindmapState.collapsed = new Set();
+        mindmapState.activeBranch = null;
         mindmapModal.classList.add('active');
         generateMindMap();
     });
@@ -9311,10 +9325,15 @@ function setupMindMap() {
         mindmapState.panX = 0;
         mindmapState.panY = 0;
         mindmapState.collapsed = new Set();
+        mindmapState.activeBranch = null;
         generateMindMap();
     });
     expandAllBtn && expandAllBtn.addEventListener('click', () => {
         mindmapState.collapsed = new Set();
+        generateMindMap();
+    });
+    collapseAllBtn && collapseAllBtn.addEventListener('click', () => {
+        mindmapState.collapsed = new Set(mindmapState.branches.map((_, index) => index));
         generateMindMap();
     });
     exportBtn && exportBtn.addEventListener('click', exportMindMapAsPNG);
@@ -9326,6 +9345,7 @@ function generateMindMap() {
 
     const data = currentInfographicData;
     const sections = (data.sections || []).filter(Boolean);
+    mindmapState.branches = sections;
     const W = MINDMAP_BASE_W;
     const H = MINDMAP_BASE_H;
     const centerX = W / 2;
@@ -9438,7 +9458,7 @@ function generateMindMap() {
         const r = Math.max(54, 30 + widest * 3);
         const fullLabel = _mmEsc(typeof cleanMarks === 'function' ? cleanMarks(label) : label);
         const hint = collapsed ? ' (click to expand)' : ' (click to collapse)';
-        svg += '<g class="mindmap-node mm-branch" data-branch="' + p.i + '" style="cursor: pointer">'
+        svg += '<g class="mindmap-node mm-branch" data-branch="' + p.i + '" role="button" tabindex="0" aria-label="' + fullLabel + hint + '" style="cursor: pointer">'
             + '<title>' + fullLabel + hint + '</title>'
             + '<circle cx="' + p.x + '" cy="' + p.y + '" r="' + (r + 4) + '" fill="' + p.color.fill + '" opacity="0.15"/>'
             + '<circle cx="' + p.x + '" cy="' + p.y + '" r="' + r + '" fill="url(#mm-grad-' + p.i + ')" stroke="white" stroke-width="3" filter="url(#mm-shadow)"/>'
@@ -9464,18 +9484,42 @@ function generateMindMap() {
 
     svg += '</g></svg>';
     canvas.innerHTML = svg;
+    renderMindmapInspector();
     attachMindmapInteractions(canvas);
+}
+
+function renderMindmapInspector() {
+    const inspector = document.getElementById('mindmap-inspector');
+    if (!inspector) return;
+    const section = Number.isInteger(mindmapState.activeBranch) ? mindmapState.branches[mindmapState.activeBranch] : null;
+    if (!section) {
+        inspector.innerHTML = '<span class="material-symbols-rounded">pan_tool</span><p>Drag to explore, pinch or scroll to zoom, and select a branch to focus its key points.</p>';
+        return;
+    }
+    const leaves = _mmExtractLeaves(section).slice(0, 4);
+    const state = mindmapState.collapsed.has(mindmapState.activeBranch) ? 'collapsed' : 'expanded';
+    inspector.innerHTML = `
+        <span class="material-symbols-rounded">account_tree</span>
+        <div><strong>${escapeHtml(section.title || 'Untitled branch')}</strong>
+        <p>${leaves.length ? escapeHtml(leaves.join(' • ')) : 'No supporting points are available for this branch.'}</p>
+        <small>Branch ${state}. Select it again to ${state === 'collapsed' ? 'expand' : 'collapse'} its details.</small></div>`;
 }
 
 function attachMindmapInteractions(canvas) {
     const svg = canvas.querySelector('svg.mindmap-svg');
     if (!svg) return;
 
+    mindmapState.interactionController?.abort();
+    const controller = new AbortController();
+    mindmapState.interactionController = controller;
+    const listenerOptions = { signal: controller.signal };
+
     canvas.querySelectorAll('.mm-branch').forEach(group => {
-        group.addEventListener('click', (e) => {
+        const toggleBranch = (e) => {
             e.stopPropagation();
             const idx = parseInt(group.getAttribute('data-branch'), 10);
             if (Number.isFinite(idx)) {
+                mindmapState.activeBranch = idx;
                 if (mindmapState.collapsed.has(idx)) {
                     mindmapState.collapsed.delete(idx);
                 } else {
@@ -9483,53 +9527,82 @@ function attachMindmapInteractions(canvas) {
                 }
                 generateMindMap();
             }
-        });
+        };
+        group.addEventListener('click', toggleBranch, listenerOptions);
+        group.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleBranch(e);
+            }
+        }, listenerOptions);
     });
 
-    if (mindmapState._boundMove) {
-        window.removeEventListener('mousemove', mindmapState._boundMove);
-        window.removeEventListener('mouseup', mindmapState._boundUp);
-    }
-
-    let dragging = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
-
-    canvas.onmousedown = (e) => {
-        if (e.target.closest('.mm-branch') || e.target.closest('.mm-leaf') || e.target.closest('.mm-more')) return;
-        dragging = true;
-        startX = e.clientX; startY = e.clientY;
-        startPanX = mindmapState.panX; startPanY = mindmapState.panY;
-        canvas.style.cursor = 'grabbing';
-    };
-
-    mindmapState._boundMove = (e) => {
-        if (!dragging) return;
+    const pointers = new Map();
+    let panStart = null;
+    let pinchStart = null;
+    const distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+    const zoomAt = (clientX, clientY, newZoom) => {
         const rect = svg.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
         const sx = MINDMAP_BASE_W / rect.width;
-        mindmapState.panX = startPanX + (e.clientX - startX) * sx;
-        mindmapState.panY = startPanY + (e.clientY - startY) * sx;
-        applyMindmapTransform();
-    };
-    mindmapState._boundUp = () => {
-        dragging = false;
-        canvas.style.cursor = 'grab';
-    };
-    window.addEventListener('mousemove', mindmapState._boundMove);
-    window.addEventListener('mouseup', mindmapState._boundUp);
-
-    canvas.onwheel = (e) => {
-        e.preventDefault();
-        const rect = svg.getBoundingClientRect();
-        const sx = MINDMAP_BASE_W / rect.width;
-        const px = (e.clientX - rect.left) * sx;
-        const py = (e.clientY - rect.top) * sx;
-        const delta = e.deltaY < 0 ? 1.1 : 1 / 1.1;
-        const newZoom = Math.max(0.3, Math.min(4, mindmapState.zoom * delta));
+        const px = (clientX - rect.left) * sx;
+        const py = (clientY - rect.top) * sx;
         const ratio = newZoom / mindmapState.zoom;
         mindmapState.panX = px - (px - mindmapState.panX) * ratio;
         mindmapState.panY = py - (py - mindmapState.panY) * ratio;
         mindmapState.zoom = newZoom;
         applyMindmapTransform();
     };
+
+    canvas.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('.mm-branch') || e.target.closest('.mm-leaf') || e.target.closest('.mm-more')) return;
+        pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        canvas.setPointerCapture?.(e.pointerId);
+        if (pointers.size === 1) {
+            panStart = { x: e.clientX, y: e.clientY, panX: mindmapState.panX, panY: mindmapState.panY };
+            canvas.style.cursor = 'grabbing';
+        } else if (pointers.size === 2) {
+            const pair = [...pointers.values()];
+            pinchStart = { distance: distance(pair[0], pair[1]), zoom: mindmapState.zoom };
+        }
+    }, listenerOptions);
+
+    canvas.addEventListener('pointermove', (e) => {
+        if (!pointers.has(e.pointerId)) return;
+        pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        const rect = svg.getBoundingClientRect();
+        if (!rect.width) return;
+        if (pointers.size >= 2 && pinchStart?.distance) {
+            const pair = [...pointers.values()];
+            const midpoint = { x: (pair[0].x + pair[1].x) / 2, y: (pair[0].y + pair[1].y) / 2 };
+            zoomAt(midpoint.x, midpoint.y, Math.max(0.3, Math.min(4, pinchStart.zoom * (distance(pair[0], pair[1]) / pinchStart.distance))));
+        } else if (panStart) {
+            const scale = MINDMAP_BASE_W / rect.width;
+            mindmapState.panX = panStart.panX + (e.clientX - panStart.x) * scale;
+            mindmapState.panY = panStart.panY + (e.clientY - panStart.y) * scale;
+            applyMindmapTransform();
+        }
+    }, listenerOptions);
+
+    const endPointer = (e) => {
+        pointers.delete(e.pointerId);
+        if (pointers.size < 2) pinchStart = null;
+        if (pointers.size === 1) {
+            const remaining = [...pointers.values()][0];
+            panStart = { x: remaining.x, y: remaining.y, panX: mindmapState.panX, panY: mindmapState.panY };
+        } else {
+            panStart = null;
+            canvas.style.cursor = 'grab';
+        }
+    };
+    canvas.addEventListener('pointerup', endPointer, listenerOptions);
+    canvas.addEventListener('pointercancel', endPointer, listenerOptions);
+
+    canvas.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const delta = e.deltaY < 0 ? 1.1 : 1 / 1.1;
+        zoomAt(e.clientX, e.clientY, Math.max(0.3, Math.min(4, mindmapState.zoom * delta)));
+    }, { ...listenerOptions, passive: false });
 
     canvas.style.cursor = 'grab';
 }
@@ -9828,6 +9901,7 @@ function setupFlashcards() {
             return;
         }
         flashcardsModal.classList.add('active');
+        if (!flashcards.length) generateFlashcards();
     });
 
     closeBtn?.addEventListener('click', () => flashcardsModal.classList.remove('active'));
@@ -9900,11 +9974,14 @@ async function generateFlashcards() {
         questionEl.textContent = 'Generating AI-powered flashcards...';
     }
 
-    // Try AI-powered flashcards first
+    updateFlashcardStatus('Building clinically focused flashcards…');
+
+    // Try AI-powered flashcards first. The deterministic generator below always
+    // remains available so the study flow does not depend on a network response.
     const aiFlashcards = await generateAIFlashcards();
 
     if (aiFlashcards && aiFlashcards.length > 0) {
-        flashcards = aiFlashcards;
+        flashcards = limitFlashcards(aiFlashcards);
         flashcardStatus = {};
         currentFlashcardIndex = 0;
         renderFlashcard();
@@ -9913,50 +9990,15 @@ async function generateFlashcards() {
             generateBtn.disabled = false;
             generateBtn.innerHTML = '<span class="material-symbols-rounded">auto_fix_high</span> Regenerate';
         }
+        updateFlashcardStatus(`${flashcards.length} AI-generated cards are ready. Flip, rate, and review.`);
         return;
     }
 
     // Fallback to basic generation
     console.log('Using fallback flashcard generation');
     const data = currentInfographicData;
-    flashcards = [];
+    flashcards = buildFallbackFlashcards(data);
     flashcardStatus = {};
-
-    // Create flashcards from sections
-    if (data.sections) {
-        data.sections.forEach(section => {
-            // Main section question
-            flashcards.push({
-                question: `What are the key points about ${section.title}?`,
-                answer: formatFlashcardAnswer(section)
-            });
-
-            // Additional cards for specific content
-            if (Array.isArray(section.content) && section.content.length > 3) {
-                section.content.forEach((item, i) => {
-                    if (i < 5) { // Limit per section
-                        flashcards.push({
-                            question: `In ${section.title}: Explain "${truncateText(item, 50)}"`,
-                            answer: item
-                        });
-                    }
-                });
-            }
-
-            if (section.content?.mnemonic) {
-                flashcards.push({
-                    question: `What does the mnemonic "${section.content.mnemonic}" stand for?`,
-                    answer: section.content.explanation
-                });
-            }
-        });
-    }
-
-    // Summary card
-    flashcards.push({
-        question: `Summarize: ${data.title}`,
-        answer: data.summary
-    });
 
     currentFlashcardIndex = 0;
     renderFlashcard();
@@ -9966,19 +10008,80 @@ async function generateFlashcards() {
         generateBtn.disabled = false;
         generateBtn.innerHTML = '<span class="material-symbols-rounded">auto_fix_high</span> Regenerate';
     }
+    updateFlashcardStatus(`${flashcards.length} locally generated cards are ready. Add a Gemini key for AI-written variants.`);
+}
+
+function limitFlashcards(cards) {
+    const count = Number(document.getElementById('flashcard-count-select')?.value || 20);
+    return cards.slice(0, Math.max(1, Math.min(count, 30)));
+}
+
+function buildFallbackFlashcards(data) {
+    const cards = [];
+    const addCard = (question, answer) => {
+        const normalized = normalizeFlashcards([{ question, answer }]);
+        if (normalized?.[0]) cards.push(normalized[0]);
+    };
+
+    (data.sections || []).forEach(section => {
+        const title = String(section?.title || 'this topic').trim();
+        const content = section?.content;
+        const overview = formatFlashcardAnswer(section);
+        if (overview) addCard(`What are the key learning points in ${title}?`, overview);
+
+        if (Array.isArray(content)) {
+            content.slice(0, 4).forEach(item => {
+                const fact = displayText(item);
+                if (fact) addCard(`What should you recall about ${title}?`, fact);
+            });
+        } else if (content && typeof content === 'object') {
+            if (content.mnemonic && content.explanation) {
+                addCard(`What does the mnemonic “${content.mnemonic}” help you remember?`, content.explanation);
+            }
+            if (content.center && Array.isArray(content.branches)) {
+                addCard(`Which branches belong to ${content.center}?`, content.branches.map(displayText).filter(Boolean).join('\n• '));
+            }
+            if (Array.isArray(content.data)) {
+                content.data.slice(0, 4).forEach(item => {
+                    const label = displayText(item?.label);
+                    const value = displayText(item?.value);
+                    if (label && value) addCard(`What is ${label} in ${title}?`, `${label}: ${value}`);
+                });
+            }
+            if (Array.isArray(content.rows)) {
+                content.rows.slice(0, 3).forEach((row, index) => {
+                    const rowText = Array.isArray(row) ? row.map(displayText).filter(Boolean).join(' — ') : displayText(row);
+                    if (rowText) addCard(`What comparison should you know from ${title} (item ${index + 1})?`, rowText);
+                });
+            }
+        }
+    });
+
+    if (data.title && data.summary) addCard(`What is the high-yield summary of ${data.title}?`, data.summary);
+    const deduped = normalizeFlashcards(cards) || [];
+    return limitFlashcards(deduped);
 }
 
 function formatFlashcardAnswer(section) {
     if (Array.isArray(section.content)) {
-        return section.content.slice(0, 5).join('\n• ');
+        return section.content.slice(0, 5).map(displayText).filter(Boolean).join('\n• ');
     } else if (typeof section.content === 'object') {
         if (section.content.mnemonic) {
             return `${section.content.mnemonic}: ${section.content.explanation}`;
         } else if (section.content.center) {
             return `${section.content.center}: ${(section.content.branches || []).join(', ')}`;
+        } else if (Array.isArray(section.content.data)) {
+            return section.content.data.slice(0, 5).map(item => `${displayText(item?.label)}: ${displayText(item?.value)}`).join('\n• ');
+        } else if (Array.isArray(section.content.rows)) {
+            return section.content.rows.slice(0, 5).map(row => Array.isArray(row) ? row.map(displayText).filter(Boolean).join(' — ') : displayText(row)).join('\n• ');
         }
     }
-    return String(section.content || '');
+    return displayText(section.content || '');
+}
+
+function updateFlashcardStatus(message) {
+    const status = document.getElementById('flashcard-status');
+    if (status) status.textContent = message;
 }
 
 function renderFlashcard() {
@@ -10000,7 +10103,7 @@ function renderFlashcard() {
         questionEl.innerHTML = `
             ${statusBadge}
             <div style="font-size:0.75rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:1rem;">Question</div>
-            <div style="font-size:1.4rem;color:white;line-height:1.6;font-weight:500;">${card.question}</div>
+            <div style="font-size:1.4rem;color:white;line-height:1.6;font-weight:500;">${escapeHtml(card.question)}</div>
             <div style="position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:0.8rem;color:rgba(255,255,255,0.7);">
                 <span class="material-symbols-rounded" style="font-size:1rem;vertical-align:middle;">touch_app</span>
                 Click or press <kbd style="background:rgba(255,255,255,0.15);padding:1px 6px;border-radius:3px;font-family:monospace;border:1px solid rgba(255,255,255,0.3);color:white;">Space</kbd> to flip
@@ -10010,7 +10113,7 @@ function renderFlashcard() {
     if (answerEl) {
         answerEl.innerHTML = `
             <div style="font-size:0.75rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:1rem;">Answer</div>
-            <div style="font-size:1.25rem;color:white;line-height:1.6;font-weight:500;margin-bottom:1.5rem;white-space:pre-wrap;">${card.answer}</div>
+            <div style="font-size:1.25rem;color:white;line-height:1.6;font-weight:500;margin-bottom:1.5rem;white-space:pre-wrap;">${escapeHtml(card.answer)}</div>
             <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
                 <button class="flashcard-study-btn" data-action="review" style="background:rgba(245,158,11,0.9);color:white;border:none;padding:10px 20px;border-radius:999px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;gap:6px;font-size:0.9rem;">
                     <span class="material-symbols-rounded" style="font-size:1.1rem;">refresh</span>Review again

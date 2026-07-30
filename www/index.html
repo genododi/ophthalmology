@@ -575,20 +575,28 @@
                 </button>
             </div>
             <div class="modal-body mindmap-modal-body">
-                <div class="mindmap-canvas" id="mindmap-canvas"></div>
+                <div class="mindmap-canvas" id="mindmap-canvas" aria-label="Interactive mind map"></div>
+                <section class="mindmap-inspector" id="mindmap-inspector" aria-live="polite">
+                    <span class="material-symbols-rounded">pan_tool</span>
+                    <p>Drag to explore, pinch or scroll to zoom, and select a branch to focus its key points.</p>
+                </section>
                 <div class="mindmap-actions">
-                    <button class="btn-secondary" id="mindmap-zoom-in">
+                    <button class="btn-secondary" id="mindmap-zoom-in" title="Zoom in" aria-label="Zoom in">
                         <span class="material-symbols-rounded">zoom_in</span>
                     </button>
-                    <button class="btn-secondary" id="mindmap-zoom-out">
+                    <button class="btn-secondary" id="mindmap-zoom-out" title="Zoom out" aria-label="Zoom out">
                         <span class="material-symbols-rounded">zoom_out</span>
                     </button>
-                    <button class="btn-secondary" id="mindmap-reset">
-                        <span class="material-symbols-rounded">center_focus_strong</span>
+                    <button class="btn-secondary" id="mindmap-reset" title="Fit map" aria-label="Fit map">
+                        <span class="material-symbols-rounded">fit_screen</span>
                     </button>
                     <button class="btn-secondary" id="mindmap-expand-all" title="Show all branches">
                         <span class="material-symbols-rounded">unfold_more</span>
                         Expand all
+                    </button>
+                    <button class="btn-secondary" id="mindmap-collapse-all" title="Hide branch details">
+                        <span class="material-symbols-rounded">unfold_less</span>
+                        Collapse all
                     </button>
                     <button class="btn-primary" id="export-mindmap-btn">
                         <span class="material-symbols-rounded">download</span>
@@ -663,6 +671,16 @@
                 </div>
             </div>
             <div class="modal-body flashcards-modal-body">
+                <div class="flashcard-toolbar">
+                    <label class="studio-select-label" for="flashcard-count-select">Cards
+                        <select id="flashcard-count-select">
+                            <option value="10">10 cards</option>
+                            <option value="20" selected>20 cards</option>
+                            <option value="30">30 cards</option>
+                        </select>
+                    </label>
+                    <p class="flashcard-status" id="flashcard-status" aria-live="polite">Generate cards from the current infographic.</p>
+                </div>
                 <div class="flashcard-container" id="flashcard-container">
                     <div class="flashcard" id="current-flashcard">
                         <div class="flashcard-inner">

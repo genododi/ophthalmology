@@ -2072,6 +2072,26 @@ textarea:focus {
 
 .mindmap-canvas:active { cursor: grabbing; }
 
+.mindmap-inspector {
+    min-height: 58px;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding: 0.7rem 1rem;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    color: #475569;
+}
+
+.mindmap-inspector > .material-symbols-rounded {
+    color: #2563eb;
+    margin-top: 0.1rem;
+}
+
+.mindmap-inspector p { margin: 0.15rem 0; font-size: 0.82rem; line-height: 1.4; }
+.mindmap-inspector strong { color: #0f172a; font-size: 0.9rem; }
+.mindmap-inspector small { color: #64748b; font-size: 0.75rem; }
+
 .mindmap-svg {
     width: 100%;
     height: 100%;
@@ -2258,6 +2278,26 @@ textarea:focus {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+}
+
+.flashcard-toolbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.65rem 0.85rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.flashcard-status {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.8rem;
+    line-height: 1.35;
+    text-align: right;
 }
 
 .flashcard-counter {
@@ -5420,12 +5460,15 @@ textarea:focus {
     .audio-options > *, .video-options > *, .quiz-actions > * { flex: 1 1 auto; }
     .quiz-length { align-self: stretch; justify-content: space-between; }
     .mindmap-modal-body { height: min(66dvh, 580px); }
+    .mindmap-inspector { min-height: 70px; padding: 0.65rem 0.75rem; }
     .mindmap-actions { padding: 0.75rem; }
     .mindmap-actions .btn-secondary, .mindmap-actions .btn-primary { padding: 0.65rem 0.8rem; }
     .video-slide { padding: 1.25rem; }
     .video-slide h2 { font-size: 1.35rem; }
     .video-slide p, .video-slide ul li { font-size: 0.9rem; }
     .quiz-question-card { padding: 1.25rem; }
+    .flashcard-toolbar { align-items: flex-start; flex-direction: column; gap: 0.45rem; }
+    .flashcard-status { text-align: left; }
     .quiz-option { min-height: 52px; padding: 0.8rem; }
     .music-player { bottom: calc(1rem + env(safe-area-inset-bottom)); right: 1rem; }
 }

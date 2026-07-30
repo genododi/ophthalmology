@@ -1,0 +1,198 @@
+{
+  "id": 1781791194269,
+  "seqId": 186,
+  "title": "Mastering SMILE: Precision Parameters & Clinical Protocol",
+  "summary": "Small Incision Lenticule Extraction (SMILE) represents the current apex of refractive surgery, utilizing femtosecond laser technology to create an intrastromal lenticule. This guide optimizes the critical parameters for consistent clinical outcomes in myopia and astigmatism correction.",
+  "date": "2026-06-18T13:59:54.269Z",
+  "data": {
+    "title": "Mastering SMILE: Precision Parameters & Clinical Protocol",
+    "summary": "Small Incision Lenticule Extraction (SMILE) represents the current apex of refractive surgery, utilizing femtosecond laser technology to create an intrastromal lenticule. This guide optimizes the critical parameters for consistent clinical outcomes in myopia and astigmatism correction.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M70 100 Q 100 70 130 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='6'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Core SMILE Parameters",
+        "icon": "settings",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Standard Setting",
+            "Clinical Impact"
+          ],
+          "rows": [
+            [
+              "Cap Thickness",
+              "110–130 μm",
+              "Thicker cap increases stability, thinner allows more stromal bed."
+            ],
+            [
+              "Cap Diameter",
+              "7.0–7.5 mm",
+              "Larger diameter minimizes halos, smaller saves tissue."
+            ],
+            [
+              "Optical Zone",
+              "6.0–6.8 mm",
+              "Balanced against ablation depth; larger = better night vision."
+            ],
+            [
+              "Lenticule Side Cut Angle",
+              "90 degrees",
+              "Ensures easy dissection during removal."
+            ],
+            [
+              "Spot Spacing (Lenticule)",
+              "4.5 μm",
+              "Density for smooth interface; lower = smoother."
+            ],
+            [
+              "Spot Spacing (Side Cut)",
+              "2.0 μm",
+              "Higher density for sharper edge definition."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Candidacy",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Myopia (-1 to -3D)",
+              "value": 40
+            },
+            {
+              "label": "Myopia (-3 to -6D)",
+              "value": 50
+            },
+            {
+              "label": "Myopia (-6 to -10D)",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Pre-operative Screening",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Forme Fruste Keratoconus (Belin-Ambrosio Ectasia Display D > 1.6)",
+          "Residual Stromal Thickness (RST) < 250 μm",
+          "Epithelial Basement Membrane Dystrophy (EBMD)",
+          "Active Ocular Surface Disease (OSD)",
+          "Severe Dry Eye (TBUT < 5s)"
+        ]
+      },
+      {
+        "title": "Surgical Workflow Process",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Docking & Centration (Fixation on target light).",
+          "Step 2: Femtosecond laser creation of posterior lenticule surface.",
+          "Step 3: Creation of anterior lenticule surface & side cut.",
+          "Step 4: Creation of the 2-4mm superior access incision.",
+          "Step 5: Lenticule dissection using micro-dissector (SMILE spatula).",
+          "Step 6: Lenticule removal with McPherson forceps."
+        ]
+      },
+      {
+        "title": "SMILE vs. LASIK: Key Differences",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "SMILE",
+            "LASIK"
+          ],
+          "rows": [
+            [
+              "Flap",
+              "No",
+              "Yes"
+            ],
+            [
+              "Biomechanics",
+              "Superior (Intact Bowman's)",
+              "Reduced"
+            ],
+            [
+              "Dry Eye Impact",
+              "Lower",
+              "Higher"
+            ],
+            [
+              "Correction Range",
+              "Myopia/Astig",
+              "Hyperopia/Myopia/Astig"
+            ],
+            [
+              "Enhancement",
+              "Circle Pattern (PRK/LASIK)",
+              "Lift Flap"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Remember the 5 S's of SMILE Success",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "5-S",
+          "explanation": "S-uction (ensure stable), S-pacing (optimized laser energy), S-patula (gentle dissection), S-urface (avoid epithelial trauma), S-tability (monitor refractive drift)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Maintain docking suction for the full duration (approx 25-30s).",
+          "Avoid excessive irrigation during extraction to prevent epithelial ingrowth.",
+          "If suction loss occurs: abort and convert to PRK if incomplete; restart if early.",
+          "Wait 3 months before enhancement (PRK is the standard rescue).",
+          "Always account for cyclotorsion compensation in toric SMILE."
+        ]
+      },
+      {
+        "title": "Advanced Anatomy Subtypes",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "SMILE Anatomy",
+          "branches": [
+            "Posterior Lenticule",
+            "Anterior Lenticule",
+            "Access Incision",
+            "Transition Zone"
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "SMILE PRO parameters",
+    "chapterId": "refractive"
+  },
+  "chapterId": "refractive"
+}

@@ -28,18 +28,9 @@ const GITHUB_CONFIG = {
     API_URL: 'https://api.github.com/gists'
 };
 
-// Obfuscated Token (Recovered from gh CLI)
-const T_PART1 = 'ghp_CEGEWL9nDYJKgmmegnKvwl';
-const T_PART2 = 'GAUSDz2I2xJ';
-const T_PART3 = 'gf3';
-
 function getGistToken() {
-    // 1. Check if user configured a custom token
-    const customToken = localStorage.getItem('gist_token');
-    if (customToken) return customToken;
-
-    // 2. Use embedded working token
-    return T_PART1 + T_PART2 + T_PART3;
+    // Write access is opt-in and remains only in the user's local browser storage.
+    return localStorage.getItem('gist_token') || '';
 }
 
 // Auto-Initialize Storage on Load
@@ -289,8 +280,13 @@ async function updateSubmissions(data) {
         return { success: true };
     }
 
-    // Token is handled by getGistToken() which includes the embedded valid token.
-    // No need for pre-check.
+    const token = getGistToken();
+    if (!token) {
+        return {
+            success: false,
+            message: 'A GitHub Gist token is required to publish community changes. Configure it in the moderation panel for this browser session.'
+        };
+    }
 
     try {
         const payload = {
@@ -304,7 +300,7 @@ async function updateSubmissions(data) {
         const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, {
             method: 'PATCH',
             headers: {
-                'Authorization': `token ${getGistToken()}`,
+                'Authorization': `token ${token}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(payload)
@@ -314,7 +310,7 @@ async function updateSubmissions(data) {
             const errText = await response.text();
             if (response.status === 403 && (errText.includes('rate limit') || errText.includes('API rate limit exceeded'))) {
                 // Rate limit hit - prompt the user for their own token
-                const userToken = prompt("GitHub API rate limit exceeded for the default community token.\n\nTo continue, please enter your own GitHub Personal Access Token (PAT) with 'gist' scope:");
+                const userToken = prompt("GitHub API rate limit exceeded.\n\nTo continue, please enter your own GitHub Personal Access Token (PAT) with 'gist' scope:");
                 if (userToken && userToken.trim()) {
                     localStorage.setItem('gist_token', userToken.trim());
                     return { success: false, message: 'Custom token saved! Please try submitting again.' };

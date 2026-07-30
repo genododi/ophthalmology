@@ -1,0 +1,153 @@
+{
+  "id": 1781791511435,
+  "seqId": 187,
+  "title": "Opaque Bubble Layer (OBL) in Femtosecond Laser-Assisted LASIK",
+  "summary": "The Opaque Bubble Layer (OBL) is a common, often benign, gas-related phenomenon occurring during femtosecond laser flap creation in LASIK. Understanding its pathophysiology and management is critical to maintaining refractive outcomes and preventing suction loss.",
+  "date": "2026-06-18T14:05:11.435Z",
+  "data": {
+    "title": "Opaque Bubble Layer (OBL) in Femtosecond Laser-Assisted LASIK",
+    "summary": "The Opaque Bubble Layer (OBL) is a common, often benign, gas-related phenomenon occurring during femtosecond laser flap creation in LASIK. Understanding its pathophysiology and management is critical to maintaining refractive outcomes and preventing suction loss.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M70 130 q30 -50 60 0' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='80' cy='90' r='5' fill='hsl(215, 90%, 45%)'/><circle cx='120' cy='90' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Presentation",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "OBL is an area of gas bubbles (formed by cavitation) that migrates into the stromal bed during femtosecond laser (FS) flap creation. It is characterized by an opaque, whitish interface appearance that can obscure the underlying iris detail, potentially impeding the laser's ability to complete the intended flap or treatment."
+      },
+      {
+        "title": "Pathophysiology",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "OBL Genesis",
+          "branches": [
+            "Photodisruption (Plasma formation)",
+            "Gas byproduct (CO2, H2O vapor, N2)",
+            "Stiff stromal lamellae (Preventing gas escape)",
+            "High laser energy settings",
+            "Slow raster speed"
+          ]
+        }
+      },
+      {
+        "title": "Risk Factors & Epidemiology",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "High Laser Energy",
+              "value": 85
+            },
+            {
+              "label": "Tight Lid/Orbit",
+              "value": 60
+            },
+            {
+              "label": "Corneal Scarring",
+              "value": 40
+            },
+            {
+              "label": "Low Raster Speed",
+              "value": 75
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Implications (Red Flags)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Incomplete flap separation due to gas interference",
+          "Suction loss triggered by excessive gas pressure",
+          "Diffuse Lamellar Keratitis (DLK) risk increase",
+          "Difficulty in docking and visualization of the pupil",
+          "Potential for inaccurate wavefront capture if OBL persists"
+        ]
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Stop laser and assess the extent of the OBL.",
+          "Step 2: Gently massage the cornea to redistribute gas if minimal.",
+          "Step 3: Wait 30-60 seconds for gas absorption if OBL is moderate.",
+          "Step 4: If OBL is extensive, consider aborting and rescheduling (rare).",
+          "Step 5: Adjust laser parameters (increase spot/track separation) for future cases if persistent."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "OBL",
+              "Whitish gas bubbles, dissipates rapidly"
+            ],
+            [
+              "DLK",
+              "Inflammatory cells, delayed onset (24-48h)"
+            ],
+            [
+              "Corneal Edema",
+              "General haze, stromal thickening"
+            ],
+            [
+              "Epithelial Ingrowth",
+              "Discrete borders, progressive"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Prevention & Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Optimize docking to ensure even pressure across the interface.",
+          "Use lower energy settings consistent with your specific laser platform (e.g., IntraLase, VisuMax).",
+          "Check laser maintenance logs for high-energy discharge irregularities.",
+          "Consider adjusting the 'raster' pattern if the laser software allows."
+        ]
+      },
+      {
+        "title": "Memory Aid",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "G-A-S",
+          "explanation": "Gas Accumulation Syndrome: G = Gentle massage, A = Allow absorption time, S = Scale back laser energy."
+        }
+      }
+    ],
+    "generationPrompt": "opaque bubble layer",
+    "chapterId": "lens"
+  },
+  "chapterId": "lens"
+}

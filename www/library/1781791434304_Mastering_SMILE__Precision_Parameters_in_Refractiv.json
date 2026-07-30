@@ -1,0 +1,165 @@
+{
+  "id": 1781791434304,
+  "seqId": 186,
+  "title": "Mastering SMILE: Precision Parameters in Refractive Surgery",
+  "summary": "Small Incision Lenticule Extraction (SMILE) represents the pinnacle of minimally invasive refractive surgery. This guide details the essential parameters, nomograms, and clinical pearls for optimizing outcomes in myopia and astigmatism correction.",
+  "date": "2026-06-18T14:03:54.304Z",
+  "data": {
+    "title": "Mastering SMILE: Precision Parameters in Refractive Surgery",
+    "summary": "Small Incision Lenticule Extraction (SMILE) represents the pinnacle of minimally invasive refractive surgery. This guide details the essential parameters, nomograms, and clinical pearls for optimizing outcomes in myopia and astigmatism correction.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='60' fill='none' stroke='#1e88e5' stroke-width='8'/><path d='M70 100 Q100 70 130 100' stroke='#1e88e5' stroke-width='6' fill='none'/><circle cx='100' cy='100' r='10' fill='#1e88e5'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Indications",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "SMILE is a femtosecond laser-assisted refractive procedure where a refractive lenticule is created within the corneal stroma and extracted through a small peripheral incision (typically 2-4mm). Indicated for myopia up to -10.00 D and myopic astigmatism up to -5.00 D (cyl) where corneal thickness is sufficient."
+      },
+      {
+        "title": "SMILE Core Parameters",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Standard Value/Range"
+          ],
+          "rows": [
+            [
+              "Cap Thickness",
+              "100 - 140 μm (120 μm typical)"
+            ],
+            [
+              "Incision Size",
+              "2.0 - 4.0 mm"
+            ],
+            [
+              "Cap Diameter",
+              "7.0 - 8.0 mm"
+            ],
+            [
+              "Optical Zone",
+              "6.0 - 6.8 mm"
+            ],
+            [
+              "Transition Zone",
+              "0.5 - 1.0 mm"
+            ],
+            [
+              "Side Cut Angle",
+              "90° (Vertical)"
+            ],
+            [
+              "Laser Spot Energy",
+              "120 - 150 nJ (Variable per system)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Nomogram Logic",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "SMILE Nomogram",
+          "branches": [
+            "Spherical Equiv Overcorrection (+0.12 to +0.25D)",
+            "Cylindrical adjustment",
+            "Corneal curvature (K-values)",
+            "Patient Age / Accommodation"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Intra-op & Post-op",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Suction loss (requires immediate re-docking protocol)",
+          "Black spots (OBL - Opaque Bubble Layer)",
+          "Incomplete lenticule separation",
+          "Epithelial ingrowth into the pocket",
+          "Decentration > 0.5mm"
+        ]
+      },
+      {
+        "title": "Surgical Extraction Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Docking and suction verification",
+          "Step 2: Femtosecond laser generation of posterior then anterior lenticule surfaces",
+          "Step 3: Incision creation at 12 o'clock position",
+          "Step 4: Dissection of anterior and posterior planes using a micro-spatula",
+          "Step 5: Lenticule extraction using micro-forceps (e.g., Akahoshi or similar)",
+          "Step 6: Irrigation and pocket clearance"
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Ensure patient fixation is stable throughout the laser sequence to avoid induced astigmatism.",
+          "Residual stromal thickness (RST) must be calculated post-extraction; aim for > 250 μm.",
+          "SMILE is less sensitive to dry eye compared to LASIK due to lack of a long circumferential flap hinge.",
+          "Centration is based on the pupillary center, not the corneal vertex."
+        ]
+      },
+      {
+        "title": "Mnemonic: SMILE Success",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "S-M-I-L-E",
+          "explanation": "S: Suction stable; M: Micro-spatula care; I: Incision precision; L: Lenticule integrity; E: Extraction technique."
+        }
+      },
+      {
+        "title": "Comparative Outcomes",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "SMILE Biomechanical Stability",
+              "value": 90
+            },
+            {
+              "label": "LASIK Biomechanical Stability",
+              "value": 70
+            },
+            {
+              "label": "SMILE Dry Eye Score",
+              "value": 30
+            },
+            {
+              "label": "LASIK Dry Eye Score",
+              "value": 60
+            }
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "SMILE PRO parameters",
+    "chapterId": "refractive"
+  },
+  "chapterId": "refractive"
+}

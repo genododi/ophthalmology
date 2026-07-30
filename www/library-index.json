@@ -1,7 +1,522 @@
 [
   {
+    "id": 1781791511435,
+    "seqId": 187,
+    "title": "Opaque Bubble Layer (OBL) in Femtosecond Laser-Assisted LASIK",
+    "summary": "The Opaque Bubble Layer (OBL) is a common, often benign, gas-related phenomenon occurring during femtosecond laser flap creation in LASIK. Understanding its pathophysiology and management is critical to maintaining refractive outcomes and preventing suction loss.",
+    "date": "2026-06-18T14:05:11.435Z",
+    "data": {
+      "title": "Opaque Bubble Layer (OBL) in Femtosecond Laser-Assisted LASIK",
+      "summary": "The Opaque Bubble Layer (OBL) is a common, often benign, gas-related phenomenon occurring during femtosecond laser flap creation in LASIK. Understanding its pathophysiology and management is critical to maintaining refractive outcomes and preventing suction loss.",
+      "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M70 130 q30 -50 60 0' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='80' cy='90' r='5' fill='hsl(215, 90%, 45%)'/><circle cx='120' cy='90' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+      "sections": [
+        {
+          "title": "Definition & Clinical Presentation",
+          "icon": "visibility",
+          "type": "plain_text",
+          "layout": "full_width",
+          "color_theme": "blue",
+          "content": "OBL is an area of gas bubbles (formed by cavitation) that migrates into the stromal bed during femtosecond laser (FS) flap creation. It is characterized by an opaque, whitish interface appearance that can obscure the underlying iris detail, potentially impeding the laser's ability to complete the intended flap or treatment."
+        },
+        {
+          "title": "Pathophysiology",
+          "icon": "science",
+          "type": "mindmap",
+          "layout": "full_width",
+          "color_theme": "purple",
+          "content": {
+            "center": "OBL Genesis",
+            "branches": [
+              "Photodisruption (Plasma formation)",
+              "Gas byproduct (CO2, H2O vapor, N2)",
+              "Stiff stromal lamellae (Preventing gas escape)",
+              "High laser energy settings",
+              "Slow raster speed"
+            ]
+          }
+        },
+        {
+          "title": "Risk Factors & Epidemiology",
+          "icon": "analytics",
+          "type": "chart",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": {
+            "type": "bar",
+            "data": [
+              {
+                "label": "High Laser Energy",
+                "value": 85
+              },
+              {
+                "label": "Tight Lid/Orbit",
+                "value": 60
+              },
+              {
+                "label": "Corneal Scarring",
+                "value": 40
+              },
+              {
+                "label": "Low Raster Speed",
+                "value": 75
+              }
+            ]
+          }
+        },
+        {
+          "title": "Clinical Implications (Red Flags)",
+          "icon": "warning",
+          "type": "red_flag",
+          "layout": "half_width",
+          "color_theme": "red",
+          "content": [
+            "Incomplete flap separation due to gas interference",
+            "Suction loss triggered by excessive gas pressure",
+            "Diffuse Lamellar Keratitis (DLK) risk increase",
+            "Difficulty in docking and visualization of the pupil",
+            "Potential for inaccurate wavefront capture if OBL persists"
+          ]
+        },
+        {
+          "title": "Management Strategy",
+          "icon": "medication",
+          "type": "process",
+          "layout": "full_width",
+          "color_theme": "green",
+          "content": [
+            "Step 1: Stop laser and assess the extent of the OBL.",
+            "Step 2: Gently massage the cornea to redistribute gas if minimal.",
+            "Step 3: Wait 30-60 seconds for gas absorption if OBL is moderate.",
+            "Step 4: If OBL is extensive, consider aborting and rescheduling (rare).",
+            "Step 5: Adjust laser parameters (increase spot/track separation) for future cases if persistent."
+          ]
+        },
+        {
+          "title": "Differential Diagnosis",
+          "icon": "menu_book",
+          "type": "table",
+          "layout": "full_width",
+          "color_theme": "yellow",
+          "content": {
+            "headers": [
+              "Condition",
+              "Distinguishing Feature"
+            ],
+            "rows": [
+              [
+                "OBL",
+                "Whitish gas bubbles, dissipates rapidly"
+              ],
+              [
+                "DLK",
+                "Inflammatory cells, delayed onset (24-48h)"
+              ],
+              [
+                "Corneal Edema",
+                "General haze, stromal thickening"
+              ],
+              [
+                "Epithelial Ingrowth",
+                "Discrete borders, progressive"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Prevention & Pearls",
+          "icon": "lightbulb",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "purple",
+          "content": [
+            "Optimize docking to ensure even pressure across the interface.",
+            "Use lower energy settings consistent with your specific laser platform (e.g., IntraLase, VisuMax).",
+            "Check laser maintenance logs for high-energy discharge irregularities.",
+            "Consider adjusting the 'raster' pattern if the laser software allows."
+          ]
+        },
+        {
+          "title": "Memory Aid",
+          "icon": "school",
+          "type": "remember",
+          "layout": "half_width",
+          "color_theme": "yellow",
+          "content": {
+            "mnemonic": "G-A-S",
+            "explanation": "Gas Accumulation Syndrome: G = Gentle massage, A = Allow absorption time, S = Scale back laser energy."
+          }
+        }
+      ],
+      "generationPrompt": "opaque bubble layer",
+      "chapterId": "lens"
+    },
+    "chapterId": "lens"
+  },
+  {
+    "id": 1781791434304,
+    "seqId": 186,
+    "title": "Mastering SMILE: Precision Parameters in Refractive Surgery",
+    "summary": "Small Incision Lenticule Extraction (SMILE) represents the pinnacle of minimally invasive refractive surgery. This guide details the essential parameters, nomograms, and clinical pearls for optimizing outcomes in myopia and astigmatism correction.",
+    "date": "2026-06-18T14:03:54.304Z",
+    "data": {
+      "title": "Mastering SMILE: Precision Parameters in Refractive Surgery",
+      "summary": "Small Incision Lenticule Extraction (SMILE) represents the pinnacle of minimally invasive refractive surgery. This guide details the essential parameters, nomograms, and clinical pearls for optimizing outcomes in myopia and astigmatism correction.",
+      "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='60' fill='none' stroke='#1e88e5' stroke-width='8'/><path d='M70 100 Q100 70 130 100' stroke='#1e88e5' stroke-width='6' fill='none'/><circle cx='100' cy='100' r='10' fill='#1e88e5'/></svg>",
+      "sections": [
+        {
+          "title": "Definition & Indications",
+          "icon": "visibility",
+          "type": "plain_text",
+          "layout": "full_width",
+          "color_theme": "blue",
+          "content": "SMILE is a femtosecond laser-assisted refractive procedure where a refractive lenticule is created within the corneal stroma and extracted through a small peripheral incision (typically 2-4mm). Indicated for myopia up to -10.00 D and myopic astigmatism up to -5.00 D (cyl) where corneal thickness is sufficient."
+        },
+        {
+          "title": "SMILE Core Parameters",
+          "icon": "science",
+          "type": "table",
+          "layout": "full_width",
+          "color_theme": "blue",
+          "content": {
+            "headers": [
+              "Parameter",
+              "Standard Value/Range"
+            ],
+            "rows": [
+              [
+                "Cap Thickness",
+                "100 - 140 μm (120 μm typical)"
+              ],
+              [
+                "Incision Size",
+                "2.0 - 4.0 mm"
+              ],
+              [
+                "Cap Diameter",
+                "7.0 - 8.0 mm"
+              ],
+              [
+                "Optical Zone",
+                "6.0 - 6.8 mm"
+              ],
+              [
+                "Transition Zone",
+                "0.5 - 1.0 mm"
+              ],
+              [
+                "Side Cut Angle",
+                "90° (Vertical)"
+              ],
+              [
+                "Laser Spot Energy",
+                "120 - 150 nJ (Variable per system)"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Nomogram Logic",
+          "icon": "analytics",
+          "type": "mindmap",
+          "layout": "half_width",
+          "color_theme": "purple",
+          "content": {
+            "center": "SMILE Nomogram",
+            "branches": [
+              "Spherical Equiv Overcorrection (+0.12 to +0.25D)",
+              "Cylindrical adjustment",
+              "Corneal curvature (K-values)",
+              "Patient Age / Accommodation"
+            ]
+          }
+        },
+        {
+          "title": "Red Flags: Intra-op & Post-op",
+          "icon": "warning",
+          "type": "red_flag",
+          "layout": "half_width",
+          "color_theme": "red",
+          "content": [
+            "Suction loss (requires immediate re-docking protocol)",
+            "Black spots (OBL - Opaque Bubble Layer)",
+            "Incomplete lenticule separation",
+            "Epithelial ingrowth into the pocket",
+            "Decentration > 0.5mm"
+          ]
+        },
+        {
+          "title": "Surgical Extraction Protocol",
+          "icon": "healing",
+          "type": "process",
+          "layout": "full_width",
+          "color_theme": "green",
+          "content": [
+            "Step 1: Docking and suction verification",
+            "Step 2: Femtosecond laser generation of posterior then anterior lenticule surfaces",
+            "Step 3: Incision creation at 12 o'clock position",
+            "Step 4: Dissection of anterior and posterior planes using a micro-spatula",
+            "Step 5: Lenticule extraction using micro-forceps (e.g., Akahoshi or similar)",
+            "Step 6: Irrigation and pocket clearance"
+          ]
+        },
+        {
+          "title": "Key Clinical Pearls",
+          "icon": "lightbulb",
+          "type": "key_point",
+          "layout": "full_width",
+          "color_theme": "yellow",
+          "content": [
+            "Ensure patient fixation is stable throughout the laser sequence to avoid induced astigmatism.",
+            "Residual stromal thickness (RST) must be calculated post-extraction; aim for > 250 μm.",
+            "SMILE is less sensitive to dry eye compared to LASIK due to lack of a long circumferential flap hinge.",
+            "Centration is based on the pupillary center, not the corneal vertex."
+          ]
+        },
+        {
+          "title": "Mnemonic: SMILE Success",
+          "icon": "school",
+          "type": "remember",
+          "layout": "half_width",
+          "color_theme": "purple",
+          "content": {
+            "mnemonic": "S-M-I-L-E",
+            "explanation": "S: Suction stable; M: Micro-spatula care; I: Incision precision; L: Lenticule integrity; E: Extraction technique."
+          }
+        },
+        {
+          "title": "Comparative Outcomes",
+          "icon": "bar_chart",
+          "type": "chart",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": {
+            "type": "bar",
+            "data": [
+              {
+                "label": "SMILE Biomechanical Stability",
+                "value": 90
+              },
+              {
+                "label": "LASIK Biomechanical Stability",
+                "value": 70
+              },
+              {
+                "label": "SMILE Dry Eye Score",
+                "value": 30
+              },
+              {
+                "label": "LASIK Dry Eye Score",
+                "value": 60
+              }
+            ]
+          }
+        }
+      ],
+      "generationPrompt": "SMILE PRO parameters",
+      "chapterId": "refractive"
+    },
+    "chapterId": "refractive"
+  },
+  {
+    "id": 1781791194269,
+    "seqId": 186,
+    "title": "Mastering SMILE: Precision Parameters & Clinical Protocol",
+    "summary": "Small Incision Lenticule Extraction (SMILE) represents the current apex of refractive surgery, utilizing femtosecond laser technology to create an intrastromal lenticule. This guide optimizes the critical parameters for consistent clinical outcomes in myopia and astigmatism correction.",
+    "date": "2026-06-18T13:59:54.269Z",
+    "data": {
+      "title": "Mastering SMILE: Precision Parameters & Clinical Protocol",
+      "summary": "Small Incision Lenticule Extraction (SMILE) represents the current apex of refractive surgery, utilizing femtosecond laser technology to create an intrastromal lenticule. This guide optimizes the critical parameters for consistent clinical outcomes in myopia and astigmatism correction.",
+      "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M70 100 Q 100 70 130 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='6'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+      "sections": [
+        {
+          "title": "Core SMILE Parameters",
+          "icon": "settings",
+          "type": "table",
+          "layout": "full_width",
+          "color_theme": "blue",
+          "content": {
+            "headers": [
+              "Parameter",
+              "Standard Setting",
+              "Clinical Impact"
+            ],
+            "rows": [
+              [
+                "Cap Thickness",
+                "110–130 μm",
+                "Thicker cap increases stability, thinner allows more stromal bed."
+              ],
+              [
+                "Cap Diameter",
+                "7.0–7.5 mm",
+                "Larger diameter minimizes halos, smaller saves tissue."
+              ],
+              [
+                "Optical Zone",
+                "6.0–6.8 mm",
+                "Balanced against ablation depth; larger = better night vision."
+              ],
+              [
+                "Lenticule Side Cut Angle",
+                "90 degrees",
+                "Ensures easy dissection during removal."
+              ],
+              [
+                "Spot Spacing (Lenticule)",
+                "4.5 μm",
+                "Density for smooth interface; lower = smoother."
+              ],
+              [
+                "Spot Spacing (Side Cut)",
+                "2.0 μm",
+                "Higher density for sharper edge definition."
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Epidemiology & Candidacy",
+          "icon": "analytics",
+          "type": "chart",
+          "layout": "half_width",
+          "color_theme": "green",
+          "content": {
+            "type": "bar",
+            "data": [
+              {
+                "label": "Myopia (-1 to -3D)",
+                "value": 40
+              },
+              {
+                "label": "Myopia (-3 to -6D)",
+                "value": 50
+              },
+              {
+                "label": "Myopia (-6 to -10D)",
+                "value": 10
+              }
+            ]
+          }
+        },
+        {
+          "title": "Red Flags: Pre-operative Screening",
+          "icon": "warning",
+          "type": "red_flag",
+          "layout": "half_width",
+          "color_theme": "red",
+          "content": [
+            "Forme Fruste Keratoconus (Belin-Ambrosio Ectasia Display D > 1.6)",
+            "Residual Stromal Thickness (RST) < 250 μm",
+            "Epithelial Basement Membrane Dystrophy (EBMD)",
+            "Active Ocular Surface Disease (OSD)",
+            "Severe Dry Eye (TBUT < 5s)"
+          ]
+        },
+        {
+          "title": "Surgical Workflow Process",
+          "icon": "process_chart",
+          "type": "process",
+          "layout": "full_width",
+          "color_theme": "purple",
+          "content": [
+            "Step 1: Docking & Centration (Fixation on target light).",
+            "Step 2: Femtosecond laser creation of posterior lenticule surface.",
+            "Step 3: Creation of anterior lenticule surface & side cut.",
+            "Step 4: Creation of the 2-4mm superior access incision.",
+            "Step 5: Lenticule dissection using micro-dissector (SMILE spatula).",
+            "Step 6: Lenticule removal with McPherson forceps."
+          ]
+        },
+        {
+          "title": "SMILE vs. LASIK: Key Differences",
+          "icon": "compare_arrows",
+          "type": "table",
+          "layout": "full_width",
+          "color_theme": "blue",
+          "content": {
+            "headers": [
+              "Feature",
+              "SMILE",
+              "LASIK"
+            ],
+            "rows": [
+              [
+                "Flap",
+                "No",
+                "Yes"
+              ],
+              [
+                "Biomechanics",
+                "Superior (Intact Bowman's)",
+                "Reduced"
+              ],
+              [
+                "Dry Eye Impact",
+                "Lower",
+                "Higher"
+              ],
+              [
+                "Correction Range",
+                "Myopia/Astig",
+                "Hyperopia/Myopia/Astig"
+              ],
+              [
+                "Enhancement",
+                "Circle Pattern (PRK/LASIK)",
+                "Lift Flap"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Remember the 5 S's of SMILE Success",
+          "icon": "lightbulb",
+          "type": "remember",
+          "layout": "half_width",
+          "color_theme": "yellow",
+          "content": {
+            "mnemonic": "5-S",
+            "explanation": "S-uction (ensure stable), S-pacing (optimized laser energy), S-patula (gentle dissection), S-urface (avoid epithelial trauma), S-tability (monitor refractive drift)."
+          }
+        },
+        {
+          "title": "Key Clinical Pearls",
+          "icon": "fingerprint",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "green",
+          "content": [
+            "Maintain docking suction for the full duration (approx 25-30s).",
+            "Avoid excessive irrigation during extraction to prevent epithelial ingrowth.",
+            "If suction loss occurs: abort and convert to PRK if incomplete; restart if early.",
+            "Wait 3 months before enhancement (PRK is the standard rescue).",
+            "Always account for cyclotorsion compensation in toric SMILE."
+          ]
+        },
+        {
+          "title": "Advanced Anatomy Subtypes",
+          "icon": "genetics",
+          "type": "mindmap",
+          "layout": "full_width",
+          "color_theme": "purple",
+          "content": {
+            "center": "SMILE Anatomy",
+            "branches": [
+              "Posterior Lenticule",
+              "Anterior Lenticule",
+              "Access Incision",
+              "Transition Zone"
+            ]
+          }
+        }
+      ],
+      "generationPrompt": "SMILE PRO parameters",
+      "chapterId": "refractive"
+    },
+    "chapterId": "refractive"
+  },
+  {
     "id": 1770233801539,
-    "seqId": 185,
     "title": "The Master Atlas of Optic Disc Anomalies",
     "summary": "An exhaustive clinical guide to congenital, developmental, and acquired abnormalities of the optic nerve head, ranging from fissure defects like Coloboma to complex systemic syndromes and vascular shunts.",
     "date": "2026-02-04T19:36:41.539Z",
@@ -274,14 +789,15 @@
       "chapterId": "uncategorized"
     },
     "chapterId": "uncategorized",
-    "_newlyImported": 1770233801539,
+    "_newlyImported": 1770235061630,
     "communityId": "sub_1769972561628_3vq699rtu0cvm5",
     "communityAuthor": "Oiii",
-    "communityDate": "2026-02-01T19:02:41.628Z"
+    "communityDate": "2026-02-01T19:02:41.628Z",
+    "seqId": 185,
+    "_serverSynced": true
   },
   {
     "id": 1770233766149,
-    "seqId": 184,
     "title": "GATT vs. Goniotomy: Navigating the Angle",
     "summary": "An exhaustive comparative guide between Gonioscopy-Assisted Transluminal Trabeculotomy (GATT) and traditional Goniotomy. Both are ab-interno MIGS procedures designed to reduce intraocular pressure by targeting the trabecular meshwork.",
     "date": "2026-02-04T19:36:06.149Z",
@@ -455,17 +971,18 @@
           "content": "In both GATT and Goniotomy, the most common post-operative finding is a transient hyphema, which usually resolves within 1-2 weeks. Patients are typically started on a regimen of topical steroids and antibiotics. Pilocarpine may be used in some cases to keep the angle open and prevent the formation of synechiae. Success is defined by the reduction of intraocular pressure and the decrease in the number of required glaucoma medications."
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "glaucoma"
     },
-    "chapterId": "uncategorized",
-    "_newlyImported": 1770233766149,
+    "chapterId": "glaucoma",
+    "_newlyImported": 1770235061630,
     "communityId": "sub_1769972561627_eoimvgdedzv7i2",
     "communityAuthor": "Oiii",
-    "communityDate": "2026-02-01T19:02:41.627Z"
+    "communityDate": "2026-02-01T19:02:41.627Z",
+    "seqId": 184,
+    "_serverSynced": true
   },
   {
     "id": 1770233682915,
-    "seqId": 183,
     "title": "PINPOINT PRECISION: Punctate Epithelial Erosions (PEE)",
     "summary": "Punctate epithelial erosions (PEE) are a hallmark clinical sign of ocular surface distress, characterized by the focal loss of individual corneal epithelial cells. These tiny, depressed spots serve as a critical diagnostic indicator for a wide range of underlying ophthalmic conditions.",
     "date": "2026-02-04T19:34:42.915Z",
@@ -610,17 +1127,18 @@
           "content": "Punctate epithelial erosions are not a disease in themselves but a manifestation of ocular surface disease. They represent areas where the corneal epithelium has been shed. When viewed under a slit lamp with a cobalt blue filter after fluorescein instillation, they appear as bright green dots because the dye pools in the spaces where cells are missing. Management focuses on restoring the tear film and protecting the corneal surface to allow for re-epithelialization."
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "lasers"
     },
-    "chapterId": "uncategorized",
-    "_newlyImported": 1770233682915,
+    "chapterId": "lasers",
+    "_newlyImported": 1770235061630,
     "communityId": "sub_1769972561627_q3bf8lc5k9z0qc",
     "communityAuthor": "Oiii",
-    "communityDate": "2026-02-01T19:02:41.627Z"
+    "communityDate": "2026-02-01T19:02:41.627Z",
+    "seqId": 183,
+    "_serverSynced": true
   },
   {
     "id": 1770233676936,
-    "seqId": 182,
     "title": "AGE-RELATED MACULAR DEGENERATION: THE COMPLETE CLINICAL GUIDE",
     "summary": "An exhaustive clinical overview of Age-Related Macular Degeneration (AMD), covering its classification, epidemiology, multi-factorial risk factors, and the distinct characteristics of dry and wet forms. This guide details the critical role of drusen, current imaging standards like OCT and FA, and evidence-based management including AREDS2 supplementation and emerging therapies.",
     "date": "2026-02-04T19:34:36.936Z",
@@ -1002,14 +1520,15 @@
       "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1770233676936,
+    "_newlyImported": 1770235061629,
     "communityId": "sub_1769972561627_zl7rjnpgtpalqg",
     "communityAuthor": "Oiii",
-    "communityDate": "2026-02-01T19:02:41.627Z"
+    "communityDate": "2026-02-01T19:02:41.627Z",
+    "seqId": 182,
+    "_serverSynced": true
   },
   {
     "id": 1770233672015,
-    "seqId": 181,
     "title": "Inherited Macular and Pattern Dystrophies: A Clinical & Genetic Compendium",
     "summary": "An exhaustive clinical guide detailing Pattern Dystrophies of the RPE, North Carolina Macular Dystrophy, Familial Dominant Drusen, and Sorsby Fundus Dystrophy. It covers the genetic mutations, multimodal imaging characteristics, and progressive clinical stages of these rare hereditary retinal conditions.",
     "date": "2026-02-04T19:34:32.015Z",
@@ -1199,14 +1718,15 @@
       "chapterId": "paediatric"
     },
     "chapterId": "paediatric",
-    "_newlyImported": 1770233672015,
+    "_newlyImported": 1770235061629,
     "communityId": "sub_1769972561627_x2a2mid32abbey",
     "communityAuthor": "Oiii",
-    "communityDate": "2026-02-01T19:02:41.627Z"
+    "communityDate": "2026-02-01T19:02:41.627Z",
+    "seqId": 181,
+    "_serverSynced": true
   },
   {
     "id": 1770233206967,
-    "seqId": 180,
     "title": "Comprehensive Cardiopulmonary Resuscitation (CPR) & Advanced Life Support (ALS) for FRCS (GLASG)",
     "summary": "An exhaustive clinical protocol for managing cardiorespiratory arrest, defining cardiac arrest rhythms, and detailing both Basic and Advanced Life Support sequences according to UK 2005 standards. This guide covers everything from initial diagnosis to post-resuscitation procedures and ethical considerations for the cessation of care.",
     "date": "2026-02-04T19:26:46.967Z",
@@ -1479,15 +1999,17 @@
           "color_theme": "blue",
           "content": "INTERNAL & EMERGENCY MEDICINE FOR FRCS (GLASG) EXAM 2016. Prepared by Waleed Badr, FRCS. Includes Adult BLS Algorithm (UK) © 2005 and semilateral position guidelines for management of cardiorespiratory arrest."
         }
-      ]
+      ],
+      "chapterId": "clinical_skills"
     },
     "chapterId": "clinical_skills",
     "_chapterUpdated": 1770233241138,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_newlyImported": 1770235061629,
+    "seqId": 180
   },
   {
     "id": 1769683087188,
-    "seqId": 179,
     "title": "Ophthalmic Side Effects of Systemic Medication: A Comprehensive Guide",
     "summary": "An exhaustive clinical resource detailing the retinal toxicity and ocular complications associated with systemic drugs, including Chloroquine, Hydroxychloroquine, Phenothiazines, and various crystalline maculopathies. This guide emphasizes the critical role of screening and multimodal imaging in early detection.",
     "date": "2026-01-29T10:38:07.188Z",
@@ -1715,15 +2237,15 @@
       "chapterId": "therapeutics"
     },
     "chapterId": "therapeutics",
-    "_newlyImported": 1769683087188,
+    "_newlyImported": 1769862171777,
     "communityId": "sub_1769682852273_zaw1bao5x",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-29T10:34:12.275Z",
+    "seqId": 179,
     "_serverSynced": true
   },
   {
     "id": 1769683087178,
-    "seqId": 178,
     "title": "Mastering Best Vitelliform & Macular Dystrophies",
     "summary": "An exhaustive guide to Best vitelliform macular dystrophy, its clinical stages, adult-onset variants, and the spectrum of pattern dystrophies. This resource covers genetic origins, diagnostic investigations including EOG and OCT, and long-term visual prognoses.",
     "date": "2026-01-29T10:38:07.178Z",
@@ -1942,18 +2464,19 @@
           ]
         }
       ],
-      "chapterId": "paediatric"
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1769683087178,
+    "_newlyImported": 1769862171777,
     "communityId": "sub_1769673209663_o5nt642gw",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-29T07:53:29.663Z",
+    "seqId": 178,
+    "_chapterUpdated": 1770235061629,
     "_serverSynced": true
   },
   {
     "id": 1769683087169,
-    "seqId": 177,
     "title": "Stargardt Disease & Fundus Flavimaculatus: A Clinical Compendium",
     "summary": "Stargardt disease and fundus flavimaculatus are the most common inherited macular dystrophies in both adults and children, characterized by central vision loss and unique retinal flecks. This guide details the genetics, imaging findings, and emerging treatments for these progressive conditions.",
     "date": "2026-01-29T10:38:07.169Z",
@@ -2136,19 +2659,18 @@
           }
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769683087169,
+    "_newlyImported": 1769862171777,
     "communityId": "sub_1769672499124_v2cjvzyfo",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-29T07:41:39.125Z",
-    "_chapterUpdated": 1769969368003,
+    "seqId": 177,
     "_serverSynced": true
   },
   {
     "id": 1769683087160,
-    "seqId": 176,
     "title": "Vitreomacular Interface Disorders & Macular Oedema: A Comprehensive Clinical Guide",
     "summary": "An exhaustive clinical overview of Cystoid Macular Oedema (CMO), Epiretinal Membranes (ERM), Full-thickness Macular Holes (FTMH), and Vitreomacular Traction (VMT), detailing pathophysiology, diagnostic staging, and surgical management.",
     "date": "2026-01-29T10:38:07.160Z",
@@ -2536,18 +3058,19 @@
           ]
         }
       ],
-      "chapterId": "strabismus"
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769683087160,
+    "_newlyImported": 1769862171776,
     "communityId": "sub_1769681397276_oee9bnsfq",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-29T10:09:57.278Z",
+    "seqId": 176,
+    "_chapterUpdated": 1770235061629,
     "_serverSynced": true
   },
   {
     "id": 1769683087151,
-    "seqId": 175,
     "title": "Central Serous Chorioretinopathy (CSR) & Pachychoroid Disease Spectrum",
     "summary": "An idiopathic disorder defined by localized serous detachment of the sensory retina at the macula. This comprehensive guide covers the spectrum from acute CSR to chronic variants and Polypoidal Choroidal Vasculopathy (PCV).",
     "date": "2026-01-29T10:38:07.151Z",
@@ -2761,18 +3284,19 @@
           "content": "Fig. 14.41 PCV: (A) Reddish-orange nodular terminal swellings with parapapillary leakage; (B) FA late venous phase showing hyperfluorescence; (C) Early ICGA showing polyp; (D) Late ICGA; (E) Polyp at 2 mins; (F) Polyp-like swellings with leakage at 10 mins; (G) OCT showing vascularized PEDs and pachychoroid. \nFig. 14.42 CSR: (A) Serous retinal detachment; (B) Resolving foveal CSR; (C) FAF showing subclinical lesions, RPE loss (hypoautofluorescent) and lipofuscin (hyperautofluorescent); (D) FAF gravitational tract; (E) OCT acute phase elevation.\nFig. 14.43 FA: (A-B) ‘Ink blot’ appearance; (C-D) ‘smokestack’ appearance.\nFig. 14.44 Laser: Subthreshold treatment successful results (A) before and (B) after."
         }
       ],
-      "chapterId": "medical_retina"
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
-    "_newlyImported": 1769683087151,
+    "_newlyImported": 1769862171776,
     "communityId": "sub_1769674938211_ebveu53zy",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-29T08:22:18.211Z",
+    "seqId": 175,
+    "_chapterUpdated": 1770235061629,
     "_serverSynced": true
   },
   {
     "id": 1769683087139,
-    "seqId": 174,
     "title": "Understanding Cone and Cone-Rod Dystrophy",
     "summary": "A clinically and genetically heterogenous group of inherited retinal diseases characterized by cone photoreceptor degeneration, often followed by rod photoreceptor loss. These conditions typically lead to a poor prognosis with eventual visual acuity of 6/60 or worse.",
     "date": "2026-01-29T10:38:07.139Z",
@@ -2930,18 +3454,19 @@
           ]
         }
       ],
-      "chapterId": "paediatric"
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1769683087139,
+    "_newlyImported": 1769862171776,
     "communityId": "sub_1769682862949_javwr0zhf",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-29T10:34:22.949Z",
+    "seqId": 174,
+    "_chapterUpdated": 1770235061629,
     "_serverSynced": true
   },
   {
     "id": 1769623448866,
-    "seqId": 173,
     "title": "COMPREHENSIVE SURGERY FOR GLAUCOMA: PROCEDURES, PROTOCOLS & COMPLICATIONS",
     "summary": "An exhaustive guide to glaucoma surgery, from the gold-standard trabeculectomy and adjuvant antifibrotics to MIGS and the management of complex post-operative complications. This poster preserves the complete clinical guidance for iris, angle, and filtration procedures.",
     "date": "2026-01-28T18:04:08.866Z",
@@ -3341,15 +3866,15 @@
       "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
-    "_newlyImported": 1769623448866,
+    "_newlyImported": 1769862171776,
     "communityId": "sub_1769618268159_fjdwsmvrkpsbsh",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
+    "seqId": 173,
     "_serverSynced": true
   },
   {
     "id": 1769623448853,
-    "seqId": 172,
     "title": "Laser Procedures in Glaucoma: Clinical Guide & Protocols",
     "summary": "Laser procedures play a vital part in the treatment of many forms of glaucoma. This comprehensive overview details procedural techniques, debated mechanisms of action, specific clinical indications, and potential complications as outlined in Chapter 24.",
     "date": "2026-01-28T18:04:08.853Z",
@@ -3581,15 +4106,15 @@
       "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
-    "_newlyImported": 1769623448853,
+    "_newlyImported": 1769862171776,
     "communityId": "sub_1769618268160_nynyufx6ijldz1",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.160Z",
+    "seqId": 172,
     "_serverSynced": true
   },
   {
     "id": 1769622344995,
-    "seqId": 171,
     "title": "Concomitant Strabismus: Exotropia",
     "summary": "A comprehensive clinical overview of exotropia, a manifest outward deviation of the visual axes. This guide details the classification, assessment, and surgical/non-surgical management of constant, intermittent, and secondary exotropias.",
     "date": "2026-01-28T17:45:44.995Z",
@@ -3814,15 +4339,15 @@
       "chapterId": "strabismus"
     },
     "chapterId": "strabismus",
-    "_newlyImported": 1769622344995,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_jwo0ffqoloragy",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
+    "seqId": 171,
     "_serverSynced": true
   },
   {
     "id": 1769622344984,
-    "seqId": 170,
     "title": "Ocular Neuropathic Pain & Conjunctival Lesions: Clinical Compendium",
     "summary": "An exhaustive clinical guide detailing the pathophysiology and NICE-based treatment of corneal neuropathic pain, alongside the diagnosis, management, and malignant potential of pigmented and non-pigmented conjunctival lesions.",
     "date": "2026-01-28T17:45:44.984Z",
@@ -4146,18 +4671,19 @@
           "content": "18. Rosenthal P et al. Corneal pain without stain: is it real? Ocul Surf. 2009;7:28–40. | 19. NICE CG173: Neuropathic pain in adults: pharmacological management. 2013 (updated 2017). | 20. Dieckmann G et al. Neuropathic Corneal Pain: Approaches for Management. Ophthalmology 2017. | 21. Karcioglu ZA et al. HPV in neoplastic/non-neoplastic conditions. Br J Ophthalmol. 1997. | 22. Tulvatana W et al. Risk factors for OSSN. Br J Ophthalmol. 2003. | 23. Ross JJ et al. Systemic remission of NHL after intralesional IFN α-2b. Am J Ophthalmol. 2004."
         }
       ],
-      "chapterId": "neuro"
+      "chapterId": "paediatric"
     },
     "chapterId": "paediatric",
-    "_newlyImported": 1769622344984,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_j85dphq224a2m6",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
-    "_serverSynced": true
+    "seqId": 170,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061629
   },
   {
     "id": 1769622344969,
-    "seqId": 169,
     "title": "Viral & Chlamydial Conjunctivitis: The Complete Clinical Compendium",
     "summary": "An exhaustive guide to identifying and managing viral and chlamydial infections of the conjunctiva. This poster covers everything from Adenoviral serotypes and Keratitis stages to the WHO Trachoma classification and SAFE strategy.",
     "date": "2026-01-28T17:45:44.969Z",
@@ -4477,18 +5003,19 @@
           "content": "For Neonatal chlamydial conjunctivitis, see E Ophthalmia neonatorum, pp. 882–3. WHO aims to eliminate trachoma as a blinding disease by 2020."
         }
       ],
-      "chapterId": "conjunctiva"
+      "chapterId": "orbit"
     },
     "chapterId": "orbit",
-    "_newlyImported": 1769622344969,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_wmn82zwmvi1z3t",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
-    "_serverSynced": true
+    "seqId": 169,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061629
   },
   {
     "id": 1769622318752,
-    "seqId": 168,
     "title": "Inherited Retinal Disorders: The RP & CSNB Master Guide",
     "summary": "An exhaustive clinical reference detailing Retinitis Pigmentosa, Leber Congenital Amaurosis, Congenital Stationary Night Blindness, and Cone Dysfunction Syndromes, encompassing genetics, diagnostic investigations, and emerging therapies.",
     "date": "2026-01-28T17:45:18.752Z",
@@ -4872,18 +5399,19 @@
           ]
         }
       ],
-      "chapterId": "orbit"
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769622318752,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_2xxn2eoynv6crn",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
-    "_serverSynced": true
+    "seqId": 168,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061629
   },
   {
     "id": 1769622318730,
-    "seqId": 167,
     "title": "RETINOBLASTOMA: The Comprehensive Clinical Guide",
     "summary": "Retinoblastoma is a rare but life-threatening primary intraocular malignancy of childhood. This guide covers its complex genetics, international classification, clinical presentation, and multidisciplinary treatment protocols aimed at life, globe, and vision preservation.",
     "date": "2026-01-28T17:45:18.730Z",
@@ -5172,18 +5700,19 @@
           "content": "Fig 20.37: Choroidal metastasis examples (breast, bronchus) and B-scan. Fig 20.39: RB presentations: (A) Leukocoria, (B) Glaucoma/buphthalmos, (C) Red eye/uveitis, (D) Iris nodules, (E) Orbital inflammation, (F) Orbital invasion. Fig 20.40: RB types: (A) Intraretinal, (B) Endophytic, (C) Mixed, (D) Retinal detachment, (E) B-scan calcification, (F) CT calcification. Fig 20.42: PFV with cataract and retrolental vessels. Fig 20.43: Vitreoretinal dysplasia and skin rash (Incontinentia pigmenti). Fig 20.44: Retinoma calcified mass."
         }
       ],
-      "chapterId": "tumours"
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
-    "_newlyImported": 1769622318730,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_inro7f1625vhbg",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
-    "_serverSynced": true
+    "seqId": 167,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061629
   },
   {
     "id": 1769622318722,
-    "seqId": 166,
     "title": "Wills - Mastering Exodeviations: Clinical Guide & Management",
     "summary": "A comprehensive clinical roadmap for diagnosing and managing exodeviations, ranging from latent phorias to complex paralytic and mechanical outward ocular misalignments. This guide preserves every critical diagnostic sign, workup step, and treatment protocol for ophthalmic practice.",
     "date": "2026-01-28T17:45:18.722Z",
@@ -5454,18 +5983,18 @@
           }
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "strabismus"
     },
     "chapterId": "strabismus",
-    "_newlyImported": 1769622318722,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_8w6fds8cti1jr1",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
+    "seqId": 166,
     "_serverSynced": true
   },
   {
     "id": 1769622318715,
-    "seqId": 165,
     "title": "Hess and Lees Charts: Principles, Advantages, and Interpretation",
     "summary": "This guide provides a comprehensive overview of ocular dissociation tests where the non-fixing eye is plotted against the fixing eye's positions. It details the procedural differences between Hess and Lees testing and outlines diagnostic interpretation rules for ocular motility disorders.",
     "date": "2026-01-28T17:45:18.715Z",
@@ -5599,18 +6128,19 @@
           }
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1769622318715,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_769u8qawm5k0pi",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
-    "_serverSynced": true
+    "seqId": 165,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061629
   },
   {
     "id": 1769622318708,
-    "seqId": 164,
     "title": "Mastering Fundus Fluorescein Angiography (FFA)",
     "summary": "A comprehensive guide to Fundus Fluorescein Angiography (FFA), detailing the chemical properties of sodium fluorescein, procedural methods, safety protocols, and the complex morphological interpretation of retinal and choroidal vasculature.",
     "date": "2026-01-28T17:45:18.708Z",
@@ -5840,15 +6370,15 @@
       "chapterId": "investigations"
     },
     "chapterId": "investigations",
-    "_newlyImported": 1769622318708,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_yx3o1vq00xsvku",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
+    "seqId": 164,
     "_serverSynced": true
   },
   {
     "id": 1769622318698,
-    "seqId": 163,
     "title": "Comprehensive Clinical Guide to Dry Eye Disease (DEWS II)",
     "summary": "An exhaustive clinical resource detailng the TFOS DEWS II definition, diagnostic classification, and staged management of dry eye disease. This guide covers everything from homeostatic markers and scoring patient-reported outcomes to the four-step treatment algorithm.",
     "date": "2026-01-28T17:45:18.698Z",
@@ -6122,18 +6652,19 @@
           "content": "10 Craig JP et al. TFOS DEWS II Definition and Classification report. Ocul Surf. 2017;15:276–83. 11 Wolffsohn JS et al. TFOS DEWS II Diagnostic Methodology report. Ocul Surf. 2017;15:539–74. 12 Whitcher JP et al. SICCA Ocular staining score. Am J Ophthalmol. 2010;149:405–15. 13 Bron AJ et al. Oxford scheme. Cornea. 2003;22:640–50. 14 Jones L et al. TFOS DEWS II Management and therapy report. Ocul Surf. 2017;15:575–628. 16 NICE [TA369] Ciclosporin. 17 Rauz S et al. RCOphth guidelines on serum eye drops. Eye (Lond). 2017."
         }
       ],
-      "chapterId": "cornea"
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1769622318698,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_h2xpztga7kfg4b",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
-    "_serverSynced": true
+    "seqId": 163,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061629
   },
   {
     "id": 1769622318687,
-    "seqId": 162,
     "title": "Comprehensive Guide to Allergic Ocular Disorders",
     "summary": "An exhaustive clinical resource covering the spectrum of allergic conjunctivitis, from common seasonal variations to serious conditions like Vernal and Atopic Keratoconjunctivitis. This guide details pathophysiology, clinical signs, and precise pharmacological management protocols.",
     "date": "2026-01-28T17:45:18.687Z",
@@ -6386,18 +6917,19 @@
           "content": "Allergic conjunctivitis (1): Seasonal (grass, tree, weed pollens (UK), ragweed (USA)) and perennial (animal dander, house dust mite). Clinical features: Itching, watery discharge; history of atopy; chemosis, lid oedema, papillae, mild diffuse injection. Investigations: Conjunctival swabs, skin prick, serum IgE, RAST. Treatment: Allergen elimination (bedding, pets, AC); lubricants. Moderate: Sodium cromoglicate 2% 4x/d, lodoxamide 0.1% 4x/d, azelastine 0.05% (max 6wk), levocabastine 0.05%, olopatadine 1mg/ml (4mo), chlorphenamine 4mg 3-6x/d, cetirizine 10mg 1x/d. Severe: fluorometholone 0.1% 4x/d 1wk; clinical immunologist for desensitization. Vernal keratoconjunctivitis: children/young adults (5-15y; duration 5-10y). Puberty male bias. Increasing in South Asians. Tarsal form (paler Caucasians), limbal form (darker races). Th2 mediated; MMP inhibition; conjunctival collagen build-up. Signs: Cobblestone papillae, Trantas dots, superior PEE, vernal ulcer, pseudogerontoxon. VKC Treatment: Ciclosporin 0.2% ointment ('target species dog' but human off-label). AKC: adults (25-30y), Th1 component, lid eczema, staph disease, forniceal shortening, inferior PEE, pannus, keratoconus, cataract. AKC Treatment: tacrolimus cream (unlicensed), doxycycline 50-100mg or 20mg for 3mo. Liaison with dermatologist."
         }
       ],
-      "chapterId": "investigations"
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769622318687,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_0y4cip844nqagh",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
-    "_serverSynced": true
+    "seqId": 162,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061629
   },
   {
     "id": 1769622318677,
-    "seqId": 161,
     "title": "Conjunctival Signs: Pathophysiology & Clinical Documentation",
     "summary": "A comprehensive guide to identifying conjunctival pathology, ranging from hyperaemia and discharge types to complex cicatrizing diseases. This resource outlines exact clinical signs, their underlying pathophysiology, and standardized methods for biomicroscopic documentation.",
     "date": "2026-01-28T17:45:18.677Z",
@@ -6622,15 +7154,15 @@
       "chapterId": "lens"
     },
     "chapterId": "lens",
-    "_newlyImported": 1769622318677,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_8e40hm89s46sgy",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
+    "seqId": 161,
     "_serverSynced": true
   },
   {
     "id": 1769622318668,
-    "seqId": 160,
     "title": "Mastering the Conjunctiva & Tear Film",
     "summary": "A comprehensive anatomical and physiological guide to the conjunctiva, a mucous membrane essential for a healthy eye. This overview details the microscopic layers, macroscopic divisions, and the complex muco-aqueous gradient of the tear film.",
     "date": "2026-01-28T17:45:18.668Z",
@@ -6774,18 +7306,19 @@
           ]
         }
       ],
-      "chapterId": "conjunctiva"
+      "chapterId": "cornea"
     },
     "chapterId": "cornea",
-    "_newlyImported": 1769622318668,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_fdevsznhshli16",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
-    "_serverSynced": true
+    "seqId": 160,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061629
   },
   {
     "id": 1769622318639,
-    "seqId": 159,
     "title": "Retinitis Pigmentosa: The Clinical Compendium",
     "summary": "Retinitis pigmentosa (RP) is the most common hereditary retinal degeneration, characterized by a progressive loss of rod and cone photoreceptors. This guide covers its complex genetics, diagnostic triad, systemic associations, and current management strategies.",
     "date": "2026-01-28T17:45:18.639Z",
@@ -7089,15 +7622,15 @@
       "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1769622318639,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_fo4joxevqvq4dw",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
+    "seqId": 159,
     "_serverSynced": true
   },
   {
     "id": 1769622318613,
-    "seqId": 158,
     "title": "STRABISMUS: THE COMPREHENSIVE OUTLINE",
     "summary": "An exhaustive clinical guide to deviations of the eye, distinguishing between true and pseudo-deviations, latent and manifest states, and the specific classifications of esodeviations and exodeviations.",
     "date": "2026-01-28T17:45:18.613Z",
@@ -7339,10 +7872,11 @@
       "chapterId": "strabismus"
     },
     "chapterId": "strabismus",
-    "_newlyImported": 1769622318613,
+    "_newlyImported": 1769851507004,
     "communityId": "sub_1769618268159_cp1lluhfr5fblz",
     "communityAuthor": "Dodiii",
     "communityDate": "2026-01-28T16:37:48.159Z",
+    "seqId": 158,
     "_serverSynced": true
   },
   {
@@ -8753,6 +9287,7 @@
   },
   {
     "id": 1769615758346,
+    "seqId": 157,
     "title": "Mastering Anti-VEGF Therapy: From Mechanism to Practice",
     "summary": "Anti-vascular endothelial growth factor (VEGF) therapy is a cornerstone of medical retina, targeting VEGF-A to reduce vascular permeability and halt pathologic angiogenesis. This comprehensive guide outlines the pharmacological mechanisms, clinical trial evidence, NICE guidelines, and precise surgical protocols for intravitreal administration.",
     "date": "2026-01-28T15:55:58.346Z",
@@ -9065,11 +9600,11 @@
     "communityId": "sub_1769614749293_k5acjeivm5o4d7",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
-    "seqId": 157,
     "_serverSynced": true
   },
   {
     "id": 1769615758338,
+    "seqId": 156,
     "title": "Orbital Tumours & Vascular Lesions: The Complete Clinical Compendium",
     "summary": "An exhaustive clinical guide detailing the epidemiology, clinical features, investigations, and management of orbital neoplasms and vascular anomalies including lacrimal, neural, lymphoproliferative, and metastatic conditions.",
     "date": "2026-01-28T15:55:58.338Z",
@@ -9387,11 +9922,11 @@
     "communityId": "sub_1769614749293_xdb3wf052wgxh0",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
-    "seqId": 156,
     "_serverSynced": true
   },
   {
     "id": 1769615758329,
+    "seqId": 155,
     "title": "RETINOSCHISIS & HEREDITARY VITREORETINAL DEGENERATIONS",
     "summary": "A comprehensive clinical breakdown of retinoschisis types—ranging from common degenerative forms to rare hereditary vitreoretinal degenerations like Stickler syndrome and FEVR. This guide covers pathophysiology, genetic markers, clinical diagnostics, and management protocols.",
     "date": "2026-01-28T15:55:58.329Z",
@@ -9634,18 +10169,19 @@
           "content": "10 Richards AJ et al. Variation in the vitreous phenotype of Stickler syndrome... Am J Hum Genet. 2000;67:1083–94. 11 Nikopoulos K et al. Autosomal recessive Stickler syndrome... Invest Ophthal Vis Sci 2011:52: 4774–9. 12 Ang A et al. Retinal detachment and prophylaxis in Type 1 Stickler syndrome. Ophthalmology. 2008;115:164–8. 13 Molday RS et al. X-linked juvenile retinoschisis: clinical diagnosis, genetic analysis, and molecular mechanisms. Prog Ret Eye Res. 2012;31:195–212. 14 Khandhadia S et al. X-linked retinoschisis maculopathy treated with topical dorzolamide... Eye (Lond). 2011;25:922–8. 15 Kellner U et al. X-linked congenital retinoschisis. Graefes Arch Clin Exp Ophthalmol. 1990;228:432–7. [Page markers: 541, 542, 543, 544]"
         }
       ],
-      "chapterId": "vitreoretinal"
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "_newlyImported": 1769615758329,
     "communityId": "sub_1769614749293_mcsttp3qrjl498",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
-    "seqId": 155,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1769615758317,
+    "seqId": 154,
     "title": "Clinical Pathology of Degenerative Myopia, Angioid Streaks & Choroidal Folds",
     "summary": "An exhaustive clinical guide covering the epidemiological impact, diagnostic features, systemic associations, and evidence-based treatments for pathological myopia, Bruch's membrane pathologies, and choroidal corrugations.",
     "date": "2026-01-28T15:55:58.317Z",
@@ -9928,11 +10464,11 @@
     "communityId": "sub_1769614749293_kgutm4b4tdd7qz",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
-    "seqId": 154,
     "_serverSynced": true
   },
   {
     "id": 1769615758305,
+    "seqId": 153,
     "title": "The Watery Eye: Clinical Assessment & Management",
     "summary": "A comprehensive guide to managing epiphora, ranging from transient irritants to permanent disabling conditions. This poster outlines the rigorous diagnostic approach and surgical interventions required for elderly and symptomatic populations.",
     "date": "2026-01-28T15:55:58.305Z",
@@ -10154,12 +10690,10 @@
     "communityId": "sub_1769614749293_m425ieihvacpfz",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
-    "seqId": 153,
     "_serverSynced": true
   },
   {
     "id": 1769615469071,
-    "seqId": 152,
     "title": "RETINAL DETACHMENT: COMPREHENSIVE ASSESSMENT ATLAS",
     "summary": "Retinal detachment is a common, sight-threatening condition with an incidence of 1/10,000/y. This guide covers the assessment of Rhegmatogenous (RRD), Tractional (TRD), and Exudative (ERD) types, ensuring no clinical detail is overlooked.",
     "date": "2026-01-28T15:51:09.071Z",
@@ -10444,15 +10978,15 @@
       "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769615469071,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_snidwtsmijnk81",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 152,
     "_serverSynced": true
   },
   {
     "id": 1769615469065,
-    "seqId": 151,
     "title": "The Vitreomacular Interface: Adhesion, Traction & Macular Holes",
     "summary": "A comprehensive guide to the vitreoretinal interface, detailing how OCT has revolutionized our understanding of VMA, VMT, and Macular Holes. This poster outlines classification, staging, surgical outcomes, and prognostic factors based on the International Vitreomacular Traction Study Group.",
     "date": "2026-01-28T15:51:09.065Z",
@@ -10700,15 +11234,15 @@
       "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769615469065,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_dduhga04nyy528",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 151,
     "_serverSynced": true
   },
   {
     "id": 1769615469056,
-    "seqId": 150,
     "title": "Laser Retinopexy & Cryopexy for Retinal Tears",
     "summary": "A comprehensive clinical guide to the mechanisms, indications, procedures, and complications of laser retinopexy and cryopexy. This poster details exact settings and protocols for treating retinal breaks to prevent detachment.",
     "date": "2026-01-28T15:51:09.056Z",
@@ -10884,18 +11418,19 @@
           "content": "L ASER RETI no PEX y A n D CRyo PEX y F o R RETI n AL TEARS. Source Page: 557. All clinical parameters provided are standard guidelines for the management of retinal breaks without excessive subretinal fluid (SRF)."
         }
       ],
-      "chapterId": "glaucoma"
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
-    "_newlyImported": 1769615469056,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_u55isr3wzdwmlq",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 150,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
     "id": 1769615469049,
-    "seqId": 149,
     "title": "IIH: Understanding Idiopathic Intracranial Hypertension",
     "summary": "Idiopathic Intracranial Hypertension (IIH) is a condition characterized by increased pressure around the brain without a detectable cause. It primarily affects the visual system and requires urgent management to prevent permanent blindness.",
     "date": "2026-01-28T15:51:09.049Z",
@@ -11045,15 +11580,15 @@
       "chapterId": "neuro"
     },
     "chapterId": "neuro",
-    "_newlyImported": 1769615469049,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_z4nunnz6s0odo7",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 149,
     "_serverSynced": true
   },
   {
     "id": 1769615469038,
-    "seqId": 148,
     "title": "Diabetic Eye Disease: Screening Guidelines & Management",
     "summary": "This visual guide outlines the UK National Screening Committee's systematic approach to testing for diabetic retinopathy. It covers the methods, classification systems, and specific referral timelines for clinical management and hospital eye services.",
     "date": "2026-01-28T15:51:09.038Z",
@@ -11271,15 +11806,16 @@
       "chapterId": "evidence"
     },
     "chapterId": "evidence",
-    "_newlyImported": 1769615469038,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_cf11k1sud1ejzs",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 148,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
     "id": 1769615469029,
-    "seqId": 147,
     "title": "PHOTODYNAMIC THERAPY (PDT): CLINICAL PROTOCOL & MANAGEMENT",
     "summary": "PDT describes the laser stimulation of a photoactivated dye that results in the selective destruction of Choroidal Neovascularization (CNV) while minimizing damage to adjacent structures. This comprehensive guide outlines the mechanism, administration, and essential safety protocols for modern ophthalmic practice.",
     "date": "2026-01-28T15:51:09.029Z",
@@ -11480,15 +12016,15 @@
       "chapterId": "lasers"
     },
     "chapterId": "lasers",
-    "_newlyImported": 1769615469029,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_tv6jj2py1ffyuv",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 147,
     "_serverSynced": true
   },
   {
     "id": 1769615469020,
-    "seqId": 146,
     "title": "DIABETIC EYE DISEASE: SYSTEMIC MANAGEMENT",
     "summary": "A comprehensive clinical guide to the systemic management of diabetic eye disease. This resource covers glycaemic, blood pressure, and cholesterol control targets, lifestyle interventions, renal support, and pregnancy screening protocols.",
     "date": "2026-01-28T15:51:09.020Z",
@@ -11681,18 +12217,19 @@
           "content": "26 ACCORD Study group et al. Effects of medical therapies on retinopathy progression in type 2 diabetes. N Engl J Med. 2010;363:233–44. DIABETIC EYE DISEASE: MANAGEMENT 599"
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1769615469020,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_2ab2hbkx544zwa",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 146,
+    "_chapterUpdated": 1769615732549,
     "_serverSynced": true
   },
   {
     "id": 1769615469011,
-    "seqId": 145,
     "title": "THE WATERY EYE: COMPREHENSIVE ASSESSMENT & TREATMENT",
     "summary": "A clinical guide to evaluating epiphora, ranging from transient irritants to permanent disabling conditions. This resource covers the physiological assessment, common etiologies, and surgical interventions for nasolacrimal drainage.",
     "date": "2026-01-28T15:51:09.011Z",
@@ -11969,15 +12506,15 @@
       "chapterId": "lacrimal"
     },
     "chapterId": "lacrimal",
-    "_newlyImported": 1769615469011,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_4of4ta1n7pjwlh",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 145,
     "_serverSynced": true
   },
   {
     "id": 1769615469005,
-    "seqId": 144,
     "title": "Vascular Retinopathy: From Ischaemia to Hypertension & Beyond",
     "summary": "An exhaustive clinical guide to Ocular Ischaemic Syndrome, Hypertensive Retinopathy, and systemic vascular anomalies. This poster covers pathogenesis, clinical findings, and multi-disciplinary management for sight-threatening vascular conditions.",
     "date": "2026-01-28T15:51:09.005Z",
@@ -12392,19 +12929,19 @@
           }
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
-    "_newlyImported": 1769615469005,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_7jitwvkvu0vw6f",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
-    "_chapterUpdated": 1769615602777,
+    "seqId": 144,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
     "id": 1769615468996,
-    "seqId": 143,
     "title": "Disorders of the Anophthalmic Socket",
     "summary": "A comprehensive guide to indications for eye removal, surgical classifications, and the management of post-operative complications including PESS, socket infections, and implant issues. This resource details clinical features and exhaustive treatment pathways for optimal socket health.",
     "date": "2026-01-28T15:51:08.996Z",
@@ -12612,19 +13149,19 @@
           ]
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769615468996,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_ih8c54jfgmx4d2",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
-    "_chapterUpdated": 1769615602777,
+    "seqId": 143,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
     "id": 1769615468987,
-    "seqId": 142,
     "title": "Comprehensive Rhegmatogenous Retinal Detachment (RRD) Clinical Guide",
     "summary": "RRD is the most common form of retinal detachment and an ophthalmic emergency requiring urgent intervention to prevent blindness and phthisis. This guide details the pathophysiology, clinical features, PVR classification, and surgical management of the condition.",
     "date": "2026-01-28T15:51:08.987Z",
@@ -12886,15 +13423,15 @@
       "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769615468987,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_68ev17jmmsbr7p",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 142,
     "_serverSynced": true
   },
   {
     "id": 1769615468977,
-    "seqId": 141,
     "title": "Vitreous Prolapse: Emergency Management & Clinical Guidance",
     "summary": "Vitreous prolapse is a significant intraoperative complication where the vitreous gel migrates into the anterior segment. This guide outlines the immediate identification, surgical management, and prevention of long-term vision-threatening sequelae.",
     "date": "2026-01-28T15:51:08.977Z",
@@ -13057,15 +13594,15 @@
       "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769615468977,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_ilxn7rvh1fei53",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 141,
     "_serverSynced": true
   },
   {
     "id": 1769615468966,
-    "seqId": 140,
     "title": "Submacular (Subfoveal) Haemorrhage: Management & Outcomes",
     "summary": "A rare but devastating complication resulting in photoreceptor death and permanent visual loss. This condition requires urgent identification and intervention, as the natural history is poor and surgical outcomes are heavily dependent on the duration of the haemorrhage.",
     "date": "2026-01-28T15:51:08.966Z",
@@ -13210,19 +13747,19 @@
           "content": "23. Submacular Surgery Trials (SST) Research Group. Surgery for hemorrhagic choroidal neovascular lesions of age-related macular degeneration: ophthalmic findings: SST report no. 13. Ophthalmology. 2004;111:1993–2006. \n\n24. Bae k et al. optical coherence tomographic features and prognosis of pneumatic displacement for submacular hemorrhage. PLoS ONE. 2016;11:e0168474."
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "investigations"
     },
     "chapterId": "investigations",
-    "_newlyImported": 1769615468966,
+    "_newlyImported": 1769615515318,
     "communityId": "sub_1769614749293_q76894bu3lv1vr",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
-    "_chapterUpdated": 1769615873549,
-    "_serverSynced": true
+    "seqId": 140,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1769615468954,
-    "seqId": 139,
     "title": "Pneumatic Retinopexy for Superior Retinal Breaks",
     "summary": "An exhaustive clinical guide to pneumatic retinopexy, detailing the use of intraocular tamponade to seal superior retinal breaks. This poster covers the mechanism, strict indications, step-by-step methods, and prognostic outcomes.",
     "date": "2026-01-28T15:51:08.954Z",
@@ -13362,19 +13899,19 @@
           "content": "Though initial results appear lower (75.5%) than for scleral buckling (8588%), the final anatomic and functional results are similar at around 97%.25 Careful case selection has been shown to improve 1° success rates."
         }
       ],
-      "chapterId": "glaucoma"
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
-    "_newlyImported": 1769615468954,
+    "_newlyImported": 1769615515315,
     "communityId": "sub_1769614749293_3egjx8h3g0r7dn",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 139,
     "_serverSynced": true,
-    "_chapterUpdated": 1769615873549
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1769615071620,
-    "seqId": 138,
     "title": "Retinal Vascular Occlusions: BRVO, HRVO, CRAO & BRAO",
     "summary": "An exhaustive clinical guide to diagnosing and managing retinal vein and artery occlusions. Covering clinical features, investigations, emergency treatment protocols, and prognostic outcomes for various retinal vascular disorders.",
     "date": "2026-01-28T15:44:31.620Z",
@@ -13693,15 +14230,15 @@
       "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1769615071620,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_8v8ks8irmt3fx6",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 138,
     "_serverSynced": true
   },
   {
     "id": 1769615071613,
-    "seqId": 137,
     "title": "Dacryocystorhinostomy (DCR) & Lacrimal Infections: The Complete Clinical Guide",
     "summary": "An exhaustive clinical reference covering the surgical techniques of external and endonasal DCR, preoperative and postoperative management, and the diagnosis and treatment of lacrimal system infections including canaliculitis and dacryocystitis.",
     "date": "2026-01-28T15:44:31.613Z",
@@ -13895,18 +14432,19 @@
           "content": "In chronic dacryocystitis, there may be recurrent ipsilateral conjunctivitis, epiphora, and a mucocele. It may be identified by demonstration of nasolacrimal duct obstruction and expression of the contents of the mucocele or regurgitation of mucus on syringing. Surgical treatment is with DCr. In elderly frail patients not fit enough for DCr, particularly when symptoms of epiphora are mild, dacryocystectomy may be performed instead."
         }
       ],
-      "chapterId": "lacrimal"
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
-    "_newlyImported": 1769615071613,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_8ojvpdmbx94k4a",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
-    "_serverSynced": true
+    "seqId": 137,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1769615071608,
-    "seqId": 136,
     "title": "DIABETIC EYE DISEASE: ASSESSMENT & MANAGEMENT",
     "summary": "A comprehensive clinical framework for the assessment, grading, and treatment of diabetic eye disease. This guide integrates risk factor evaluation, the Airlie House/ETDRS classification systems, and specific management protocols for retinopathy and maculopathy.",
     "date": "2026-01-28T15:44:31.608Z",
@@ -14303,18 +14841,18 @@
           "content": "For further detail and equivalency of classification systems, refer to the Royal College of Ophthalmologists Diabetic Retinopathy guidelines 2012 available at http://www.rcophth.ac.uk."
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1769615071608,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_qaiwoph65ezaxy",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 136,
     "_serverSynced": true
   },
   {
     "id": 1769615071599,
-    "seqId": 135,
     "title": "MACULAR FLUID DYNAMICS: CSC & CMO CLINICAL COMPENDIUM",
     "summary": "An exhaustive clinical guide to Central Serous Chorioretinopathy (CSC) and Cystoid Macular Oedema (CMO), detailing their unknown aetiologies, complex risk profiles, diagnostic imaging hallmarks, and evidence-based management protocols.",
     "date": "2026-01-28T15:44:31.599Z",
@@ -14620,18 +15158,18 @@
           "content": "Prognosis varies according to underlying pathology. In diabetes or RVO, anti-VEGF agents are effective. Carbonic anhydrase inhibitors are used for inherited dystrophies. Most post-cataract surgery patients attain VA ≥6/9 within 3–12mo of their operation."
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1769615071599,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_81kkxlqt18j51t",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 135,
     "_serverSynced": true
   },
   {
     "id": 1769615071593,
-    "seqId": 134,
     "title": "DIABETIC EYE DISEASE: A GLOBAL CLINICAL OVERVIEW",
     "summary": "An exhaustive guide to the classification, systemic impact, and ophthalmic complications of diabetes mellitus. This overview includes diagnostic criteria and critical findings from landmark clinical trials like DCCT, UKPDS, and ACCORD.",
     "date": "2026-01-28T15:44:31.593Z",
@@ -14912,18 +15450,19 @@
           "content": "DIABETIC E y E DISEASE : g ENERAL | 593"
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "evidence"
     },
     "chapterId": "evidence",
-    "_newlyImported": 1769615071593,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_5ft0fhokvvzs0o",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
-    "_serverSynced": true
+    "seqId": 134,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1769615071587,
-    "seqId": 133,
     "title": "Age-Related Macular Degeneration (AMD): The Ultimate Clinical Guide",
     "summary": "An exhaustive clinical resource covering the leading cause of blindness in the Western world over 50. This guide details the epidemiology, risk factors, classification, and multimodal management of both non-neovascular (dry) and neovascular (wet) AMD.",
     "date": "2026-01-28T15:44:31.587Z",
@@ -15272,15 +15811,15 @@
       "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1769615071587,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_v6ge7sptihlhj6",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 133,
     "_serverSynced": true
   },
   {
     "id": 1769615071578,
-    "seqId": 132,
     "title": "Comprehensive Ophthalmic Compendium: Radiation & Inherited Retinal Dystrophies",
     "summary": "An exhaustive clinical guide covering the pathogenesis, risk factors, and management of radiation-induced retinopathy alongside a complete classification of inherited retinal and macular dystrophies, including RP, CSNB, and Stargardt’s disease.",
     "date": "2026-01-28T15:44:31.578Z",
@@ -15750,18 +16289,18 @@
           "content": "North Carolina Macular Dystrophy (AD, PRDM13): non-progressive, grade 1 (small drusen) to grade 3 (colobomatous). Progressive bifocal chorioretinal atrophy (AD, Chr 6q): nystagmus, myopia, large atrophic macular/nasal lesions from birth. Spotted cystic dystrophy: pigmented spots with cysts on OCT, neovascularization risk. Membranoproliferative glomerulonephritis type II: associated with drusen in young patients."
         }
       ],
-      "chapterId": "paediatric"
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1769615071578,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_qagkfdtvpr1x5q",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 132,
     "_serverSynced": true
   },
   {
     "id": 1769615071572,
-    "seqId": 131,
     "title": "Central Retinal Vein Occlusion (CRVO) Clinical Blueprint",
     "summary": "An exhaustive guide to CRVO classification, clinical presentation, and management protocols. This resource integrates the 2015 Royal College of Ophthalmologists guidelines and key prognostic data for both ischaemic and non-ischaemic types.",
     "date": "2026-01-28T15:44:31.572Z",
@@ -16010,15 +16549,15 @@
       "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1769615071572,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_8545sgs4w3djsr",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 131,
     "_serverSynced": true
   },
   {
     "id": 1769615071565,
-    "seqId": 130,
     "title": "Chorioretinal Dystrophies & Retinal Toxicities: Clinical Compendium",
     "summary": "An exhaustive clinical guide to inherited chorioretinal conditions, albinism phenotypes, and drug-induced retinal toxicities. This resource covers pathophysiology, diagnostic investigations, and management protocols for potentially blinding disorders.",
     "date": "2026-01-28T15:44:31.565Z",
@@ -16381,15 +16920,16 @@
       "chapterId": "paediatric"
     },
     "chapterId": "paediatric",
-    "_newlyImported": 1769615071565,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_o782a218bpeoiw",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
-    "_serverSynced": true
+    "seqId": 130,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1769615071559,
-    "seqId": 129,
     "title": "LACRIMAL ANATOMY AND PHYSIOLOGY: CHAPTER 5",
     "summary": "An exhaustive visual guide to the lacrimal system, detailing the secretory component of tear production and the complex excretory system responsible for tear drainage. This poster covers the complete anatomical structure and physiological mechanisms of the human tear apparatus.",
     "date": "2026-01-28T15:44:31.559Z",
@@ -16589,15 +17129,16 @@
       "chapterId": "lens"
     },
     "chapterId": "lens",
-    "_newlyImported": 1769615071559,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_h1jcc2s94b6drb",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
-    "_serverSynced": true
+    "seqId": 129,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1769615071549,
-    "seqId": 128,
     "title": "Clinical Orbit: Anatomy, Apertures & Acute Pathology",
     "summary": "An exhaustive clinical guide to orbital anatomy and the management of preseptal cellulitis, orbital cellulitis, and mucormycosis. This poster details the rigid bony structure, vital apertures, and emergency protocols for life-threatening orbital infections.",
     "date": "2026-01-28T15:44:31.549Z",
@@ -16910,15 +17451,15 @@
       "chapterId": "orbit"
     },
     "chapterId": "orbit",
-    "_newlyImported": 1769615071549,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_8nef5nvnd1y0jt",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 128,
     "_serverSynced": true
   },
   {
     "id": 1769615071542,
-    "seqId": 127,
     "title": "Comprehensive Guide to Orbital Inflammations & Cystic Lesions",
     "summary": "An exhaustive clinical reference detailing the classification, presentation, and management of orbital inflammatory diseases and cystic lesions. Covers idiopathic processes, systemic associations, and structural malformations of the orbit.",
     "date": "2026-01-28T15:44:31.542Z",
@@ -17286,15 +17827,15 @@
       "chapterId": "orbit"
     },
     "chapterId": "orbit",
-    "_newlyImported": 1769615071542,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_f0n48f6nh8uvkh",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 127,
     "_serverSynced": true
   },
   {
     "id": 1769615071532,
-    "seqId": 126,
     "title": "THYROID EYE DISEASE: THE COMPLETE CLINICAL COMPENDIUM",
     "summary": "Thyroid Eye Disease (TED) is an organ-specific autoimmune condition that can be both sight-threatening and disfiguring. This comprehensive guide covers everything from acute emergencies and pathogenesis to long-term management and systemic thyroid treatment.",
     "date": "2026-01-28T15:44:31.532Z",
@@ -17664,15 +18205,15 @@
       "chapterId": "orbit"
     },
     "chapterId": "orbit",
-    "_newlyImported": 1769615071532,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_cwklz13e5r0ueq",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 126,
     "_serverSynced": true
   },
   {
     "id": 1769615071523,
-    "seqId": 125,
     "title": "Tractional & Exudative Retinal Detachments",
     "summary": "A comprehensive clinical guide detailing the pathophysiology, presentation, and management of Tractional Retinal Detachment (TRD) and Exudative Retinal Detachment (ERD), including surgical advancements and underlying causes.",
     "date": "2026-01-28T15:44:31.523Z",
@@ -17841,15 +18382,15 @@
       "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769615071523,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_f5hzhf08feus5b",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 125,
     "_serverSynced": true
   },
   {
     "id": 1769615071514,
-    "seqId": 124,
     "title": "Peripheral Retinal Degenerations & Breaks: A Clinical Guide",
     "summary": "A comprehensive overview of peripheral retinal abnormalities, ranging from benign variations to high-risk lesions. This guide provides essential data for identification, risk stratification, and selective management of retinal breaks and degenerations.",
     "date": "2026-01-28T15:44:31.514Z",
@@ -18130,18 +18671,18 @@
           "content": "1. Chauhan DS et al. Failure of prophylactic retinopexy in fellow eyes without a posterior vitreous detachment. Arch Ophthalmol. 2006;124:968–71. \n2. Byer nE. Long-term natural history of lattice degeneration of the retina. Ophthalmology. 1989;96:1396–402. \n3. Shukla m et al. A possible relationship between lattice and snail track degenerations of the retina. Am J Ophthalmol. 1981;92:482–5. \n4. Freeman Hm. Fellow eyes of non-traumatic giant retinal breaks. In: Ryan SJ (ed.) Retina (Volume 3). St Louis: mosby; 2001. pp. 2366–70. \n5. Wolfensberger TJ et al. Prophylactic 360° cryotherapy in fellow eyes of patients with spontaneous giant retinal tears. Ophthalmology. 2003;110:1175–7."
         }
       ],
-      "chapterId": "uncategorized"
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769615071514,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614749293_nqdi7t95ryb2nf",
     "communityAuthor": "hh",
     "communityDate": "2026-01-28T15:39:09.293Z",
+    "seqId": 124,
     "_serverSynced": true
   },
   {
     "id": 1769614688690,
-    "seqId": 123,
     "title": "Choroidal Melanoma: Clinical Guide & Management",
     "summary": "An exhaustive clinical overview of choroidal melanoma, the most common uveal melanoma. This poster covers its classification, suspicious diagnostic features, multi-modal treatment strategies, and genetic prognostic indicators.",
     "date": "2026-01-28T15:38:08.690Z",
@@ -18357,15 +18898,15 @@
       "chapterId": "tumours"
     },
     "chapterId": "tumours",
-    "_newlyImported": 1769614688690,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769607405169_kl6pbascd",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-28T13:36:45.170Z",
+    "seqId": 123,
     "_serverSynced": true
   },
   {
     "id": 1769614688643,
-    "seqId": 122,
     "title": "POSTERIOR VITREOUS DETACHMENT (PVD): CLINICAL GUIDE",
     "summary": "An exhaustive clinical overview of Posterior Vitreous Detachment, covering its pathophysiology, age-related prevalence, clinical features, and urgent management protocols for retinal breaks.",
     "date": "2026-01-28T15:38:08.643Z",
@@ -18610,15 +19151,15 @@
       "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769614688643,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614137314_9f9wyb0pf",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-28T15:28:57.315Z",
+    "seqId": 122,
     "_serverSynced": true
   },
   {
     "id": 1769614688638,
-    "seqId": 121,
     "title": "Choroidal Melanoma: Clinical Essentials & Management",
     "summary": "The most common primary intraocular malignancy in adults, Choroidal Melanoma is a distinct molecular entity from cutaneous melanoma, often presenting as a dome-shaped mass that requires precise multimodal imaging and individualized treatment strategies.",
     "date": "2026-01-28T15:38:08.638Z",
@@ -18938,15 +19479,15 @@
       "chapterId": "tumours"
     },
     "chapterId": "tumours",
-    "_newlyImported": 1769614688638,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769609169726_nuu7jj5rw",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-28T14:06:09.726Z",
+    "seqId": 121,
     "_serverSynced": true
   },
   {
     "id": 1769614688612,
-    "seqId": 120,
     "title": "Posterior Vitreous Detachment & Retinal Breaks: The Clinical Compendium",
     "summary": "An exhaustive clinical guide covering the pathogenesis, symptoms, signs, and management of Posterior Vitreous Detachment (PVD) and the associated risks and treatments for retinal breaks.",
     "date": "2026-01-28T15:38:08.612Z",
@@ -19240,15 +19781,15 @@
       "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769614688612,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769611285299_kwmim88m3",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-28T14:41:25.300Z",
+    "seqId": 120,
     "_serverSynced": true
   },
   {
     "id": 1769614688606,
-    "seqId": 119,
     "title": "RETINOBLASTOMA: THE COMPLETE CLINICAL COMPENDIUM",
     "summary": "The commonest primary malignant intraocular tumour of childhood, arising from primitive retinoblasts due to Rb gene mutations. This guide covers the critical genetics, clinical features, multidisciplinary treatments, and prognosis of this life-threatening but highly curable disease.",
     "date": "2026-01-28T15:38:08.606Z",
@@ -19549,18 +20090,19 @@
           "content": "Understanding the genetics of retinoblastoma is critical in planning management. The information gained from mutation testing often helps distinguish between germline and somatic cases, which has major implications for determining the risk to the fellow eye, unaffected relatives, and future siblings and offspring. Treatment requires significant multidisciplinary input and coordinated care in specialized centres."
         }
       ],
-      "chapterId": "tumours"
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
-    "_newlyImported": 1769614688606,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769581773585_4fhnk8m0m",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-28T06:29:33.586Z",
-    "_serverSynced": true
+    "seqId": 119,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1769614688583,
-    "seqId": 118,
     "title": "RETINAL DETACHMENT & BREAKS: THE CLINICAL GUIDE",
     "summary": "An exhaustive clinical reference covering the identification, risk stratification, and surgical management of retinal breaks and posterior vitreous detachment (PVD) based on standard ophthalmic protocols.",
     "date": "2026-01-28T15:38:08.583Z",
@@ -19840,15 +20382,15 @@
       "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1769614688583,
+    "_newlyImported": 1769615428573,
     "communityId": "sub_1769614237355_vz3gc4iqe",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-28T15:30:37.356Z",
+    "seqId": 118,
     "_serverSynced": true
   },
   {
     "id": 1768912683512,
-    "seqId": 117,
     "title": "EPIRETINAL MEMBRANES: A Comprehensive Clinical Guide",
     "summary": "An exhaustive visual guide to Epiretinal Membranes (ERM), detailing synonyms, pathogenesis, and clinical features. It covers advanced surgical interventions, prognostic factors, and the comprehensive list of secondary causes including retinal insults and vascular disease.",
     "date": "2026-01-20T12:38:03.512Z",
@@ -20063,18 +20605,19 @@
             "Retinal vascular disease (e.g. BRVo)."
           ]
         }
-      ]
+      ],
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1768912683512,
+    "_newlyImported": 1768915532533,
     "communityId": "sub_1768905301567_f600tayxfxaeht",
     "communityAuthor": "Nina",
     "communityDate": "2026-01-20T10:35:01.567Z",
+    "seqId": 117,
     "_serverSynced": true
   },
   {
     "id": 1768912681547,
-    "seqId": 116,
     "title": "Choroidal Detachments & Uveal Effusion Syndrome",
     "summary": "A comprehensive clinical overview of choroidal detachments and uveal effusion syndrome (UES). This guide explores clinical features, differential diagnosis against retinal detachment, classification types, and modern management strategies.",
     "date": "2026-01-20T12:38:01.547Z",
@@ -20263,19 +20806,20 @@
           "color_theme": "yellow",
           "content": "Uyama m et al. Uveal effusion syndrome: clinical features, surgical treatment, histological examination of the sclera and pathophysiology. Ophthalmology. 2000;107:441–9. CHoRoIDAL DETACHmEnTS AnD UVEAL EFFUSIonS ynDRomE. Page 547."
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_newlyImported": 1768912681547,
+    "_newlyImported": 1768915532533,
     "communityId": "sub_1768905301567_1vb0jcb36rskbv",
     "communityAuthor": "Nina",
     "communityDate": "2026-01-20T10:35:01.567Z",
-    "_chapterUpdated": 1768915485791,
+    "seqId": 116,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
     "id": 1768912671474,
-    "seqId": 115,
     "title": "Scleral Buckling Procedures: A Comprehensive Clinical Guide",
     "summary": "This poster provides an exhaustive overview of Scleral Buckling, detailing its physiological mechanisms, specific surgical indications, and step-by-step methodology. It covers everything from technical suture placement and buckle selection to potential complications and visual prognosis.",
     "date": "2026-01-20T12:37:51.474Z",
@@ -20480,18 +21024,20 @@
           "color_theme": "blue",
           "content": "One of the difficulties in scleral buckling procedures can be the visualization. It is possible to insert an intraocular light source (chandelier) to improve the visualization. This enables the surgeon to perform the scleral buckling operation using the microscope and an indirect viewing system. The main concern that has been raised about this is that an extraocular operation is being converted into an intraocular operation."
         }
-      ]
+      ],
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1768912671474,
+    "_newlyImported": 1768915532532,
     "communityId": "sub_1768896531450_kxj8i2i5o",
     "communityAuthor": "Nina",
     "communityDate": "2026-01-20T08:08:51.450Z",
+    "seqId": 115,
+    "_chapterUpdated": 1768915649262,
     "_serverSynced": true
   },
   {
     "id": 1768912668954,
-    "seqId": 114,
     "title": "Vitrectomy: Surgical Mechanics, Methods, and Tamponade Management",
     "summary": "An exhaustive clinical guide to vitrectomy, detailing surgical access, small-gauge advantages, specific indications for retinal detachments and macular pathology, operative steps, and the selection of gaseous and fluid tamponade agents including post-operative posturing protocols.",
     "date": "2026-01-20T12:37:48.954Z",
@@ -20764,18 +21310,19 @@
             "Failure to follow travel/anaesthesia warnings can result in blindness due to expansion of the gas bubble and subsequent iIoP."
           ]
         }
-      ]
+      ],
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1768912668954,
+    "_newlyImported": 1768915532532,
     "communityId": "sub_1768896101987_030qcjm81",
     "communityAuthor": "Nina",
     "communityDate": "2026-01-20T08:01:41.988Z",
+    "seqId": 114,
     "_serverSynced": true
   },
   {
     "id": 1768758986272,
-    "seqId": 113,
     "title": "PVD Induction: Precision Surgical Techniques",
     "summary": "Posterior Vitreous Detachment (PVD) induction is a fundamental step in vitreoretinal surgery, involving the controlled separation of the posterior hyaloid from the internal limiting membrane of the retina. Mastering this maneuver is critical for achieving a complete vitrectomy and preventing post-operative tractional complications.",
     "date": "2026-01-18T17:56:26.272Z",
@@ -20931,17 +21478,20 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1768758986272,
+    "_newlyImported": 1768803566050,
     "communityId": "sub_1768757082875_gzi4xmw43",
     "communityAuthor": "Nano",
     "communityDate": "2026-01-18T17:24:42.876Z",
+    "seqId": 113,
     "_serverSynced": true
   },
   {
     "id": 1768758684757,
+    "seqId": 112,
     "title": "Vitreous Base Shaving: Precision in the Periphery",
     "summary": "A specialized vitreoretinal surgical technique focused on the meticulous removal of vitreous gel from the vitreous base area. This procedure is critical for relieving peripheral traction and minimizing the risk of proliferative vitreoretinopathy (PVR).",
     "date": "2026-01-18T17:51:24.757Z",
@@ -21091,19 +21641,18 @@
           "color_theme": "green",
           "content": "Vitreous base shaving requires the surgeon to balance the removal of the most peripheral vitreous possible while maintaining a safe distance from the retina to avoid creating new breaks. The use of high cut rates (5000-10000+ CPM) is vital to ensure that the vitreous is cut before it can be pulled into the cutter port, thereby reducing dynamic traction."
         }
-      ]
+      ],
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_newlyImported": 1768758756578,
+    "_newlyImported": 1768758684757,
     "communityId": "sub_1768662048012_pcjxx55hy",
     "communityAuthor": "Nano",
     "communityDate": "2026-01-17T15:00:48.012Z",
-    "seqId": 112,
     "_serverSynced": true
   },
   {
     "id": 1768584967700,
-    "seqId": 111,
     "title": "THE KAHOOK DUAL BLADE (KDB): PRECISION EXCISIONAL GONIOTOMY",
     "summary": "The Kahook Dual Blade is a precision-engineered surgical instrument designed for Minimally Invasive Glaucoma Surgery (MIGS). It facilitates a cleaner excision of the trabecular meshwork to improve aqueous humor outflow and reduce intraocular pressure.",
     "date": "2026-01-16T17:36:07.700Z",
@@ -21253,19 +21802,19 @@
             "explanation": "R: Ramp lifts tissue; A: Access to Schlemm's; M: Minimal trauma; P: Precision excision."
           }
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
-    "_newlyImported": 1768584967700,
+    "_newlyImported": 1768587692880,
     "communityId": "sub_1768584869716_8vnzdj7xq",
     "communityAuthor": "309030",
     "communityDate": "2026-01-16T17:34:29.716Z",
     "_serverSynced": true,
-    "bookmarked": false
+    "seqId": 111
   },
   {
     "id": 1768556910239,
-    "seqId": 110,
     "title": "SECONDARY GLAUCOMA: COMPREHENSIVE PATHOLOGY & MANAGEMENT",
     "summary": "An exhaustive clinical guide to lens-related, open-angle, and closed-angle secondary glaucomas. This poster details the mechanisms, clinical presentations, and multi-modal treatment strategies for these complex ocular conditions.",
     "date": "2026-01-16T09:48:30.239Z",
@@ -21546,18 +22095,19 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "communityId": "sub_1768552126016_wpoiy058j",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-16T08:28:46.016Z",
     "_serverSynced": true,
-    "bookmarked": false
+    "_newlyImported": 1768587692880,
+    "seqId": 110
   },
   {
     "id": 1768556905621,
-    "seqId": 109,
     "title": "Pharmacology of IOP-Lowering Agents: The Comprehensive Guide",
     "summary": "An exhaustive clinical overview of the pharmacological groups used in glaucoma management, detailed mechanism of action, efficacy statistics, and critical safety profiles. This guide highlights the modern shift toward preservative-free therapies and the emergence of novel therapeutic compounds.",
     "date": "2026-01-16T09:48:25.621Z",
@@ -21827,17 +22377,19 @@
           "color_theme": "blue",
           "content": "Ph A r MACOLOG y OF IOP- LOW er ING AG e N t S 419. Ch AP ter 10 Glaucoma 420. the major drug groups are summarized in table 10.6. apraclonidine (α1 + α2) is useful for short-term use, e.g. after laser iridotomy."
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "communityId": "sub_1768552123966_kjyww2dje",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-16T08:28:43.966Z",
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_newlyImported": 1768587692880,
+    "seqId": 109
   },
   {
     "id": 1768556903578,
-    "seqId": 108,
     "title": "Iatrogenic Glaucoma & Aqueous Misdirection Syndrome",
     "summary": "An exhaustive clinical guide to Aqueous Misdirection Syndrome (Malignant Glaucoma) and iatrogenic pressure elevations following cataract and vitreoretinal procedures. Focuses on the transition to a uni-chamber eye and managing post-operative complications.",
     "date": "2026-01-16T09:48:23.578Z",
@@ -22005,17 +22557,19 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "communityId": "sub_1768552124986_t3zlbqzsc",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-16T08:28:44.986Z",
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_newlyImported": 1768587692880,
+    "seqId": 108
   },
   {
     "id": 1768556901225,
-    "seqId": 107,
     "title": "Surgery for Glaucoma: The Comprehensive Clinical Guide",
     "summary": "An exhaustive visual reference covering the full spectrum of glaucoma surgical interventions, from gold-standard trabeculectomy and MMC augmentation to specialized angle procedures, MIGS, and tube drainage setons. Includes detailed operative steps, indication profiles, and post-operative management strategies.",
     "date": "2026-01-16T09:48:21.225Z",
@@ -22273,17 +22827,19 @@
           "color_theme": "blue",
           "content": "Glaucoma surgery requires careful selection based on risk profiles. For congenital cases, see 'Glaucoma in children: assessment' (pp. 894–5) and 'treatment' (p. 896). Note that the mechanism of goniotomy is probably opening the abnormal angle (1° trabecular meshwork dysgenesis)."
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "communityId": "sub_1768552121957_b4wx95q5w",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-16T08:28:41.957Z",
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_newlyImported": 1768587692880,
+    "seqId": 107
   },
   {
     "id": 1768556898474,
-    "seqId": 106,
     "title": "LASER PROCEDURES IN GLAUCOMA: CLINICAL PROTOCOLS",
     "summary": "Laser procedures represent a vital component in the treatment landscape for many forms of glaucoma. This comprehensive guide outlines the essence, indications, and complications for primary laser modalities including Iridotomy, Trabeculoplasty, Iridoplasty, and Cyclophotocoagulation.",
     "date": "2026-01-16T09:48:18.474Z",
@@ -22526,17 +23082,19 @@
           "color_theme": "yellow",
           "content": "10. Spaeth G et al. Argon laser trabeculoplasty controls one third of progressive uncontrolled open angle glaucoma for 5 years. Arch Ophthalmol. 1992;110:491–4.\n11. Damji KF et al. Selective laser trabeculoplasty vs argon laser trabeculoplasty: a randomized controlled trial. Br J Ophthalmol. 2006;90:1490–4.\n12. Ritch R et al. Argon laser peripheral iridoplasty. Ophthalmic Surg Lasers. 1996;27:289–300.\n13. Manna A et al. Cyclodiode laser in the treatment of acute angle closure. Eye (Lond). 2012;26:742–5."
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "communityId": "sub_1768552122946_092is8b2m",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-16T08:28:42.946Z",
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_newlyImported": 1768587692880,
+    "seqId": 106
   },
   {
     "id": 1768556381444,
-    "seqId": 105,
     "title": "NPGS & MIGS: The Complete Visual Compendium",
     "summary": "An exhaustive guide to Non-penetrating Glaucoma Surgery (NPGS) and Micro-invasive Glaucoma Surgery (MIGS), detailing mechanisms, procedural steps, comparative success rates, and complications. This poster maps the transition from traditional guarded filtration to modern micro-stenting technologies.",
     "date": "2026-01-16T09:39:41.444Z",
@@ -22730,17 +23288,19 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "communityId": "sub_1768552119664_rpi7yztmm",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-16T08:28:39.665Z",
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_newlyImported": 1768587692880,
+    "seqId": 105
   },
   {
     "id": 1768556378644,
-    "seqId": 104,
     "title": "Pigment Dispersion Syndrome & Pigmentary Glaucoma",
     "summary": "A comprehensive guide to Pigment Dispersion Syndrome (PDS), where iris pigment release can lead to Pigmentary Glaucoma in 33–50% of cases. Characterized by 'reverse pupillary block' and specific clinical signs like Krukenberg spindles and Zentmayer’s line.",
     "date": "2026-01-16T09:39:38.644Z",
@@ -23000,17 +23560,19 @@
           "color_theme": "green",
           "content": "Other glaucoma syndromes which may present in an insidious manner include: inflammatory open angle, red cell, ghost cell, phacolytic, Posner–Schlossman syndrome, Schwartz–Matsuo syndrome in rrD (all open angle), and surgically induced angle closure (tight scleral buckle, PK). For syndromes that typically present in an acute/subacute manner, see Table 10.4. (Refer to PDS/Pigmentary Glaucoma context on p. 402-403, and POAG details on pp. 390-391)."
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "communityId": "sub_1768417843743_iyj7hrj4x",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-14T19:10:43.744Z",
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_newlyImported": 1768587692880,
+    "seqId": 104
   },
   {
     "id": 1768402269460,
-    "seqId": 103,
     "title": "Pseudoexfoliation Syndrome (PXF) & Glaucoma Capsulare",
     "summary": "PXF is a common, but easily missed, cause of secondary glaucoma. It is a systemic condition characterized by whitish dandruff-like material deposited in the eye and various internal organs, often leading to a more severe clinical course than POAG.",
     "date": "2026-01-14T14:51:09.460Z",
@@ -23209,17 +23771,19 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "communityId": "sub_1768399087319_i7gsfu5dv",
     "communityAuthor": "Dodi",
     "communityDate": "2026-01-14T13:58:07.319Z",
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_newlyImported": 1768587692880,
+    "seqId": 103
   },
   {
     "id": 1768386142768,
-    "seqId": 102,
     "title": "Primary Angle-Closure Glaucoma (PACG): Comprehensive Clinical Guide",
     "summary": "Primary angle-closure glaucoma is a major global cause of blindness characterized by anatomical predisposition and pressure-induced optic neuropathy. This guide covers the essential terminology, emergency management of acute episodes, and the latest evidence-based treatment strategies.",
     "date": "2026-01-14T10:22:22.768Z",
@@ -23495,14 +24059,16 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_newlyImported": 1768587692880,
+    "seqId": 102
   },
   {
     "id": 1768314746795,
-    "seqId": 101,
     "title": "Clinical Compendium: OHT, POAG, and NTG",
     "summary": "An exhaustive clinical guide covering Ocular Hypertension (OHT), Primary Open-Angle Glaucoma (POAG), and Normal-Tension Glaucoma (NTG). This poster details diagnostic criteria, risk factors from the OHTS and CNTGS trials, and comprehensive management protocols.",
     "date": "2026-01-13T14:32:26.795Z",
@@ -23854,14 +24420,16 @@
             "Treat contributory causes: OSAS (refer for CPAP/sleep study), anaemia, and folate/B12 deficiency."
           ]
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_newlyImported": 1768587692880,
+    "seqId": 101
   },
   {
     "id": 1768314475181,
-    "seqId": 100,
     "title": "Glaucoma: Assessment & Diagnostic Framework",
     "summary": "A comprehensive clinical guide to the assessment of possible glaucoma, covering UK referral statistics, detailed history and examination protocols, the European Glaucoma Society field loss criteria, and the diagnostic 'glaucoma triad'.",
     "date": "2026-01-13T14:27:55.181Z",
@@ -24128,14 +24696,16 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_newlyImported": 1768587692880,
+    "seqId": 100
   },
   {
     "id": 1768232539677,
-    "seqId": 99,
     "title": "Post-Operative Complications & Lens Abnormalities",
     "summary": "A comprehensive clinical guide covering Irvine–Gass Syndrome, the systematic assessment of refractive surprise, and the diverse congenital and acquired abnormalities of lens size, shape, and position.",
     "date": "2026-01-12T15:42:19.677Z",
@@ -24414,14 +24984,16 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "lens"
     },
     "chapterId": "lens",
+    "seqId": 99,
+    "_chapterUpdated": 1768587692879,
     "_serverSynced": true
   },
   {
     "id": 1768232322230,
-    "seqId": 98,
     "title": "Cataract Surgery: The Comprehensive Complications Atlas",
     "summary": "An exhaustive clinical guide detailing intraoperative mishaps, early post-operative emergencies, and late-stage surgical sequelae. This poster outlines evidence-based management, prophylaxis protocols, and the critical distinction between infectious and toxic anterior segment syndromes.",
     "date": "2026-01-12T15:38:42.230Z",
@@ -24701,14 +25273,16 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
+    "seqId": 98,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
     "id": 1768232069381,
-    "seqId": 97,
     "title": "THE ULTIMATE CLINICAL COMPENDIUM: Intraocular Lenses & Post-Cataract Management",
     "summary": "An exhaustive clinical guide covering IOL selection criteria, materials, and advanced lens designs. This resource further details post-operative care protocols and specialized surgical strategies for patients with concurrent ocular diseases and complex intraoperative conditions.",
     "date": "2026-01-12T15:34:29.381Z",
@@ -25012,14 +25586,16 @@
             "Complications: Iris trauma, iris prolapse, poor visualization, unstable AC."
           ]
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
+    "seqId": 97,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
     "id": 1768231965217,
-    "seqId": 96,
     "title": "Cataract Surgery: From Manual Extraction to Femtosecond Laser (FSL)",
     "summary": "An exhaustive guide to modern and traditional cataract extraction techniques, covering the technical stages of Femtosecond Laser-Assisted Surgery (FLACS), current commercial platforms, and a detailed comparison between ECCE, MSICS, ICCE, and Phacoemulsification.",
     "date": "2026-01-12T15:32:45.217Z",
@@ -25191,14 +25767,16 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
+    "seqId": 96,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
     "id": 1768231842707,
-    "seqId": 95,
     "title": "Perioperative Cataract Surgery & Phacoemulsification: The Comprehensive Clinical Guide",
     "summary": "An exhaustive guide to the perioperative management of cataract surgery, encompassing meticulous preoperative checks, IOL selection logic, advanced phacoemulsification techniques, and OVD fluidics. This resource integrates RCOphth guidelines and ESCRS standards for surgical excellence.",
     "date": "2026-01-12T15:30:42.707Z",
@@ -25570,9 +26148,12 @@
             "Document discussion in notes and obtain appropriate consent."
           ]
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
+    "seqId": 95,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
@@ -25926,15 +26507,16 @@
             "Intracameral Regimen: Cefuroxime (1mg)."
           ]
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "seqId": 94,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
     "id": 1768231631462,
-    "seqId": 93,
     "title": "Cataract: The Definitive Clinical Guide",
     "summary": "An exhaustive overview of cataract epidemiology, pathogenesis, morphological classification, and surgical management. Cataracts account for 40% of global blindness, necessitating precise preoperative assessment and informed surgical planning.",
     "date": "2026-01-12T15:27:11.462Z",
@@ -26367,14 +26949,16 @@
             "Astigmatism: Operate 'on-meridian', use refractive incisions, or use a Toric IOL."
           ]
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
+    "seqId": 93,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
     "id": 1768231246452,
-    "seqId": 92,
     "title": "POSTERIOR SCLERITIS: The Hidden Sight-Threat",
     "summary": "Posterior scleritis is a potentially sight-threatening, underdiagnosed condition often presenting with a 'white and quiet' eye. It requires serious treatment, often involving systemic corticosteroids and monitoring for systemic vasculitis associations.",
     "date": "2026-01-12T15:20:46.452Z",
@@ -26544,14 +27128,15 @@
           "color_theme": "purple",
           "content": "McCluskey PJ et al. Posterior scleritis: clinical features, systemic associations, and outcome in a large series of patients. Ophthalmology. 1999;106:2380–6. Summarised from Jennette JC et al. Nomenclature of systemic vasculitides. Proposal of an international consensus conference. Arthritis Rheum 1994;37:187–92."
         }
-      ]
+      ],
+      "chapterId": "sclera"
     },
     "chapterId": "sclera",
+    "seqId": 92,
     "_serverSynced": true
   },
   {
     "id": 1768231165737,
-    "seqId": 91,
     "title": "ANTERIOR SCLERITIS: CLINICAL OUTLINE & MANAGEMENT",
     "summary": "Anterior scleritis is an uncommon, potentially blinding inflammation of the sclera, often signaling severe underlying systemic disease. It is characterized by intense, boring pain and requires rapid diagnostic and therapeutic intervention to prevent permanent ocular damage and monitor systemic health.",
     "date": "2026-01-12T15:19:25.737Z",
@@ -26788,14 +27373,15 @@
           "color_theme": "blue",
           "content": "1. Daniel Diaz J et al. Surv Ophthalmol. 2016;61:702–17. 2. Murray PI, Rauz S. Best Pract Res Clin Rheumatol. 2016;30:802–25. 3. Sen HN et al. Ophthalmology. 2011;118:768–71. 4. Smith JR et al. Nat Clin Pract Rheumatol. 2007;3:219–26. 5. Athanasiadis Y et al. J Ocul Pharmacol Ther. 2013;29:516–22. 6. Wakefield D et al. Prog Retin Eye Res. 2013;35:44–62. 7. Khan IJ et al. Br J Ophthalmol. 2013;97:1118–22. 8. Suhler EB et al. Ophthalmology. 2014;121:1885–91. 9. Sainz-de-la-maza M et al. Br J Ophthalmol. 2016;100:1290–4."
         }
-      ]
+      ],
+      "chapterId": "sclera"
     },
     "chapterId": "sclera",
+    "seqId": 91,
     "_serverSynced": true
   },
   {
     "id": 1768231072970,
-    "seqId": 90,
     "title": "EPISCLERITIS: A Comprehensive Clinical Guide",
     "summary": "This common condition is a benign, recurrent inflammation of the episclera. While it is usually self-limiting and not associated with systemic disease, detailed clinical differentiation and management strategies are essential for effective patient care.",
     "date": "2026-01-12T15:17:52.970Z",
@@ -26970,14 +27556,15 @@
           "color_theme": "blue",
           "content": "Episcleritis 323. All content sourced verbatim from clinical text. (cf. nodular scleritis / cf. conjunctival phlycten / cf. scleritis)."
         }
-      ]
+      ],
+      "chapterId": "sclera"
     },
     "chapterId": "sclera",
+    "seqId": 90,
     "_serverSynced": true
   },
   {
     "id": 1768147811879,
-    "seqId": 89,
     "title": "AMNIOTIC MEMBRANE TRANSPLANTATION & TISSUE BANKING",
     "summary": "A comprehensive guide to the histology, function, and application of Amniotic Membrane Transplantation (AMT), alongside the rigorous protocols for donor eye retrieval, screening, and eye bank storage standards.",
     "date": "2026-01-11T16:10:11.879Z",
@@ -27178,14 +27765,15 @@
           "color_theme": "purple",
           "content": "As outlined in Annex 1 of the Royal College of Ophthalmologists Standards for the retrieval of human ocular tissue used in transplantation, research and training, 2013."
         }
-      ]
+      ],
+      "chapterId": "cornea"
     },
     "chapterId": "cornea",
+    "seqId": 89,
     "_serverSynced": true
   },
   {
     "id": 1768147425068,
-    "seqId": 88,
     "title": "Keratoplasty & Corneal Cross-Linking: The Definitive Clinical Guide",
     "summary": "An exhaustive visual roadmap of corneal transplantation, from penetrating and lamellar techniques to the management of rejection, survival strategies, and therapeutic collagen cross-linking. This guide covers over 100 years of surgical evolution and modern protocols.",
     "date": "2026-01-11T16:03:45.068Z",
@@ -27559,14 +28147,15 @@
             "Risk Factors for Failure: Age >35, steep pre-treatment Ks (>58D). Higher efficacy in younger patients."
           ]
         }
-      ]
+      ],
+      "chapterId": "cornea"
     },
     "chapterId": "cornea",
+    "seqId": 88,
     "_serverSynced": true
   },
   {
     "id": 1768147321370,
-    "seqId": 87,
     "title": "Comprehensive Atlas of Keratopathies: Neurotrophic, Exposure & Deposition",
     "summary": "An exhaustive clinical guide covering Neurotrophic Keratopathy (NK) staging and management, the mechanical failure of Exposure Keratopathy, and the metabolic complexities of Deposition Keratopathies. Designed for rapid clinical reference and comprehensive pathophysiology review.",
     "date": "2026-01-11T16:02:01.370Z",
@@ -27842,14 +28431,15 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "cornea"
     },
     "chapterId": "cornea",
+    "seqId": 87,
     "_serverSynced": true
   },
   {
     "id": 1768147203702,
-    "seqId": 86,
     "title": "Peripheral Ulcerative Keratitis (PUK) & Peripheral Corneal Disease",
     "summary": "An exhaustive clinical guide to aggressive, sight-threatening PUK, its systemic associations, Mooren’s ulcer, and other essential peripheral corneal pathologies from marginal keratitis to Terrien’s degeneration.",
     "date": "2026-01-11T16:00:03.702Z",
@@ -28108,14 +28698,15 @@
             "Treatment: Spectacles/CL for astigmatism; Surgical (crescentic/eccentric lamellar/PK) if risk of perforation."
           ]
         }
-      ]
+      ],
+      "chapterId": "cornea"
     },
     "chapterId": "cornea",
+    "seqId": 86,
     "_serverSynced": true
   },
   {
     "id": 1768147127574,
-    "seqId": 85,
     "title": "Keratoconus & Other Corneal Ectasias",
     "summary": "An exhaustive clinical guide to Keratoconus and related ectatic conditions, detailing their aetiology, systemic associations, diagnostic morphology, and the full spectrum of modern management strategies from contact lenses to keratoplasty.",
     "date": "2026-01-11T15:58:47.574Z",
@@ -28372,14 +28963,15 @@
             "Treatment: Not usually necessary; requires PK if significant dVA."
           ]
         }
-      ]
+      ],
+      "chapterId": "cornea"
     },
     "chapterId": "cornea",
+    "seqId": 85,
     "_serverSynced": true
   },
   {
     "id": 1768146747959,
-    "seqId": 84,
     "title": "Corneal Degenerations & Dystrophies: The Master Clinical Map",
     "summary": "An exhaustive clinical guide covering corneal degenerative diseases and dystrophies, ranging from common age-related changes like Arcus to rare genetic posterior dystrophies such as CHED and PPCD. This poster delineates pathophysiology, clinical markers, and modern management strategies.",
     "date": "2026-01-11T15:52:27.959Z",
@@ -28763,14 +29355,16 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "paediatric"
     },
     "chapterId": "paediatric",
-    "_serverSynced": true
+    "seqId": 84,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1768146663328,
-    "seqId": 83,
     "title": "LIMBAL EPITHELIAL STEM CELL DEFICIENCY (LESCD)",
     "summary": "A comprehensive guide to the pathophysiology, clinical presentation, and advanced management of LESC deficiency. This poster outlines the vital role of the limbal niche in maintaining ocular surface health and the multi-tiered approach to surgical and cultivated cell treatments.",
     "date": "2026-01-11T15:51:03.328Z",
@@ -28945,14 +29539,16 @@
           "color_theme": "green",
           "content": "Cultivation of limbal corneal epithelial cells for transplantation into humans is an exciting development which requires meticulous care and is stringently regulated. In the UK, requirements include: Class 100 clean room facilities, compliance with the Human Tissue Act 2004 and the European Union Tissues and Cells Directive, compliance with good Manufacturing Practice, and approval of the MHRA. Holoclar for treating limbal stem cell deficiency after eye burns has gained NICE approval for specialist centres ([TA467] 16 August 2017). Page 275 reference."
         }
-      ]
+      ],
+      "chapterId": "lasers"
     },
     "chapterId": "lasers",
-    "_serverSynced": true
+    "seqId": 83,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1768146601862,
-    "seqId": 82,
     "title": "Mastering Corneal Surface Disorders: TSPK, RCES, and PED",
     "summary": "An exhaustive clinical guide to diagnosing and managing Thygeson’s Superficial Punctate Keratopathy, Recurrent Corneal Erosion Syndrome, and Persistent Epithelial Defects. This resource details etiology, clinical presentation, and a spectrum of treatments from conservative lubrication to advanced surgical grafting.",
     "date": "2026-01-11T15:50:01.862Z",
@@ -29226,14 +29822,16 @@
             "explanation": "CMC (Carmellose) for retention/cytoprotection. HA (Hyaluronic Acid) for CD44 binding, hemidesmosome formation, and ubiquitous ECM wound healing."
           }
         }
-      ]
+      ],
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_serverSynced": true
+    "seqId": 82,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1768146554180,
-    "seqId": 81,
     "title": "Herpes Viruses in Ophthalmology: HSV & HZO Clinical Guide",
     "summary": "An exhaustive clinical reference for the diagnosis and management of Herpes Simplex Keratitis and Herpes Zoster Ophthalmicus. This poster details viral pathogenesis, the spectrum of corneal involvement from epithelial to neurotrophic stages, and precise pharmacological treatment protocols.",
     "date": "2026-01-11T15:49:14.180Z",
@@ -29611,14 +30209,16 @@
           "color_theme": "blue",
           "content": "Potential intraocular involvement for HSV includes anterior uveitis and retinitis. The resultant neurotrophic cornea in both HSV and HZO is vulnerable to bacterial and fungal keratitis. In HZO, those never previously infected with VZV may contract chickenpox from contact with shingles cases."
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_serverSynced": true
+    "seqId": 81,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1768146510347,
-    "seqId": 80,
     "title": "FUNGAL KERATITIS: THE COMPLETE CLINICAL PLAYBOOK",
     "summary": "An exhaustive guide to the assessment, diagnosis, and multi-modal treatment of fungal keratitis. This resource covers clinical differentiators between yeast and filamentary infections, intensive topical and systemic protocols, and critical monitoring requirements for complex antifungal therapies.",
     "date": "2026-01-11T15:48:30.347Z",
@@ -29834,14 +30434,15 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "cornea"
     },
     "chapterId": "cornea",
+    "seqId": 80,
     "_serverSynced": true
   },
   {
     "id": 1768146433279,
-    "seqId": 79,
     "title": "Acanthamoeba Keratitis: The Resilient Opportunist",
     "summary": "Acanthamoeba keratitis is a rare but devastating protozoal infection of the cornea, primarily affecting contact lens wearers. Characterized by ubiquitous organisms capable of surviving extreme conditions, it requires early suspicion and intensive, long-term treatment to prevent irreversible vision loss.",
     "date": "2026-01-11T15:47:13.279Z",
@@ -30088,14 +30689,15 @@
             "Education: Focus on identifiable avoidable predisposing practices found in >90% of cases."
           ]
         }
-      ]
+      ],
+      "chapterId": "cornea"
     },
     "chapterId": "cornea",
+    "seqId": 79,
     "_serverSynced": true
   },
   {
     "id": 1768146310850,
-    "seqId": 78,
     "title": "Microbial Keratitis: Clinical Assessment & Management",
     "summary": "A comprehensive guide to microbial keratitis, a common sight-threatening ophthalmic emergency. This poster outlines assessment protocols, microbiological processing, intensive sterilization phases, and advanced surgical interventions for corneal perforations.",
     "date": "2026-01-11T15:45:10.850Z",
@@ -30433,9 +31035,11 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "cornea"
     },
     "chapterId": "cornea",
+    "seqId": 78,
     "_serverSynced": true
   },
   {
@@ -30601,15 +31205,16 @@
           "color_theme": "blue",
           "content": "Corneal signs are critical diagnostic indicators. See Tables 7.1–7.4 for signs and their pathophysiology. Reference Page: 245. Signs vary by corneal layer including Epithelium, Stroma, and Endothelium."
         }
-      ]
+      ],
+      "chapterId": "aids"
     },
     "chapterId": "aids",
     "seqId": 77,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1768145803033,
-    "seqId": 76,
     "title": "LASER TRAUMA: Mechanisms, Risks, and Clinical Impact",
     "summary": "Laser trauma represents a significant ocular threat where even low-output beams are intensified 100,000 times by the eye's natural focus. This poster details the historical context, physiological effects, and treatment protocols for laser-induced injuries as outlined in clinical standards.",
     "date": "2026-01-11T15:36:43.033Z",
@@ -30817,14 +31422,16 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "lasers"
     },
     "chapterId": "lasers",
-    "_serverSynced": true
+    "seqId": 76,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1768145640319,
-    "seqId": 75,
     "title": "Hyphaema Management: From Micro to 8-Ball",
     "summary": "An exhaustive clinical guide for the assessment, monitoring, and treatment of hyphaema, emphasizing trauma-related blood in the anterior chamber, high-risk features, and the management of secondary red cell glaucoma.",
     "date": "2026-01-11T15:34:00.319Z",
@@ -30964,14 +31571,15 @@
             "Note: although trabeculectomy’s ‘life expectancy’ in these circumstances is short, it usually works long enough for the blood to clear"
           ]
         }
-      ]
+      ],
+      "chapterId": "trauma"
     },
     "chapterId": "trauma",
+    "seqId": 75,
     "_serverSynced": true
   },
   {
     "id": 1768145510010,
-    "seqId": 74,
     "title": "Corneal Foreign Bodies & Abrasions: Clinical Management",
     "summary": "An exhaustive guide to identifying and treating corneal foreign bodies (FBs) and abrasions, emphasizing slit-lamp removal techniques, precise diagnostic tests, and evidence-based pharmaceutical care.",
     "date": "2026-01-11T15:31:50.010Z",
@@ -31140,14 +31748,15 @@
             "Patching is not advisable, as it delays healing."
           ]
         }
-      ]
+      ],
+      "chapterId": "trauma"
     },
     "chapterId": "trauma",
+    "seqId": 74,
     "_serverSynced": true
   },
   {
     "id": 1768145359990,
-    "seqId": 73,
     "title": "Penetrating Trauma & Intraocular Foreign Bodies (IOFBs): Assessment & Management",
     "summary": "An exhaustive clinical guide covering the exclusion of IOFBs, detailed diagnostic assessment, toxicity profiles, and the surgical protocols for primary and secondary repair of penetrating ocular injuries.",
     "date": "2026-01-11T15:29:19.990Z",
@@ -31408,14 +32017,16 @@
           "color_theme": "blue",
           "content": "7 Woodcock MG et al. Mass and shape factors in intraocular foreign body injuries. Ophthalmology. 2006;113:2262–9. 8 roper-Hall Mj. review of 555 cases of intra-ocular foreign body with special reference to prog-nosis. Br J Ophthalmol. 1954;38:65–98. 9 Woodcock MG et al. Ophthalmology. 2006;113:2262–9. 10 Colyer MH et al. Delayed intraocular foreign body removal without endophthalmitis during Operations Iraqi Freedom and enduring Freedom. Ophthalmology. 2007;114:1439–47. 11,12 Literature regarding secondary repair timing."
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_serverSynced": true
+    "seqId": 73,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1768145237344,
-    "seqId": 72,
     "title": "Blunt Ocular Trauma: Comprehensive Assessment & Management",
     "summary": "An exhaustive clinical guide to the classification, assessment, and treatment of blunt eye injuries. This poster covers UK epidemiology, the Birmingham Eye Trauma Terminology (BETTS), detailed clinical features, and surgical protocols for globe repairs.",
     "date": "2026-01-11T15:27:17.344Z",
@@ -31602,14 +32213,15 @@
             "Traumatic Optic Neuropathy: Liaise with neuro-ophthalmologist; obtain neuroimaging for bony compression. No treatment shown to improve outcome."
           ]
         }
-      ]
+      ],
+      "chapterId": "trauma"
     },
     "chapterId": "trauma",
+    "seqId": 72,
     "_serverSynced": true
   },
   {
     "id": 1768145103811,
-    "seqId": 71,
     "title": "Clinical Management of Lid Lacerations",
     "summary": "An exhaustive guide to the assessment, prophylaxis, and surgical repair of eyelid injuries. This protocol covers everything from simple superficial cuts to complex full-thickness defects and canalicular involvement.",
     "date": "2026-01-11T15:25:03.811Z",
@@ -31780,14 +32392,15 @@
             "Remove skin sutures at 5–7 days"
           ]
         }
-      ]
+      ],
+      "chapterId": "trauma"
     },
     "chapterId": "trauma",
+    "seqId": 71,
     "_serverSynced": true
   },
   {
     "id": 1768144712721,
-    "seqId": 70,
     "title": "ORBITAL FRACTURES: Assessment & Management",
     "summary": "A comprehensive clinical guide to the evaluation and treatment of orbital fractures, ranging from clinical features of specific walls to the emergency management of the 'Tense Orbit' and surgical indications.",
     "date": "2026-01-11T15:18:32.721Z",
@@ -31997,14 +32610,16 @@
           "color_theme": "blue",
           "content": "2. de Silva Dj et al. Orbital blowout fractures and race. Ophthalmology. 2011;118:1677–80. \n3. de Silva Dj et al. Orbital blowout fractures and race. Ophthalmology. 2011;118:1677–80. \n4. McClenaghan FC et al. Mechanisms and management of vision loss following orbital and facial trauma. Curr Opin Ophthalmol. 2011;22:426–31. \n5. Dal Canto aj et al. Comparison of orbital fracture repair performed within 14 days versus 15 to 29 days after trauma. Ophthal Plast Reconstr Surg. 2008;24:437–43. \nInformation from Burnstine Ma. Clinical recommendations for repair of isolated orbital floor fractures. Ophthalmology. 2002;109(7):1207–1210."
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_serverSynced": true
+    "seqId": 70,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1768144150702,
-    "seqId": 69,
     "title": "Thermal Injury & Burns: Assessment and Management",
     "summary": "An exhaustive clinical guide to the immediate assessment, systemic stabilization, and ocular-specific management of thermal burns, ranging from superficial lid injuries to sight-threatening corneal destruction.",
     "date": "2026-01-11T15:09:10.702Z",
@@ -32235,14 +32850,16 @@
             "Limbal ischaemia: Conjunctivalization, vascularization, and opacification of the cornea."
           ]
         }
-      ]
+      ],
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
-    "_serverSynced": true
+    "seqId": 69,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1768143958520,
-    "seqId": 68,
     "title": "EMERGENCY OCULAR CHEMICAL INJURY: Assessment & Treatment Protocol",
     "summary": "Chemical injuries are among the most destructive traumatic insults to the eye, requiring an immediate 'treat first, ask questions later' approach. This guide covers the pathophysiology of alkali vs. acid burns, severity classifications (Roper-Hall and Dua), and a comprehensive multi-stage treatment strategy from emergency irrigation to long-term surgical reconstruction.",
     "date": "2026-01-11T15:05:58.520Z",
@@ -32593,14 +33210,15 @@
             "Bilateral cases: Keratoprosthesis remains a surgical option in severely damaged eyes."
           ]
         }
-      ]
+      ],
+      "chapterId": "trauma"
     },
     "chapterId": "trauma",
+    "seqId": 68,
     "_serverSynced": true
   },
   {
     "id": 1768143707723,
-    "seqId": 67,
     "title": "Ocular Trauma: Comprehensive Assessment & Tetanus Protocol",
     "summary": "A systematic framework for the critical assessment of ocular injuries, encompassing clinical examination, diagnostic imaging, documentation standards, and the UK tetanus prophylaxis guidelines.",
     "date": "2026-01-11T15:01:47.723Z",
@@ -32845,9 +33463,11 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "trauma"
     },
     "chapterId": "trauma",
+    "seqId": 67,
     "_serverSynced": true
   },
   {
@@ -33045,7 +33665,8 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "trauma"
     },
     "chapterId": "trauma",
     "seqId": 66,
@@ -33221,10 +33842,12 @@
             "Surgical Options: Trabeculectomy or Glaucoma Drainage Devices for refractory cases."
           ]
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "seqId": 65,
+    "_chapterUpdated": 1768587692879,
     "_serverSynced": true
   },
   {
@@ -33371,10 +33994,12 @@
             "Success is defined as IOP < 21 mmHg without further medication and stable optic nerve/corneal diameter."
           ]
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "seqId": 64,
+    "_chapterUpdated": 1768587692879,
     "_serverSynced": true
   },
   {
@@ -33505,10 +34130,12 @@
           "color_theme": "blue",
           "content": "Scleral-fixation surgery (SFS) is a complex ophthalmic intervention indicated in patients where the posterior capsule is absent, torn, or otherwise unable to support an intraocular lens. The procedure involves the mechanical anchoring of the IOL haptics directly to the scleral tissue, typically using non-absorbable sutures or by creating 'flanged' haptics embedded within the scleral lamellae. Success depends on precise anatomical marking, thorough anterior vitrectomy, and meticulous management of the ocular surface to prevent long-term exposure of fixation materials."
         }
-      ]
+      ],
+      "chapterId": "lens"
     },
     "chapterId": "lens",
     "seqId": 63,
+    "_chapterUpdated": 1768587692879,
     "_serverSynced": true
   },
   {
@@ -33639,10 +34266,12 @@
           "color_theme": "blue",
           "content": "Every case of Hypopyon uveitis requires a thorough history and physical examination. Laboratory testing often includes HLA-B27 typing, syphilis serology, chest X-ray (for Sarcoidosis/TB), and if infection is suspected, an aqueous or vitreous tap for culture."
         }
-      ]
+      ],
+      "chapterId": "uveitis"
     },
     "chapterId": "uveitis",
     "seqId": 62,
+    "_chapterUpdated": 1768587692879,
     "_serverSynced": true
   },
   {
@@ -33799,10 +34428,12 @@
           "color_theme": "green",
           "content": "GATT is uniquely advantageous because it preserves the conjunctiva for future filtering surgeries (like Trabeculectomy or Tube Shunts) if needed, while providing a significant reduction in Intraocular Pressure by utilizing the eye's distal collector system."
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "seqId": 61,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
@@ -33959,15 +34590,16 @@
           "color_theme": "blue",
           "content": "Keratoconus is characterized by the biomechanical failure of the corneal stroma. As the collagen matrix weakens, intraocular pressure causes the cornea to distend forward, usually beginning in puberty and progressing until the third or fourth decade of life. It is the most common primary ectasia."
         }
-      ]
+      ],
+      "chapterId": "cornea"
     },
     "chapterId": "cornea",
     "seqId": 60,
+    "_chapterUpdated": 1768587692879,
     "_serverSynced": true
   },
   {
     "id": 1768055786854,
-    "seqId": 59,
     "title": "Incisional & Lens-Based Refractive Surgery: A Comprehensive Clinical Guide",
     "summary": "This visual guide explores the evolution of refractive techniques, from historical incisional methods to contemporary lens-based procedures. It details the mechanisms, indications, and clinical outcomes for astigmatism correction, corneal reshaping, and high ametropia management.",
     "date": "2026-01-10T14:36:26.854Z",
@@ -34231,14 +34863,16 @@
             "Complications: Identical to those of cataract surgery."
           ]
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_serverSynced": true
+    "seqId": 59,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1768055707721,
-    "seqId": 58,
     "title": "Comprehensive Guide to Refractive Laser Complications",
     "summary": "An exhaustive clinical overview of the immediate, early, and late complications associated with refractive laser procedures including LASIK, SMILE, and surface treatments. Essential for surgeons and primary care ophthalmologists to ensure timely diagnosis and management.",
     "date": "2026-01-10T14:35:07.721Z",
@@ -34479,14 +35113,16 @@
             "Corneal Haze (Surface Ablations): Subepithelial haze appearing weeks after ablation; peaks at 1–2mo; usually resolves over 6–12mo. Persistent haze associated with greater ablation depths and small treatment zones. Treatment: If no resolution by 6–12mo, treat with PTK or superficial keratectomy with MMC."
           ]
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_serverSynced": true
+    "seqId": 58,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1768055580844,
-    "seqId": 57,
     "title": "Excimer & Femtosecond Laser Refractive Surgery: The Ultimate Clinical Guide",
     "summary": "An exhaustive clinical reference covering ophthalmic and medical contraindications, surface treatments (PRK, LASEK, Epi-LASEK), lamellar surgery (LASIK), and lenticule extraction (SMILE). This guide details indications, methods, advantages, and disadvantages for all major corneal refractive procedures.",
     "date": "2026-01-10T14:33:00.844Z",
@@ -34748,10 +35384,13 @@
           "color_theme": "yellow",
           "content": "4: Woreta FA et al. Management of post-photorefractive keratectomy pain. Surv Ophthalmol. 2013;58:529–35. 5: Shortt AJ et al. Laser-assisted in-situ keratomileusis (LASIK) versus photorefractive keratectomy (PRK) for myopia. Cochrane Database Syst Rev. 2013;1:Cd005135. 6: SMILE method utilizes FSL without a flap. 7: SMILE available data is encouraging though long-term results are pending."
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
-    "_serverSynced": true
+    "seqId": 57,
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1768052756338,
@@ -34968,10 +35607,12 @@
           "color_theme": "blue",
           "content": "Fig. 19.2 Myopic and hypermetropic ablation illustrations. Fig. 19.3 Summary of refractive laser procedures and ablation profiles."
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767883955760,
@@ -35212,7 +35853,8 @@
           "color_theme": "blue",
           "content": "1. Royal College of Ophthalmologists. Refractive surgery. (Resources for patients) Available at: https://www.rcophth.ac.uk/patients/refractive-surgery. 2. Royal College of Ophthalmologists. Refractive surgery standards. 2017. Available at: https://www.rcophth.ac.uk/standards-publications-research/refractive-surgery-standards."
         }
-      ]
+      ],
+      "chapterId": "refractive"
     },
     "chapterId": "refractive",
     "seqId": 55,
@@ -35573,11 +36215,13 @@
             "Accommodative Effects: Myopes must accommodate more when switching from glasses to CL."
           ]
         }
-      ]
+      ],
+      "chapterId": "lens"
     },
     "chapterId": "lens",
     "seqId": 54,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767883553247,
@@ -35799,7 +36443,8 @@
             "SERIOUS PATHOLOGY: Change in refraction or discomfort may mask posterior segment tumours or CMO. A full ophthalmic examination may be required."
           ]
         }
-      ]
+      ],
+      "chapterId": "refractive"
     },
     "chapterId": "refractive",
     "seqId": 53,
@@ -36011,11 +36656,13 @@
           "color_theme": "blue",
           "content": "TED follows a predictable course described by Rundle's Curve: An initial active inflammatory phase of worsening (months to 2 years) followed by a plateau and a slow natural improvement (burn-out). However, the patient rarely returns to the pre-disease baseline without surgical intervention. Treatment should match the phase: aggressive anti-inflammatories during the 'slope' and surgery during the 'plateau'."
         }
-      ]
+      ],
+      "chapterId": "orbit"
     },
     "chapterId": "orbit",
     "seqId": 52,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767814062927,
@@ -36178,11 +36825,13 @@
           "color_theme": "green",
           "content": "Thyroid Eye Disease is a chronic condition that requires close coordination between an Ophthalmologist and an Endocrinologist. While the active inflammatory phase eventually burns out, the structural changes such as proptosis and double vision often require surgical intervention after the disease has stabilized for at least 6 months."
         }
-      ]
+      ],
+      "chapterId": "orbit"
     },
     "chapterId": "orbit",
     "seqId": 51,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767813211695,
@@ -36422,11 +37071,14 @@
           "color_theme": "purple",
           "content": "Correction may be achieved using toric spectacle or contact lenses (different power in different meridians), CL, or refractive surgery. RGP CLs are particularly suited to the correction of astigmatism (including irregular astigmatism), since their rigidity allows the space between lens and cornea to become filled by the tear film to form a ‘lacrimal lens’ correcting even irregular astigmatism. This effectively neutralizes corneal astigmatism. In contrast, hydrogel (soft) CLs are less rigid and adopt the same shape as the cornea. Therefore, if a hydrogel CL is to be used to treat astigmatism, a toric design will be necessary. A certain degree of astigmatism may also be corrected as part of refractive surgery procedures."
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
     "_serverSynced": true,
-    "seqId": 50
+    "_newlyImported": 1768588100551,
+    "seqId": 50,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767787945579,
@@ -36585,7 +37237,8 @@
             "explanation": "L: Lubricate frequently; E: Eye protection at night; N: No swimming/makeup for 1 week; S: Scheduled follow-ups are mandatory."
           }
         }
-      ]
+      ],
+      "chapterId": "refractive"
     },
     "chapterId": "refractive",
     "seqId": 49,
@@ -36736,11 +37389,13 @@
           "color_theme": "blue",
           "content": "14. Royal College of Paediatrics and Child Health and Royal College of Ophthalmologists. Abusive head trauma and the eye in infancy, Appendix 3. 2013. Available at: https://www.rcophth.ac.uk/wp-content/uploads/2014/12/2013-SCI-292-ABUSIVE-HEAD-TRAUMA-AND-THE-EY-FINALat-June-2013.pdf. \n\n15. Watts P; Child maltreatment guideline working party of Royal College of Ophthalmologists UK. Abusive head trauma and the eye in infancy. Eye (Lond). 2013;27:1227–9. (Child abuse page 923)."
         }
-      ]
+      ],
+      "chapterId": "paediatric"
     },
     "chapterId": "paediatric",
     "seqId": 48,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767780773102,
@@ -37081,11 +37736,13 @@
             "Topic: PhAKOMATOSES"
           ]
         }
-      ]
+      ],
+      "chapterId": "investigations"
     },
     "chapterId": "investigations",
     "seqId": 47,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767780691924,
@@ -37592,7 +38249,8 @@
             "Weill–Marchesani, Ehlers–Danlos, PXE, and osteogenesis (Inheritance varies/AR components mentioned for groups)."
           ]
         }
-      ]
+      ],
+      "chapterId": "pediatric"
     },
     "chapterId": "pediatric",
     "seqId": 46,
@@ -37942,11 +38600,13 @@
             "Macular Hypoplasia: Loss of foveal reflex/avascular zone. Occurs in isolation or with albinism/aniridia."
           ]
         }
-      ]
+      ],
+      "chapterId": "paediatric"
     },
     "chapterId": "paediatric",
     "seqId": 45,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767779665752,
@@ -38216,11 +38876,13 @@
           "color_theme": "green",
           "content": "11. International Committee for the Classification of Retinopathy of Prematurity. The International Classification of Retinopathy of Prematurity revisited. Arch Ophthalmol. 2005;123:991–9. | 12. Good WV. Early Treatment for Retinopathy of Prematurity Cooperative Group. Final results of the Early Treatment for Retinopathy of Prematurity (ETROP) randomized trial. Trans Am Ophthalmol Soc. 2004;102:233–48. | Data sourced from RCPCh, RCOphth, BAPN, BLISS. Guideline for the screening and treatment of retinopathy of prematurity 2008."
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 44,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767779566451,
@@ -38442,11 +39104,13 @@
           "color_theme": "blue",
           "content": "9. European Glaucoma Society. Terminology and guidelines for glaucoma, 3rd edition. Savona: Dogma; 2008. 10. Coppens G et al. The safety and efficacy of glaucoma medications in the pediatric population. J Pediatr Ophthalmol Strabismus. 2009;46:12–18. Content adapted from Chapter 18 Paediatric Ophthalmology, pp. 895-897."
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "seqId": 43,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767779404943,
@@ -38625,11 +39289,13 @@
           "color_theme": "blue",
           "content": "Other causes of uveitis in children: For clinical features, investigations, and treatment of these conditions, see E Chapter 11. Reference: 8 Ramanan AV et al. Adalimumab plus methotrexate for uveitis in juvenile idiopathic arthritis. N Engl J Med. 2017;376:1637– 46. Uveitis in children 893"
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
     "seqId": 42,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767778338821,
@@ -38950,11 +39616,13 @@
           "color_theme": "purple",
           "content": "4 Haargaard B et al. Incidence and cumulative risk of childhood cataract in a cohort of 2.6 million Danish children. Invest Ophthalmol Vis Sci. 2004;45:1316–20. 5 Lambert SR. Treatment of congenital cataract. Br J Ophthalmol. 2004;88:854–5. 6 Solebo AL et al. Cataract surgery and intraocular lens implantation in children < or = 2 years old in the UK and Ireland: finding of national surveys. Br J Ophthalmol. 2009;93:1495–8. 7 Eibschitz-Tsimhoni M et al. Intraocular lens power calculation in children. Surv Ophthalmol. 2007;52:474–82. * Birch EE et al. Visual acuity development after the implantation of unilateral intraocular lenses in infants and young children. J AAPOS. 2005;9:527–32."
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
     "seqId": 41,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767777335480,
@@ -39186,11 +39854,13 @@
           "color_theme": "blue",
           "content": "3 Nageswaran S et al. Orbital cellulitis in children. Pediatr Infect Dis J. 2006;25:695–9. Section Reference: 885 ORBITAL AND PRESEPTAL CELLULITIS."
         }
-      ]
+      ],
+      "chapterId": "orbit"
     },
     "chapterId": "orbit",
     "seqId": 40,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767777055343,
@@ -39365,11 +40035,13 @@
           "color_theme": "blue",
           "content": "Children are commonly affected by both infective and allergic conjunctivitis. In the older child, it behaves in a more similar manner to adult disease: viral (see E Viral conjunctivitis, pp. 206–7), bacterial (see E Bacterial conjunctivitis (1), p. 202), chlamydial (see E Chlamydial conjunctivitis, pp. 208–9), and allergic (see E Allergic conjunctivitis (1), pp. 210–11). [Source Page 883]"
         }
-      ]
+      ],
+      "chapterId": "conjunctiva"
     },
     "chapterId": "conjunctiva",
     "seqId": 39,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767776898049,
@@ -39571,11 +40243,13 @@
             "Systemic: Neuropathic bladder."
           ]
         }
-      ]
+      ],
+      "chapterId": "paediatric"
     },
     "chapterId": "paediatric",
     "seqId": 38,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767767642669,
@@ -39785,7 +40459,8 @@
           "color_theme": "blue",
           "content": "Reference Data: 877. This content covers the core clinical presentations: cloudy cornea and leucocoria."
         }
-      ]
+      ],
+      "chapterId": "pediatric"
     },
     "chapterId": "pediatric",
     "seqId": 37,
@@ -39999,11 +40674,13 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "paediatric"
     },
     "chapterId": "paediatric",
     "seqId": 36,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767767263621,
@@ -40273,11 +40950,13 @@
           "color_theme": "blue",
           "content": "VA: Visual Acuity | FB: Foreign Body | dVA: decreased Visual Acuity | iIOP: increased Intraocular Pressure | AC: Anterior Chamber | KPs: Keratic Precipitates | PS: Posterior Synechiae | 1° care: Primary Care | d drainage: Decreased drainage | i tears: Increased tears"
         }
-      ]
+      ],
+      "chapterId": "conjunctiva"
     },
     "chapterId": "conjunctiva",
     "seqId": 35,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767767132694,
@@ -40505,11 +41184,13 @@
           "color_theme": "blue",
           "content": "873 RED EYE, WATERING, AND PHOTOPHOBIA. Abbreviations used: VA (Visual Acuity), FB (Foreign Body), dVA (decreased Visual Acuity), iIOP (increased Intraocular Pressure), AC (Anterior Chamber), KPs (Keratic Precipitates), PS (Posterior Synechiae)."
         }
-      ]
+      ],
+      "chapterId": "conjunctiva"
     },
     "chapterId": "conjunctiva",
     "seqId": 34,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767767017705,
@@ -40728,7 +41409,8 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "pediatric"
     },
     "chapterId": "pediatric",
     "seqId": 33,
@@ -40972,11 +41654,13 @@
             "explanation": "Crowding Results in Optotypes being Worse when grouped; patients perform better with single optotypes."
           }
         }
-      ]
+      ],
+      "chapterId": "strabismus"
     },
     "chapterId": "strabismus",
     "seqId": 32,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767710738503,
@@ -41332,11 +42016,13 @@
           "color_theme": "blue",
           "content": "Worldwide, there are over 1.5 million children who are blind or severely visually impaired. Only 6.5% live in the more affluent regions of the world. Data Source: Ophthalmic assessment in a child text."
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
     "seqId": 31,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767699968902,
@@ -41844,7 +42530,8 @@
           "color_theme": "blue",
           "content": "NB This dosing table is informed by: Parks, Marshall M. Atlas of Strabismus Surgery. Haper & Row, Phil 1983; Hoyt GS & Taylor D Paediatric Ophthalmology & Strabismus. Elsevier 2012; Anson AM & Davis H. Appendix. P706– 8 Diagnosis and Management of Ocular Motility Disorders. Wiley & Bradbury JA, Taylor RH. Severe complications of strabismus surgery. J AAPOS. 2013;17:59– 63. (Pages 851-854 Chapter 17 Strabismus)."
         }
-      ]
+      ],
+      "chapterId": "strabismus"
     },
     "chapterId": "strabismus",
     "seqId": 30,
@@ -42084,7 +42771,8 @@
           "color_theme": "blue",
           "content": "9 Clark RA et al. Heterotopic muscle pulleys or oblique muscle dysfunction? J AAPOS. 1998;2:17– 25.\n10 Das VE et al. Correlation of cross-​axis eye movements and motor neurone activity in non-​human primates with ‘A’ pattern strabismus. Invest Ophthalmol Vis Sci. 2007;48:665– 74.\n11 Guyton DL. Ocular torsion: Sensorimotor principles. Graefes Arch Clin Exp Ophthalmol. 1988;266:241– 5."
         }
-      ]
+      ],
+      "chapterId": "strabismus"
     },
     "chapterId": "strabismus",
     "seqId": 29,
@@ -42418,11 +43106,13 @@
             "Surgery: Ipsilateral myopexy of LR and SR (after Yokoyama) ± MR recession"
           ]
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
     "seqId": 28,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767699163569,
@@ -42588,11 +43278,13 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "medical_retina"
     },
     "chapterId": "medical_retina",
     "seqId": 27,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767697952652,
@@ -42840,7 +43532,8 @@
           "color_theme": "blue",
           "content": "4. Simonsz HJ et al. Final report of the early vs. late infantile strabismus surgery study (ELISSS). Strabismus. 2005;13:169–99. \n5. Birch EE et al. Why does early surgical alignment improve stereoacuity outcomes in infantile esotropia? J AAPOS. 2000;4:10–14. \n6. Lueder GT et al. Effect of preoperative stability of alignment on outcome of strabismus surgery for infantile esotropia. J AAPOS. 2008;12:66–8. \n7. Murray AD et al. Changes in the functional binocular status of older children and adults with previously untreated infantile esotropia. J AAPOS. 2007;11:125–30. \nPages: 837, 838, 839, 840. Chapter 17 Strabismus."
         }
-      ]
+      ],
+      "chapterId": "strabismus"
     },
     "chapterId": "strabismus",
     "seqId": 26,
@@ -42969,7 +43662,8 @@
             "Hess and Lees charts 833"
           ]
         }
-      ]
+      ],
+      "chapterId": "strabismus"
     },
     "chapterId": "strabismus",
     "seqId": 25,
@@ -43206,7 +43900,8 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "strabismus"
     },
     "chapterId": "strabismus",
     "seqId": 24,
@@ -43526,11 +44221,12 @@
           "color_theme": "blue",
           "content": "Microtropia is a small manifest deviation with a degree of BSV created by ARC, eccentric fixation, and a central suppression scotoma.\n\n- Microtropia with identity: No movement on cover test due to absolute eccentric fixation.\n- Microtropia without identity: Movement occurs on cover test because eccentric fixation is not absolute."
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
-    "_newlyImported": 1768587752747,
     "seqId": 23,
+    "_chapterUpdated": 1770235061628,
     "_serverSynced": true
   },
   {
@@ -43934,11 +44630,13 @@
           "color_theme": "blue",
           "content": "A small manifest deviation with a degree of BSV created by ARC, eccentric fixation, and a central suppression scotoma. Microtropia with identity: No movement on cover test. Microtropia without identity: Movement occurs because eccentric fixation is not absolute."
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 22,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767518268756,
@@ -44146,7 +44844,8 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 21,
@@ -44343,7 +45042,8 @@
           "color_theme": "blue",
           "content": "24. ICHD-3 beta. Cephalalgia 2013;33:629–808. 25. NICE Clinical guideline [CG150] 2015. 26. Acute therapy limit 10d/mo. 27. Preventative efficacy period 3-4mo. Adapted with permission from SAGE."
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 20,
@@ -44626,7 +45326,8 @@
             "Management Role 2: Coordinating visual rehabilitation and support (including visual impairment registration)."
           ]
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 19,
@@ -44909,11 +45610,13 @@
           "color_theme": "blue",
           "content": "Source: Chapter 16 Neuro-ophthalmology, Page 765-766. Congenital optic disc anomalies 765."
         }
-      ]
+      ],
+      "chapterId": "paediatric"
     },
     "chapterId": "paediatric",
     "seqId": 18,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767516474854,
@@ -45194,7 +45897,8 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 17,
@@ -45545,11 +46249,13 @@
           "color_theme": "blue",
           "content": "17. JAMA. 1995;273:625–32 (IONDT). 18. Am J Ophthalmol. 2002;134:317–28 (Newman et al). 19. Br J Ophthalmol. 2007;91:585–7 (Lam BL et al). 20. Anesthesiology. 2006;104:1319–28 (ASA Task Force)."
         }
-      ]
+      ],
+      "chapterId": "paediatric"
     },
     "chapterId": "paediatric",
     "seqId": 16,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767514465268,
@@ -45721,11 +46427,13 @@
           "color_theme": "purple",
           "content": "* Hayreh SS et al. Giant cell arteritis: validity and reliability of various diagnostic criteria. Am J Ophthalmol. 1997;123:285– 96.\n† Foroozan R et al. Thrombocytosis in patients with biopsy- proven giant cell arteritis. Ophthalmology. 2002;109:1267– 71.\n‡ Karassa FB et al. Meta- analysis: test performance of ultrasonography for giant- cell arteritis. Ann Intern Med. 2005;142:359– 69.\n§ Luqmani R et al. The Role of Ultrasound Compared to Biopsy of Temporal Arteries in the Diagnosis and Treatment of Giant Cell Arteritis (TABUL): a diagnostic accuracy and cost- effectiveness study. Health Technology Assessment No. 20.90. Southampton: NIHR Journals Library; 2016. Available at: M https:// www.ncbi.nlm.nih.gov/ books/ NBK401231/ . doi: 10.3310/ hta20900."
         }
-      ]
+      ],
+      "chapterId": "glaucoma"
     },
     "chapterId": "glaucoma",
     "seqId": 15,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   },
   {
     "id": 1767514228920,
@@ -45959,7 +46667,8 @@
           "color_theme": "blue",
           "content": "14. Dasgupta B et al. BSR and BHPR guidelines for management of GCA. Rheumatology (Oxf). 2010;49:1594– 7. 15. Hunder GG et al. ACR 1990 criteria for classification of GCA. Arthritis Rheum 1990;33:1122– 8. 16. Dasgupta B et al. BSR and BHPR guidelines. Rheumatology (Oxf). 2010;49:1594– 7. Note: ESR ii = significantly increased; Platelet i = increased."
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 14,
@@ -46563,7 +47272,8 @@
             "MS Risk Factors: White matter lesions on brain imaging, CSF oligoclonal bands, older age at presentation."
           ]
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 13,
@@ -46917,7 +47627,8 @@
           "color_theme": "blue",
           "content": "Diagnosis of typical episodes may be made on clinical grounds alone. If the episode is atypical, investigate to rule out a progressive optic neuropathy (see Atypical optic neuritis, p. 742). Electrodiagnostic tests (EDTs) may be helpful in early symmetric disease where objective signs are absent."
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 12,
@@ -47207,7 +47918,8 @@
             "Continuity: The subarachnoid space is continuous with the optic nerve sheath."
           ]
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 11,
@@ -47373,7 +48085,8 @@
           "color_theme": "green",
           "content": "When functional visual loss is diagnosed, the patient should be counselled carefully. The physician faces the unusual situation of contesting the patient’s symptoms. However, an adversarial scenario can be both disagreeable and entirely counterproductive. The patient can be reassured that they have healthy eyes and that the return of normal visual functioning is expected. With support, patience, and reassurance, the patient can be allowed to resolve their visual functioning. The underlying problem may be far beyond the scope of most ophthalmologists’ expertise. In some cases, a clinical psychologist may be helpful."
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 10,
@@ -47659,7 +48372,8 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 9,
@@ -47897,7 +48611,8 @@
           "color_theme": "blue",
           "content": "35 Sussman J et al. Myasthenia gravis: Association of British Neurologists’ management guidelines. Pract Neurol. 2015;15:199–206. 36 Wolfe G et al. Randomized trial of thymectomy in myasthenia gravis. N Engl J Med. 2016;375:511–22."
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 8,
@@ -48261,7 +48976,8 @@
             "Ping-pong Gaze: Conjugate horizontal movements alternating side every few seconds. Associated with bilateral cerebral hemispheric lesions."
           ]
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 7,
@@ -48408,7 +49124,8 @@
             "Warning: Spirochaete death may transiently worsen inflammation (Jarish–Herxheimer reaction)."
           ]
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 6,
@@ -48725,7 +49442,8 @@
           "color_theme": "blue",
           "content": "For anisocoria arising from disorders of the sympathetic and parasympathetic chains, see E Anisocoria: sympathetic chain, pp. 796–7 and E Anisocoria: parasympathetic chain, p. 800. (796-798 Chapter 16 Neuro-ophthalmology)"
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 5,
@@ -48964,7 +49682,8 @@
             ]
           }
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 4,
@@ -49180,7 +49899,8 @@
           "color_theme": "blue",
           "content": "Fourth nerve disorders 787"
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 3,
@@ -49372,7 +50092,8 @@
             "Investigate further (MRI) if no recovery is seen at 3 months."
           ]
         }
-      ]
+      ],
+      "chapterId": "neuro"
     },
     "chapterId": "neuro",
     "seqId": 2,
@@ -49614,10 +50335,12 @@
           "color_theme": "blue",
           "content": "28 Sullivan FM et al. Early treatment with prednisolone or acyclovir in Bell's palsy. N Engl J Med. 2007;357:1598– 607. \n29 Lockhart P et al. Antiviral treatment for Bell’s palsy (idiopathic facial paralysis). Cochrane Database Syst Rev. 2009;7:CD001869. \n30,31,32 Combination therapy investigations. \nSeventh nerve disorders 791-792 Chapter 16 Neuro-ophthalmology"
         }
-      ]
+      ],
+      "chapterId": "vitreoretinal"
     },
     "chapterId": "vitreoretinal",
     "seqId": 1,
-    "_serverSynced": true
+    "_serverSynced": true,
+    "_chapterUpdated": 1770235061628
   }
 ]

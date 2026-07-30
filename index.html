@@ -171,42 +171,45 @@
                 Open Library
             </button>
 
-            <!-- Studio Tools Panel - NotebookLM Style -->
+            <!-- Learning Studio -->
             <div class="studio-tools-panel" id="studio-panel">
                 <div class="studio-header">
                     <span class="material-symbols-rounded">auto_awesome</span>
-                    <h3>Studio Tools</h3>
+                    <div>
+                        <h3>Learning Studio</h3>
+                        <p>Turn each infographic into an active study session.</p>
+                    </div>
                 </div>
                 <div class="studio-tools-grid">
-                    <button class="studio-tool-btn" id="audio-overview-btn" title="Generate Audio Overview">
+                    <button class="studio-tool-btn" id="audio-overview-btn" title="Generate Audio Overview" disabled>
                         <span class="material-symbols-rounded">headphones</span>
                         <span class="tool-label">Audio Overview</span>
                     </button>
-                    <button class="studio-tool-btn" id="video-overview-btn" title="Generate Video Overview">
+                    <button class="studio-tool-btn" id="video-overview-btn" title="Generate Video Overview" disabled>
                         <span class="material-symbols-rounded">smart_display</span>
                         <span class="tool-label">Video Overview</span>
                     </button>
-                    <button class="studio-tool-btn" id="mindmap-view-btn" title="Interactive Mind Map">
+                    <button class="studio-tool-btn" id="mindmap-view-btn" title="Interactive Mind Map" disabled>
                         <span class="material-symbols-rounded">hub</span>
                         <span class="tool-label">Mind Map</span>
                     </button>
-                    <button class="studio-tool-btn" id="report-btn" title="Generate Text Report">
+                    <button class="studio-tool-btn" id="report-btn" title="Generate Text Report" disabled>
                         <span class="material-symbols-rounded">description</span>
                         <span class="tool-label">Reports</span>
                     </button>
-                    <button class="studio-tool-btn" id="flashcards-btn" title="Create Flashcards">
+                    <button class="studio-tool-btn" id="flashcards-btn" title="Create Flashcards" disabled>
                         <span class="material-symbols-rounded">style</span>
                         <span class="tool-label">Flashcards</span>
                     </button>
-                    <button class="studio-tool-btn" id="quiz-btn" title="Interactive Quiz">
+                    <button class="studio-tool-btn" id="quiz-btn" title="Interactive Quiz" disabled>
                         <span class="material-symbols-rounded">quiz</span>
                         <span class="tool-label">Quiz</span>
                     </button>
-                    <button class="studio-tool-btn" id="slidedeck-btn" title="Generate Slide Deck">
+                    <button class="studio-tool-btn" id="slidedeck-btn" title="Generate Slide Deck" disabled>
                         <span class="material-symbols-rounded">slideshow</span>
                         <span class="tool-label">Slide Deck</span>
                     </button>
-                    <button class="studio-tool-btn" id="kanski-pics-btn" title="Import Clinical Photos">
+                    <button class="studio-tool-btn" id="kanski-pics-btn" title="Import Clinical Photos" disabled>
                         <span class="material-symbols-rounded">imagesmode</span>
                         <span class="tool-label">Pics</span>
                     </button>
@@ -216,7 +219,7 @@
                         <span class="tool-label">Sticky Notes</span>
                     </button>
                 </div>
-                <p class="studio-hint">Generate an infographic first to unlock these tools</p>
+                <p class="studio-hint">Generate or open an infographic to unlock the learning tools.</p>
             </div>
         </aside>
 
@@ -270,10 +273,6 @@
                     <button class="icon-btn" id="library-btn" title="Open Knowledge Base">
                         <span class="material-symbols-rounded">inventory_2</span>
                     </button>
-                    <button class="icon-btn" id="notebooklm-toggle-btn" title="Toggle NotebookLM Portal"
-                        style="color: #6366f1;">
-                        <span class="material-symbols-rounded">dock_to_right</span>
-                    </button>
                 </div>
             </div>
 
@@ -297,72 +296,6 @@
             <div id="text-report-container" class="text-report-wrapper" style="display: none;"></div>
         </main>
 
-        <!-- NotebookLM Notes Mirror Panel -->
-        <aside class="notebooklm-panel" id="notebooklm-panel">
-            <!-- Panel Header -->
-            <div class="nlm-panel-header">
-                <div class="nlm-title-row">
-                    <h2 class="nlm-title">
-                        <span class="material-symbols-rounded">book</span>
-                        NotebookLM Notes
-                        <span class="nlm-count-badge" id="nlm-count-badge" style="display:none;">0</span>
-                    </h2>
-                    <div class="nlm-header-actions">
-                        <a href="https://notebooklm.google.com/notebook/07d17136-d624-417d-8b82-6977f9674f71?pli=1&authuser=0&pageId=none"
-                            target="_blank" class="nlm-action-btn" title="Open NotebookLM">
-                            <span class="material-symbols-rounded">open_in_new</span>
-                        </a>
-                        <button class="nlm-action-btn" id="nlm-sync-gist-btn" title="Sync Notes from Pool">
-                            <span class="material-symbols-rounded">cloud_download</span>
-                        </button>
-                        <button class="nlm-action-btn" id="nlm-sync-sticky-btn" title="Sync with Sticky Notes"
-                            style="background: rgba(251, 191, 36, 0.3);">
-                            <span class="material-symbols-rounded">sync</span>
-                        </button>
-                        <button class="nlm-action-btn" id="close-notebooklm-btn" title="Close Panel">
-                            <span class="material-symbols-rounded">close</span>
-                        </button>
-                    </div>
-                </div>
-                <!-- Search -->
-                <div class="nlm-search-row">
-                    <span class="material-symbols-rounded nlm-search-icon">search</span>
-                    <input type="text" id="nlm-search-input" class="nlm-search-input" placeholder="Search notes...">
-                </div>
-            </div>
-
-            <!-- Bulk Import Area (collapsible) -->
-            <div class="nlm-import-area" id="nlm-import-area">
-                <button class="nlm-import-toggle" id="nlm-import-toggle">
-                    <span class="material-symbols-rounded">add_notes</span>
-                    Import Notes
-                    <span class="material-symbols-rounded nlm-toggle-chevron">expand_more</span>
-                </button>
-                <div class="nlm-import-body" id="nlm-import-body" style="display:none;">
-                    <textarea id="nlm-paste-area" class="nlm-paste-area"
-                        placeholder="Paste notes from NotebookLM here...&#10;&#10;Separate multiple notes with '---' or leave a blank line between them."></textarea>
-                    <div class="nlm-import-actions">
-                        <button class="nlm-btn-import" id="nlm-add-pasted-btn">
-                            <span class="material-symbols-rounded">add</span>
-                            Add Notes
-                        </button>
-                        <button class="nlm-btn-clear-all" id="nlm-clear-all-btn">
-                            <span class="material-symbols-rounded">delete_sweep</span>
-                            Clear All
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Notes List -->
-            <div class="nlm-notes-list" id="nlm-notes-list">
-                <div class="nlm-empty-state" id="nlm-empty-state">
-                    <span class="material-symbols-rounded">note_stack</span>
-                    <p>No notes imported yet</p>
-                    <small>Paste notes from NotebookLM or sync from the pool</small>
-                </div>
-            </div>
-        </aside>
     </div>
 
     <!-- Library Modal -->
@@ -539,7 +472,7 @@
                         <div class="audio-progress">
                             <div class="audio-progress-bar" id="audio-progress-bar"></div>
                         </div>
-                        <span class="audio-time" id="audio-time">0:00</span>
+                        <span class="audio-time" id="audio-time">0:00 / --:--</span>
                     </div>
                     <div class="audio-options">
                         <label>Voice Style:</label>
@@ -549,19 +482,26 @@
                             <option value="formal">Formal</option>
                             <option value="p2p_female">P2P Female Conversation</option>
                         </select>
+                        <label class="sr-only" for="audio-speed-select">Playback speed</label>
+                        <select id="audio-speed-select" title="Playback speed">
+                            <option value="0.85">0.85×</option>
+                            <option value="1" selected>1×</option>
+                            <option value="1.15">1.15×</option>
+                        </select>
                         <button class="btn-secondary" id="generate-audio-btn">
                             <span class="material-symbols-rounded">record_voice_over</span>
                             Generate Audio
                         </button>
                         <button class="btn-secondary" id="download-audio-btn" style="display: none;">
                             <span class="material-symbols-rounded">download</span>
-                            Download
+                            Export Transcript
                         </button>
                     </div>
                 </div>
                 <div class="audio-transcript">
                     <h4>Transcript Preview</h4>
                     <div id="audio-transcript-text" class="transcript-text"></div>
+                    <p class="studio-status" id="audio-status" aria-live="polite">Create an overview, then play it with your browser’s speech voice.</p>
                 </div>
             </div>
         </div>
@@ -602,6 +542,13 @@
                     </div>
                 </div>
                 <div class="video-options">
+                    <label class="studio-select-label" for="video-pace-select">Slide pace
+                        <select id="video-pace-select">
+                            <option value="6000">Slow</option>
+                            <option value="4000" selected>Standard</option>
+                            <option value="2500">Fast</option>
+                        </select>
+                    </label>
                     <button class="btn-primary" id="generate-video-btn">
                         <span class="material-symbols-rounded">movie_edit</span>
                         Generate Video Slides
@@ -638,6 +585,10 @@
                     </button>
                     <button class="btn-secondary" id="mindmap-reset">
                         <span class="material-symbols-rounded">center_focus_strong</span>
+                    </button>
+                    <button class="btn-secondary" id="mindmap-expand-all" title="Show all branches">
+                        <span class="material-symbols-rounded">unfold_more</span>
+                        Expand all
                     </button>
                     <button class="btn-primary" id="export-mindmap-btn">
                         <span class="material-symbols-rounded">download</span>
@@ -766,6 +717,12 @@
                 </div>
             </div>
             <div class="modal-body quiz-modal-body">
+                <label class="studio-select-label quiz-length" for="quiz-size-select">Questions
+                    <select id="quiz-size-select">
+                        <option value="5">5 questions</option>
+                        <option value="10" selected>Up to 10 questions</option>
+                    </select>
+                </label>
                 <div class="quiz-container" id="quiz-container">
                     <div class="quiz-question-card">
                         <div class="quiz-progress">

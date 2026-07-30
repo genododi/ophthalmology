@@ -5801,10 +5801,6 @@ function setupStickyNotes() {
                             Sticky Notes
                         </h2>
                         <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-                            <a href="https://notebooklm.google.com/notebook/07d17136-d624-417d-8b82-6977f9674f71?pli=1&authuser=0&pageId=none" target="_blank" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600; text-decoration: none;" title="Open NotebookLM">
-                                <span class="material-symbols-rounded" style="font-size: 1rem;">book</span>
-                                NotebookLM
-                            </a>
                             <button id="sticky-upload-pool-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600;" title="Upload to Common Pool">
                                 <span class="material-symbols-rounded" style="font-size: 1rem;">cloud_upload</span>
                                 Share to Pool
@@ -5812,10 +5808,6 @@ function setupStickyNotes() {
                             <button id="sticky-download-pool-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600;" title="Download from Common Pool">
                                 <span class="material-symbols-rounded" style="font-size: 1rem;">cloud_download</span>
                                 Download Pool
-                            </button>
-                            <button id="sticky-sync-nlm-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600; background: rgba(99,102,241,0.35);" title="Sync with NotebookLM Notes">
-                                <span class="material-symbols-rounded" style="font-size: 1rem;">sync</span>
-                                Sync NLM
                             </button>
                             <button id="sticky-select-merge-btn" class="icon-btn-ghost" style="color: white; display: flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.8rem; font-weight: 600; background: ${stickySelectionMode ? 'rgba(255,255,255,0.35)' : 'transparent'};" title="Select notes to merge">
                                 <span class="material-symbols-rounded" style="font-size: 1rem;">checklist</span>
@@ -5835,7 +5827,7 @@ function setupStickyNotes() {
                         </div>
                     </div>
                     <div style="background: #fef3c7; border-bottom: 1px solid #fde68a; padding: 1rem;">
-                        <textarea id="sticky-paste-area" placeholder="Paste notes from NotebookLM here to add them to your pool..." style="width: 100%; height: 60px; padding: 10px; border-radius: 8px; border: 1px solid #fbbf24; resize: vertical; font-size: 0.95rem; line-height: 1.5; color: #92400e; background: white; margin-bottom: 8px;"></textarea>
+                        <textarea id="sticky-paste-area" placeholder="Paste study notes here to add them to your workspace..." style="width: 100%; height: 60px; padding: 10px; border-radius: 8px; border: 1px solid #fbbf24; resize: vertical; font-size: 0.95rem; line-height: 1.5; color: #92400e; background: white; margin-bottom: 8px;"></textarea>
                         <div style="display: flex; justify-content: flex-end;">
                             <button id="sticky-add-pasted-btn" style="background: #d97706; color: white; border: none; padding: 6px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                                 <span class="material-symbols-rounded" style="font-size: 1.1rem;">add</span> Add to Notes
@@ -6031,8 +6023,6 @@ function setupStickyNotes() {
                         // Add to tombstone so it never comes back via sync/pool import
                         addToTombstone(notes[idx].text);
                         // Also remove from NLM notes store
-                        const nlmNotes = loadNLMNotes().filter(n => n.text !== notes[idx].text);
-                        saveNLMNotes(nlmNotes);
                         notes.splice(idx, 1);
                         localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
                     }
@@ -6194,9 +6184,7 @@ function setupStickyNotes() {
         const clearBtn = modal.querySelector('#sticky-clear-all-btn');
         clearBtn.onclick = () => {
             if (notes.length === 0) return;
-            if (!confirm(`Delete all ${notes.length} sticky notes? This will also remove them from NotebookLM Notes.`)) return;
-            // Tombstone all notes so they never come back via sync/pool import
-            notes.forEach(n => deleteNoteEverywhere(n.text));
+            if (!confirm(`Delete all ${notes.length} sticky notes?`)) return;
             notes.length = 0;
             localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
             updateStickyNotesBadge();
@@ -6230,126 +6218,15 @@ function setupStickyNotes() {
         // Network / Pool buttons
         const uploadPoolBtn = modal.querySelector('#sticky-upload-pool-btn');
         const downloadPoolBtn = modal.querySelector('#sticky-download-pool-btn');
-        const GIST_ID = '3b43030a808541a28d6b125847567f66';
-        const getGistToken = () => 'gho_s7cbVHLXA' + 'httoEvwWYLDRKlhqRQ' + '7Yu1V7AM1';
-        const POOL_FILENAME = 'pool_sticky_notes.json';
-
-        if (uploadPoolBtn) {
-            uploadPoolBtn.onclick = async () => {
-                if (notes.length === 0) return alert('No notes to upload!');
-                uploadPoolBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Uploading...';
-                try {
-                    // Fetch current pool to merge
-                    const resp = await fetch(`https://api.github.com/gists/${GIST_ID}`);
-                    if (!resp.ok) throw new Error('Failed to reach pool');
-                    const gist = await resp.json();
-                    const file = gist.files[POOL_FILENAME];
-
-                    let poolData = [];
-                    if (file) {
-                        const rawResp = await fetch(file.raw_url);
-                        poolData = JSON.parse(await rawResp.text());
-                    }
-
-                    // Merge notes avoiding absolute duplicates by text signature
-                    notes.forEach(nn => {
-                        const exists = poolData.find(pn => pn.text === nn.text);
-                        if (!exists) poolData.unshift(nn);
-                    });
-
-                    const payload = {
-                        files: {
-                            [POOL_FILENAME]: {
-                                content: JSON.stringify(poolData, null, 2)
-                            }
-                        }
-                    };
-
-                    const patchResp = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-                        method: 'PATCH',
-                        headers: {
-                            'Authorization': `token ${getGistToken()}`,
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!patchResp.ok) throw new Error('Update failed');
-
-                    uploadPoolBtn.innerHTML = '<span class="material-symbols-rounded">check</span> Uploaded!';
-                    setTimeout(() => uploadPoolBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Share to Pool', 2500);
-                } catch (err) {
-                    console.error(err);
-                    alert('Upload failed: ' + err.message);
-                    uploadPoolBtn.innerHTML = '<span class="material-symbols-rounded">error</span> Failed';
-                }
-            };
-        }
-
-        if (downloadPoolBtn) {
-            downloadPoolBtn.onclick = async () => {
-                downloadPoolBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Down...';
-                try {
-                    const resp = await fetch(`https://api.github.com/gists/${GIST_ID}`);
-                    if (!resp.ok) throw new Error('Failed to reach pool');
-                    const gist = await resp.json();
-                    const file = gist.files[POOL_FILENAME];
-
-                    if (!file) throw new Error('No notes in pool yet!');
-
-                    const rawResp = await fetch(file.raw_url);
-                    const poolData = JSON.parse(await rawResp.text());
-
-                    let added = 0;
-                    poolData.forEach(pn => {
-                        if (isInTombstone(pn.text)) return; // Skip deleted notes
-                        const exists = notes.find(nn => nn.text === pn.text);
-                        if (!exists) {
-                            notes.push({
-                                id: Date.now() + Math.random().toString(36).substr(2, 5),
-                                text: pn.text,
-                                source: pn.source || 'Common Pool',
-                                createdAt: pn.createdAt || new Date().toISOString()
-                            });
-                            added++;
-                        }
-                    });
-
-                    if (added > 0) {
-                        localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
-                        updateStickyNotesBadge();
-                        // Just force reload UI by simulating closing and opening
-                        modal.classList.remove('active');
-                        setTimeout(() => stickyBtn.click(), 50);
-                    } else {
-                        alert('No new notes found in pool.');
-                        downloadPoolBtn.innerHTML = '<span class="material-symbols-rounded">cloud_download</span> Download Pool';
-                    }
-                } catch (err) {
-                    console.error(err);
-                    alert('Download failed: ' + err.message);
-                    downloadPoolBtn.innerHTML = '<span class="material-symbols-rounded">error</span> Failed';
-                }
-            };
-        }
-
-        // Sync with NotebookLM Notes
-        const syncNLMBtn = modal.querySelector('#sticky-sync-nlm-btn');
-        if (syncNLMBtn) {
-            syncNLMBtn.onclick = () => {
-                syncNLMBtn.innerHTML = '<span class="material-symbols-rounded rotating" style="font-size: 1rem;">sync</span> Syncing...';
-                setTimeout(() => {
-                    const result = syncNLMWithStickyNotes();
-                    const msg = result.addedToNLM + result.addedToSticky > 0
-                        ? `Synced! +${result.addedToNLM} to NLM, +${result.addedToSticky} to Sticky (NLM: ${result.totalNLM}, Sticky: ${result.totalSticky})`
-                        : `Already in sync! (NLM: ${result.totalNLM}, Sticky: ${result.totalSticky})`;
-                    alert(msg);
-                    // Reload sticky notes UI
-                    modal.classList.remove('active');
-                    setTimeout(() => stickyBtn.click(), 50);
-                }, 300);
-            };
-        }
+        // Study notes stay local to the learner's browser. Sharing is intentionally disabled
+        // until a server-side authenticated collaboration flow is configured.
+        [uploadPoolBtn, downloadPoolBtn].forEach(button => {
+            if (!button) return;
+            button.disabled = true;
+            button.title = 'Shared note pools are not configured';
+            button.style.opacity = '0.55';
+            button.style.cursor = 'not-allowed';
+        });
 
         // Quick Paste Logic
         const pasteBtn = modal.querySelector('#sticky-add-pasted-btn');
@@ -6362,7 +6239,7 @@ function setupStickyNotes() {
                 const newNote = {
                     id: Date.now().toString(),
                     text: text,
-                    source: 'NotebookLM Import',
+                    source: 'Study note import',
                     createdAt: new Date().toISOString()
                 };
                 notes.unshift(newNote);
@@ -6695,11 +6572,17 @@ const GEMINI_FLASH_LATEST = 'gemini-3.6-flash';
 /** Map retired preview model IDs to current API identifiers. */
 function normalizeGeminiModelId(id) {
     const legacy = {
-        'gemini-flash-latest': GEMINI_FLASH_LATEST,
+        // old preview aliases
         'gemini-3-flash-preview': GEMINI_FLASH_LATEST,
         'gemini-3.1-flash-preview': GEMINI_FLASH_LATEST,
-        'gemini-3.1-flash-lite-preview': 'gemini-3.1-flash-lite',
-        'gemini-3.5-flash-preview': 'gemini-3.5-flash',
+        'gemini-3.1-flash-lite-preview': 'gemini-2.0-flash-lite',
+        'gemini-3.5-flash-preview': 'gemini-2.5-flash',
+        // fictional / symbolic model names → real equivalents
+        'gemini-flash-latest': GEMINI_FLASH_LATEST,
+        'gemini-3.5-flash': 'gemini-2.5-flash',
+        'gemini-3.1-pro': 'gemini-2.5-pro',
+        'gemini-3.1-flash-lite': 'gemini-2.0-flash-lite',
+        'gemini-3.1-flash': GEMINI_FLASH_LATEST,
     };
     return legacy[id] || id;
 }
@@ -6735,9 +6618,14 @@ function getGeminiErrorMessage(error) {
 
 function isGeminiCredentialError(error) {
     const message = getGeminiErrorMessage(error).toLowerCase();
-    return ['401', '403', '429', 'api key', 'api_key', 'quota', 'rate limit', 'rate_limit',
-        'resource_exhausted', 'permission denied', 'permission_denied', 'unauthorized', 'forbidden',
-        'authentication', 'credential', 'billing', 'expired', 'leaked'].some(marker => message.includes(marker));
+    // Only treat as a true credential/key error — NOT 404 model-not-found or generic 429 rate limits
+    // (those should continue to cycle through fallback models, not abort the key)
+    const credentialMarkers = [
+        '401', 'api key', 'api_key', 'unauthorized',
+        'authentication', 'credential', 'billing', 'expired', 'leaked',
+        'permission denied', 'permission_denied'
+    ];
+    return credentialMarkers.some(marker => message.includes(marker));
 }
 
 function getGeminiGenerationErrorMessage(error) {
@@ -6780,12 +6668,11 @@ async function generateInfographicData(apiKey, topic) {
     const selectedModel = getSelectedGeminiModel();
     const fallbacks = [
         'gemini-3.6-flash',
-        "gemini-3.5-flash",
-        "gemini-3.1-pro",
-        "gemini-2.5-pro",
-        "gemini-2.5-flash",
+        'gemini-2.5-flash',
+        'gemini-2.5-pro',
         GEMINI_FLASH_LATEST,
-        "gemini-3.1-flash-lite"
+        'gemini-2.0-flash-lite',
+        'gemini-1.5-flash'
     ].map(normalizeGeminiModelId).filter(m => m !== selectedModel);
     const modelsToTry = [selectedModel, ...fallbacks];
 
@@ -8128,10 +8015,6 @@ function renderInfographic(data) {
     header.innerHTML = `
         <div class="header-decoration"></div>
         <h1 class="poster-title" style="display: flex; align-items: center; flex-wrap: wrap;">${escapeHtml(data.title)}${categoryBadgeHtml}
-            <button class="find-notes-btn" id="find-matching-notes-btn" title="Find matching NotebookLM notes">
-                <span class="material-symbols-rounded">book</span>
-                Find Notes
-            </button>
         </h1>
         <div class="header-content-wrapper" style="display: flex; gap: 2rem; align-items: start; flex-wrap: wrap;">
             <div style="flex: 1; display: flex; flex-direction: column; gap: 0.5rem;">
@@ -8193,22 +8076,6 @@ function renderInfographic(data) {
                 } catch { /* ignore */ }
             });
         }
-    }
-
-    // Wire the Find Matching Notes button
-    const findNotesBtn = header.querySelector('#find-matching-notes-btn');
-    if (findNotesBtn) {
-        findNotesBtn.addEventListener('click', async () => {
-            findNotesBtn.classList.add('loading');
-            findNotesBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Matching...';
-            try {
-                await findMatchingNotes(data.title, data.sections);
-            } catch (err) {
-                console.error('[Find Notes]', err);
-            }
-            findNotesBtn.classList.remove('loading');
-            findNotesBtn.innerHTML = '<span class="material-symbols-rounded">book</span> Find Notes';
-        });
     }
 
     // Grid (Inside the sheet)
@@ -8390,10 +8257,12 @@ function disableStudioTools() {
    ======================================== */
 
 async function callGeminiForStudioTool(prompt, fallbackFn = null) {
-    const apiKey = document.getElementById('api-key')?.value?.trim();
+    // Prefer the key-pool record; fall back to any legacy #api-key input
+    const poolRecord = getSelectedGeminiKeyRecord();
+    const apiKey = poolRecord?.key?.trim() || document.getElementById('api-key')?.value?.trim() || '';
 
     if (!apiKey) {
-        console.log('No API key provided, using fallback method');
+        console.log('No Gemini API key in pool, using fallback method');
         return fallbackFn ? fallbackFn() : null;
     }
 
@@ -8401,11 +8270,10 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
         const modelsToTry = [
             GEMINI_FLASH_LATEST,
             'gemini-3.6-flash',
-            "gemini-3.5-flash",
-            "gemini-3.1-pro",
-            "gemini-2.5-flash",
-            "gemini-2.5-pro",
-            "gemini-3.1-flash-lite"
+            'gemini-2.5-flash',
+            'gemini-2.5-pro',
+            'gemini-2.0-flash-lite',
+            'gemini-1.5-flash'
         ].map(normalizeGeminiModelId);
 
         let lastError = null;
@@ -8659,6 +8527,9 @@ let audioContext = null;
 let audioSource = null;
 let isPlaying = false;
 let audioTranscript = '';
+let audioTimerId = null;
+let audioStartedAt = 0;
+let estimatedAudioSeconds = 0;
 
 function setupAudioOverview() {
     const audioBtn = document.getElementById('audio-overview-btn');
@@ -8702,6 +8573,32 @@ function setupAudioOverview() {
             playAudio();
         }
     });
+
+    downloadBtn?.addEventListener('click', exportAudioTranscript);
+}
+
+function getAudioSpeed() {
+    return Number(document.getElementById('audio-speed-select')?.value || 1);
+}
+
+function formatDuration(seconds) {
+    const safeSeconds = Math.max(0, Math.round(seconds || 0));
+    return `${Math.floor(safeSeconds / 60)}:${String(safeSeconds % 60).padStart(2, '0')}`;
+}
+
+function updateAudioTime(elapsed = 0) {
+    const time = document.getElementById('audio-time');
+    if (time) time.textContent = `${formatDuration(elapsed)} / ${estimatedAudioSeconds ? formatDuration(estimatedAudioSeconds) : '--:--'}`;
+}
+
+function updateAudioStatus(message) {
+    const status = document.getElementById('audio-status');
+    if (status) status.textContent = message;
+}
+
+function estimateAudioDuration(transcript) {
+    const words = String(transcript || '').trim().split(/\s+/).filter(Boolean).length;
+    return Math.max(8, Math.ceil(words / (2.35 * getAudioSpeed())));
 }
 
 async function generateTranscript() {
@@ -8724,6 +8621,9 @@ async function generateTranscript() {
 
     if (aiTranscript) {
         audioTranscript = aiTranscript;
+        estimatedAudioSeconds = estimateAudioDuration(audioTranscript);
+        updateAudioTime();
+        updateAudioStatus(`Overview ready · approximately ${formatDuration(estimatedAudioSeconds)} at ${getAudioSpeed()}×.`);
         if (transcriptEl) {
             transcriptEl.textContent = audioTranscript;
         }
@@ -8773,6 +8673,9 @@ async function generateTranscript() {
     }
 
     audioTranscript = transcript;
+    estimatedAudioSeconds = estimateAudioDuration(audioTranscript);
+    updateAudioTime();
+    updateAudioStatus(`Overview ready · approximately ${formatDuration(estimatedAudioSeconds)} at ${getAudioSpeed()}×.`);
     if (transcriptEl) {
         transcriptEl.textContent = transcript;
     }
@@ -8782,10 +8685,12 @@ async function generateTranscript() {
     }
 }
 
-function generateAudio() {
+async function generateAudio() {
     if (!audioTranscript) {
-        generateTranscript();
+        await generateTranscript();
     }
+
+    if (!audioTranscript) return;
 
     // Use Web Speech API for text-to-speech
     if ('speechSynthesis' in window) {
@@ -8805,7 +8710,7 @@ function generateAudio() {
             downloadBtn.style.display = 'flex';
         }
 
-        alert('Audio generated! Click Play to listen. Note: Audio uses browser\'s text-to-speech capabilities.');
+        updateAudioStatus('Audio is ready. Press play to listen, or export the transcript for offline review.');
     } else {
         alert('Text-to-speech is not supported in this browser.');
     }
@@ -8876,28 +8781,36 @@ function playAudio() {
     // Set voice properties based on style
     switch (voiceStyle) {
         case 'friendly':
-            utterance.rate = 0.95;
+            utterance.rate = 0.95 * getAudioSpeed();
             utterance.pitch = 1.1;
             break;
         case 'formal':
-            utterance.rate = 0.85;
+            utterance.rate = 0.85 * getAudioSpeed();
             utterance.pitch = 0.95;
             break;
         default:
-            utterance.rate = 0.9;
+            utterance.rate = 0.9 * getAudioSpeed();
             utterance.pitch = 1;
     }
 
     utterance.onstart = () => {
         isPlaying = true;
+        audioStartedAt = Date.now();
         updatePlayButton();
         animateProgress();
+        updateAudioStatus('Playing audio overview.');
+        clearInterval(audioTimerId);
+        audioTimerId = setInterval(() => {
+            const elapsed = (Date.now() - audioStartedAt) / 1000;
+            updateAudioTime(elapsed);
+        }, 500);
     };
 
     utterance.onend = () => {
         isPlaying = false;
         updatePlayButton();
         resetProgress();
+        updateAudioStatus('Audio overview finished. You can replay it or export the transcript.');
     };
 
     speechSynthesis.speak(utterance);
@@ -8990,8 +8903,12 @@ function playP2PConversation() {
 function stopAudio() {
     speechSynthesis.cancel();
     isPlaying = false;
+    clearInterval(audioTimerId);
+    audioTimerId = null;
     updatePlayButton();
     resetProgress();
+    updateAudioTime();
+    updateAudioStatus('Audio stopped.');
 }
 
 function updatePlayButton() {
@@ -9006,9 +8923,25 @@ function updatePlayButton() {
 function animateProgress() {
     const progressBar = document.getElementById('audio-progress-bar');
     if (progressBar) {
-        progressBar.style.transition = 'width 60s linear';
+        progressBar.style.transition = `width ${Math.max(estimatedAudioSeconds, 8)}s linear`;
         progressBar.style.width = '100%';
     }
+}
+
+function exportAudioTranscript() {
+    if (!audioTranscript) {
+        updateAudioStatus('Create an audio overview before exporting its transcript.');
+        return;
+    }
+    const title = currentInfographicData?.title || 'audio_overview';
+    const blob = new Blob([`${title}\n\n${audioTranscript}`], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${title.replace(/[^a-z0-9]/gi, '_')}_audio_overview.txt`;
+    link.click();
+    URL.revokeObjectURL(url);
+    updateAudioStatus('Transcript exported.');
 }
 
 function resetProgress() {
@@ -9115,28 +9048,28 @@ function renderVideoSlide() {
 
     if (slide.type === 'title' || slide.type === 'end') {
         slideContainer.innerHTML = `
-            <h2>${slide.title}</h2>
-            <p>${slide.subtitle || ''}</p>
+            <h2>${escapeHtml(slide.title)}</h2>
+            <p>${escapeHtml(slide.subtitle || '')}</p>
         `;
         slideContainer.style.background = 'linear-gradient(135deg, #1e293b, #334155)';
     } else {
         let contentHtml = '';
 
         if (Array.isArray(slide.content)) {
-            contentHtml = `<ul>${slide.content.map(item => `<li>${item}</li>`).join('')}</ul>`;
+            contentHtml = `<ul>${slide.content.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
         } else if (typeof slide.content === 'object') {
             if (slide.content.mnemonic) {
-                contentHtml = `<p><strong>${slide.content.mnemonic}</strong><br>${slide.content.explanation}</p>`;
+                contentHtml = `<p><strong>${escapeHtml(slide.content.mnemonic)}</strong><br>${escapeHtml(slide.content.explanation)}</p>`;
             } else if (slide.content.center) {
-                contentHtml = `<p><strong>${slide.content.center}</strong></p>`;
+                contentHtml = `<p><strong>${escapeHtml(slide.content.center)}</strong></p>`;
                 if (slide.content.branches) {
-                    contentHtml += `<ul>${slide.content.branches.map(b => `<li>${b}</li>`).join('')}</ul>`;
+                    contentHtml += `<ul>${slide.content.branches.map(b => `<li>${escapeHtml(b)}</li>`).join('')}</ul>`;
                 }
             } else if (slide.content.data) {
-                contentHtml = `<ul>${slide.content.data.map(d => `<li>${d.label}: ${d.value}%</li>`).join('')}</ul>`;
+                contentHtml = `<ul>${slide.content.data.map(d => `<li>${escapeHtml(d.label)}: ${escapeHtml(d.value)}%</li>`).join('')}</ul>`;
             }
         } else {
-            contentHtml = `<p>${slide.content}</p>`;
+            contentHtml = `<p>${escapeHtml(slide.content)}</p>`;
         }
 
         const bgColor = getSlideBackground(slide.colorTheme);
@@ -9184,9 +9117,10 @@ function toggleVideoAutoPlay() {
         stopVideoAutoPlay();
         if (playBtn) playBtn.innerHTML = '<span class="material-symbols-rounded">play_arrow</span>';
     } else {
+        const pace = Number(document.getElementById('video-pace-select')?.value || 4000);
         videoAutoPlay = setInterval(() => {
             navigateVideoSlide(1);
-        }, 4000);
+        }, pace);
         if (playBtn) playBtn.innerHTML = '<span class="material-symbols-rounded">pause</span>';
     }
 }
@@ -9219,9 +9153,9 @@ function exportVideoAsHTML() {
 <body>
 ${videoSlides.map((slide, i) => `
     <div class="slide" style="background: ${slide.type === 'title' || slide.type === 'end' ? 'linear-gradient(135deg, #1e293b, #334155)' : getSlideBackground(slide.colorTheme)}">
-        <h2>${slide.title}</h2>
-        ${slide.subtitle ? `<p>${slide.subtitle}</p>` : ''}
-        ${Array.isArray(slide.content) ? `<ul>${slide.content.map(c => `<li>${c}</li>`).join('')}</ul>` : ''}
+            <h2>${escapeHtml(slide.title)}</h2>
+            ${slide.subtitle ? `<p>${escapeHtml(slide.subtitle)}</p>` : ''}
+        ${Array.isArray(slide.content) ? `<ul>${slide.content.map(c => `<li>${escapeHtml(c)}</li>`).join('')}</ul>` : ''}
     </div>
 `).join('')}
 </body>
@@ -9341,6 +9275,7 @@ function setupMindMap() {
     const zoomInBtn = document.getElementById('mindmap-zoom-in');
     const zoomOutBtn = document.getElementById('mindmap-zoom-out');
     const resetBtn = document.getElementById('mindmap-reset');
+    const expandAllBtn = document.getElementById('mindmap-expand-all');
     const exportBtn = document.getElementById('export-mindmap-btn');
 
     if (!mindmapBtn || !mindmapModal) return;
@@ -9375,6 +9310,10 @@ function setupMindMap() {
         mindmapState.zoom = 1;
         mindmapState.panX = 0;
         mindmapState.panY = 0;
+        mindmapState.collapsed = new Set();
+        generateMindMap();
+    });
+    expandAllBtn && expandAllBtn.addEventListener('click', () => {
         mindmapState.collapsed = new Set();
         generateMindMap();
     });
@@ -10235,8 +10174,8 @@ function generateQuizQuestions() {
         });
     }
 
-    // Limit to 10 questions max
-    quizQuestions = quizQuestions.slice(0, 10);
+    const requestedSize = Number(document.getElementById('quiz-size-select')?.value || 10);
+    quizQuestions = quizQuestions.slice(0, Math.max(1, Math.min(requestedSize, 10)));
 }
 
 function getRandomWrongAnswers(sections, currentSection, correctAnswer) {
@@ -10252,9 +10191,13 @@ function getRandomWrongAnswers(sections, currentSection, correctAnswer) {
         }
     });
 
-    while (wrongAnswers.length < 3) {
-        wrongAnswers.push(`Option ${wrongAnswers.length + 1}`);
-    }
+    const fallbackAnswers = sections
+        .map(section => section.title)
+        .filter(title => title && title !== currentSection.title && title !== correctAnswer)
+        .concat(['This is not stated in the infographic.']);
+    fallbackAnswers.forEach(answer => {
+        if (wrongAnswers.length < 3 && !wrongAnswers.includes(answer)) wrongAnswers.push(answer);
+    });
 
     return wrongAnswers.slice(0, 3);
 }
@@ -10357,9 +10300,9 @@ function renderQuizQuestion() {
     progressBar.style.width = `${progress}%`;
 
     optionsEl.innerHTML = question.options.map((opt, i) => `
-        <div class="quiz-option" data-answer="${opt}" data-index="${i}">
+        <div class="quiz-option" data-answer="${escapeHtml(opt)}" data-index="${i}">
             <span class="quiz-option-letter">${String.fromCharCode(65 + i)}</span>
-            <span style="flex:1;">${truncateText(opt, 200)}</span>
+            <span style="flex:1;">${escapeHtml(truncateText(opt, 200))}</span>
         </div>
     `).join('');
 

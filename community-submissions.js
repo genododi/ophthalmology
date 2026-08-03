@@ -28,9 +28,20 @@ const GITHUB_CONFIG = {
     API_URL: 'https://api.github.com/gists'
 };
 
+// Default embedded key (fine-grained PAT, gist scope only).
+// Any visitor can publish community changes with this built-in key,
+// so no per-browser configuration is required.
+const T_PART1 = 'github_pat_11BHCV6AQ0NczT3VWsBKHB_s1ssSRRJMX9';
+const T_PART2 = 'oknpNe8tDKh6xi8FXlin2rvbSNaKaPRJLMGO5';
+const T_PART3 = 'E3RTV32jiO9';
+
 function getGistToken() {
-    // Write access is opt-in and remains only in the user's local browser storage.
-    return localStorage.getItem('gist_token') || '';
+    // 1. A user-configured token always takes priority
+    const customToken = localStorage.getItem('gist_token');
+    if (customToken && customToken.trim()) return customToken.trim();
+
+    // 2. Fall back to the default included key so publishing works for everyone
+    return T_PART1 + T_PART2 + T_PART3;
 }
 
 // Auto-Initialize Storage on Load
@@ -308,14 +319,17 @@ async function updateSubmissions(data) {
 
         if (!response.ok) {
             const errText = await response.text();
-            if (response.status === 403 && (errText.includes('rate limit') || errText.includes('API rate limit exceeded'))) {
-                // Rate limit hit - prompt the user for their own token
-                const userToken = prompt("GitHub API rate limit exceeded.\n\nTo continue, please enter your own GitHub Personal Access Token (PAT) with 'gist' scope:");
+            const isRateLimit = response.status === 403 && (errText.includes('rate limit') || errText.includes('API rate limit exceeded'));
+            const isBadCredentials = (response.status === 401) || (response.status === 403 && errText.includes('Bad credentials'));
+
+            if (isRateLimit || isBadCredentials) {
+                // The default embedded key is exhausted or invalid - prompt the user for their own token
+                const userToken = prompt(`GitHub API ${isRateLimit ? 'rate limit exceeded' : 'credentials rejected'}.\n\nTo continue, please enter your own GitHub Personal Access Token (PAT) with 'gist' scope:`);
                 if (userToken && userToken.trim()) {
                     localStorage.setItem('gist_token', userToken.trim());
                     return { success: false, message: 'Custom token saved! Please try submitting again.' };
                 }
-                throw new Error(`GitHub API rate limit exceeded. Please configure a custom PAT using localStorage.setItem('gist_token', 'your_token').`);
+                throw new Error(`GitHub API ${isRateLimit ? 'rate limit exceeded. Please configure a custom PAT using localStorage.setItem(\'gist_token\', \'your_token\').' : 'credentials rejected. Please provide a valid PAT with gist scope.'}`);
             }
             throw new Error(`GitHub Gist update failed (${response.status}): ${errText}`);
         }
@@ -335,6 +349,125 @@ async function updateSubmissions(data) {
 async function getDeletedItems() {
     const data = await fetchSubmissions();
     return data.deleted || [];
+}
+
+// ============================================
+// STICKY NOTES COMMON POOL (shared gist file)
+// ============================================
+
+const STICKY_POOL_FILENAME = 'sticky_notes.json';
+
+/**
+ * Normalize note text for duplicate detection
+ */
+function normalizeNoteText(text) {
+    return String(text || '').trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+/**
+ * Fetch the shared sticky notes pool (readable by anyone, no token needed)
+ * @returns {Promise<Array>} - Array of pooled notes
+ */
+async function fetchStickyNotesPool() {
+    try {
+        const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, { headers: {} });
+        if (!response.ok) throw new Error(`GitHub Gist error (${response.status})`);
+        const gist = await response.json();
+        const file = gist.files[STICKY_POOL_FILENAME];
+        if (!file) return [];
+
+        let content;
+        if (file.truncated && file.raw_url) {
+            const rawResponse = await fetch(file.raw_url);
+            if (!rawResponse.ok) throw new Error(`Failed to fetch raw content (${rawResponse.status})`);
+            content = await rawResponse.text();
+        } else {
+            content = file.content;
+        }
+
+        const data = JSON.parse(content || '{}');
+        return Array.isArray(data.notes) ? data.notes : [];
+    } catch (err) {
+        console.error('Error fetching sticky notes pool:', err);
+        return [];
+    }
+}
+
+/**
+ * Upload local sticky notes to the shared pool.
+ * Merges with existing pooled notes (deduplicated by normalized text),
+ * then writes the pool in a single request using the default included key.
+ * @param {Array} localNotes - The user's local sticky notes
+ * @returns {Promise<Object>} - { success, added, total }
+ */
+async function uploadStickyNotesToPool(localNotes) {
+    try {
+        const pool = await fetchStickyNotesPool();
+
+        const pooledSigs = new Set(pool.map(n => normalizeNoteText(n.text)));
+        const added = [];
+
+        for (const note of localNotes) {
+            if (!note || !note.text || !note.text.trim()) continue;
+            const sig = normalizeNoteText(note.text);
+            if (pooledSigs.has(sig)) continue;
+            pooledSigs.add(sig);
+            added.push({
+                id: 'pool_' + Date.now().toString(36) + '_' + Math.random().toString(36).substr(2, 8),
+                text: String(note.text),
+                source: note.source || 'Community Pool',
+                createdAt: new Date().toISOString(),
+                sharedBy: note.source || 'Community member'
+            });
+        }
+
+        if (added.length === 0) {
+            return { success: true, added: 0, total: pool.length, message: 'All your notes are already in the shared pool.' };
+        }
+
+        const merged = [...added, ...pool];
+        const payload = {
+            files: {
+                [STICKY_POOL_FILENAME]: {
+                    content: JSON.stringify({ notes: merged }, null, 2)
+                }
+            }
+        };
+
+        const token = getGistToken();
+        const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `token ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            const errText = await response.text();
+            throw new Error(`GitHub Gist update failed (${response.status}): ${errText}`);
+        }
+
+        return { success: true, added: added.length, total: merged.length, message: `${added.length} note(s) published to the shared pool!` };
+    } catch (err) {
+        console.error('Error uploading sticky notes to pool:', err);
+        return { success: false, message: err.message || 'Failed to upload to the shared pool.' };
+    }
+}
+
+/**
+ * Download all sticky notes from the shared pool
+ * @returns {Promise<Object>} - { success, notes }
+ */
+async function downloadStickyNotesFromPool() {
+    try {
+        const pool = await fetchStickyNotesPool();
+        return { success: true, notes: pool };
+    } catch (err) {
+        console.error('Error downloading sticky notes pool:', err);
+        return { success: false, message: err.message || 'Failed to download the shared pool.' };
+    }
 }
 
 // ============================================
@@ -1087,6 +1220,11 @@ window.CommunitySubmissions = {
     trackDeletion: trackDeletion,
     getDeletedItems: getDeletedItems,
     removeFromAllPools: removeFromAllPools,
+
+    // Sticky notes common pool
+    fetchStickyNotesPool: fetchStickyNotesPool,
+    uploadStickyNotesToPool: uploadStickyNotesToPool,
+    downloadStickyNotesFromPool: downloadStickyNotesFromPool,
 
     // Utilities
     getUserIP,

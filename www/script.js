@@ -636,6 +636,9 @@ async function exportToPDF(element) {
             border: [226, 232, 240]
         };
 
+        // Paragraph vertical spacing between consecutive text lines (mm)
+        const PARA_SPACING = 2.2;
+
         // Helper: Add new page if needed
         const checkPageBreak = (neededHeight) => {
             if (yPos + neededHeight > pageHeight - margin) {
@@ -666,8 +669,8 @@ async function exportToPDF(element) {
         pdf.setFontSize(24);
         pdf.setTextColor(...colors.primaryDark);
         const titleLines = pdf.splitTextToSize(data.title || 'Infographic', contentWidth);
-        pdf.text(titleLines, margin, yPos);
-        yPos += titleLines.length * 10 + 5;
+        pdf.text(titleLines, margin, yPos, { charSpace: 0.6 }); // Even letter spacing for the title
+        yPos += titleLines.length * 11 + 6;
 
         // Summary
         if (data.summary) {
@@ -675,15 +678,15 @@ async function exportToPDF(element) {
             pdf.setFontSize(11);
             pdf.setTextColor(...colors.textSecondary);
             const summaryLines = pdf.splitTextToSize(data.summary, contentWidth);
-            pdf.text(summaryLines, margin, yPos);
-            yPos += summaryLines.length * 5 + 10;
+            pdf.text(summaryLines, margin, yPos, { charSpace: 0.15 });
+            yPos += summaryLines.length * 6.5 + PARA_SPACING + 8;
         }
 
         // Separator line
         pdf.setDrawColor(...colors.border);
         pdf.setLineWidth(0.5);
         pdf.line(margin, yPos, pageWidth - margin, yPos);
-        yPos += 10;
+        yPos += 12;
 
         // Sections
         if (data.sections && Array.isArray(data.sections)) {
@@ -696,7 +699,7 @@ async function exportToPDF(element) {
 
                 while (fontSize >= minFontSize) {
                     pdf.setFontSize(fontSize);
-                    lineHeight = fontSize * 0.45;
+                    lineHeight = fontSize * 0.58;
                     lines = pdf.splitTextToSize(textStr, maxWidth);
 
                     // Accept if reasonable line count
@@ -708,7 +711,7 @@ async function exportToPDF(element) {
 
                 // Use minimum and accept any line count
                 pdf.setFontSize(minFontSize);
-                lineHeight = minFontSize * 0.45;
+                lineHeight = minFontSize * 0.58;
                 lines = pdf.splitTextToSize(textStr, maxWidth);
                 return { fontSize: minFontSize, lines, lineHeight };
             };
@@ -726,8 +729,8 @@ async function exportToPDF(element) {
                 pdf.setFont('helvetica', 'bold');
                 pdf.setFontSize(14);
                 pdf.setTextColor(...colors.primaryDark);
-                pdf.text(section.title || 'Section', margin + 6, yPos + 4);
-                yPos += 12;
+                pdf.text(section.title || 'Section', margin + 6, yPos + 4, { charSpace: 0.35 });
+                yPos += 14;
 
                 // Section content based on type
                 pdf.setFont('helvetica', 'normal');
@@ -740,7 +743,7 @@ async function exportToPDF(element) {
                         for (const flag of flags) {
                             // Auto-fit the flag text
                             const fit = autoFitTextBlock(displayText(flag), contentWidth - 14, 10, 7);
-                            const flagHeight = fit.lines.length * fit.lineHeight + 4;
+                            const flagHeight = fit.lines.length * fit.lineHeight + PARA_SPACING + 2;
 
                             checkPageBreak(flagHeight);
 
@@ -752,7 +755,7 @@ async function exportToPDF(element) {
                             pdf.setFontSize(fit.fontSize);
                             pdf.setTextColor(...colors.red);
                             fit.lines.forEach((line, idx) => {
-                                pdf.text(line, margin + 8, yPos + idx * fit.lineHeight);
+                                pdf.text(line, margin + 8, yPos + idx * fit.lineHeight, { charSpace: 0.12 });
                             });
                             yPos += flagHeight;
                         }
@@ -772,9 +775,9 @@ async function exportToPDF(element) {
 
                             pdf.setFontSize(labelFit.fontSize);
                             labelFit.lines.forEach((line, idx) => {
-                                pdf.text(line, margin, yPos + idx * labelFit.lineHeight);
+                                pdf.text(line, margin, yPos + idx * labelFit.lineHeight, { charSpace: 0.12 });
                             });
-                            yPos += labelHeight + 1;
+                            yPos += labelHeight + 2.5;
 
                             // Draw bar background
                             drawBox(margin, yPos, contentWidth * 0.7, 5, [226, 232, 240]);
@@ -783,8 +786,8 @@ async function exportToPDF(element) {
                             drawBox(margin, yPos, barWidth, 5, themeColor);
                             // Value text
                             pdf.setFontSize(8);
-                            pdf.text(`${chartValue}%`, margin + contentWidth * 0.72, yPos + 4);
-                            yPos += 8;
+                            pdf.text(`${chartValue}%`, margin + contentWidth * 0.72, yPos + 4, { charSpace: 0.1 });
+                            yPos += 9;
                         }
                         break;
 
@@ -794,9 +797,9 @@ async function exportToPDF(element) {
                         // Auto-fit explanation text
                         const expFit = autoFitTextBlock(mem.explanation || '', contentWidth - 14, 10, 7);
                         const expHeight = expFit.lines.length * expFit.lineHeight;
-                        const boxHeight = Math.max(22, 12 + expHeight + 4);
+                        const boxHeight = Math.max(24, 14 + expHeight + PARA_SPACING + 4);
 
-                        checkPageBreak(boxHeight + 5);
+                        checkPageBreak(boxHeight + 6);
 
                         // Mnemonic box
                         drawBox(margin, yPos, contentWidth, boxHeight, [253, 252, 255]);
@@ -807,16 +810,16 @@ async function exportToPDF(element) {
                         pdf.setFont('helvetica', 'bold');
                         pdf.setFontSize(18);
                         pdf.setTextColor(...colors.purple);
-                        pdf.text(displayText(mem.mnemonic || 'REMEMBER'), margin + contentWidth / 2, yPos + 8, { align: 'center' });
+                        pdf.text(displayText(mem.mnemonic || 'REMEMBER'), margin + contentWidth / 2, yPos + 8, { align: 'center', charSpace: 0.5 });
 
                         // Explanation - all lines
                         pdf.setFont('helvetica', 'normal');
                         pdf.setFontSize(expFit.fontSize);
                         pdf.setTextColor(...colors.text);
                         expFit.lines.forEach((line, idx) => {
-                            pdf.text(line, margin + 5, yPos + 14 + idx * expFit.lineHeight);
+                            pdf.text(line, margin + 5, yPos + 16 + idx * expFit.lineHeight, { charSpace: 0.12 });
                         });
-                        yPos += boxHeight + 5;
+                        yPos += boxHeight + 6;
                         break;
 
                     case 'mindmap':
@@ -831,8 +834,8 @@ async function exportToPDF(element) {
                         pdf.roundedRect(margin + (contentWidth - centerWidth) / 2, yPos, centerWidth, 8, 2, 2, 'F');
                         pdf.setTextColor(255, 255, 255);
                         pdf.setFont('helvetica', 'bold');
-                        pdf.text(centerText, margin + contentWidth / 2, yPos + 5.5, { align: 'center' });
-                        yPos += 12;
+                        pdf.text(centerText, margin + contentWidth / 2, yPos + 5.5, { align: 'center', charSpace: 0.35 });
+                        yPos += 14;
 
                         // Branches - with auto-fit for each
                         pdf.setTextColor(...colors.text);
@@ -843,7 +846,7 @@ async function exportToPDF(element) {
 
                         for (let i = 0; i < branches.length; i++) {
                             if (i > 0 && i % 3 === 0) {
-                                yPos += 10;
+                                yPos += 12;
                             }
 
                             const colIdx = i % 3;
@@ -851,7 +854,7 @@ async function exportToPDF(element) {
 
                             // Auto-fit branch text
                             const branchFit = autoFitTextBlock(displayText(branches[i]), branchWidth - 8, 9, 6);
-                            const branchHeight = Math.max(8, branchFit.lines.length * branchFit.lineHeight + 4);
+                            const branchHeight = Math.max(8, branchFit.lines.length * branchFit.lineHeight + 5);
 
                             checkPageBreak(branchHeight);
 
@@ -861,10 +864,10 @@ async function exportToPDF(element) {
 
                             pdf.setFontSize(branchFit.fontSize);
                             branchFit.lines.forEach((line, idx) => {
-                                pdf.text(line, branchX + 2, yPos + 3 + idx * branchFit.lineHeight);
+                                pdf.text(line, branchX + 2, yPos + 3 + idx * branchFit.lineHeight, { charSpace: 0.1 });
                             });
                         }
-                        yPos += 12;
+                        yPos += 14;
                         break;
 
                     case 'key_point':
@@ -873,7 +876,7 @@ async function exportToPDF(element) {
                         for (let i = 0; i < points.length; i++) {
                             // Auto-fit point text
                             const pointFit = autoFitTextBlock(displayText(points[i]), contentWidth - 14, 10, 7);
-                            const pointHeight = pointFit.lines.length * pointFit.lineHeight + 3;
+                            const pointHeight = pointFit.lines.length * pointFit.lineHeight + PARA_SPACING + 1;
 
                             checkPageBreak(pointHeight);
 
@@ -884,7 +887,7 @@ async function exportToPDF(element) {
                             // All text lines
                             pdf.setFontSize(pointFit.fontSize);
                             pointFit.lines.forEach((line, idx) => {
-                                pdf.text(line, margin + 8, yPos + idx * pointFit.lineHeight);
+                                pdf.text(line, margin + 8, yPos + idx * pointFit.lineHeight, { charSpace: 0.12 });
                             });
                             yPos += pointHeight;
                         }
@@ -915,7 +918,7 @@ async function exportToPDF(element) {
 
                                 while (fontSize >= minFontSize) {
                                     pdf.setFontSize(fontSize);
-                                    lineHeight = fontSize * 0.4; // ~40% of font size for line height
+                                    lineHeight = fontSize * 0.52; // comfortable line height for cells
                                     lines = pdf.splitTextToSize(cellText, maxWidth);
 
                                     // If text fits in a reasonable number of lines (max 6), accept it
@@ -927,7 +930,7 @@ async function exportToPDF(element) {
 
                                 // Use minimum font size if still doesn't fit
                                 pdf.setFontSize(minFontSize);
-                                lineHeight = minFontSize * 0.4;
+                                lineHeight = minFontSize * 0.52;
                                 lines = pdf.splitTextToSize(cellText, maxWidth);
                                 return { fontSize: minFontSize, lines, lineHeight };
                             };
@@ -953,7 +956,7 @@ async function exportToPDF(element) {
                             fittedHeaders.forEach((fit, i) => {
                                 pdf.setFontSize(fit.fontSize);
                                 fit.lines.forEach((line, lineIdx) => {
-                                    pdf.text(line, margin + i * colWidth + 2, yPos + 3.5 + lineIdx * fit.lineHeight);
+                                    pdf.text(line, margin + i * colWidth + 2, yPos + 3.5 + lineIdx * fit.lineHeight, { charSpace: 0.1 });
                                 });
                                 // Draw vertical separator
                                 if (i < numCols - 1) {
@@ -986,7 +989,7 @@ async function exportToPDF(element) {
                                 fittedCells.forEach((fit, i) => {
                                     pdf.setFontSize(fit.fontSize);
                                     fit.lines.forEach((line, lineIdx) => {
-                                        pdf.text(line, margin + i * colWidth + 2, yPos + 3 + lineIdx * fit.lineHeight);
+                                        pdf.text(line, margin + i * colWidth + 2, yPos + 3 + lineIdx * fit.lineHeight, { charSpace: 0.1 });
                                     });
                                     // Draw vertical separator
                                     if (i < numCols - 1) {
@@ -997,7 +1000,7 @@ async function exportToPDF(element) {
                                 yPos += rowHeight;
                             }
                         }
-                        yPos += 8;
+                        yPos += 6;
                         break;
 
                     default:
@@ -1006,13 +1009,13 @@ async function exportToPDF(element) {
                         const textLines = pdf.splitTextToSize(textContent, contentWidth);
                         for (const line of textLines) {
                             checkPageBreak(6);
-                            pdf.text(line, margin, yPos);
-                            yPos += 5;
+                            pdf.text(line, margin, yPos, { charSpace: 0.12 });
+                            yPos += 6;
                         }
                         break;
                 }
 
-                yPos += 8; // Space between sections
+                yPos += 14; // Space between sections
             }
         }
 
@@ -5285,20 +5288,7 @@ function setupSyncStatus() {
             localStorage.setItem('community_username', userName.trim());
 
             exportBtn.disabled = true;
-
-            // Progress indicator for large batches
-            const CHUNK_SIZE = 50;
-            const totalChunks = Math.ceil(count / CHUNK_SIZE);
-            let processedCount = 0;
-            let successCount = 0;
-            let failCount = 0;
-
-            const updateProgress = () => {
-                const percent = Math.round((processedCount / count) * 100);
-                exportBtn.innerHTML = `<span class="material-symbols-rounded rotating">sync</span> Publishing ${processedCount}/${count} (${percent}%)`;
-            };
-
-            updateProgress();
+            exportBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Publishing...';
 
             try {
                 // Attach adhered Kanski images to each item before submission
@@ -5315,50 +5305,17 @@ function setupSyncStatus() {
 
                 const itemDataList = itemsToExport.map(item => item.data || item);
 
-                // For large batches, process in chunks to avoid timeouts
-                if (count > CHUNK_SIZE) {
-                    for (let i = 0; i < itemDataList.length; i += CHUNK_SIZE) {
-                        const chunk = itemDataList.slice(i, i + CHUNK_SIZE);
-                        try {
-                            const result = await CommunitySubmissions.submitMultiple(chunk, userName.trim());
-                            if (result.success) {
-                                successCount += result.count || chunk.length;
-                            } else {
-                                failCount += chunk.length;
-                            }
-                        } catch (chunkErr) {
-                            console.error('Chunk error:', chunkErr);
-                            failCount += chunk.length;
-                        }
-                        processedCount += chunk.length;
-                        updateProgress();
+                // Single atomic batch submission - all items are published in one shot
+                // (the community module uses the default included key, no chunks needed)
+                const result = await CommunitySubmissions.submitMultiple(itemDataList, userName.trim());
 
-                        // Small delay between chunks to avoid rate limiting
-                        if (i + CHUNK_SIZE < itemDataList.length) {
-                            await new Promise(r => setTimeout(r, 500));
-                        }
-                    }
+                exportBtn.disabled = false;
+                exportBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Publish Local-Only to Community Hub';
 
-                    exportBtn.disabled = false;
-                    exportBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Publish Local-Only to Community Hub';
-
-                    if (successCount > 0) {
-                        alert(`✅ Published ${successCount} of ${count} items to the Community Hub!${failCount > 0 ? `\n⚠️ ${failCount} items failed.` : ''}`);
-                    } else {
-                        alert(`Failed to export items. Please try again.`);
-                    }
+                if (result.success) {
+                    alert(`✅ ${result.count} item${result.count > 1 ? 's' : ''} published to the Community Hub in one shot!`);
                 } else {
-                    // Small batch - use single call
-                    const result = await CommunitySubmissions.submitMultiple(itemDataList, userName.trim());
-
-                    exportBtn.disabled = false;
-                    exportBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Publish Local-Only to Community Hub';
-
-                    if (result.success) {
-                        alert(`✅ ${result.count} item${result.count > 1 ? 's' : ''} published to the Community Hub!`);
-                    } else {
-                        alert(`Failed to export items: ${result.message}`);
-                    }
+                    alert(`Failed to export items: ${result.message}`);
                 }
             } catch (err) {
                 console.error('Export error:', err);
@@ -6218,15 +6175,101 @@ function setupStickyNotes() {
         // Network / Pool buttons
         const uploadPoolBtn = modal.querySelector('#sticky-upload-pool-btn');
         const downloadPoolBtn = modal.querySelector('#sticky-download-pool-btn');
-        // Study notes stay local to the learner's browser. Sharing is intentionally disabled
-        // until a server-side authenticated collaboration flow is configured.
-        [uploadPoolBtn, downloadPoolBtn].forEach(button => {
-            if (!button) return;
-            button.disabled = true;
-            button.title = 'Shared note pools are not configured';
-            button.style.opacity = '0.55';
-            button.style.cursor = 'not-allowed';
-        });
+
+        if (uploadPoolBtn) {
+            uploadPoolBtn.disabled = false;
+            uploadPoolBtn.style.opacity = '1';
+            uploadPoolBtn.style.cursor = 'pointer';
+            uploadPoolBtn.title = 'Publish your sticky notes to the common shared pool';
+            uploadPoolBtn.onclick = async () => {
+                if (notes.length === 0) {
+                    alert('You have no sticky notes to share yet.');
+                    return;
+                }
+                if (!confirm(`Publish all ${notes.length} sticky note(s) to the common shared pool? They will be visible to every visitor.`)) return;
+
+                uploadPoolBtn.style.opacity = '0.6';
+                uploadPoolBtn.disabled = true;
+                uploadPoolBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1rem;">sync</span> Sharing...';
+
+                try {
+                    if (typeof window.CommunitySubmissions === 'undefined' || !window.CommunitySubmissions.uploadStickyNotesToPool) {
+                        alert('Community module not loaded. Please refresh and try again.');
+                    } else {
+                        const result = await window.CommunitySubmissions.uploadStickyNotesToPool(notes);
+                        if (result.success) {
+                            alert(`✅ ${result.message}\n\nShared pool now contains ${result.total} note(s).`);
+                        } else {
+                            alert(`Failed to publish: ${result.message}`);
+                        }
+                    }
+                } catch (err) {
+                    console.error('Sticky pool upload error:', err);
+                    alert('Error publishing to the shared pool: ' + err.message);
+                } finally {
+                    uploadPoolBtn.disabled = false;
+                    uploadPoolBtn.style.opacity = '1';
+                    uploadPoolBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1rem;">cloud_upload</span> Share to Pool';
+                }
+            };
+        }
+
+        if (downloadPoolBtn) {
+            downloadPoolBtn.disabled = false;
+            downloadPoolBtn.style.opacity = '1';
+            downloadPoolBtn.style.cursor = 'pointer';
+            downloadPoolBtn.title = 'Download sticky notes from the common shared pool';
+            downloadPoolBtn.onclick = async () => {
+                downloadPoolBtn.style.opacity = '0.6';
+                downloadPoolBtn.disabled = true;
+                downloadPoolBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1rem;">sync</span> Fetching...';
+
+                try {
+                    if (typeof window.CommunitySubmissions === 'undefined' || !window.CommunitySubmissions.downloadStickyNotesFromPool) {
+                        alert('Community module not loaded. Please refresh and try again.');
+                    } else {
+                        const result = await window.CommunitySubmissions.downloadStickyNotesFromPool();
+                        if (!result.success) {
+                            alert(`Failed to download: ${result.message}`);
+                        } else {
+                            const pooledNotes = result.notes || [];
+                            const existingSigs = new Set(notes.map(n => String(n.text || '').trim().toLowerCase().replace(/\s+/g, ' ')));
+                            let addedCount = 0;
+
+                            for (const poolNote of pooledNotes) {
+                                const sig = String(poolNote.text || '').trim().toLowerCase().replace(/\s+/g, ' ');
+                                if (!sig || existingSigs.has(sig)) continue;
+                                existingSigs.add(sig);
+                                notes.unshift({
+                                    id: 'pool_' + Date.now().toString(36) + '_' + Math.random().toString(36).substr(2, 8),
+                                    text: String(poolNote.text),
+                                    source: poolNote.source || 'Community Pool',
+                                    createdAt: poolNote.createdAt || new Date().toISOString()
+                                });
+                                addedCount++;
+                            }
+
+                            if (addedCount > 0) {
+                                localStorage.setItem(STICKY_NOTES_KEY, JSON.stringify(notes));
+                                updateStickyNotesBadge();
+                                modal.classList.remove('active');
+                                setTimeout(() => stickyBtn.click(), 50);
+                            }
+                            alert(addedCount > 0
+                                ? `Downloaded ${addedCount} new note(s) from the shared pool (${pooledNotes.length} total in pool).`
+                                : 'No new notes to download - your local notes already cover the shared pool.');
+                        }
+                    }
+                } catch (err) {
+                    console.error('Sticky pool download error:', err);
+                    alert('Failed to download from the shared pool: ' + err.message);
+                } finally {
+                    downloadPoolBtn.disabled = false;
+                    downloadPoolBtn.style.opacity = '1';
+                    downloadPoolBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size: 1rem;">cloud_download</span> Download Pool';
+                }
+            };
+        }
 
         // Quick Paste Logic
         const pasteBtn = modal.querySelector('#sticky-add-pasted-btn');

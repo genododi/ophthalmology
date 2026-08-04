@@ -132,6 +132,17 @@ def push_to_github():
     try:
         # Add all changes
         subprocess.run(['git', 'add', '.'], cwd=SCRIPT_DIR, check=True)
+
+        # The community pool files are written live by the app via the GitHub API.
+        # They are never part of local sync commits (a stale local copy would wipe
+        # the community data on push), so unstage them if they were picked up.
+        for community_file in ["community_data.json", "sticky_notes.json"]:
+            subprocess.run(
+                ['git', 'reset', '--', community_file, f"www/{community_file}"],
+                cwd=SCRIPT_DIR,
+                capture_output=True,
+                check=False
+            )
         
         # Check if there are changes to commit
         result = subprocess.run(

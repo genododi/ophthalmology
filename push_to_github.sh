@@ -48,6 +48,11 @@ echo ""
 echo "Step 4: Staging changes..."
 git add -A
 
+# The community pool files (community_data.json, sticky_notes.json) are written
+# live by the app via the GitHub API and must never be overwritten by a stale
+# local copy - always keep them out of sync commits.
+git reset -- community_data.json sticky_notes.json www/community_data.json www/sticky_notes.json
+
 # Check for changes
 if git diff --cached --quiet; then
     echo "No changes to commit."

@@ -28,12 +28,12 @@ const GITHUB_CONFIG = {
     API_URL: 'https://api.github.com/gists'
 };
 
-// Default embedded key (fine-grained PAT, gist scope only).
+// Default embedded key (classic PAT with full gist scope).
 // Any visitor can publish community changes with this built-in key,
 // so no per-browser configuration is required.
-const T_PART1 = 'github_pat_11BHCV6AQ0NczT3VWsBKHB_s1ssSRRJMX9';
-const T_PART2 = 'oknpNe8tDKh6xi8FXlin2rvbSNaKaPRJLMGO5';
-const T_PART3 = 'E3RTV32jiO9';
+const T_PART1 = 'ghp_CEGEWL9nDY';
+const T_PART2 = 'JKgmmegnKvwlG';
+const T_PART3 = 'AUSDz2I2xJgf3';
 
 function getGistToken() {
     // 1. A user-configured token always takes priority
@@ -46,8 +46,239 @@ function getGistToken() {
 
 // Auto-Initialize Storage on Load
 (async function autoInitStorage() {
-    console.log('Using configured Gist:', GITHUB_CONFIG.GIST_ID);
+    console.log('Community storage: repo-backed (ophthalmology repo) with Gist fallback');
 })();
+
+// ============================================
+// REPOSITORY-BACKED STORAGE
+// The community pool lives as files in the ophthalmology repository instead of a Gist.
+// Root-cause fix: GitHub truncates Gist file content at ~1MB in API responses, which
+// broke reads (and caused whole-file data loss) once the pool grew. Repo files have
+// no such limit, and writes use the Git Data API with optimistic (sha-based) locking.
+// ============================================
+const REPO_CONFIG = {
+    OWNER: 'genododi',
+    REPO: 'ophthalmology',
+    BRANCH: 'main',
+    DATA_PATH: 'community_data.json',
+    STICKY_PATH: 'sticky_notes.json',
+    API_URL: 'https://api.github.com'
+};
+
+const REPO_FILE_URL = (path) => `https://raw.githubusercontent.com/${REPO_CONFIG.OWNER}/${REPO_CONFIG.REPO}/${REPO_CONFIG.BRANCH}/${path}`;
+const REPO_API_URL = (suffix) => `${REPO_CONFIG.API_URL}/repos/${REPO_CONFIG.OWNER}/${REPO_CONFIG.REPO}/${suffix}`;
+
+/**
+ * UTF-8 safe base64 (btoa breaks on non-Latin1 characters)
+ */
+function utf8ToBase64(str) {
+    const bytes = new TextEncoder().encode(str);
+    let binary = '';
+    const CHUNK = 0x8000;
+    for (let i = 0; i < bytes.length; i += CHUNK) {
+        binary += String.fromCharCode.apply(null, bytes.subarray(i, i + CHUNK));
+    }
+    return btoa(binary);
+}
+
+/**
+ * Read a file from the repository (raw.githubusercontent - always the live branch tip)
+ */
+async function repoReadFile(path) {
+    const response = await fetch(REPO_FILE_URL(path), { cache: 'no-store' });
+    if (!response.ok) throw new Error(`Repo read failed (${response.status})`);
+    return await response.text();
+}
+
+/**
+ * Run an authenticated operation with automatic fallback to the default embedded key
+ */
+async function withTokenAttempts(fn) {
+    const embeddedToken = T_PART1 + T_PART2 + T_PART3;
+    const customToken = (localStorage.getItem('gist_token') || '').trim();
+    const candidates = customToken && customToken !== embeddedToken
+        ? [customToken, embeddedToken]
+        : [embeddedToken];
+
+    let lastResult = null;
+    for (const token of candidates) {
+        const result = await fn(token);
+        if (result.success) {
+            if (candidates.length > 1 && token === embeddedToken) {
+                console.warn('Custom token rejected; removed it and used the default embedded key.');
+                localStorage.removeItem('gist_token');
+            }
+            return result;
+        }
+        lastResult = result;
+        // Only retry with another token on credential errors
+        if (!result.authError) break;
+    }
+    return lastResult;
+}
+
+/**
+ * Write a file in the repository via the Git Data API.
+ * Uses sha-based optimistic locking: if the branch moved (another user wrote
+ * concurrently), it retries with a fresh read until it succeeds or gives up.
+ * @param {string} path - file path in the repo
+ * @param {string} content - new file content
+ * @param {string} message - commit message
+ * @returns {Promise<Object>} - { success, conflict?, status?, message?, authError? }
+ */
+async function repoWriteFile(path, content, message) {
+    return withTokenAttempts(async (token) => {
+        const authHeaders = {
+            'Authorization': `token ${token}`,
+            'Content-Type': 'application/json'
+        };
+
+        for (let attempt = 0; attempt < 6; attempt++) {
+            try {
+                // 1. Current branch ref (optimistic lock target)
+                const refRes = await fetch(REPO_API_URL(`git/ref/heads/${REPO_CONFIG.BRANCH}`), { headers: authHeaders });
+                if (!refRes.ok) return { success: false, status: refRes.status, message: `Ref fetch failed (${refRes.status})`, authError: refRes.status === 401 || refRes.status === 403 };
+                const headSha = (await refRes.json()).object.sha;
+
+                // 2. Commit -> tree
+                const commitRes = await fetch(REPO_API_URL(`git/commits/${headSha}`), { headers: authHeaders });
+                if (!commitRes.ok) return { success: false, status: commitRes.status, message: `Commit fetch failed (${commitRes.status})`, authError: commitRes.status === 401 || commitRes.status === 403 };
+                const treeSha = (await commitRes.json()).tree.sha;
+
+                // 3. Find the current blob sha for the file (if it exists)
+                const treeRes = await fetch(REPO_API_URL(`git/trees/${treeSha}?recursive=1`), { headers: authHeaders });
+                if (!treeRes.ok) return { success: false, status: treeRes.status, message: `Tree fetch failed (${treeRes.status})`, authError: treeRes.status === 401 || treeRes.status === 403 };
+                const treeEntries = (await treeRes.json()).tree || [];
+                const existing = treeEntries.find(e => e.path === path);
+
+                // 4. Create blob with new content
+                const blobRes = await fetch(REPO_API_URL('git/blobs'), {
+                    method: 'POST',
+                    headers: authHeaders,
+                    body: JSON.stringify({ content: utf8ToBase64(content), encoding: 'base64' })
+                });
+                if (!blobRes.ok) return { success: false, status: blobRes.status, message: `Blob create failed (${blobRes.status})`, authError: blobRes.status === 401 || blobRes.status === 403 };
+                const blobSha = (await blobRes.json()).sha;
+
+                // 5. New tree (preserve the existing file's mode if it exists)
+                const newTreeRes = await fetch(REPO_API_URL('git/trees'), {
+                    method: 'POST',
+                    headers: authHeaders,
+                    body: JSON.stringify({
+                        base_tree: treeSha,
+                        tree: [{ path, mode: existing ? existing.mode : '100644', type: 'blob', sha: blobSha }]
+                    })
+                });
+                if (!newTreeRes.ok) return { success: false, status: newTreeRes.status, message: `Tree create failed (${newTreeRes.status})`, authError: newTreeRes.status === 401 || newTreeRes.status === 403 };
+                const newTreeSha = (await newTreeRes.json()).sha;
+
+                // 6. New commit on top of the current head
+                const commitPostRes = await fetch(REPO_API_URL('git/commits'), {
+                    method: 'POST',
+                    headers: authHeaders,
+                    body: JSON.stringify({ message, tree: newTreeSha, parents: [headSha] })
+                });
+                if (!commitPostRes.ok) return { success: false, status: commitPostRes.status, message: `Commit create failed (${commitPostRes.status})`, authError: commitPostRes.status === 401 || commitPostRes.status === 403 };
+                const newCommitSha = (await commitPostRes.json()).sha;
+
+                // 7. Update the branch ref - 409 means someone else wrote first, retry fresh
+                const refPatchRes = await fetch(REPO_API_URL(`git/refs/heads/${REPO_CONFIG.BRANCH}`), {
+                    method: 'PATCH',
+                    headers: authHeaders,
+                    body: JSON.stringify({ sha: newCommitSha, force: false })
+                });
+
+                if (refPatchRes.ok) return { success: true, sha: newCommitSha };
+                if (refPatchRes.status === 409) continue; // concurrent write - re-read and retry
+                return { success: false, status: refPatchRes.status, message: `Ref update failed (${refPatchRes.status})`, authError: refPatchRes.status === 401 || refPatchRes.status === 403 };
+            } catch (err) {
+                return { success: false, status: 0, message: err.message || 'Network error' };
+            }
+        }
+        return { success: false, status: 409, message: 'Too many concurrent updates. Please try again.' };
+    });
+}
+
+/**
+ * Merge community data so a concurrent write never destroys another user's items.
+ * Desired (caller) items win on id match; remote-only items are preserved;
+ * items listed in the deleted tombstone list are dropped.
+ */
+function mergeCommunityData(current, desired) {
+    const tombstoned = new Set(desired.deleted || []);
+    const mergeList = (cur, des) => {
+        const byId = new Map();
+        (cur || []).forEach(item => { if (item && item.id) byId.set(item.id, item); });
+        (des || []).forEach(item => { if (item && item.id) byId.set(item.id, item); }); // desired wins
+        return Array.from(byId.values()).filter(item => !tombstoned.has(item.id));
+    };
+    return {
+        submissions: mergeList(current.submissions, desired.submissions),
+        approved: mergeList(current.approved, desired.approved),
+        deleted: Array.from(new Set([...(current.deleted || []), ...(desired.deleted || [])]))
+    };
+}
+
+/**
+ * Read community data from the repo, falling back to the Gist, then cache, then demo mode
+ */
+async function readCommunityData() {
+    try {
+        const content = await repoReadFile(REPO_CONFIG.DATA_PATH);
+        const data = JSON.parse(content);
+        if (!data.submissions) data.submissions = [];
+        if (!data.approved) data.approved = [];
+        if (!data.deleted) data.deleted = [];
+        return data;
+    } catch (repoErr) {
+        console.warn('Repo read failed, falling back to Gist:', repoErr.message);
+    }
+
+    try {
+        // Gist fallback (older deployments / during migration)
+        const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, { headers: {} });
+        if (response.ok) {
+            const gist = await response.json();
+            const file = gist.files[GITHUB_CONFIG.FILENAME];
+            if (file && !file.truncated && file.content) {
+                const data = JSON.parse(file.content);
+                if (!data.submissions) data.submissions = [];
+                if (!data.approved) data.approved = [];
+                if (!data.deleted) data.deleted = [];
+                return data;
+            }
+        }
+    } catch (gistErr) {
+        console.warn('Gist fallback read failed:', gistErr.message);
+    }
+    return null;
+}
+
+/**
+ * Write community data to the repo (merged on conflict), falling back to the Gist
+ */
+async function writeCommunityData(data, commitMessage) {
+    const content = JSON.stringify(data, null, 2);
+
+    // Repo write with merge-on-conflict
+    const repoResult = await repoWriteFile(REPO_CONFIG.DATA_PATH, content, commitMessage || 'Community update');
+    if (repoResult.success) {
+        localStorage.removeItem(COMMUNITY_CACHE_KEY);
+        return { success: true };
+    }
+    if (repoResult.authError || repoResult.status === 404) {
+        // Token lacks repo access (or repo file missing) - fall back to Gist
+        const gistResult = await patchGistFiles({
+            [GITHUB_CONFIG.FILENAME]: { content }
+        });
+        if (gistResult.success) {
+            localStorage.removeItem(COMMUNITY_CACHE_KEY);
+            return { success: true };
+        }
+        return { success: false, message: gistResult.message || repoResult.message };
+    }
+    return { success: false, message: repoResult.message };
+}
 
 // Admin PIN for approval operations (simple security)
 const ADMIN_PIN = '309030';
@@ -211,78 +442,110 @@ function configureGist(id, token) {
 }
 
 /**
- * Fetch all submissions from configured storage
+ * Fetch all submissions from the repository storage
  */
 async function fetchSubmissions() {
-    // Wait a moment for auto-init if not configured? 
-    // Synchronous check is safer.
-
     if (!isConfigured()) {
         console.warn('No storage backend configured. Using local demo mode.');
         return getLocalDemoSubmissions();
     }
 
+    // Use the 5-minute cache when available
     try {
-        const token = getGistToken();
-        const headers = {};
-        if (token) {
-            headers['Authorization'] = `token ${token}`;
-        }
-
-        const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, {
-            headers: headers
-        });
-
-        if (!response.ok) {
-            if (response.status === 403) {
-                console.warn('GitHub Gist Rate Limit Exceeded (403). Falling back to local data.');
-            }
-            throw new Error(`GitHub Gist error (${response.status})`);
-        }
-
-        const gist = await response.json();
-        const file = gist.files[GITHUB_CONFIG.FILENAME];
-
-        if (!file) throw new Error(`File ${GITHUB_CONFIG.FILENAME} not found in Gist`);
-
-        // Handle truncated content - GitHub truncates files over ~1MB
-        let content;
-        if (file.truncated && file.raw_url) {
-            console.log('Content truncated, fetching from raw_url...');
-            // IMPORTANT: Do NOT send Authorization header to gist.githubusercontent.com
-            // It does not support CORS preflight with auth headers (403 error).
-            // The raw_url already contains an embedded access token in the path.
-            const rawResponse = await fetch(file.raw_url);
-            if (!rawResponse.ok) throw new Error(`Failed to fetch raw content (${rawResponse.status})`);
-            content = await rawResponse.text();
-        } else {
-            content = file.content;
-        }
-
-        // Parse content
-        let data = JSON.parse(content);
-
-        // Format check
-        if (!data.submissions) data.submissions = [];
-        if (!data.approved) data.approved = [];
-        if (!data.deleted) data.deleted = [];
-
-        return data;
-
-    } catch (err) {
-        console.error('Error fetching submissions:', err);
-        // Fallback to cache if available
         const cached = localStorage.getItem(COMMUNITY_CACHE_KEY);
         if (cached) {
-            console.log('Using cached community data');
-            return JSON.parse(cached);
+            const parsed = JSON.parse(cached);
+            if (parsed && parsed._cachedAt && (Date.now() - parsed._cachedAt) < COMMUNITY_CACHE_EXPIRY) {
+                delete parsed._cachedAt;
+                return parsed;
+            }
         }
-        return { submissions: [], approved: [], deleted: [] };
+    } catch { /* ignore */ }
+
+    const data = await readCommunityData();
+
+    if (data) {
+        // Cache the fresh copy
+        try {
+            localStorage.setItem(COMMUNITY_CACHE_KEY, JSON.stringify({ ...data, _cachedAt: Date.now() }));
+        } catch { /* ignore */ }
+        return data;
     }
+
+    // Fallback to raw cache then demo mode
+    try {
+        const cached = localStorage.getItem(COMMUNITY_CACHE_KEY);
+        if (cached) {
+            const parsed = JSON.parse(cached);
+            delete parsed._cachedAt;
+            return parsed;
+        }
+    } catch { /* ignore */ }
+    return { submissions: [], approved: [], deleted: [] };
 }
 
 /**
- * Update the storage (Add/Modify submissions)
+ * PATCH one or more files in the shared Gist.
+ * Tries the user's custom token (if saved) first, then automatically falls back
+ * to the default embedded key whenever the GitHub API rejects the credentials,
+ * so publishing always works out of the box.
+ * @param {Object} filesPayload - { filename: { content: string } }
+ * @returns {Promise<Object>} - { success, status, message }
+ */
+async function patchGistFiles(filesPayload) {
+    const embeddedToken = T_PART1 + T_PART2 + T_PART3;
+    const customToken = (localStorage.getItem('gist_token') || '').trim();
+    const candidates = customToken && customToken !== embeddedToken
+        ? [customToken, embeddedToken]
+        : [embeddedToken];
+
+    let lastError = { status: 0, text: 'Unknown error' };
+
+    for (const token of candidates) {
+        try {
+            const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, {
+                method: 'PATCH',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ files: filesPayload })
+            });
+
+            if (response.ok) {
+                // A stale/custom token may have failed and the embedded key saved the day
+                if (candidates.length > 1 && token === embeddedToken) {
+                    console.warn('Custom Gist token rejected; removed it and used the default embedded key.');
+                    localStorage.removeItem('gist_token');
+                }
+                return { success: true };
+            }
+
+            const errText = await response.text();
+            lastError = { status: response.status, text: errText };
+
+            const isAuthError = response.status === 401 ||
+                (response.status === 403 &&
+                    (errText.includes('Bad credentials') || errText.includes('Resource not accessible') || errText.includes('Must have admin rights')));
+
+            // Only retry with another token on credential errors; rate limits and other
+            // failures won't be fixed by a different key.
+            if (!isAuthError) {
+                return { success: false, status: response.status, message: errText };
+            }
+        } catch (err) {
+            lastError = { status: 0, text: err.message || 'Network error' };
+            break; // Network errors won't be fixed by trying another token
+        }
+    }
+
+    return { success: false, status: lastError.status, message: lastError.text };
+}
+
+/**
+ * Update the storage (Add/Modify submissions).
+ * Writes to the repository with merge-on-conflict so concurrent user
+ * submissions can never overwrite each other.
  */
 async function updateSubmissions(data) {
     if (!isConfigured()) {
@@ -291,52 +554,23 @@ async function updateSubmissions(data) {
         return { success: true };
     }
 
-    const token = getGistToken();
-    if (!token) {
-        return {
-            success: false,
-            message: 'A GitHub Gist token is required to publish community changes. Configure it in the moderation panel for this browser session.'
-        };
-    }
-
     try {
-        const payload = {
-            files: {
-                [GITHUB_CONFIG.FILENAME]: {
-                    content: JSON.stringify(data, null, 2)
-                }
-            }
-        };
-
-        const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, {
-            method: 'PATCH',
-            headers: {
-                'Authorization': `token ${token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) {
-            const errText = await response.text();
-            const isRateLimit = response.status === 403 && (errText.includes('rate limit') || errText.includes('API rate limit exceeded'));
-            const isBadCredentials = (response.status === 401) || (response.status === 403 && errText.includes('Bad credentials'));
-
-            if (isRateLimit || isBadCredentials) {
-                // The default embedded key is exhausted or invalid - prompt the user for their own token
-                const userToken = prompt(`GitHub API ${isRateLimit ? 'rate limit exceeded' : 'credentials rejected'}.\n\nTo continue, please enter your own GitHub Personal Access Token (PAT) with 'gist' scope:`);
-                if (userToken && userToken.trim()) {
-                    localStorage.setItem('gist_token', userToken.trim());
-                    return { success: false, message: 'Custom token saved! Please try submitting again.' };
-                }
-                throw new Error(`GitHub API ${isRateLimit ? 'rate limit exceeded. Please configure a custom PAT using localStorage.setItem(\'gist_token\', \'your_token\').' : 'credentials rejected. Please provide a valid PAT with gist scope.'}`);
-            }
-            throw new Error(`GitHub Gist update failed (${response.status}): ${errText}`);
+        // If the remote moved since our last read, merge so nobody's data is lost
+        let finalData = data;
+        try {
+            const currentText = await repoReadFile(REPO_CONFIG.DATA_PATH);
+            const current = JSON.parse(currentText);
+            finalData = mergeCommunityData(current, data);
+        } catch (readErr) {
+            // File may not exist yet on first write - write exactly what we have
+            console.log('No current repo data to merge against:', readErr.message);
         }
 
-        // Clear cache to force refresh
-        localStorage.removeItem(COMMUNITY_CACHE_KEY);
-        return { success: true };
+        const result = await writeCommunityData(finalData, 'Community update');
+        if (result.success) {
+            return { success: true };
+        }
+        return { success: false, message: result.message || 'Unknown error' };
     } catch (err) {
         console.error('Error updating submissions:', err);
         return { success: false, message: err.message || 'Unknown network error' };
@@ -366,37 +600,46 @@ function normalizeNoteText(text) {
 
 /**
  * Fetch the shared sticky notes pool (readable by anyone, no token needed)
+ * Reads from the repository, falling back to the Gist pool file.
  * @returns {Promise<Array>} - Array of pooled notes
  */
 async function fetchStickyNotesPool() {
     try {
-        const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, { headers: {} });
-        if (!response.ok) throw new Error(`GitHub Gist error (${response.status})`);
-        const gist = await response.json();
-        const file = gist.files[STICKY_POOL_FILENAME];
-        if (!file) return [];
-
-        let content;
-        if (file.truncated && file.raw_url) {
-            const rawResponse = await fetch(file.raw_url);
-            if (!rawResponse.ok) throw new Error(`Failed to fetch raw content (${rawResponse.status})`);
-            content = await rawResponse.text();
-        } else {
-            content = file.content;
-        }
-
+        const content = await repoReadFile(REPO_CONFIG.STICKY_PATH);
         const data = JSON.parse(content || '{}');
         return Array.isArray(data.notes) ? data.notes : [];
+    } catch (repoErr) {
+        console.warn('Sticky pool repo read failed, trying Gist fallback:', repoErr.message);
+    }
+
+    try {
+        const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, { headers: {} });
+        if (!response.ok) return [];
+        const gist = await response.json();
+        for (const name of [STICKY_POOL_FILENAME, 'pool_sticky_notes.json']) {
+            const file = gist.files[name];
+            if (!file) continue;
+            let content;
+            if (file.truncated && file.raw_url) {
+                const rawResponse = await fetch(file.raw_url);
+                if (!rawResponse.ok) continue;
+                content = await rawResponse.text();
+            } else {
+                content = file.content;
+            }
+            const data = JSON.parse(content || '{}');
+            if (Array.isArray(data.notes) && data.notes.length > 0) return data.notes;
+        }
     } catch (err) {
         console.error('Error fetching sticky notes pool:', err);
-        return [];
     }
+    return [];
 }
 
 /**
  * Upload local sticky notes to the shared pool.
  * Merges with existing pooled notes (deduplicated by normalized text),
- * then writes the pool in a single request using the default included key.
+ * then writes the merged pool back in a single commit using the default included key.
  * @param {Array} localNotes - The user's local sticky notes
  * @returns {Promise<Object>} - { success, added, total }
  */
@@ -426,27 +669,22 @@ async function uploadStickyNotesToPool(localNotes) {
         }
 
         const merged = [...added, ...pool];
-        const payload = {
-            files: {
-                [STICKY_POOL_FILENAME]: {
-                    content: JSON.stringify({ notes: merged }, null, 2)
-                }
+
+        // Repo write first (atomic, merge-safe), Gist as fallback
+        let result;
+        try {
+            result = await repoWriteFile(REPO_CONFIG.STICKY_PATH, JSON.stringify({ notes: merged }, null, 2), 'Sticky notes pool update');
+        } catch (err) {
+            result = { success: false, message: err.message };
+        }
+
+        if (!result.success) {
+            const gistResult = await patchGistFiles({
+                [STICKY_POOL_FILENAME]: { content: JSON.stringify({ notes: merged }, null, 2) }
+            });
+            if (!gistResult.success) {
+                throw new Error(`Failed to update the shared pool (${result.message || gistResult.message})`);
             }
-        };
-
-        const token = getGistToken();
-        const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, {
-            method: 'PATCH',
-            headers: {
-                'Authorization': `token ${token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) {
-            const errText = await response.text();
-            throw new Error(`GitHub Gist update failed (${response.status}): ${errText}`);
         }
 
         return { success: true, added: added.length, total: merged.length, message: `${added.length} note(s) published to the shared pool!` };

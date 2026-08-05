@@ -804,19 +804,33 @@
         };
 
         // Handle preview - renders full graphical infographic
-        window.handlePreview = function (submissionId) {
-            // Find the submission
+        window.handlePreview = async function (submissionId) {
+            // Find the submission (metadata from the index)
             let submission = (currentSubmissions.submissions || []).find(s => s.id === submissionId);
             if (!submission) {
                 submission = (currentSubmissions.approved || []).find(s => s.id === submissionId);
             }
 
-            if (!submission || !submission.data) {
+            if (!submission) {
                 showToast('Could not load preview data.', 'error');
                 return;
             }
 
-            const data = submission.data;
+            // Full infographic content lives in its own repo file - fetch on demand
+            let data = submission.data || null;
+            if (!data && typeof CommunitySubmissions.getSubmissionData === 'function') {
+                try {
+                    const full = await CommunitySubmissions.getSubmissionData(submissionId);
+                    data = full && full.data ? full.data : null;
+                } catch {
+                    data = null;
+                }
+            }
+
+            if (!data) {
+                showToast('Could not load preview data.', 'error');
+                return;
+            }
 
             // Build full graphical preview
             const previewWindow = window.open('', '_blank');
@@ -1256,7 +1270,7 @@
             });
         }
 
-        window.runScienceCheck = function () {
+        window.runScienceCheck = async function () {
             const select = document.getElementById('science-check-select');
             const resultsEl = document.getElementById('science-check-results');
             if (!select || !resultsEl) return;
@@ -1267,13 +1281,13 @@
                 return;
             }
 
-            // Find the submission
+            // Find the submission (metadata from the index)
             const allItems = [
                 ...(currentSubmissions.submissions || []),
                 ...(currentSubmissions.approved || [])
             ];
             const submission = allItems.find(s => s.id === submissionId);
-            if (!submission || !submission.data) {
+            if (!submission) {
                 showToast('Submission data not found.', 'error');
                 return;
             }
@@ -1286,9 +1300,24 @@
                 </div>
             `;
 
+            // Full infographic content lives in its own repo file - fetch on demand
+            let data = submission.data || null;
+            if (!data && typeof CommunitySubmissions.getSubmissionData === 'function') {
+                try {
+                    data = await CommunitySubmissions.getSubmissionData(submissionId);
+                    data = data && data.data ? data.data : null;
+                } catch {
+                    data = null;
+                }
+            }
+            if (!data) {
+                showToast('Submission data not found.', 'error');
+                resultsEl.style.display = 'none';
+                return;
+            }
+
             // Perform local heuristic-based accuracy check
             setTimeout(() => {
-                const data = submission.data;
                 const checks = [];
                 let totalScore = 0;
                 let totalChecks = 0;

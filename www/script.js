@@ -13,13 +13,32 @@ const generationSourceHint = document.getElementById('generation-source-hint');
 const geminiKeyGroup = document.getElementById('gemini-key-group');
 const openaiKeyGroup = document.getElementById('openai-key-group');
 const geminiModelGroup = document.getElementById('gemini-model-group');
+const hfKeyGroup = document.getElementById('hf-key-group');
+const hfTokenInput = document.getElementById('hf-api-token');
 
 const BEST_WEB_LLM = Object.freeze({
-    name: 'Claude Fable 5',
-    provider: 'Anthropic',
-    url: 'https://claude.ai/new',
-    verifiedLabel: 'current web pick, checked June 18, 2026'
+    name: 'EYE-Llama QA',
+    provider: 'Hugging Face',
+    url: 'https://huggingface.co/QIAIUNCC/EYE-Llama_qa',
+    verifiedLabel: 'peer-reviewed ophthalmology LLM (iScience 2025)'
 });
+
+// Hugging Face Inference configuration.
+// EYE-Llama (UNC) is the most advanced reputable ophthalmology-specific LLM on
+// Hugging Face - pretrained on ophthalmology literature (PubMed, EyeWiki,
+// textbooks) and evaluated against Llama 2/3, Meditron, ChatDoctor and ChatGPT.
+// It is tried first; the rest are reputable medical/general fallbacks so a
+// generation still succeeds when a model is unavailable to a given token.
+const HF_INFERENCE_URL = 'https://router.huggingface.co/hf-inference/models';
+const HF_TOKEN_STORAGE = 'hfApiToken';
+const HF_MEDICAL_MODELS = Object.freeze([
+    { id: 'QIAIUNCC/EYE-Llama_qa', name: 'EYE-Llama QA', detail: 'Peer-reviewed ophthalmology LLM (iScience 2025)' },
+    { id: 'QIAIUNCC/EYE-Llama_gqa', name: 'EYE-Llama GQA', detail: 'Ophthalmology LLM (general QA)' },
+    { id: 'aaditya/Llama3-OpenBioLLM-8B', name: 'OpenBioLLM-8B', detail: 'Top open medical LLM (Open Medical-LLM Leaderboard)' },
+    { id: 'epfl-llm/meditron-7b', name: 'Meditron-7B', detail: 'EPFL medical LLM' },
+    { id: 'BioMistral/BioMistral-7B', name: 'BioMistral-7B', detail: 'Biomedical Mistral fine-tune' },
+    { id: 'mistralai/Mistral-7B-Instruct-v0.3', name: 'Mistral 7B v0.3', detail: 'General fallback (hosted serverless)' }
+]);
 
 // Gemini API keys stay browser-local. A localhost Keychain value can seed the pool.
 const GEMINI_API_KEY_STORAGE = 'geminiApiKey';
@@ -263,16 +282,27 @@ function updateGenerationSourceUI() {
     const source = getSelectedGenerationSource();
     setGenerationGroupState(geminiKeyGroup, source !== 'gemini');
     setGenerationGroupState(openaiKeyGroup, source !== 'openai');
+    setGenerationGroupState(hfKeyGroup, source !== 'web-llm');
     if (geminiModelGroup) geminiModelGroup.hidden = source !== 'gemini';
 
     if (!generationSourceHint) return;
     if (source === 'web-llm') {
-        generationSourceHint.textContent = `${BEST_WEB_LLM.provider} ${BEST_WEB_LLM.name} is the default ${BEST_WEB_LLM.verifiedLabel}; opens on the web and uses no backend API.`;
+        generationSourceHint.textContent = `${BEST_WEB_LLM.provider} ${BEST_WEB_LLM.name} (${BEST_WEB_LLM.verifiedLabel}) generates in-app via Hugging Face Inference, with automatic fallbacks (OpenBioLLM, Meditron, BioMistral, Mistral).`;
     } else if (source === 'gemini') {
         generationSourceHint.textContent = 'Use a browser-side Gemini API key for direct in-app generation.';
     } else {
         generationSourceHint.textContent = 'Use a browser-side OpenAI API key for direct in-app generation.';
     }
+}
+
+function initHuggingFaceToken() {
+    if (!hfTokenInput) return;
+    hfTokenInput.value = localStorage.getItem(HF_TOKEN_STORAGE) || '';
+    hfTokenInput.addEventListener('change', () => {
+        try {
+            localStorage.setItem(HF_TOKEN_STORAGE, hfTokenInput.value.trim());
+        } catch { /* ignore */ }
+    });
 }
 
 function initGenerationSourceSelector() {
@@ -5454,6 +5484,7 @@ let currentInfographicData = null;
 document.addEventListener('DOMContentLoaded', async () => {
     await initGeminiApiKeys();
     initGenerationSourceSelector();
+    initHuggingFaceToken();
     initTopicDefault();
     await initLibraryCache();
     // ── Migration: purge legacy kanskiImages blobs from localStorage ──
@@ -6356,7 +6387,24 @@ generateBtn.addEventListener('click', async () => {
     }
 
     if (generationSource === 'web-llm') {
-        showWebLLMInfographicFlow(combinedInput);
+        // Default: generate in-app via the Hugging Face EYE-Llama ophthalmology LLM.
+        // Without a token (or on failure) fall back to the manual paste flow.
+        setLoading(true);
+        try {
+            const hfData = await generateInfographicWithHuggingFace(combinedInput);
+            if (hfData) {
+                currentInfographicData = hfData;
+                renderInfographic(hfData);
+            } else {
+                showWebLLMInfographicFlow(combinedInput);
+            }
+        } catch (error) {
+            console.error('Hugging Face generation error:', error);
+            showToast(`Hugging Face generation failed (${error.message || 'unknown error'}). Opening manual flow.`, 'error');
+            showWebLLMInfographicFlow(combinedInput);
+        } finally {
+            setLoading(false);
+        }
         return;
     }
 
@@ -6476,6 +6524,69 @@ async function copyTextToClipboard(text) {
     }
 }
 
+/**
+ * Generate an infographic via the Hugging Face Inference API using the
+ * EYE-Llama ophthalmology LLM first, then reputable medical LLM fallbacks.
+ * @param {string} topic - user topic/text
+ * @returns {Promise<Object|null>} parsed infographic data, or null if no HF token is set
+ */
+async function generateInfographicWithHuggingFace(topic) {
+    const token = (localStorage.getItem(HF_TOKEN_STORAGE) || '').trim();
+    if (!token) return null;
+
+    const systemPrompt = buildWebLLMInfographicPrompt(topic);
+    let lastError = null;
+
+    for (const model of HF_MEDICAL_MODELS) {
+        try {
+            console.log(`Hugging Face: trying ${model.id} (${model.name})`);
+            const resp = await fetchWithRetry(`${HF_INFERENCE_URL}/${model.id}/v1/chat/completions`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    model: model.id,
+                    messages: [
+                        { role: 'system', content: systemPrompt },
+                        { role: 'user', content: 'Generate the infographic poster for the topic above.' }
+                    ],
+                    temperature: 0.7,
+                    max_tokens: 8192
+                })
+            });
+
+            if (!resp.ok) {
+                const errBody = await resp.json().catch(() => ({}));
+                lastError = new Error(errBody?.error?.message || `HTTP ${resp.status}`);
+                lastError.status = resp.status;
+                console.warn(`HF model ${model.id} unavailable (${resp.status}):`, lastError.message);
+                continue; // token/model access issue - try the next model
+            }
+
+            const data = await resp.json();
+            const text = data?.choices?.[0]?.message?.content || '';
+            if (!text) {
+                lastError = new Error('Empty response from model');
+                console.warn(`HF model ${model.id} returned empty content`);
+                continue;
+            }
+
+            const parsed = parseInfographicJsonResponse(text);
+            parsed.generationPrompt = topic;
+            parsed.generatedWith = `Hugging Face ${model.name} (${model.id})`;
+            console.log(`Hugging Face: ${model.name} generated successfully`);
+            return parsed;
+        } catch (err) {
+            lastError = err;
+            console.warn(`HF model ${model.id} threw:`, err.message);
+        }
+    }
+
+    throw lastError || new Error('All Hugging Face models failed.');
+}
+
 function showWebLLMInfographicFlow(topic) {
     const promptText = buildWebLLMInfographicPrompt(topic);
     outputContainer.classList.remove('empty-state');
@@ -6491,7 +6602,7 @@ function showWebLLMInfographicFlow(topic) {
             <div class="web-llm-actions">
                 <button type="button" class="btn-primary" id="web-llm-open-btn">
                     <span class="material-symbols-rounded">open_in_new</span>
-                    Open Web LLM
+                    Open Model on Hugging Face
                 </button>
                 <button type="button" class="btn-secondary" id="web-llm-copy-btn">
                     <span class="material-symbols-rounded">content_copy</span>
@@ -6520,7 +6631,7 @@ function showWebLLMInfographicFlow(topic) {
         const opened = window.open(BEST_WEB_LLM.url, '_blank');
         if (opened) opened.opener = null;
         if (!opened) {
-            showToast('Popup blocked. Use Open Web LLM after copying the prompt.', 'warning');
+            showToast('Popup blocked. Use Open Model on Hugging Face after copying the prompt.', 'warning');
         }
     };
 
@@ -6682,6 +6793,34 @@ function getGeminiGenerationErrorMessage(error) {
     return getGeminiErrorMessage(error);
 }
 
+/**
+ * Fetch with automatic retry on transient Gemini overload errors.
+ * A 503 "request queue is full" (and 429 rate limiting) means Google's inference
+ * servers are busy right now - retrying the same request with exponential backoff
+ * lets it self-heal instead of instantly failing the generation.
+ * @returns {Promise<Response>} the last non-retryable response
+ */
+async function fetchWithRetry(url, options, { retries = 3, baseDelayMs = 2000, onRetry } = {}) {
+    let lastResponse = null;
+    for (let attempt = 0; attempt <= retries; attempt++) {
+        const res = await fetch(url, options);
+        if (res.ok) return res;
+
+        // Only 503/429 are transient overload; everything else falls through as-is
+        const retriable = res.status === 503 || res.status === 429;
+        if (retriable && attempt < retries) {
+            const delayMs = baseDelayMs * Math.pow(2, attempt);
+            if (typeof onRetry === 'function') onRetry(res.status, attempt + 1, retries);
+            console.warn(`Gemini API busy (${res.status}); retrying in ${delayMs / 1000}s (${attempt + 1}/${retries})`);
+            await new Promise(resolve => setTimeout(resolve, delayMs));
+            continue;
+        }
+        lastResponse = res;
+        break;
+    }
+    return lastResponse;
+}
+
 async function generateInfographicDataWithKeyRotation(topic) {
     const rotation = getGeminiApiKeyRotation();
     if (!rotation.length) throw new Error('No Gemini API keys are available.');
@@ -6779,7 +6918,7 @@ User Topic/Text: "${topic}"`;
                 generationConfig: { temperature: 0.7, maxOutputTokens: 8192 }
             });
 
-            const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
+            const resp = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -8328,7 +8467,7 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
                     generationConfig: { temperature: 0.7, maxOutputTokens: 4096 }
                 });
-                const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
+                const resp = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -12641,15 +12780,24 @@ function setupCommunityHub() {
         previewTitle.textContent = submission.title;
         previewAuthor.innerHTML = `<span class="material-symbols-rounded">person</span> ${submission.userName}`;
 
+        // The full infographic content lives in its own repo file - fetch on demand
+        let contentData = null;
+        if (typeof CommunitySubmissions.getSubmissionData === 'function') {
+            const full = await CommunitySubmissions.getSubmissionData(submissionId);
+            contentData = full && full.data ? full.data : null;
+        } else {
+            contentData = submission.data || null;
+        }
+
         // Render the infographic preview (simplified)
-        if (submission.data) {
+        if (contentData) {
             previewContainer.innerHTML = `
                 <div style="background: white; padding: 2rem; border-radius: 12px;">
                     <h2 style="margin-bottom: 1rem; color: #1f2937;">${submission.title}</h2>
                     <p style="color: #6b7280; margin-bottom: 1.5rem;">${submission.summary || ''}</p>
-                    ${submission.data.sections ? `
+                    ${contentData.sections ? `
                         <div style="display: grid; gap: 1rem;">
-                            ${submission.data.sections.slice(0, 3).map(section => `
+                            ${contentData.sections.slice(0, 3).map(section => `
                                 <div style="background: #f8fafc; padding: 1rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
                                     <h4 style="margin: 0 0 0.5rem 0; color: #334155;">${section.title || 'Section'}</h4>
                                     <p style="margin: 0; font-size: 0.9rem; color: #64748b;">
@@ -12659,9 +12807,9 @@ function setupCommunityHub() {
                                     </p>
                                 </div>
                             `).join('')}
-                            ${submission.data.sections.length > 3 ? `
+                            ${contentData.sections.length > 3 ? `
                                 <p style="text-align: center; color: #9ca3af; font-style: italic;">
-                                    ...and ${submission.data.sections.length - 3} more sections
+                                    ...and ${contentData.sections.length - 3} more sections
                                 </p>
                             ` : ''}
                         </div>
@@ -12669,7 +12817,7 @@ function setupCommunityHub() {
                 </div>
             `;
         } else {
-            previewContainer.innerHTML = '<p style="text-align: center; color: #9ca3af;">Preview not available.</p>';
+            previewContainer.innerHTML = '<p style="text-align: center; color: #9ca3af;">Preview not available. The content data may no longer exist.</p>';
         }
 
         previewModal.classList.add('active');
@@ -12683,18 +12831,25 @@ function setupCommunityHub() {
             submission = (cachedSubmissions.approved || []).find(s => s.id === submissionId);
         }
 
-        if (submission && submission.data) {
+        // The full infographic content lives in its own repo file - fetch on demand
+        let full = null;
+        if (typeof CommunitySubmissions.getSubmissionData === 'function') {
+            full = await CommunitySubmissions.getSubmissionData(submissionId);
+        }
+        const contentData = full && full.data ? full.data : (submission ? submission.data : null);
+
+        if (contentData) {
             if (confirm(`Load "${submission.title}"? This will replace your current workspace content.`)) {
                 // Check local library for user's chapterId override
                 try {
                     const localLib = getLibraryCache();
                     const localItem = localLib.find(i => i.title === submission.title);
                     if (localItem && localItem.chapterId) {
-                        submission.data.chapterId = localItem.chapterId;
+                        contentData.chapterId = localItem.chapterId;
                     }
                 } catch { /* ignore */ }
                 clinicalImages = [];
-                currentInfographicData = submission.data;
+                currentInfographicData = contentData;
                 if (!currentInfographicData.clinicalImages) {
                     loadClinicalImagesFromIDB(currentInfographicData.title).then(imgs => {
                         clinicalImages = imgs || [];
@@ -12703,7 +12858,7 @@ function setupCommunityHub() {
                 } else {
                     clinicalImages = currentInfographicData.clinicalImages;
                 }
-                renderInfographic(submission.data);
+                renderInfographic(contentData);
                 communityModal.classList.remove('active');
                 // Optional: Scroll to top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -15885,7 +16040,7 @@ async function findMatchingNotes(infographicTitle, sections) {
             const prompt = `Given an ophthalmology infographic titled "${infographicTitle}", rank these notes by relevance (most relevant first). Return ONLY a JSON array of note indices (1-based), e.g. [3,1,5,2,4]. Notes:\n${notesSummary}`;
 
             const modelName = GEMINI_FLASH_LATEST;
-            const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
+            const resp = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
                 body: JSON.stringify({

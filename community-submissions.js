@@ -68,6 +68,24 @@ const REPO_CONFIG = {
 const REPO_FILE_URL = (path) => `https://raw.githubusercontent.com/${REPO_CONFIG.OWNER}/${REPO_CONFIG.REPO}/${REPO_CONFIG.BRANCH}/${path}`;
 const REPO_API_URL = (suffix) => `${REPO_CONFIG.API_URL}/repos/${REPO_CONFIG.OWNER}/${REPO_CONFIG.REPO}/${suffix}`;
 
+// Per-submission content files. The shared index (community_data.json) stores only
+// lightweight metadata; the full infographic content lives in community/<id>.json.
+// This keeps every index write tiny (~KB) and browser-safe regardless of pool size
+// (the old single-file design rewrote the whole multi-MB pool on every submission,
+// which exhausted browser memory: "Out of memory" / "Blob create failed (422)").
+const ITEM_DIR = 'community';
+const ITEM_PATH = (id) => `${ITEM_DIR}/${id}.json`;
+
+/**
+ * fetch with a hard timeout so a stalled network can never hang the UI forever.
+ */
+async function fetchT(url, options = {}, timeoutMs = 30000) {
+    const opts = typeof AbortSignal !== 'undefined' && AbortSignal.timeout
+        ? { ...options, signal: AbortSignal.timeout(timeoutMs) }
+        : options;
+    return fetch(url, opts);
+}
+
 /**
  * UTF-8 safe base64 (btoa breaks on non-Latin1 characters)
  */
@@ -85,9 +103,34 @@ function utf8ToBase64(str) {
  * Read a file from the repository (raw.githubusercontent - always the live branch tip)
  */
 async function repoReadFile(path) {
-    const response = await fetch(REPO_FILE_URL(path), { cache: 'no-store' });
+    const response = await fetchT(REPO_FILE_URL(path), { cache: 'no-store' });
     if (!response.ok) throw new Error(`Repo read failed (${response.status})`);
     return await response.text();
+}
+
+/**
+ * Read a file from the repository via the GitHub Contents API - authoritative and
+ * never CDN-cached. Used for merge-on-conflict baselines, where a stale CDN copy
+ * could silently drop a just-submitted item from the merged write.
+ */
+async function repoReadFileAuthoritative(path) {
+    return withTokenAttempts(async (token) => {
+        try {
+            const response = await fetchT(REPO_API_URL(`contents/${encodeURIComponent(path)}`), {
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Accept': 'application/vnd.github.raw'
+                }
+            });
+            if (response.ok) return { success: true, text: await response.text() };
+            return { success: false, status: response.status, message: `Contents read failed (${response.status})`, authError: response.status === 401 || response.status === 403 };
+        } catch (err) {
+            return { success: false, status: 0, message: err.message || 'Network error' };
+        }
+    }).then((result) => {
+        if (!result || !result.success) throw new Error((result && result.message) || 'Authoritative repo read failed');
+        return result.text;
+    });
 }
 
 /**
@@ -136,23 +179,23 @@ async function repoWriteFile(path, content, message) {
         for (let attempt = 0; attempt < 6; attempt++) {
             try {
                 // 1. Current branch ref (optimistic lock target)
-                const refRes = await fetch(REPO_API_URL(`git/ref/heads/${REPO_CONFIG.BRANCH}`), { headers: authHeaders });
+                const refRes = await fetchT(REPO_API_URL(`git/ref/heads/${REPO_CONFIG.BRANCH}`), { headers: authHeaders });
                 if (!refRes.ok) return { success: false, status: refRes.status, message: `Ref fetch failed (${refRes.status})`, authError: refRes.status === 401 || refRes.status === 403 };
                 const headSha = (await refRes.json()).object.sha;
 
                 // 2. Commit -> tree
-                const commitRes = await fetch(REPO_API_URL(`git/commits/${headSha}`), { headers: authHeaders });
+                const commitRes = await fetchT(REPO_API_URL(`git/commits/${headSha}`), { headers: authHeaders });
                 if (!commitRes.ok) return { success: false, status: commitRes.status, message: `Commit fetch failed (${commitRes.status})`, authError: commitRes.status === 401 || commitRes.status === 403 };
                 const treeSha = (await commitRes.json()).tree.sha;
 
                 // 3. Find the current blob sha for the file (if it exists)
-                const treeRes = await fetch(REPO_API_URL(`git/trees/${treeSha}?recursive=1`), { headers: authHeaders });
+                const treeRes = await fetchT(REPO_API_URL(`git/trees/${treeSha}?recursive=1`), { headers: authHeaders });
                 if (!treeRes.ok) return { success: false, status: treeRes.status, message: `Tree fetch failed (${treeRes.status})`, authError: treeRes.status === 401 || treeRes.status === 403 };
                 const treeEntries = (await treeRes.json()).tree || [];
                 const existing = treeEntries.find(e => e.path === path);
 
                 // 4. Create blob with new content
-                const blobRes = await fetch(REPO_API_URL('git/blobs'), {
+                const blobRes = await fetchT(REPO_API_URL('git/blobs'), {
                     method: 'POST',
                     headers: authHeaders,
                     body: JSON.stringify({ content: utf8ToBase64(content), encoding: 'base64' })
@@ -161,7 +204,7 @@ async function repoWriteFile(path, content, message) {
                 const blobSha = (await blobRes.json()).sha;
 
                 // 5. New tree (preserve the existing file's mode if it exists)
-                const newTreeRes = await fetch(REPO_API_URL('git/trees'), {
+                const newTreeRes = await fetchT(REPO_API_URL('git/trees'), {
                     method: 'POST',
                     headers: authHeaders,
                     body: JSON.stringify({
@@ -173,7 +216,7 @@ async function repoWriteFile(path, content, message) {
                 const newTreeSha = (await newTreeRes.json()).sha;
 
                 // 6. New commit on top of the current head
-                const commitPostRes = await fetch(REPO_API_URL('git/commits'), {
+                const commitPostRes = await fetchT(REPO_API_URL('git/commits'), {
                     method: 'POST',
                     headers: authHeaders,
                     body: JSON.stringify({ message, tree: newTreeSha, parents: [headSha] })
@@ -182,14 +225,14 @@ async function repoWriteFile(path, content, message) {
                 const newCommitSha = (await commitPostRes.json()).sha;
 
                 // 7. Update the branch ref - 409 means someone else wrote first, retry fresh
-                const refPatchRes = await fetch(REPO_API_URL(`git/refs/heads/${REPO_CONFIG.BRANCH}`), {
+                const refPatchRes = await fetchT(REPO_API_URL(`git/refs/heads/${REPO_CONFIG.BRANCH}`), {
                     method: 'PATCH',
                     headers: authHeaders,
                     body: JSON.stringify({ sha: newCommitSha, force: false })
                 });
 
                 if (refPatchRes.ok) return { success: true, sha: newCommitSha };
-                if (refPatchRes.status === 409) continue; // concurrent write - re-read and retry
+                if (refPatchRes.status === 409 || refPatchRes.status === 422) continue; // concurrent write - re-read and retry
                 return { success: false, status: refPatchRes.status, message: `Ref update failed (${refPatchRes.status})`, authError: refPatchRes.status === 401 || refPatchRes.status === 403 };
             } catch (err) {
                 return { success: false, status: 0, message: err.message || 'Network error' };
@@ -236,7 +279,7 @@ async function readCommunityData() {
 
     try {
         // Gist fallback (older deployments / during migration)
-        const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, { headers: {} });
+        const response = await fetchT(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, { headers: {} });
         if (response.ok) {
             const gist = await response.json();
             const file = gist.files[GITHUB_CONFIG.FILENAME];
@@ -255,10 +298,17 @@ async function readCommunityData() {
 }
 
 /**
- * Write community data to the repo (merged on conflict), falling back to the Gist
+ * Write community data to the repo (merged on conflict), falling back to the Gist.
+ * Only metadata is stored in the shared index file - the full infographic content
+ * lives in per-submission files (community/<id>.json), so this stays lightweight.
  */
 async function writeCommunityData(data, commitMessage) {
-    const content = JSON.stringify(data, null, 2);
+    const index = {
+        submissions: (data.submissions || []).map(stripItemData),
+        approved: (data.approved || []).map(stripItemData),
+        deleted: data.deleted || []
+    };
+    const content = JSON.stringify(index);
 
     // Repo write with merge-on-conflict
     const repoResult = await repoWriteFile(REPO_CONFIG.DATA_PATH, content, commitMessage || 'Community update');
@@ -280,6 +330,51 @@ async function writeCommunityData(data, commitMessage) {
     return { success: false, message: repoResult.message };
 }
 
+/**
+ * Keep every field of a submission except the heavyweight content payload.
+ */
+function stripItemData(item) {
+    if (!item) return item;
+    const { data, ...meta } = item;
+    return meta;
+}
+
+/**
+ * Persist the full submission (including its content) in its own repo file.
+ * Best-effort: if this fails the submission still lands in the index, but the
+ * "Preview / Load / Add to Library" actions for that item will show a clearer
+ * error. Used for the shared pool only.
+ */
+async function writeSubmissionItem(submission, message) {
+    for (let attempt = 0; attempt < 3; attempt++) {
+        try {
+            const result = await repoWriteFile(ITEM_PATH(submission.id), JSON.stringify(submission), message || 'Community submission item');
+            if (result.success) return true;
+            if (attempt < 2) {
+                console.warn(`Submission item write failed (${result.message}); retrying (${attempt + 1}/3)`);
+                await new Promise(resolve => setTimeout(resolve, 600 * (attempt + 1)));
+            }
+        } catch (err) {
+            console.warn('Could not write submission item file:', err.message);
+            if (attempt < 2) await new Promise(resolve => setTimeout(resolve, 600 * (attempt + 1)));
+        }
+    }
+    return false;
+}
+
+/**
+ * Fetch the full record (including content) for a single submission.
+ * @returns {Promise<Object|null>} the full submission record or null
+ */
+async function getSubmissionData(submissionId) {
+    try {
+        const content = await repoReadFile(ITEM_PATH(submissionId));
+        return JSON.parse(content);
+    } catch {
+        return null;
+    }
+}
+
 // Admin PIN for approval operations (simple security)
 const ADMIN_PIN = '309030';
 
@@ -287,7 +382,7 @@ const ADMIN_PIN = '309030';
 const IP_SERVICE_URL = 'https://api.ipify.org?format=json';
 
 // Local storage key for caching
-const COMMUNITY_CACHE_KEY = 'ophthalmic_community_cache';
+const COMMUNITY_CACHE_KEY = 'ophthalmic_community_cache_v3';
 const COMMUNITY_CACHE_EXPIRY = 5 * 60 * 1000; // 5 minutes
 
 // ============================================
@@ -369,7 +464,7 @@ function autoDetectChapterFromTitle(title) {
  */
 async function getUserIP() {
     try {
-        const response = await fetch(IP_SERVICE_URL);
+        const response = await fetchT(IP_SERVICE_URL);
         if (response.ok) {
             const data = await response.json();
             return data.ip;
@@ -503,7 +598,7 @@ async function patchGistFiles(filesPayload) {
 
     for (const token of candidates) {
         try {
-            const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, {
+            const response = await fetchT(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `token ${token}`,
@@ -555,10 +650,12 @@ async function updateSubmissions(data) {
     }
 
     try {
-        // If the remote moved since our last read, merge so nobody's data is lost
+        // If the remote moved since our last read, merge so nobody's data is lost.
+        // The baseline MUST come from the authoritative API - a CDN-cached copy can
+        // be stale for minutes and silently drop a just-submitted concurrent item.
         let finalData = data;
         try {
-            const currentText = await repoReadFile(REPO_CONFIG.DATA_PATH);
+            const currentText = await repoReadFileAuthoritative(REPO_CONFIG.DATA_PATH);
             const current = JSON.parse(currentText);
             finalData = mergeCommunityData(current, data);
         } catch (readErr) {
@@ -613,7 +710,7 @@ async function fetchStickyNotesPool() {
     }
 
     try {
-        const response = await fetch(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, { headers: {} });
+        const response = await fetchT(`${GITHUB_CONFIG.API_URL}/${GITHUB_CONFIG.GIST_ID}`, { headers: {} });
         if (!response.ok) return [];
         const gist = await response.json();
         for (const name of [STICKY_POOL_FILENAME, 'pool_sticky_notes.json']) {
@@ -621,7 +718,7 @@ async function fetchStickyNotesPool() {
             if (!file) continue;
             let content;
             if (file.truncated && file.raw_url) {
-                const rawResponse = await fetch(file.raw_url);
+                const rawResponse = await fetchT(file.raw_url);
                 if (!rawResponse.ok) continue;
                 content = await rawResponse.text();
             } else {
@@ -766,6 +863,10 @@ async function submitToCommunity(infographicData, userName) {
             data: infographicData
         };
 
+        // Persist the full infographic content in its own repo file (best-effort).
+        // The index itself only stores metadata, so it stays small.
+        await writeSubmissionItem(submission, `Community submission: ${submission.title}`);
+
         // Fetch current submissions
         const currentData = await fetchSubmissions();
 
@@ -831,6 +932,11 @@ async function submitMultiple(infographicsList, userName) {
                 data: item.data || item
             };
             newSubmissions.push(submission);
+        }
+
+        // Persist the full content for each new item in its own repo file (best-effort)
+        for (const sub of newSubmissions) {
+            await writeSubmissionItem(sub, `Community submission: ${sub.title}`);
         }
 
         // Batch prepend (newest first)
@@ -1066,16 +1172,18 @@ async function deduplicateApprovedSubmissions(pin) {
  */
 async function downloadToLocalLibrary(submissionId, overwrite = false) {
     try {
-        const data = await fetchSubmissions();
-
-        // Find in both pending and approved
-        let submission = (data.submissions || []).find(s => s.id === submissionId);
+        // The index only stores metadata - fetch the full record (with content) on demand
+        let submission = await getSubmissionData(submissionId);
         if (!submission) {
-            submission = (data.approved || []).find(s => s.id === submissionId);
+            const data = await fetchSubmissions();
+            submission = (data.submissions || []).find(s => s.id === submissionId);
+            if (!submission) {
+                submission = (data.approved || []).find(s => s.id === submissionId);
+            }
         }
 
         if (!submission || !submission.data) {
-            return { success: false, message: 'Submission not found.' };
+            return { success: false, message: 'Submission content not found.' };
         }
 
         let library = [];
@@ -1467,7 +1575,10 @@ window.CommunitySubmissions = {
     // Utilities
     getUserIP,
     formatDate,
-    generateCardHTML: generateSubmissionCardHTML
+    generateCardHTML: generateSubmissionCardHTML,
+
+    // Per-submission content files
+    getSubmissionData: getSubmissionData
 };
 
 console.log('Community Submissions module loaded.');

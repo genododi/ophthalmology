@@ -72,8 +72,8 @@
                 <div class="source-selector" role="radiogroup" aria-label="Generation Source">
                     <label class="model-radio source-radio">
                         <input type="radio" name="generation-source" value="web-llm" checked style="accent-color:#2563eb;">
-                        <span class="material-symbols-rounded">public</span>
-                        Web LLM
+                        <span class="material-symbols-rounded">biotech</span>
+                        HF Med LLM
                     </label>
                     <label class="model-radio source-radio">
                         <input type="radio" name="generation-source" value="gemini" style="accent-color:#2563eb;">
@@ -86,7 +86,16 @@
                         OpenAI
                     </label>
                 </div>
-                <small class="hint" id="generation-source-hint">Default: use the current top web LLM without any backend API.</small>
+                <small class="hint" id="generation-source-hint">Default: EYE-Llama, the peer-reviewed ophthalmology LLM (iScience 2025), via Hugging Face Inference.</small>
+            </div>
+
+            <div class="control-group" id="hf-key-group">
+                <label for="hf-api-token">Hugging Face Token <span style="font-size: 0.75rem; color: #64748b; font-weight: 400;">(optional)</span></label>
+                <div class="input-wrapper">
+                    <span class="material-symbols-rounded input-icon">key</span>
+                    <input type="password" id="hf-api-token" placeholder="Paste your Hugging Face token (hf_...)">
+                </div>
+                <small class="hint">Runs the EYE-Llama ophthalmology LLM in-app with automatic medical-LLM fallbacks (OpenBioLLM, Meditron, BioMistral). Get a free token at <a href="https://huggingface.co/settings/tokens" target="_blank" rel="noopener" style="color:#3b82f6;">huggingface.co/settings/tokens</a>. Saved in this browser only.</small>
             </div>
 
             <div class="control-group" id="gemini-key-group">
@@ -1070,7 +1079,7 @@
     <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
     <script src="firebase-storage.js"></script>
-    <script src="community-submissions.js?v=2026080401"></script>
+    <script src="community-submissions.js?v=2026080601"></script>
     <script src="mobile-billing-config.js?v=2026061701"></script>
     <script src="mobile-iap.js?v=2026061701"></script>
     <!-- Load Google Generative AI as fallback for local file:// protocol -->
@@ -1079,7 +1088,7 @@
             console.warn('Running locally via file:// protocol. ES modules may not work. Please use a local server (e.g., npx serve) or access via GitHub Pages.');
         }
     </script>
-    <script type="module" src="script.js?v=2026073102"></script>
+    <script type="module" src="script.js?v=2026080601"></script>
     <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.03.15.07</div>
 </body>
 

@@ -47,6 +47,7 @@ function getGistToken() {
 // Auto-Initialize Storage on Load
 (async function autoInitStorage() {
     console.log('Community storage: repo-backed (ophthalmology repo) with Gist fallback');
+    setTimeout(() => processCommunityOutbox(), 0);
 })();
 
 // ============================================
@@ -160,71 +161,123 @@ async function withTokenAttempts(fn) {
     return lastResult;
 }
 
+const COMMUNITY_COMMIT_RETRIES = 4;
+const COMMUNITY_BATCH_SIZE = 20;
+
+function isRateLimited(response) {
+    return response.status === 429 ||
+        (response.status === 403 && response.headers.get('x-ratelimit-remaining') === '0');
+}
+
+function rateLimitDelay(response, attempt) {
+    const retryAfter = Number(response.headers.get('retry-after'));
+    if (Number.isFinite(retryAfter) && retryAfter > 0) return Math.min(retryAfter * 1000, 8000);
+    const resetAt = Number(response.headers.get('x-ratelimit-reset'));
+    if (Number.isFinite(resetAt) && resetAt > 0) return Math.min(Math.max(1000, resetAt * 1000 - Date.now() + 1000), 8000);
+    return Math.min(1000 * (2 ** attempt), 12000);
+}
+
+const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+async function responseFailure(response, action, attempt) {
+    const text = await response.text().catch(() => '');
+    if (isRateLimited(response)) {
+        const delay = rateLimitDelay(response, attempt);
+        return { retry: true, delay, result: { success: false, status: 429, message: `GitHub is busy. Retrying in ${Math.ceil(delay / 1000)} seconds.` } };
+    }
+    return {
+        retry: false,
+        result: {
+            success: false,
+            status: response.status,
+            message: `${action} failed (${response.status})${text ? `: ${text.slice(0, 180)}` : ''}`,
+            authError: response.status === 401 || response.status === 403
+        }
+    };
+}
+
 /**
- * Write a file in the repository via the Git Data API.
- * Uses sha-based optimistic locking: if the branch moved (another user wrote
- * concurrently), it retries with a fresh read until it succeeds or gives up.
- * @param {string} path - file path in the repo
- * @param {string} content - new file content
- * @param {string} message - commit message
- * @returns {Promise<Object>} - { success, conflict?, status?, message?, authError? }
+ * Write one or more files in one Git commit. A batch used to make seven API
+ * calls per infographic, which hit the shared GitHub rate limit and left the
+ * progress dialog spinning. This makes one tree/commit/ref update per batch.
  */
-async function repoWriteFile(path, content, message) {
+async function repoWriteFiles(files, message, { retryConflicts = true } = {}) {
+    if (!Array.isArray(files) || files.length === 0) return { success: true };
     return withTokenAttempts(async (token) => {
         const authHeaders = {
             'Authorization': `token ${token}`,
             'Content-Type': 'application/json'
         };
 
-        for (let attempt = 0; attempt < 6; attempt++) {
+        for (let attempt = 0; attempt < COMMUNITY_COMMIT_RETRIES; attempt++) {
             try {
-                // 1. Current branch ref (optimistic lock target)
                 const refRes = await fetchT(REPO_API_URL(`git/ref/heads/${REPO_CONFIG.BRANCH}`), { headers: authHeaders });
-                if (!refRes.ok) return { success: false, status: refRes.status, message: `Ref fetch failed (${refRes.status})`, authError: refRes.status === 401 || refRes.status === 403 };
+                if (!refRes.ok) {
+                    const failure = await responseFailure(refRes, 'Branch read', attempt);
+                    if (failure.retry && attempt < COMMUNITY_COMMIT_RETRIES - 1) { await wait(failure.delay); continue; }
+                    return failure.result;
+                }
                 const headSha = (await refRes.json()).object.sha;
 
-                // 2. Commit -> tree
                 const commitRes = await fetchT(REPO_API_URL(`git/commits/${headSha}`), { headers: authHeaders });
-                if (!commitRes.ok) return { success: false, status: commitRes.status, message: `Commit fetch failed (${commitRes.status})`, authError: commitRes.status === 401 || commitRes.status === 403 };
+                if (!commitRes.ok) {
+                    const failure = await responseFailure(commitRes, 'Commit read', attempt);
+                    if (failure.retry && attempt < COMMUNITY_COMMIT_RETRIES - 1) { await wait(failure.delay); continue; }
+                    return failure.result;
+                }
                 const treeSha = (await commitRes.json()).tree.sha;
 
-                // 3. Find the current blob sha for the file (if it exists)
                 const treeRes = await fetchT(REPO_API_URL(`git/trees/${treeSha}?recursive=1`), { headers: authHeaders });
-                if (!treeRes.ok) return { success: false, status: treeRes.status, message: `Tree fetch failed (${treeRes.status})`, authError: treeRes.status === 401 || treeRes.status === 403 };
+                if (!treeRes.ok) {
+                    const failure = await responseFailure(treeRes, 'Tree read', attempt);
+                    if (failure.retry && attempt < COMMUNITY_COMMIT_RETRIES - 1) { await wait(failure.delay); continue; }
+                    return failure.result;
+                }
                 const treeEntries = (await treeRes.json()).tree || [];
-                const existing = treeEntries.find(e => e.path === path);
+                const updates = [];
+                let retryAfter = 0;
+                for (const file of files) {
+                    const blobRes = await fetchT(REPO_API_URL('git/blobs'), {
+                        method: 'POST', headers: authHeaders,
+                        body: JSON.stringify({ content: utf8ToBase64(file.content), encoding: 'base64' })
+                    });
+                    if (!blobRes.ok) {
+                        const failure = await responseFailure(blobRes, 'Content upload', attempt);
+                        if (failure.retry) { retryAfter = failure.delay; break; }
+                        return failure.result;
+                    }
+                    const existing = treeEntries.find(entry => entry.path === file.path);
+                    updates.push({ path: file.path, mode: existing ? existing.mode : '100644', type: 'blob', sha: (await blobRes.json()).sha });
+                }
+                if (retryAfter) {
+                    if (attempt < COMMUNITY_COMMIT_RETRIES - 1) { await wait(retryAfter); continue; }
+                    return { success: false, status: 429, message: 'GitHub is temporarily rate-limited. Your upload can be retried shortly.' };
+                }
 
-                // 4. Create blob with new content
-                const blobRes = await fetchT(REPO_API_URL('git/blobs'), {
-                    method: 'POST',
-                    headers: authHeaders,
-                    body: JSON.stringify({ content: utf8ToBase64(content), encoding: 'base64' })
-                });
-                if (!blobRes.ok) return { success: false, status: blobRes.status, message: `Blob create failed (${blobRes.status})`, authError: blobRes.status === 401 || blobRes.status === 403 };
-                const blobSha = (await blobRes.json()).sha;
-
-                // 5. New tree (preserve the existing file's mode if it exists)
                 const newTreeRes = await fetchT(REPO_API_URL('git/trees'), {
                     method: 'POST',
                     headers: authHeaders,
-                    body: JSON.stringify({
-                        base_tree: treeSha,
-                        tree: [{ path, mode: existing ? existing.mode : '100644', type: 'blob', sha: blobSha }]
-                    })
+                    body: JSON.stringify({ base_tree: treeSha, tree: updates })
                 });
-                if (!newTreeRes.ok) return { success: false, status: newTreeRes.status, message: `Tree create failed (${newTreeRes.status})`, authError: newTreeRes.status === 401 || newTreeRes.status === 403 };
+                if (!newTreeRes.ok) {
+                    const failure = await responseFailure(newTreeRes, 'Tree update', attempt);
+                    if (failure.retry && attempt < COMMUNITY_COMMIT_RETRIES - 1) { await wait(failure.delay); continue; }
+                    return failure.result;
+                }
                 const newTreeSha = (await newTreeRes.json()).sha;
 
-                // 6. New commit on top of the current head
                 const commitPostRes = await fetchT(REPO_API_URL('git/commits'), {
                     method: 'POST',
                     headers: authHeaders,
                     body: JSON.stringify({ message, tree: newTreeSha, parents: [headSha] })
                 });
-                if (!commitPostRes.ok) return { success: false, status: commitPostRes.status, message: `Commit create failed (${commitPostRes.status})`, authError: commitPostRes.status === 401 || commitPostRes.status === 403 };
+                if (!commitPostRes.ok) {
+                    const failure = await responseFailure(commitPostRes, 'Commit creation', attempt);
+                    if (failure.retry && attempt < COMMUNITY_COMMIT_RETRIES - 1) { await wait(failure.delay); continue; }
+                    return failure.result;
+                }
                 const newCommitSha = (await commitPostRes.json()).sha;
 
-                // 7. Update the branch ref - 409 means someone else wrote first, retry fresh
                 const refPatchRes = await fetchT(REPO_API_URL(`git/refs/heads/${REPO_CONFIG.BRANCH}`), {
                     method: 'PATCH',
                     headers: authHeaders,
@@ -232,14 +285,24 @@ async function repoWriteFile(path, content, message) {
                 });
 
                 if (refPatchRes.ok) return { success: true, sha: newCommitSha };
-                if (refPatchRes.status === 409 || refPatchRes.status === 422) continue; // concurrent write - re-read and retry
-                return { success: false, status: refPatchRes.status, message: `Ref update failed (${refPatchRes.status})`, authError: refPatchRes.status === 401 || refPatchRes.status === 403 };
+                if (refPatchRes.status === 409 || refPatchRes.status === 422) {
+                    if (!retryConflicts) return { success: false, status: 409, message: 'A newer community update was published first.' };
+                    await wait(300 * (attempt + 1));
+                    continue;
+                }
+                const failure = await responseFailure(refPatchRes, 'Branch update', attempt);
+                if (failure.retry && attempt < COMMUNITY_COMMIT_RETRIES - 1) { await wait(failure.delay); continue; }
+                return failure.result;
             } catch (err) {
                 return { success: false, status: 0, message: err.message || 'Network error' };
             }
         }
-        return { success: false, status: 409, message: 'Too many concurrent updates. Please try again.' };
+        return { success: false, status: 409, message: 'The community is receiving several uploads. Please retry in a moment.' };
     });
+}
+
+async function repoWriteFile(path, content, message, options) {
+    return repoWriteFiles([{ path, content }], message, options);
 }
 
 /**
@@ -539,7 +602,7 @@ function configureGist(id, token) {
 /**
  * Fetch all submissions from the repository storage
  */
-async function fetchSubmissions() {
+async function fetchSubmissions({ forceRefresh = false } = {}) {
     if (!isConfigured()) {
         console.warn('No storage backend configured. Using local demo mode.');
         return getLocalDemoSubmissions();
@@ -547,6 +610,7 @@ async function fetchSubmissions() {
 
     // Use the 5-minute cache when available
     try {
+        if (forceRefresh) throw new Error('Cache bypass requested');
         const cached = localStorage.getItem(COMMUNITY_CACHE_KEY);
         if (cached) {
             const parsed = JSON.parse(cached);
@@ -578,6 +642,128 @@ async function fetchSubmissions() {
     } catch { /* ignore */ }
     return { submissions: [], approved: [], deleted: [] };
 }
+
+/**
+ * Publish content files and their lightweight index together. At most twenty
+ * records are committed at once, keeping large local-library uploads within
+ * GitHub's secondary rate limits while preserving an all-or-nothing index.
+ */
+async function publishSubmissionBatch(newSubmissions) {
+    for (let attempt = 0; attempt < COMMUNITY_COMMIT_RETRIES; attempt++) {
+        const currentData = await fetchSubmissions({ forceRefresh: true });
+        const merged = mergeCommunityData(currentData, {
+            submissions: [...newSubmissions, ...(currentData.submissions || [])],
+            approved: currentData.approved || [],
+            deleted: currentData.deleted || []
+        });
+        const index = {
+            submissions: (merged.submissions || []).map(stripItemData),
+            approved: (merged.approved || []).map(stripItemData),
+            deleted: merged.deleted || []
+        };
+
+        // Content is immutable after publishing. Commit it in compact groups,
+        // then make the complete set visible by publishing the index last.
+        for (let offset = 0; offset < newSubmissions.length; offset += COMMUNITY_BATCH_SIZE) {
+            const chunk = newSubmissions.slice(offset, offset + COMMUNITY_BATCH_SIZE);
+            const itemResult = await repoWriteFiles(
+                chunk.map(item => ({ path: ITEM_PATH(item.id), content: JSON.stringify(item) })),
+                `Community upload: ${chunk.length} infographic${chunk.length === 1 ? '' : 's'}`
+            );
+            if (!itemResult.success) return itemResult;
+        }
+
+        const indexResult = await repoWriteFile(
+            REPO_CONFIG.DATA_PATH,
+            JSON.stringify(index),
+            'Community update',
+            { retryConflicts: false }
+        );
+        if (indexResult.success) {
+            localStorage.removeItem(COMMUNITY_CACHE_KEY);
+            return { success: true };
+        }
+        // A concurrent update can make our index stale; rebuild it from the
+        // latest server copy so the other publisher's records are retained.
+        if (indexResult.status !== 409 && indexResult.status !== 422) return indexResult;
+        await wait(400 * (attempt + 1));
+    }
+    return { success: false, status: 409, message: 'The community is busy. Please retry this upload in a moment.' };
+}
+
+const COMMUNITY_OUTBOX_KEY = 'ophthalmic_community_upload_outbox_v1';
+let communityOutboxTimer = null;
+let communityOutboxRunning = false;
+
+function loadCommunityOutbox() {
+    try {
+        const queue = JSON.parse(localStorage.getItem(COMMUNITY_OUTBOX_KEY) || '[]');
+        return Array.isArray(queue) ? queue : [];
+    } catch {
+        return [];
+    }
+}
+
+function saveCommunityOutbox(queue) {
+    try { localStorage.setItem(COMMUNITY_OUTBOX_KEY, JSON.stringify(queue)); } catch (err) {
+        console.warn('Could not save the community upload queue:', err.message);
+    }
+}
+
+function scheduleCommunityOutbox(delay = 0) {
+    if (communityOutboxTimer) clearTimeout(communityOutboxTimer);
+    communityOutboxTimer = setTimeout(() => {
+        communityOutboxTimer = null;
+        processCommunityOutbox();
+    }, delay);
+}
+
+function queueCommunityUpload(submissions) {
+    const queue = loadCommunityOutbox();
+    const knownIds = new Set(queue.flatMap(entry => (entry.submissions || []).map(item => item.id)));
+    const unique = submissions.filter(item => !knownIds.has(item.id));
+    if (unique.length) {
+        queue.push({ submissions: unique, attempts: 0, nextRetryAt: Date.now() });
+        saveCommunityOutbox(queue);
+    }
+    scheduleCommunityOutbox(3000);
+}
+
+async function processCommunityOutbox() {
+    if (communityOutboxRunning || !navigator.onLine) return;
+    const queue = loadCommunityOutbox();
+    if (!queue.length) return;
+    const entry = queue[0];
+    const delay = Math.max(0, (entry.nextRetryAt || 0) - Date.now());
+    if (delay) { scheduleCommunityOutbox(delay); return; }
+
+    communityOutboxRunning = true;
+    try {
+        const result = await publishSubmissionBatch(entry.submissions || []);
+        if (result.success) {
+            queue.shift();
+            saveCommunityOutbox(queue);
+            scheduleCommunityOutbox(500);
+        } else {
+            entry.attempts = (entry.attempts || 0) + 1;
+            const backoff = Math.min(5 * 60 * 1000, 3000 * (2 ** Math.min(entry.attempts, 6)));
+            entry.nextRetryAt = Date.now() + backoff;
+            queue[0] = entry;
+            saveCommunityOutbox(queue);
+            scheduleCommunityOutbox(backoff);
+        }
+    } catch (err) {
+        entry.attempts = (entry.attempts || 0) + 1;
+        entry.nextRetryAt = Date.now() + Math.min(5 * 60 * 1000, 3000 * (2 ** Math.min(entry.attempts, 6)));
+        queue[0] = entry;
+        saveCommunityOutbox(queue);
+        scheduleCommunityOutbox(entry.nextRetryAt - Date.now());
+    } finally {
+        communityOutboxRunning = false;
+    }
+}
+
+window.addEventListener('online', () => scheduleCommunityOutbox(0));
 
 /**
  * PATCH one or more files in the shared Gist.
@@ -843,53 +1029,10 @@ async function submitToCommunity(infographicData, userName) {
         return { success: false, message: 'Please provide your name.' };
     }
 
-    try {
-        // Get user IP
-        const userIP = await getUserIP();
-
-        // Create submission object
-        // IMPORTANT: Include chapterId at top level for sync to other users
-        const submission = {
-            id: generateSubmissionId(),
-            userName: sanitizeInput(userName),
-            title: infographicData.title || 'Untitled Infographic',
-            summary: infographicData.summary || '',
-            chapterId: infographicData.chapterId || 'uncategorized', // Preserve user categorization
-            submittedAt: new Date().toISOString(),
-            userIP: userIP,
-            likes: 0,
-            likedBy: [], // Array of IPs who liked
-            status: 'pending', // pending, approved, rejected
-            data: infographicData
-        };
-
-        // Persist the full infographic content in its own repo file (best-effort).
-        // The index itself only stores metadata, so it stays small.
-        await writeSubmissionItem(submission, `Community submission: ${submission.title}`);
-
-        // Fetch current submissions
-        const currentData = await fetchSubmissions();
-
-        // Add new submission
-        currentData.submissions = currentData.submissions || [];
-        currentData.submissions.unshift(submission);
-
-        // Update storage
-        const result = await updateSubmissions(currentData);
-
-        if (result.success) {
-            return {
-                success: true,
-                message: 'Your infographic has been submitted for review!',
-                submissionId: submission.id
-            };
-        } else {
-            return { success: false, message: `Submission failed: ${result.message || 'Unknown error'}` };
-        }
-    } catch (err) {
-        console.error('Submission error:', err);
-        return { success: false, message: 'An error occurred. Please try again.' };
-    }
+    const result = await submitMultiple([infographicData], userName);
+    return result.success
+        ? { ...result, submissionId: result.submissionIds && result.submissionIds[0], message: 'Your infographic has been submitted for review!' }
+        : result;
 }
 
 /**
@@ -907,9 +1050,6 @@ async function submitMultiple(infographicsList, userName) {
 
     try {
         const userIP = await getUserIP();
-        const currentData = await fetchSubmissions();
-        currentData.submissions = currentData.submissions || [];
-
         const newSubmissions = [];
 
         // Prepare all submissions
@@ -934,24 +1074,29 @@ async function submitMultiple(infographicsList, userName) {
             newSubmissions.push(submission);
         }
 
-        // Persist the full content for each new item in its own repo file (best-effort)
-        for (const sub of newSubmissions) {
-            await writeSubmissionItem(sub, `Community submission: ${sub.title}`);
-        }
-
-        // Batch prepend (newest first)
-        currentData.submissions.unshift(...newSubmissions);
-
-        // Single update
-        const result = await updateSubmissions(currentData);
+        const result = await publishSubmissionBatch(newSubmissions);
 
         if (result.success) {
             return {
                 success: true,
                 count: newSubmissions.length,
+                submissionIds: newSubmissions.map(submission => submission.id),
                 message: `Successfully submitted ${newSubmissions.length} infographics!`
             };
         } else {
+            // Do not make people restart a large upload after a temporary
+            // rate-limit or connectivity failure. Keep it locally and resume
+            // automatically on this or the next visit.
+            if (result.status === 0 || result.status === 429) {
+                queueCommunityUpload(newSubmissions);
+                return {
+                    success: true,
+                    queued: true,
+                    count: newSubmissions.length,
+                    submissionIds: newSubmissions.map(submission => submission.id),
+                    message: `Upload queued. It will publish automatically when GitHub is available (${newSubmissions.length} item${newSubmissions.length === 1 ? '' : 's'}).`
+                };
+            }
             return { success: false, message: `Batch submission failed: ${result.message || 'Please try again'}` };
         }
     } catch (err) {

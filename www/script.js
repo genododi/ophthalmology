@@ -1100,6 +1100,10 @@ async function saveLibraryToIDB(library) {
         await new Promise((res, rej) => { tx.oncomplete = res; tx.onerror = rej; });
         db.close();
         try { localStorage.removeItem(LIBRARY_KEY); } catch(e) {}
+        // Every successful local save is queued for a durable server sync. The
+        // queue coalesces rapid edits and retries automatically after a server
+        // or network interruption, so no locally saved infographic is skipped.
+        syncLibraryToServer();
     } catch (err) {
         console.error('Failed to save library to IndexedDB:', err);
         try { saveLibraryToIDB(library); } catch(e2) {}
@@ -2014,10 +2018,15 @@ function autoDetectChapter(title) {
 // Track if we've already shown the GitHub Pages message
 let _gitHubPagesMessageShown = false;
 
-async function syncLibraryToServer() {
+let _serverSyncInFlight = false;
+let _serverSyncPending = false;
+let _serverSyncTimer = null;
+let _serverSyncRetryCount = 0;
+
+function serverSyncIsAvailable() {
     if (isCapacitorNativeApp()) {
         console.log("Native mobile app detected - server sync disabled; library is kept in local IndexedDB.");
-        return;
+        return false;
     }
 
     // Skip sync on GitHub Pages (static hosting, no backend)
@@ -2027,14 +2036,25 @@ async function syncLibraryToServer() {
             console.log("GitHub Pages detected - server sync disabled (expected behavior for static hosting)");
             _gitHubPagesMessageShown = true;
         }
-        return;
+        return false;
     }
 
-    if (window.location.protocol === 'file:') {
-        // Try to sync anyway via localhost API
-    }
+    return true;
+}
+
+function scheduleServerSync(delay = 1200) {
+    if (_serverSyncTimer || _serverSyncInFlight) return;
+    _serverSyncTimer = setTimeout(flushLibrarySync, delay);
+}
+
+async function flushLibrarySync() {
+    _serverSyncTimer = null;
+    if (_serverSyncInFlight || !_serverSyncPending || !serverSyncIsAvailable()) return;
+
+    _serverSyncInFlight = true;
+    _serverSyncPending = false;
     const libraryData = JSON.stringify(getLibraryCache());
-    console.log("Syncing library to server...");
+    console.log("Syncing local library to server...");
     try {
         const response = await safeFetch('api/library/upload', {
             method: 'POST',
@@ -2043,14 +2063,32 @@ async function syncLibraryToServer() {
             },
             body: libraryData
         });
-        if (response.ok) {
-            console.log("Library synced to server successfully.");
-        } else {
-            console.error("Failed to sync library:", response.statusText);
-        }
+        if (!response.ok) throw new Error(response.statusText || `Server returned ${response.status}`);
+        const result = await response.json().catch(() => ({ success: true }));
+        if (!result.success) throw new Error(result.error || 'Server did not save the library');
+        _serverSyncRetryCount = 0;
+        console.log("Local library synced to server successfully.");
     } catch (err) {
-        console.error("Error syncing library:", err);
+        _serverSyncPending = true;
+        _serverSyncRetryCount += 1;
+        const retryDelay = Math.min(60000, 1500 * (2 ** Math.min(_serverSyncRetryCount, 5)));
+        console.warn(`Library sync failed; retrying in ${Math.ceil(retryDelay / 1000)} seconds.`, err.message);
+        _serverSyncTimer = setTimeout(flushLibrarySync, retryDelay);
+    } finally {
+        _serverSyncInFlight = false;
+        // If the library changed during this upload, send the newer snapshot next.
+        if (_serverSyncPending && !_serverSyncTimer) scheduleServerSync(0);
     }
+}
+
+function syncLibraryToServer({ immediate = false } = {}) {
+    if (!serverSyncIsAvailable()) return;
+    _serverSyncPending = true;
+    if (_serverSyncTimer && immediate) {
+        clearTimeout(_serverSyncTimer);
+        _serverSyncTimer = null;
+    }
+    scheduleServerSync(immediate ? 0 : 1200);
 }
 
 function setupKnowledgeBase() {
@@ -2203,8 +2241,10 @@ function setupKnowledgeBase() {
                         await new Promise(r => setTimeout(r, 400));
 
                         if (result.success) {
-                            const msg = `✅ ${result.count} infographic${result.count === 1 ? '' : 's'} published successfully!`;
-                            alert(msg + '\n\nThey are now live in the Community Hub.');
+                            const msg = result.queued
+                                ? `⏳ ${result.count} infographic${result.count === 1 ? '' : 's'} safely queued for upload.`
+                                : `✅ ${result.count} infographic${result.count === 1 ? '' : 's'} published successfully!`;
+                            alert(msg + (result.queued ? '\n\nThey will publish automatically when GitHub is available.' : '\n\nThey are now live in the Community Hub.'));
                             selectionMode = false;
                             selectedItems.clear();
                             renderLibraryList();
@@ -4060,8 +4100,10 @@ function setupKnowledgeBase() {
                     const result = await CommunitySubmissions.submitMultiple(itemsToSubmit, userName.trim());
 
                     if (result.success) {
-                        const msg = `✅ ${result.count} infographic${result.count === 1 ? '' : 's'} published successfully!`;
-                        alert(msg + '\n\nThey are now live in the Community Hub.');
+                        const msg = result.queued
+                            ? `⏳ ${result.count} infographic${result.count === 1 ? '' : 's'} safely queued for upload.`
+                            : `✅ ${result.count} infographic${result.count === 1 ? '' : 's'} published successfully!`;
+                        alert(msg + (result.queued ? '\n\nThey will publish automatically when GitHub is available.' : '\n\nThey are now live in the Community Hub.'));
                         selectionMode = false;
                         selectedItems.clear();
                         renderLibraryList();
@@ -5343,7 +5385,9 @@ function setupSyncStatus() {
                 exportBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Publish Local-Only to Community Hub';
 
                 if (result.success) {
-                    alert(`✅ ${result.count} item${result.count > 1 ? 's' : ''} published to the Community Hub in one shot!`);
+                    alert(result.queued
+                        ? `⏳ ${result.count} item${result.count > 1 ? 's' : ''} safely queued for upload. They will publish automatically when GitHub is available.`
+                        : `✅ ${result.count} item${result.count > 1 ? 's' : ''} published to the Community Hub in one shot!`);
                 } else {
                     alert(`Failed to export items: ${result.message}`);
                 }
@@ -5487,6 +5531,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     initHuggingFaceToken();
     initTopicDefault();
     await initLibraryCache();
+    // Reconcile every saved local infographic when the app opens, and resume a
+    // paused sync as soon as the connection returns.
+    syncLibraryToServer({ immediate: true });
+    window.addEventListener('online', () => syncLibraryToServer({ immediate: true }));
     // ── Migration: purge legacy kanskiImages blobs from localStorage ──
     try {
         const lib = getLibraryCache();

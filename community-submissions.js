@@ -1014,6 +1014,43 @@ function saveLocalDemoSubmissions(data) {
 // SUBMISSION FUNCTIONS
 // ============================================
 
+const MAX_COMMUNITY_SUBMISSION_BYTES = 5 * 1024 * 1024;
+
+/**
+ * Community records are JSON API payloads, not an image transport. Kanski
+ * image data is stored locally as data URLs and can make one Git blob too large
+ * for GitHub's API, which responds with HTTP 422. Preserve the lightweight
+ * image metadata but never send the embedded pixels in a community upload.
+ */
+function createCommunityPayload(infographicData) {
+    let data;
+    const source = infographicData || {};
+    const kanskiImages = Array.isArray(source.kanskiImages) ? source.kanskiImages : [];
+    // Exclude data URLs before cloning/serializing, otherwise a large local
+    // image set can exhaust browser memory before the upload begins.
+    const { kanskiImages: _localKanskiImages, ...portableSource } = source;
+    try {
+        data = JSON.parse(JSON.stringify(portableSource));
+    } catch {
+        throw new Error('This infographic contains unsupported data and cannot be published.');
+    }
+
+    if (kanskiImages.length) {
+        if (!Array.isArray(data.kanskiMeta) || data.kanskiMeta.length === 0) {
+            data.kanskiMeta = kanskiImages.map(image => ({
+                pageNum: image.pageNum,
+                keywords: Array.isArray(image.keywords) ? image.keywords.slice(0, 20) : []
+            }));
+        }
+    }
+
+    const size = new TextEncoder().encode(JSON.stringify(data)).length;
+    if (size > MAX_COMMUNITY_SUBMISSION_BYTES) {
+        throw new Error('This infographic is too large to publish (maximum 5 MB). Remove embedded images and try again.');
+    }
+    return data;
+}
+
 /**
  * Submit an infographic to the community pool
  * @param {Object} infographicData - The infographic data to submit
@@ -1055,21 +1092,23 @@ async function submitMultiple(infographicsList, userName) {
         // Prepare all submissions
         // IMPORTANT: Include chapterId at top level for sync to other users
         for (const item of infographicsList) {
+            const itemData = item.data || item;
+            const portableData = createCommunityPayload(itemData);
             // Get chapterId from item or nested data
-            const itemChapterId = item.chapterId || item.data?.chapterId || 'uncategorized';
+            const itemChapterId = item.chapterId || portableData.chapterId || 'uncategorized';
 
             const submission = {
                 id: generateSubmissionId() + Math.random().toString(36).substr(2, 5), // Ensure unique ID
                 userName: sanitizeInput(userName),
-                title: (item.title || item.data?.title) || 'Untitled Infographic',
-                summary: (item.summary || item.data?.summary) || '',
+                title: (item.title || portableData.title) || 'Untitled Infographic',
+                summary: (item.summary || portableData.summary) || '',
                 chapterId: itemChapterId, // Preserve user categorization for sync
                 submittedAt: new Date().toISOString(),
                 userIP: userIP,
                 likes: 0,
                 likedBy: [],
                 status: 'pending',
-                data: item.data || item
+                data: portableData
             };
             newSubmissions.push(submission);
         }
@@ -1446,6 +1485,10 @@ async function downloadToLocalLibrary(submissionId, overwrite = false) {
             } catch (kanskiErr) {
                 console.warn('[Download] Failed to restore Kanski images:', kanskiErr);
             }
+        } else if (Array.isArray(submission.data.kanskiMeta) && submission.data.kanskiMeta.length > 0) {
+            // New uploads intentionally omit the large local image data URLs so
+            // they remain below GitHub's upload limit; retain their references.
+            newItem.kanskiMeta = submission.data.kanskiMeta;
         }
 
         library.unshift(newItem);

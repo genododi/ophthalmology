@@ -2220,18 +2220,6 @@ function setupKnowledgeBase() {
                         if (typeof CommunitySubmissions === 'undefined') {
                             throw new Error('Community module not loaded');
                         }
-                        // Attach adhered Kanski images to each item before batch submission
-                        for (const item of itemsToExport) {
-                            if (item.kanskiMeta && item.kanskiMeta.length > 0) {
-                                const kanskiImgs = await loadKanskiFromIDB(item.title);
-                                if (kanskiImgs && kanskiImgs.length > 0) {
-                                    const itemData = item.data || item;
-                                    itemData.kanskiImages = kanskiImgs;
-                                    console.log(`[ExportSubmit] Attaching ${kanskiImgs.length} Kanski image(s) to "${item.title}"`);
-                                }
-                            }
-                        }
-
                         const result = await CommunitySubmissions.submitMultiple(itemsToExport, userName.trim());
 
                         clearInterval(progressInterval);
@@ -4084,18 +4072,6 @@ function setupKnowledgeBase() {
                 // Show progress
                 const originalContent = submitCommunityBtn.innerHTML;
                 try {
-                    // Attach adhered Kanski images to each item before batch submission
-                    for (const item of itemsToSubmit) {
-                        if (item.kanskiMeta && item.kanskiMeta.length > 0) {
-                            const kanskiImgs = await loadKanskiFromIDB(item.title);
-                            if (kanskiImgs && kanskiImgs.length > 0) {
-                                const itemData = item.data || item;
-                                itemData.kanskiImages = kanskiImgs;
-                                console.log(`[BatchSubmit] Attaching ${kanskiImgs.length} Kanski image(s) to "${item.title}"`);
-                            }
-                        }
-                    }
-
                     // Use new batch submit function
                     const result = await CommunitySubmissions.submitMultiple(itemsToSubmit, userName.trim());
 
@@ -5363,18 +5339,6 @@ function setupSyncStatus() {
             exportBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Publishing...';
 
             try {
-                // Attach adhered Kanski images to each item before submission
-                for (const item of itemsToExport) {
-                    if (item.kanskiMeta && item.kanskiMeta.length > 0) {
-                        const kanskiImgs = await loadKanskiFromIDB(item.title);
-                        if (kanskiImgs && kanskiImgs.length > 0) {
-                            const itemData = item.data || item;
-                            itemData.kanskiImages = kanskiImgs;
-                            console.log(`[PublishBatch] Attaching ${kanskiImgs.length} Kanski image(s) to "${item.title}"`);
-                        }
-                    }
-                }
-
                 const itemDataList = itemsToExport.map(item => item.data || item);
 
                 // Single atomic batch submission - all items are published in one shot
@@ -12780,13 +12744,6 @@ function setupCommunityHub() {
         confirmSubmitBtn.disabled = true;
 
         try {
-            // Attach adhered Kanski images if present
-            const kanskiImages = await loadKanskiFromIDB(currentInfographicData.title);
-            if (kanskiImages && kanskiImages.length > 0) {
-                currentInfographicData.kanskiImages = kanskiImages;
-                console.log(`[Submit] Attaching ${kanskiImages.length} Kanski image(s) to submission`);
-            }
-
             const result = await CommunitySubmissions.submit(currentInfographicData, userName);
 
             if (result.success) {

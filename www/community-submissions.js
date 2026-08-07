@@ -719,6 +719,76 @@ async function publishSubmissionBatch(newSubmissions) {
     return { success: false, status: 409, message: 'Upload is queued and will continue automatically.' };
 }
 
+const LIBRARY_INDEX_PATH = 'library-index.json';
+const LIBRARY_ITEM_DIR = 'library';
+
+function serverLibraryFilePath(item) {
+    const safeId = String(item.id || Date.now()).replace(/[^a-zA-Z0-9_-]/g, '_');
+    const safeTitle = String(item.title || 'untitled')
+        .replace(/[^a-zA-Z0-9]/g, '_')
+        .slice(0, 50);
+    return `${LIBRARY_ITEM_DIR}/${safeId}_${safeTitle}.json`;
+}
+
+function normalizeServerLibraryItem(item) {
+    const data = item && (item.data || item);
+    const normalized = { ...(item || {}) };
+    normalized.id = normalized.id || Date.now() + Math.floor(Math.random() * 100000);
+    normalized.title = normalized.title || data.title || 'Untitled Infographic';
+    normalized.summary = normalized.summary || data.summary || '';
+    normalized.date = normalized.date || new Date().toISOString();
+    normalized.chapterId = normalized.chapterId || data.chapterId || 'uncategorized';
+    delete normalized.kanskiImages;
+    // Keep server-library uploads within the same safe payload limit used by
+    // Community Hub; local data-URL images are not suitable for Git blobs.
+    normalized.data = createCommunityPayload(data);
+    return normalized;
+}
+
+/**
+ * Upload directly to the established server library. This is intentionally
+ * separate from Community Hub publishing: it writes the library files and its
+ * index, so the normal server catalogue can load the new infographics.
+ */
+async function uploadToServerLibrary(items) {
+    if (!Array.isArray(items) || items.length === 0) {
+        return { success: false, message: 'No infographics selected.' };
+    }
+
+    let libraryItems;
+    try {
+        libraryItems = items.map(normalizeServerLibraryItem);
+    } catch {
+        return { success: false, message: 'One or more selected infographics is invalid.' };
+    }
+
+    for (let attempt = 0; attempt < COMMUNITY_COMMIT_RETRIES; attempt++) {
+        let currentIndex;
+        try {
+            currentIndex = JSON.parse(await repoReadFileAuthoritative(LIBRARY_INDEX_PATH));
+            if (!Array.isArray(currentIndex)) currentIndex = [];
+        } catch (err) {
+            return { success: false, message: `Could not load the server library: ${err.message}` };
+        }
+
+        const byId = new Map(currentIndex.map(entry => [String(entry.id), entry]));
+        libraryItems.forEach(item => byId.set(String(item.id), item));
+        const mergedIndex = Array.from(byId.values())
+            .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+
+        const result = await repoWriteFiles([
+            ...libraryItems.map(item => ({ path: serverLibraryFilePath(item), content: JSON.stringify(item, null, 2) })),
+            { path: LIBRARY_INDEX_PATH, content: JSON.stringify(mergedIndex, null, 2) }
+        ], `Server library upload: ${libraryItems.length} infographic${libraryItems.length === 1 ? '' : 's'}`, { retryConflicts: false });
+
+        if (result.success) return { success: true, count: libraryItems.length };
+        if (result.status !== 409) return { success: false, message: result.message || 'Server upload failed.' };
+        await wait(500 + Math.random() * 1000 + attempt * 900);
+    }
+
+    return { success: false, message: 'The server library is updating. Please try again shortly.' };
+}
+
 const COMMUNITY_OUTBOX_KEY = 'ophthalmic_community_upload_outbox_v1';
 let communityOutboxTimer = null;
 let communityOutboxRunning = false;
@@ -1764,6 +1834,7 @@ window.CommunitySubmissions = {
     // Submission functions
     submit: submitToCommunity,
     submitMultiple: submitMultiple, // Batch submit
+    uploadToServerLibrary: uploadToServerLibrary,
     getPending: getPendingSubmissions,
     getApproved: getApprovedSubmissions,
     getAll: getAllSubmissions,

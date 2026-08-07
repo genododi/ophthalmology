@@ -326,7 +326,7 @@
                     <button id="import-server-btn" class="icon-btn-ghost" title="Import from Server">
                         <span class="material-symbols-rounded">cloud_download</span>
                     </button>
-                    <button id="export-server-btn" class="icon-btn-ghost" title="Upload to Server / Submit to Community"
+                    <button id="export-server-btn" class="icon-btn-ghost" title="Upload to Server Library or Community Hub"
                         style="display: none;">
                         <span class="material-symbols-rounded">cloud_upload</span>
                     </button>
@@ -401,6 +401,10 @@
                     <button id="export-local-only-btn" class="btn-primary" style="display: none;">
                         <span class="material-symbols-rounded">cloud_upload</span>
                         Publish Local-Only to Community Hub
+                    </button>
+                    <button id="upload-local-only-server-btn" class="btn-secondary" style="display: none;">
+                        <span class="material-symbols-rounded">backup</span>
+                        Upload Local-Only to Server
                     </button>
                     <button id="refresh-sync-status-btn" class="btn-secondary">
                         <span class="material-symbols-rounded">refresh</span>
@@ -1079,7 +1083,7 @@
     <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
     <script src="firebase-storage.js"></script>
-    <script src="community-submissions.js?v=2026080703"></script>
+    <script src="community-submissions.js?v=2026080704"></script>
     <script src="mobile-billing-config.js?v=2026061701"></script>
     <script src="mobile-iap.js?v=2026061701"></script>
     <!-- Load Google Generative AI as fallback for local file:// protocol -->
@@ -1088,7 +1092,7 @@
             console.warn('Running locally via file:// protocol. ES modules may not work. Please use a local server (e.g., npx serve) or access via GitHub Pages.');
         }
     </script>
-    <script type="module" src="script.js?v=2026080601"></script>
+    <script type="module" src="script.js?v=2026080704"></script>
     <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.03.15.07</div>
 </body>
 

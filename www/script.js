@@ -2165,11 +2165,49 @@ function setupKnowledgeBase() {
             const library = getLibraryCache();
             const itemsToExport = library.filter(item => selectedItems.has(item.id));
 
-            // REMOTE USER: Redirect to Community Pool instead of server
-            // No limit on number of items - users can submit as many as they want
+            // On the hosted app, let users choose the established server library
+            // or Community Hub instead of always forcing the community pipeline.
             if (isGitHubPages()) {
                 const itemWord = itemsToExport.length === 1 ? 'infographic' : 'infographics';
-                if (!confirm(`You are accessing remotely. ${itemsToExport.length} ${itemWord} will be published to the Community Hub and become available to everyone. Continue?`)) return;
+                const destination = prompt(
+                    `Upload ${itemsToExport.length} ${itemWord} to:\n\nserver — established server library\ncommunity — Community Hub`,
+                    'server'
+                );
+                if (!destination) return;
+                const selectedDestination = destination.trim().toLowerCase();
+
+                if (selectedDestination === 'server') {
+                    if (!confirm(`Upload ${itemsToExport.length} ${itemWord} directly to the established server library? They will not be sent through the Community Hub.`)) return;
+                    if (!window.CommunitySubmissions || !CommunitySubmissions.uploadToServerLibrary) {
+                        alert('The server upload module is unavailable. Please refresh and try again.');
+                        return;
+                    }
+
+                    const originalIcon = exportBtn.innerHTML;
+                    exportBtn.disabled = true;
+                    exportBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span>';
+                    try {
+                        const result = await CommunitySubmissions.uploadToServerLibrary(itemsToExport);
+                        if (!result.success) throw new Error(result.message || 'Server upload failed.');
+                        alert(`✅ ${result.count} ${itemWord} uploaded to the server library.`);
+                        selectionMode = false;
+                        selectedItems.clear();
+                        renderLibraryList();
+                    } catch (err) {
+                        console.error('Server library upload error:', err);
+                        alert(`Server upload failed: ${err.message}`);
+                    } finally {
+                        exportBtn.disabled = false;
+                        exportBtn.innerHTML = originalIcon;
+                    }
+                    return;
+                }
+
+                if (selectedDestination !== 'community') {
+                    alert('Enter “server” or “community” to choose an upload destination.');
+                    return;
+                }
+                if (!confirm(`Publish ${itemsToExport.length} ${itemWord} to the Community Hub and make them available to everyone?`)) return;
 
                 const originalIcon = exportBtn.innerHTML;
                 exportBtn.innerHTML = '<span class="material-symbols-rounded">sync</span>';
@@ -4924,6 +4962,7 @@ function setupSyncStatus() {
     const closeBtn = document.getElementById('close-sync-status-btn');
     const contentEl = document.getElementById('sync-status-content');
     const exportBtn = document.getElementById('export-local-only-btn');
+    const uploadServerBtn = document.getElementById('upload-local-only-server-btn');
     const downloadServerOnlyBtn = document.getElementById('download-server-only-btn');
     const refreshBtn = document.getElementById('refresh-sync-status-btn');
     const preferenceToggle = document.getElementById('sync-preference-toggle');
@@ -5056,6 +5095,9 @@ function setupSyncStatus() {
             if (exportBtn) {
                 exportBtn.style.display = localOnly.length > 0 ? 'flex' : 'none';
             }
+            if (uploadServerBtn) {
+                uploadServerBtn.style.display = localOnly.length > 0 ? 'flex' : 'none';
+            }
 
             // Show/hide download server-only button
             if (downloadServerOnlyBtn) {
@@ -5102,7 +5144,7 @@ function setupSyncStatus() {
                 html += `
                 <div class="diff-section">
                     <h4><span class="material-symbols-rounded" style="color: #22c55e;">add_circle</span> Only on Your Device (${localOnly.length})</h4>
-                    <p class="diff-hint">Select items to publish to the community library</p>
+                    <p class="diff-hint">Select items, then upload to the server library or publish to the Community Hub</p>
                     <div style="margin-bottom: 0.5rem; display: flex; gap: 8px;">
                         <button class="btn-small" id="select-all-local-only">
                             <span class="material-symbols-rounded">select_all</span> Select All
@@ -5182,6 +5224,13 @@ function setupSyncStatus() {
                     exportBtn.innerHTML = `<span class="material-symbols-rounded">cloud_upload</span> Publish Selected (${checked.length}) to Community Hub`;
                 } else {
                     exportBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Publish Local-Only to Community Hub';
+                }
+            }
+            if (uploadServerBtn) {
+                if (checked.length > 0 && checked.length < localOnly.length) {
+                    uploadServerBtn.innerHTML = `<span class="material-symbols-rounded">backup</span> Upload Selected (${checked.length}) to Server`;
+                } else {
+                    uploadServerBtn.innerHTML = '<span class="material-symbols-rounded">backup</span> Upload Local-Only to Server';
                 }
             }
         };
@@ -5360,6 +5409,46 @@ function setupSyncStatus() {
                 exportBtn.disabled = false;
                 exportBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Publish Local-Only to Community Hub';
                 alert('An error occurred during export. Please try again.');
+            }
+        });
+    }
+
+    // Upload all local-only items, or the checked subset, directly to the
+    // established server library. This bypasses Community Hub entirely.
+    if (uploadServerBtn) {
+        uploadServerBtn.addEventListener('click', async () => {
+            if (currentDifferences.localOnly.length === 0) {
+                alert('No local-only items to upload.');
+                return;
+            }
+
+            const checked = document.querySelectorAll('.local-only-checkbox:checked');
+            const selectedIndexes = Array.from(checked).map(box => Number(box.dataset.index));
+            const itemsToUpload = selectedIndexes.length
+                ? selectedIndexes.map(index => currentDifferences.localOnly[index]).filter(Boolean)
+                : currentDifferences.localOnly;
+
+            if (!itemsToUpload.length) return;
+            if (!confirm(`Upload ${itemsToUpload.length} infographic${itemsToUpload.length === 1 ? '' : 's'} directly to the server library? They will not be sent through the Community Hub.`)) return;
+            if (!window.CommunitySubmissions || !CommunitySubmissions.uploadToServerLibrary) {
+                alert('The server upload module is unavailable. Please refresh and try again.');
+                return;
+            }
+
+            const original = uploadServerBtn.innerHTML;
+            uploadServerBtn.disabled = true;
+            uploadServerBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Uploading to Server...';
+            try {
+                const result = await CommunitySubmissions.uploadToServerLibrary(itemsToUpload);
+                if (!result.success) throw new Error(result.message || 'Server upload failed.');
+                alert(`✅ ${result.count} infographic${result.count === 1 ? '' : 's'} uploaded to the server library.`);
+                await comparLibraries();
+            } catch (err) {
+                console.error('Server library upload error:', err);
+                alert(`Server upload failed: ${err.message}`);
+            } finally {
+                uploadServerBtn.disabled = false;
+                uploadServerBtn.innerHTML = original;
             }
         });
     }

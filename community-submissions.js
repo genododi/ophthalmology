@@ -76,6 +76,16 @@ const REPO_API_URL = (suffix) => `${REPO_CONFIG.API_URL}/repos/${REPO_CONFIG.OWN
 // which exhausted browser memory: "Out of memory" / "Blob create failed (422)").
 const ITEM_DIR = 'community';
 const ITEM_PATH = (id) => `${ITEM_DIR}/${id}.json`;
+const COMMUNITY_SHARD_COUNT = 16;
+const COMMUNITY_SHARD_DIR = `${ITEM_DIR}/indexes`;
+const COMMUNITY_SHARD_PATH = (shard) => `${COMMUNITY_SHARD_DIR}/${shard}.json`;
+
+function communityShardForSubmission(submission) {
+    const id = String(submission && submission.id || '0');
+    let hash = 0;
+    for (let index = 0; index < id.length; index++) hash = ((hash * 31) + id.charCodeAt(index)) >>> 0;
+    return hash % COMMUNITY_SHARD_COUNT;
+}
 
 /**
  * fetch with a hard timeout so a stalled network can never hang the UI forever.
@@ -162,7 +172,6 @@ async function withTokenAttempts(fn) {
 }
 
 const COMMUNITY_COMMIT_RETRIES = 4;
-const COMMUNITY_BATCH_SIZE = 20;
 
 function isRateLimited(response) {
     return response.status === 429 ||
@@ -325,17 +334,50 @@ function mergeCommunityData(current, desired) {
     };
 }
 
+function normalizeCommunityData(data) {
+    const normalized = data && typeof data === 'object' ? data : {};
+    if (!Array.isArray(normalized.submissions)) normalized.submissions = [];
+    if (!Array.isArray(normalized.approved)) normalized.approved = [];
+    if (!Array.isArray(normalized.deleted)) normalized.deleted = [];
+    return normalized;
+}
+
+/**
+ * New submissions are distributed across independent index shards. Reading all
+ * shards keeps the legacy index compatible while removing the single-file
+ * write hotspot that caused simultaneous users to collide.
+ */
+async function mergeCommunityShards(baseData) {
+    let merged = normalizeCommunityData(baseData);
+    const shardReads = await Promise.allSettled(
+        Array.from({ length: COMMUNITY_SHARD_COUNT }, (_, shard) => repoReadFile(COMMUNITY_SHARD_PATH(shard)))
+    );
+    for (const read of shardReads) {
+        if (read.status !== 'fulfilled') continue;
+        try {
+            merged = mergeCommunityData(merged, normalizeCommunityData(JSON.parse(read.value)));
+        } catch { /* A partially deployed shard is ignored until its next refresh. */ }
+    }
+    return merged;
+}
+
+async function readCommunityShardForWrite(shard) {
+    try {
+        const content = await repoReadFileAuthoritative(COMMUNITY_SHARD_PATH(shard));
+        return normalizeCommunityData(JSON.parse(content));
+    } catch {
+        // A new shard has no file yet. The write creates it atomically.
+        return { submissions: [], approved: [], deleted: [] };
+    }
+}
+
 /**
  * Read community data from the repo, falling back to the Gist, then cache, then demo mode
  */
 async function readCommunityData() {
     try {
         const content = await repoReadFile(REPO_CONFIG.DATA_PATH);
-        const data = JSON.parse(content);
-        if (!data.submissions) data.submissions = [];
-        if (!data.approved) data.approved = [];
-        if (!data.deleted) data.deleted = [];
-        return data;
+        return await mergeCommunityShards(JSON.parse(content));
     } catch (repoErr) {
         console.warn('Repo read failed, falling back to Gist:', repoErr.message);
     }
@@ -347,11 +389,7 @@ async function readCommunityData() {
             const gist = await response.json();
             const file = gist.files[GITHUB_CONFIG.FILENAME];
             if (file && !file.truncated && file.content) {
-                const data = JSON.parse(file.content);
-                if (!data.submissions) data.submissions = [];
-                if (!data.approved) data.approved = [];
-                if (!data.deleted) data.deleted = [];
-                return data;
+                return await mergeCommunityShards(JSON.parse(file.content));
             }
         }
     } catch (gistErr) {
@@ -644,51 +682,41 @@ async function fetchSubmissions({ forceRefresh = false } = {}) {
 }
 
 /**
- * Publish content files and their lightweight index together. At most twenty
- * records are committed at once, keeping large local-library uploads within
- * GitHub's secondary rate limits while preserving an all-or-nothing index.
+ * Publish content and a small, independent index shard in one commit. Every
+ * upload used to rewrite community_data.json, so unrelated users constantly
+ * raced on the same file and one received a 409/422 conflict. A stable shard
+ * derived from the submission ID spreads that contention across 16 files.
  */
 async function publishSubmissionBatch(newSubmissions) {
+    const shard = communityShardForSubmission(newSubmissions[0]);
     for (let attempt = 0; attempt < COMMUNITY_COMMIT_RETRIES; attempt++) {
-        const currentData = await fetchSubmissions({ forceRefresh: true });
-        const merged = mergeCommunityData(currentData, {
-            submissions: [...newSubmissions, ...(currentData.submissions || [])],
-            approved: currentData.approved || [],
-            deleted: currentData.deleted || []
+        const currentShard = await readCommunityShardForWrite(shard);
+        const updatedShard = mergeCommunityData(currentShard, {
+            submissions: newSubmissions,
+            approved: [],
+            deleted: []
         });
-        const index = {
-            submissions: (merged.submissions || []).map(stripItemData),
-            approved: (merged.approved || []).map(stripItemData),
-            deleted: merged.deleted || []
+        const shardIndex = {
+            submissions: updatedShard.submissions.map(stripItemData),
+            approved: updatedShard.approved.map(stripItemData),
+            deleted: updatedShard.deleted
         };
 
-        // Content is immutable after publishing. Commit it in compact groups,
-        // then make the complete set visible by publishing the index last.
-        for (let offset = 0; offset < newSubmissions.length; offset += COMMUNITY_BATCH_SIZE) {
-            const chunk = newSubmissions.slice(offset, offset + COMMUNITY_BATCH_SIZE);
-            const itemResult = await repoWriteFiles(
-                chunk.map(item => ({ path: ITEM_PATH(item.id), content: JSON.stringify(item) })),
-                `Community upload: ${chunk.length} infographic${chunk.length === 1 ? '' : 's'}`
-            );
-            if (!itemResult.success) return itemResult;
-        }
+        const result = await repoWriteFiles([
+            ...newSubmissions.map(item => ({ path: ITEM_PATH(item.id), content: JSON.stringify(item) })),
+            { path: COMMUNITY_SHARD_PATH(shard), content: JSON.stringify(shardIndex) }
+        ], `Community upload: ${newSubmissions.length} infographic${newSubmissions.length === 1 ? '' : 's'}`, { retryConflicts: false });
 
-        const indexResult = await repoWriteFile(
-            REPO_CONFIG.DATA_PATH,
-            JSON.stringify(index),
-            'Community update',
-            { retryConflicts: false }
-        );
-        if (indexResult.success) {
+        if (result.success) {
             localStorage.removeItem(COMMUNITY_CACHE_KEY);
             return { success: true };
         }
-        // A concurrent update can make our index stale; rebuild it from the
-        // latest server copy so the other publisher's records are retained.
-        if (indexResult.status !== 409 && indexResult.status !== 422) return indexResult;
-        await wait(400 * (attempt + 1));
+        // Re-read this shard before retrying so a same-shard upload is merged,
+        // not overwritten. Random jitter prevents clients from colliding again.
+        if (result.status !== 409) return result;
+        await wait(300 + Math.random() * 900 + (attempt * 700));
     }
-    return { success: false, status: 409, message: 'The community is busy. Please retry this upload in a moment.' };
+    return { success: false, status: 409, message: 'Upload is queued and will continue automatically.' };
 }
 
 const COMMUNITY_OUTBOX_KEY = 'ophthalmic_community_upload_outbox_v1';
@@ -746,7 +774,7 @@ async function processCommunityOutbox() {
             scheduleCommunityOutbox(500);
         } else {
             entry.attempts = (entry.attempts || 0) + 1;
-            const backoff = Math.min(5 * 60 * 1000, 3000 * (2 ** Math.min(entry.attempts, 6)));
+            const backoff = Math.min(5 * 60 * 1000, 3000 * (2 ** Math.min(entry.attempts, 6))) + Math.floor(Math.random() * 1500);
             entry.nextRetryAt = Date.now() + backoff;
             queue[0] = entry;
             saveCommunityOutbox(queue);
@@ -754,7 +782,7 @@ async function processCommunityOutbox() {
         }
     } catch (err) {
         entry.attempts = (entry.attempts || 0) + 1;
-        entry.nextRetryAt = Date.now() + Math.min(5 * 60 * 1000, 3000 * (2 ** Math.min(entry.attempts, 6)));
+        entry.nextRetryAt = Date.now() + Math.min(5 * 60 * 1000, 3000 * (2 ** Math.min(entry.attempts, 6))) + Math.floor(Math.random() * 1500);
         queue[0] = entry;
         saveCommunityOutbox(queue);
         scheduleCommunityOutbox(entry.nextRetryAt - Date.now());
@@ -1126,7 +1154,7 @@ async function submitMultiple(infographicsList, userName) {
             // Do not make people restart a large upload after a temporary
             // rate-limit or connectivity failure. Keep it locally and resume
             // automatically on this or the next visit.
-            if (result.status === 0 || result.status === 429) {
+            if (result.status === 0 || result.status === 409 || result.status === 429) {
                 queueCommunityUpload(newSubmissions);
                 return {
                     success: true,

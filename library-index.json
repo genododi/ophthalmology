@@ -1,5 +1,1119 @@
 [
   {
+    "id": 1783293450734,
+    "seqId": 863,
+    "title": "Orbital Masquerades: Deciphering Mimics of Space-Occupying Lesions",
+    "summary": "A comprehensive clinical and diagnostic guide to differentiating true neoplastic orbital masses from inflammatory, infectious, and systemic masqueraders. Designed for advanced ophthalmic residents, fellows, and practicing clinicians.",
+    "date": "2026-07-05T23:17:30.734Z",
+    "data": {
+      "title": "Orbital Masquerades: Deciphering Mimics of Space-Occupying Lesions",
+      "summary": "A comprehensive clinical and diagnostic guide to differentiating true neoplastic orbital masses from inflammatory, infectious, and systemic masqueraders. Designed for advanced ophthalmic residents, fellows, and practicing clinicians.",
+      "summary_illustration": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\" width=\"100%\" height=\"100%\"><path d=\"M 10,20 C 40,10 80,15 90,50 C 95,70 70,90 40,85 C 20,80 10,50 10,20 Z\" fill=\"none\" stroke=\"hsl(215, 20%, 70%)\" stroke-width=\"2\"/><circle cx=\"45\" cy=\"45\" r=\"22\" fill=\"none\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"3\"/><path d=\"M 61,33 A 22,22 0 0,1 61,57 Z\" fill=\"hsl(215, 90%, 85%)\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"1.5\"/><path d=\"M 23,45 C 15,45 10,48 5,50\" fill=\"none\" stroke=\"hsl(215, 90%, 45%)\" stroke-dasharray=\"2,2\" stroke-width=\"2.5\"/><path d=\"M 20,35 C 30,30 40,40 45,35 C 50,40 60,30 70,35 C 75,45 65,55 45,50 C 25,55 15,45 20,35 Z\" fill=\"rgba(139, 92, 246, 0.15)\" stroke=\"hsl(270, 80%, 50%)\" stroke-width=\"2\"/><circle cx=\"32\" cy=\"40\" r=\"4\" fill=\"none\" stroke=\"hsl(270, 80%, 50%)\" stroke-width=\"1.5\"/><circle cx=\"58\" cy=\"40\" r=\"4\" fill=\"none\" stroke=\"hsl(270, 80%, 50%)\" stroke-width=\"1.5\"/><circle cx=\"28\" cy=\"62\" r=\"8\" fill=\"rgba(239, 68, 68, 0.3)\" stroke=\"hsl(0, 85%, 60%)\" stroke-width=\"2\" stroke-dasharray=\"1.5,1.5\"/><path d=\"M 28,50 L 28,74 M 16,62 L 40,62\" stroke=\"hsl(0, 85%, 60%)\" stroke-width=\"1\"/></svg>",
+      "sections": [
+        {
+          "title": "Definition & Diagnostic Challenge",
+          "icon": "visibility",
+          "type": "plain_text",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": "Orbital masquerade syndromes represent a heterogenous group of non-neoplastic inflammatory, infectious, vascular, and metabolic disorders that clinically and radiologically mimic true space-occupying orbital tumors. Misdiagnosis can lead to unnecessary or contraindicated surgical intervention, delayed initiation of targeted systemic therapy, or vision- and life-threatening progression of underlying systemic disease. Distinguishing these mimics requires meticulous integration of clinical progression kinetics, orbital imaging characteristics, laboratory markers, and histopathological analysis."
+        },
+        {
+          "title": "Epidemiology: Etiology Breakdown",
+          "icon": "analytics",
+          "type": "chart",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": {
+            "type": "bar",
+            "data": [
+              {
+                "label": "Thyroid Eye Disease (TED)",
+                "value": 45
+              },
+              {
+                "label": "Nonspecific Inflammation (NSOI)",
+                "value": 20
+              },
+              {
+                "label": "True Neoplasms (Primary/Met)",
+                "value": 15
+              },
+              {
+                "label": "IgG4-Related Ophthalmic Disease",
+                "value": 10
+              },
+              {
+                "label": "Vascular Malformations",
+                "value": 6
+              },
+              {
+                "label": "Infectious & Specific Granulomatous",
+                "value": 4
+              }
+            ]
+          }
+        },
+        {
+          "title": "The Master Differential: Masquerader vs. True Neoplasm",
+          "icon": "menu_book",
+          "type": "table",
+          "layout": "full_width",
+          "color_theme": "purple",
+          "content": {
+            "headers": [
+              "Clinical Entity",
+              "Common Presentation Mimicked",
+              "Key Distinguishing Clinical Features",
+              "Primary Radiological Signature"
+            ],
+            "rows": [
+              [
+                "Thyroid Eye Disease (TED)",
+                "Orbital Myositis / Retrobulbar Tumor",
+                "Eyelid retraction, lid lag, bilateral involvement (often asymmetric), smoking correlation.",
+                "Fusiform extraocular muscle enlargement sparing the tendinous insertions (I'M SLOW)."
+              ],
+              [
+                "Nonspecific Orbital Inflammation (NSOI)",
+                "Aggressive Lymphoma or Sarcoma",
+                "Hyperacute/acute painful onset, rapid response to systemic corticosteroids.",
+                "Diffuse infiltration, poorly defined borders, EOM enlargement involving tendinous insertions."
+              ],
+              [
+                "IgG4-Related Ophthalmic Disease",
+                "Lacrimal Pleomorphic Adenoma",
+                "Painless, bilateral dacryoadenitis, progressive, associated salivary gland enlargement (Mikulicz syndrome).",
+                "Bilateral lacrimal gland enlargement, orbital nerve enlargement (V2 infraorbital nerve classic)."
+              ],
+              [
+                "Granulomatosis with Polyangiitis (GPA)",
+                "Malignant Midline Destructive Tumor",
+                "Scleritis, severe pain, nasal/sinus crusting, saddle-nose deformity, hematuria.",
+                "Sino-orbital bone destruction, diffuse orbital mass, paranasal sinus opacification."
+              ],
+              [
+                "Low-Flow Carotid-Cavernous Fistula",
+                "Vascular Orbital Neoplasm / Myositis",
+                "Arterialized episcleral corkscrew vessels, mild proptosis, pulsatile tinnitus, variable IOP elevation.",
+                "Asymmetric enlargement of the superior ophthalmic vein (SOV), cavernous sinus expansion."
+              ],
+              [
+                "Orbital Amyloidosis",
+                "Lacrimal Gland Tumor / Muscle Tumor",
+                "Painless, slowly progressive, recurrent subconjunctival hemorrhages, ptosis.",
+                "Heterogeneous soft tissue mass with focal calcification, no bone destruction."
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Thyroid Eye Disease (TED): The Great Mimic",
+          "icon": "psychology",
+          "type": "mindmap",
+          "layout": "full_width",
+          "color_theme": "blue",
+          "content": {
+            "center": "Thyroid Eye Disease (Graves' Orbitopathy)",
+            "branches": [
+              "Immunopathogenesis: Autoantibodies target TSH-R and IGF-1R on orbital fibroblasts, causing adipogenesis and GAG accumulation.",
+              "Extraocular Muscle Pattern: Sparing of tendon insertions. Progression sequence: Inferior Rectus -> Medial Rectus -> Superior Rectus -> Lateral Rectus (I'M SLOW).",
+              "Clinical Activity Score (CAS): Based on classical signs of inflammation (pain, erythema, swelling, chemosis) to guide treatment choice.",
+              "VISA Classification: Organizes management based on Vision loss (optic neuropathy), Inflammation, Strabismus, and Appearance/Proptosis."
+            ]
+          }
+        },
+        {
+          "title": "IgG4-Related Ophthalmic Disease (IgG4-ROD)",
+          "icon": "biotech",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "purple",
+          "content": [
+            "Diagnostic Triad: Manifests as painless tumefactive lesions of orbital tissues, marked elevation of serum IgG4 levels (>135 mg/dL), and classic histopathology.",
+            "Histopathological Gold Standard: Dense lymphoplasmacytic infiltrate, storiform fibrosis, obliterative phlebitis, and >40 IgG4+ plasma cells per high-power field (HPF).",
+            "Target Structures: Highly prone to involving the bilateral lacrimal glands, extraocular muscles, and trigeminal nerve branches (especially infraorbital nerve V2 enlargement).",
+            "Systemic Associations: Frequently co-occurs with autoimmune pancreatitis, sclerosing cholangitis, retroperitoneal fibrosis, and Riedel's thyroiditis.",
+            "Therapeutic Response: Exceptional initial response to systemic corticosteroids, but high recurrence rates require steroid-sparing agents like Rituximab (anti-CD20)."
+          ]
+        },
+        {
+          "title": "Nonspecific Orbital Inflammation (NSOI) Subtypes",
+          "icon": "healing",
+          "type": "table",
+          "layout": "half_width",
+          "color_theme": "green",
+          "content": {
+            "headers": [
+              "Subtype",
+              "Target Tissues & Presentation"
+            ],
+            "rows": [
+              [
+                "Dacryoadenitis",
+                "S-shaped upper eyelid deformity, painful superotemporal orbital mass."
+              ],
+              [
+                "Myositis",
+                "Single/multiple EOM involvement, painful diplopia on eye movement, tendon involvement."
+              ],
+              [
+                "Perineuritis",
+                "Optic nerve sheath involvement, mimicking optic neuritis but with normal/spared vision."
+              ],
+              [
+                "Tenonitis",
+                "Diffuse ocular pain, chemosis, injection, and classic 'T-sign' on B-scan ultrasonography."
+              ],
+              [
+                "Diffuse / Anterior",
+                "Involves retrobulbar space, causing pain, severe proptosis, and ophthalmoplegia."
+              ]
+            ]
+          }
+        },
+        {
+          "title": "CRITICAL RED FLAGS: Neoplastic & Infectious Indicators",
+          "icon": "warning",
+          "type": "red_flag",
+          "layout": "half_width",
+          "color_theme": "red",
+          "content": [
+            "Rapidly Progressive Proptosis with Severe Pain: Suspect pediatric Rhabdomyosarcoma or adult Mucormycosis/Aspergillosis.",
+            "Orbital Apex Syndrome: Concurrent cranial nerve palsies (CN III, IV, V1, VI) combined with optic neuropathy (CN II) indicates apical mass compression or invasive infection.",
+            "Bony Destruction on CT: Highly suggestive of malignant lacrimal epithelial tumors (e.g., Adenoid Cystic Carcinoma) or metastatic disease. Do NOT mistake for benign remodelling.",
+            "Incisional Biopsy of suspected Lacrimal Pleomorphic Adenoma: Absolute Contraindication! Risk of capsule rupture, severe tumor seeding, and transformation to Pleomorphic Adenocarcinoma.",
+            "No Clinical Response to Steroids within 48-72 hours: Strongly rules out uncomplicated NSOI. Demands immediate biopsy to rule out Lymphoma, Sarcoidosis, or occult infection."
+          ]
+        },
+        {
+          "title": "Mnemonic: M-A-S-Q-U-E-R-A-D-E Diagnosis Checklist",
+          "icon": "school",
+          "type": "remember",
+          "layout": "half_width",
+          "color_theme": "yellow",
+          "content": {
+            "mnemonic": "M-A-S-Q-U-E-R-A-D-E",
+            "explanation": "M - Muscle Involvement (Tendon sparing vs involving)\nA - Antibody screen (TSH-R, c-ANCA, p-ANCA, ANA, IgG4)\nS - Sinus involvement (Indicates GPA, fungal invasion, or mucocele)\nQ - Quick steroid trial (Dramatic improvement in NSOI vs failure in tumor)\nU - Unilateral vs Bilateral (Bilateral favors systemic/inflammatory)\nE - Eyelid retraction (Highly specific for Thyroid Eye Disease)\nR - Radiographic erosion (Points to malignancy or GPA)\nA - Age profile (Pediatric RMS/hemangioma vs Adult lymphoma/metastasis)\nD - Diagnostic Biopsy (Gold standard if diagnosis is ambiguous)\nE - Exclude infection (Before initiating high-dose immunosuppression)"
+          }
+        },
+        {
+          "title": "Pediatric Orbital Masquerades",
+          "icon": "child_care",
+          "type": "mindmap",
+          "layout": "full_width",
+          "color_theme": "purple",
+          "content": {
+            "center": "Pediatric Orbital Masses",
+            "branches": [
+              "Rhabdomyosarcoma: Most common primary orbital malignancy in kids. Ultra-rapid onset, mimic of orbital cellulitis.",
+              "Capillary Hemangioma: Benign vascular neoplasm. Key sign: 'Strawberry nevus' component. Treat with oral Propranolol.",
+              "Dermoid / Epidermoid Cysts: Slow-growing, painless. Key sign: Well-demarcated orbital suture lines (especially frontozygomatic).",
+              "Neuroblastoma Metastasis: Often bilateral, presents with ecchymosis ('raccoon eyes') and rapid proptosis.",
+              "Lymphangioma: Vascular malformation. Prone to sudden hemorrhage during URIs, creating 'chocolate cysts'."
+            ]
+          }
+        },
+        {
+          "title": "Diagnostic Workup & Protocol Flow",
+          "icon": "science",
+          "type": "process",
+          "layout": "full_width",
+          "color_theme": "green",
+          "content": [
+            "Step 1: Clinical Examination: Measure exophthalmometry (Hertel), assess dyschromatopsia, afferent pupillary defect (RAPD), ocular motility, and lagophthalmos.",
+            "Step 2: Serological Profiling: Order Serum IgG4 levels, Thyroid Stimulating Immunoglobulins (TSI), c-ANCA (PR3), p-ANCA (MPO), ACE, Lysozyme, and CBC.",
+            "Step 3: High-Resolution Orbit Imaging: Obtain contrast-enhanced MRI orbit with fat suppression for soft tissue detailing, or thin-cut CT orbit to evaluate bone architecture.",
+            "Step 4: Systemic Screening: Order Chest X-ray or Chest CT to screen for bilateral hilar adenopathy (Sarcoidosis) or lung primary tumor (Metastasis).",
+            "Step 5: Tissue Biopsy: Perform orbitotomy with biopsy for any persistent, atypical, or steroid-refractory mass (excluding Optic Nerve Meningioma or Pleomorphic Adenoma suspect)."
+          ]
+        },
+        {
+          "title": "Granulomatous Mimics: GPA vs. Sarcoidosis",
+          "icon": "fingerprint",
+          "type": "table",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": {
+            "headers": [
+              "Feature",
+              "Granulomatosis with Polyangiitis (GPA)",
+              "Sarcoidosis"
+            ],
+            "rows": [
+              [
+                "Primary Biomarker",
+                "c-ANCA (PR3 positive) >90% sensitivity in active systemic disease.",
+                "Elevated ACE, elevated serum lysozyme, hypercalcemia."
+              ],
+              [
+                "Histopathology",
+                "Necrotizing vasculitis, geographic necrosis, poorly formed granulomas.",
+                "Non-caseating granulomas, naked granulomas without necrosis, Schaumann bodies."
+              ],
+              [
+                "Ocular Scleral Sign",
+                "Severe necrotizing scleritis, peripheral ulcerative keratitis (PUK).",
+                "Granulomatous uveitis ('mutton-fat' KPs), conjunctival nodules."
+              ],
+              [
+                "Systemic Organs",
+                "Upper/lower respiratory tract (sinuses, lungs), kidneys (glomerulonephritis).",
+                "Lungs (hilar adenopathy, interstitial disease), skin (erythema nodosum), heart."
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Key Clinical Pearls",
+          "icon": "lightbulb",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "yellow",
+          "content": [
+            "Optic Nerve Sheath Meningioma (ONSM) Triad: Slowly progressive vision loss, optic disc swelling/atrophy, and optociliary shunt vessels. Avoid biopsy; diagnose radiologically by 'tram-track' sign on axial CT/MRI.",
+            "The Tendon Rule: Extraocular muscle tendon involvement is the primary radiological differentiator: spared in TED, involved in NSOI and IgG4-ROD.",
+            "Pleomorphic Adenoma Biopsy Warning: Never perform an incisional biopsy of a suspected pleomorphic adenoma. Excision must be done en-bloc with an intact capsule to prevent recurrence.",
+            "Myositis Lateral Rectus Preference: While TED classic starts with the Inferior Rectus, orbital myositis has a strong affinity for the Lateral Rectus, causing acute painful abduction deficit."
+          ]
+        },
+        {
+          "title": "Therapeutic Protocols & Escalation Pathway",
+          "icon": "medication",
+          "type": "process",
+          "layout": "half_width",
+          "color_theme": "green",
+          "content": [
+            "Level 1: First-Line Corticosteroids: Administer Oral Prednisone (1 mg/kg/day) or high-dose IV Methylprednisolone (500-1000 mg pulses) for acute NSOI, active TED, or IgG4-ROD.",
+            "Level 2: Targeted Biologics: Utilize Teprotumumab (IGF-1R inhibitor) for active TED, or Rituximab (anti-CD20) for steroid-refractory NSOI and IgG4-ROD.",
+            "Level 3: Steroid-Sparing Immunosuppression: Implement Methotrexate (15-25 mg weekly), Azathioprine, or Mycophenolate Mofetil for chronic, non-infectious orbital inflammation.",
+            "Level 4: Low-Dose Orbital Radiotherapy: Deliver external beam radiotherapy (typically 20 Gy in 10 fractions) for refractory TED or NSOI.",
+            "Level 5: Surgical Intervention: Perform emergency lateral canthotomy/cantholysis for orbital compartment syndrome, or bony decompression for compressive optic neuropathy."
+          ]
+        },
+        {
+          "title": "Landmark Clinical Studies & Evidence",
+          "icon": "menu_book",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "purple",
+          "content": [
+            "The OPTIC Trial (2020): Demonstrated that Teprotumumab (IGF-1R antibody) significantly reduces proptosis (≥2 mm), diplopia, and CAS in patients with active, moderate-to-severe TED compared to placebo.",
+            "CORTIC-NSOI Study: Evaluated the efficacy of early pulse intravenous methylprednisolone versus oral prednisone taper in NSOI, indicating faster pain resolution and fewer recurrences with intravenous dosing.",
+            "IgG4-ROD Consensus Criteria (2019): Established international validation of diagnostic parameters, combining organ involvement with serum titers and histopathology thresholds to prevent overdiagnosis."
+          ]
+        }
+      ],
+      "generationPrompt": "orbital masses masquerade",
+      "chapterId": "orbit"
+    },
+    "chapterId": "orbit",
+    "kanskiMeta": [
+      {
+        "pageNum": 142,
+        "keywords": [
+          "orbital",
+          "lesions",
+          "orbit",
+          "differential",
+          "flow"
+        ]
+      },
+      {
+        "pageNum": 133,
+        "keywords": [
+          "orbital",
+          "occupying",
+          "sarcoidosis",
+          "orbit",
+          "differential"
+        ]
+      },
+      {
+        "pageNum": 122,
+        "keywords": [
+          "orbital",
+          "lesions",
+          "orbit",
+          "differential",
+          "thyroid"
+        ]
+      },
+      {
+        "pageNum": 123,
+        "keywords": [
+          "orbital",
+          "occupying",
+          "lesions",
+          "thyroid eye disease",
+          "ted"
+        ]
+      },
+      {
+        "pageNum": 761,
+        "keywords": [
+          "orbital",
+          "lesions",
+          "orbit",
+          "definition",
+          "breakdown"
+        ]
+      },
+      {
+        "pageNum": 501,
+        "keywords": [
+          "lesions",
+          "disease",
+          "infectious",
+          "flow",
+          "erg"
+        ]
+      },
+      {
+        "pageNum": 132,
+        "keywords": [
+          "orbital",
+          "lesions",
+          "thyroid eye disease",
+          "sarcoidosis",
+          "orbit"
+        ]
+      },
+      {
+        "pageNum": 156,
+        "keywords": [
+          "orbital",
+          "lesions",
+          "orbit",
+          "disease",
+          "proptosis"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1783152593678,
+    "seqId": 862,
+    "title": "Orbital Masqueraders: Deciphering Mimics of Space-Occupying Lesions",
+    "summary": "Orbital pathology presents a formidable diagnostic challenge. Inflammatory, vascular, infectious, and systemic conditions frequently masquerade as primary neoplasms, requiring clinicians to employ rigorous multi-modal imaging, immunological assays, and histopathological analysis to ensure accurate differentiation and avoid catastrophic treatment delays.",
+    "date": "2026-07-04T08:09:53.678Z",
+    "data": {
+      "title": "Orbital Masqueraders: Deciphering Mimics of Space-Occupying Lesions",
+      "summary": "Orbital pathology presents a formidable diagnostic challenge. Inflammatory, vascular, infectious, and systemic conditions frequently masquerade as primary neoplasms, requiring clinicians to employ rigorous multi-modal imaging, immunological assays, and histopathological analysis to ensure accurate differentiation and avoid catastrophic treatment delays.",
+      "summary_illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" width=\"100%\" height=\"100%\"><defs><linearGradient id=\"eyeGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#1e3a8a\"/><stop offset=\"100%\" stop-color=\"#3b82f6\"/></linearGradient><linearGradient id=\"massGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#ef4444\"/><stop offset=\"100%\" stop-color=\"#b91c1c\"/></linearGradient></defs><rect width=\"100\" height=\"100\" fill=\"#f8fafc\" rx=\"10\"/><path d=\"M20,50 Q50,20 80,50 Q50,80 20,50 Z\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"4\"/><circle cx=\"50\" cy=\"50\" r=\"22\" fill=\"url(#eyeGrad)\"/><circle cx=\"50\" cy=\"50\" r=\"10\" fill=\"#0f172a\"/><path d=\"M70,62 C75,50 82,45 88,52 C92,58 84,72 76,75 C72,72 68,68 70,62 Z\" fill=\"url(#massGrad)\" opacity=\"0.85\" filter=\"drop-shadow(0px 2px 4px rgba(0,0,0,0.15))\"/><path d=\"M48,15 L52,15 L52,25 L48,25 Z M48,75 L52,75 L52,85 L48,85 Z M15,48 L15,52 L25,52 L25,48 Z M75,48 L75,52 L85,52 L85,48 Z\" fill=\"#94a3b8\"/></svg>",
+      "sections": [
+        {
+          "title": "1. Definition & Clinical Overview",
+          "icon": "visibility",
+          "type": "plain_text",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": "An 'orbital mass masquerade' refers to any non-neoplastic orbital condition—ranging from idiopathic inflammation and thyroid eye disease to vascular malformations and infectious abscesses—that clinically or radiographically mimics a primary orbital tumor. Misdiagnosis can lead to unnecessary, mutilating orbitotomies or delayed systemic therapy for life-threatening diseases."
+        },
+        {
+          "title": "2. Approximate Etiological Distribution",
+          "icon": "analytics",
+          "type": "chart",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": {
+            "type": "bar",
+            "data": [
+              {
+                "label": "Thyroid Eye Disease (TED)",
+                "value": 30
+              },
+              {
+                "label": "Idiopathic Inflammation (IOID)",
+                "value": 20
+              },
+              {
+                "label": "Primary Neoplasms (Benign/Malig)",
+                "value": 20
+              },
+              {
+                "label": "Vascular Malformations",
+                "value": 12
+              },
+              {
+                "label": "Metastatic Disease",
+                "value": 10
+              },
+              {
+                "label": "Infectious & Other Mimics",
+                "value": 8
+              }
+            ]
+          }
+        },
+        {
+          "title": "3. Taxonomy of Orbital Space-Occupying Lesions & Mimics",
+          "icon": "menu_book",
+          "type": "mindmap",
+          "layout": "full_width",
+          "color_theme": "purple",
+          "content": {
+            "center": "Orbital Masses & Mimics",
+            "branches": [
+              "Inflammatory (TED, IOID, Sarcoidosis, GPA, IgG4-ROD)",
+              "Neoplastic - Primary (MALT Lymphoma, Pleomorphic Adenoma, Adenoid Cystic Ca)",
+              "Neoplastic - Secondary (Metastasis: Breast, Lung, Prostate; Pediatric: Neuroblastoma)",
+              "Vascular (Cavernous Venous Malformation, Lymphangioma, CCF)",
+              "Infectious (Orbital Cellulitis, Subperiosteal Abscess, Mucormycosis, Aspergillosis)"
+            ]
+          }
+        },
+        {
+          "title": "4. Pathophysiology of Key Masqueraders",
+          "icon": "biotech",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "green",
+          "content": [
+            "**Thyroid Eye Disease (TED):** Autoantibodies target TSH receptors (TSHR) on orbital fibroblasts, prompting adipogenesis and glycosaminoglycan (hyaluronic acid) accumulation, leading to extraocular muscle enlargement (sparing tendons).",
+            "**Idiopathic Orbital Inflammatory Disease (IOID):** A T-cell-mediated immune response characterized by polymorphous inflammatory infiltrates and secondary fibrosis. Can involve any orbital tissue (myositis involving tendons, dacryoadenitis, perineuritis).",
+            "**IgG4-Related Ophthalmic Disease (IgG4-ROD):** Systemic fibroinflammatory condition defined by IgG4+ plasma cell tissue infiltration (>50/HPF) and storiform fibrosis. Often presents as bilateral dacryoadenitis.",
+            "**Granulomatosis with Polyangiitis (GPA):** ANCA-associated necrotizing granulomatous vasculitis. Orbital involvement arises from contiguous sinus disease or direct focal orbital vasculitis."
+          ]
+        },
+        {
+          "title": "5. Diagnostic Mindmap: Clinical Features & Localization",
+          "icon": "psychology",
+          "type": "mindmap",
+          "layout": "half_width",
+          "color_theme": "yellow",
+          "content": {
+            "center": "Clinical Clues",
+            "branches": [
+              "Pain (Suggests IOID, infection, or Adenoid Cystic Carcinoma)",
+              "Painless Proptosis (Suggests Lymphoma, Cavernous Malformation, or TED)",
+              "Pulsatile Proptosis (Suggests CCF, Neurofibromatosis-1, or orbital roof defect)",
+              "S-Shaped Ptosis (Suggests Lacrimal Gland Mass: Pleomorphic Adenoma, IOID, Lymphoma)",
+              "Gaze-Evoked Amaurosis (Suggests Optic Nerve Sheath Meningioma or large apical mass)"
+            ]
+          }
+        },
+        {
+          "title": "6. Differential Diagnosis Matrix: Mass vs. Mimic",
+          "icon": "table_view",
+          "type": "table",
+          "layout": "full_width",
+          "color_theme": "blue",
+          "content": {
+            "headers": [
+              "Entity",
+              "Clinical Presentation",
+              "Radiological Signature (CT/MRI)",
+              "Key Histopathological Findings"
+            ],
+            "rows": [
+              [
+                "MALT Lymphoma",
+                "Painless, gradual proptosis; 'salmon-patch' conjunctival lesion in anterior orbit.",
+                "Molded to orbital structures; sharp margins; hyperdense on CT; restricted diffusion on DWI.",
+                "Monotonous sheets of small B-cells; positive for CD20, CD43; restricted light chain expression (kappa/lambda)."
+              ],
+              [
+                "Idiopathic Orbital Inflammation (IOID)",
+                "Acute onset of pain, proptosis, ptosis, restricted motility.",
+                "Diffuse infiltration; extraocular muscle enlargement *including* tendons; lacrimal gland enlargement.",
+                "Polymorphic infiltrate (lymphocytes, plasma cells, histiocytes) with varying degrees of fibrosis."
+              ],
+              [
+                "Thyroid Eye Disease (TED)",
+                "Eyelid retraction, lid lag, bilateral/unilateral proptosis, restrictive strabismus.",
+                "EOM enlargement *sparing* tendons (IMSLO pattern: IR, MR, SR, LR, OB). No bony erosion.",
+                "EOM degeneration, mucopolysaccharide deposition, interstitial inflammatory infiltrate, adipogenesis."
+              ],
+              [
+                "Cavernous Venous Malformation",
+                "Slowly progressive, painless proptosis in young to middle-aged adults.",
+                "Well-circumscribed, encapsulated intraconal mass. Delayed progressive contrast enhancement.",
+                "Large, dilated, blood-filled vascular spaces lined by flattened endothelium, separated by fibrous stroma."
+              ],
+              [
+                "Carotid-Cavernous Fistula (CCF)",
+                "Pulsatile proptosis, chemosis, corkscrew epibulbar vessels, elevated IOP, bruit.",
+                "Enlarged superior ophthalmic vein (SOV), asymmetric cavernous sinus expansion.",
+                "N/A (Typically diagnosed via CTA/MRA or catheter angiogram; arterialized orbital veins)."
+              ]
+            ]
+          }
+        },
+        {
+          "title": "7. Critical Emergency Signs: Red Flags!",
+          "icon": "warning",
+          "type": "red_flag",
+          "layout": "half_width",
+          "color_theme": "red",
+          "content": [
+            "**Rapidly Progressive Apex Syndrome:** Loss of vision, ophthalmoplegia, and corneal anesthesia indicating urgent orbital apex involvement (e.g., Mucormycosis or aggressive metastasis).",
+            "**Afferent Pupillary Defect (RAPD):** Sign of severe optic nerve compression requiring immediate surgical decompression or systemic corticosteroids.",
+            "**Fever, Meningismus, and Contralateral Ophthalmoplegia:** Indicates cavernous sinus thrombosis spreading from an orbital infection.",
+            "**Bony Destruction on CT:** Strongly suggests malignant epithelial lacrimal tumors (e.g., Adenoid Cystic Carcinoma) or metastatic disease over benign masqueraders.",
+            "**Painless Proptosis in a Child:** Rule out Rhabdomyosarcoma or Neuroblastoma metastasis immediately."
+          ]
+        },
+        {
+          "title": "8. Diagnostic Mnemonic: The O-R-B-I-T-A-L Workup",
+          "icon": "lightbulb",
+          "type": "remember",
+          "layout": "half_width",
+          "color_theme": "purple",
+          "content": {
+            "mnemonic": "O-R-B-I-T-A-L",
+            "explanation": "O - Ophthalmic exam (VA, pupils, motility, exophthalmometry, IOP); R - Radiology (High-resolution CT orbits + Contrast MRI); B - Biopsy (Essential if systemic workup is inconclusive or malignancy suspected); I - Immunological markers (IgG4, ANCA, ACE, ANA, TSHR-Ab); T - Trauma evaluation (Exclude retained retrobulbar foreign bodies); A - Apex status assessment (Visual fields, color vision, RAPD check); L - Lymphoma screening (Systemic staging if orbital lymphoma is confirmed)."
+          }
+        },
+        {
+          "title": "9. Systematic Diagnostic & Management Flow",
+          "icon": "navigation",
+          "type": "process",
+          "layout": "full_width",
+          "color_theme": "green",
+          "content": [
+            "Step 1: Comprehensive Ophthalmic Exam — Quantify proptosis (Hertel), check color vision, look for retrobulbar resistance (retropulsion), evaluate cranial nerves III, IV, V1, VI.",
+            "Step 2: Dual-Modality Neuroimaging — Obtain thin-cut CT (to assess bony architecture) and MRI with fat suppression and gadolinium contrast (to evaluate soft tissue details & perineural invasion).",
+            "Step 3: Targeted Laboratory Workup — Order serum IgG4, c-ANCA/p-ANCA, ACE, lysozyme, thyroid panel (TSH, free T3/T4, TSI), and CBC to narrow down masqueraders.",
+            "Step 4: Biopsy Decision Node — Perform biopsy if: lesion is localized, malignancy is suspected, or patient fails a trial of oral corticosteroids (Prednisone 1 mg/kg/day). Avoid biopsy in suspected Cavernous Venous Malformations (high bleeding risk) or Pleomorphic Adenomas (risk of seeding).",
+            "Step 5: Multidisciplinary Treatment — Coordinate with oncology, rheumatology, and radiation oncology for targeted medical therapy, biologicals (Rituximab, Teprotumumab), or local radiotherapy."
+          ]
+        },
+        {
+          "title": "10. Surgical Approaches for Orbital Biopsy & Excision",
+          "icon": "healing",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": [
+            "**Anterior Orbitotomy:** Transcutaneous (lid crease) or transconjunctival approach. Indicated for masses in the anterior two-thirds of the orbit.",
+            "**Lateral Orbitotomy (Krönlein/Wright):** Involves temporary bone removal of the lateral orbital wall. Indicated for deep intraconal masses located lateral to the optic nerve.",
+            "**Transnasal Endoscopic Orbitotomy:** Highly effective for medial intraconal or subperiosteal masses situated medial to the optic nerve.",
+            "**Transcranial Approach:** Performed in collaboration with neurosurgery for masses extending through the superior orbital fissure or optic canal into the anterior cranial fossa."
+          ]
+        },
+        {
+          "title": "11. Pediatric Masqueraders: Distinct Clinical Spectrum",
+          "icon": "diversity_1",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "yellow",
+          "content": [
+            "**Dermoid/Epidermoid Cysts:** Most common pediatric orbital lesion; typically smooth, painless, located at the frontozygomatic suture. Must be excised intact to avoid severe granulomatous inflammation.",
+            "**Rhabdomyosarcoma:** The most common primary orbital malignancy in childhood. Characterized by sudden, explosive proptosis mimicking orbital cellulitis. Needs emergency biopsy.",
+            "**Capillary Hemangioma:** Presents in infancy as a cutaneous strawberry nevus with orbital extension. May cause deprivational amblyopia. Treat with oral Propranolol.",
+            "**Neuroblastoma Metastasis:** Often presents with rapid, bilateral proptosis and eyelid ecchymosis ('raccoon eyes'). Associated with adrenal primary tumors."
+          ]
+        },
+        {
+          "title": "12. Management Protocols & Targeted Therapies",
+          "icon": "medication",
+          "type": "table",
+          "layout": "full_width",
+          "color_theme": "green",
+          "content": {
+            "headers": [
+              "Diagnosis",
+              "First-Line Intervention",
+              "Second-Line / Refractory Therapy",
+              "Clinical Monitoring Parameters"
+            ],
+            "rows": [
+              [
+                "Idiopathic Orbital Inflammation",
+                "High-dose Oral Prednisone (1-1.5 mg/kg/day) with a slow taper.",
+                "Steroid-sparing agents (Methotrexate, Mycophenolate) or Orbital Radiotherapy (15-20 Gy).",
+                "Resolution of pain/diplopia, visual acuity, intraocular pressure monitoring."
+              ],
+              [
+                "Thyroid Eye Disease (Moderate-to-Severe)",
+                "Intravenous Methylprednisolone (4.5g cumulative dose) OR Teprotumumab (anti-IGF-1R antibody).",
+                "Orbital decompression surgery, strabismus surgery, or eyelid recession.",
+                "Clinical Activity Score (CAS), exophthalmometry, lagophthalmos severity, optic nerve function."
+              ],
+              [
+                "Orbital Lymphoma (MALT)",
+                "External Beam Radiation Therapy (EBRT: 24-30 Gy) for localized disease.",
+                "Systemic Immunotherapy (Rituximab) or chemotherapy (CHOP protocol) for systemic disease.",
+                "Serial MRI scans, systemic staging scans (PET-CT, bone marrow biopsy) every 6-12 months."
+              ],
+              [
+                "IgG4-Related Ophthalmic Disease",
+                "Systemic Corticosteroids (highly responsive but prone to recurrence).",
+                "Rituximab (anti-CD20 therapy; 1000 mg x 2 doses, 2 weeks apart) is highly effective.",
+                "Serum IgG4 levels, resolution of dacryoadenitis, evaluation of other systemic organs (retroperitoneum, pancreas)."
+              ]
+            ]
+          }
+        },
+        {
+          "title": "13. High-Yield Clinical Pearls",
+          "icon": "school",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "purple",
+          "content": [
+            "**The 'Tendon-Sparing' Rule:** On MRI, extraocular muscle enlargement that *spares* the tendon is classic for Thyroid Eye Disease. If the tendon is *involved*, think Idiopathic Orbital Myositis (IOID) or malignancy.",
+            "**Never Biopsy a Suspected Pleomorphic Adenoma:** Incisional biopsy breaks the pseudocapsule, leading to high rates of recurrence and potential malignant transformation into Carcinoma Ex Pleomorphic Adenoma.",
+            "**The 'Steroid Trap':** Lymphoma can transiently regress with systemic steroid administration, misleading the clinician. Avoid treating a suspected orbital mass with steroids *prior* to biopsy if lymphoma is high on the differential.",
+            "**Bilateral Dacryoadenitis:** Always suspect systemic disease first: IgG4-ROD, Sarcoidosis, Lymphoma, or Sjogren's syndrome."
+          ]
+        },
+        {
+          "title": "14. Recent Advances & Landmark Evidence",
+          "icon": "science",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": [
+            "**OPTIC Trial (Teprotumumab in TED):** Landmark phase 3 trial showing Teprotumumab significantly reduces proptosis (mean reduction of 2.8 mm) and clinical activity scores compared to placebo.",
+            "**Liquid Biopsy in Orbital Oncology:** Emerging utility of analyzing cell-free DNA (cfDNA) in aqueous or vitreous humor for the non-invasive genetic profiling of intraocular and contiguous orbital tumors.",
+            "**Rituximab for IOID/IgG4-ROD:** Evidence highlights targeted B-cell depletion as a premier steroid-sparing modality, yielding durable remission and reversing fibrotic tissue changes.",
+            "**AI in Orbital Imaging:** Neural network models are now capable of differentiating TED, IOID, and lymphoma on raw MRI sequences with accuracy comparable to fellowship-trained neuroradiologists."
+          ]
+        }
+      ],
+      "generationPrompt": "orbital masses masquerade",
+      "chapterId": "orbit"
+    },
+    "chapterId": "orbit",
+    "kanskiMeta": [
+      {
+        "pageNum": 142,
+        "keywords": [
+          "orbital",
+          "lesions",
+          "orbit",
+          "differential",
+          "mass"
+        ]
+      },
+      {
+        "pageNum": 133,
+        "keywords": [
+          "orbital",
+          "occupying",
+          "orbit",
+          "differential",
+          "signs"
+        ]
+      },
+      {
+        "pageNum": 122,
+        "keywords": [
+          "orbital",
+          "lesions",
+          "orbit",
+          "differential",
+          "mass"
+        ]
+      },
+      {
+        "pageNum": 123,
+        "keywords": [
+          "orbital",
+          "occupying",
+          "lesions",
+          "ted",
+          "orbit"
+        ]
+      },
+      {
+        "pageNum": 761,
+        "keywords": [
+          "orbital",
+          "lesions",
+          "orbit",
+          "definition",
+          "localization"
+        ]
+      },
+      {
+        "pageNum": 501,
+        "keywords": [
+          "lesions",
+          "erg",
+          "flow",
+          "visual field"
+        ]
+      },
+      {
+        "pageNum": 132,
+        "keywords": [
+          "orbital",
+          "lesions",
+          "orbit",
+          "diagnostic",
+          "differential"
+        ]
+      },
+      {
+        "pageNum": 156,
+        "keywords": [
+          "orbital",
+          "lesions",
+          "orbit",
+          "mass",
+          "surgical"
+        ]
+      }
+    ],
+    "read": true
+  },
+  {
+    "id": 1782757248534,
+    "seqId": 861,
+    "title": "Painless Panuveitis: Clinical Differential Diagnosis & Workup",
+    "summary": "A comprehensive, high-yield clinical roadmap for identifying, investigating, and managing non-painful panuveitis. Designed for ophthalmology residents and retina/uveitis fellows to differentiate infectious, autoimmune, and malignant masquerades.",
+    "date": "2026-06-29T18:20:48.534Z",
+    "data": {
+      "title": "Painless Panuveitis: Clinical Differential Diagnosis & Workup",
+      "summary": "A comprehensive, high-yield clinical roadmap for identifying, investigating, and managing non-painful panuveitis. Designed for ophthalmology residents and retina/uveitis fellows to differentiate infectious, autoimmune, and malignant masquerades.",
+      "summary_illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 500\" width=\"100%\" height=\"100%\" style=\"background: #0f172a; border-radius: 12px;\"><defs><radialGradient id=\"glow\" cx=\"50%\" cy=\"50%\" r=\"50%\"><stop offset=\"0%\" stop-color=\"#38bdf8\" stop-opacity=\"0.4\"/><stop offset=\"100%\" stop-color=\"#0f172a\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"grad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#0ea5e9\"/><stop offset=\"100%\" stop-color=\"#2563eb\"/></linearGradient></defs><rect width=\"100%\" height=\"100%\" fill=\"#0f172a\"/><circle cx=\"400\" cy=\"250\" r=\"220\" fill=\"url(#glow)\"/><circle cx=\"400\" cy=\"250\" r=\"160\" fill=\"none\" stroke=\"#334155\" stroke-width=\"4\"/><circle cx=\"400\" cy=\"250\" r=\"180\" fill=\"none\" stroke=\"url(#grad)\" stroke-width=\"2\" stroke-dasharray=\"10 15\"/><path d=\"M 400 90 A 160 160 0 0 1 560 250 A 160 160 0 0 1 400 410 A 160 160 0 0 1 240 250 A 160 160 0 0 1 400 90 Z\" fill=\"none\" stroke=\"#38bdf8\" stroke-width=\"6\" stroke-linecap=\"round\"/><circle cx=\"400\" cy=\"250\" r=\"60\" fill=\"none\" stroke=\"#f59e0b\" stroke-width=\"4\"/><path d=\"M 400 130 C 370 180, 310 210, 240 250 M 400 370 C 430 320, 490 290, 560 250\" stroke=\"#e2e8f0\" stroke-width=\"2\" stroke-dasharray=\"5 5\"/><circle cx=\"310\" cy=\"210\" r=\"6\" fill=\"#ef4444\"/><circle cx=\"480\" cy=\"280\" r=\"8\" fill=\"#ef4444\"/><circle cx=\"350\" cy=\"290\" r=\"5\" fill=\"#ef4444\"/><circle cx=\"440\" cy=\"170\" r=\"7\" fill=\"#ef4444\"/><text x=\"400\" y=\"255\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#ffffff\" font-weight=\"bold\" text-anchor=\"middle\">PANUVEITIS</text><text x=\"400\" y=\"30\" font-family=\"sans-serif\" font-size=\"24\" fill=\"#f8fafc\" font-weight=\"900\" text-anchor=\"middle\" letter-spacing=\"2\">NO PAIN, GRAVE DANGER</text><text x=\"400\" y=\"470\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#94a3b8\" text-anchor=\"middle\">Chorioretinal lesions, vitritis, and anterior chamber activity without ciliary spasm.</text></svg>",
+      "sections": [
+        {
+          "title": "Clinical Definition & Pathophysiology of Painlessness",
+          "icon": "visibility",
+          "type": "plain_text",
+          "layout": "full_width",
+          "color_theme": "blue",
+          "content": "Panuveitis is characterized by generalized inflammation of the entire uveal tract, simultaneously involving the anterior chamber, vitreous cavity, and the posterior segment (retina, choroid, or optic nerve head). While anterior uveitis typically presents with severe pain due to ciliary body spasm and trigeminal (CN V1) nerve irritation, posterior-dominant panuveitis can progress silently. The lack of pain stems from the absence of sensory nociceptive fibers in the retina and choroid. Patients usually present only with painless visual decline, dense floaters, and photopsia. Identifying these silent presentations early is critical to prevent irreversible structural damage, macular scarring, and optic nerve atrophy."
+        },
+        {
+          "title": "Epidemiology and Etiology Breakdown",
+          "icon": "analytics",
+          "type": "chart",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": {
+            "type": "bar",
+            "data": [
+              {
+                "label": "Infectious (Syphilis, TB, Toxoplasmosis)",
+                "value": 35
+              },
+              {
+                "label": "Non-Infectious Autoimmune (VKH, Sarcoidosis)",
+                "value": 40
+              },
+              {
+                "label": "Masquerade Syndromes (PVRL, Lymphoma)",
+                "value": 10
+              },
+              {
+                "label": "Idiopathic Panuveitis",
+                "value": 15
+              }
+            ]
+          }
+        },
+        {
+          "title": "Why is it Painless? Anatomical Correlates",
+          "icon": "science",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "green",
+          "content": [
+            "Posterior Segment Insensitivity: The retina and choroid lack sensory trigeminal nerve endings.",
+            "Absence of Ciliary Spasm: Minimal or sluggish anterior segment involvement preserves ciliary muscle tone, avoiding classic photophobia and deep ocular boring pain.",
+            "Intact Corneal Endothelium: Lack of high-grade keratic precipitates or corneal edema keeps corneal nociceptors silent.",
+            "Normotensive or Hypotensive State: Early uveitic eyes often display normal or low intraocular pressure (due to ciliary body hyposecretion) avoiding pain from acute ocular hypertension."
+          ]
+        },
+        {
+          "title": "Classification of Painless Panuveitis",
+          "icon": "menu_book",
+          "type": "mindmap",
+          "layout": "full_width",
+          "color_theme": "purple",
+          "content": {
+            "center": "Painless Panuveitis",
+            "branches": [
+              "Infectious (Granulomatous): Syphilis, Tuberculosis, Toxocariasis, Endogenous Fungal Endophthalmitis",
+              "Non-Infectious Granulomatous: Sarcoidosis, Vogt-Koyanagi-Harada (VKH) Disease, Sympathetic Ophthalmia",
+              "Non-Infectious Non-Granulomatous: Behcet's Disease (can present painlessly early), White Dot Syndromes",
+              "Masquerade Malignancy: Primary Vitreoretinal Lymphoma (PVRL), Amelanotic Melanoma, Metastatic Lesions"
+            ]
+          }
+        },
+        {
+          "title": "Comprehensive Differential Diagnosis Matrix",
+          "icon": "table",
+          "type": "table",
+          "layout": "full_width",
+          "color_theme": "blue",
+          "content": {
+            "headers": [
+              "Condition",
+              "Key Ocular Features",
+              "Systemic Associations",
+              "Diagnostic Gold Standard / Biomarkers"
+            ],
+            "rows": [
+              [
+                "Ocular Sarcoidosis",
+                "Mutton-fat KPs, TM nodules, Snowballs/string of pearls vitritis, Candle-wax drippings (periphlebitis), Dalen-Fuchs-like nodules.",
+                "Bilateral hilar lymphadenopathy, erythema nodosum, lupus pernio.",
+                "Chest CT, Serum ACE (elevated), Serum Lysozyme (elevated), Conjunctival/Lymph node biopsy."
+              ],
+              [
+                "Syphilis (The Great Masquerader)",
+                "Pre-senile cataracts, iris roseola, acute syphilitic posterior placoid chorioretinitis (ASPPC), ground-glass vitritis.",
+                "Tabes dorsalis, Argyll Robertson pupil, maculopapular rash (palms/soles).",
+                "Treponemal tests (FTA-ABS, MHA-TP) are highly specific; non-treponemal (VDRL, RPR) reflect disease activity; Lumbar puncture for VDRL/protein."
+              ],
+              [
+                "Vogt-Koyanagi-Harada (VKH)",
+                "Bilateral diffuse choroidal thickening, exudative retinal detachments, sunset glow fundus (chronic stage), Sugiura sign.",
+                "Poliosis, vitiligo, alopecia, dysacusis, meningismus.",
+                "Lumbar puncture (pleocytosis), EDI-OCT (diffuse choroidal thickening), FFA (pinpoint leakage/pooling)."
+              ],
+              [
+                "Sympathetic Ophthalmia (SO)",
+                "Bilateral granulomatous panuveitis following penetrating trauma or intraocular surgery to the exciting eye.",
+                "History of trauma/surgery in exciting eye; sympathizing eye develops matching inflammation.",
+                "Clinical diagnosis; OCT showing Dalen-Fuchs nodules; History is absolute key."
+              ],
+              [
+                "Tuberculosis (TB) Uveitis",
+                "Broad-based posterior synechiae, serpiginous-like choroiditis, solitary choroidal tubercle.",
+                "Chronic cough, night sweats, weight loss, pulmonary cavitary lesions.",
+                "IGRA (QuantiFERON-TB Gold), Tuberculin Skin Test (TST), Chest CT, PCR of aqueous/vitreous."
+              ],
+              [
+                "Primary Vitreoretinal Lymphoma (PVRL)",
+                "Subretinal yellow-orange infiltrates (leopard-skin appearance), vitreous sheets/clumps unresponsive to steroids.",
+                "Central Nervous System (CNS) Lymphoma association.",
+                "Diagnostic vitrectomy with cytopathology, flow cytometry, IL-10 to IL-6 ratio (> 1.0), MYD88 L265P mutation analysis."
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Clinical Features & Ocular Exam Findings",
+          "icon": "visibility",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "green",
+          "content": [
+            "Anterior Segment: Mutton-fat keratic precipitates (granulomatous), Koeppe (pupillary border) and Busacca (iris stroma) nodules, Berlin nodules in the angle.",
+            "Vitreous: Dense vitreous haze (NEI grading 1+ to 4+), 'string of pearls' or 'snowballs' (sarcoidosis), vitreous sheets/debris (lymphoma).",
+            "Retinal Vasculitis: Periphlebitis (sarcoidosis 'candle-wax drippings', MS) or periarteritis (acute retinal necrosis - though ARN is usually painful, early progressive outer retinal necrosis/PORN can be painless).",
+            "Choroidal Lesions: Multifocal choroidal nodules, placoid lesions, or diffuse creamy thickening (VKH)."
+          ]
+        },
+        {
+          "title": "Essential Diagnostic & Imaging Workup Flow",
+          "icon": "biotech",
+          "type": "process",
+          "layout": "half_width",
+          "color_theme": "purple",
+          "content": [
+            "Step 1: Multimodal Ocular Imaging: Obtain EDI-OCT (for choroidal thickness), Fluorescein Angiography (FFA - to assess retinal vasculitis & macular edema), and Indocyanine Green Angiography (ICGA - for subclinical choroidal lesions).",
+            "Step 2: Core Serology Battery: Order FTA-ABS (Syphilis screening), QuantiFERON-TB Gold (Tuberculosis), and Serum ACE/Lysozyme (Sarcoidosis).",
+            "Step 3: Systemic Imaging: Chest CT (high-resolution) is vastly superior to Chest X-ray for identifying hilar lymphadenopathy or pulmonary granulomas.",
+            "Step 4: Target Autoimmune Markers: HLA-B27, HLA-B51 (Behcet's), HLA-A29 (Birdshot), and ANA/ANCA if connective tissue disease or vasculitis is suspected.",
+            "Step 5: Invasive Diagnostics: If masquerade or atypical infection is suspected, perform diagnostic anterior chamber tap or pars plana vitrectomy (PPV) for PCR, cytology, and IL-10/IL-6 ratios."
+          ]
+        },
+        {
+          "title": "CRITICAL WARNING: Primary Vitreoretinal Lymphoma (PVRL)",
+          "icon": "warning",
+          "type": "red_flag",
+          "layout": "full_width",
+          "color_theme": "red",
+          "content": [
+            "Do NOT presume every panuveitis is inflammatory. Primary Vitreoretinal Lymphoma (PVRL) is a lethal masquerade that presents as painless, steroid-responsive vitritis.",
+            "Red Flag Sign: Creamy, yellow-subretinal infiltrates with overlying vitritis in an elderly patient (>60 years).",
+            "Contraindication: Initiating high-dose systemic corticosteroids prior to diagnostic vitrectomy when PVRL is suspected, as steroids cause tumor cell lysis, rendering cytopathology non-diagnostic.",
+            "Diagnostic Landmark: An aqueous or vitreous IL-10 to IL-6 ratio of > 1.0 strongly indicates PVRL (reactive uveitis typically has IL-6 > IL-10)."
+          ]
+        },
+        {
+          "title": "Mnemonic for Silent/Painless Panuveitis",
+          "icon": "psychology",
+          "type": "remember",
+          "layout": "half_width",
+          "color_theme": "yellow",
+          "content": {
+            "mnemonic": "S.I.L.E.N.T.",
+            "explanation": "S - Sarcoidosis (granulomatous mutton-fat KPs, candle-wax drippings)\nI - Intraocular Lymphoma (PVRL - lethal masquerader, IL-10 > IL-6)\nL - Lues (Syphilis - positive FTA-ABS, ASPPC placoid lesions)\nE - Endogenous infections (Tuberculosis, Fungal endophthalmitis)\nN - Neuromelanocytic autoimmune (VKH - bilateral exudative RDs, sunset glow)\nT - Trauma / Surgery history (Sympathetic Ophthalmia - bilateral presentation)"
+          }
+        },
+        {
+          "title": "Key Clinical Pearls for the Practicing Ophthalmologist",
+          "icon": "lightbulb",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "yellow",
+          "content": [
+            "Syphilis Rule: Always order a treponemal-specific test (FTA-ABS or MHA-TP). RPR and VDRL can yield false negatives in late/latent neurosyphilis.",
+            "The 'Sunset Glow' Sign: In VKH, aggressive early systemic corticosteroid therapy can prevent the depigmentation of the choroid (sunset glow fundus) and preserve long-term visual acuity.",
+            "Symmetric Paradox: In Sympathetic Ophthalmia, the 'exciting eye' (injured eye) and 'sympathizing eye' (non-injured eye) must both show signs of granulomatous uveitis.",
+            "Vitreous Tap Yield: For lymphoma diagnosis, ensure the pathology lab is ready for immediate processing (cytospin/flow cytometry) because lymphoma cells degrade within 1 hour."
+          ]
+        },
+        {
+          "title": "Step-by-Step Management & Treatment Protocol",
+          "icon": "healing",
+          "type": "process",
+          "layout": "full_width",
+          "color_theme": "green",
+          "content": [
+            "Step 1: Absolute Rule-Out of Infection: Never start high-dose systemic corticosteroids or immunomodulatory therapy (IMT) until Syphilis and Tuberculosis are actively ruled out via serologies/imaging.",
+            "Step 2: Infectious Management: If Syphilis positive, treat as Neurosyphilis with IV Penicillin G (18-24 million units daily for 10-14 days). If TB positive, initiate standard four-drug anti-tubercular therapy (RIPE) in coordination with infectious disease.",
+            "Step 3: Induction Corticosteroids: For non-infectious panuveitis (e.g., VKH, Sarcoidosis), initiate high-dose oral Prednisone (1-1.5 mg/kg/day) or IV Methylprednisolone (1g/day for 3 days for severe VKH) with a slow taper over 6 months.",
+            "Step 4: Early Steroid-Sparing Immunomodulatory Therapy (IMT): For chronic or severe disease (Sympathetic Ophthalmia, Behcet's, Sarcoidosis), introduce Mycophenolate Mofetil (1-1.5g BID) or Methotrexate (15-25mg weekly) early to avoid steroid-related systemic side effects.",
+            "Step 5: Biologic Agents: For refractory non-infectious cases or severe Behcet's, introduce anti-TNF-alpha therapy (Adalimumab/Humira or Infliximab/Remicade) based on findings from the VISUAL trials."
+          ]
+        },
+        {
+          "title": "Recent Advances & Landmark Clinical Trials",
+          "icon": "school",
+          "type": "table",
+          "layout": "full_width",
+          "color_theme": "blue",
+          "content": {
+            "headers": [
+              "Trial Name",
+              "Key Finding / Intervention",
+              "Clinical Application"
+            ],
+            "rows": [
+              [
+                "VISUAL-1 & VISUAL-2 Trials",
+                "Adalimumab significantly reduced the risk of uveitic flare or visual decline in non-infectious intermediate, posterior, and panuveitis.",
+                "Established Adalimumab as the first FDA-approved non-steroidal biologic agent for non-infectious uveitis."
+              ],
+              [
+                "MUST Trial (Follow-up)",
+                "Compared systemic corticosteroid/immunosuppression with the fluocinolone acetonide intravitreal implant (Retisert).",
+                "Long-term visual outcomes were similar, but systemic therapy had fewer ocular complications (glaucoma/cataract), while implants had fewer systemic side effects."
+              ],
+              [
+                "POINT Trial",
+                "Compared periocular triamcinolone, intravitreal triamcinolone, and intravitreal dexamethasone implant (Ozurdex) for uveitic macular edema.",
+                "Intravitreal treatments (both triamcinolone and dexamethasone implant) were superior to periocular injection in resolving macular edema, with acceptable safety profiles."
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Complications & Long-Term Prognosis",
+          "icon": "warning",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "red",
+          "content": [
+            "Cystoid Macular Edema (CME): The leading cause of permanent visual loss in chronic panuveitis; requires aggressive local or systemic control.",
+            "Secondary Cataract: Typically posterior subcapsular cataract (PSC) secondary to chronic intraocular inflammation and prolonged corticosteroid use.",
+            "Secondary Glaucoma: Can arise from trabeculitis, pupillary block (seclusio pupillae), or steroid-response; requires careful IOP monitoring and topical/systemic aqueous suppressants.",
+            "Choroidal Neovascularization (CNVM): Can develop at the margins of chronic inflammatory chorioretinal scars; managed with intravitreal anti-VEGF injections."
+          ]
+        },
+        {
+          "title": "Pediatric & Special Population Considerations",
+          "icon": "diversity_3",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "purple",
+          "content": [
+            "Juvenile Idiopathic Arthritis (JIA): Classically presents as painless, quiet-looking anterior uveitis, but neglected cases can develop chronic, silent panuveitis with band keratopathy.",
+            "Toxocariasis: Presents as unilateral painless panuveitis or posterior pole granuloma in children with a history of puppy contact or pica (geophagia).",
+            "TINU Syndrome (Tubulointerstitial Nephritis and Uveitis): Typically bilateral, painless or painful, presenting in young females; monitor renal function (serum creatinine, urine beta-2 microglobulin).",
+            "Teratogenic Warning: Methotrexate and Mycophenolate Mofetil are highly teratogenic; absolute contraindication in pregnant/breastfeeding patients. Use safe alternatives like Cyclosporine if necessary."
+          ]
+        }
+      ],
+      "generationPrompt": "Non painful Pan uveitis differential diagnosis",
+      "chapterId": "aids"
+    },
+    "chapterId": "aids",
+    "kanskiMeta": [
+      {
+        "pageNum": 434,
+        "keywords": [
+          "uveitis",
+          "retina",
+          "classification",
+          "ocular",
+          "anterior uveitis"
+        ]
+      },
+      {
+        "pageNum": 435,
+        "keywords": [
+          "uveitis",
+          "panuveitis",
+          "retina",
+          "anatomical",
+          "classification"
+        ]
+      },
+      {
+        "pageNum": 451,
+        "keywords": [
+          "uveitis",
+          "classification",
+          "ocular",
+          "recent",
+          "complications"
+        ]
+      },
+      {
+        "pageNum": 454,
+        "keywords": [
+          "uveitis",
+          "panuveitis",
+          "differential",
+          "ocular",
+          "primary"
+        ]
+      },
+      {
+        "pageNum": 441,
+        "keywords": [
+          "uveitis",
+          "differential",
+          "retina",
+          "ocular",
+          "imaging"
+        ]
+      },
+      {
+        "pageNum": 455,
+        "keywords": [
+          "uveitis",
+          "retina",
+          "findings",
+          "imaging",
+          "complications"
+        ]
+      },
+      {
+        "pageNum": 446,
+        "keywords": [
+          "uveitis",
+          "panuveitis",
+          "retina",
+          "ocular",
+          "complications"
+        ]
+      },
+      {
+        "pageNum": 489,
+        "keywords": [
+          "uveitis",
+          "aids",
+          "retina",
+          "ocular",
+          "critical"
+        ]
+      }
+    ],
+    "read": true
+  },
+  {
     "id": 1781791511435,
     "seqId": 187,
     "title": "Opaque Bubble Layer (OBL) in Femtosecond Laser-Assisted LASIK",

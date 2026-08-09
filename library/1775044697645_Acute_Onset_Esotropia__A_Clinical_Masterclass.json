@@ -1,0 +1,283 @@
+{
+  "id": 1775044697645,
+  "seqId": 481,
+  "title": "Acute Onset Esotropia: A Clinical Masterclass",
+  "summary": "Acute onset esotropia (AOE) in children or adults is a potential neuro-ophthalmic emergency. While often benign and idiopathic, it requires a rigorous diagnostic algorithm to exclude life-threatening intracranial pathology such as tumors, hydrocephalus, or Chiari malformations.",
+  "date": "2026-04-01T11:58:17.645Z",
+  "data": {
+    "title": "Acute Onset Esotropia: A Clinical Masterclass",
+    "summary": "Acute onset esotropia (AOE) in children or adults is a potential neuro-ophthalmic emergency. While often benign and idiopathic, it requires a rigorous diagnostic algorithm to exclude life-threatening intracranial pathology such as tumors, hydrocephalus, or Chiari malformations.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='35' cy='50' r='15' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='35' cy='50' r='6' fill='hsl(215, 90%, 45%)'/><circle cx='65' cy='50' r='15' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='58' cy='50' r='6' fill='hsl(215, 90%, 45%)'/><path d='M20 20 L80 80 M80 20 L20 80' stroke='red' stroke-width='1' opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Acute Onset Esotropia (AOE) is defined as a sudden, manifest inward deviation of the eyes in a previously orthotropic individual (or one with stable microtropia). Unlike congenital esotropia, AOE presents with symptomatic diplopia and often maintains high potential for stereopsis if treated promptly. It spans a spectrum from benign decompensated phoria to high-acuity neurological presentations involving the brainstem or cerebellum."
+      },
+      {
+        "title": "Etiological Classification (Burian-Miller)",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Eponym",
+            "Pathophysiology",
+            "Clinical Features"
+          ],
+          "rows": [
+            [
+              "Type I",
+              "Swan Type",
+              "Sensory deprivation/occlusion",
+              "Occurs after monocular occlusion (e.g., patching) or sudden vision loss."
+            ],
+            [
+              "Type II",
+              "Franceschetti",
+              "Idiopathic/Non-accommodative",
+              "Relatively large angle, minimal hyperopia, sudden onset without obvious trigger."
+            ],
+            [
+              "Type III",
+              "Bielschowsky",
+              "Near-effort / Myopic",
+              "Associated with uncorrected myopia or excessive near-work; distance ET > near ET."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology & Mechanisms",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "AOE Mechanisms",
+          "branches": [
+            "Loss of Fusional Vergence (Decompensation)",
+            "Increased Intracranial Pressure (ICP)",
+            "Brainstem/Cerebellar Dysfunction",
+            "Mechanical Restriction",
+            "Dysinnervation (CN VI Palsy)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiological Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Myopia (Type III)",
+              "value": 40
+            },
+            {
+              "label": "CNS Pathology Risk",
+              "value": 15
+            },
+            {
+              "label": "Hyperopia >+2.00D",
+              "value": 25
+            },
+            {
+              "label": "Physical/Emotional Stress",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "MANDATORY RED FLAGS (IMAGING NEEDED)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Papilledema or Blurred Disc Margins on Fundoscopy",
+          "Incomitance (Deviation varies with gaze direction)",
+          "Abduction Deficits (Pseudo-6th Nerve Palsy)",
+          "Systemic Neurological Signs (Ataxia, Dysmetria, Hyperreflexia)",
+          "Severe Morning Headache or Projectile Vomiting",
+          "Torticollis (New onset compensatory head tilt)",
+          "Nystagmus (Especially downbeat or gaze-evoked)"
+        ]
+      },
+      {
+        "title": "The Essential Sensorimotor Workup",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Cycloplegic Refraction: Use 1% Atropine or Cyclopentolate to find latent hyperopia.",
+          "Prism Cover Test (PCT): Measure at 1/3m and 6m; check all 9 cardinal positions.",
+          "Stereopsis Testing: Titmus or Randot to assess binocular potential.",
+          "Duction/Version: Check for subtle abduction limitation (CN VI).",
+          "Worth 4-Dot Test: Assess for suppression vs. diplopia.",
+          "Near Point of Convergence (NPC): Evaluate accommodative effort."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "clinical_notes",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Abducens Nerve Palsy",
+              "Incomitant, abduction deficit, slows saccades."
+            ],
+            [
+              "Myasthenia Gravis",
+              "Ptosis, variability, fatigue on upgaze."
+            ],
+            [
+              "Thyroid Eye Disease",
+              "Lid lag, proptosis, IR restriction."
+            ],
+            [
+              "Sagging Eye Syndrome",
+              "Age-related, LR/SR pulley displacement, small vertical."
+            ],
+            [
+              "Divergence Insufficiency",
+              "Distance ET much greater than near ET."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls & Observations",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Chiari I Malformation: Classically associated with AOE and downbeat nystagmus.",
+          "Cycloplegic Refraction is non-negotiable; AOE can be a high-AC/A ratio accommodative esotropia presenting late.",
+          "Type II (Franceschetti) usually has high stereopsis potential with surgery.",
+          "If the ET is incomitant, it is NEVER idiopathic until CNS lesions are ruled out.",
+          "Heavy Eye Syndrome: High myopia causing LR-SR band displacement, mimicking AOE."
+        ]
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "settings",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Full Cycloplegic Refraction. Prescribe full plus power found.",
+          "Step 2: Neurological Screening. If red flags or incomitance, order MRI Brain/Orbits with contrast.",
+          "Step 3: Prism Adaptation. Use Fresnel prisms to neutralize diplopia and assess for 'eating the prism'.",
+          "Step 4: Botulinum Toxin. Consider for small angles or as a diagnostic tool for binocularity.",
+          "Step 5: Surgical Intervention. Usually Bilateral Medial Rectus (BMR) recession based on the largest measured angle."
+        ]
+      },
+      {
+        "title": "Surgical Dosing (BMR Recession)",
+        "icon": "healing",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Deviation (PD)",
+            "BMR Recession (mm)"
+          ],
+          "rows": [
+            [
+              "15 PD",
+              "3.0 mm"
+            ],
+            [
+              "20 PD",
+              "3.5 mm"
+            ],
+            [
+              "30 PD",
+              "4.5 mm"
+            ],
+            [
+              "40 PD",
+              "5.5 mm"
+            ],
+            [
+              "50 PD",
+              "6.5 mm"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Memory Aid: The 'STORM' of AOE",
+        "icon": "menu_book",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STORM",
+          "explanation": "S: Sudden onset; T: Tumors/Tension (ICP); O: Optical (Refractive); R: Restricted (Mechanical); M: Myasthenia/Muscle."
+        }
+      },
+      {
+        "title": "Recent Advances: Neuroimaging Criteria",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "Recent studies (e.g., Lion et al.) emphasize that while the incidence of brain tumors in isolated AOE is low (<5%), the presence of even subtle incomitance or failure to resolve with correction increases the risk of CNS pathology significantly. Modern high-resolution MRI with 'FIESTA' or 'CISS' sequences is preferred to visualize the CN VI cistern portion and the posterior fossa/craniocervical junction."
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Amblyopia Risk: Significant in children under age 7.",
+          "Loss of Stereopsis: Irreversible if duration of misalignment is prolonged (>6 months).",
+          "Overcorrection: A risk of consecutive exotropia if surgery is too aggressive.",
+          "Recurrence: High in Type III Bielschowsky if myopia and near-strain are not managed."
+        ]
+      },
+      {
+        "title": "Special Population: Sagging Eye Syndrome",
+        "icon": "elderly",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Affects elderly patients (involutional).",
+          "Degeneration of the LR-SR intermuscular band.",
+          "Leads to sagging of the Lateral Rectus muscle pulley.",
+          "Presents as a small-angle esotropia and a 'cyclovertical' deviation (hypertropia).",
+          "Diagnosis confirmed via thin-cut coronal MRI showing muscle displacement."
+        ]
+      }
+    ],
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "_newlyImported": 1775044697645,
+  "communityId": "sub_1774352254516_a6lyzd6bqxj3g0",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

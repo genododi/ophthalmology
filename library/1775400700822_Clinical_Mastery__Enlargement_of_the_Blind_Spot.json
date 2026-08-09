@@ -1,0 +1,140 @@
+{
+  "id": 1775400700822,
+  "seqId": 702,
+  "title": "Clinical Mastery: Enlargement of the Blind Spot",
+  "summary": "An enlarged blind spot (scotoma) is a critical diagnostic finding often indicating peripapillary pathology or optic nerve dysfunction. This guide provides a comprehensive framework for diagnosing and managing pathologies causing cecocentral and peripapillary field defects.",
+  "date": "2026-04-05T14:51:40.822Z",
+  "data": {
+    "title": "Clinical Mastery: Enlargement of the Blind Spot",
+    "summary": "An enlarged blind spot (scotoma) is a critical diagnostic finding often indicating peripapillary pathology or optic nerve dysfunction. This guide provides a comprehensive framework for diagnosing and managing pathologies causing cecocentral and peripapillary field defects.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='30' fill='hsl(215, 90%, 45%)' opacity='0.2'/><ellipse cx='50' cy='50' rx='10' ry='15' fill='white' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M45 45 L55 55 M45 55 L55 45' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "An enlarged blind spot (enlargement of the physiological blind spot) occurs when the peripapillary retinal pigment epithelium (RPE) or optic nerve head is displaced, elevated, or damaged. Anatomically, this represents a scotoma corresponding to the 15-degree temporal visual field location of the optic nerve head. Pathophysiology involves either physical displacement (e.g., optic disc edema, papilledema), peripapillary chorioretinal lesions, or localized nerve fiber layer defects."
+      },
+      {
+        "title": "Etiology: The Differential Map",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Enlarged Blind Spot",
+          "branches": [
+            "Papilledema (Raised ICP)",
+            "Optic Disc Drusen",
+            "Peripapillary Myelinated Nerve Fibers",
+            "Choroidal Neovascularization (CNV)",
+            "Optic Pit/Coloboma",
+            "Glaucoma (Bjerrum scotoma extension)",
+            "AZOOR (Acute Zonal Occult Outer Retinopathy)"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Hierarchy",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Humphrey Visual Field (HVF) 24-2 or 30-2 to confirm enlargement.",
+          "Step 2: Dilated Fundus Exam (Stereoscopic Biomicroscopy) to assess disc elevation.",
+          "Step 3: OCT of the Optic Nerve Head to measure RNFL and detect intra-disc drusen.",
+          "Step 4: B-Scan Ultrasound to rule out retrobulbar masses or calcified drusen.",
+          "Step 5: MRI Brain/Orbits with Gadolinium to exclude optic nerve compression or raised ICP."
+        ]
+      },
+      {
+        "title": "Red Flags: Urgent Investigations",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Bilaterally swollen discs: Rule out Idiopathic Intracranial Hypertension (IIH) via LP.",
+          "Sudden vision loss: Rule out AION (Anterior Ischemic Optic Neuropathy).",
+          "Progressive field loss + headache: Rule out intracranial space-occupying lesion.",
+          "Presence of afferent pupillary defect (APD): Localizes pathology to the optic nerve."
+        ]
+      },
+      {
+        "title": "Classification of Disc Swelling",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Cause",
+            "Field Appearance"
+          ],
+          "rows": [
+            [
+              "Papilledema",
+              "Raised ICP",
+              "Enlarged blind spot only (early)"
+            ],
+            [
+              "Pseudopapilledema",
+              "Optic Disc Drusen",
+              "Permanent enlargement, stable"
+            ],
+            [
+              "Myelinated Fibers",
+              "Developmental",
+              "Large, dense absolute defect"
+            ],
+            [
+              "AZOOR",
+              "Outer Retinal Damage",
+              "Irregular enlargement, progressive"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: Why is the spot big?",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.O.P.S.",
+          "explanation": "P: Papilledema, O: Optic Disc Drusen, P: Peripapillary Chorioretinal atrophy, S: Space-occupying lesion/Swellings."
+        }
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Disc drusen often display autofluorescence on fundus imaging.",
+          "OCT 'Red-out' on RNFL analysis can mimic enlargement in patients with tilted discs.",
+          "Always perform a baseline BP check in cases of suspected hypertensive retinopathy.",
+          "Physiological blind spot enlargement is the earliest sign of papilledema."
+        ]
+      },
+      {
+        "title": "Landmark Studies & Advances",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Recent research in OCT-Angiography (OCT-A) has demonstrated that peripapillary microvascular dropout is highly specific for glaucomatous field progression, often preceding clinical enlargement of the blind spot. Current consensus (referencing the IIHTT Study Group) mandates that optic nerve sheath diameter measured via B-scan or MRI should be considered in patients with unexplained papilledema-associated blind spot enlargement."
+      }
+    ],
+    "generationPrompt": "Enlargement of blindspot",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "read": true
+}

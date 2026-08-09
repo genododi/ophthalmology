@@ -1,0 +1,305 @@
+{
+  "id": 1775357108238,
+  "seqId": 651,
+  "title": "Blepharoptosis Surgery: Clinical Anatomy & Surgical Mastery",
+  "summary": "A comprehensive, textbook-quality guide for ophthalmic surgeons and residents. Covering the clinical evaluation, surgical decision-making, and advanced techniques required to manage upper eyelid malposition effectively.",
+  "date": "2026-04-05T02:45:08.238Z",
+  "data": {
+    "title": "Blepharoptosis Surgery: Clinical Anatomy & Surgical Mastery",
+    "summary": "A comprehensive, textbook-quality guide for ophthalmic surgeons and residents. Covering the clinical evaluation, surgical decision-making, and advanced techniques required to manage upper eyelid malposition effectively.",
+    "summary_illustration": "<svg viewBox='0 0 100 60' xmlns='http://www.w3.org/2000/svg'><path d='M10,40 Q50,10 90,40' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><path d='M10,40 Q50,25 90,40' stroke='hsl(215, 90%, 45%)' stroke-width='3' fill='none'/><circle cx='50' cy='38' r='10' fill='hsl(215, 90%, 90%)' stroke='hsl(215, 90%, 45%)'/><circle cx='50' cy='38' r='4' fill='hsl(215, 90%, 45%)'/><path d='M50,15 V25' stroke='red' stroke-width='1.5' marker-end='url(#arrow)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Classification",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Blepharoptosis",
+          "branches": [
+            "Aponeurotic (Involutional, Post-op, Traumatic)",
+            "Myogenic (Congenital, Myasthenia Gravis, CPEO, OPMD)",
+            "Neurogenic (3rd Nerve Palsy, Horner Syndrome, Marcus-Gunn Jaw Winking)",
+            "Mechanical (Tumors, Cicatricial, Edema)",
+            "Traumatic (Levator Laceration, Orbital Fracture)"
+          ]
+        }
+      },
+      {
+        "title": "The Vital Preoperative Measurements",
+        "icon": "straighten",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Measurement",
+            "Normal Range",
+            "Clinical Significance"
+          ],
+          "rows": [
+            [
+              "MRD1",
+              "4.0 - 4.5 mm",
+              "Distance from corneal light reflex to upper lid margin."
+            ],
+            [
+              "Levator Function",
+              "12 - 16 mm",
+              "Excursion from extreme downgaze to upgaze (fixating frontalis)."
+            ],
+            [
+              "Palpebral Fissure",
+              "7 - 10 mm",
+              "Vertical height between upper and lower lid margins."
+            ],
+            [
+              "MCD (Crease)",
+              "8 - 10 mm",
+              "Higher in females; high/absent crease suggests aponeurotic defect."
+            ],
+            [
+              "Bell's Phenomenon",
+              "Present",
+              "Protective upward rotation of globe; if absent, high risk of exposure."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Grading Levator Function (Excursion)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Excellent",
+              "value": 100
+            },
+            {
+              "label": "Good (8-12mm)",
+              "value": 75
+            },
+            {
+              "label": "Fair (5-7mm)",
+              "value": 45
+            },
+            {
+              "label": "Poor (<4mm)",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Surgical Technique Selection Algorithm",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Assess Levator Function (LF): If LF < 4mm, proceed to Frontalis Sling.",
+          "2. Phenylephrine Test (2.5% or 10%): If lid elevates to desired level and LF is good (>10mm), consider Müller Muscle-Conjunctival Resection (MMCR).",
+          "3. Levator Function 5-10mm: External Levator Advancement or Resection is the gold standard.",
+          "4. High Crease + Thinned Lid: Suggests Aponeurotic Ptosis; perform Levator Aponeurosis Repair.",
+          "5. Marcus-Gunn Jaw Winking: Requires Levator Excision followed by Frontalis Sling."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Pseudoptosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Dermatochalasis",
+              "Excess skin hanging over lid margin, but margin position is normal."
+            ],
+            [
+              "Enophthalmos",
+              "Posterior globe displacement makes lid appear lower."
+            ],
+            [
+              "Microphthalmos",
+              "Small globe provides less support for the lid."
+            ],
+            [
+              "Contralateral Lid Retraction",
+              "Thyroid Eye Disease; makes the normal side look ptotic."
+            ],
+            [
+              "Brow Ptosis",
+              "Manual elevation of brow corrects the lid position."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Hering's Law Warning",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Hering’s Law of Equal Innervation: Lifting a more ptotic lid can cause the contralateral lid to drop.",
+          "Always perform the 'Manual Elevation Test' in the clinic.",
+          "Warn patients with bilateral ptosis that two surgeries might be needed.",
+          "Document Hering's response preoperative to manage expectations."
+        ]
+      },
+      {
+        "title": "Müller's Muscle-Conjunctival Resection (MMCR)",
+        "icon": "content_cut",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Confirm 2mm+ response to Phenylephrine.",
+          "2. Evert the eyelid with a Desmarres retractor.",
+          "3. Mark and clamp 1/2 the amount of measured lid elevation (Putterman technique).",
+          "4. Suture (6-0 plain gut or Prolene) under the Putterman clamp.",
+          "5. Resect the tissue above the clamp and bury knots to avoid keratopathy."
+        ]
+      },
+      {
+        "title": "External Levator Advancement Steps",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Incise along the eyelid crease skin marking.",
+          "2. Dissect through orbicularis to expose the orbital septum.",
+          "3. Open the septum to reveal the preaponeurotic fat pad (key landmark).",
+          "4. Identify the levator aponeurosis below the fat pad.",
+          "5. Secure aponeurosis to superior 1/3 of tarsus with 6-0 Silk/Prolene sutures.",
+          "6. Intraoperative adjustment: Patient sits up to check height and contour."
+        ]
+      },
+      {
+        "title": "Frontalis Sling: Materials & Methods",
+        "icon": "link",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Indication: LF < 4mm or Neurogenic ptosis.",
+          "Materials: Autologous Fascia Lata (Gold Standard), Silicone rod (reversible/adjustable), Supramid.",
+          "Configuration: Fox Pentagon or Crawford Open technique.",
+          "Placement: From the tarsus to the frontalis muscle (eyebrow).",
+          "Outcome: Eyelid is raised by the power of the forehead/frontalis muscle."
+        ]
+      },
+      {
+        "title": "Common Post-Operative Complications",
+        "icon": "error",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Complication",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Under-correction",
+              "Massage (early) or re-operation (after 3-6 months)."
+            ],
+            [
+              "Over-correction",
+              "Downward lid massage or suture release (Desmarres trick)."
+            ],
+            [
+              "Lid Contour Notch",
+              "Adjustment of medial/lateral suture tension."
+            ],
+            [
+              "Exposure Keratopathy",
+              "Aggressive lubrication, bandage contact lens, or revision."
+            ],
+            [
+              "Lid Crease Asymmetry",
+              "Revision of skin closure or crease-forming sutures."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonics for Resident Success",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "M.D. L.F.",
+          "explanation": "M: Margin (MRD1), D: Distance (MRD2), L: Levator, F: Folds/Fissure. The mandatory 4 measurements for every consult."
+        }
+      },
+      {
+        "title": "Emergency 'Red Flags' in Ptosis",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "New onset ptosis + Miosis = Horner Syndrome (Rule out Carotid Artery Dissection).",
+          "New onset ptosis + Mydriasis = 3rd Nerve Palsy (Rule out P-Comm Aneurysm).",
+          "Variable ptosis + Diplopia = Myasthenia Gravis (Order Ice Test/AChR antibodies).",
+          "Congenital Ptosis + Poor Visual Acuity = Amblyopia risk (Urgent surgery needed)."
+        ]
+      },
+      {
+        "title": "Surgical Instrument Tray",
+        "icon": "inventory",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Desmarres Lid Retractor",
+          "Berke Ptosis Forceps",
+          "Castroviejo Needle Holder (0.3mm)",
+          "Westcott Scissors",
+          "Bishop-Harmon Forceps (1x2 teeth)",
+          "Putterman Ptosis Clamp (for MMCR)",
+          "Bipolar Cautery (wet-field)"
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Recent shifts favor minimally invasive 'Internal' Levator Advancement (M-ILA) to avoid skin scars. The use of Oxymetazoline 0.1% (Upneeq) provides a non-surgical alternative for mild acquired ptosis by stimulating Müller's muscle. 3D-printed templates for fascia lata harvesting and adjustable suture techniques are becoming more prevalent in complex tertiary referrals."
+      },
+      {
+        "title": "Clinical Pearls: The Master Surgeon's Tips",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always measure LF twice: Once with the brow neutralized to avoid false elevation.",
+          "In MMCR, resecting 8mm of tissue typically provides 2mm of elevation.",
+          "Avoid the Orbital Septum: If you suture it to the tarsus, you will cause lagophthalmos.",
+          "The 'Ice Test' for MG: 2 minutes of ice pack improves ptosis by 2mm+ in 80% of MG cases.",
+          "Pediatric Ptosis: If the lid covers the visual axis, surgery is an emergency to prevent stimulus-deprivation amblyopia."
+        ]
+      }
+    ],
+    "generationPrompt": "Ptosis surgery",
+    "chapterId": "lids"
+  },
+  "chapterId": "lids"
+}

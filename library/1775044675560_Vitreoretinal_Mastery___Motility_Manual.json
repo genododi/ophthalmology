@@ -1,0 +1,391 @@
+{
+  "id": 1775044675560,
+  "seqId": 288,
+  "title": "Vitreoretinal Mastery & Motility Manual",
+  "summary": "A comprehensive clinical guide covering the genetic foundations of Stickler syndrome, the nuances of retinal detachment management, and the surgical correction of complex A and V pattern strabismus.",
+  "date": "2026-04-01T11:57:55.560Z",
+  "data": {
+    "title": "Vitreoretinal Mastery & Motility Manual",
+    "summary": "A comprehensive clinical guide covering the genetic foundations of Stickler syndrome, the nuances of retinal detachment management, and the surgical correction of complex A and V pattern strabismus.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M40 100 Q 100 160 160 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='100' cy='100' r='20' fill='hsl(215, 90%, 45%)'/><path d='M60 60 L140 140 M140 60 L60 140' stroke='hsl(215, 90%, 45%)' stroke-width='2' opacity='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "Metabolic Management: Gyrate Atrophy Focus",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Cataract surgery: Primary surgical intervention.",
+          "Arginine restricted diet to decrease ornithine levels.",
+          "Vit B6 supplementation to reduce plasma ornithine.",
+          "Clinical Pearl: Gyrate atrophy is caused by OAT gene mutations; Vitamin B6 (Pyridoxine) is a cofactor for the OAT enzyme."
+        ]
+      },
+      {
+        "title": "Stickler Syndrome: The Genetic Spectrum",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Stickler Syndrome",
+          "branches": [
+            "Type 1: COL2A1 gene (Membranous vitreous)",
+            "Type 2: COL11A1 gene (Beaded vitreous)",
+            "Type 3: COL11A2 gene (Non-ocular type)",
+            "Types 4-8: AR types (Rare)",
+            "Kinest Dysplasia: High myopia, ectopia lentis, vitreous degeneration, RD, short stature, round face, arthropathy"
+          ]
+        }
+      },
+      {
+        "title": "Stickler Syndrome Ocular & Systemic Features",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Ocular Features",
+            "Systemic Features"
+          ],
+          "rows": [
+            [
+              "Empty vitreous, Retrolental membrane, Circumferential equatorial membranes extending into vitreous cavity.",
+              "Midfacial hypoplasia, Micrognathia, Cleft palate."
+            ],
+            [
+              "Radial lattice degeneration with RPE hyperplasia, Vascular sheathing, Sclerosis.",
+              "Glossoptosis, Bifid uvula."
+            ],
+            [
+              "Retinal detachment (50% in 1st decade), Multiple giant tears (bilateral).",
+              "Mild spondyloepiphyseal dysplasia, Early onset osteoarthritis."
+            ],
+            [
+              "Presenile cataract (peripheral cortical wedge shaped, fleck or lamellar opacities).",
+              "Deafness (SNHL or recurrent otitis media)."
+            ],
+            [
+              "Glaucoma associated with congenital angle anomaly.",
+              "Pierre Robin Sequence: Glossoptosis, micrognathia, and cleft palate often cluster."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Cherry Red Spot at Macula",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Category",
+            "Specific Conditions"
+          ],
+          "rows": [
+            [
+              "Vascular/Trauma",
+              "CRAO, cilioretinal artery occlusion, Commotio retinae"
+            ],
+            [
+              "Metabolic Storage",
+              "GM1 gangliosidosis, Mucolipidosis type 1 (sialidosis), GM2 gangliosidosis (Tay-Sachs, Sandhoff), Niemann-Pick disease, Faber disease"
+            ],
+            [
+              "Retinotoxicity",
+              "Quinine, Dapsone, Gentamycin, CO poisoning, Methanol toxicity"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Retinal Detachment (RD) vs. Retinoschisis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Retinal Detachment",
+            "Retinoschisis"
+          ],
+          "rows": [
+            [
+              "Surface",
+              "Corrugated, convex",
+              "Smooth, convex"
+            ],
+            [
+              "Site",
+              "Superotemporal",
+              "Inferotemporal"
+            ],
+            [
+              "Visual Field",
+              "Relative defect",
+              "Absolute defect"
+            ],
+            [
+              "Laterality",
+              "Unilateral",
+              "Bilateral"
+            ],
+            [
+              "Breaks",
+              "Present",
+              "Absent or small inner holes"
+            ],
+            [
+              "Laser Response",
+              "No uptake",
+              "Good uptake"
+            ],
+            [
+              "Chronic Changes",
+              "Demarcation line",
+              "No demarcation line"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Risk Factors for Progression to Detachment",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1. History of RD in the fellow eye",
+          "2. Prior cataract surgery + vitreous loss",
+          "3. Myopia",
+          "4. +ve family history of RD",
+          "5. Systemic condition (Marfan, Stickler, Ehlers Danlos syndromes)",
+          "6. Symptomatic breaks associated with an acute PVD",
+          "7. Large breaks",
+          "8. Persistent vitreoretinal traction",
+          "9. U-shaped tears",
+          "10. Superior breaks (superotemporal), equatorial breaks",
+          "11. Aphakic (rare)"
+        ]
+      },
+      {
+        "title": "Clinical Settings & RD Chronicity",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Laser Retinopexy: Spot size 200-300 (3-mirror) or 100-200 (wide field); Power 200mW; Duration 0.1sec.",
+          "Signs of Long-standing RD: Retinal thinning, Intraretinal cysts (1 year), Subretinal demarcation lines (3 months).",
+          "Clinical Pearl: Demarcation lines indicate the RPE's attempt to 'self-wall off' the detachment."
+        ]
+      },
+      {
+        "title": "Fluid Dynamics: Effusions & Detachments",
+        "icon": "water_drop",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Choroidal/Cilioretinal Effusion",
+          "branches": [
+            "Hypotony post-glaucoma surgery",
+            "Sulfonamides: Acetazolamide, Topiramate",
+            "Inflammatory: Uveitis, Posterior Scleritis",
+            "Neoplastic: Choroidal Tumor",
+            "Traumatic: Cyclodialysis cleft",
+            "Secondary: RD or Idiopathic Uveal Effusion Syndrome"
+          ]
+        }
+      },
+      {
+        "title": "Uveal Effusion Syndrome Details",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Idiopathic, bilateral condition typically in middle-aged hypermetropic men. Often associated with nanophthalmos. Cause: Impairment of fluid drainage via abnormal thickened sclera or vortex veins. Signs: Mild/absent inflammation, cilioretinal detachment followed by exudative RD. Post-resolution: RPE shows leopard spot mottling due to high protein concentration in SRF. DD: Secondary uveal effusion, choroidal hemorrhage, ring melanoma. Treatment: Full thickness sclerectomy in nanophthalmos."
+      },
+      {
+        "title": "Scleral Buckle: Technique & Complications",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Technique: Periotomy -> Localization -> Cryotherapy -> Explant sutured -> SRF Drainage.",
+          "Complications: Diplopia, CMO (25%), ERM (15%), Anterior segment ischaemia.",
+          "Buckle Issues: Extrusion, intrusion, infection, elevated IOP/angle closure.",
+          "Failure Causes: Missed break, Fish-mouthing (large superior equatorial tear opening widely), PVR (late failure), Buckle height decrease."
+        ]
+      },
+      {
+        "title": "Exudative Retinal Detachment Causes",
+        "icon": "list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1. Choroidal tumour (Melanoma, haemangioma, metastasis)",
+          "2. Inflammation (Harada disease, posterior scleritis)",
+          "3. Bullous CSR (rare)",
+          "4. Iatrogenic (RD surgery, PRP)",
+          "5. Choroidal neovascularization",
+          "6. Hypertensive choroidopathy (toxaemia of pregnancy)",
+          "7. Idiopathic (choroidal effusion syndrome)"
+        ]
+      },
+      {
+        "title": "Intravitreal Tamponade: Expanding Gases",
+        "icon": "air",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Gas Type",
+            "Expansion Property",
+            "Duration"
+          ],
+          "rows": [
+            [
+              "Sulfur Hexafluoride (SF6) 100%",
+              "Doubles its volume",
+              "Lasts 10-14 days"
+            ],
+            [
+              "Perfluoroethane (C2F6)",
+              "Triples its volume",
+              "Lasts 30-35 days"
+            ],
+            [
+              "Perfluoropropane (C3F8)",
+              "Quadruples its volume",
+              "Lasts 55-65 days"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pars Plana Vitrectomy (PPV)",
+        "icon": "precision_manufacturing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Indications: Masked breaks (VH, debris, PCO, IOL edge), Giant tears, PVR, Tractional RD (foveal), Combined TRD/RRD, Penetrating trauma.",
+          "Intraoperative Complications: Posterior/Peripheral retinal breaks, Choroidal haemorrhage.",
+          "Postoperative Complications: RRD, Retinal folds, Inflammation (diabetics), Raised IOP (gas expansion, oil glaucoma, ghost cell, steroid-induced), Cataract (feathering/nucleosclerosis), Band keratopathy.",
+          "Pneumatic Retinopexy Indications: Uncomplicated RD with small breaks, clusters < 2 clock hours in upper 2/3 of retina."
+        ]
+      },
+      {
+        "title": "Vitreous Haemorrhage Etiology",
+        "icon": "bloodtype",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Acute PVD",
+          "Proliferative retinopathy (DM, RVO, Sickle cell, Eales disease, Vasculitis)",
+          "Macroaneurysm, Telangiectasia, Capillary haemangioma",
+          "Trauma",
+          "Systemic bleeding disorder, Terson syndrome"
+        ]
+      },
+      {
+        "title": "Motility: Basic Measurements",
+        "icon": "straighten",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "Near Point of Convergence (NPC): The nearest point on which the eye can maintain binocular fixation (normally nearer than 10cm without undue effort). Near Point of Accommodation (NPA): The nearest point on which the eyes can maintain clear focus."
+      },
+      {
+        "title": "Brown Syndrome: Classification & Care",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Mild: No hypotropia in primary position; No downshoot in adduction.",
+          "Moderate: No hypotropia in primary position; Downshoot in adduction.",
+          "Severe: Hypotropia in primary position; Downshoot in adduction; Chin-up head posture.",
+          "Congenital Treatment: Observation if binocular function holds. Indications for surgery: Primary hypotropia or head posture. Procedure: Lengthening of Superior Oblique (SO) tendon.",
+          "Acquired Treatment: Steroids (oral or injection near trochlea)."
+        ]
+      },
+      {
+        "title": "Differential: Brown Syndrome vs. Inferior Oblique (IO) Palsy",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Brown Syndrome",
+            "IO Palsy"
+          ],
+          "rows": [
+            [
+              "Primary Deviation",
+              "Slightly hypotropic",
+              "Marked hypotropia"
+            ],
+            [
+              "Muscle Sequelae",
+              "Contralateral SR overaction",
+              "Ipsilateral SO overaction"
+            ],
+            [
+              "Pattern",
+              "V-pattern",
+              "A-pattern"
+            ],
+            [
+              "Head Posture",
+              "Slight chin elevation",
+              "Marked chin elevation"
+            ],
+            [
+              "Forced Duction Test",
+              "Positive (Restriction)",
+              "Negative (Palsy)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "V-Pattern & A-Pattern Strabismus",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "V-Pattern: Significant if difference between upgaze and downgaze >= 15 prism. Causes: IOOA with 4th nerve palsy, SO underaction + IOOA (infantile ET), SR underaction, Brown syndrome, Craniofacial anomalies. Treatment: Oblique weakening/strengthening. If no oblique dysfunction: Bilateral MR recession with downward transposition or LR recession with upward transposition. A-Pattern: Significant if difference >= 10 prism. Face turn away from affected eye. Causes: Primary SO overaction (Exo in primary), IO underaction, IR underaction. Treatment: SO posterior tenotomy (corrects 20PD) or total tenotomy (50PD). If no oblique dysfunction: Bilateral MR recession with upward transposition (ET) or LR recession with downward transposition (XT)."
+      },
+      {
+        "title": "Strabismus Surgery: Complications & Botox",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Operative Risks: Lost/slipped muscle (Medial Rectus), Globe perforation (High myopia), Posterior Tenon capsule opening (fibrosis/fat involvement).",
+          "Postoperative Risks: Over/under correction, Anterior segment ischaemia, Stretched scar (years later).",
+          "Botulinum Toxin Indications: Small angle residual squint, Infantile esotropia, Active thyroid orbitopathy, Determining diplopia risk, Assessing BSV potential, Lateral rectus palsy, Psychosocial unacceptable deviation after multiple surgeries."
+        ]
+      }
+    ],
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "_newlyImported": 1775044675560,
+  "communityId": "sub_1774352254516_lureoqe1dfdsqv",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

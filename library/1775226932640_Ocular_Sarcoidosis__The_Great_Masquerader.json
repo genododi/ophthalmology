@@ -1,0 +1,260 @@
+{
+  "id": 1775226932640,
+  "seqId": 615,
+  "title": "Ocular Sarcoidosis: The Great Masquerader",
+  "summary": "A systemic, idiopathic granulomatous disease characterized by non-caseating granulomas. Ocular involvement occurs in 25–50% of patients and can affect every structure of the eye, often serving as the sentinel sign of systemic disease.",
+  "date": "2026-04-03T14:35:32.640Z",
+  "data": {
+    "title": "Ocular Sarcoidosis: The Great Masquerader",
+    "summary": "A systemic, idiopathic granulomatous disease characterized by non-caseating granulomas. Ocular involvement occurs in 25–50% of patients and can affect every structure of the eye, often serving as the sentinel sign of systemic disease.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><circle cx='35' cy='35' r='4' fill='hsl(215, 90%, 70%)'/><circle cx='65' cy='35' r='5' fill='hsl(215, 90%, 70%)'/><circle cx='50' cy='75' r='3' fill='hsl(215, 90%, 70%)'/><path d='M30 50 Q 50 20 70 50 Q 50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><path d='M40 40 L45 45 M55 40 L50 45' stroke='white' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "African American (Lifetime Risk)",
+              "value": 85
+            },
+            {
+              "label": "Caucasian (Lifetime Risk)",
+              "value": 20
+            },
+            {
+              "label": "Ocular Involvement in Sarcoid",
+              "value": 50
+            },
+            {
+              "label": "Female Predominance",
+              "value": 65
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Granuloma",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Non-Caseating Granuloma",
+          "branches": [
+            "Th1 Cell Mediated Response",
+            "Activated Macrophages (Epithelioid)",
+            "Multinucleated Giant Cells (Langhans)",
+            "CD4+ T-Lymphocyte Core",
+            "Elevated TNF-α & IL-2"
+          ]
+        }
+      },
+      {
+        "title": "IWOS Diagnostic Criteria",
+        "icon": "rule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Category",
+            "Criteria Requirements"
+          ],
+          "rows": [
+            [
+              "Definite Ocular Sarcoidosis",
+              "Positive tissue biopsy (conjunctiva, skin, lacrimal gland, or lung) AND compatible uveitis."
+            ],
+            [
+              "Presumed Ocular Sarcoidosis",
+              "Bilateral Hilar Lymphadenopathy (BHL) on CXR/CT AND compatible uveitis."
+            ],
+            [
+              "Probable Ocular Sarcoidosis",
+              "No BHL, but biopsy-proven systemic sarcoidosis AND 3+ clinical ocular signs."
+            ],
+            [
+              "Possible Ocular Sarcoidosis",
+              "Lungs negative, but 4+ clinical ocular signs AND 2+ positive investigative tests."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Signs: Anterior Segment",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Mutton-fat Keratic Precipitates (Large, greasy, inferior)",
+          "Iris Nodules: Koeppe (pupillary margin) and Busacca (iris stroma)",
+          "Berlin Nodules (in the iridocorneal angle)",
+          "Tent-shaped Peripheral Anterior Synechiae (PAS)",
+          "Lacrimal Gland Enlargement (S-shaped ptosis)",
+          "Conjunctival Granulomas (Small, pale, translucent nodules)"
+        ]
+      },
+      {
+        "title": "Clinical Signs: Posterior Segment",
+        "icon": "center_focus_strong",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Vitreous 'Snowballs' or 'String of Pearls' opacities",
+          "Perivenous Sheathing / Candle-wax Drippings (Exudative periphlebitis)",
+          "Multiple Chorioretinal Granulomas (Dalen-Fuchs-like)",
+          "Optic Nerve Head Granulomas",
+          "Cystoid Macular Edema (Most common cause of vision loss)",
+          "Preretinal Granulomas (Lander's signs)"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Laboratory Screening: Serum ACE (elevated in 60-80%), Serum Lysozyme (more sensitive in kids), Serum Calcium.",
+          "Step 2: Imaging: Chest X-Ray (BHL screening) followed by High-Resolution CT Chest (Gold standard for lymphadenopathy).",
+          "Step 3: Tissue Diagnosis: Biopsy of visible lesions (Conjunctiva, Lacrimal gland, Skin) or Transbronchial biopsy (high yield).",
+          "Step 4: Ocular Imaging: OCT Macula (CME), FFA (Peripheral ischemia/vasculitis), ICGA (Choroidal granulomas).",
+          "Step 5: Multidisciplinary Referral: Pulmonology, Rheumatology, and Cardiology (to rule out heart block)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "troubleshoot",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Differential",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Tuberculosis",
+              "Caseating granulomas; positive IGRA/Quantiferon; necrotic choroiditis."
+            ],
+            [
+              "Syphilis",
+              "Positive RPR/FTA-ABS; 'Salt and pepper' fundus; roseola of iris."
+            ],
+            [
+              "Vogt-Koyanagi-Harada",
+              "Bilateral exudative RD; sunset glow fundus; integumentary changes."
+            ],
+            [
+              "Sympathetic Ophthalmia",
+              "History of penetrating trauma or surgery in the fellow eye."
+            ],
+            [
+              "Lymphoma",
+              "Older patients; 'sub-RPE' creamy infiltrates; vitreous sheet cells."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Systemic Syndromes",
+        "icon": "person",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Specific Patterns",
+          "branches": [
+            "Lofgren Syndrome: BHL, Erythema Nodosum, Arthralgia",
+            "Heerfordt Syndrome: Uveitis, Parotitis, Fever, Facial Nerve Palsy",
+            "Blau Syndrome: Pediatric, NOD2 mutation, Rash, Arthritis, Uveitis"
+          ]
+        }
+      },
+      {
+        "title": "Management Hierarchy",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Tier 1: Topical Steroids (Pred Forte 1% q1h-qid) + Cycloplegics (Atropine 1%).",
+          "Tier 2: Regional Steroids (Sub-tenon Triamcinolone 40mg or Intravitreal Dexamethasone implant).",
+          "Tier 3: Systemic Corticosteroids (Prednisone 1mg/kg/day with slow taper).",
+          "Tier 4: Steroid-Sparing Agents (Methotrexate 7.5-25mg/week, Mycophenolate Mofetil 1g BID).",
+          "Tier 5: Biologics (Infliximab or Adalimumab 40mg q2weeks)."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Immediate Action Needed",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Cardiac Sarcoidosis: Unexplained syncope or palpitations (High risk of sudden death).",
+          "Neurosarcoidosis: New onset cranial nerve palsies, seizures, or meningitis symptoms.",
+          "Ocular Hypertension: Rapid steroid-induced IOP spike or secondary glaucoma.",
+          "Retinal Neovascularization: 'Sea-fan' configuration (risk of vitreous hemorrhage).",
+          "Macular Ischemia: Sudden vision loss not explained by CME."
+        ]
+      },
+      {
+        "title": "Memory Aid: The Sarcoid S's",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "7 S's of Sarcoid",
+          "explanation": "Spirals (Vitreous), Snowballs (Vitritis), Sheathing (Veins), Skin (Erythema Nodosum), Stones (Hypercalcemia), S-shaped Ptosis (Lacrimal), Synechiae (Iris)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "ACE levels are naturally high in children; use Lysozyme for screening.",
+          "A negative CXR does NOT rule out sarcoid; request high-res CT.",
+          "Cystoid Macular Edema (CME) can occur even in 'quiet' eyes.",
+          "Blind conjunctival biopsy has high yield even if the tissue looks normal.",
+          "Sarcoid is a 'thromboembolic' vasculitis risk factor; monitor for BRVO."
+        ]
+      },
+      {
+        "title": "Surgical Considerations",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Cataract Surgery: Must be 'quiet' for 3 months prior; use prophylactic systemic steroids.",
+          "Pars Plana Vitrectomy: Indicated for non-clearing VH, ERM, or refractory CME.",
+          "Glaucoma Drainage Devices: Often preferred over trabeculectomy due to high inflammation/failure risk."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "The ADVISE Study and VISUAL trials have solidified the role of Adalimumab (Humira) as a first-line biologic for non-infectious uveitis. Recent genomic studies suggest associations with HLA-DRB1*03, further refining our understanding of genetic susceptibility in different ethnic groups."
+      }
+    ],
+    "generationPrompt": "Ocular sarcoidosis",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis"
+}

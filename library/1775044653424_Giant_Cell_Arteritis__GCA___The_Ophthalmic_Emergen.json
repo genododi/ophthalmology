@@ -1,0 +1,318 @@
+{
+  "id": 1775044653424,
+  "seqId": 59,
+  "title": "Giant Cell Arteritis (GCA): The Ophthalmic Emergency",
+  "summary": "Giant Cell Arteritis (Horton's Disease) is a systemic granulomatous vasculitis of medium and large-sized arteries. In ophthalmology, it represents a 'code red' emergency due to its propensity for sudden, irreversible bilateral vision loss via Arteritic Anterior Ischemic Optic Neuropathy (A-AION).",
+  "date": "2026-04-01T11:57:33.424Z",
+  "data": {
+    "title": "Giant Cell Arteritis (GCA): The Ophthalmic Emergency",
+    "summary": "Giant Cell Arteritis (Horton's Disease) is a systemic granulomatous vasculitis of medium and large-sized arteries. In ophthalmology, it represents a 'code red' emergency due to its propensity for sudden, irreversible bilateral vision loss via Arteritic Anterior Ischemic Optic Neuropathy (A-AION).",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M80 20 L85 15 M85 25 L90 20' stroke='red' stroke-width='3' stroke-linecap='round'/><path d='M20 20 L70 20' stroke='red' stroke-width='4' opacity='0.6' stroke-dasharray='4 2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Scope",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Giant Cell Arteritis (GCA) is a chronic vasculitis of large and medium-sized vessels, primarily involving the extracranial branches of the carotid artery. It is the most common primary systemic vasculitis in adults over 50. The ophthalmic hallmark is Arteritic Anterior Ischemic Optic Neuropathy (A-AION), caused by occlusion of the short posterior ciliary arteries (SPCAs)."
+      },
+      {
+        "title": "Epidemiological Profile",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Age > 50",
+              "value": 99
+            },
+            {
+              "label": "Female Predominance",
+              "value": 75
+            },
+            {
+              "label": "Northern European descent",
+              "value": 85
+            },
+            {
+              "label": "Association with PMR",
+              "value": 50
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The T-Cell Cascade",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Vessel Wall Inflammation",
+          "branches": [
+            "Activation of adventitial dendritic cells via Toll-like receptors",
+            "Recruitment of CD4+ T-cells (Th1 and Th17 pathways)",
+            "Production of IL-6 and IFN-gamma",
+            "Macrophage fusion into Multinucleated Giant Cells",
+            "Destruction of the Internal Elastic Lamina",
+            "Intimal hyperplasia and luminal occlusion"
+          ]
+        }
+      },
+      {
+        "title": "ACR Classification Criteria (1990)",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Criterion",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Age at Onset",
+              "≥ 50 years"
+            ],
+            [
+              "New Headache",
+              "New onset or new type of localized pain in the head"
+            ],
+            [
+              "Temporal Artery Abnormality",
+              "Tenderness to palpation or decreased pulsation"
+            ],
+            [
+              "Elevated ESR",
+              "Erythrocyte Sedimentation Rate ≥ 50 mm/hour (Westergren)"
+            ],
+            [
+              "Abnormal Artery Biopsy",
+              "Vasculitis with mononuclear cell infiltration or granulomatous inflammation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Systemic Clinical Features",
+        "icon": "person",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "New-onset localized headache (often temporal)",
+          "Jaw Claudication (High specificity for GCA)",
+          "Scalp tenderness (pain when brushing hair)",
+          "Polymyalgia Rheumatica (stiffness in hips/shoulders)",
+          "Constitutional: Fever, weight loss, anorexia, malaise",
+          "Carotidynia or limb claudication"
+        ]
+      },
+      {
+        "title": "Ocular Manifestations",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Amaurosis Fugax: Transient vision loss (Warning sign!)",
+          "A-AION: Sudden, profound, painless vision loss",
+          "CRAO: Central Retinal Artery Occlusion",
+          "Cilio-retinal Artery Occlusion (Pathognomonic if combined with A-AION)",
+          "Diplopia: Due to cranial nerve palsies or EOM ischemia",
+          "Ocular Ischemic Syndrome (rare)"
+        ]
+      },
+      {
+        "title": "EMERGENCY: Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden vision loss in a patient >50 years old",
+          "New-onset headache with jaw claudication",
+          "Chalky-white disc edema on fundoscopy",
+          "Diplopia in an elderly patient with constitutional symptoms",
+          "Delayed choroidal filling on Fluorescein Angiography"
+        ]
+      },
+      {
+        "title": "Diagnostic Laboratory Workup",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Test",
+            "Typical Finding in GCA"
+          ],
+          "rows": [
+            [
+              "ESR",
+              "> 50 mm/hr (often > 100)"
+            ],
+            [
+              "CRP",
+              "Elevated (More sensitive than ESR)"
+            ],
+            [
+              "Platelets",
+              "Thrombocytosis (Sign of inflammation)"
+            ],
+            [
+              "Hemoglobin",
+              "Normochromic normocytic anemia"
+            ],
+            [
+              "IL-6",
+              "Elevated (Correlates with disease activity)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential: A-AION vs. NA-AION",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Arteritic (A-AION)",
+            "Non-Arteritic (NA-AION)"
+          ],
+          "rows": [
+            [
+              "Vision Loss",
+              "Profound (NLP to 20/400)",
+              "Moderate (20/40 to 20/200)"
+            ],
+            [
+              "Disc Appearance",
+              "Chalky-white pallid edema",
+              "Hyperemic/Hypercellular edema"
+            ],
+            [
+              "Systemic Symptoms",
+              "Headache, Jaw pain, PMR",
+              "Absent"
+            ],
+            [
+              "CUP/Disc Ratio",
+              "Any (Often large)",
+              "Small 'Disc-at-risk'"
+            ],
+            [
+              "FA Findings",
+              "Marked delay in choroidal filling",
+              "Normal filling"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Temporal Artery Biopsy (TAB) Protocol",
+        "icon": "content_cut",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Perform within 1-2 weeks of starting steroids",
+          "Step 2: Obtain 2-3 cm length to minimize 'skip lesion' errors",
+          "Step 3: Incise skin over the frontal branch of the temporal artery",
+          "Step 4: Careful dissection to preserve facial nerve branches",
+          "Step 5: Ligation and excision of the segment",
+          "Step 6: Histopathological exam for Giant Cells and Intimal thickening"
+        ]
+      },
+      {
+        "title": "The 'Halo Sign' on Ultrasound",
+        "icon": "settings_accessibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Color Doppler Ultrasound of the temporal arteries is an increasingly used non-invasive tool. A positive 'Halo Sign'—a hypoechoic area around the arterial lumen representing vessel wall edema—has high specificity. If bilateral halos are seen, sensitivity approaches 85%."
+      },
+      {
+        "title": "Acute Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Immediate Start: DO NOT wait for biopsy if suspicion is high.",
+          "2. Vision Loss Present: IV Methylprednisolone (1g/day) for 3 days.",
+          "3. Oral Bridge: Transition to Oral Prednisone 1 mg/kg/day (Max 60-80mg).",
+          "4. Tapering: Very slow taper (over 12-18 months) based on CRP/ESR and symptoms.",
+          "5. Steroid Sparing: Consider Tocilizumab (Actemra) - IL-6 Receptor Antagonist.",
+          "6. Protection: Add PPI, Calcium/Vitamin D, and Bisphosphonates for bone health."
+        ]
+      },
+      {
+        "title": "Mnemonic: The 5 'S' of GCA Symptoms",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STAIR",
+          "explanation": "S: Scalp tenderness, T: Temporal headache, A: Amaurosis fugax, I: Ischemic optic neuropathy, R: Rheumatism (PMR symptoms)"
+        }
+      },
+      {
+        "title": "Recent Advances: GiACTA Trial",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Tocilizumab (anti-IL-6) is FDA approved for GCA.",
+          "Proven to increase sustained remission rates.",
+          "Significantly reduces cumulative steroid dose.",
+          "Administered as weekly or bi-weekly subcutaneous injections."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Bilateral blindness: Risk is highest in the first 24-48 hours without treatment.",
+          "Thoracic Aortic Aneurysm: Late complication (occur in up to 18%).",
+          "Stroke: From vertebrobasilar involvement.",
+          "Steroid-induced: Diabetes, Osteoporosis, Glaucoma, Cataract."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Normal ESR does NOT rule out GCA (Occurs in ~15-20% of biopsy-proven cases).",
+          "Always check CRP; the combination of ESR and CRP has 97% sensitivity.",
+          "If vision is lost in one eye, there is a 50-90% chance of the second eye being affected within days.",
+          "Biopsy remains the gold standard but should never delay treatment."
+        ]
+      }
+    ],
+    "generationPrompt": "GCA",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044653424,
+  "communityId": "sub_1774725693143_58temrhvv",
+  "communityAuthor": "kiko",
+  "communityDate": "2026-03-28T19:21:33.143Z"
+}

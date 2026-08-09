@@ -1,0 +1,368 @@
+{
+  "id": 1775044668906,
+  "seqId": 223,
+  "title": "Endophthalmitis: The Ocular Emergency",
+  "summary": "A comprehensive, evidence-based guide to the diagnosis, classification, and management of infectious intraocular inflammation. This poster integrates findings from the Endophthalmitis Vitrectomy Study (EVS) and modern surgical protocols for residents and fellows.",
+  "date": "2026-04-01T11:57:48.906Z",
+  "data": {
+    "title": "Endophthalmitis: The Ocular Emergency",
+    "summary": "A comprehensive, evidence-based guide to the diagnosis, classification, and management of infectious intraocular inflammation. This poster integrates findings from the Endophthalmitis Vitrectomy Study (EVS) and modern surgical protocols for residents and fellows.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' stroke='hsl(215, 90%, 45%)' stroke-width='3' fill='none'/><path d='M25 65 Q 50 55 75 65 L 75 75 Q 50 65 25 75 Z' fill='hsl(60, 80%, 60%)' opacity='0.8'/><circle cx='50' cy='45' r='10' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M30 40 L 70 40 M 30 50 L 70 50' stroke='white' stroke-width='1' opacity='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Endophthalmitis is a severe form of ocular inflammation involving the inner coats of the eye (vitreous and aqueous humors), typically caused by infection. It is categorized into exogenous (introduced via surgery, trauma, or needle) and endogenous (hematogenous spread). It remains one of the most feared complications in ophthalmology due to its potential for rapid, irreversible vision loss and phthisis bulbi."
+      },
+      {
+        "title": "Incidence by Etiology",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Post-Cataract (PEA/IOL)",
+              "value": 0.1
+            },
+            {
+              "label": "Post-IVT Injection",
+              "value": 0.05
+            },
+            {
+              "label": "Post-Traumatic",
+              "value": 7
+            },
+            {
+              "label": "Bleb-Related",
+              "value": 1.3
+            },
+            {
+              "label": "Post-PPV",
+              "value": 0.03
+            }
+          ]
+        }
+      },
+      {
+        "title": "Classification Systems",
+        "icon": "fact_check",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Subtype",
+            "Typical Onset",
+            "Common Pathogens"
+          ],
+          "rows": [
+            [
+              "Exogenous",
+              "Acute Post-op",
+              "1-7 days",
+              "Staph. epidermidis (70%), Staph. aureus"
+            ],
+            [
+              "Exogenous",
+              "Delayed Post-op",
+              ">6 weeks",
+              "P. acnes, C. albicans, S. epidermidis"
+            ],
+            [
+              "Exogenous",
+              "Bleb-associated",
+              "Anytime",
+              "Streptococcus spp., H. influenzae"
+            ],
+            [
+              "Exogenous",
+              "Post-traumatic",
+              "Days",
+              "Bacillus cereus, Gram-negatives, Fungi"
+            ],
+            [
+              "Endogenous",
+              "Hematogenous",
+              "Variable",
+              "Klebsiella (liver abscess), Candida, S. aureus"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology & Pathogens",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Infectious Agents",
+          "branches": [
+            "Gram-Positive (80-90%): Coag-neg Staph, Viridans Strep",
+            "Gram-Negative: Pseudomonas, Proteus, Klebsiella (Aggressive)",
+            "Fungal: Candida (Endogenous), Aspergillus (Trauma)",
+            "Anaerobic: Propionibacterium acnes (Chronic/Delayed)"
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Immediate Referral Needed",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden decrease in vision (out of proportion to post-op day)",
+          "Severe, deep-seated ocular pain",
+          "Loss of Red Reflex or significant media haze",
+          "Rapidly progressing hypopyon",
+          "Proptosis and restricted motility (suggests Panophthalmitis)"
+        ]
+      },
+      {
+        "title": "Clinical Features & Ocular Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Symptoms: Pain (75%), Vision Loss (95%), Redness, Photophobia.",
+          "Eyelids: Edema, Chemosis.",
+          "Anterior Segment: Ciliary congestion, Hypopyon, Fibrinous membrane.",
+          "Vitreous: Dense vitritis, 'snowball' opacities (fungal), loss of fundus view.",
+          "IOP: May be low (ciliary body shutdown) or high (inflammatory debris)."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Process",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Immediate Clinical Exam & B-scan (if fundus obscured to check for RD).",
+          "2. Conjunctival Swabs (low yield but useful).",
+          "3. Aqueous Tap (0.1ml via limbal paracentesis).",
+          "4. Vitreous Tap/Biopsy (0.2ml via needle or vitrectomy cutter).",
+          "5. Culture (Blood/Chocolate/Thioglycolate) & PCR (for fastidious organisms)."
+        ]
+      },
+      {
+        "title": "Endophthalmitis vs. TASS",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Endophthalmitis",
+            "Toxic Anterior Segment Syndrome (TASS)"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Usually 3-7 days post-op",
+              "Within 12-24 hours post-op"
+            ],
+            [
+              "Pain",
+              "Common and severe",
+              "Usually minimal to none"
+            ],
+            [
+              "Corneal Edema",
+              "Variable",
+              "Diffuse, limbus-to-limbus edema"
+            ],
+            [
+              "Vitritis",
+              "Present and progressive",
+              "Absent (Isolated to anterior segment)"
+            ],
+            [
+              "Treatment",
+              "Intravitreal Antibiotics",
+              "Intensive Topical Steroids"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management: Intravitreal Pharmacotherapy",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Drug Type",
+            "Medication",
+            "Standard Dose (per 0.1 ml)",
+            "Indication"
+          ],
+          "rows": [
+            [
+              "Gram-Positive Cover",
+              "Vancomycin",
+              "1.0 mg",
+              "Empirical First Line"
+            ],
+            [
+              "Gram-Negative Cover",
+              "Ceftazidime",
+              "2.25 mg",
+              "Empirical First Line"
+            ],
+            [
+              "Alternative G-Neg",
+              "Amikacin",
+              "0.4 mg",
+              "If Cephalosporin allergy"
+            ],
+            [
+              "Antifungal",
+              "Amphotericin B",
+              "0.005 - 0.01 mg",
+              "Fungal suspicion"
+            ],
+            [
+              "Antifungal",
+              "Voriconazole",
+              "0.1 mg",
+              "Fungal (better tolerated)"
+            ],
+            [
+              "Anti-inflammatory",
+              "Dexamethasone",
+              "0.4 mg",
+              "Reduce structural damage"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Endophthalmitis Vitrectomy Study (EVS) Summary",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "EVS Primary Finding: Immediate PPV is indicated if vision is Light Perception (LP) or worse.",
+          "EVS Primary Finding: If vision is Hand Motion (HM) or better, 'Tap and Inject' is equivalent to PPV.",
+          "Systemic Antibiotics: Ceftazidime and Amikacin did not improve outcomes in the EVS (Note: Modern agents like Moxifloxacin were not tested).",
+          "Diabetes: Diabetic patients trended toward better outcomes with PPV regardless of initial vision."
+        ]
+      },
+      {
+        "title": "Surgical Technique: Pars Plana Vitrectomy (PPV)",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. 23G or 25G valved cannulas (maintain IOP).",
+          "2. Obtain undiluted vitreous sample (0.2-0.5ml) before turning on infusion.",
+          "3. Core vitrectomy to clear visual axis and reduce pathogen load.",
+          "4. Careful induction of PVD (risk of retinal tears is high).",
+          "5. Peripheral shave if view allows; avoid aggressive traction.",
+          "6. Intravitreal antibiotics injected at end of case."
+        ]
+      },
+      {
+        "title": "Prevention & Prophylaxis Protocols",
+        "icon": "security",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Povidone-Iodine (5%): The most critical step for preoperative skin and conjunctival prep.",
+          "Intracameral Cefuroxime (1mg/0.1ml): ESCRS study showed 5x reduction in post-op infection.",
+          "Lid Hygiene: Treating blepharitis/meibomianitis before elective surgery.",
+          "Avoidance of Topical Antibiotics: No clear evidence that pre-op topical drops reduce incidence.",
+          "Surgical Technique: Ensure watertight wound closure (leaking wounds are portals for bacteria)."
+        ]
+      },
+      {
+        "title": "Endogenous Endophthalmitis Search",
+        "icon": "person_search",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Primary Sources",
+          "branches": [
+            "Liver Abscess (Klebsiella pneumoniae)",
+            "Endocarditis (Staph / Strep)",
+            "Urinary Tract Infection (E. coli)",
+            "Indwelling Catheters / IVDU (Candida / MRSA)",
+            "Meningitis (Neisseria)"
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic for Endogenous Workup",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "B.U.G.S.",
+          "explanation": "B: Blood Cultures; U: Urine Cultures / Ultrasound (Heart/Liver); G: Gallium scan (if source hidden); S: Swabs / Secretion cultures."
+        }
+      },
+      {
+        "title": "Chronic/Delayed-Onset Endophthalmitis",
+        "icon": "history",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Pathogen: Cutibacterium (Propionibacterium) acnes most common.",
+          "Signs: Chronic low-grade uveitis, white plaque on posterior capsule, granulomatous KPs.",
+          "Management: Intravitreal Vancomycin + Capsular bag washout. Total capsulectomy with IOL exchange may be required for recalcitrant cases."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "gavel",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Retinal Detachment (up to 10-20% of cases).",
+          "Hypotony and Phthisis Bulbi.",
+          "Secondary Glaucoma (inflammatory debris in TM).",
+          "Prognosis: Poor for Viridans Strep and Gram-negatives; Better for Coag-neg Staph."
+        ]
+      },
+      {
+        "title": "Clinical Pearls (High-Yield)",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Post-injection (IVT) endophthalmitis is more likely to be Streptococcal (aggressive) than post-cataract cases.",
+          "If a patient presents with 'sterile' hypopyon after IVT Steroids, consider if it is settling of the drug vs. infection.",
+          "B-Scan: Look for 'choroidal thickening' and 'vitreous membranes' as indicators of severity.",
+          "Always treat the underlying source in endogenous cases; ocular treatment alone will fail if bacteremia persists."
+        ]
+      }
+    ],
+    "generationPrompt": "Endophthalmitis",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "_newlyImported": 1775044668906,
+  "communityId": "sub_1774435406531_42co3xfc3",
+  "communityAuthor": "Dodo",
+  "communityDate": "2026-03-25T10:43:26.533Z"
+}

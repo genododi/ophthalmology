@@ -1,0 +1,326 @@
+{
+  "id": 1775044697832,
+  "seqId": 482,
+  "title": "Microbial Keratitis: Clinical Masterclass",
+  "summary": "A comprehensive guide to the diagnosis, classification, and management of infectious corneal ulcers. This resource covers everything from foundational pathophysiology to advanced surgical interventions for ophthalmology residents and fellows.",
+  "date": "2026-04-01T11:58:17.832Z",
+  "data": {
+    "title": "Microbial Keratitis: Clinical Masterclass",
+    "summary": "A comprehensive guide to the diagnosis, classification, and management of infectious corneal ulcers. This resource covers everything from foundational pathophysiology to advanced surgical interventions for ophthalmology residents and fellows.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)' opacity='0.5'/><circle cx='45' cy='45' r='3' fill='white' opacity='0.8'/><path d='M42 42 L48 48 M48 42 L42 48' stroke='white' stroke-width='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Microbial keratitis (MK) is a sight-threatening ophthalmic emergency characterized by suppurative corneal inflammation caused by bacteria, fungi, viruses, or parasites. It involves an epithelial breach followed by microbial invasion of the stroma, leading to necrosis and host inflammatory response. Immediate identification and aggressive therapy are mandatory to prevent permanent visual loss from scarring, perforation, or endophthalmitis."
+      },
+      {
+        "title": "Epidemiological Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Contact Lens Wear",
+              "value": 85
+            },
+            {
+              "label": "Ocular Trauma",
+              "value": 65
+            },
+            {
+              "label": "Surface Disease",
+              "value": 45
+            },
+            {
+              "label": "Post-Surgical",
+              "value": 25
+            },
+            {
+              "label": "Immunosuppression",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Common Etiological Pathogens",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Microbial Keratitis",
+          "branches": [
+            "Gram (+) : S. aureus, S. pneumoniae",
+            "Gram (-) : P. aeruginosa, Moraxella",
+            "Fungal: Aspergillus, Fusarium, Candida",
+            "Protozoal: Acanthamoeba",
+            "Viral: HSV, VZV"
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Invasion Cascade",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Epithelial Breach (Trauma, CL wear, or Desiccation)",
+          "Step 2: Adhesion (Microbial pili/fimbriae bind to damaged basement membrane)",
+          "Step 3: Invasion (Secretion of enzymes like elastase and alkaline protease)",
+          "Step 4: Host Response (Recruitment of PMNs and cytokine release)",
+          "Step 5: Tissue Destruction (Matrix Metalloproteinases (MMPs) cause stromal melt)",
+          "Step 6: Repair or Perforation (Scarring vs. descemetocele formation)"
+        ]
+      },
+      {
+        "title": "Microbial Morphology & Signs",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Pathogen",
+            "Clinical Characteristics",
+            "Infiltrate Appearance"
+          ],
+          "rows": [
+            [
+              "Staphylococcus aureus",
+              "Well-defined, round/oval, white/creamy",
+              "Dense, focal infiltrate"
+            ],
+            [
+              "Streptococcus pneumoniae",
+              "Serpiginous spread, aggressive, hypopyon",
+              "Deep stromal involvement"
+            ],
+            [
+              "Pseudomonas aeruginosa",
+              "Rapid progression (24-48h), greenish mucopurulent discharge",
+              "Soup-like necrosis, ground-glass edema"
+            ],
+            [
+              "Filamentous Fungi",
+              "Feathery borders, satellite lesions, immune ring (Wessely ring)",
+              "Dry, elevated appearance"
+            ],
+            [
+              "Acanthamoeba",
+              "Disproportionate pain, radial keratoneuritis",
+              "Ring-shaped infiltrate (late)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Emergency: Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Rapidly thinning stroma (Melting) indicating imminent perforation",
+          "Worsening pain despite treatment (suggests Acanthamoeba or Scleritis)",
+          "Increasing hypopyon size or fibrin in the anterior chamber",
+          "Involvement of the posterior segment (Endophthalmitis)",
+          "Limbal involvement (higher risk of scleral extension)"
+        ]
+      },
+      {
+        "title": "Clinical Grading of Severity",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Mild",
+            "Moderate",
+            "Severe"
+          ],
+          "rows": [
+            [
+              "Infiltrate Size",
+              "< 2 mm",
+              "2 - 6 mm",
+              "> 6 mm"
+            ],
+            [
+              "Depth",
+              "Superficial 1/3",
+              "Middle 1/3",
+              "Deep 1/3 or Perforated"
+            ],
+            [
+              "Hypopyon",
+              "Absent",
+              "Small (< 2mm)",
+              "Large (> 2mm)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup: Step-by-Step",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Discontinue antibiotics (if possible) for 24-48 hours.",
+          "2. Topical anesthesia (Proparacaine 0.5%).",
+          "3. Scrape leading edge and base of ulcer with Kimura spatula or 25G needle.",
+          "4. Immediate inoculation onto culture media.",
+          "5. Prepare slides for Gram and Giemsa staining.",
+          "6. Consider corneal biopsy if cultures are repeatedly negative."
+        ]
+      },
+      {
+        "title": "Culture Media & Indications",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Medium",
+            "Organism Targeted"
+          ],
+          "rows": [
+            [
+              "Blood Agar",
+              "Most bacteria, fungi"
+            ],
+            [
+              "Chocolate Agar",
+              "Haemophilus, Neisseria"
+            ],
+            [
+              "Sabouraud Dextrose",
+              "Fungi"
+            ],
+            [
+              "Thioglycollate Broth",
+              "Anaerobes"
+            ],
+            [
+              "Non-nutrient agar + E. coli",
+              "Acanthamoeba"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Non-Infectious Infiltrates",
+          "branches": [
+            "Marginal Keratitis (Staph Hypersensitivity)",
+            "Contact Lens Peripheral Ulcer (CLPU)",
+            "Mooren's Ulcer",
+            "Peripheral Ulcerative Keratitis (PUK)",
+            "Toxic Keratopathy (Medicamentosa)",
+            "Neurotrophic Keratopathy"
+          ]
+        }
+      },
+      {
+        "title": "Management Protocol: Medical Therapy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Empiric Monotherapy: Fourth-generation Fluoroquinolones (Moxifloxacin/Gatifloxacin) q1h around the clock.",
+          "Duo-therapy (Severe ulcers): Fortified Cefazolin (50mg/ml) + Fortified Tobramycin (14mg/ml) q1h.",
+          "Loading Dose: 1 drop every 5-15 minutes for the first hour.",
+          "Cycloplegia: Atropine 1% BID/TID to reduce ciliary spasm and prevent synechiae.",
+          "Fungal: Natamycin 5% (filamentous) or Amphotericin B 0.15% (yeast). Oral Voriconazole 200mg BID for deep lesions.",
+          "Acanthamoeba: PHMB (0.02%) or Chlorhexidine (0.02%) + Brolene (Propamidine)."
+        ]
+      },
+      {
+        "title": "Surgical & Adjunctive Interventions",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Cyanoacrylate Tissue Adhesive: For perforations < 2mm.",
+          "Amniotic Membrane Grafting (AMG): Promotes epithelialization.",
+          "PACK-CXL: Photoactivated Chromophore for Keratitis-Crosslinking as adjuvant therapy.",
+          "Tectonic PKP: Penetrating Keratoplasty for large perforations or uncontrolled infection.",
+          "Conjunctival Flap (Gundersen): For chronic non-healing ulcers."
+        ]
+      },
+      {
+        "title": "Memory Aid: Steroid Timing",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "SCUT Criteria",
+          "explanation": "Based on the Steroids for Corneal Ulcers Trial (SCUT): Avoid steroids in the first 48 hours. Only use if: 1. Organism identified, 2. Antibiotic sensitivity known, 3. Condition improving, 4. No fungal/Acanthamoeba suspicion."
+        }
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Corneal Scarring and irregular astigmatism.",
+          "Secondary Glaucoma (inflammatory debris clogging TM).",
+          "Cataract formation (toxic or inflammatory).",
+          "Corneal Perforation and Endophthalmitis.",
+          "Phthisis Bulbi (in end-stage cases)."
+        ]
+      },
+      {
+        "title": "Landmark Study: SCUT Trial",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "The Steroids for Corneal Ulcers Trial (SCUT) found no overall difference in 3-month BSCVA between steroid and placebo groups. However, subgroup analysis showed that patients with baseline vision of 20/200 or worse and those with central ulcers (>4mm) significantly benefitted from adjunctive steroids applied after 48h of antibiotics."
+      },
+      {
+        "title": "Clinical Pearls for the Floor",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Never use topical steroids until a fungal infection has been ruled out by culture or clinical course.",
+          "Moraxella is classically seen in debilitated, alcoholic, or malnourished patients.",
+          "If an ulcer is 'dry' and 'elevated', think Fungal; if the pain is 10/10 but the ulcer looks 2/10, think Acanthamoeba.",
+          "Neisseria gonorrhoeae and Corynebacterium diphtheriae can penetrate a completely INTACT corneal epithelium.",
+          "Always check the contact lens case—culture the case and the solution if available."
+        ]
+      }
+    ],
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044697832,
+  "communityId": "sub_1774352254516_g8n548e6o5cb2r",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

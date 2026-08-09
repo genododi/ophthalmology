@@ -1,0 +1,266 @@
+{
+  "id": 1775334831175,
+  "seqId": 649,
+  "title": "Cone-Rod Dystrophies (CRD): A Clinical Masterclass",
+  "summary": "A heterogeneous group of inherited retinal dystrophies characterized by primary cone dysfunction followed by progressive rod involvement. This infographic details the genetic, clinical, and electrophysiological markers essential for diagnosis and management.",
+  "date": "2026-04-04T20:33:51.175Z",
+  "data": {
+    "title": "Cone-Rod Dystrophies (CRD): A Clinical Masterclass",
+    "summary": "A heterogeneous group of inherited retinal dystrophies characterized by primary cone dysfunction followed by progressive rod involvement. This infographic details the genetic, clinical, and electrophysiological markers essential for diagnosis and management.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4' stroke-dasharray='4 2'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M50 10 L50 20 M50 80 L50 90 M10 50 L20 50 M80 50 L90 50' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Cone-rod dystrophies (CRD) represent a group of inherited pigmentary retinopathies where cone photoreceptor degeneration precedes rod involvement. Unlike Retinitis Pigmentosa (RP), which starts with night blindness (rod-first), CRD patients typically present early with decreased visual acuity, photophobia, and dyschromatopsia. Prevalence is estimated at 1:30,000 to 1:40,000. Progression is generally more rapid and severe than in isolated cone dystrophies."
+      },
+      {
+        "title": "Genetics & Inheritance Patterns",
+        "icon": "genetics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Inheritance",
+            "Major Genes",
+            "Clinical Characteristics"
+          ],
+          "rows": [
+            [
+              "Autosomal Recessive (AR)",
+              "ABCA4, ADAM9, CDHR1",
+              "Most common form; ABCA4 mutations also cause Stargardt disease."
+            ],
+            [
+              "Autosomal Dominant (AD)",
+              "GUCY2D, CRX, GUCA1A",
+              "GUCY2D is a common cause of early-onset severe CRD."
+            ],
+            [
+              "X-Linked (XL)",
+              "RPGR (ORF15)",
+              "Often associated with high myopia and rapid progression."
+            ],
+            [
+              "Mitochondrial",
+              "MT-TL1",
+              "Associated with syndromic presentations like MELAS."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Pathophysiological Cascade",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Cone-Rod Loss",
+          "branches": [
+            "Phototransduction defects",
+            "Vitamin A cycle dysfunction (ABCA4)",
+            "Structural protein failure (PROM1)",
+            "Outer segment shedding issues",
+            "Secondary Rod apoptosis"
+          ]
+        }
+      },
+      {
+        "title": "Primary Clinical Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Early central vision loss (decreased BCVA)",
+          "Severe Dyschromatopsia (Protan/Deutan or Tritan defects)",
+          "Intense Photophobia (Hemeralopia)",
+          "Central Scotoma on visual field testing",
+          "Late-onset Nyctalopia (night blindness)",
+          "Peripheral constriction (later stages)"
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Fundus Morphology",
+          "branches": [
+            "Classic 'Bull's-eye' Maculopathy",
+            "Widespread RPE atrophy/mottling",
+            "Temporal pallor of the Optic Disc",
+            "Mid-peripheral Bone Spicule pigmentation (Late)",
+            "Arteriolar attenuation (Moderate to Severe)",
+            "Salt and Pepper appearance"
+          ]
+        }
+      },
+      {
+        "title": "ERG: The Gold Standard Diagnostic",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "ERG Component",
+            "Finding in CRD",
+            "Significance"
+          ],
+          "rows": [
+            [
+              "Photopic ERG",
+              "Severely Reduced/Absent",
+              "Reflects primary cone system failure."
+            ],
+            [
+              "Flicker ERG (30Hz)",
+              "Markedly Delayed & Reduced",
+              "Sensitive marker for early cone dysfunction."
+            ],
+            [
+              "Scotopic ERG",
+              "Subnormal/Reduced",
+              "Indicates secondary rod involvement (distinguishes from pure CD)."
+            ],
+            [
+              "Pattern ERG (pERG)",
+              "Early Loss",
+              "Correlates with macular/ganglion cell dysfunction."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Multimodal Imaging Findings",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "FAF: Perifoveal hyper-autofluorescent ring (early) or foveal hypo-autofluorescence (atrophy).",
+          "OCT: Loss of Ellipsoid Zone (EZ) and Interdigitation Zone; thinning of the ONL.",
+          "OCT: 'Foveal cavitations' may be seen in early stages.",
+          "Visual Fields: Central/paracentral scotoma which eventually breaks through to periphery."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Mindmap",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Ddx for Maculopathy",
+          "branches": [
+            "Stargardt Disease (ABCA4)",
+            "Retinitis Pigmentosa (Inverse RP)",
+            "Chloroquine/Hydroxychloroquine Toxicity",
+            "Achromatopsia (Non-progressive)",
+            "Batten Disease (Pediatric/Systemic)",
+            "Central Areolar Choroidal Dystrophy"
+          ]
+        }
+      },
+      {
+        "title": "Management & Low Vision Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Genetic Testing & Counseling (Confirm molecular diagnosis/inheritance).",
+          "Step 2: Photoprotection (Strict UV-blocking sunglasses & wide-brimmed hats to reduce phototoxicity).",
+          "Step 3: Low Vision Rehabilitation (Magnifiers, electronic reading aids, telescopic lenses).",
+          "Step 4: Avoid High Dose Vitamin A (In ABCA4-related cases, can be toxic/pro-lipofuscin).",
+          "Step 5: Regular Screening for Complications (Cystoid Macular Edema, Cataracts).",
+          "Step 6: Referral to Clinical Trials (Gene therapy, optogenetics, cell-based therapies)."
+        ]
+      },
+      {
+        "title": "CRITICAL RED FLAGS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden vision drop: Rule out CNV or Macular Hole.",
+          "High dose Vitamin A supplementation in ABCA4 patients (May accelerate lipofuscin accumulation).",
+          "Rapidly progressive vision loss in children (Rule out Neuronal Ceroid Lipofuscinosis).",
+          "Unexplained Photophobia: Always perform ERG if fundus looks normal."
+        ]
+      },
+      {
+        "title": "Memory Aid: The 3 C's of CRD",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "THE 3 C's",
+          "explanation": "C - Color vision defects early; C - Central scotoma early; C - Cones worse than Rods (Photopic ERG < Scotopic ERG)."
+        }
+      },
+      {
+        "title": "Epidemiology & Prevalence Comparison",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Retinitis Pigmentosa",
+              "value": 100
+            },
+            {
+              "label": "Cone-Rod Dystrophy",
+              "value": 12
+            },
+            {
+              "label": "Stargardt Disease",
+              "value": 30
+            },
+            {
+              "label": "Achromatopsia",
+              "value": 3
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "A 'Normal fundus' does not rule out CRD; early cases require ERG for diagnosis.",
+          "The 'Bull's Eye' is not pathognomonic; consider toxicity and Stargardt.",
+          "ABCA4 mutations are pleomorphic; they can cause Stargardt, CRD, or RP phenotypes.",
+          "Unlike RP, CRD patients often struggle more in bright light than in dim light early on."
+        ]
+      },
+      {
+        "title": "Landmark Studies & Recent Advances",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "Recent research focuses on Gene Therapy (targeting GUCY2D and ABCA4) and Pharmacological interventions like Emixustat or ALK-001 to reduce lipofuscin levels. The 'ProgStar' study provided critical natural history data for ABCA4-related diseases, which is now being used to design primary endpoints for clinical trials. Optogenetics remains a promising field for end-stage CRD to restore light sensitivity to remaining retinal cells (bipolar/ganglion cells)."
+      }
+    ],
+    "generationPrompt": "Cone rod dystrophy",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina"
+}

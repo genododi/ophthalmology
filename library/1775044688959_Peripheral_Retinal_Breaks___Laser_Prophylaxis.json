@@ -1,0 +1,253 @@
+{
+  "id": 1775044688959,
+  "seqId": 422,
+  "title": "Peripheral Retinal Breaks & Laser Prophylaxis",
+  "summary": "A comprehensive guide to identifying, classifying, and managing peripheral retinal breaks, with a focus on the clinical significance of pigmented 'barraged' lesions and the mechanics of indirect ophthalmoscopy.",
+  "date": "2026-04-01T11:58:08.959Z",
+  "data": {
+    "title": "Peripheral Retinal Breaks & Laser Prophylaxis",
+    "summary": "A comprehensive guide to identifying, classifying, and managing peripheral retinal breaks, with a focus on the clinical significance of pigmented 'barraged' lesions and the mechanics of indirect ophthalmoscopy.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M140 60 Q160 80 140 100' fill='none' stroke='red' stroke-width='3' stroke-linecap='round'/><circle cx='145' cy='75' r='3' fill='black'/><circle cx='150' cy='85' r='3' fill='black'/><circle cx='148' cy='95' r='3' fill='black'/><path d='M40 100 L160 100 M100 40 L100 160' stroke='rgba(0,0,0,0.1)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "A retinal break is a full-thickness defect in the neurosensory retina. These are categorized into 'Tears' (caused by dynamic vitreoretinal traction) and 'Holes' (caused by chronic atrophy). Pigmented or 'barraged' breaks indicate either natural chronicity (RPE hyperplasia) or previous laser photocoagulation aimed at preventing progress to Rhegmatogenous Retinal Detachment (RRD)."
+      },
+      {
+        "title": "The Pathophysiology of Pigmentation",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Retinal Break Formation: Full-thickness defect occurs.",
+          "2. Subretinal Fluid (SRF) Entry: Fluid enters the subretinal space.",
+          "3. RPE Stimulation: Chronic low-grade fluid or laser trauma stimulates RPE cells.",
+          "4. RPE Hyperplasia: Cells migrate and proliferate, producing melanin.",
+          "5. Pigmented Barrier: A 'barrage' or seal forms, indicating a 'stable' or 'old' lesion."
+        ]
+      },
+      {
+        "title": "Classification of Peripheral Lesions",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Mechanism",
+            "Risk of RD",
+            "Clinical Appearance"
+          ],
+          "rows": [
+            [
+              "Horseshoe Tear (HST)",
+              "Dynamic Traction",
+              "High (up to 50%)",
+              "Flap of retina pulled anteriorly toward vitreous base."
+            ],
+            [
+              "Atrophic Hole",
+              "Lattice/Atrophy",
+              "Low (approx 2%)",
+              "Round, red, often associated with Lattice Degeneration."
+            ],
+            [
+              "Operculated Tear",
+              "Avulsed Tissue",
+              "Low (Traction relieved)",
+              "Round hole with a floating 'plug' (operculum) in vitreous."
+            ],
+            [
+              "Retinal Dialysis",
+              "Trauma",
+              "High",
+              "Disinsertion of retina from the Ora Serrata."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "General Pop. Breaks",
+              "value": 10
+            },
+            {
+              "label": "Lattice Degeneration",
+              "value": 8
+            },
+            {
+              "label": "Myopia > 6D Risk",
+              "value": 40
+            },
+            {
+              "label": "Aphakic/Pseudophakic Risk",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Crucial Red Flags (PVD Signs)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Shafer’s Sign (Tobacco Dust in anterior vitreous)",
+          "Vitreous Hemorrhage (70% risk of associated break)",
+          "New onset 'Lightning Bolt' flashes (Photopsia)",
+          "Sudden 'Shower' of black floaters",
+          "Visual field 'Curtain' or 'Shadow'"
+        ]
+      },
+      {
+        "title": "Indirect Ophthalmoscopy (BIO) Technique",
+        "icon": "school",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Preparation: Maximal pupillary dilation is essential (Phenylephrine 2.5% + Tropicamide 1%).",
+          "2. Alignment: Ensure oculars, light source, and 20D lens are in a single visual axis.",
+          "3. Peripheral Sweep: Ask patient to look in 8 cardinal directions (Superior, Inf-Temp, etc.).",
+          "4. Lens Manipulation: Tilt the lens to overcome reflections and parallax in the far periphery.",
+          "5. Scleral Depression: The GOLD STANDARD. Use a depressor to bring the ora serrata and peripheral retina into the field of view.",
+          "6. Interpretation: Remember the image is real, inverted, and reversed (up is down, left is right)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Pigmented Spots",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Pigmented Peripheral Lesion",
+          "branches": [
+            "Old Barrage Laser (Structured dots)",
+            "CHRPE (Flat, lacunae, 'bear tracks')",
+            "Pigmented Lattice (Linear pigment)",
+            "Choroidal Nevus (Subretinal, greyish)",
+            "Pavingstone Degeneration (Atrophic, white with pigment border)",
+            "Demarcation Line (Chronic RRD 'tidemark')"
+          ]
+        }
+      },
+      {
+        "title": "Management Strategy (The 'To Treat or Not' Dilemma)",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "SYMPTOMATIC HST: High priority. Laser photocoagulation immediately.",
+          "ASYMPTOMATIC HST: Treat if high risk (myopia, fellow eye RD, aphakia).",
+          "SYMPTOMATIC HOLES: Usually monitored unless SRF present.",
+          "LATTICE DEGENERATION: Prophylaxis generally NOT indicated unless high-risk factors exist.",
+          "ASYMPTOMATIC PIGMENTED BREAK: Observed. Pigment indicates stability."
+        ]
+      },
+      {
+        "title": "Laser Barrage: Surgical Parameters",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Recommended Setting"
+          ],
+          "rows": [
+            [
+              "Wavelength",
+              "532nm (Green) or 810nm (Diode)"
+            ],
+            [
+              "Spot Size",
+              "200 - 400 μm"
+            ],
+            [
+              "Duration",
+              "0.1 - 0.2 seconds"
+            ],
+            [
+              "End-point",
+              "Dull-white/greyish burn"
+            ],
+            [
+              "Pattern",
+              "2-3 rows surrounding the break"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Memory Aid: The 4 'F's of RD Risk",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "F.F.F.F.",
+          "explanation": "Flashes (Photopsia), Floaters (New/increased), Field loss (Curtain), Falling acuity (Macula off)."
+        }
+      },
+      {
+        "title": "Clinical Pearls & Exam Tips",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Always check the 'Mirror Image' location (180 degrees away) for another break.",
+          "Pigment takes 2-4 weeks to appear after laser or natural demarcation.",
+          "Scleral depression increases the contrast between the break and the background (the break looks redder).",
+          "If you see a 'Black Spot' that is elevated, consider a small melanoma or pigment clump on a flap."
+        ]
+      },
+      {
+        "title": "Recent Advances & Trials",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The AAO Preferred Practice Patterns (PPP) emphasize that asymptomatic retinal breaks, especially round holes and lattice without symptoms, carry a low risk of RD and usually do not require prophylactic treatment. Landmark studies by Byer showed that even in high myopes, the majority of breaks do not progress, shifting the focus to 'Symptom-Driven Prophylaxis'."
+      },
+      {
+        "title": "The 'Bell Rang' - Quick Exam Summary",
+        "icon": "notifications",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "1. Identify: Superior/Inferior pigmented spots.",
+          "2. Locate: Provide clock hour and distance from Ora Serrata.",
+          "3. Describe: Pigmentation status (indicates stability/old treatment).",
+          "4. Associate: Check for subretinal fluid or traction.",
+          "5. Final Dx: 'Stable, barraged retinal break' - No urgent intervention required."
+        ]
+      }
+    ],
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "_newlyImported": 1775044688959,
+  "communityId": "sub_1773775007769_jlgxhi5bfirrhz",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.769Z"
+}

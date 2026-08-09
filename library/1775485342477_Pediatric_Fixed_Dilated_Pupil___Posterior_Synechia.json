@@ -1,0 +1,393 @@
+{
+  "id": 1775485342477,
+  "seqId": 736,
+  "title": "Pediatric Fixed Dilated Pupil & Posterior Synechiae",
+  "summary": "A comprehensive clinical framework for managing children presenting with pupillary immobility and iridocrystalline adhesions. This guide integrates diagnostic workups for uveitis and trauma with advanced surgical and pharmacological management protocols.",
+  "date": "2026-04-06T14:22:22.477Z",
+  "data": {
+    "title": "Pediatric Fixed Dilated Pupil & Posterior Synechiae",
+    "summary": "A comprehensive clinical framework for managing children presenting with pupillary immobility and iridocrystalline adhesions. This guide integrates diagnostic workups for uveitis and trauma with advanced surgical and pharmacological management protocols.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='20' fill='black'/><path d='M30,30 L42,42 M70,30 L58,42 M30,70 L42,58 M70,70 L58,58' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round'/><path d='M35,50 L45,50 M65,50 L55,50 M50,35 L50,45 M50,65 L50,55' stroke='hsl(20, 90%, 50%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A 'fixed dilated pupil with posterior synechiae (PS)' in a child is a complex clinical scenario where the iris is adhered to the anterior lens capsule in a mid-dilated or dilated state. Unlike the typical miotic pupil of acute uveitis, this presentation often suggests chronic inflammation that was either treated with long-acting cycloplegics (Atropine) during the fibrin-exudative phase or is secondary to blunt trauma with sphincter tear and subsequent inflammation. It carries a high risk of pupillary block glaucoma and amblyopia."
+      },
+      {
+        "title": "Etiological Classification",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Pediatric PS + Mydriasis",
+          "branches": [
+            "JIA-Associated Uveitis (Chronic)",
+            "Traumatic Iridocyclitis + Sphincter Tear",
+            "Idiopathic Chronic Anterior Uveitis",
+            "Toxocariasis (Peripheral Granuloma Traction)",
+            "Vogt-Koyanagi-Harada (VKH) Syndrome",
+            "Sarcoidosis (Blau Syndrome in kids)",
+            "Post-Surgical Inflammation (e.g., Congenital Cataract)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology: Pediatric Uveitis",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "JIA-Uveitis %",
+              "value": 75
+            },
+            {
+              "label": "Idiopathic %",
+              "value": 15
+            },
+            {
+              "label": "Infectious %",
+              "value": 7
+            },
+            {
+              "label": "Traumatic %",
+              "value": 3
+            }
+          ]
+        }
+      },
+      {
+        "title": "Essential Diagnostic Workup",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Investigation",
+            "Target Condition",
+            "Clinical Relevance"
+          ],
+          "rows": [
+            [
+              "ANA (Antinuclear Antibody)",
+              "JIA",
+              "Highest predictor of uveitis risk in JIA (1:160+ titer)"
+            ],
+            [
+              "HLA-B27",
+              "Spondyloarthropathies",
+              "Associated with acute recurrent flares"
+            ],
+            [
+              "ACE & Chest X-Ray",
+              "Sarcoidosis",
+              "Evaluates for hilar lymphadenopathy or Blau Syndrome"
+            ],
+            [
+              "QuantiFERON-TB Gold",
+              "Tuberculosis",
+              "Mandatory before starting biologic therapy"
+            ],
+            [
+              "Syphilis Serology (RPR/FTA-ABS)",
+              "Syphilis",
+              "The 'Great Mimicker' of pediatric uveitis"
+            ],
+            [
+              "B-Scan Ultrasonography",
+              "Toxocariasis / ROP",
+              "Required if the view is obscured by cataract or PS"
+            ],
+            [
+              "IOP Measurement",
+              "Secondary Glaucoma",
+              "Tono-Pen or Icare essential in non-compliant children"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "SUN Grading: Anterior Chamber Cells",
+        "icon": "school",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Grade 0 (<1 cell)",
+              "value": 5
+            },
+            {
+              "label": "Grade 0.5 (1-5)",
+              "value": 15
+            },
+            {
+              "label": "Grade 1+ (6-15)",
+              "value": 30
+            },
+            {
+              "label": "Grade 2+ (16-25)",
+              "value": 50
+            },
+            {
+              "label": "Grade 3+ (26-50)",
+              "value": 75
+            },
+            {
+              "label": "Grade 4+ (>50)",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Uveitic Mydriasis",
+            "Traumatic Mydriasis"
+          ],
+          "rows": [
+            [
+              "Synechiae",
+              "360-degree potential",
+              "Localized to trauma site"
+            ],
+            [
+              "Sphincter",
+              "Intact but stuck",
+              "Notched or torn"
+            ],
+            [
+              "AC Reaction",
+              "Significant (Cells/Flare)",
+              "Minimal or resolving heme"
+            ],
+            [
+              "IOP",
+              "Low (ciliary shut down) or High",
+              "High (angle recession)"
+            ],
+            [
+              "Lens",
+              "Possible Epicapsular Stars",
+              "Vossius ring / Subluxation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "microscope",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**Band Keratopathy**: Calcium deposits at 3 and 9 o'clock in chronic JIA.",
+          "**Posterior Synechiae**: 360° adhesion leads to 'Seclusion Pupillae'.",
+          "**Iris Bombé**: Forward bowing of iris due to aqueous entrapment.",
+          "**Koeppe/Busacca Nodules**: Suggest granulomatous etiology (Sarcoid).",
+          "**Complicated Cataract**: Polychromatic luster at the posterior pole.",
+          "**Cystoid Macular Edema (CME)**: Most common cause of vision loss."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Pediatric Emergency Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden ocular pain + nausea (Acute Pupillary Block)",
+          "Corneal epithelial edema (High IOP)",
+          "Total Seclusion Pupillae (360-degree PS)",
+          "Hypopyon (Behcet's or HLA-B27 associated)",
+          "White reflex (Leukocoria) in a young child",
+          "Relative Afferent Pupillary Defect (RAPD) in trauma"
+        ]
+      },
+      {
+        "title": "Medical Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Intensive Topical Steroids (Prednisolone Acetate 1% q1h).",
+          "Step 2: Aggressive Mydriasis (Atropine 1% or Phenylephrine 10% to break PS).",
+          "Step 3: IOP Control (Aqueous suppressants: Timolol 0.5% or Dorzolamide).",
+          "Step 4: Oral Corticosteroids (1mg/kg/day) for severe bilateral cases.",
+          "Step 5: Immunomodulatory Therapy (MTX or Adalimumab) for steroid-sparing."
+        ]
+      },
+      {
+        "title": "Remember: The 'BREAK-PS' Mnemonic",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "B.R.E.A.K.",
+          "explanation": "B: Biologics (Adalimumab); R: Refraction (prevent amblyopia); E: Examination under anesthesia (EUA); A: Atropine (break synechiae); K: Keratopathy check (Calcium)."
+        }
+      },
+      {
+        "title": "Surgical Techniques: Synechiolysis",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Paracentesis and injection of Cohesive OVD.",
+          "Step 2: Viscosynechiolysis (using OVD to hydraulically separate iris).",
+          "Step 3: Mechanical synechiolysis with cyclodialysis spatula.",
+          "Step 4: Peripheral Iridectomy (LPI or Surgical) to prevent recurrence.",
+          "Step 5: Pupil expansion devices (Malyugin ring) if phaco is required."
+        ]
+      },
+      {
+        "title": "Surgical Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Fibrinous Membrane formation (higher in kids).",
+          "Secondary Glaucoma (15-30% of chronic cases).",
+          "Cystoid Macular Edema (CME) post-op.",
+          "Phthisis Bulbi in end-stage JIA-Uveitis.",
+          "Prognosis is generally GOOD if quiescence is achieved for 3 months pre-op."
+        ]
+      },
+      {
+        "title": "Landmark Studies: Evidence-Based Care",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Study",
+            "Key Finding",
+            "Application"
+          ],
+          "rows": [
+            [
+              "SYCAMORE",
+              "Adalimumab + MTX is superior to MTX alone in JIA-Uveitis",
+              "Standard of care for refractory JIA-uveitis"
+            ],
+            [
+              "ADJUVITE",
+              "Adalimumab efficacy in early JIA-uveitis",
+              "Early intervention prevents permanent PS"
+            ],
+            [
+              "SITE Study",
+              "Long-term safety of MTX, Mycophenolate, and Azathioprine",
+              "Validation of safety for steroid-sparing agents"
+            ],
+            [
+              "SUN Criteria",
+              "Standardization of Uveitis Nomenclature",
+              "Universal grading for AC cells and flare"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Never dilate a child with 360° PS (Seclusion) without a patent peripheral iridectomy; it can trigger acute pupillary block.",
+          "The 'Quiet Eye' Rule: Ensure zero AC cells for at least 3 months before elective intraocular surgery.",
+          "Traumatic mydriasis without PS often requires only observation or pupillary cerclage later; PS indicates an inflammatory overlay.",
+          "In JIA, the eye is often WHITE and PAINLESS despite severe inflammation—regular screening is mandatory.",
+          "Phenylephrine 10% should be used with caution in infants due to systemic hypertensive risks."
+        ]
+      }
+    ],
+    "generationPrompt": "Approach to dilated fixed pupil with posterior synechia in children",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "bookmarked": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 793,
+      "keywords": [
+        "pupil",
+        "posterior",
+        "table",
+        "remember"
+      ]
+    },
+    {
+      "pageNum": 810,
+      "keywords": [
+        "dilated",
+        "pupil",
+        "ocular",
+        "signs",
+        "medical"
+      ]
+    },
+    {
+      "pageNum": 796,
+      "keywords": [
+        "pupil",
+        "definition",
+        "diagnostic",
+        "examination",
+        "emergency"
+      ]
+    },
+    {
+      "pageNum": 797,
+      "keywords": [
+        "dilated",
+        "pupil",
+        "table"
+      ]
+    },
+    {
+      "pageNum": 436,
+      "keywords": [
+        "dilated",
+        "pupil",
+        "posterior",
+        "synechiae",
+        "diagnostic"
+      ]
+    },
+    {
+      "pageNum": 345,
+      "keywords": [
+        "pupil",
+        "posterior",
+        "anterior",
+        "ocular",
+        "surgical"
+      ]
+    }
+  ]
+}

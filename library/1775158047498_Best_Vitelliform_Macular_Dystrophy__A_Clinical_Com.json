@@ -1,0 +1,145 @@
+{
+  "id": 1775158047498,
+  "seqId": 587,
+  "title": "Best Vitelliform Macular Dystrophy: A Clinical Compendium",
+  "summary": "Best Disease is an autosomal dominant macular dystrophy characterized by the accumulation of lipofuscin-like material within and beneath the RPE. It classically manifests in childhood, progressing through distinct vitelliform stages from the 'egg-yolk' lesion to chorioretinal atrophy.",
+  "date": "2026-04-02T19:27:27.498Z",
+  "data": {
+    "title": "Best Vitelliform Macular Dystrophy: A Clinical Compendium",
+    "summary": "Best Disease is an autosomal dominant macular dystrophy characterized by the accumulation of lipofuscin-like material within and beneath the RPE. It classically manifests in childhood, progressing through distinct vitelliform stages from the 'egg-yolk' lesion to chorioretinal atrophy.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='60' fill='none' stroke='#1e88e5' stroke-width='8'/><circle cx='100' cy='100' r='30' fill='#fdd835'/><path d='M70 100 A 30 30 0 0 1 130 100' fill='#fbc02d'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Etiology",
+        "icon": "genetics",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Best Vitelliform Macular Dystrophy (BVMD) is an autosomal dominant retinal dystrophy caused by mutations in the BEST1 gene (11q13). This gene encodes bestrophin-1, a chloride channel located in the basolateral membrane of the Retinal Pigment Epithelium (RPE). Dysfunction leads to impaired fluid transport and toxic accumulation of lipofuscin, leading to photoreceptor degeneration."
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence",
+              "value": 20
+            },
+            {
+              "label": "Age of Onset",
+              "value": 10
+            },
+            {
+              "label": "Genetic Penetrance",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "The 6 Stages of Best Disease",
+        "icon": "timeline",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Stage 1: Pre-vitelliform (normal fundus, abnormal EOG)",
+          "Stage 2: Vitelliform (classic 'egg-yolk' macular lesion)",
+          "Stage 3: Pseudohypopyon (partial resorption of lipofuscin)",
+          "Stage 4: Vitelliruptive ('scrambled egg' appearance)",
+          "Stage 5: Atrophic (geographic atrophy of RPE)",
+          "Stage 6: Cicatricial (subretinal fibrosis/CNV)"
+        ]
+      },
+      {
+        "title": "Clinical Features & Differential",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Pattern Dystrophy",
+              "Multifocal, usually later onset"
+            ],
+            [
+              "Stargardt Disease",
+              "Dark choroid on FFA, fish-tail flecks"
+            ],
+            [
+              "Central Serous Chorioretinopathy",
+              "Acute onset, younger adults, resolves"
+            ],
+            [
+              "Age-Related Macular Degeneration",
+              "Drusen, age > 50"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Diagnostic Gold Standard",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Electro-oculogram (EOG): Arden Index < 1.5 is pathognomonic.",
+          "Fundus Autofluorescence (FAF): Hyper-autofluorescence of the lesion due to lipofuscin accumulation.",
+          "OCT: Shows subretinal material collection, loss of IS/OS junction.",
+          "Genetic Testing: Targeted sequencing for BEST1 mutation confirmation."
+        ]
+      },
+      {
+        "title": "Red Flags (Complications)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Subretinal Hemorrhage (Suggests CNV development)",
+          "Sudden Metamorphopsia (Indicates progression to CNV)",
+          "Significant Central Scotoma (Late-stage atrophy)",
+          "Subretinal Fibrosis (End-stage scarring)"
+        ]
+      },
+      {
+        "title": "Mnemonic: 'BEST'",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "B-E-S-T",
+          "explanation": "B: Basolateral RPE channel dysfunction; E: EOG is abnormal; S: Scrambled egg appearance (stage 4); T: Toxic lipofuscin accumulation."
+        }
+      },
+      {
+        "title": "Management Protocols",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Regular monitoring with OCT and Amsler grid for CNV detection.",
+          "Step 2: Low vision rehabilitation if visual acuity drops.",
+          "Step 3: Anti-VEGF therapy (Intravitreal Ranibizumab/Aflibercept) if CNV develops.",
+          "Step 4: Photodynamic therapy (PDT) if CNV is extrafoveal (historical, now rarely used)."
+        ]
+      }
+    ],
+    "generationPrompt": "Best‘s disease",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina"
+}

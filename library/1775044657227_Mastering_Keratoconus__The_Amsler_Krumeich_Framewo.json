@@ -1,0 +1,299 @@
+{
+  "id": 1775044657227,
+  "seqId": 100,
+  "title": "Mastering Keratoconus: The Amsler-Krumeich Framework & Beyond",
+  "summary": "Keratoconus (KC) is a progressive, non-inflammatory ectatic disorder characterized by corneal thinning and protrusion. This infographic details the clinical staging, diagnostic markers, and evidence-based management of KC, focusing on the gold-standard Amsler-Krumeich classification.",
+  "date": "2026-04-01T11:57:37.227Z",
+  "data": {
+    "title": "Mastering Keratoconus: The Amsler-Krumeich Framework & Beyond",
+    "summary": "Keratoconus (KC) is a progressive, non-inflammatory ectatic disorder characterized by corneal thinning and protrusion. This infographic details the clinical staging, diagnostic markers, and evidence-based management of KC, focusing on the gold-standard Amsler-Krumeich classification.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M10 50 C 10 20, 40 20, 50 10 C 60 20, 90 20, 90 50 C 90 80, 60 80, 50 90 C 40 80, 10 80, 10 50 Z' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q 50 20 70 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round'/><circle cx='50' cy='45' r='5' fill='hsl(215, 90%, 45%)' opacity='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Keratoconus is a bilateral, typically asymmetric corneal ectasia. It involves progressive stromal thinning, Bowman’s layer fragmentation, and iron deposition in the basal epithelium (Fleischer ring), leading to irregular astigmatism, high myopia, and decreased best-corrected visual acuity (BCVA)."
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Incidence (per 100k)",
+              "value": 2
+            },
+            {
+              "label": "Prevalence (Global)",
+              "value": 54
+            },
+            {
+              "label": "Atopy Association",
+              "value": 35
+            },
+            {
+              "label": "Family History",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Risk Factors",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Keratoconus Drivers",
+          "branches": [
+            "Mechanical: Vigorous eye rubbing (major risk)",
+            "Genetic: Down Syndrome (Trisomy 21), Leber Congenital Amaurosis",
+            "Connective Tissue: Ehlers-Danlos, Marfan Syndrome, Osteogenesis Imperfecta",
+            "Environmental: Chronic UV exposure, Atopic dermatitis",
+            "Biochemical: Increased Lysosomal enzymes, decreased Protease inhibitors"
+          ]
+        }
+      },
+      {
+        "title": "The Amsler-Krumeich Staging System",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Refraction / Mean K",
+            "Pachymetry",
+            "Clinical Signs"
+          ],
+          "rows": [
+            [
+              "Stage I",
+              "Induced Astigmatism/Myopia < 5.00D; Mean K < 48.00D",
+              "> 500 µm",
+              "Eccentric steepening on topography"
+            ],
+            [
+              "Stage II",
+              "Astigmatism/Myopia 5.00-8.00D; Mean K < 53.00D",
+              "400 - 500 µm",
+              "No corneal scarring"
+            ],
+            [
+              "Stage III",
+              "Astigmatism/Myopia 8.00-10.00D; Mean K > 53.00D",
+              "300 - 400 µm",
+              "No central scarring"
+            ],
+            [
+              "Stage IV",
+              "Refraction unmeasurable; Mean K > 55.00D",
+              "< 200 µm",
+              "Central corneal scarring present"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Signs: Slit-Lamp Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Fleischer Ring: Iron deposition at the base of the cone (best with cobalt blue filter).",
+          "Vogt Striae: Fine, vertical stress lines in deep stroma/Descemet membrane (disappear with digital pressure).",
+          "Munson Sign: V-shaped indentation of the lower lid on down-gaze.",
+          "Rizzuti Sign: Conical reflection on the nasal iris when light is shone from the temporal side.",
+          "Charleux Sign: Oil-droplet reflex on distant ophthalmoscopy.",
+          "Prominent Corneal Nerves: Visible in the stroma."
+        ]
+      },
+      {
+        "title": "Mnemonic: Signs of KC",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "V-F-M-R",
+          "explanation": "Vogt striae, Fleischer ring, Munson sign, Rizzuti sign."
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "school",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Pellucid Marginal Degeneration",
+              "Crescent-shaped thinning 1-2mm from inferior limbus; 'Butterfly' pattern on topography."
+            ],
+            [
+              "Keratoglobus",
+              "Generalized, globular thinning from limbus to limbus; maximal peripherally."
+            ],
+            [
+              "Posterior Keratoconus",
+              "Increased curvature of the posterior corneal surface only; usually non-progressive."
+            ],
+            [
+              "Terrien Marginal Degeneration",
+              "Superior thinning with lipid deposits and vascularization; usually older patients."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Corneal Topography: Placcido-based mapping of the anterior surface.",
+          "2. Corneal Tomography (Pentacam/Galilei): Elevation mapping of BOTH anterior and posterior surfaces.",
+          "3. Pachymetry: Measuring the thinnest point (crucial for CXL candidacy).",
+          "4. Epithelial Mapping (OCT): Characteristic epithelial thinning over the cone apex.",
+          "5. Biomechanics (Corvis ST/ORA): Measuring Corneal Hysteresis (CH) and Resistance Factor (CRF)."
+        ]
+      },
+      {
+        "title": "Red Flags: Acute Hydrops",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden, painful vision loss.",
+          "Severe corneal edema (Descemet membrane rupture).",
+          "Intrastromal clefts on OCT.",
+          "Risk of perforation (rare but critical).",
+          "Management: Topical hypertonics, cycloplegics, and observation (Avoid emergency PKP)."
+        ]
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1 (Early): Spectacles or Soft Toric Contact Lenses.",
+          "Step 2 (Moderate): Rigid Gas Permeable (RGP) or Scleral Lenses for irregular astigmatism.",
+          "Step 3 (Progression): Corneal Collagen Cross-linking (CXL) to stabilize the cornea (Dresden Protocol).",
+          "Step 4 (Alternative): Intrastromal Corneal Ring Segments (ICRS) to flatten the cone and improve lens fit.",
+          "Step 5 (Late/Scarred): Deep Anterior Lamellar Keratoplasty (DALK) - Preferred if endothelium is healthy.",
+          "Step 6 (End-stage): Penetrating Keratoplasty (PKP) if full-thickness scarring or previous hydrops exists."
+        ]
+      },
+      {
+        "title": "Corneal Cross-linking (CXL) Protocol",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Standard (Dresden): 30 mins Riboflavin (0.1%) soaking + 30 mins UVA (3 mW/cm²).",
+          "Epi-Off: Gold standard; requires removal of central 8-9mm of epithelium.",
+          "Epi-On: Lower risk of infection/haze but potentially less effective.",
+          "Accelerated CXL: Higher intensity UVA for shorter duration (e.g., 9-30 mW/cm²).",
+          "Inclusion: Progressive KC with pachymetry > 400 µm (or 320 µm with hypotonic riboflavin)."
+        ]
+      },
+      {
+        "title": "Contraindications for CXL",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Corneal thickness < 400 µm (standard protocol).",
+          "Prior Herpes Simplex Keratitis (risk of reactivation).",
+          "Severe central corneal scarring.",
+          "Active ocular infection or severe ocular surface disease.",
+          "Pregnancy (hormonal changes affect ectasia)."
+        ]
+      },
+      {
+        "title": "Modern Staging: The ABCD System",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Description"
+          ],
+          "rows": [
+            [
+              "A: Anterior",
+              "Radius of curvature in the thinnest 3mm zone (anterior)."
+            ],
+            [
+              "B: Back",
+              "Radius of curvature in the thinnest 3mm zone (posterior)."
+            ],
+            [
+              "C: Corneal Thinnest",
+              "Minimum pachymetry measurement."
+            ],
+            [
+              "D: Distance BCVA",
+              "Corrected visual acuity status."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "ICRS: Place at 70-80% depth; goal is 'arc-shortening' effect.",
+          "DALK: Big Bubble technique (Dua/Anwar) allows for bare Descemet exposure.",
+          "PKP in KC: Excellent prognosis (>90% graft survival at 10 years).",
+          "Post-Op: Watch for 'Urrets-Zavalia Syndrome' (permanent iris atrophy/mydriasis) after keratoplasty."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Always screen family members of KC patients.",
+          "Stop contact lens wear (RGP 2 weeks, Soft 1 week) before topography.",
+          "Atopy must be controlled to prevent eye rubbing and progression.",
+          "Progressive KC in children is more aggressive; consider early CXL."
+        ]
+      }
+    ],
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044657227,
+  "communityId": "sub_1774274019248_avojzmrts",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-23T13:53:39.248Z"
+}

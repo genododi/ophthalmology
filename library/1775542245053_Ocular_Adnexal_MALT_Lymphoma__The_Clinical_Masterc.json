@@ -1,0 +1,360 @@
+{
+  "id": 1775542245053,
+  "seqId": 747,
+  "title": "Ocular Adnexal MALT Lymphoma: The Clinical Masterclass",
+  "summary": "Extranodal Marginal Zone B-cell Lymphoma of Mucosa-Associated Lymphoid Tissue (MALT) is the most common primary orbital malignancy. This high-grade visual guide covers the spectrum from 'salmon-patch' clinical presentation to the latest AJCC 8th Edition staging and radiotherapy protocols.",
+  "date": "2026-04-07T06:10:45.053Z",
+  "data": {
+    "title": "Ocular Adnexal MALT Lymphoma: The Clinical Masterclass",
+    "summary": "Extranodal Marginal Zone B-cell Lymphoma of Mucosa-Associated Lymphoid Tissue (MALT) is the most common primary orbital malignancy. This high-grade visual guide covers the spectrum from 'salmon-patch' clinical presentation to the latest AJCC 8th Edition staging and radiotherapy protocols.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><ellipse cx='100' cy='100' rx='40' ry='40' fill='hsl(215, 90%, 45%)'/><path d='M40 100 Q100 20 160 100' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><path d='M40 100 Q100 180 160 100' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><path d='M50 140 Q70 130 90 145' stroke='#FF91A4' stroke-width='8' stroke-linecap='round' fill='none'/><text x='65' y='165' font-family='Arial' font-size='10' fill='#FF91A4'>Salmon Patch</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Core Concept",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Ocular Adnexal Lymphoma (OAL) refers to a heterogeneous group of malignancies arising in the conjunctiva, lacrimal gland, orbit, or eyelids. MALT lymphoma (Extranodal Marginal Zone B-cell Lymphoma) is the most frequent subtype, accounting for 50-80% of all OAL cases. It is characterized by an indolent course, localized disease at presentation, and exquisite radiosensitivity."
+      },
+      {
+        "title": "Epidemiological Landscape",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "MALT Subtype %",
+              "value": 75
+            },
+            {
+              "label": "Female Predominance",
+              "value": 60
+            },
+            {
+              "label": "5-Year Survival",
+              "value": 90
+            },
+            {
+              "label": "Bilateral Involvement",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathogenesis",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Antigenic Stimulation",
+          "branches": [
+            "Chlamydia psittaci (Variable by region)",
+            "Autoimmune: Sjögren's, SLE, GPA",
+            "Chronic Inflammation (IgG4-RD)",
+            "Genetic: t(11;18) API2-MALT1",
+            "Genetic: t(14;18) IGH-MALT1"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation by Site",
+        "icon": "clinical_notes",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Anatomic Site",
+            "Classic Findings",
+            "Symptoms"
+          ],
+          "rows": [
+            [
+              "Conjunctiva",
+              "Fleshy, 'Salmon-pink' mobile patch in the fornix; usually non-tender.",
+              "Irritation, 'blood-shot' eye, painless swelling."
+            ],
+            [
+              "Orbit",
+              "Molding of the mass to the globe; displacement of globe; restricted motility.",
+              "Slowly progressive proptosis, diplopia, fullness."
+            ],
+            [
+              "Lacrimal Gland",
+              "S-shaped eyelid contour; firm mass in the superotemporal orbit.",
+              "Lateral upper lid swelling, dry eye."
+            ],
+            [
+              "Eyelids",
+              "Rubbery, painless subcutaneous nodules.",
+              "Ptosis, lid thickness increase."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Diagnostic Workup Process",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Incisional/Excisional Biopsy (Essential). Avoid FNA due to lack of architectural detail.",
+          "Step 2: Immunohistochemistry (CD20+, CD5-, CD10-, Cyclin D1-).",
+          "Step 3: Molecular Testing: Flow cytometry (Light chain restriction) and FISH for translocations.",
+          "Step 4: Local Imaging: MRI with gadolinium (look for 'molding' around the globe).",
+          "Step 5: Systemic Staging: PET/CT scan, CBC, LDH, SPEP, and Bone Marrow Biopsy (if systemic suspected)."
+        ]
+      },
+      {
+        "title": "Immunophenotype Profile",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Marker",
+            "Status in MALT"
+          ],
+          "rows": [
+            [
+              "CD20, CD19, CD79a",
+              "POSITIVE (B-cell markers)"
+            ],
+            [
+              "BCL-2",
+              "POSITIVE"
+            ],
+            [
+              "CD5",
+              "NEGATIVE (Rules out CLL/Mantle)"
+            ],
+            [
+              "CD10",
+              "NEGATIVE (Rules out Follicular)"
+            ],
+            [
+              "Cyclin D1",
+              "NEGATIVE (Rules out Mantle Cell)"
+            ],
+            [
+              "CD23",
+              "NEGATIVE (Rules out CLL)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "AJCC 8th Edition TNM Staging",
+        "icon": "format_list_numbered",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "T1: Limited to Conjunctiva (T1a: Isolate, T1b: Multi-focal, T1c: Bilateral)",
+          "T2: Orbit involved without bone invasion",
+          "T3: Involvement of Lacrimal gland or bone",
+          "T4: Extension to Sinus, Brain, or beyond adnexa",
+          "N: Lymph node status (N1: Parotid/Submandibular)",
+          "M: Distant metastasis (M1a: Skin, M1b: Other extranodal sites)"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: The 'Great Masqueraders'",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Features",
+            "Diagnostic Clue"
+          ],
+          "rows": [
+            [
+              "Reactive Lymphoid Hyperplasia (RLH)",
+              "Polyclonal B-cells; organized follicles.",
+              "Flow cytometry shows no light chain restriction."
+            ],
+            [
+              "Orbital Inflammatory Syndrome",
+              "Acute pain; Chemosis; EOM involvement involving the tendon.",
+              "Rapid response to Corticosteroids."
+            ],
+            [
+              "IgG4-Related Disease",
+              "Bilateral lacrimal gland enlargement; systemic involvement.",
+              "Elevated Serum IgG4; Storiform fibrosis on biopsy."
+            ],
+            [
+              "Mantle Cell Lymphoma",
+              "Highly aggressive; CD5+; Cyclin D1+; t(11;14).",
+              "Aggressive behavior vs. indolent MALT."
+            ],
+            [
+              "Sarcoidosis",
+              "Non-caseating granulomas; ACE elevation.",
+              "Hilar lymphadenopathy on CXR."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management & Treatment Protocols",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Radiotherapy (Gold Standard): Involved-Site Radiation Therapy (ISRT). Standard Dose: 24–25.2 Gy in 1.5–1.8 Gy fractions.",
+          "2. Antibiotics: Doxycycline 100mg BID for 3 weeks (specifically for C. psittaci associated MALT).",
+          "3. Immunotherapy: Rituximab (Anti-CD20) as monotherapy or in combination with chemotherapy for systemic disease.",
+          "4. Chemotherapy: Chlorambucil or CVP/CHOP regimens reserved for Grade 3 or systemic spread.",
+          "5. Observation: 'Watch and Wait' may be appropriate for elderly, asymptomatic patients with localized disease."
+        ]
+      },
+      {
+        "title": "Radiotherapy Considerations",
+        "icon": "radiology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Highly Radiosensitive: >95% local control rates.",
+          "Lens Shielding: Essential to prevent radiation cataracts.",
+          "Late Side Effects: Dry eye (Xerophthalmia), Retinopathy (rare at 24Gy), Neovascular Glaucoma (very rare)."
+        ]
+      },
+      {
+        "title": "Red Flags: High-Risk Features",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapidly progressive proptosis (Suggests high-grade transformation)",
+          "B-symptoms (Fever, night sweats, weight loss)",
+          "Bone destruction on imaging (Suggests T3/T4 or aggressive subtype)",
+          "Presence of LDH elevation (Marker of tumor burden/aggression)"
+        ]
+      },
+      {
+        "title": "Remember: The MALT Phenotype",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "MALT-20",
+          "explanation": "MALT is positive for CD20. It's 'Small and Lazy' (Small cells, Indolent course) and 'Stays Local' (usually Stage 1E)."
+        }
+      },
+      {
+        "title": "Clinical Pearls for Boards",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "MALT lymphoma 'molds' to the globe rather than invading it (unlike SCC).",
+          "Flow cytometry is the fastest way to confirm B-cell clonality.",
+          "Always check for H. pylori or C. psittaci association depending on local prevalence.",
+          "The most common site is the orbit (40%), followed by conjunctiva (35-40%)."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Recent research into the IOLA (International Ocular Lymphoma Study Group) database has validated the AJCC 8th edition staging. Studies are now focusing on 'Ultra-low-dose' RT (4 Gy in 2 fractions) for MALT, showing high response rates with minimal side effects in select cases. Additionally, the use of targeted BTK inhibitors (e.g., Ibrutinib) is being explored for refractory extranodal marginal zone lymphomas."
+      },
+      {
+        "title": "Prognosis & Follow-up",
+        "icon": "history",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Overall 10-year survival exceeds 90% for MALT.",
+          "Recurrence: 20-30% may recur locally or at distant sites.",
+          "Follow-up: Every 3-6 months for the first 2 years with clinical exams and MRI/CT as needed."
+        ]
+      }
+    ],
+    "generationPrompt": "MALT",
+    "chapterId": "tumours"
+  },
+  "chapterId": "tumours",
+  "kanskiMeta": [
+    {
+      "pageNum": 890,
+      "keywords": [
+        "lymphoma",
+        "ocular",
+        "intraocular",
+        "prognosis",
+        "follow"
+      ]
+    },
+    {
+      "pageNum": 854,
+      "keywords": [
+        "lymphoma",
+        "ocular",
+        "tumours",
+        "radiotherapy",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 153,
+      "keywords": [
+        "lymphoma",
+        "ocular",
+        "intraocular",
+        "prognosis",
+        "follow"
+      ]
+    },
+    {
+      "pageNum": 479,
+      "keywords": [
+        "lymphoma",
+        "ocular",
+        "intraocular",
+        "tumours",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 891,
+      "keywords": [
+        "lymphoma",
+        "ocular",
+        "intraocular",
+        "tumours",
+        "diagnostic"
+      ]
+    },
+    {
+      "pageNum": 6,
+      "keywords": [
+        "lymphoma",
+        "ocular",
+        "intraocular",
+        "malt",
+        "iol"
+      ]
+    }
+  ]
+}

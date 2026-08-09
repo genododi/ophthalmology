@@ -1,0 +1,161 @@
+{
+  "id": 1775106837288,
+  "seqId": 536,
+  "title": "Clinical Management of Abnormal Head Posture (AHP)",
+  "summary": "Abnormal head posture (AHP) is a compensatory mechanism employed by patients to optimize binocularity or visual acuity in the setting of strabismus or nystagmus. Understanding the biomechanics of AHP is essential for diagnostic stratification and surgical planning.",
+  "date": "2026-04-02T05:13:57.288Z",
+  "data": {
+    "title": "Clinical Management of Abnormal Head Posture (AHP)",
+    "summary": "Abnormal head posture (AHP) is a compensatory mechanism employed by patients to optimize binocularity or visual acuity in the setting of strabismus or nystagmus. Understanding the biomechanics of AHP is essential for diagnostic stratification and surgical planning.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='#e3f2fd'/><path d='M70 120 Q100 140 130 120' stroke='#1565c0' stroke-width='5' fill='none'/><circle cx='80' cy='80' r='10' fill='#1565c0'/><circle cx='120' cy='80' r='10' fill='#1565c0'/><line x1='100' y1='100' x2='100' y2='60' stroke='#1565c0' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Purpose",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "AHP is a patient-driven compensatory mechanism to achieve fusion, avoid diplopia, or reach a 'null zone' in nystagmus. It represents the 'path of least resistance' for the oculomotor system to maintain stable binocular vision."
+      },
+      {
+        "title": "Mechanisms of AHP",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "AHP Drivers",
+          "branches": [
+            "Mechanical (Restriction)",
+            "Paretic (Weakness)",
+            "Fusional (Binocularity)",
+            "Nystagmus (Null Zone)"
+          ]
+        }
+      },
+      {
+        "title": "AHP Classification (Positions)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Mechanism"
+          ],
+          "rows": [
+            [
+              "Face Turn",
+              "Horizontal muscle paretic/restricted"
+            ],
+            [
+              "Chin Elevation/Depression",
+              "Vertical muscle paretic/A-V patterns"
+            ],
+            [
+              "Head Tilt",
+              "Oblique muscle/Cyclovertical paretic"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Nystagmus 'Null Zone' Considerations",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Null zone: Angle of gaze where oscillation amplitude is minimal.",
+          "Patient turns head to move the target into the null gaze position.",
+          "Evaluation: Measure visual acuity in primary gaze vs. preferred head posture.",
+          "Clinical Pearl: Do not perform recession/resection to 'fix' AHP if it eliminates the only position of stable vision."
+        ]
+      },
+      {
+        "title": "RED FLAGS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset AHP in adults (rule out cranial nerve palsy/decompensated phoria).",
+          "Associated torticollis vs. ocular torticollis (check sternocleidomastoid spasm).",
+          "AHP masking severe amblyopia.",
+          "Underlying neurological lesions (e.g., posterior fossa tumor)."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Thorough history (congenital vs. acquired).",
+          "Step 2: Prism adaptation test to verify fusional compensation.",
+          "Step 3: Hess-Lancaster screen or Lees screen for paretic identification.",
+          "Step 4: Cover-uncover test in different gazes to map the binocular field.",
+          "Step 5: Document AC/A ratio and presence of A-V patterns."
+        ]
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Optical: Fresnel prisms to move image to null zone.",
+          "2. Medical: Treat underlying causes (myasthenia, thyroid eye disease).",
+          "3. Surgical (Strabismus): Recess/Resect based on paretic muscles.",
+          "4. Surgical (Nystagmus): Anderson or Kestenbaum procedure to shift null zone to primary position."
+        ]
+      },
+      {
+        "title": "The 45-45-45 Rule (Kestenbaum)",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Kestenbaum Principle",
+          "explanation": "To treat horizontal AHP: Recess the agonist (the muscle in the direction of the turn) and resect the antagonist in both eyes to shift the null zone by 45 degrees."
+        }
+      },
+      {
+        "title": "Prevalence Statistics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Infantile Strabismus",
+              "value": 60
+            },
+            {
+              "label": "Nystagmus",
+              "value": 85
+            },
+            {
+              "label": "Brown Syndrome",
+              "value": 30
+            },
+            {
+              "label": "CN IV Palsy",
+              "value": 90
+            }
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "AHP ; compensate fusional disorders in nystagmus & strabismus",
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "read": true
+}

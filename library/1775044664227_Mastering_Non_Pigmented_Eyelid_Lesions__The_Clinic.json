@@ -1,0 +1,373 @@
+{
+  "id": 1775044664227,
+  "seqId": 174,
+  "title": "Mastering Non-Pigmented Eyelid Lesions: The Clinical Atlas",
+  "summary": "A comprehensive guide for ophthalmologists on the diagnosis and management of amelanotic lid lesions, ranging from benign cysts to high-risk malignancies like Sebaceous Gland Carcinoma. Focuses on clinical differentiation, surgical margins, and life-saving diagnostic markers.",
+  "date": "2026-04-01T11:57:44.227Z",
+  "data": {
+    "title": "Mastering Non-Pigmented Eyelid Lesions: The Clinical Atlas",
+    "summary": "A comprehensive guide for ophthalmologists on the diagnosis and management of amelanotic lid lesions, ranging from benign cysts to high-risk malignancies like Sebaceous Gland Carcinoma. Focuses on clinical differentiation, surgical margins, and life-saving diagnostic markers.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M10 50 Q 50 10 90 50 Q 50 90 10 50 Z' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='12' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='55' cy='35' r='6' fill='hsl(215, 90%, 45%)' opacity='0.7'/><path d='M65 65 L 85 85' stroke='hsl(215, 90%, 45%)' stroke-width='5' stroke-linecap='round'/><circle cx='60' cy='60' r='15' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1.5'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Taxonomy of Lid Lesions",
+        "icon": "category",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Non-Pigmented Lesions",
+          "branches": [
+            "Benign Epithelial (Papillomas, Keratoses)",
+            "Benign Adnexal (Cysts: Moll, Zeis, Sebaceous)",
+            "Inflammatory (Chalazion, Sarcoid, Xanthelasma)",
+            "Pre-Malignant (Actinic Keratosis, Bowen Disease)",
+            "Malignant (BCC, SCC, Sebaceous Gland Carcinoma, Merkel Cell)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "BCC (Commonest)",
+              "value": 90
+            },
+            {
+              "label": "SCC (Rare but Aggressive)",
+              "value": 5
+            },
+            {
+              "label": "Sebaceous Cell (Masquerade)",
+              "value": 3
+            },
+            {
+              "label": "Merkel Cell (Highly Malignant)",
+              "value": 1
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The UV Connection",
+        "icon": "genetics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "Most lid malignancies arise from ultraviolet radiation (UVR) induced DNA damage (TP53 mutations). BCC often involves the Hedgehog signaling pathway (PTCH1 mutation). SCC is frequently preceded by Actinic Keratosis. Sebaceous Gland Carcinoma (SGC) is unique, often associated with Muir-Torre Syndrome (mismatch repair gene defects)."
+      },
+      {
+        "title": "Common Benign Cysts & Lesions",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Lesion",
+            "Origin",
+            "Clinical Appearance",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Cyst of Moll",
+              "Sudoriferous (Sweat)",
+              "Translucent, dome-shaped, transilluminates",
+              "Simple excision or needle puncture"
+            ],
+            [
+              "Cyst of Zeis",
+              "Sebaceous (Lash)",
+              "Opaque, creamy yellow, does not transilluminate",
+              "Excision"
+            ],
+            [
+              "Epidermoid Cyst",
+              "Epidermis",
+              "Firm, slow-growing, contains keratin",
+              "Complete excision with wall"
+            ],
+            [
+              "Milia",
+              "Pilosebaceous unit",
+              "Tiny (1-2mm) white subepidermal papules",
+              "Incision and expression"
+            ],
+            [
+              "Squamous Papilloma",
+              "Epithelium",
+              "Sessile or pedunculated, raspberry-like",
+              "Surgical excision or cautery"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Basal Cell Carcinoma (BCC) Subtypes",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Nodular: Most common; pearly borders, telangiectasia, central 'rodent' ulcer.",
+          "Cystic: Mimics a cyst but with firm, indurated edges.",
+          "Noduloulcerative: Central necrosis and crusting.",
+          "Morpheaform (Sclerosing): Waxy, indurated plaque; ill-defined margins; highly invasive.",
+          "Location: Lower lid (50-60%) > Medial canthus (25%) > Upper lid (15%)."
+        ]
+      },
+      {
+        "title": "The SGC 'Masquerade' Syndrome",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Chronic unilateral blepharitis that doesn't resolve with meds",
+          "Recurrent chalazion in the same location (MUST biopsy)",
+          "Diffuse tarsal thickening with madarosis (loss of lashes)",
+          "Pagetoid spread: Cancer cells migrating into the conjunctival epithelium",
+          "Preauricular or submandibular lymphadenopathy"
+        ]
+      },
+      {
+        "title": "Malignant Memory Aid",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "ABCDE of Lid Malignancy",
+          "explanation": "A: Asymmetry of the lid margin. B: Borders are irregular or pearly. C: Color (pearly, pink, or telangiectatic). D: Destruction (Madarosis, Meibomian loss). E: Evolution (rapid growth or non-healing ulcer)."
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Clinical Photo & Documentation with size in mm.",
+          "Step 2: Palpation of Lymph Nodes (Preauricular, Submandibular, Cervical).",
+          "Step 3: Incisional Biopsy (Punch or Shave) if diagnosis is uncertain.",
+          "Step 4: Map Biopsies (Multiple 2mm conjunctival snips) for suspected SGC.",
+          "Step 5: CT/MRI if orbital extension or perineural invasion suspected."
+        ]
+      },
+      {
+        "title": "TNM Staging (8th Ed) - Eyelid Carcinoma",
+        "icon": "format_list_numbered",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Stage",
+            "Definition (Simplified)",
+            "Clinical Implication"
+          ],
+          "rows": [
+            [
+              "T1",
+              "Tumor < 20mm in greatest dimension",
+              "Local excision usually sufficient"
+            ],
+            [
+              "T2",
+              "Tumor > 20mm OR involving tarsal plate/lid margin",
+              "Requires complex reconstruction"
+            ],
+            [
+              "T3",
+              "Involvement of full eyelid thickness OR orbital invasion",
+              "Possible exenteration needed"
+            ],
+            [
+              "T4",
+              "Invasion of cranial bones or perineural spread",
+              "Highest mortality risk"
+            ],
+            [
+              "N1",
+              "Metastasis to regional lymph nodes",
+              "Requires neck dissection/radiation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Management & Margins",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "BCC: 3-4mm clear margins (standard) or Mohs Micrographic Surgery.",
+          "SCC: 4-6mm clear margins; check for lymph node involvement.",
+          "SGC: 5-6mm wide margins with Map Biopsies of conjunctiva.",
+          "Mohs Surgery: Gold standard for medial canthal or morpheaform BCC.",
+          "Frozen Section: Essential for intraoperative margin control if Mohs is unavailable."
+        ]
+      },
+      {
+        "title": "Lid Reconstruction Pearls",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Defect Size",
+            "Technique"
+          ],
+          "rows": [
+            [
+              "< 25%",
+              "Direct closure with pentagonal excision"
+            ],
+            [
+              "25-50%",
+              "Tenzel Semicircular Rotational Flap"
+            ],
+            [
+              "> 50% (Lower)",
+              "Hughes Tarsoconjunctival Flap"
+            ],
+            [
+              "> 50% (Upper)",
+              "Cutler-Beard Flap (Bridge flap)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances: Targeted Therapy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Vismodegib (Erivedge): Hedgehog pathway inhibitor for advanced or metastatic BCC (150mg daily).",
+          "Sonidegib: Another Hedgehog inhibitor for BCC.",
+          "Cemiplimab: PD-1 inhibitor for advanced SCC.",
+          "Imiquimod 5% cream: Off-label use for superficial/small BCC in non-surgical candidates."
+        ]
+      },
+      {
+        "title": "Keratoacanthoma: The Great Mimicker",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Keratoacanthoma",
+          "branches": [
+            "Rapid growth phase (weeks)",
+            "Central keratin-filled crater",
+            "Often regresses spontaneously",
+            "Pathologically similar to SCC",
+            "Management: Complete excision recommended"
+          ]
+        }
+      },
+      {
+        "title": "Ocular Exam Checklist",
+        "icon": "checklist",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Inspect: Location, size, color, lashes (madarosis).",
+          "Palpate: Induration (suggests malignancy), mobility (fixed to bone?).",
+          "Evert: Check palpebral conjunctiva for pagetoid spread.",
+          "Slit Lamp: Check for telangiectasia and meibomian gland architecture.",
+          "Nodes: Palpate preauricular and submandibular chains."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: SCC vs BCC",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Basal Cell Carcinoma (BCC)",
+            "Squamous Cell Carcinoma (SCC)"
+          ],
+          "rows": [
+            [
+              "Growth Rate",
+              "Slow (Months to Years)",
+              "Faster (Weeks to Months)"
+            ],
+            [
+              "Metastasis",
+              "Extremely Rare",
+              "Occasional (Preauricular nodes)"
+            ],
+            [
+              "Appearance",
+              "Pearly, telangiectatic, central dip",
+              "Hyperkeratotic, crusting, fleshy"
+            ],
+            [
+              "Precursor",
+              "De novo",
+              "Actinic Keratosis / Bowen's"
+            ],
+            [
+              "Aggressiveness",
+              "Local destruction only",
+              "Infiltrative and metastatic"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Critical Red Flags",
+        "icon": "report",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Lesion that bleeds or crusts and does not heal within 4 weeks.",
+          "Loss of eyelashes (Madarosis) in a localized area of the eyelid.",
+          "Eyelid margin notch or 'scalloping' signifying deep invasion.",
+          "Rapidly enlarging lesion in an immunosuppressed patient (high risk for SCC/Merkel).",
+          "Firm, non-tender lid lump in an elderly patient mimicking a chalazion (SGC risk)."
+        ]
+      },
+      {
+        "title": "Landmark Studies & Practice Points",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "ERIVEDGE Trials: Demonstrated Vismodegib's efficacy in reducing tumor burden in locally advanced BCC where surgery was contraindicated.",
+          "Pagetoid Spread: SGC can present as diffuse thickening; map biopsies should include 4 quadrants of the bulbar and palpebral conjunctiva.",
+          "Cryotherapy: While used for actinic keratosis, it is generally avoided for malignant lid lesions due to lack of margin control.",
+          "Radiation: Effective for BCC/SCC in elderly patients but carries risk of dry eye, cataract, and lid keratinization."
+        ]
+      }
+    ],
+    "generationPrompt": "non pigmented lid lesions",
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "_newlyImported": 1775044664227,
+  "communityId": "sub_1774520908764_z4c3kahfq",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-03-26T10:28:28.764Z",
+  "read": true
+}

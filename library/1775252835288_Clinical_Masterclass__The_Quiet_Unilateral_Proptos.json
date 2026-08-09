@@ -1,0 +1,161 @@
+{
+  "id": 1775252835288,
+  "seqId": 627,
+  "title": "Clinical Masterclass: The Quiet Unilateral Proptosis",
+  "summary": "Unilateral proptosis in a quiet, non-inflamed eye is a diagnostic challenge requiring a systematic anatomical approach to differentiate orbital space-occupying lesions. This guide prioritizes clinical vigilance and precision imaging to localize pathology from the cavernous sinus to the orbital apex.",
+  "date": "2026-04-03T21:47:15.288Z",
+  "data": {
+    "title": "Clinical Masterclass: The Quiet Unilateral Proptosis",
+    "summary": "Unilateral proptosis in a quiet, non-inflamed eye is a diagnostic challenge requiring a systematic anatomical approach to differentiate orbital space-occupying lesions. This guide prioritizes clinical vigilance and precision imaging to localize pathology from the cavernous sinus to the orbital apex.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 20 70 50 T30 50' fill='hsl(215, 90%, 20%)'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Anatomical Differential Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Unilateral Proptosis (Quiet Eye)",
+          "branches": [
+            "Lacrimal Gland (Dacryoadenitis/Tumor)",
+            "Optic Nerve (Glioma/Meningioma)",
+            "Orbital Apex (Mucocele/Metastasis)",
+            "Extraocular Muscles (Thyroid Eye Disease)",
+            "Vascular (Cavernous Hemangioma)"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Urgent Investigations",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Rapid progression (suggests malignancy/metastasis)",
+          "Presence of optic nerve compressive signs (APD, dyschromatopsia)",
+          "Ophthalmoplegia (suggests infiltration or mass effect)",
+          "History of systemic neoplasm (breast, lung, prostate, melanoma)",
+          "Pulsatile proptosis (suggests carotid-cavernous fistula)"
+        ]
+      },
+      {
+        "title": "Etiological Classification Table",
+        "icon": "table_view",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Representative Lesion",
+            "Key Characteristic"
+          ],
+          "rows": [
+            [
+              "Vascular",
+              "Cavernous Hemangioma",
+              "Slow growth, encapsulated"
+            ],
+            [
+              "Lacrimal",
+              "Pleomorphic Adenoma",
+              "S-shaped eyelid deformity"
+            ],
+            [
+              "Nerve Sheath",
+              "Optic Nerve Glioma",
+              "Associated with NF-1"
+            ],
+            [
+              "Systemic/Endocrine",
+              "Thyroid Eye Disease",
+              "Usually bilateral, can be asymmetric"
+            ],
+            [
+              "Metastatic",
+              "Breast/Lung Carcinoma",
+              "Highly infiltrative"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Sequence",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Complete slit-lamp and dilated fundoscopy.",
+          "Step 2: Hertel Exophthalmometry (Baseline measurement).",
+          "Step 3: Forced Duction Testing to evaluate motility restriction.",
+          "Step 4: Imaging: MRI Orbit with/without fat suppression (Gold Standard).",
+          "Step 5: CT Orbits (Bone windows for remodeling).",
+          "Step 6: Systemic workup (Thyroid function tests, Ig-G4, biopsy)."
+        ]
+      },
+      {
+        "title": "Epidemiology & Growth Dynamics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Vascular",
+              "value": 35
+            },
+            {
+              "label": "Lacrimal",
+              "value": 20
+            },
+            {
+              "label": "Inflammatory",
+              "value": 25
+            },
+            {
+              "label": "Neoplastic",
+              "value": 15
+            },
+            {
+              "label": "Other",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "The 'Remember' Mnemonic for Differential",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "VITAMINS",
+          "explanation": "V: Vascular (Hemangioma), I: Inflammatory (TED, IgG4), T: Traumatic, A: Autoimmune, M: Metabolic, I: Infectious/Iatrogenic, N: Neoplastic, S: Systemic"
+        }
+      },
+      {
+        "title": "Clinical Pearls for the Examination",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Always auscultate the globe if the eye is quiet to rule out low-flow carotid-cavernous fistulas.",
+          "A 'quiet' eye with proptosis is a hallmark of low-grade, slow-growing tumors (e.g., cavernous hemangioma).",
+          "Fat suppression is mandatory on MRI to distinguish orbital fat from infiltrative masses.",
+          "Inferior displacement suggests a superior orbital mass (e.g., lacrimal gland tumor).",
+          "Always evaluate for eyelid retraction, which strongly points towards thyroid eye disease even in unilateral presentation."
+        ]
+      }
+    ],
+    "generationPrompt": "Unilateral proptosis in quite eye",
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit"
+}

@@ -1,0 +1,295 @@
+{
+  "id": 1775384804543,
+  "seqId": 685,
+  "title": "The Painful Horner: A Neurological Emergency",
+  "summary": "The clinical presentation of Horner Syndrome accompanied by ipsilateral head, neck, or facial pain is a medical emergency. In the absence of trauma, this must be considered an Internal Carotid Artery Dissection (ICAD) until proven otherwise, carrying a significant risk of thromboembolic stroke.",
+  "date": "2026-04-05T10:26:44.543Z",
+  "data": {
+    "title": "The Painful Horner: A Neurological Emergency",
+    "summary": "The clinical presentation of Horner Syndrome accompanied by ipsilateral head, neck, or facial pain is a medical emergency. In the absence of trauma, this must be considered an Internal Carotid Artery Dissection (ICAD) until proven otherwise, carrying a significant risk of thromboembolic stroke.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><path d='M40,50 Q40,30 60,30 Q80,30 80,50 Q80,70 60,70 Q40,70 40,50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='60' cy='50' r='5' fill='hsl(215, 90%, 45%)'/><path d='M35,45 Q55,40 75,45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M120,90 L120,20 Q120,10 130,10 L150,10' fill='none' stroke='red' stroke-width='6' stroke-opacity='0.3'/><path d='M120,60 L140,40' fill='none' stroke='red' stroke-width='4'/><path d='M10,20 L30,40 L10,60' fill='none' stroke='red' stroke-width='2' opacity='0.8'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & The Triad",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Horner Syndrome (Oculosympathetic Paresis) results from a lesion anywhere along the three-neuron sympathetic pathway. The 'Painful Horner' refers to the triad of miosis, ptosis, and anhidrosis (or just miosis/ptosis) associated with acute ipsilateral cephalic or cervical pain. This presentation localizes primarily to the post-ganglionic (third-order) neuron."
+      },
+      {
+        "title": "Pathophysiology of Painful ICAD",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Carotid Dissection",
+          "branches": [
+            "Intimal tear creates 'false lumen'",
+            "Mural hematoma expands vessel wall",
+            "Compression of periarterial sympathetics",
+            "Nociceptor activation in vessel adventitia",
+            "Thromboembolic shower (Stroke risk)"
+          ]
+        }
+      },
+      {
+        "title": "Anatomy: The 3-Neuron Pathway",
+        "icon": "genetics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1st Order (Central): Hypothalamus → Ciliospinal Center of Budge (C8-T2) via brainstem.",
+          "2nd Order (Pre-ganglionic): C8-T2 → Over lung apex → Under subclavian artery → Superior Cervical Ganglion (SCG) at C2.",
+          "3rd Order (Post-ganglionic): SCG → Carotid plexus along Internal Carotid Artery (ICA) → Long ciliary nerves to Iris Dilator.",
+          "Special Note: Sudomotor fibers for the face follow the External Carotid; therefore, post-ganglionic (ICA) lesions typically SPARE facial sweating."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Painful Horner",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Pain Quality",
+            "Associated Signs",
+            "Urgency"
+          ],
+          "rows": [
+            [
+              "ICA Dissection",
+              "Acute 'Thunderclap' or stabbing neck/ear pain",
+              "TIA, Amaurosis fugax, CN IX-XII palsies",
+              "EMERGENCY"
+            ],
+            [
+              "Cluster Headache",
+              "Excruciating periorbital/temporal",
+              "Lacrimation, rhinorrhea, restlessness",
+              "High (for pain)"
+            ],
+            [
+              "Raeder Paratrigeminal",
+              "Severe V1/V2 trigeminal distribution",
+              "Trigeminal sensory loss (Type 2)",
+              "Urgent (Workup)"
+            ],
+            [
+              "Carotid Artery Aneurysm",
+              "Variable, often dull/chronic",
+              "Pulsatile tinnitus, mass effect",
+              "High"
+            ],
+            [
+              "Herpes Zoster Ophthalmicus",
+              "Burning, prodromal pain",
+              "Vesicular rash in V1 distribution",
+              "Moderate"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The 'Ocular Triad' Exam Findings",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Miosis: Anisocoria greater in the DARK (dilation lag).",
+          "Ptosis: Mild (1-2mm) due to paralysis of Müller's muscle.",
+          "Upside-down Ptosis: Elevation of the lower lid (paralysis of inferior tarsal muscle).",
+          "Apparent Enophthalmos: Optical illusion due to narrowed palpebral fissure.",
+          "Anhidrosis: Only present if lesion is PRE-ganglionic (1st or 2nd order)."
+        ]
+      },
+      {
+        "title": "Pharmacologic Testing Protocol",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Drug",
+            "Mechanism",
+            "Result (Horner Eye)"
+          ],
+          "rows": [
+            [
+              "Apraclonidine (0.5%)",
+              "Alpha-2/Weak Alpha-1",
+              "Miosis REVERSES to mydriasis"
+            ],
+            [
+              "Cocaine (4-10%)",
+              "NE Reuptake Inhibitor",
+              "Fails to dilate (Confirms Horner)"
+            ],
+            [
+              "Hydroxyamphetamine",
+              "NE Release (Post-gang)",
+              "Fails to dilate = 3rd order lesion"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Immediate Referral Needed",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset 'worst headache of life' or neck pain.",
+          "Associated Dysphasia, Hemiparesis, or Ataxia (Stroke symptoms).",
+          "Amaurosis Fugax (Transient monocular vision loss).",
+          "Lower Cranial Nerve Palsies (Bruit, tongue deviation, dysphagia).",
+          "Acute onset Horner in the context of recent neck manipulation or minor trauma."
+        ]
+      },
+      {
+        "title": "ICAD Epidemiology & Risk Factors",
+        "icon": "monitoring",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Mean Age (40-50y)",
+              "value": 85
+            },
+            {
+              "label": "Spontaneous Cause",
+              "value": 60
+            },
+            {
+              "label": "Traumatic Cause",
+              "value": 40
+            },
+            {
+              "label": "Connective Tissue Dz",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Imaging Workflow",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Clinical Suspicion: Acute Pain + Horner.",
+          "2. Emergent Neuroimaging: CTA or MRA (Head & Neck).",
+          "3. MRI Neck with Fat Suppression: Look for 'Crescent Sign' (mural hematoma).",
+          "4. Conventional Angiography: Gold standard, but rarely needed today unless intervention planned.",
+          "5. Follow-up: Repeat imaging at 3-6 months to assess recanalization."
+        ]
+      },
+      {
+        "title": "Management & Treatment (ICAD)",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Antithrombotic Therapy: Aspirin (81-325mg) or Anticoagulation (Heparin/Warfarin).",
+          "CADISS Trial: Showed no significant difference between antiplatelets and anticoagulants for stroke prevention.",
+          "Blood Pressure Management: Avoid extreme hypertension/hypotension.",
+          "Surgical/Endovascular: Stenting or bypass reserved for refractory ischemia or expanding pseudoaneurysms."
+        ]
+      },
+      {
+        "title": "Remember: The 'Painful' Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "HORNER-PAIN",
+          "explanation": "H: Hematoma (Mural), O: Ocular Sympathetics, R: Rupture risk, N: Neck Pain, E: Emergency Workup, R: Rule out Dissection; P: Post-ganglionic, A: Anisocoria, I: ICA focus, N: Neurological deficit check."
+        }
+      },
+      {
+        "title": "Raeder Paratrigeminal Syndrome Types",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Type 1 (Benign/Migrainous)",
+            "Type 2 (Structural/Symptomatic)"
+          ],
+          "rows": [
+            [
+              "Etiology",
+              "Vasculopathic, Migrainous, or Inflammatory",
+              "Mass in Middle Cranial Fossa (Tumor, Aneurysm)"
+            ],
+            [
+              "CN Involvement",
+              "Only Sympathetics + CN V (Pain)",
+              "Sympathetics + CN V + multiple other CNs (III, IV, VI)"
+            ],
+            [
+              "Prognosis",
+              "Usually self-limiting",
+              "Depends on underlying pathology"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Anhidrosis is the key differentiator: Post-ganglionic lesions (like ICAD) do NOT have facial anhidrosis.",
+          "70% of ICAD patients present with pain; Horner is only present in ~25%.",
+          "The 'Crescent Sign' on T1-weighted fat-suppressed MRI is pathognomonic for mural hematoma.",
+          "Wait at least 30-60 mins for Apraclonidine; its effect relies on denervation supersensitivity."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Stroke Risk: Highest in the first 7 days following the dissection.",
+          "Horner Resolution: Ptosis and miosis may persist indefinitely even if the artery recanalizes.",
+          "Recurrence: Low (approx 1% per year) but higher in patients with underlying connective tissue disorders (Ehlers-Danlos, FMD)."
+        ]
+      },
+      {
+        "title": "Landmark Study: TREAT-CAD (2019)",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The TREAT-CAD trial compared Aspirin to Vitamin K Antagonists (VKA) in cervical artery dissection. It failed to prove non-inferiority of aspirin, suggesting a possible edge for anticoagulation in specific cases, though CADISS previously found them comparable. Most centers now start with Aspirin unless there is a high-grade stenosis or recurrent TIA."
+      }
+    ],
+    "generationPrompt": "painful horner",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775384804543,
+  "communityId": "sub_1775384035715_765irltxpcda98",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-04-05T10:13:55.715Z"
+}

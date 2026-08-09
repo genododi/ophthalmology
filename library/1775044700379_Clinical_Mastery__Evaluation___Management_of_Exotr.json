@@ -1,0 +1,165 @@
+{
+  "id": 1775044700379,
+  "seqId": 506,
+  "title": "Clinical Mastery: Evaluation & Management of Exotropia",
+  "summary": "Exotropia represents a common form of horizontal strabismus characterized by an outward deviation of the visual axis. This guide provides a systematic approach from diagnostic workup to surgical intervention for the ophthalmologist.",
+  "date": "2026-04-01T11:58:20.379Z",
+  "data": {
+    "title": "Clinical Mastery: Evaluation & Management of Exotropia",
+    "summary": "Exotropia represents a common form of horizontal strabismus characterized by an outward deviation of the visual axis. This guide provides a systematic approach from diagnostic workup to surgical intervention for the ophthalmologist.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 40 Q 50 20 70 40' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='3'/><path d='M30 60 Q 50 80 70 60' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='3'/><circle cx='40' cy='50' r='5' fill='hsl(215, 90%, 45%)'/><circle cx='60' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Exotropia is a binocular vision anomaly where the visual axes diverge. Prevalence is roughly 1-2% of the general population. It is frequently categorized as Intermittent Exotropia (IXT), which is the most common form in children, often progressing to constant exotropia if unmanaged."
+      },
+      {
+        "title": "Classification Subtypes",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Exotropia Classification",
+          "branches": [
+            "Basic Exotropia",
+            "Divergence Excess",
+            "Convergence Insufficiency",
+            "Secondary/Sensory Exotropia"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Duane Syndrome (Type 2)",
+              "Limited adduction, globe retraction"
+            ],
+            [
+              "CN III Palsy",
+              "Ptosis, limited adduction, vertical deviation"
+            ],
+            [
+              "Consecutive XT",
+              "History of esotropia surgery (overcorrection)"
+            ],
+            [
+              "Sensory XT",
+              "Associated with profound unilateral vision loss"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Immediate Referral",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Acute onset in adulthood (Rule out CN III palsy/Myasthenia)",
+          "Pupillary involvement",
+          "Painful ophthalmoplegia",
+          "Restrictive features on forced duction testing",
+          "Orbital signs (proptosis, chemosis)"
+        ]
+      },
+      {
+        "title": "The 'Remember' Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "COVER",
+          "explanation": "C-Cover test (unilateral), O-Observe fixation, V-Visual acuity, E-Eye movements (ductions/versions), R-Refraction (cycloplegic)"
+        }
+      },
+      {
+        "title": "Investigation Protocol",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Distance and Near Cover Testing (with best correction).",
+          "Step 2: Prism Adaptation Test to assess surgical dosage.",
+          "Step 3: Cycloplegic refraction (Essential to rule out pseudo-exotropia).",
+          "Step 4: Stereopsis assessment (e.g., Titmus/Lang/StereoFly).",
+          "Step 5: Sensory testing (Worth 4-Dot at distance and near)."
+        ]
+      },
+      {
+        "title": "Management Hierarchy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Observation: For small, asymptomatic angles (<15 prism diopters).",
+          "Optical: Minus-lens therapy to stimulate accommodative convergence.",
+          "Orthoptics: Convergence exercises for CI-type exotropia.",
+          "Surgical: Bilateral Lateral Rectus Recession (BLR) or Unilateral Resection-Recession (R&R).",
+          "Botulinum Toxin: Emerging role for small-angle overcorrections."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Always perform testing at both 6 meters and 33 centimeters.",
+          "Dissociate the eyes using a prolonged cover test (30-60 min) to reveal the full angle.",
+          "In Divergence Excess, the distance deviation is >10 prism diopters larger than near deviation.",
+          "Early surgery is preferred in patients losing stereopsis."
+        ]
+      },
+      {
+        "title": "Surgical Success Statistics",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Long-term alignment",
+              "value": 75
+            },
+            {
+              "label": "Recurrence",
+              "value": 20
+            },
+            {
+              "label": "Overcorrection",
+              "value": 5
+            }
+          ]
+        }
+      }
+    ],
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "_newlyImported": 1775044700379,
+  "communityId": "sub_1774352254516_z0qwsvbz28p5ed",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

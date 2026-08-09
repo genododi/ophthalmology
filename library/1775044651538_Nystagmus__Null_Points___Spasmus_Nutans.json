@@ -1,0 +1,288 @@
+{
+  "id": 1775044651538,
+  "seqId": 34,
+  "title": "Nystagmus, Null Points & Spasmus Nutans",
+  "summary": "A comprehensive clinical guide to the diagnosis and surgical management of pediatric nystagmus, focusing on compensatory head postures, the Kestenbaum procedure, and the critical triad of Spasmus Nutans.",
+  "date": "2026-04-01T11:57:31.538Z",
+  "data": {
+    "title": "Nystagmus, Null Points & Spasmus Nutans",
+    "summary": "A comprehensive clinical guide to the diagnosis and surgical management of pediatric nystagmus, focusing on compensatory head postures, the Kestenbaum procedure, and the critical triad of Spasmus Nutans.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/1999/svg'><circle cx='100' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M70 50 Q100 20 130 50 Q100 80 70 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 H50 M150 50 H180' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round'/><path d='M90 10 L110 10 M95 5 L105 5' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Core Definitions",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Infantile Nystagmus Syndrome (INS) is a rhythmic, involuntary oscillation of the eyes present from early childhood. The 'Null Point' is the specific angle of gaze or distance where the nystagmus intensity is minimal and visual acuity is maximal. Patients often adopt an Anomalous Head Posture (AHP) to bring this null point into the primary position."
+      },
+      {
+        "title": "Spasmus Nutans: The Clinical Triad",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Spasmus Nutans Triad",
+          "branches": [
+            "Small-amplitude, high-frequency 'shimmering' nystagmus",
+            "Head Nodding (irregular, vertical or horizontal)",
+            "Torticollis (Anomalous head tilt or turn)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Natural History",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "INS Prevalence (per 10k)",
+              "value": 24
+            },
+            {
+              "label": "SN Resolution by age 3",
+              "value": 70
+            },
+            {
+              "label": "SN Resolution by age 5",
+              "value": 90
+            },
+            {
+              "label": "Genetic Basis (INS/FRMD7)",
+              "value": 35
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "INS: Failed calibration of the ocular motor system (specifically the slow-eye-movement subsystem).",
+          "FRMD7 Mutations: Linked to X-linked idiopathic congenital nystagmus.",
+          "Sensory Defect Nystagmus: Occurs due to poor image quality (e.g., albinism, achromatopsia, Leber Congenital Amaurosis).",
+          "Spasmus Nutans: Pathophysiology remains idiopathic, but must be differentiated from optic pathway gliomas mimicking the triad."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "fact_check",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Infantile Nystagmus (INS)",
+            "Spasmus Nutans (SN)",
+            "Monocular Nystagmus of Childhood"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Birth to 6 months",
+              "4 to 12 months",
+              "Variable"
+            ],
+            [
+              "Waveform",
+              "Accelerating slow phase",
+              "Pendular, rapid, 'shimmering'",
+              "Low frequency, vertical"
+            ],
+            [
+              "Conjugacy",
+              "Always Conjugate",
+              "Often Highly Asymmetric/Dysconjugate",
+              "Monocular"
+            ],
+            [
+              "Head Nodding",
+              "Occasional (dampening)",
+              "Classic Feature",
+              "Rare"
+            ],
+            [
+              "Systemic Risk",
+              "Usually none (if idiopathic)",
+              "Optic Pathway Glioma risk",
+              "Afferent pathway disease"
+            ],
+            [
+              "Prognosis",
+              "Lifelong",
+              "Usually resolves by age 5-8",
+              "Depends on cause"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Kestenbaum Procedure (Classical)",
+        "icon": "content_cut",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Objective: Rotate the eyes in the direction of the head turn to shift the null point to primary position.",
+          "Rule for Right Head Turn (Null Point in Left Gaze):",
+          "1. Right Eye: Recess Lateral Rectus 7mm, Resect Medial Rectus 6mm",
+          "2. Left Eye: Recess Medial Rectus 5mm, Resect Lateral Rectus 8mm",
+          "The '5-6-7-8' Rule (Millimeters of surgery)."
+        ]
+      },
+      {
+        "title": "Augmented Kestenbaum (Parks Calculation)",
+        "icon": "calculate",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Muscle Action",
+            "Classical (mm)",
+            "Augmented (+40%)"
+          ],
+          "rows": [
+            [
+              "MR Recess",
+              "5.0 mm",
+              "7.0 mm"
+            ],
+            [
+              "MR Resect",
+              "6.0 mm",
+              "8.4 mm"
+            ],
+            [
+              "LR Recess",
+              "7.0 mm",
+              "9.8 mm"
+            ],
+            [
+              "LR Resect",
+              "8.0 mm",
+              "11.2 mm"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: The Danger of Spasmus Nutans",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Spasmus Nutans is a diagnosis of exclusion: Neuroimaging (MRI) is MANDATORY to rule out chiasmal/optic pathway gliomas.",
+          "Look for concurrent Optic Atrophy or Afferent Pupillary Defect (APD).",
+          "Differentiate from See-Saw Nystagmus (often associated with craniopharyngioma).",
+          "Nystagmus starting after age 2 should always be considered an emergency until imaging is clear."
+        ]
+      },
+      {
+        "title": "Surgical Principles: Anderson-Kestenbaum",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Yoke Muscle Surgery: Always operate on the yoke muscles responsible for the direction of the null point.",
+          "For Chin Up posture: Recess superior recti, resect inferior recti.",
+          "For Chin Down posture: Recess inferior recti, resect superior recti.",
+          "For Torticollis (Head Tilt): Vertical muscle offsets or Kestenbaum-style transposition."
+        ]
+      },
+      {
+        "title": "Key Mnemonics",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "TURN = ROTATE",
+          "explanation": "To correct a Head TURN, you must ROTATE the eyes toward the direction of the turn. (e.g., Right Head Turn = Rotate eyes Right = Recess RLR/LMR, Resect RMR/LLR)."
+        }
+      },
+      {
+        "title": "Diagnostic Workup Flow",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Measure Visual Acuity (Binocular, Monocular, and with AHP).",
+          "2. Identify Null Point angle using a goniometer.",
+          "3. Perform Slit Lamp exam (Iris transillumination for albinism).",
+          "4. Fundoscopy (Foveal hypoplasia, optic nerve hypoplasia).",
+          "5. Eye Movement Recordings (EMR) to identify foveation periods.",
+          "6. MRI Brain/Orbits if SN-like symptoms or neurologic signs."
+        ]
+      },
+      {
+        "title": "Non-Surgical Management",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Prisms: Base-out prisms to induce convergence (dampens nystagmus).",
+          "Prisms for AHP: Base toward the direction of the head turn.",
+          "Pharmacology: Gabapentin (2400mg/d) or Memantine (40mg/d) for adult INS.",
+          "Contact Lenses: May improve VA by dampening nystagmus via tactile feedback on the cornea."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Recent research into FRMD7 gene therapy and the use of 'Tenotomy and Reattachment' (the Hertle-Dell'Osso procedure) suggests that simply cutting and re-sewing the extraocular muscles may dampen nystagmus by disrupting the peripheral feedback loop, even without shifting the null point."
+      },
+      {
+        "title": "Clinical Pearls",
+        "icon": "stars",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "INS nystagmus *disappears* during sleep.",
+          "Paradoxical pupillary response (constriction in darkness) can be seen in CSNB or achromatopsia associated with nystagmus.",
+          "In latent nystagmus, the fast phase always beats toward the fixing eye.",
+          "Spasmus Nutans usually has a 'shimmering' frequency (>10 Hz)."
+        ]
+      },
+      {
+        "title": "Post-Operative Complications",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Under-correction: The most common outcome (requires augmentation).",
+          "Over-correction: Head turn shifts to the opposite side.",
+          "Induced Strabismus: Due to unequal muscle actions or pre-existing tropias.",
+          "Scleral perforation or Endophthalmitis (rare surgical risks)."
+        ]
+      }
+    ],
+    "generationPrompt": "head nodding - null point - kestenbaum operation - spasmus nutans",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044651538,
+  "communityId": "sub_1774872043642_12bavb2j2",
+  "communityAuthor": "kemo",
+  "communityDate": "2026-03-30T12:00:43.644Z",
+  "bookmarked": true
+}

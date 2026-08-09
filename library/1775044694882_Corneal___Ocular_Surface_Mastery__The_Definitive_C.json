@@ -1,0 +1,247 @@
+{
+  "id": 1775044694882,
+  "seqId": 453,
+  "title": "Corneal & Ocular Surface Mastery: The Definitive Clinical Compendium",
+  "summary": "An exhaustive visual guide to corneal ectasia, dystrophies, infections, and surgical management. This poster integrates hyperacute trauma protocols, advanced diagnostic staining, and keratoplasty survival strategies for the front-line ophthalmologist.",
+  "date": "2026-04-01T11:58:14.882Z",
+  "data": {
+    "title": "Corneal & Ocular Surface Mastery: The Definitive Clinical Compendium",
+    "summary": "An exhaustive visual guide to corneal ectasia, dystrophies, infections, and surgical management. This poster integrates hyperacute trauma protocols, advanced diagnostic staining, and keratoplasty survival strategies for the front-line ophthalmologist.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 Q50 20 80 50 Q50 80 20 50' fill='hsl(215, 90%, 85%)' opacity='0.5'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M30 40 L40 30 M60 30 L70 40' stroke='hsl(215, 90%, 45%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Hyperacute Chemical Injury Management",
+        "icon": "warning",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Immediate Profuse Irrigation: Use saline or Ringer’s lactate for at least 30 minutes until pH is neutral (7.0–7.2). Use Litmus paper to verify.",
+          "Step 2: Fornix Sweep: Use cotton-tipped applicator to remove retained particulate matter (especially in alkali burns like Sodium Hydroxide).",
+          "Step 3: Clinical Grading: Assess limbal ischemia (blanching). 100% involvement = Roper-Hall Grade IV (Very poor prognosis).",
+          "Step 4: Medical Inhibition: Topical steroids (first 7–10 days only to avoid melting), topical antibiotics, and cycloplegics.",
+          "Step 5: Systemic Support: Oral Vitamin C (ascorbate) and oral tetracyclines/Doxycycline to inhibit matrix metalloproteinases.",
+          "Step 6: Surgical Intervention: Acute phase Amniotic Membrane Transplantation (AMT) or chronic Limbal Stem Cell Transplantation (SLET/LSCT)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Corneal Ectatic Disease",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Clinical Profile",
+            "Pathognomonic Signs",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Keratoconus (KC)",
+              "Adolescent onset, progressive thinning/protrusion.",
+              "Fleischer ring (iron), Vogt striae (vertical lines), Munson sign, scissoring reflex.",
+              "CXL (Stabilization), Scleral lenses (Rehab), DALK/PKP (Advanced)."
+            ],
+            [
+              "Pellucid Marginal Degeneration (PMD)",
+              "Later presentation, peripheral thinning.",
+              "Crescentic inferior thinning; 'Crab-claw' topography.",
+              "Large diameter PKP or eccentric grafts."
+            ],
+            [
+              "Acute Corneal Hydrops",
+              "Sudden edema due to Descemet's rupture.",
+              "Corneal edema with extreme thinning.",
+              "Cycloplegics, hyperosmotics, IOP lowering, topical steroids."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Corneal Dystrophies & Diagnostic Stains",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Dystrophy",
+            "Deposits",
+            "Histological Stain"
+          ],
+          "rows": [
+            [
+              "Lattice",
+              "Amyloid (branching lines)",
+              "Congo Red (Apple-green birefringence)"
+            ],
+            [
+              "Granular",
+              "Hyaline (crumb-like)",
+              "Masson Trichrome (Bright Red)"
+            ],
+            [
+              "Macular",
+              "Mucopolysaccharide",
+              "Alcian Blue"
+            ],
+            [
+              "Avellino",
+              "Combined Amyloid/Hyaline",
+              "Masson Trichrome & Congo Red"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Recurrent Corneal Erosion (RCE) in Lattice Dystrophy",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Pathogenesis: Irregular epithelial adhesion over anterior stromal amyloid deposits.",
+          "Presentation: Acute, severe eye pain upon waking.",
+          "Conservative Therapy: Lubricating agents, hyperosmotic drops, and Bandage Contact Lenses (BCL).",
+          "Surgical Options: Phototherapeutic Keratectomy (PTK) to ablate superficial irregularities.",
+          "Graft Choice: Deep Anterior Lamellar Keratoplasty (DALK) preferred if endothelium is healthy; otherwise PKP."
+        ]
+      },
+      {
+        "title": "Microbial Keratitis Workup",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Infectious Keratitis",
+          "branches": [
+            "Acanthamoeba: Ring-shaped ulcer, pain out of proportion, IVCM (cysts), Biguanides/Diamidines.",
+            "Fungal: Feathery edges, satellite lesions, endothelial plaque, Sabouraud agar, Natamycin/Voriconazole.",
+            "Bacterial: Rapid progression (Pseudomonas in CL wearers), fortified antibiotics (Vancomycin/Ceftazidime).",
+            "Viral (HSV): Dendritic ulcer with terminal bulbs, Disciform edema (immune), Acyclovir/Ganciclovir."
+          ]
+        }
+      },
+      {
+        "title": "Keratoplasty: Rejection vs. Failure",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Graft Rejection (Immunological)",
+            "Graft Failure (Non-Immunological)"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Acute event (can occur anytime).",
+              "Long-term, progressive process."
+            ],
+            [
+              "Signs",
+              "Khodadoust line, AC cells, new KPs on endothelium.",
+              "Diffuse edema, stromal thickening, no inflammatory cells."
+            ],
+            [
+              "Etiology",
+              "Host immune response to donor tissue.",
+              "Endothelial exhaustion, donor failure, or disease recurrence."
+            ],
+            [
+              "Management",
+              "Pulse steroids (topical/systemic).",
+              "Re-grafting (DMEK/DSAEK or PKP)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Traumatic Globe Repair Protocols",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Corneo-Scleral Tear: Apply FIRST suture at the limbus (anatomical landmark).",
+          "Suture Materials: 10-0 Nylon for cornea; 7-0 or 8-0 Nylon for sclera.",
+          "Exploration: Mandatory to look for posterior extent of tear (may require disinserting EOMs).",
+          "IOFB Suspicion: Urgent CT Scan (1mm sections). MRI contraindicated if metallic.",
+          "Loose Sutures: Confirm via Seidel Test (fluorescein); remove to prevent infection/vascularization."
+        ]
+      },
+      {
+        "title": "Pseudophakic Bullous Keratopathy (PBK)",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Definition: Endothelial decompensation following cataract surgery.",
+          "Clinical Signs: Diffuse stromal edema, epithelial bullae, Descemet's folds.",
+          "Risk Factors: Complicated ECCE/ICCE, large superior wounds, iris loss.",
+          "Surgical Goals: Restore clarity via EK (DMEK/DSAEK) if scarring is minimal, or PKP if full-thickness scar.",
+          "IOL Strategy: Combined procedure or staged (graft first, IOL later) for refractive predictability."
+        ]
+      },
+      {
+        "title": "Dry Eye Disease (DED) Diagnostics",
+        "icon": "water_drop",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Vital Stains: Rose Bengal (damaged epithelium), Lissamine Green, Fluorescein.",
+          "Functional Tests: Tear Break-Up Time (TFBUT), Schirmer test (1 & 2), Tear meniscus height.",
+          "Systemic Link: Check for Rheumatoid Arthritis (Swan neck/Boutonniere deformities) = Secondary Sjogren's.",
+          "Management: Environment modification, artificial tears (preservative-free), Cyclosporine, Punctal plugs.",
+          "Systemic Treatment: Oral Doxycycline for Meibomian Gland Dysfunction (MGD)."
+        ]
+      },
+      {
+        "title": "Corneal Emergencies & Red Flags",
+        "icon": "report",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Perforated Corneal Ulcer: AVOID digital manometry/tonometry (risk of extrusion).",
+          "Lagophthalmos: Risk of severe exposure keratopathy; needs moisture chambers or tarsorrhaphy.",
+          "Loose Suture post-PKP: Potential nidus for endophthalmitis; manage with BCL or removal.",
+          "Iris Transillumination in Trauma: Highly suggestive of a retained Intraocular Foreign Body (IOFB).",
+          "Topical Steroids in Alkali Burns: Limit to first 7-10 days to prevent collagenase-induced melting."
+        ]
+      },
+      {
+        "title": "Special Corneal Entities",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Limbal Dermoid: A choristoma (normal tissue in abnormal site) containing hair/keratin. Associated with Goldenhar Syndrome (vertebral/cardiac anomalies). Management involves excision + LSCT if cosmetic/visual axis issues arise. \n\nICE Syndrome: Characterized by abnormal endothelium migrating over the angle and iris. Presents with 'hammered silver' appearance, corectopia, and secondary glaucoma. \n\nBand Keratopathy: Deposition of calcium salts in Bowman’s layer. Causes: JIA, chronic uveitis, Silicone Oil contact, or systemic hypercalcemia. Manage with EDTA chelation."
+      },
+      {
+        "title": "Cataract Surgery in the 'Corneal Patient'",
+        "icon": "medication",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "SOFT-SHELL",
+          "explanation": "Double-Shell/Soft-Shell Technique: Use dispersive viscoelastic to coat/protect the endothelium and cohesive viscoelastic to maintain AC space. Critical in FED, PBK, and post-PKP eyes."
+        }
+      }
+    ],
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044694882,
+  "communityId": "sub_1773975481838_zmw9jhmgk",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-20T02:58:01.838Z"
+}

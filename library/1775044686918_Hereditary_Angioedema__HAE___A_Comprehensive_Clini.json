@@ -1,0 +1,216 @@
+{
+  "id": 1775044686918,
+  "seqId": 401,
+  "title": "Hereditary Angioedema (HAE): A Comprehensive Clinical Overview",
+  "summary": "Hereditary Angioedema is a rare but potentially life-threatening genetic condition characterized by recurrent episodes of severe, non-pitting swelling. Unlike common allergies, HAE is mediated by bradykinin and does not respond to antihistamines or corticosteroids.",
+  "date": "2026-04-01T11:58:06.918Z",
+  "data": {
+    "title": "Hereditary Angioedema (HAE): A Comprehensive Clinical Overview",
+    "summary": "Hereditary Angioedema is a rare but potentially life-threatening genetic condition characterized by recurrent episodes of severe, non-pitting swelling. Unlike common allergies, HAE is mediated by bradykinin and does not respond to antihistamines or corticosteroids.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 40 Q50 10 70 40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M30 60 Q50 90 70 60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='35' cy='45' r='3' fill='hsl(215, 90%, 45%)'/><circle cx='65' cy='45' r='3' fill='hsl(215, 90%, 45%)'/><path d='M25 50 C15 50 15 70 25 70' fill='none' stroke='red' stroke-width='2' opacity='0.6'/><path d='M75 50 C85 50 85 70 75 70' fill='none' stroke='red' stroke-width='2' opacity='0.6'/></svg>",
+    "sections": [
+      {
+        "title": "Core Pathophysiology",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "HAE Mechanism",
+          "branches": [
+            "C1-Inhibitor (C1-INH) Deficiency or Dysfunction",
+            "Unregulated Activation of the Kallikrein-Kinin System",
+            "Excessive Production of Bradykinin",
+            "Increased Vascular Permeability",
+            "Localized Fluid Extravasation (Edema)"
+          ]
+        }
+      },
+      {
+        "title": "Classification of HAE Types",
+        "icon": "genetics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Pathology",
+            "C1-INH Levels",
+            "C1-INH Function"
+          ],
+          "rows": [
+            [
+              "Type I (85%)",
+              "Quantitative deficiency of C1-INH",
+              "Low",
+              "Low"
+            ],
+            [
+              "Type II (15%)",
+              "Qualitative defect (dysfunctional protein)",
+              "Normal or Elevated",
+              "Low"
+            ],
+            [
+              "Type III / nlc1-HAE",
+              "Normal C1-INH; often Factor XII mutations",
+              "Normal",
+              "Normal"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation & Symptoms",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Recurrent episodes of non-pitting, non-pruritic skin swelling.",
+          "Commonly affects hands, feet, face, and genitalia.",
+          "Severe abdominal pain due to gastrointestinal wall edema (often mimicking surgical abdomen).",
+          "Periorbital edema and facial swelling (Ophthalmic relevance).",
+          "Laryngeal edema (High risk of asphyxiation).",
+          "Absence of urticaria (hives) or itching.",
+          "Erythema marginatum (non-itchy, serpiginous rash) may act as a prodrome."
+        ]
+      },
+      {
+        "title": "CRITICAL: Life-Threatening Warnings",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Laryngeal Edema: Can lead to fatal airway obstruction within minutes to hours.",
+          "Ineffective Treatments: Epinephrine, Antihistamines, and Steroids generally DO NOT work for HAE.",
+          "ACE Inhibitors: Strictly contraindicated as they prevent bradykinin breakdown.",
+          "Estrogen-containing medications: Known to exacerbate or trigger attacks."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Matrix",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Mediator",
+            "Pruritus/Urticaria",
+            "Family History"
+          ],
+          "rows": [
+            [
+              "Allergic Angioedema",
+              "Histamine",
+              "Present (Itchy/Hives)",
+              "Usually Negative"
+            ],
+            [
+              "Hereditary Angioedema",
+              "Bradykinin",
+              "Absent",
+              "Strongly Positive (Autosomal Dominant)"
+            ],
+            [
+              "ACEI-Induced Angioedema",
+              "Bradykinin",
+              "Absent",
+              "Negative"
+            ],
+            [
+              "Acquired Angioedema (AAE)",
+              "Bradykinin",
+              "Absent",
+              "Negative (Associated with B-cell malignancies)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Screen with Serum C4 levels (almost always low during and between attacks).",
+          "Step 2: Measure C1-INH Quantitative Antigen levels.",
+          "Step 3: Measure C1-INH Functional levels if antigen is normal.",
+          "Step 4: C1q levels (to differentiate from Acquired Angioedema; C1q is low in AAE but normal in HAE).",
+          "Step 5: Genetic testing for SERPING1 or Factor XII mutations."
+        ]
+      },
+      {
+        "title": "Common Attack Triggers",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Physical trauma or minor injury.",
+          "Dental procedures and oral surgery.",
+          "Emotional stress or fatigue.",
+          "Infections (Viral or Bacterial).",
+          "Menstruation or Pregnancy.",
+          "Certain medications (ACE Inhibitors, Oral Contraceptives)."
+        ]
+      },
+      {
+        "title": "Management: Acute Attacks",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "C1-Inhibitor Concentrates (Berinert, Ruconest, Cinryze).",
+          "Icatibant (Firazyr): Bradykinin B2 receptor antagonist.",
+          "Ecallantide (Kalbitor): Plasma kallikrein inhibitor.",
+          "Fresh Frozen Plasma (FFP): Used only if specific HAE therapies are unavailable."
+        ]
+      },
+      {
+        "title": "Management: Long-term Prophylaxis",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Lanadelumab (Takhzyro): Monoclonal antibody against plasma kallikrein.",
+          "Berotralstat (Orladeyo): Oral kallikrein inhibitor.",
+          "Routine C1-INH Replacement Therapy.",
+          "Attenuated Androgens (Danazol, Stanozolol): Increase C1-INH production (limited by side effects)."
+        ]
+      },
+      {
+        "title": "Genetic Context",
+        "icon": "fingerprint",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Hereditary Angioedema is primarily an autosomal dominant condition caused by mutations in the SERPING1 gene, which encodes the C1-esterase inhibitor protein. However, approximately 25% of cases result from de novo mutations with no prior family history. Understanding the genetic basis is crucial for family screening and early intervention, particularly since symptoms often manifest in late childhood or adolescence and may worsen after puberty."
+      },
+      {
+        "title": "Memory Aid: The 4 'No's of HAE",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "H.A.E.",
+          "explanation": "NO Hives (Urticaria), NO Itching (Pruritus), NO response to Antihistamines, NO response to Epinephrine."
+        }
+      }
+    ],
+    "chapterId": "evidence"
+  },
+  "chapterId": "evidence",
+  "_newlyImported": 1775044686918,
+  "communityId": "sub_1773775007770_9hf66zpqujdiga",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

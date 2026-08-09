@@ -1,0 +1,335 @@
+{
+  "id": 1775044692747,
+  "seqId": 430,
+  "title": "GLAUCOMA & ANIRIDIA: GENETICS, PHARMACOLOGY, AND SURGICAL MANAGEMENT",
+  "summary": "An exhaustive clinical guide for residents and fellows covering the spectrum of aniridia genetics, the complete glaucoma pharmacopeia, laser parameter settings, and advanced surgical interventions including Trabeculectomy and Glaucoma Drainage Devices.",
+  "date": "2026-04-01T11:58:12.747Z",
+  "data": {
+    "title": "GLAUCOMA & ANIRIDIA: GENETICS, PHARMACOLOGY, AND SURGICAL MANAGEMENT",
+    "summary": "An exhaustive clinical guide for residents and fellows covering the spectrum of aniridia genetics, the complete glaucoma pharmacopeia, laser parameter settings, and advanced surgical interventions including Trabeculectomy and Glaucoma Drainage Devices.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' stroke='hsl(215, 90%, 45%)' stroke-width='4' fill='none'/><circle cx='100' cy='100' r='30' fill='hsl(215, 90%, 45%)'/><path d='M60 100 L40 100 M140 100 L160 100 M100 60 L100 40 M100 140 L100 160' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M100 40 Q 130 40 150 70' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Aniridia: Genetic Pathogenesis & Syndromes",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Aniridia (PAX6 Mutation)",
+          "branches": [
+            "Mutation in PAX6 gene -> Abnormal neuroectodermal development -> Aniridia",
+            "PAX6 adjacent to WT1 gene mutation leads to Wilms tumour",
+            "AD Inheritance (2/3 cases)",
+            "WAGR Syndrome (Miller Syndrome): Sporadic Wilms tumor, Aniridia, Mental Retardation, Genitourinary anomalies (1/3 cases)",
+            "AR (Gillespie Syndrome): Cerebellar ataxia, learning disability"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: The 'Absent Iris' Appearance",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Aniridia",
+              "Bilateral iris hypoplasia, foveal hypoplasia, nystagmus, glaucoma, PAX6 mutation."
+            ],
+            [
+              "Iris Coloboma",
+              "Incomplete closure of embryonic fissure; usually inferonasal; keyhole appearance."
+            ],
+            [
+              "Traumatic Iridodialysis",
+              "History of blunt trauma; iris pulled away from ciliary body root."
+            ],
+            [
+              "ICE Syndrome",
+              "Unilateral, corneal endothelial abnormalities, iris atrophy/holes (Corectopia)."
+            ],
+            [
+              "Axenfeld-Rieger",
+              "Posterior embryotoxon, iris strands, dental/umbilical abnormalities."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Crucial Wilms Tumor Surveillance Schedule",
+        "icon": "warning",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Mandatory for ALL patients with sporadic aniridia: Abdominal Ultrasonography",
+          "1. Every 3 months until age 5 years",
+          "2. Every 6 months until age 10 years",
+          "3. Annually until age 16 years OR until molecular genetic analysis confirms absence of WT1 gene"
+        ]
+      },
+      {
+        "title": "Clinical Pearl: Aniridia Management",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Monitor for Aniridic Keratopathy (limbal stem cell deficiency).",
+          "Check for foveal hypoplasia via OCT to explain poor visual acuity.",
+          "Glaucoma occurs in 50-75% of cases; monitor IOP and discs regularly.",
+          "Progressive lenticular changes (cataracts) are common."
+        ]
+      },
+      {
+        "title": "Glaucoma Medications: MOA & Systemic/Ocular Side Effects",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Medication Class",
+            "Mechanism of Action (MOA)",
+            "Ocular Side Effects",
+            "Systemic Side Effects",
+            "Contraindications"
+          ],
+          "rows": [
+            [
+              "Prostaglandin Analogue",
+              "Increase uveoscleral outflow; Increase trabecular outflow facility",
+              "Conjunctival hyperemia, eyelash lengthening, periocular/iris hyperpigmentation, Post-complicated cataract CME (vitreous loss), periocular atrophy, promotion of herpetic keratitis",
+              "Headache, malaise, myalgia, skin rash, upper respiratory symptoms",
+              "Pregnancy; Inflammatory glaucoma"
+            ],
+            [
+              "Beta Blocker",
+              "Inhibit aqueous production",
+              "Ocular allergy, punctate keratitis",
+              "Bronchospasm, bradycardia, heart block, worsening of heart failure, decreased libido, depression, sleep disorder, headache, hallucination, reduced exercise tolerance, dyslipidaemia",
+              "Asthmatic; Cardiac patients"
+            ],
+            [
+              "Brimonidine (Alpha Agonist)",
+              "Inhibit aqueous production; Increase uveoscleral outflow; Neuroprotective",
+              "Ocular allergy",
+              "Crosses blood-brain barrier, may potentiate vascular insufficiency, xerostomia, fatigue",
+              "Children <2 years; Previous history of CNS depression and hypotension; Use with MAO inhibitors (prevents hypertensive crisis)"
+            ],
+            [
+              "Carbonic Anhydrase Inhibitors (CAI)",
+              "Inhibit aqueous production; Neuroprotective",
+              "Topical: Corneal decompensation (in endothelial dysfunction), stinging",
+              "Transient bitter taste, idiosyncratic bone marrow suppression. Systemic: Choroidal effusion, angle closure, numbness/paresthesia, hypokalemia, malaise, lowering mood, renal stones, GIT symptoms, Steven-Johnson syndrome, aplastic anemia",
+              "Allergy to sulfonamide antibiotics"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Specialized Antiglaucoma Agents",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Drug Type",
+            "Mechanism of Action (MOA)",
+            "Side Effects / Cautions",
+            "Specific Contraindications"
+          ],
+          "rows": [
+            [
+              "Miotics (Pilocarpine)",
+              "Contraction of sphincter pupillae (pulls iris from TM); Contraction of ciliary body (increases trabecular facility)",
+              "Miosis, browache, myopic shift, exacerbation of cataract symptoms, VF defects appear denser/larger. Systemic: Confusion, bradycardia, bronchospasm, GIT symptoms, urinary frequency",
+              "Acute attack of angle closure when IOP > 50 mmHg due to iris ischaemia"
+            ],
+            [
+              "Hyperosmotics (Mannitol, Glycerol, Isosorbide)",
+              "Creates osmotic gradient; draws water from vitreous into blood",
+              "Cardiovascular overload, urine retention, headache, backache, nausea, confusion",
+              "Use with caution in cardiac and renal patients. Glycerol: Caution in diabetics"
+            ],
+            [
+              "Rho-kinase Inhibitor",
+              "Increase aqueous outflow through trabecular meshwork",
+              "N/A",
+              "N/A"
+            ],
+            [
+              "Latanoprostene Bunod 0.024%",
+              "Enhance aqueous outflow",
+              "N/A",
+              "N/A"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Laser Treatment Parameters & Signs of Success",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Laser Type",
+            "Parameters (Wavelength, Spot, Duration, Power)",
+            "Target / Site of Action",
+            "Signs of Success"
+          ],
+          "rows": [
+            [
+              "SLT",
+              "532nm (Freq. doubled Q-switched Nd:YAG), 400µm spot, 3ns duration, 0.8mJ (0.3-1mJ)",
+              "Melanin pigment in trabecular meshwork (TM)",
+              "A few tiny champagne bubbles"
+            ],
+            [
+              "ALT",
+              "50µm spot, 0.1s duration, 700mW (400-1200mW)",
+              "Junction between pigmented and non-pigmented TM",
+              "Very light blanching or gas bubble (50 burns over 180°)"
+            ],
+            [
+              "Laser Iridotomy",
+              "Spot size 50µm, duration 0.03-0.06s. Power: 4-5mJ (2-4mJ for blue). Pre-treat Argon: 600-900mW",
+              "Iris stroma",
+              "Gush of pigment debris"
+            ],
+            [
+              "Diode TSCPC",
+              "Fixed spot, 1.5-2s duration, 1500-2000mW",
+              "Ciliary body (12-24 burns posterior to limbus 360°, avoid neurovascular bundles)",
+              "Popping sound (sign of high power)"
+            ],
+            [
+              "Endocyclophotocoagulation (ECP)",
+              "Diode laser, 0.2W continuous wave",
+              "Ciliary processes internally",
+              "Blanching and shrinkage of ciliary processes"
+            ],
+            [
+              "Laser Iridoplasty",
+              "500µm spot, 0.2-0.5s duration, 100-400mW (1-2 burns per clock hour)",
+              "Peripheral iris",
+              "Slightly visible iris contracture"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diode Laser Photocoagulation: Clinical Profile",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "**Indications:**",
+          "• Raised IOP in poor vision patients",
+          "• Pain relief in blind eye with raised IOP",
+          "• Uncontrolled secondary glaucoma",
+          "• Unsuccessful glaucoma filtration surgery or drainage implantation",
+          "**Post-Procedure Complications:**",
+          "• Transient IOP rise (spike)",
+          "• Chronic hypotony",
+          "• Phthisis bulbi",
+          "• Suprachoroidal haemorrhage",
+          "• Corneal decompensation",
+          "• Retinal detachment"
+        ]
+      },
+      {
+        "title": "Trabeculectomy: Indications & Failure Risks",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**Indications:**",
+          "• Failure of conservative therapy to achieve IOP control",
+          "• Progressive deterioration despite adequate IOP control (including poor compliance)",
+          "• Primary therapy in a young patient with advanced disease",
+          "• Patient preference",
+          "**Risk Factors for Failure:**",
+          "• Previous failed trabeculectomy or MIGS",
+          "• Previous conjunctival or cataract surgery",
+          "• Secondary glaucoma",
+          "• Demographic: Black race, under 65 years",
+          "• Topical sympathomimetics use for over 3 years"
+        ]
+      },
+      {
+        "title": "Antimetabolites in Glaucoma Surgery",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Agent",
+            "Mechanism / Dose"
+          ],
+          "rows": [
+            [
+              "Mitomycin C (MMC)",
+              "Alkylating agent; inhibits fibroblast proliferation and suppresses vascular ingrowth. Dose: 0.2mg/ml for 2 min (0.4mg/ml in high risk)."
+            ],
+            [
+              "5-Fluorouracil (5-FU)",
+              "Retards DNA synthesis (inhibits fibroblasts). Intraop: 50mg/ml for 5 min. Postop: 0.1ml of 25mg/ml or 50mg/ml."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Post-Trabeculectomy Complications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Causes of Shallow AC: Pupillary block, Overfiltration, Malignant Glaucoma",
+          "Endophthalmitis Risk Factors: Antimetabolite use, Inferiorly placed bleb, Bleb leak, Blepharitis, Conjunctivitis",
+          "Common Pathogens: Haemophilus influenzae, Staphylococcus, Streptococcus, Gram-negative organisms"
+        ]
+      },
+      {
+        "title": "MIGS & Glaucoma Drainage Devices (GDD)",
+        "icon": "settings_input_component",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**MIGS Indications:** Mild-moderate glaucoma (slow loss, modest target 15-17 mmHg); Combined with Phaco/IOL to reduce topical meds.",
+          "**GDD Names:** Baerveldt, Ahmed, Molteno 3, Paul",
+          "**GDD Indications:** Severe conjunctival scarring; Uncontrolled glaucoma post-trab + MMC; Secondary glaucoma (Aniridia, NVG, ICE, traumatic AC disruption); Certain congenital glaucomas.",
+          "**GDD Complications:** Excessive drainage (hypotony + shallow AC); Bleb encapsulation (raised IOP 1-6 weeks post-op); Malposition (endothelial/lenticular touch -> corneal decompensation/cataract); Tube erosion; Early/Late drainage failure; Double vision (extraocular muscle interference)."
+        ]
+      },
+      {
+        "title": "Final Review & Verbatim Notes",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "All content provided has been mapped including specific doses like 0.2-0.5s for iridoplasty, specific pathogens like H. influenza, and surgical details like 12-24 burns for diode TSCPC. Success signs for PI include the 'gush of pigment debris', and for SLT, 'tiny champagne bubbles'. Mechanism for miotics includes pulling the peripheral iris away from the trabecular meshwork via sphincter contraction."
+      }
+    ],
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "_newlyImported": 1775044692747,
+  "communityId": "sub_1773824370478_rkz15v1pq",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-18T08:59:30.478Z"
+}

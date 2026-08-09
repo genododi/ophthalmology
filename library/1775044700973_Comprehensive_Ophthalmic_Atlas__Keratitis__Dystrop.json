@@ -1,0 +1,141 @@
+{
+  "id": 1775044700973,
+  "seqId": 512,
+  "title": "Comprehensive Ophthalmic Atlas: Keratitis, Dystrophies & Ectasias",
+  "summary": "An exhaustive clinical reference guide for ophthalmology residents covering inflammatory corneal ulcers, dystrophies, and ectatic disorders. This poster synthesizes diagnostic criteria, management protocols, and investigative workups for complex anterior segment pathology.",
+  "date": "2026-04-01T11:58:20.973Z",
+  "data": {
+    "title": "Comprehensive Ophthalmic Atlas: Keratitis, Dystrophies & Ectasias",
+    "summary": "An exhaustive clinical reference guide for ophthalmology residents covering inflammatory corneal ulcers, dystrophies, and ectatic disorders. This poster synthesizes diagnostic criteria, management protocols, and investigative workups for complex anterior segment pathology.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M60 100 Q100 60 140 100 T180 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='20' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Peripheral Ulcerative Keratitis (PUK) Diagnostics",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": "Description: Slit lamp anterior segment coloured photo showing peripheral thinning and ulceration extending from 1 to 5 o'clock with limbal injection, with scleral thinning, I can see scleral hue otherwise rest of cornea clear. There is no kps. AC looks formed and hence no perforation, however I should assess the depth using focal slit beam. Patient is phakic, upper and lower lid show MGD. All of this picture consistent with peripheral ulcerative keratitis."
+      },
+      {
+        "title": "PUK Differential Diagnosis (Mindmap)",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "PUK Causes",
+          "branches": [
+            "Systemic: RA, SLE, Wegener’s, PAN, Relapsing Polychondritis, Sarcoidosis, Leukemia",
+            "Infective: Bacterial, Viral, Acanthamoeba, Fungi",
+            "Non-Infective: Mooren’s, Terrien’s, Marginal keratitis, Pellucid, Rosacea, Exposure, Neurotrophic, Trauma"
+          ]
+        }
+      },
+      {
+        "title": "PUK Management Strategy",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Collaboration with rheumatologist for systemic immunosuppression",
+          "2. Systemic steroids (pulsed IV for acute phase)",
+          "3. Preservative-free topical lubricants",
+          "4. Prophylactic topical antibiotics (if epithelial defect)",
+          "5. Oral tetracycline (Doxycycline 100mg) for anti-collagenase effect",
+          "6. Avoid topical steroids (except possibly in Relapsing Polychondritis)",
+          "7. Surgical: Conjunctival excision or tectonic keratoplasty"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Feature"
+          ],
+          "rows": [
+            [
+              "Band Keratopathy",
+              "Calcium deposits, limbal sparing"
+            ],
+            [
+              "Granular Dystrophy",
+              "Breadcrumb-like stromal deposits"
+            ],
+            [
+              "Macular Dystrophy",
+              "GAG deposits, stains with colloidal iron"
+            ],
+            [
+              "Keratoconus",
+              "Cone protrusion, Fleischer ring, Vogt striae"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags in PUK & Ectasia",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Seidel sign positive: Indicates perforation",
+          "C-ANCA positive: Suggests Wegener’s granulomatosis (requires cyclophosphamide)",
+          "Graft rejection signs in post-PKP cases",
+          "Acute hydrops: Requires cycloplegics, aqueous suppressants, and NaCL 5% ointment"
+        ]
+      },
+      {
+        "title": "Keratoconus Management (Dresden Protocol)",
+        "icon": "school",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Topical anaesthesia application.",
+          "2. Central 9 mm corneal epithelium removal.",
+          "3. 0.1% riboflavin administration every 1–5 min for 30 min.",
+          "4. UVA light exposure (3 mW/cm2, 365 nm) for 30 min (Total energy: 5.4 J/cm2)."
+        ]
+      },
+      {
+        "title": "Clinical Pearls & Mnemonics",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "RABINOWITZ-MCDONNELL",
+          "explanation": "Diagnostic indices for Keratoconus: Central K > 47.2D, I-S value > 1.2, Sim-K > 1.5D, SRAX > 21°."
+        }
+      },
+      {
+        "title": "Pentacam Interpretation (Advanced Keratoconus)",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "K-Max front > 47.2D (Severe: >58D)",
+          "Thinnest location < 470 microns (Severe: <433 microns)",
+          "Elevation maps: Abnormal tongue shape, >15-20 micron deviation",
+          "ART-Max: Significantly low (<400 microns)",
+          "CTSP: Red line shows steep downward slope before 6mm zone"
+        ]
+      }
+    ],
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044700973,
+  "communityId": "sub_1774352254516_73hzealduwh18s",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

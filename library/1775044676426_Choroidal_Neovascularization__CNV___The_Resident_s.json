@@ -1,0 +1,335 @@
+{
+  "id": 1775044676426,
+  "seqId": 297,
+  "title": "Choroidal Neovascularization (CNV): The Resident's Masterclass",
+  "summary": "Choroidal Neovascularization (CNV) involves the proliferation of abnormal blood vessels from the choriocapillaris through Bruch's membrane. This masterclass covers the pathophysiology, multimodal imaging, and the evolving landscape of anti-VEGF therapies.",
+  "date": "2026-04-01T11:57:56.426Z",
+  "data": {
+    "title": "Choroidal Neovascularization (CNV): The Resident's Masterclass",
+    "summary": "Choroidal Neovascularization (CNV) involves the proliferation of abnormal blood vessels from the choriocapillaris through Bruch's membrane. This masterclass covers the pathophysiology, multimodal imaging, and the evolving landscape of anti-VEGF therapies.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60,130 Q100,80 140,130' stroke='red' stroke-width='3' fill='none'/><path d='M65,125 Q100,90 135,125' stroke='red' stroke-width='1' fill='none' stroke-dasharray='4'/><rect x='40' y='130' width='120' height='10' fill='hsl(30, 80%, 60%)'/><path d='M80,130 L85,110 L95,125 L105,100 L115,125 L125,115 L130,130' fill='none' stroke='red' stroke-width='2'/><circle cx='100' cy='115' r='5' fill='rgba(255, 0, 0, 0.3)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "CNV is the growth of new, fragile blood vessels from the choriocapillaris through defects in Bruch’s membrane into the sub-RPE or sub-retinal space. Pathogenesis is driven by an imbalance between pro-angiogenic factors (VEGF, bFGF) and anti-angiogenic factors (PEDF, Angiostatin). Chronic inflammation, oxidative stress, and hypoxia (HIF-1α) are key triggers in conditions like AMD."
+      },
+      {
+        "title": "Anatomical Classification (The Types)",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "CNV Types",
+          "branches": [
+            "Type 1: Sub-RPE (Occult on FFA, most common in AMD)",
+            "Type 2: Sub-retinal (Classic on FFA, above RPE)",
+            "Type 3: RAP (Retinal Angiomatous Proliferation - originates from retina)",
+            "Type 4: Mixed (Components of both Type 1 and 2)",
+            "Polypoidal Choroidal Vasculopathy (PCV): Variant with aneurysmal dilations"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Exudative AMD",
+              "value": 90
+            },
+            {
+              "label": "Pathologic Myopia",
+              "value": 10
+            },
+            {
+              "label": "POHS",
+              "value": 5
+            },
+            {
+              "label": "Angioid Streaks",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "The 'CHAMPS' Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "CHAMPS",
+          "explanation": "Causes of CNV: C: Choroidal Rupture, H: Histoplasmosis (POHS), A: Angioid Streaks, M: Myopia (Pathologic), P: Post-inflammatory/PIC, S: Senile (AMD)."
+        }
+      },
+      {
+        "title": "Clinical Features & Symptoms",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Metamorphopsia (Amsler Grid distortion)",
+          "Sudden or gradual central scotoma",
+          "Micropsia (due to photoreceptor spreading)",
+          "Decreased contrast sensitivity",
+          "Subretinal fluid or hemorrhage on fundoscopy",
+          "Sub-RPE 'Gray-Green' membrane appearance"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "list",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature",
+            "Imaging Finding"
+          ],
+          "rows": [
+            [
+              "PCV",
+              "Orange-red subretinal nodules",
+              "Polyps on ICG; Notch on OCT"
+            ],
+            [
+              "CSC",
+              "Younger males, stress-related",
+              "Pachychoroid, 'smoke-stack' leakage"
+            ],
+            [
+              "Best Disease",
+              "Family history, egg-yolk lesion",
+              "Abnormal EOG (Arden ratio < 1.5)"
+            ],
+            [
+              "Adult Foveomacular Dystrophy",
+              "Bilateral yellow subfoveal deposits",
+              "Hyper-reflective material above RPE"
+            ],
+            [
+              "Pattern Dystrophy",
+              "Older patients, butterfly pattern",
+              "Hypo/hyper-autofluorescence"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "FFA Findings: Classic vs. Occult",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Classic (Type 2)",
+            "Occult (Type 1)"
+          ],
+          "rows": [
+            [
+              "Early Phase",
+              "Lacy, well-defined hyperfluorescence",
+              "Stippled or ill-defined leakage"
+            ],
+            [
+              "Late Phase",
+              "Intense leakage masking borders",
+              "Persistent late pooling/leakage"
+            ],
+            [
+              "Location",
+              "Sub-retinal",
+              "Sub-RPE"
+            ],
+            [
+              "Prognosis",
+              "Worse if untreated",
+              "Slower progression"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "OCT Biomarkers of Activity",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Intraretinal Fluid (IRF) - Cystoid spaces",
+          "Subretinal Fluid (SRF) - Hyporeflective space below retina",
+          "Sub-RPE Fluid - Pigment Epithelial Detachment (PED)",
+          "SHRM - Subretinal Hyper-reflective Material",
+          "Foveal Tubulations - Sign of chronic degeneration"
+        ]
+      },
+      {
+        "title": "Anti-VEGF Armamentarium",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Drug",
+            "Target",
+            "Standard Dose",
+            "Key Trial"
+          ],
+          "rows": [
+            [
+              "Ranibizumab (Lucentis)",
+              "All VEGF-A isoforms",
+              "0.5 mg",
+              "ANCHOR / MARINA"
+            ],
+            [
+              "Aflibercept (Eylea)",
+              "VEGF-A, B, and PlGF",
+              "2.0 mg / 8.0 mg",
+              "VIEW 1 & 2 / PULSAR"
+            ],
+            [
+              "Bevacizumab (Avastin)",
+              "All VEGF-A isoforms (Off-label)",
+              "1.25 mg",
+              "CATT Trial"
+            ],
+            [
+              "Brolucizumab (Beovu)",
+              "Single-chain antibody fragment",
+              "6.0 mg",
+              "HAWK / HARRIER"
+            ],
+            [
+              "Faricimab (Vabysmo)",
+              "VEGF-A and Ang-2",
+              "6.0 mg",
+              "TENAYA / LUCERNE"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Protocols",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Loading Phase: 3 monthly injections",
+          "2. Assessment: OCT/VA stability",
+          "3. Treat-and-Extend (T&E): Extend interval by 1-2 weeks if dry",
+          "4. Pro Re Nata (PRN): Inject only when fluid recurs",
+          "5. Fixed Interval: Injection every 4-8 weeks regardless of fluid"
+        ]
+      },
+      {
+        "title": "Red Flags & Emergency Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Massive Submacular Hemorrhage",
+          "RPE Rip (Tear) - sudden vision drop during treatment",
+          "Signs of Endophthalmitis (Pain, Hypopyon)",
+          "Retinal Vasculitis (esp. with Brolucizumab)",
+          "Acute Intraocular Pressure Spike post-injection"
+        ]
+      },
+      {
+        "title": "Landmark Clinical Trials",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "MARINA/ANCHOR: Established Ranibizumab superiority over PDT/Sham.",
+          "CATT: Bevacizumab is non-inferior to Ranibizumab.",
+          "VIEW 1/2: Aflibercept q8w equal to Ranibizumab q4w.",
+          "TENAYA/LUCERNE: Faricimab durability up to 16 weeks.",
+          "FLUID Study: Tolerate some SRF vs zero-tolerance (T&E)."
+        ]
+      },
+      {
+        "title": "Surgical & Alternative Options",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Photodynamic Therapy (PDT) - Vertoporfin for PCV or refractory CNV",
+          "Submacular Hemorrhage Displacement - tPA + Gas (C3F8/SF6)",
+          "Macular Translocation (Historical)",
+          "Susvimo (Port Delivery System) - Continuous Ranibizumab release"
+        ]
+      },
+      {
+        "title": "Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always check for a 'double-layer sign' on OCT, which may indicate Type 1 CNV or PCV.",
+          "Type 2 CNV is more common in inflammatory conditions like PIC or myopia.",
+          "Myopic CNV requires fewer injections (often 1-3) compared to AMD.",
+          "Persistent Sub-Retinal Fluid (SRF) may sometimes be tolerated if the macula is stable, but IRF must always be treated.",
+          "The presence of 'SHRM' is a high-risk factor for poor visual outcome and fibrosis."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "trending_down",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Disciform Scar formation (End-stage)",
+          "Geographic Atrophy (can develop during Anti-VEGF therapy)",
+          "Epiretinal Membrane (ERM) formation",
+          "RPE Tear (Highest risk in large PEDs)",
+          "Vitreous Hemorrhage"
+        ]
+      },
+      {
+        "title": "Diagnostic Workflow",
+        "icon": "settings_suggest",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. BCVA and Amsler Grid",
+          "2. Dilated Fundus Exam",
+          "3. Structural OCT (look for IRF/SRF/PED)",
+          "4. OCT-Angiography (Non-invasive vessel visualization)",
+          "5. FFA/ICG (If diagnosis is uncertain or suspect PCV)"
+        ]
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1775044676426,
+  "communityId": "sub_1774352254516_q9r57v550aawhp",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z",
+  "read": true
+}

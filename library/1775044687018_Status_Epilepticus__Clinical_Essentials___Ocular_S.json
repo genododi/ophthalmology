@@ -1,0 +1,318 @@
+{
+  "id": 1775044687018,
+  "seqId": 402,
+  "title": "Status Epilepticus: Clinical Essentials & Ocular Signatures",
+  "summary": "Status Epilepticus (SE) is a life-threatening neurological emergency characterized by prolonged or rapidly recurring seizures without recovery. For the ophthalmologist, recognizing ictal eye movements and managing neuro-critical care pathways is paramount to preventing irreversible neuronal damage.",
+  "date": "2026-04-01T11:58:07.018Z",
+  "data": {
+    "title": "Status Epilepticus: Clinical Essentials & Ocular Signatures",
+    "summary": "Status Epilepticus (SE) is a life-threatening neurological emergency characterized by prolonged or rapidly recurring seizures without recovery. For the ophthalmologist, recognizing ictal eye movements and managing neuro-critical care pathways is paramount to preventing irreversible neuronal damage.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='90' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M60 100 Q100 40 140 100 Q100 160 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)'/><path d='M40 60 L60 80 M140 60 L160 80 M40 140 L60 120 M140 140 L160 120' stroke='red' stroke-width='3' stroke-linecap='round'/><path d='M100 30 L105 50 L95 50 Z' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Temporal Thresholds",
+        "icon": "timer",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Status Epilepticus (SE) is defined as a seizure with 5 minutes or more of continuous clinical and/or electrographic seizure activity, or recurrent seizure activity without recovery between seizures. While the traditional definition was 30 minutes, the 't1' operational threshold (5 mins) is when treatment must start to prevent the 't2' point (30 mins), after which permanent neuronal injury or system failure occurs."
+      },
+      {
+        "title": "Epidemiology & Impact",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Incidence (per 100k/yr)",
+              "value": 41
+            },
+            {
+              "label": "Short-term Mortality",
+              "value": 20
+            },
+            {
+              "label": "Refractory Case Rate",
+              "value": 30
+            },
+            {
+              "label": "Pediatric Recurrence",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The 'ICED' Framework",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "SE Causes",
+          "branches": [
+            "Acute Insults (Stroke, TBI, Hypoxia, CNS Infection)",
+            "Chronic Conditions (Epilepsy, Brain Tumor, Neurodegeneration)",
+            "Systemic Derangements (Hyponatremia, Hypoglycemia, Renal Failure)",
+            "Toxic/Withdrawal (AED Non-compliance, Alcohol, Cocaine, Benzo withdrawal)"
+          ]
+        }
+      },
+      {
+        "title": "Semiological Classification",
+        "icon": "account_tree",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Classification",
+            "Clinical Features",
+            "EEG Findings"
+          ],
+          "rows": [
+            [
+              "Convulsive (CSE)",
+              "Rhythmic limb jerking, mental status impairment, tonic-clonic activity",
+              "High-amplitude spikes, polyspikes, wave complexes"
+            ],
+            [
+              "Non-Convulsive (NCSE)",
+              "Comatose or 'wandering confused' state, subtle twitching",
+              "Continuous rhythmic discharges, often focal or generalized"
+            ],
+            [
+              "Epilepsia Partialis Continua",
+              "Recurrent focal motor seizures (e.g., finger/face) with preserved consciousness",
+              "Focal cortical spikes/sharp waves"
+            ],
+            [
+              "Myoclonic SE",
+              "Brief, shock-like jerks; common in post-anoxic brain injury",
+              "Polyspike-wave discharges"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ophthalmic Manifestations in SE",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Versive Gaze Deviation: Eyes look AWAY from the cortical seizure focus (contraversive) during ictus.",
+          "Nystagmoid Eye Movements: Repetitive, rhythmic, slow/fast phase movements, often horizontal.",
+          "Hippus: Paradoxical pupillary cycling (dilation/constriction) independent of light.",
+          "Mydriasis: Sympathetic surge leading to dilated, sluggishly reactive pupils.",
+          "Optic Disc Edema: Rarely seen in prolonged SE due to increased ICP or venous congestion.",
+          "Blindsidedness: Post-ictal cortical blindness (transient)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: The Mimickers",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Psychogenic Non-Epileptic Seizures",
+              "Closed eyes, pelvic thrusting, out-of-phase limb movements"
+            ],
+            [
+              "Syncope",
+              "Rapid recovery, preceded by prodrome (tunnel vision, pallor)"
+            ],
+            [
+              "Migraine Aura",
+              "Slower progression (minutes, not seconds), 'shimmering' scotoma"
+            ],
+            [
+              "Decerebrate Posturing",
+              "Response to pain, not rhythmic; suggests brainstem herniation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "clinical_notes",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Point-of-Care Glucose (Rule out hypoglycemia immediately).",
+          "Step 2: Continuous EEG (cEEG) - Gold standard for diagnosis and monitoring of NCSE.",
+          "Step 3: Laboratory Panel (CBC, CMP, Tox Screen, AED levels, ABG/Lactate).",
+          "Step 4: Neuroimaging (CT Head non-contrast first; MRI Brain with DWI later to assess for cytotoxic edema).",
+          "Step 5: Lumbar Puncture (If CNS infection suspected, after stabilizing and ruling out mass effect)."
+        ]
+      },
+      {
+        "title": "Phase 1: Emergent Initial Therapy (0-20 min)",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Drug",
+            "Dosage (Adult)",
+            "Route",
+            "Note"
+          ],
+          "rows": [
+            [
+              "Lorazepam (Ativan)",
+              "4 mg; repeat once in 5-10 min",
+              "IV",
+              "Preferred IV Benzodiazepine"
+            ],
+            [
+              "Midazolam (Versed)",
+              "10 mg once (>40kg)",
+              "IM",
+              "Preferred if no IV access established"
+            ],
+            [
+              "Diazepam (Valium)",
+              "5-10 mg; repeat once",
+              "IV/Rectal",
+              "High lipid solubility; rapid redistribution"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Phase 2: Urgent Control Therapy (20-40 min)",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Drug",
+            "Loading Dose",
+            "Max Dose",
+            "Mechanism"
+          ],
+          "rows": [
+            [
+              "Fosphenytoin",
+              "20 mg PE/kg",
+              "1500 mg PE",
+              "Sodium channel blocker (Prodrug)"
+            ],
+            [
+              "Valproic Acid",
+              "40 mg/kg",
+              "3000 mg",
+              "Increases GABA, blocks Na+ channels"
+            ],
+            [
+              "Levetiracetam",
+              "60 mg/kg",
+              "4500 mg",
+              "SV2A vesicle protein binding"
+            ],
+            [
+              "Phenobarbital",
+              "20 mg/kg",
+              "None fixed",
+              "GABA-A receptor potentiator"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Phase 3: Refractory SE (40-60+ min)",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Definition: Failure of initial Benzodiazepine + one Second-line AED.",
+          "Intubation Required: Proceed to general anesthesia for burst-suppression.",
+          "Midazolam Drip: 0.2 mg/kg bolus, then 0.05-2.0 mg/kg/hr infusion.",
+          "Propofol: 1-2 mg/kg bolus, then 20-200 mcg/kg/min (Watch for PRIS).",
+          "Ketamine: 0.5-3 mg/kg bolus, then 0.3-5 mg/kg/hr (NMDA antagonism)."
+        ]
+      },
+      {
+        "title": "Critical Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Propofol Infusion Syndrome (PRIS): Metabolic acidosis, rhabdomyolysis, hyperkalemia.",
+          "Valproate-Induced Hyperammonemic Encephalopathy.",
+          "Phenytoin-induced cardiac arrhythmias or hypotension (Purple Glove Syndrome).",
+          "NCSE in the elderly: Presents as subtle 'altered mental status'—often missed."
+        ]
+      },
+      {
+        "title": "Pathophysiology: GABA Exhaustion",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "As seizures persist, GABA-A receptors are internalized (endocytosis), reducing the inhibitory response to Benzodiazepines. Simultaneously, NMDA and AMPA (excitatory) receptors are upregulated and trafficked to the synaptic membrane. This 'pharmacoresistance' explains why delayed treatment of SE is significantly less effective."
+      },
+      {
+        "title": "Memory Aid: The 5 'S's of SE Management",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STAB-S",
+          "explanation": "S: Stabilize (ABCDEs). T: Termination (Benzos). A: Anti-seizure meds (IV Load). B: Brain imaging/EEG. S: Search for etiology."
+        }
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "monitored_heart",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Neuronal Death: Excitotoxicity leading to hippocampal sclerosis.",
+          "Systemic: Lactic acidosis, aspiration pneumonia, neurogenic pulmonary edema.",
+          "Rhabdomyolysis: Leading to acute tubular necrosis and renal failure.",
+          "Prognosis: Poor in elderly, post-anoxic etiology, and long durations (>1 hour)."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "If the patient is 'shaking' but the eyes are tightly closed, suspect psychogenic seizures.",
+          "Never wait for an EEG to start treatment in convulsive SE—time is brain.",
+          "Always check a finger-stick glucose; hypoglycemia is the most treatable cause of SE.",
+          "In refractory SE, the goal is often 'burst suppression' on EEG for 24-48 hours.",
+          "Fosphenytoin is preferred over Phenytoin because it can be infused faster and has less risk of tissue necrosis."
+        ]
+      }
+    ],
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "_newlyImported": 1775044687018,
+  "communityId": "sub_1773775007770_6p9nkum7yztoll",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": false
+}

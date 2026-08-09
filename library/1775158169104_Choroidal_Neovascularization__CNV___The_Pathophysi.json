@@ -1,0 +1,166 @@
+{
+  "id": 1775158169104,
+  "seqId": 588,
+  "title": "Choroidal Neovascularization (CNV): The Pathophysiological Masterclass",
+  "summary": "CNV represents the ingrowth of new, immature blood vessels from the choriocapillaris through Bruch's membrane into the sub-retinal or sub-RPE space. This clinical entity is a vision-threatening endpoint of various pathologies, primarily wet Age-Related Macular Degeneration.",
+  "date": "2026-04-02T19:29:29.104Z",
+  "data": {
+    "title": "Choroidal Neovascularization (CNV): The Pathophysiological Masterclass",
+    "summary": "CNV represents the ingrowth of new, immature blood vessels from the choriocapillaris through Bruch's membrane into the sub-retinal or sub-RPE space. This clinical entity is a vision-threatening endpoint of various pathologies, primarily wet Age-Related Macular Degeneration.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q 50 20 70 50 T 50 80' fill='none' stroke='red' stroke-width='3'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "CNV is the proliferation of abnormal vessels derived from the choroid. Pathogenesis is driven primarily by Vascular Endothelial Growth Factor (VEGF-A) upregulation. The sequence involves: 1. RPE/Bruch's membrane compromise. 2. Hypoxia-induced VEGF overexpression. 3. Angiogenesis via endothelial cell migration and proliferation. 4. Exudation of proteinaceous fluid and hemorrhage leading to photoreceptor damage and disciform scarring."
+      },
+      {
+        "title": "CNV Classification by Localization",
+        "icon": "map",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "CNV Types",
+          "branches": [
+            "Type 1 (Sub-RPE)",
+            "Type 2 (Sub-Retinal)",
+            "Type 3 (Retinal Angiomatous Proliferation/RAP)",
+            "Polypoidal Choroidal Vasculopathy (PCV)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "AMD (Wet)",
+              "value": 90
+            },
+            {
+              "label": "Pathologic Myopia",
+              "value": 30
+            },
+            {
+              "label": "Punctate Inner Choroidopathy",
+              "value": 15
+            },
+            {
+              "label": "Ocular Histoplasmosis",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis (The 'D' List)",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Central Serous Chorioretinopathy (CSCR)",
+              "Neurosensory detachment without neovascular network"
+            ],
+            [
+              "Macular Telangiectasia Type 2",
+              "Inverted 'C' zone of atrophy, temporal to fovea"
+            ],
+            [
+              "Retinal Vein Occlusion",
+              "Associated intraretinal hemorrhage/cotton wool spots"
+            ],
+            [
+              "Choroidal Hemangioma",
+              "Orange-red subretinal mass, 'lighthouse' effect on FFA"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Immediate Referral",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Metamorphopsia (Amsler Grid distortion)",
+          "Sudden onset scotoma",
+          "Subretinal hemorrhage",
+          "Sub-RPE fluid causing elevation of the macula",
+          "Rapid drop in VA (Snellen < 20/200)"
+        ]
+      },
+      {
+        "title": "Diagnostic Protocol",
+        "icon": "search",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: BCVA and Dilated Fundoscopy",
+          "Step 2: SD-OCT (Gold standard for fluid/anatomy)",
+          "Step 3: OCT-Angiography (Vascular flow mapping)",
+          "Step 4: Fluorescein Angiography (Leakage dynamics)",
+          "Step 5: ICG Angiography (Required for PCV/Choroidal lesions)"
+        ]
+      },
+      {
+        "title": "Treatment Algorithm",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Primary: Anti-VEGF (Ranibizumab, Aflibercept, Faricimab)",
+          "Dosing: Monthly for 3 months, then 'Treat and Extend'",
+          "Laser: PDT (Visudyne) - reserved for polypoidal/non-responsive cases",
+          "Surgical: Submacular surgery (rare, mostly for massive hemorrhage)"
+        ]
+      },
+      {
+        "title": "Remember the Anti-VEGFs",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "ARFB",
+          "explanation": "Aflibercept (Eylea), Ranibizumab (Lucentis), Faricimab (Vabysmo), Bevacizumab (Avastin - off-label but effective)"
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "OCT-A is now the primary screening tool for non-invasive CNV detection.",
+          "Always check the fellow eye; AMD is inherently a bilateral disease.",
+          "Faricimab offers dual pathway inhibition (VEGF and Ang-2), potentially extending injection intervals.",
+          "Type 3 CNV (RAP) responds poorly to anti-VEGF compared to classic Type 2 membranes."
+        ]
+      }
+    ],
+    "generationPrompt": "CNV",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "read": true
+}

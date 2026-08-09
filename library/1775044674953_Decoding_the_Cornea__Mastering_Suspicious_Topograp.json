@@ -1,0 +1,301 @@
+{
+  "id": 1775044674953,
+  "seqId": 283,
+  "title": "Decoding the Cornea: Mastering Suspicious Topography Indices",
+  "summary": "A comprehensive clinical guide to identifying early keratoconus and corneal ectasia. This poster integrates Placido-disk indices, elevation-based tomography, and biomechanical parameters for refractive surgery screening.",
+  "date": "2026-04-01T11:57:54.953Z",
+  "data": {
+    "title": "Decoding the Cornea: Mastering Suspicious Topography Indices",
+    "summary": "A comprehensive clinical guide to identifying early keratoconus and corneal ectasia. This poster integrates Placido-disk indices, elevation-based tomography, and biomechanical parameters for refractive surgery screening.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4 2'/><circle cx='100' cy='100' r='60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M70 100 Q100 60 130 100 Q100 140 70 100' fill='url(#grad)' opacity='0.8'/><defs><radialGradient id='grad'><stop offset='0%' stop-color='red'/><stop offset='50%' stop-color='yellow'/><stop offset='100%' stop-color='green'/></radialGradient></defs><path d='M100 40 V160 M40 100 H160' stroke='rgba(0,0,0,0.1)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Corneal topography/tomography indices are quantitative values derived from the mathematical analysis of corneal shape. Suspicious indices represent the 'subclinical' or 'fruste' phase of corneal ectasia, where the cornea appears normal on slit-lamp examination but demonstrates biomechanical instability or morphological irregularities. Identifying these is the 'Holy Grail' of pre-operative refractive screening to prevent post-LASIK ectasia."
+      },
+      {
+        "title": "Epidemiology of Keratoconus & Ectasia",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence (per 100k)",
+              "value": 54
+            },
+            {
+              "label": "Progression Risk in Teens",
+              "value": 88
+            },
+            {
+              "label": "Family History Link",
+              "value": 14
+            },
+            {
+              "label": "Atopy Association",
+              "value": 35
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Ectasia Pathogenesis",
+          "branches": [
+            "Biomechanical Instability (Collagen Slippage)",
+            "Genetic Susceptibility (VSX1, SOD1 genes)",
+            "Environmental (Chronic Eye Rubbing)",
+            "Enzymatic (Increased MMPs, decreased TIMPs)"
+          ]
+        }
+      },
+      {
+        "title": "The Rabinowitz-McDonnell Criteria",
+        "icon": "rule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Index",
+            "Normal Range",
+            "Suspicious (Subclinical KC)",
+            "Keratoconus (Clinical)"
+          ],
+          "rows": [
+            [
+              "Central Keratometry (K)",
+              "< 47.0 D",
+              "47.2 - 48.7 D",
+              "> 48.7 D"
+            ],
+            [
+              "I-S Ratio (Inf-Sup Dioptric Diff)",
+              "< 1.2 D",
+              "1.4 - 1.9 D",
+              "> 1.9 D"
+            ],
+            [
+              "SRAX (Skewed Radial Axis)",
+              "< 15°",
+              "15° - 21°",
+              "> 21°"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Placido-Based Global Indices",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "SRI (Surface Regularity Index): High values (>1.0) suggest irregular astigmatism.",
+          "SAI (Surface Asymmetry Index): Measures centrally weighted asymmetry (Normal <0.5).",
+          "KISA% Index: Combines K, I-S, Astigmatism, and SRAX. >100% is diagnostic; 60-100% is suspect.",
+          "CIM (Corneal Irregularity Measure): Derived from WaveLight; indicates wavefront irregularity."
+        ]
+      },
+      {
+        "title": "Red Flags: Topographic Warning Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Localized steepening (Inferior or Central)",
+          "Abnormal Skewing of the steepest radial axes",
+          "Vertical Asymmetry (I-S ratio > 1.4D)",
+          "Disparity between manifest refraction and topography axes",
+          "Maximum K > 48.0 D (relative)",
+          "Pellucid-like 'Crab Claw' pattern"
+        ]
+      },
+      {
+        "title": "Elevation-Based Tomography (Scheimpflug)",
+        "icon": "layers",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Posterior Elevation: Most sensitive early marker. Use BFS (Best Fit Sphere).",
+          "Pentacam Thresholds: >15μm (Suspicious), >20μm (Abnormal).",
+          "Enhanced BFS: Subtracts the 3.5mm central zone to highlight ectatic areas.",
+          "Elevation Difference: Comparing BFS vs. BFS-enhanced; difference >5μm is suspect."
+        ]
+      },
+      {
+        "title": "Belin-Ambrósio Enhanced Ectasia (BAD-D)",
+        "icon": "calculate",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Significance"
+          ],
+          "rows": [
+            [
+              "Df (Front Elevation)",
+              "Change in anterior surface"
+            ],
+            [
+              "Db (Back Elevation)",
+              "Change in posterior surface"
+            ],
+            [
+              "Dp (Pachymetry)",
+              "Pachymetric distribution"
+            ],
+            [
+              "Dt (Thinnest point)",
+              "Minimum corneal thickness"
+            ],
+            [
+              "Da (Pachy slope)",
+              "Rate of thickness change"
+            ],
+            [
+              "Final D",
+              "Yellow (Suspicious) > 1.6 SD, Red (Abnormal) > 2.6 SD"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pachymetric Progression Indices",
+        "icon": "bar_chart",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Locate Thinnest Point (TP) — Normal TP is ~530-550μm.",
+          "Step 2: Calculate TP Displacement — Distance from center. >1.0mm is suspicious.",
+          "Step 3: Analyze PPI (Pachymetric Progression Index) — Normal slope is gradual.",
+          "Step 4: Assess ART (Ambrósio Relational Thickness) — TP / PPI. Suspicious if < 339μm."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Pseudokeratoconus",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Contact Lens Warpage",
+              "Regresses after lens cessation; No posterior steepening."
+            ],
+            [
+              "Dry Eye / Ocular Surface",
+              "Irregular Placido mires; Improves with lubrication."
+            ],
+            [
+              "Post-Surgical",
+              "History of RK or PRK; Flattened center."
+            ],
+            [
+              "Pellucid Marginal Degeneration",
+              "Inferior thinning 1-2mm from limbus; 'Kissing birds' pattern."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Memory Aid: The 5-P Screening Rule",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-A-C-H-Y",
+          "explanation": "P: Posterior Elevation (>15μm), A: Asymmetry (I-S > 1.4), C: Central K (>47.2), H: Height of BAD-D (>1.6), Y: Young Age (<25 years is higher risk)."
+        }
+      },
+      {
+        "title": "Biomechanical Indices (Corvis ST)",
+        "icon": "vibration",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "CBI (Corvis Biomechanical Index): Uses dynamic Scheimpflug to assess stiffness.",
+          "TBI (Tomographic Biomechanical Index): Combines Pentacam + Corvis. Most sensitive (AUC 0.99).",
+          "SPA1 (Stiffness Parameter at First Applanation): Lower in early ectasia."
+        ]
+      },
+      {
+        "title": "Landmark Study: CLEK Study",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "The Collaborative Longitudinal Evaluation of Keratoconus (CLEK) study demonstrated that steepening of >1.19D in one year is a sign of rapid progression. It also noted that scarring is common in eyes with K > 52D or in those with poor fitting contact lenses."
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Identify Suspicious Indices in Refractive Candidate.",
+          "Step 2: Rule out CL warpage (repeat topography in 2-3 weeks).",
+          "Step 3: If still suspicious, monitor for 6 months (pachymetry/Kmax change).",
+          "Step 4: If progressive, perform CXL (Corneal Cross-Linking).",
+          "Step 5: Visual rehabilitation via Scleral lenses, INTACS, or Topo-guided PRK (carefully)."
+        ]
+      },
+      {
+        "title": "Recent Advances: Epithelial Mapping",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "The 'Donut' Sign: Thickened epithelium surrounding a thin center (seen in manifest KC).",
+          "Epithelial Masking: Epithelium thins over a steep 'cone' to smooth the surface.",
+          "Early Sign: Focal thinning of the epithelium over the point of maximum elevation is a high-yield 'suspect' sign."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Fellow",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Never rely on a single index; look for 'concordance' between elevation and pachy.",
+          "A posterior elevation 'hot spot' that doesn't coincide with thinnest pachy is often an artifact.",
+          "In PMD, the 'crab-claw' pattern is usually accompanied by a very thin peripheral cornea.",
+          "Check the quality factor (QS) on the Pentacam; low quality can mimic suspicious indices."
+        ]
+      }
+    ],
+    "chapterId": "refractive"
+  },
+  "chapterId": "refractive",
+  "_newlyImported": 1775044674953,
+  "communityId": "sub_1774275302339_xzwie02o2",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-23T14:15:02.339Z"
+}

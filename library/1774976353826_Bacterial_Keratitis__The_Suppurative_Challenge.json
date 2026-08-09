@@ -1,0 +1,289 @@
+{
+  "id": 1774976353826,
+  "seqId": 12,
+  "title": "Bacterial Keratitis: The Suppurative Challenge",
+  "summary": "A comprehensive clinical guide to the diagnosis, grading, and management of bacterial corneal ulcers, ranging from common contact lens-associated pathogens to sight-threatening surgical emergencies.",
+  "date": "2026-03-31T16:59:13.826Z",
+  "data": {
+    "title": "Bacterial Keratitis: The Suppurative Challenge",
+    "summary": "A comprehensive clinical guide to the diagnosis, grading, and management of bacterial corneal ulcers, ranging from common contact lens-associated pathogens to sight-threatening surgical emergencies.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='20' fill='hsl(215, 90%, 85%)' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><path d='M40 45 Q50 35 60 45 Q55 55 45 55 Z' fill='white' stroke='hsl(0, 70%, 50%)' stroke-width='0.5'/><path d='M35 35 L25 25 M65 35 L75 25 M35 65 L25 75 M65 65 L75 75' stroke='hsl(0, 80%, 60%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Bacterial keratitis is a sight-threatening suppurative inflammation of the corneal stroma caused by bacterial invasion. It is characterized by the presence of a corneal epithelial defect with underlying stromal infiltration, often accompanied by significant anterior segment inflammation and pain. True emergencies require immediate culturing and intensive fortified antibiotic therapy."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Contact Lens Wear",
+              "value": 65
+            },
+            {
+              "label": "Ocular Trauma",
+              "value": 20
+            },
+            {
+              "label": "Ocular Surface Disease",
+              "value": 10
+            },
+            {
+              "label": "Prior Ocular Surgery",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Common Bacterial Pathogens",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Bacterial Species",
+          "branches": [
+            "Gram (+) Cocci: S. aureus, S. epidermidis, S. pneumoniae",
+            "Gram (-) Rods: Pseudomonas aeruginosa (CL wearers), Klebsiella, Proteus",
+            "Gram (-) Cocci: Neisseria gonorrhoeae (Can penetrate intact epithelium)",
+            "Gram (+) Rods: Corynebacterium diphtheriae, Mycobacterium spp."
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "genetics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Epithelial Breakdown: Disruption of the protective barrier due to trauma or hypoxia.",
+          "2. Adhesion: Bacteria utilize fimbriae or pili to bind to damaged cells and collagen.",
+          "3. Invasion: Secretion of enzymes (proteases, elastases) to digest the stroma.",
+          "4. Host Response: Influx of PMNs and cytokine release leads to stromal necrosis and edema."
+        ]
+      },
+      {
+        "title": "Clinical Grading (Jones Criteria)",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Mild",
+            "Moderate",
+            "Severe"
+          ],
+          "rows": [
+            [
+              "Infiltrate Size",
+              "<2 mm",
+              "2-6 mm",
+              ">6 mm"
+            ],
+            [
+              "Depth",
+              "Superficial 1/3",
+              "Middle 1/3",
+              "Posterior 1/3"
+            ],
+            [
+              "Discharge",
+              "Scant/Watery",
+              "Mucopurulent",
+              "Copious Purulent"
+            ],
+            [
+              "Hypopyon",
+              "Absent",
+              "Small (<1mm)",
+              "Large (>2mm)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Specific Organism 'Clues'",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Pseudomonas: Rapid progression, greenish mucopurulent discharge, soupy melt.",
+          "S. pneumoniae: Serpiginous ulcer, often with significant hypopyon.",
+          "S. aureus: Round, well-demarcated white-grey infiltrate, relatively dry.",
+          "Moraxella: Oval ulcer, typically in the inferior cornea, seen in debilitated patients."
+        ]
+      },
+      {
+        "title": "Microbiological Investigation Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Topical Anesthesia (Proparacaine preferred over Tetracaine).",
+          "2. Scrape leading edge and base of the ulcer using a Kimura spatula or 25G needle.",
+          "3. Direct Inoculation onto Blood, Chocolate, and Sabouraud Agar.",
+          "4. Slide Preparation: Gram stain and Giemsa stain for immediate microscopy.",
+          "5. Culture Enrichment: Place sample in Thioglycolate broth."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Corneal Infiltrates",
+          "branches": [
+            "Fungal Keratitis: Feathery borders, satellite lesions",
+            "Acanthamoeba: Ring infiltrate, radial keratoneuritis, extreme pain",
+            "Viral (HSV): Geographic ulcer, decreased corneal sensation",
+            "Sterile Infiltrates: Peripheral, clear space from limbus, minimal pain",
+            "Marginal Keratitis: Associated with blepharitis, hypersensitivity to Staph"
+          ]
+        }
+      },
+      {
+        "title": "Standard Medical Management",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Category",
+            "Medication/Dose",
+            "Indication"
+          ],
+          "rows": [
+            [
+              "Fluoroquinolones",
+              "Moxifloxacin (0.5%) or Gatifloxacin (0.5%) q1h",
+              "Monotherapy for mild/moderate ulcers"
+            ],
+            [
+              "Fortified Aminoglycoside",
+              "Tobramycin (14mg/mL) q1h",
+              "Covers Gram (-) including Pseudomonas"
+            ],
+            [
+              "Fortified Cephalosporin/Glycopeptide",
+              "Cefazolin (50mg/mL) or Vancomycin (25mg/mL) q1h",
+              "Covers Gram (+) including MRSA"
+            ],
+            [
+              "Cycloplegic",
+              "Atropine 1% or Cyclopentolate 1% TID",
+              "Reduces ciliary spasm and prevents synechiae"
+            ],
+            [
+              "Corticosteroids",
+              "Prednisolone Acetate 1% (after 48-72h coverage)",
+              "Reduces scarring (See SCUT trial)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Landmark Study: The SCUT Trial",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Trial: Steroids for Corneal Ulcers Trial (SCUT).",
+          "Finding 1: No overall difference in BCVA at 3 months with adjunctive steroids.",
+          "Finding 2: Significant benefit in VA for baseline severe ulcers (worst vision).",
+          "Finding 3: Nocardia ulcers worsened with steroids (contraindicated).",
+          "Conclusion: Steroids are safe after 48h of effective antibiotics, except in Nocardia."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Immediate Concern",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Descemetocele (Imminent Perforation)",
+          "Scleral extension of the infiltrate",
+          "Worsening pain despite treatment",
+          "Limbal involvement (potential for stem cell loss)",
+          "Rapid stromal melting within 24 hours"
+        ]
+      },
+      {
+        "title": "Mnemonic: PEDAL for Assessment",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PEDAL",
+          "explanation": "P: Pain (Severe), E: Epithelial defect (Size/Shape), D: Discharge (Purulent), A: Anterior chamber reaction (Hypopyon), L: Location (Central vs. Peripheral)."
+        }
+      },
+      {
+        "title": "Surgical Interventions",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Cyanoacrylate Tissue Glue: For small perforations (<2mm) or thinning.",
+          "2. Conjunctival Flap (Gundersen): For chronic non-healing ulcers.",
+          "3. Amniotic Membrane Transplant: Promotes epithelialization.",
+          "4. Therapeutic Keratoplasty: PKP or LKP for uncontrolled infection or perforation."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Corneal Scarring/Leukoma: Results in irregular astigmatism and vision loss.",
+          "Endophthalmitis: Rare unless perforation occurs.",
+          "Secondary Glaucoma: Due to inflammatory debris in the trabecular meshwork.",
+          "Phthisis Bulbi: In severe, uncontrolled endophthalmitis cases."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Never use a 'Steroid-Antibiotic' combo (e.g., Tobradex) for an undiagnosed ulcer.",
+          "Document the size of the epithelial defect AND the infiltrate separately.",
+          "Fungal keratitis should be suspected if the ulcer doesn't respond to broad-spectrum antibiotics within 48-72h.",
+          "A 'culture-negative' ulcer may be caused by fastidious organisms or prior antibiotic use.",
+          "In contact lens wearers, always culture the lens case and solution if available."
+        ]
+      }
+    ],
+    "generationPrompt": "Bacterial corneal ulcer",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "read": true,
+  "bookmarked": true
+}

@@ -1,0 +1,141 @@
+{
+  "id": 1775153422255,
+  "seqId": 573,
+  "title": "Vitreous Hemorrhage (VH): Clinical Management & Pathophysiology",
+  "summary": "Vitreous hemorrhage is a sight-threatening condition characterized by the extravasation of blood into the vitreous cavity. Rapid diagnosis and identification of the underlying source are critical to prevent permanent vision loss and manage potential retinal complications.",
+  "date": "2026-04-02T18:10:22.255Z",
+  "data": {
+    "title": "Vitreous Hemorrhage (VH): Clinical Management & Pathophysiology",
+    "summary": "Vitreous hemorrhage is a sight-threatening condition characterized by the extravasation of blood into the vitreous cavity. Rapid diagnosis and identification of the underlying source are critical to prevent permanent vision loss and manage potential retinal complications.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q 50 30 70 50 T 50 70' fill='hsl(0, 100%, 60%)' opacity='0.7'/><circle cx='50' cy='50' r='5' fill='black'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Definition: Extravasation of blood into the vitreous gel or retro-hyaloid space.",
+          "Incidence: Approximately 7 per 100,000 person-years.",
+          "Demographics: Higher prevalence in diabetics (>70%) and patients with PVD.",
+          "Key Risk Factors: Proliferative Diabetic Retinopathy (PDR), Retinal Tears/Detachments, Ocular Trauma, Posterior Vitreous Detachment (PVD)."
+        ]
+      },
+      {
+        "title": "Etiology: The 'DR T' Mnemonic",
+        "icon": "remember",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "DR T",
+          "explanation": "D: Diabetes (PDR), R: Retinal tears/breaks/detachment, T: Trauma (or Terson syndrome/Tumors)."
+        }
+      },
+      {
+        "title": "Classification of Underlying Pathology",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "VH Etiology",
+          "branches": [
+            "Neovascularization",
+            "Retinal Breaks",
+            "Vascular Occlusion",
+            "Trauma",
+            "Systemic/Hematologic"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Vitreous Amyloidosis",
+              "White/cotton-like deposits"
+            ],
+            [
+              "Asteroid Hyalosis",
+              "Calcium-phosphate globules; usually asymptomatic"
+            ],
+            [
+              "Endophthalmitis",
+              "Pain, fibrin, hypopyon"
+            ],
+            [
+              "Terson Syndrome",
+              "VH associated with subarachnoid hemorrhage"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Slit-lamp biomicroscopy to assess location (retro-hyaloid vs. vitreal).",
+          "Step 2: B-scan Ultrasonography (The gold standard when fundus is obscured to rule out RD).",
+          "Step 3: Indirect Ophthalmoscopy with scleral depression (if hemorrhage is mild).",
+          "Step 4: Fluorescein Angiography (FFA) once cleared to identify neovascular sources.",
+          "Step 5: Systemic workup if idiopathic (CBC, HbA1c, Sickle cell screen, clotting profile)."
+        ]
+      },
+      {
+        "title": "Red Flags: When to Operate Urgently",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "VH associated with high-velocity penetrating trauma (Scleral rupture risk).",
+          "B-scan evidence of rhegmatogenous retinal detachment (RRD).",
+          "Ghost cell glaucoma (increased IOP due to degenerated RBCs).",
+          "Proliferative Diabetic Retinopathy with active fibrovascular proliferation."
+        ]
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Observation: Elevate head of bed; serial exams if retina is attached.",
+          "Intravitreal Anti-VEGF: Consider for active PDR/NV to induce regression before surgery.",
+          "Pars Plana Vitrectomy (PPV): Indicated for non-clearing VH (>2-3 months), Terson syndrome, or suspected retinal detachment.",
+          "Laser Photocoagulation: Peripheral PRP if media clarity allows."
+        ]
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Widefield Imaging: Optos-guided assessment allows mapping of peripheral NVE/NVD even in mild VH.",
+          "Anti-VEGF Pre-treatment: Shown to significantly decrease intraoperative bleeding risk during PPV for PDR.",
+          "Small-gauge (25G/27G) Vitrectomy: Rapid recovery and reduced inflammation."
+        ]
+      }
+    ],
+    "generationPrompt": "Vitreous hemorrhage",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal"
+}

@@ -1,0 +1,314 @@
+{
+  "id": 1775044669002,
+  "seqId": 224,
+  "title": "Status Epilepticus: The Neurological & Neuro-Ophthalmic Emergency",
+  "summary": "Status Epilepticus (SE) is a critical medical emergency defined by prolonged seizure activity or recurrent seizures without return to baseline. This infographic outlines the rapid-fire management protocols, neuro-ophthalmic manifestations, and evidence-based pharmacotherapy required for resident and fellow mastery.",
+  "date": "2026-04-01T11:57:49.002Z",
+  "data": {
+    "title": "Status Epilepticus: The Neurological & Neuro-Ophthalmic Emergency",
+    "summary": "Status Epilepticus (SE) is a critical medical emergency defined by prolonged seizure activity or recurrent seizures without return to baseline. This infographic outlines the rapid-fire management protocols, neuro-ophthalmic manifestations, and evidence-based pharmacotherapy required for resident and fellow mastery.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><path d='M100,20 C144.18,20 180,55.82 180,100 C180,144.18 144.18,180 100,180 C55.82,180 20,144.18 20,100 C20,55.82 55.82,20 100,20 Z' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60,100 L90,60 L110,140 L140,100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M40,70 L60,80 M140,70 L160,80 M40,130 L60,120 M140,130 L160,120' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Temporal Thresholds",
+        "icon": "timer",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Time (t1)",
+            "Time (t2)",
+            "Definition"
+          ],
+          "rows": [
+            [
+              "Tonic-Clonic SE",
+              "5 Minutes",
+              "30 Minutes",
+              "Continuous activity >5 min or ≥2 seizures without recovery. t2 marks risk of long-term damage."
+            ],
+            [
+              "Focal SE",
+              "10 Minutes",
+              "60 Minutes",
+              "Focal awareness or impaired awareness seizures without recovery."
+            ],
+            [
+              "Absence SE",
+              "10-15 Minutes",
+              "Unknown",
+              "Prolonged altered consciousness with generalized spike-wave on EEG."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Incidence (per 100k)",
+              "value": 41
+            },
+            {
+              "label": "Bimodal Peak (Infants)",
+              "value": 85
+            },
+            {
+              "label": "Bimodal Peak (Elderly)",
+              "value": 95
+            },
+            {
+              "label": "Mortality Rate",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The 'VINDICATE' Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Etiology",
+          "branches": [
+            "Vascular (Stroke, ICH, CVT)",
+            "Infection (Meningitis, Encephalitis)",
+            "Neoplasm (Primary or Metastatic)",
+            "Drugs (Toxicity, Alcohol Withdrawal)",
+            "Inflammatory (Autoimmune Encephalitis)",
+            "Congenital (Cortical Dysplasia)",
+            "Trauma (TBI, Surgery)",
+            "Endocrine (Hypoglycemia, Hyponatremia)"
+          ]
+        }
+      },
+      {
+        "title": "Classification of SE",
+        "icon": "account_tree",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Classification",
+            "Subtype",
+            "Key Features"
+          ],
+          "rows": [
+            [
+              "Convulsive SE (CSE)",
+              "Generalized",
+              "Rhythmic motor activity, tonic-clonic movements, impaired consciousness."
+            ],
+            [
+              "Non-Convulsive (NCSE)",
+              "Absence SE",
+              "Altered mental status, 'Twilight state', mild eyelid myoclonus."
+            ],
+            [
+              "NCSE",
+              "Complex Focal",
+              "Automatisations, staring, focal EEG changes, aphasia."
+            ],
+            [
+              "Refractory SE",
+              "Super-Refractory",
+              "Failure of 1st and 2nd line drugs; SE continuing >24 hrs despite anesthetics."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Neuro-Ophthalmic Examination Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Ictal Eye Deviation: Eyes usually deviate AWAY from the focus in destructive lesions, but TOWARDS the focus during ictus.",
+          "Nystagmus-like movements: Rapid eye jerking (Epileptic nystagmus) can occur in focal SE.",
+          "Pupillary Changes: Mydriasis or sluggish reactivity is common during the ictal phase.",
+          "Post-ictal Findings: Transient Horner's Syndrome or gaze palsy (Todd's paralysis of eye movements).",
+          "Fundus: Look for papilledema (suggests raised ICP as etiology) or chorioretinal scars (suggests TORCH infections)."
+        ]
+      },
+      {
+        "title": "Pathophysiology: The Molecular Failure",
+        "icon": "genetics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Failure of GABA-ergic Inhibition: GABA-A receptors are internalized (trafficked out of the synapse).",
+          "2. Over-activation of Glutamate: NMDA and AMPA receptors are mobilized to the synapse, increasing excitation.",
+          "3. Depletion of Neuropeptides: Depletion of inhibitory peptides like Substance P.",
+          "4. Neuronal Damage: Excessive Calcium influx leads to excitotoxicity and mitochondrial failure within 30-60 mins."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Seizure Mimics",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Psychogenic Non-Epileptic Seizures (PNES)",
+              "Asynchronous movements, eye closure (forceful), side-to-side head shaking, no post-ictal period."
+            ],
+            [
+              "Syncope",
+              "Prodromal 'dimming' of vision, brief duration, immediate recovery of consciousness."
+            ],
+            [
+              "Decerebrate Posturing",
+              "Extensor response due to brainstem herniation, fixed/blown pupils (unlike most SE)."
+            ],
+            [
+              "Migraine Aura",
+              "Visual 'scintillating scotomas' (positive symptoms), slow progression (minutes, not seconds)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "lab_research",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Point-of-Care Glucose (Rule out Hypoglycemia immediately).",
+          "Step 2: Stat Labs (CBC, BMP, LFTs, Calcium, Magnesium, Tox Screen).",
+          "Step 3: Emergent Neuroimaging (Non-contrast Head CT to rule out ICH/Mass).",
+          "Step 4: Continuous EEG (Essential for diagnosing Non-Convulsive SE).",
+          "Step 5: Lumbar Puncture (If febrile or immunosuppressed, after checking for mass effect)."
+        ]
+      },
+      {
+        "title": "Phase 1: Emergent Treatment (0-5 Minutes)",
+        "icon": "medication",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "LORazepam is the Gold Standard",
+          "explanation": "Lorazepam (Ativan) 4mg IV (repeated once) is the drug of choice. If no IV access: Midazolam 10mg IM (RAMPART Trial)."
+        }
+      },
+      {
+        "title": "Phase 2: Urgent Control (20-40 Minutes)",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Medication",
+            "Dosage (ESETT Trial)",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Levetiracetam (Keppra)",
+              "60 mg/kg (max 4500mg)",
+              "Excellent safety profile, few drug interactions."
+            ],
+            [
+              "Fosphenytoin (Cerebyx)",
+              "20 mg PE/kg (max 1500mg)",
+              "Requires cardiac monitoring (QT prolongation/Arrhythmia)."
+            ],
+            [
+              "Valproic Acid (Depacon)",
+              "40 mg/kg (max 3000mg)",
+              "Avoid in pregnancy or liver failure."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Phase 3: Refractory SE (Anesthetic Phase)",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Midazolam (Dormicum): Bolus 0.2mg/kg followed by infusion (0.05-2mg/kg/hr).",
+          "Propofol (Diprivan): Bolus 1-2mg/kg followed by infusion (2-10mg/kg/hr). Beware Propofol Infusion Syndrome (PRIS).",
+          "Ketamine: NMDA antagonist (Bolus 1-2mg/kg). Useful as receptor profile changes in late SE.",
+          "Phenobarbital: Bolus 15-20mg/kg. Strong sedation, risk of respiratory depression."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Immediate Threats",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Airway Obstruction / Hypoxia: Intubate early if Benzodiazepines cause respiratory drive failure.",
+          "Hyperthermia: Sustained SE can cause rhabdomyolysis and core temps >40°C.",
+          "Herniation Signs: Fixed dilated pupil or Cushing's Triad (Bradycardia, Hypertension, Irregular Breathing).",
+          "Propofol Infusion Syndrome: Metabolic acidosis, rhabdomyolysis, cardiac failure."
+        ]
+      },
+      {
+        "title": "Landmark Studies: The Evidence Base",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "content": "The ESETT Trial (2019) demonstrated that Levetiracetam, Fosphenytoin, and Valproate are equally effective for benzodiazepine-refractory SE (approx. 50% success). The RAMPART Study (2012) proved that IM Midazolam is superior to IV Lorazepam in the pre-hospital setting due to faster administration times."
+      },
+      {
+        "title": "Clinical Pearls for the Resident",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Don't wait for EEG to start treatment if clinical suspicion is high.",
+          "Pseudo-Status: If the patient is 'resistant' to eye opening, consider PNES.",
+          "Aggressive treatment is key: Every minute of seizure increases the risk of pharmacoresistance.",
+          "In patients with known epilepsy, the most common trigger is low AED levels/non-compliance."
+        ]
+      },
+      {
+        "title": "Long-Term Prognosis & Complications",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Permanent Cognitive Deficits: Memory impairment (hippocampal sclerosis).",
+          "Systemic: Pulmonary edema, cardiac arrhythmias, and acute kidney injury (from rhabdo).",
+          "Mortality: Highest in the elderly and those with stroke or hypoxia as the etiology.",
+          "Recurrence: Approx. 15-20% chance of another SE episode."
+        ]
+      }
+    ],
+    "generationPrompt": "Status epilepticus",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044669002,
+  "communityId": "sub_1774440592423_e649icjzb",
+  "communityAuthor": "Dodo",
+  "communityDate": "2026-03-25T12:09:52.424Z",
+  "read": false
+}

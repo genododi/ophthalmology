@@ -1,0 +1,295 @@
+{
+  "id": 1775375586567,
+  "seqId": 663,
+  "title": "Chorioretinal Scars: The Clinical Atlas & Diagnostic Roadmap",
+  "summary": "Fundus scars represent the end-stage morphological footprint of prior inflammatory, infectious, traumatic, or degenerative insults. This comprehensive guide details the classification, multimodal imaging, and critical management of quiescent vs. active lesions.",
+  "date": "2026-04-05T07:53:06.567Z",
+  "data": {
+    "title": "Chorioretinal Scars: The Clinical Atlas & Diagnostic Roadmap",
+    "summary": "Fundus scars represent the end-stage morphological footprint of prior inflammatory, infectious, traumatic, or degenerative insults. This comprehensive guide details the classification, multimodal imaging, and critical management of quiescent vs. active lesions.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M70 70 Q 80 60 90 75 T 110 80' fill='none' stroke='#A52A2A' stroke-width='3'/><circle cx='130' cy='110' r='15' fill='#333' opacity='0.6'/><circle cx='135' cy='115' r='8' fill='#000'/><path d='M60 130 L 80 150 M 80 130 L 60 150' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='100' cy='100' r='5' fill='#FFD700'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Pathophysiology",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "A fundus scar is a permanent alteration of the chorioretinal architecture. It typically involves RPE hyperplasia (pigmentation), RPE atrophy, or subretinal fibrosis. Pathophysiologically, it follows the 'wound healing' response of the retina where glial cells (Müller cells) and RPE cells proliferate to replace damaged neurosensory tissue, often resulting in a loss of the blood-retinal barrier in the acute phase and dense scarring in the chronic phase."
+      },
+      {
+        "title": "Global Epidemiology of Scars",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Toxoplasmosis",
+              "value": 85
+            },
+            {
+              "label": "Myopic Degeneration",
+              "value": 60
+            },
+            {
+              "label": "POHS (Endemic areas)",
+              "value": 45
+            },
+            {
+              "label": "Traumatic Rupture",
+              "value": 20
+            },
+            {
+              "label": "Laser (Iatrogenic)",
+              "value": 75
+            }
+          ]
+        }
+      },
+      {
+        "title": "Morphological Classification",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Clinical Appearance",
+            "Common Etiology"
+          ],
+          "rows": [
+            [
+              "Atrophic",
+              "Well-demarcated, 'punched-out', visible choroidal vessels",
+              "POHS, Myopic lacquer cracks, Stargardt"
+            ],
+            [
+              "Hypertrophic/Pigmented",
+              "Black clumps of RPE migration, 'salt and pepper'",
+              "Healed Toxoplasmosis, Rubella, Syphilis"
+            ],
+            [
+              "Fibrotic/Gliotic",
+              "White, elevated, subretinal or epiretinal membranes",
+              "Disciform AMD, Toxocariasis, Proliferative Vitreoretinopathy"
+            ],
+            [
+              "Lacquer Cracks",
+              "Linear, yellowish-white streaks at the level of Bruch's",
+              "Pathological Myopia"
+            ],
+            [
+              "Dalen-Fuchs Nodules",
+              "Small, yellowish-white deep retinal lesions",
+              "Sympathetic Ophthalmia, VKH Syndrome"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Etiological Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Fundus Scars",
+          "branches": [
+            "Infectious (Toxo, Syphilis, CMV, Histoplasmosis)",
+            "Inflammatory (Sarcoid, VKH, Sympathetic Ophthalmia, White Dot Syndromes)",
+            "Traumatic (Choroidal Rupture, Commotio Retinae, Sclopetaria)",
+            "Degenerative (AMD, Angioid Streaks, Pathological Myopia)",
+            "Iatrogenic (Photocoagulation, Cryotherapy, PDT scars)"
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Scar Reactivation",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "New onset 'Metamorphopsia' (suggests CNVM)",
+          "'Headlight in the fog' appearance (active Toxo adjacent to old scar)",
+          "Subretinal fluid or hemorrhage around a pre-existing scar",
+          "Vitreous haze or cells (Inflammatory/Infectious flare)",
+          "Rapid expansion of atrophic borders (Geographic Atrophy progression)"
+        ]
+      },
+      {
+        "title": "Mnemonic: POHS Triad",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.O.H.S.",
+          "explanation": "P: Peripapillary atrophy (PPA); O: Old 'punched-out' chorioretinal spots; H: Hemorrhage (Subretinal CNVM); S: Sparing of the vitreous (No vitritis)."
+        }
+      },
+      {
+        "title": "Multimodal Diagnostic Workup",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Color Fundus Photography: Baseline documentation of size and location.",
+          "Step 2: Fundus Autofluorescence (FAF): Scars are characteristically 'Hypoautofluorescent' due to RPE death.",
+          "Step 3: OCT Macula: Assess for 'Sink-hole' effect, Outer Retinal Tubulations (ORT), or subretinal fibrosis.",
+          "Step 4: FFA/ICGA: Identify 'Window defects' in atrophy vs. 'Staining' in fibrosis vs. 'Leakage' in CNVM.",
+          "Step 5: OCT-Angiography (OCTA): Non-invasive detection of Choroidal Neovascularization within or adjacent to scars."
+        ]
+      },
+      {
+        "title": "Classic Scar Patterns",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Toxoplasmosis: Heavily pigmented borders with central atrophy; often at the macula.",
+          "Choroidal Rupture: Crescent-shaped scars concentric to the optic nerve.",
+          "Laser Scars: Post-PRP; early are yellow/white, late are 'punched out' with pigment clumps.",
+          "Angioid Streaks: Peripapillary radiating 'jagged' lines (Peau d'orange appearance).",
+          "Fuchs Spot: Pigmented circular scar in the macula of high myopes."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Pigmented Lesions",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Chorioretinal Scar",
+            "CHRPE"
+          ],
+          "rows": [
+            [
+              "Margins",
+              "Irregular/Frayed",
+              "Smooth/Well-defined"
+            ],
+            [
+              "Lacunae",
+              "Rare",
+              "Common (Clear areas)"
+            ],
+            [
+              "Halo",
+              "None",
+              "Depigmented halo possible"
+            ],
+            [
+              "Elevation",
+              "Flat or Depressed",
+              "Typically flat"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management of Quiescent Scars",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Documentation with wide-field imaging.",
+          "2. Patient education on Amsler Grid monitoring.",
+          "3. Refraction (especially in myopic scars) for best corrected visual acuity.",
+          "4. Monitoring for secondary CNVM development (highest risk in POHS/Myopia)."
+        ]
+      },
+      {
+        "title": "Management: When CNVM Complicates Scars",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Anti-VEGF Therapy: Intravitreal Ranibizumab (0.5mg), Aflibercept (2.0mg), or Bevacizumab (1.25mg).",
+          "Dosing: Often follows a 'Pro Re Nata' (PRN) or Treat-and-Extend protocol.",
+          "Photodynamic Therapy (PDT): Historically used for myopic CNV; now largely secondary to anti-VEGF.",
+          "Steroids: If the scar is from an active inflammatory process (e.g., Sarcoidosis)."
+        ]
+      },
+      {
+        "title": "Surgical Considerations",
+        "icon": "content_cut",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Surgical intervention is rarely for the scar itself but for its complications. Pars Plana Vitrectomy (PPV) may be required for Epiretinal Membranes (ERM) secondary to scarring, or for submacular hemorrhage drainage in the setting of traumatic choroidal rupture. Subretinal surgery to remove fibrotic 'plaques' is largely obsolete due to high risk of RPE damage."
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Pseudo-retinitis pigmentosa: Diffuse scarring from old trauma or syphilis can mimic RP; look for 'bone spicules' that don't respect the mid-periphery.",
+          "The 'Halos' of Histoplasmosis: Atrophic spots often have a thin rim of RPE changes; these are 'Histo spots'.",
+          "Laser scar creep: Photocoagulation scars (especially from CNV treatment or PRP) can enlarge over years, a phenomenon known as 'atrophic creep'.",
+          "Visual Field: Scars cause absolute scotomas. A macular scar = central scotoma; PRP = peripheral field constriction."
+        ]
+      },
+      {
+        "title": "Recent Advances: AI & Imaging",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "AI Algorithms: Deep learning models can now predict the 'expansion rate' of geographic atrophy scars.",
+          "Adaptive Optics (AO): Visualization of individual photoreceptor loss at the margins of scars.",
+          "Home-based OCT: Monitoring for fluid around scars to detect CNVM earlier than Amsler Grid."
+        ]
+      },
+      {
+        "title": "Pediatric Considerations",
+        "icon": "child_care",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "Congenital fundus scars (e.g., from TORCH infections like CMV or Toxo) require aggressive amblyopia management. A central macular scar does not mean 'no vision'; these children often develop eccentric fixation and can have functional navigation vision."
+      },
+      {
+        "title": "Landmark Study: ETDRS & Scars",
+        "icon": "history_edu",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "ETDRS Laser",
+          "explanation": "Early Treatment Diabetic Retinopathy Study established the standard for focal/grid laser scars. It proved that macular edema could be reduced, even though the treatment itself created iatrogenic scars."
+        }
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "trending_down",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Visual Impairment: Depends on foveal involvement.",
+          "Retinal Detachment: Atrophic scars (especially in myopia or lattice) can lead to atrophic holes and rhegmatogenous RD.",
+          "Recurrence: Infectious scars (Toxo) have a lifetime risk of reactivation.",
+          "Epiretinal Membrane: Tractional forces common over areas of prior inflammation."
+        ]
+      }
+    ],
+    "generationPrompt": "Fundus scars",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina"
+}

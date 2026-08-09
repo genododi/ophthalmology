@@ -1,0 +1,341 @@
+{
+  "id": 1775044698113,
+  "seqId": 484,
+  "title": "Retinitis Pigmentosa: Comprehensive Clinical Roadmap",
+  "summary": "Retinitis Pigmentosa (RP) represents a genetically heterogeneous group of progressive rod-cone dystrophies characterized by the primary degeneration of photoreceptor cells and the retinal pigment epithelium. This masterclass poster details the pathophysiology, diagnostic gold standards, and the current landscape of gene-based therapeutics.",
+  "date": "2026-04-01T11:58:18.113Z",
+  "data": {
+    "title": "Retinitis Pigmentosa: Comprehensive Clinical Roadmap",
+    "summary": "Retinitis Pigmentosa (RP) represents a genetically heterogeneous group of progressive rod-cone dystrophies characterized by the primary degeneration of photoreceptor cells and the retinal pigment epithelium. This masterclass poster details the pathophysiology, diagnostic gold standards, and the current landscape of gene-based therapeutics.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='30' fill='hsl(215, 90%, 45%)'/><path d='M60 40 L70 55 M140 40 L130 55 M60 160 L70 145 M140 160 L130 145 M30 100 L50 100 M170 100 L150 100' stroke='black' stroke-width='3' stroke-linecap='round'/><path d='M100 50 L100 30 M100 170 L100 150 M40 60 L55 70 M160 60 L145 70' stroke='black' stroke-width='2' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Scope",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Retinitis Pigmentosa (RP) is the most common hereditary retinal dystrophy, affecting approximately 1 in 4,000 individuals worldwide. It is defined by the progressive loss of rod photoreceptor function, followed by cone degeneration. The condition may be isolated (nonsyndromic) or part of a multi-system syndrome. Pathologically, it involves apoptosis of photoreceptors and the migration of RPE cells into the inner retina, forming the classic bone-spicule patterns."
+      },
+      {
+        "title": "Genetic Prevalence by Inheritance",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Autosomal Recessive (AR)",
+              "value": 40
+            },
+            {
+              "label": "Autosomal Dominant (AD)",
+              "value": 25
+            },
+            {
+              "label": "X-Linked (XL)",
+              "value": 15
+            },
+            {
+              "label": "Simplex/Sporadic",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Inheritance & Prognosis Correlation",
+        "icon": "genetics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Prognosis",
+            "Common Genes"
+          ],
+          "rows": [
+            [
+              "ADRP",
+              "Best prognosis; late onset",
+              "RHO, PRPF31, RDS"
+            ],
+            [
+              "ARRP",
+              "Intermediate severity",
+              "USH2A, EYS, RPE65"
+            ],
+            [
+              "XLRP",
+              "Most severe; early blindness",
+              "RPGR (70%), RP2"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Classic Diagnostic Triad",
+        "icon": "grade",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Arteriolar Attenuation: Significant narrowing of retinal vessels.",
+          "2. Bone-Spicule Pigmentation: Perivascular pigment migration in the mid-periphery.",
+          "3. Waxy Disc Pallor: Reactive gliosis covering the optic nerve head."
+        ]
+      },
+      {
+        "title": "Progression of Symptoms",
+        "icon": "psychology",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Nyctalopia: Difficulty adapting to darkness (Rod dysfunction).",
+          "2. Peripheral Field Loss: Development of mid-peripheral scotomas.",
+          "3. Tunnel Vision: Constriction of visual fields to <20 degrees.",
+          "4. Central Loss: Eventual cone involvement or CME development.",
+          "5. Total Blindness: Often occurs in later decades, depending on genotype."
+        ]
+      },
+      {
+        "title": "Electroretinography (ERG) Profiles",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "ERG Parameter",
+            "Typical RP Finding"
+          ],
+          "rows": [
+            [
+              "Scotopic a-wave",
+              "Severely reduced or absent early"
+            ],
+            [
+              "Photopic b-wave",
+              "Reduced amplitude and delayed latency"
+            ],
+            [
+              "30Hz Flicker",
+              "Significant delay (pathognomonic)"
+            ],
+            [
+              "Pattern ERG",
+              "Initially normal, late reduction"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Multimodal Imaging",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "RP Workup",
+          "branches": [
+            "Goldmann Visual Fields (Ring scotoma)",
+            "Full-Field ERG (Gold Standard diagnostic)",
+            "FAF (Hyperautofluorescent ring of Robson-Holder)",
+            "SD-OCT (Loss of Ellipsoid Zone - EZ)",
+            "Genetic Testing (Targeted panels or WES)"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis (Phenocopies)",
+        "icon": "checklist",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature from RP"
+          ],
+          "rows": [
+            [
+              "Syphilitic Neuroretinitis",
+              "Positive treponemal serology, inflammatory signs"
+            ],
+            [
+              "Vitamin A Deficiency",
+              "Bitot spots, reversible with supplementation"
+            ],
+            [
+              "Phenothiazine Toxicity",
+              "History of Thioridazine/Chlorpromazine use"
+            ],
+            [
+              "Cancer-Associated (CAR)",
+              "Rapid onset, recoverin antibodies (+), normal fundus early"
+            ],
+            [
+              "Traumatic Retinopathy",
+              "Unilateral, history of blunt trauma"
+            ],
+            [
+              "Cone-Rod Dystrophy",
+              "Central vision lost first, photophobia, bull's eye maculopathy"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always check for Cystoid Macular Edema (CME); occurs in 10-50% of patients.",
+          "Posterior Subcapsular Cataracts (PSC) are highly prevalent in RP.",
+          "High myopia is frequently associated with XLRP.",
+          "FAF 'Ring of Fire' correlates with the edge of the functional visual field."
+        ]
+      },
+      {
+        "title": "Red Flags & Urgent Considerations",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden vision loss (Rule out CME or Macular Hole)",
+          "Systemic weakness or cardiac issues (Think Kearns-Sayre Syndrome)",
+          "Polydactyly or obesity in a child (Think Bardet-Biedl)",
+          "Hearing loss (Screen for Usher Syndrome immediately)"
+        ]
+      },
+      {
+        "title": "Syndromic Retinitis Pigmentosa",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Syndromes",
+          "branches": [
+            "Usher Syndrome (Sensorineural Hearing Loss)",
+            "Bardet-Biedl (Obesity, Polydactyly, Renal, Hypogonadism)",
+            "Refsum Disease (Phytanic acid buildup, Ataxia, Anosmia)",
+            "Kearns-Sayre (CPEO, Heart Block, Pigmentary Retinopathy)",
+            "Bassen-Kornzweig (Abetalipoproteinemia, Fat-soluble vitamin deficiency)"
+          ]
+        }
+      },
+      {
+        "title": "Evidence-Based Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Baseline Testing: Complete ERG, VF, OCT, and Genetic Testing.",
+          "2. Systemic Screening: Pediatric patients must have hearing tests and metabolic screens.",
+          "3. Pharmacotherapy: Consider Vitamin A Palmitate (15,000 IU/day) for adults (Berson Study).",
+          "4. Monitor Complications: Treat CME with topical/oral Carbonic Anhydrase Inhibitors (CAIs).",
+          "5. Surgical Intervention: Cataract surgery (careful with zonular laxity) or Luxturna if RPE65 positive.",
+          "6. Low Vision Rehabilitation: Prisms, magnifiers, and mobility training."
+        ]
+      },
+      {
+        "title": "Nutritional Considerations (Berson Regimen)",
+        "icon": "healing",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Supplement",
+            "Dosage/Instruction"
+          ],
+          "rows": [
+            [
+              "Vitamin A Palmitate",
+              "15,000 IU daily (Adults only; monitor LFTs)"
+            ],
+            [
+              "Omega-3 (DHA)",
+              "1200 mg daily"
+            ],
+            [
+              "Lutein",
+              "12 mg daily"
+            ],
+            [
+              "Vitamin E",
+              "AVOID high doses (may accelerate decline)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: USHER for Evaluation",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "USHER",
+          "explanation": "U: Ultrasound/Imaging (OCT/FAF), S: Systematic family history, H: Hearing test (audiometry), E: ERG (Full-field), R: Refraction/Review for syndromes."
+        }
+      },
+      {
+        "title": "The Genetic Revolution: Luxturna (voretigene neparvovec-rzyl)",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Mechanism: Adeno-associated virus (AAV2) vector delivering a functional RPE65 gene.",
+          "Eligibility: Confirmed biallelic RPE65 mutations and sufficient viable retinal cells.",
+          "Delivery: Subretinal injection via pars plana vitrectomy.",
+          "Significance: First FDA-approved gene therapy for an inherited disease."
+        ]
+      },
+      {
+        "title": "Surgical Complications in RP Patients",
+        "icon": "cardiology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Zonular Weakness: High risk of phacodonesis or late IOL dislocation.",
+          "CME Flare-up: Post-operative inflammation can worsen macular edema.",
+          "Epiretinal Membranes: Increased incidence in RP cases.",
+          "Capsular Opacification: Accelerated PCO formation is common."
+        ]
+      },
+      {
+        "title": "Future Frontiers & Research",
+        "icon": "rocket_launch",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Optogenetics: Turning remaining retinal cells into photoreceptors.",
+          "CRISPR/Cas9: In-vivo gene editing for specific mutations (e.g., CEP290).",
+          "Stem Cell Therapy: RPE and photoreceptor replacement.",
+          "Artificial Vision: Advanced retinal implants and cortical stimulators."
+        ]
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1775044698113,
+  "communityId": "sub_1774352254516_8rov6l1gaakjce",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z",
+  "read": true,
+  "bookmarked": true
+}

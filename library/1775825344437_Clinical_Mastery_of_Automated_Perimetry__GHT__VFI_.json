@@ -1,0 +1,214 @@
+{
+  "id": 1775825344437,
+  "seqId": 778,
+  "title": "Clinical Mastery of Automated Perimetry: GHT, VFI, and PSD",
+  "summary": "Decoding the Humphrey Field Analyzer (HFA) printout: A systematic approach to interpreting Visual Field Indices for glaucoma management and neuro-ophthalmic localization.",
+  "date": "2026-04-10T12:49:04.437Z",
+  "data": {
+    "title": "Clinical Mastery of Automated Perimetry: GHT, VFI, and PSD",
+    "summary": "Decoding the Humphrey Field Analyzer (HFA) printout: A systematic approach to interpreting Visual Field Indices for glaucoma management and neuro-ophthalmic localization.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M50 10 L50 90 M10 50 L90 50' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Glaucoma Hemifield Test (GHT)",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The GHT compares 5 zones in the superior hemifield to corresponding zones in the inferior hemifield. It is the most sensitive HFA test for early glaucomatous damage. Results: 'Outside Normal Limits' (highly specific for glaucoma), 'Borderline' (warrants follow-up), or 'Within Normal Limits'. 'General Reduction in Sensitivity' may occur if the entire field is depressed."
+      },
+      {
+        "title": "Visual Field Indices Breakdown",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Index",
+            "Meaning",
+            "Clinical Significance"
+          ],
+          "rows": [
+            [
+              "VFI",
+              "Visual Field Index",
+              "Global index representing remaining visual function; 100% = normal, 0% = perimetrically blind."
+            ],
+            [
+              "PSD",
+              "Pattern Standard Deviation",
+              "Measures localized field loss (irregularity); high PSD indicates localized scotoma/glaucoma."
+            ],
+            [
+              "MD",
+              "Mean Deviation",
+              "Average departure from age-matched norms; reflects overall field depression (cataract vs. glaucoma)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pattern Analysis: Temporal Wedge vs. Nasal Step",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Defect Morphology",
+          "branches": [
+            "Temporal Wedge: Often indicates early nerve fiber bundle defects or chiasmal lesions",
+            "Nasal Step: Classic early glaucoma indicator; asymmetrical loss across the horizontal meridian",
+            "Paracentral Scotoma: Often the earliest manifestation of glaucomatous optic neuropathy"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags in Perimetry",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "False Positive Rate > 15% (Unreliable, 'trigger happy')",
+          "False Negative Rate > 20% (Inattention or advanced disease)",
+          "Fixation Loss > 20% (Poor compliance)",
+          "Gaze tracking 'spikes' exceeding 10 degrees"
+        ]
+      },
+      {
+        "title": "Mnemonic: Analyzing the Printout",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "R.I.G.I.D.",
+          "explanation": "Reliability (Fixation/False Positives), Indices (MD/PSD), GHT, Interpretation (Pattern of loss), Diagnosis correlation."
+        }
+      },
+      {
+        "title": "Diagnostic Workup Sequence",
+        "icon": "process_check",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Check Reliability Indices (Fixation losses, false +/-).",
+          "Step 2: Inspect Global Indices (MD and PSD).",
+          "Step 3: Analyze Pattern Deviation plots (not just Total Deviation) to remove cataract bias.",
+          "Step 4: Check GHT status.",
+          "Step 5: Correlate field defect location with Disc/RNFL (e.g., inferotemporal rim thinning correlates with superior field loss)."
+        ]
+      },
+      {
+        "title": "VFI Progression Rates",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Early Glaucoma",
+              "value": 90
+            },
+            {
+              "label": "Moderate Glaucoma",
+              "value": 60
+            },
+            {
+              "label": "Severe Glaucoma",
+              "value": 30
+            },
+            {
+              "label": "End Stage",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Pattern Deviation is the 'Gold Standard' for identifying glaucomatous localized loss, as it filters out generalized depression.",
+          "A 'Nasal Step' is often the first reproducible sign of early glaucoma, occurring due to the anatomical distribution of retinal nerve fibers.",
+          "Always repeat the first visual field test; the 'Learning Effect' often artificially inflates severity on the first attempt.",
+          "Temporal wedge defects can mimic glaucoma but should trigger a search for chiasmal pathology (e.g., pituitary adenoma) via MRI."
+        ]
+      }
+    ],
+    "generationPrompt": "GHT - VFI - PSD , temporal wedge vs nasal step ; visual field indices",
+    "chapterId": "investigations"
+  },
+  "chapterId": "investigations",
+  "read": true,
+  "bookmarked": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 17,
+      "keywords": [
+        "perimetry",
+        "automated",
+        "visual field",
+        "test",
+        "visual"
+      ]
+    },
+    {
+      "pageNum": 25,
+      "keywords": [
+        "perimetry",
+        "visual field",
+        "test",
+        "visual",
+        "field"
+      ]
+    },
+    {
+      "pageNum": 18,
+      "keywords": [
+        "perimetry",
+        "automated",
+        "visual field",
+        "test",
+        "visual"
+      ]
+    },
+    {
+      "pageNum": 371,
+      "keywords": [
+        "perimetry",
+        "automated",
+        "visual field",
+        "visual",
+        "field"
+      ]
+    },
+    {
+      "pageNum": 7,
+      "keywords": [
+        "perimetry",
+        "automated",
+        "visual field",
+        "test",
+        "visual"
+      ]
+    },
+    {
+      "pageNum": 21,
+      "keywords": [
+        "perimetry",
+        "visual field",
+        "test",
+        "visual",
+        "field"
+      ]
+    }
+  ]
+}

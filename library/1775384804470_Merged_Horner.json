@@ -1,0 +1,1261 @@
+{
+  "id": 1775384804470,
+  "seqId": 684,
+  "title": "Merged Horner",
+  "summary": "The clinical presentation of Horner Syndrome accompanied by ipsilateral head, neck, or facial pain is a medical emergency. In the absence of trauma, this must be considered an Internal Carotid Artery Dissection (ICAD) until proven otherwise, carrying a significant risk of thromboembolic stroke. Navigate the intricate world of neuro-ophthalmology with this visual guide covering Horner Syndrome, Adie Pupil, Light-Near Dissociation, and Chiasmal Visual Field Defects. Understand diagnostic pathways, key clinical findings, and management protocols for these critical conditions. A high-fidelity clinical roadmap for assessing unequal pupils, ranging from physiological variations to complex sympathetic and parasympathetic chain pathologies. This guide ensures exact diagnostic protocols and investigative tables are maintained for clinical precision. A comprehensive clinical guide to diagnosing and managing oculosympathetic paresis, with a critical focus on identifying the 'Painful Horner' as a life-threatening neuro-ophthalmic emergency.",
+  "date": "2026-04-05T10:26:44.470Z",
+  "data": {
+    "title": "Merged Horner",
+    "summary": "The clinical presentation of Horner Syndrome accompanied by ipsilateral head, neck, or facial pain is a medical emergency. In the absence of trauma, this must be considered an Internal Carotid Artery Dissection (ICAD) until proven otherwise, carrying a significant risk of thromboembolic stroke. Navigate the intricate world of neuro-ophthalmology with this visual guide covering Horner Syndrome, Adie Pupil, Light-Near Dissociation, and Chiasmal Visual Field Defects. Understand diagnostic pathways, key clinical findings, and management protocols for these critical conditions. A high-fidelity clinical roadmap for assessing unequal pupils, ranging from physiological variations to complex sympathetic and parasympathetic chain pathologies. This guide ensures exact diagnostic protocols and investigative tables are maintained for clinical precision. A comprehensive clinical guide to diagnosing and managing oculosympathetic paresis, with a critical focus on identifying the 'Painful Horner' as a life-threatening neuro-ophthalmic emergency.",
+    "sections": [
+      {
+        "title": "Clinical Definition & The Triad",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Horner Syndrome (Oculosympathetic Paresis) results from a lesion anywhere along the three-neuron sympathetic pathway. The 'Painful Horner' refers to the triad of miosis, ptosis, and anhidrosis (or just miosis/ptosis) associated with acute ipsilateral cephalic or cervical pain. This presentation localizes primarily to the post-ganglionic (third-order) neuron."
+      },
+      {
+        "title": "Pathophysiology of Painful ICAD",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Carotid Dissection",
+          "branches": [
+            "Intimal tear creates 'false lumen'",
+            "Mural hematoma expands vessel wall",
+            "Compression of periarterial sympathetics",
+            "Nociceptor activation in vessel adventitia",
+            "Thromboembolic shower (Stroke risk)"
+          ]
+        }
+      },
+      {
+        "title": "Anatomy: The 3-Neuron Pathway",
+        "icon": "genetics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1st Order (Central): Hypothalamus → Ciliospinal Center of Budge (C8-T2) via brainstem.",
+          "2nd Order (Pre-ganglionic): C8-T2 → Over lung apex → Under subclavian artery → Superior Cervical Ganglion (SCG) at C2.",
+          "3rd Order (Post-ganglionic): SCG → Carotid plexus along Internal Carotid Artery (ICA) → Long ciliary nerves to Iris Dilator.",
+          "Special Note: Sudomotor fibers for the face follow the External Carotid; therefore, post-ganglionic (ICA) lesions typically SPARE facial sweating."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Painful Horner",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Pain Quality",
+            "Associated Signs",
+            "Urgency"
+          ],
+          "rows": [
+            [
+              "ICA Dissection",
+              "Acute 'Thunderclap' or stabbing neck/ear pain",
+              "TIA, Amaurosis fugax, CN IX-XII palsies",
+              "EMERGENCY"
+            ],
+            [
+              "Cluster Headache",
+              "Excruciating periorbital/temporal",
+              "Lacrimation, rhinorrhea, restlessness",
+              "High (for pain)"
+            ],
+            [
+              "Raeder Paratrigeminal",
+              "Severe V1/V2 trigeminal distribution",
+              "Trigeminal sensory loss (Type 2)",
+              "Urgent (Workup)"
+            ],
+            [
+              "Carotid Artery Aneurysm",
+              "Variable, often dull/chronic",
+              "Pulsatile tinnitus, mass effect",
+              "High"
+            ],
+            [
+              "Herpes Zoster Ophthalmicus",
+              "Burning, prodromal pain",
+              "Vesicular rash in V1 distribution",
+              "Moderate"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The 'Ocular Triad' Exam Findings",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Miosis: Anisocoria greater in the DARK (dilation lag).",
+          "Ptosis: Mild (1-2mm) due to paralysis of Müller's muscle.",
+          "Upside-down Ptosis: Elevation of the lower lid (paralysis of inferior tarsal muscle).",
+          "Apparent Enophthalmos: Optical illusion due to narrowed palpebral fissure.",
+          "Anhidrosis: Only present if lesion is PRE-ganglionic (1st or 2nd order)."
+        ]
+      },
+      {
+        "title": "Pharmacologic Testing Protocol",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Drug",
+            "Mechanism",
+            "Result (Horner Eye)"
+          ],
+          "rows": [
+            [
+              "Apraclonidine (0.5%)",
+              "Alpha-2/Weak Alpha-1",
+              "Miosis REVERSES to mydriasis"
+            ],
+            [
+              "Cocaine (4-10%)",
+              "NE Reuptake Inhibitor",
+              "Fails to dilate (Confirms Horner)"
+            ],
+            [
+              "Hydroxyamphetamine",
+              "NE Release (Post-gang)",
+              "Fails to dilate = 3rd order lesion"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Immediate Referral Needed",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset 'worst headache of life' or neck pain.",
+          "Associated Dysphasia, Hemiparesis, or Ataxia (Stroke symptoms).",
+          "Amaurosis Fugax (Transient monocular vision loss).",
+          "Lower Cranial Nerve Palsies (Bruit, tongue deviation, dysphagia).",
+          "Acute onset Horner in the context of recent neck manipulation or minor trauma."
+        ]
+      },
+      {
+        "title": "ICAD Epidemiology & Risk Factors",
+        "icon": "monitoring",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Mean Age (40-50y)",
+              "value": 85
+            },
+            {
+              "label": "Spontaneous Cause",
+              "value": 60
+            },
+            {
+              "label": "Traumatic Cause",
+              "value": 40
+            },
+            {
+              "label": "Connective Tissue Dz",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Imaging Workflow",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Clinical Suspicion: Acute Pain + Horner.",
+          "2. Emergent Neuroimaging: CTA or MRA (Head & Neck).",
+          "3. MRI Neck with Fat Suppression: Look for 'Crescent Sign' (mural hematoma).",
+          "4. Conventional Angiography: Gold standard, but rarely needed today unless intervention planned.",
+          "5. Follow-up: Repeat imaging at 3-6 months to assess recanalization."
+        ]
+      },
+      {
+        "title": "Management & Treatment (ICAD)",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Antithrombotic Therapy: Aspirin (81-325mg) or Anticoagulation (Heparin/Warfarin).",
+          "CADISS Trial: Showed no significant difference between antiplatelets and anticoagulants for stroke prevention.",
+          "Blood Pressure Management: Avoid extreme hypertension/hypotension.",
+          "Surgical/Endovascular: Stenting or bypass reserved for refractory ischemia or expanding pseudoaneurysms."
+        ]
+      },
+      {
+        "title": "Remember: The 'Painful' Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "HORNER-PAIN",
+          "explanation": "H: Hematoma (Mural), O: Ocular Sympathetics, R: Rupture risk, N: Neck Pain, E: Emergency Workup, R: Rule out Dissection; P: Post-ganglionic, A: Anisocoria, I: ICA focus, N: Neurological deficit check."
+        }
+      },
+      {
+        "title": "Raeder Paratrigeminal Syndrome Types",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Type 1 (Benign/Migrainous)",
+            "Type 2 (Structural/Symptomatic)"
+          ],
+          "rows": [
+            [
+              "Etiology",
+              "Vasculopathic, Migrainous, or Inflammatory",
+              "Mass in Middle Cranial Fossa (Tumor, Aneurysm)"
+            ],
+            [
+              "CN Involvement",
+              "Only Sympathetics + CN V (Pain)",
+              "Sympathetics + CN V + multiple other CNs (III, IV, VI)"
+            ],
+            [
+              "Prognosis",
+              "Usually self-limiting",
+              "Depends on underlying pathology"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Anhidrosis is the key differentiator: Post-ganglionic lesions (like ICAD) do NOT have facial anhidrosis.",
+          "70% of ICAD patients present with pain; Horner is only present in ~25%.",
+          "The 'Crescent Sign' on T1-weighted fat-suppressed MRI is pathognomonic for mural hematoma.",
+          "Wait at least 30-60 mins for Apraclonidine; its effect relies on denervation supersensitivity."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Stroke Risk: Highest in the first 7 days following the dissection.",
+          "Horner Resolution: Ptosis and miosis may persist indefinitely even if the artery recanalizes.",
+          "Recurrence: Low (approx 1% per year) but higher in patients with underlying connective tissue disorders (Ehlers-Danlos, FMD)."
+        ]
+      },
+      {
+        "title": "Landmark Study: TREAT-CAD (2019)",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The TREAT-CAD trial compared Aspirin to Vitamin K Antagonists (VKA) in cervical artery dissection. It failed to prove non-inferiority of aspirin, suggesting a possible edge for anticoagulation in specific cases, though CADISS previously found them comparable. Most centers now start with Aspirin unless there is a high-grade stenosis or recurrent TIA."
+      },
+      {
+        "title": "Horner Syndrome: The Oculosympathetic Pathway Unveiled",
+        "icon": "nerve",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "First order neuron =central = posterior hypothalalmus descend uncrossed down the brain stem to terminate into ciliospinal center of budge in (intermeduolateral horn of spinal cord between C8 and T2",
+          "Second order neuron (preganglionic) pass from ciliospinal center of budge to the superiocervical ganglion in neck",
+          "Third (postganglionic) ascends along the internal carotid artery to enter the cavernous sinus where it joins the ophthalmic division of the trigeminal n then it reach ciliary body and the dilator pupillae muscle via nasociliary n and the long ciliary nerves"
+        ]
+      },
+      {
+        "title": "Horner Syndrome: Classic Triad & Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PAM",
+          "explanation": "P: Ptosis, A: Anisocoria (worse in dim light), M: Miosis.\n\nAdditional Clinical Pearls:\n- Cluster headache\n- Mugrainouscneuralgia\n- Bilateral horner caused by cervical spine surgery or diabetic neuropathy"
+        }
+      },
+      {
+        "title": "🚩 Painful Horner Syndrome: A Critical Red Flag!",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Painful horner syndrome should raise the possibility of carotid dissection"
+        ]
+      },
+      {
+        "title": "Key Examination Findings in Horner Syndrome",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Key examination ﬁnding is that anisocoria is accentuated in dim light",
+          "Hypochromia ,heterochromia may be seen if congenital or longstanding",
+          "Mild ptosis 1-2m superiorly , slightly elevation of inferior lid (inferior ptosis ) due to weakness of inferior tarsal muscle",
+          "Reuced ipsilateral sweating if the lesion occur below superior cervical ganglion"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Horner Syndrome by Lesion Location",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Neuron Order",
+            "Location/Type",
+            "Common Causes"
+          ],
+          "rows": [
+            [
+              "Central (1st order neurons)",
+              "Brainstem",
+              "Stroke, tumor, demyelination"
+            ],
+            [
+              "Central (1st order neurons)",
+              "Lateral Medulla",
+              "Wallenberg syndrome"
+            ],
+            [
+              "Central (1st order neurons)",
+              "Cervical Spinal Cord",
+              "Cervical spinal cord lesion, thoracic spinal cord lesion"
+            ],
+            [
+              "Preganglionic (2nd order neurons)",
+              "Thoracic/Cervical",
+              "Diabetic autonomic neuropathy, Pancoast tumour, Carotid and aortic aneurysm, Miscellaneous neck lesion (thyroid tumour, enlarged lymph nodes, trauma, postsurgical)"
+            ],
+            [
+              "Postganglionic (3rd order neurons)",
+              "Internal Carotid Artery / Cavernous Sinus",
+              "Internal carotid dissection, Nasopharyngeal tumour, Cavernous sinus mass, Otitis media"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Systemic Examination for Horner Syndrome",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Systemic examination of cranial n and peripheral nervous system (T1 grip strength) as wellas neck and regional ln by neurologist"
+        ]
+      },
+      {
+        "title": "Pharmacological Tests in Horner Syndrome: Confirm & Localize",
+        "icon": "medication",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Pharmacological tests play a crucial role in both confirming a diagnosis of Horner syndrome and localizing the lesion along the oculosympathetic pathway:\n• Apraclonidine 0,5%or 1%& cocaine 4% =conﬁrm diagnosis\n• Hydroxyamphetamine and adrenaline = differentiate pregaglionic from post ganglionic"
+      },
+      {
+        "title": "Pharmacological Tests: Detailed Mechanisms & Results",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "### Apraclonidine 0.5% or 1%\n• Apraclonidine 0,5%or 1%—>30min—> -ve —> recheck after 45 min ( latent period 7days before it became +ve)results: horner pupil will dilate , ptosis improved ( alpha1receptors are upregulated in denervated dilator pupillae)\n\n### Phenylephrine 1% (Dilution of 2.5% or 10% solution)\n• Phenylephrine 1%: (dilution of 2,5%,or 10% solution)results: 10 days establised post ganhlionic horner pupil will dilate and ptosis temporary relieved Central or preganglionic both will not dialate. Explanation: post ganglionic lesion develop denervation hypersenditivity to adrenergic neurotransmitters due to its dysfunctional local motor nerve\n\n### Adrenaline 0.1%\n• Adrenaline 0.1%: has an action similar to phenyl ephrine\n\n### Cocaine 4%\n• Cocaine 4% reseved for acute lesions or those in which apraclonidine testing is equivocal but clinical suspicion is high results :the horner pupil will not dilate( cocaine block reuptake of noradrenaline secreted at postganglionic nerve ending wich accumulate and cause dilation of normal pupil in horner syndrome there is no noradrenaline being secreated so cocaine has no effect\n\n### Hydroxyamphetamine 1%\n• Hydroxyamphitamine1%:more sensitive than phenylephrine results : postganglionic horner will not dilate Hydroxyamphetamine potentiates the release of noradrenaline from functional post ganglionic nerve endings.there is no release of noradrenaline from dysfunctional nerve"
+      },
+      {
+        "title": "Pharmacological Tests: Quick Reference Summary",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Agent",
+            "Purpose",
+            "Mechanism",
+            "Horner Pupil Result"
+          ],
+          "rows": [
+            [
+              "Apraclonidine 0,5%or 1%",
+              "Horner or not",
+              "alpha1receptors are upregulated in denervated dilator pupillae",
+              "Horner pupil will dilate"
+            ],
+            [
+              "Cocaine 4%",
+              "Horner or not",
+              "cocaine block reuptake of noradrenaline secreted at postganglionic nerve ending",
+              "Horner pupil will not dilate"
+            ],
+            [
+              "Phenylephrine 1%",
+              "Pre or post ganglionic",
+              "denervation hypersenditivity to adrenergic neurotransmitters due to its dysfunctional local motor nerve",
+              "Post ganglionic horner pupil will dilate (Central or preganglionic will not dilate)"
+            ],
+            [
+              "Hydroxyamphetamine 1%",
+              "Pre or post ganglionic",
+              "potentiates the release of noradrenaline from functional post ganglionic nerve endings.there is no release of noradrenaline from dysfunctional nerve",
+              "Post ganglionic horner will not dilate"
+            ],
+            [
+              "Adrenaline 0.1%",
+              "Pre or post ganglionic",
+              "Same as phenyl ephrine",
+              "Post ganglionic horner will dilate"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Adie Pupil: Pathophysiology & Features (Tonic Pupil)",
+        "icon": "sick",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Denervation of post ganglionic parasympathetic supply to sphincter pupillae and ciliary muscle and may follow a viral illness",
+          "Occasionally AD",
+          "Sites of dysfunction: ciliary ganglion and in holmes adie syndrome dorsal root ganglion involved in reﬂex pathways",
+          "Female one eye though involvement of second eye typically develops within months or years",
+          "Symptoms: anisocoria, blurring of near vision",
+          "Signs:",
+          "- Large regular pupil",
+          "- Direct light reﬂex is absent or sluggish",
+          "- Vermiform movements of the pupillary border",
+          "- Constriction is also absent or sluggish in respone to light stomulation of the fellow eye (consensual)",
+          "- Pupil respond to near following wich redilatation is also slow",
+          "- Accomodation may manifest similar tonicity with slowed or impaired focusing for near and prolonged refocusing in the distance.",
+          "- Long standing cases may become small (holmes adies)",
+          "Clinical Pearl: Sector palsy of the iris sphincter is a hallmark sign, often best seen with slit lamp examination."
+        ]
+      },
+      {
+        "title": "Adie Pupil: Associated Systemic Conditions",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition/Syndrome",
+            "Association"
+          ],
+          "rows": [
+            [
+              "Holmes-Adie Syndrome",
+              "Decrease lower limb deep tendon reﬂexes"
+            ],
+            [
+              "Ross Syndrome",
+              "Excessive sweating"
+            ],
+            [
+              "",
+              "Orthostatic hypotension"
+            ],
+            [
+              "",
+              "Bowel obstruction"
+            ],
+            [
+              "",
+              "Urinary retension"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Adie Pupil: Diagnosis & Management",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Pharmacological testing: 0,1-0,125% pilocarpine into both eyes leads to constrictions of abnormal pupil due to denervation hypersensitivity",
+          "Treatment if adies pupil:",
+          "- Reading glasses",
+          "- Sunglasses, low conc pilocarpine drops can be used for cosmetic reasons and to reduced photophopia",
+          "- Thoracic sympathectomy can be considered for excessive sweating"
+        ]
+      },
+      {
+        "title": "🚩 Bilateral Tonic Pupils? Investigate Syphilis!",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Syphilis serology should usually be checked in patient with bilateral tonic pupil"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Anisocoria",
+        "icon": "fingerprint",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Category",
+            "Conditions"
+          ],
+          "rows": [
+            [
+              "Physiological",
+              "1mm difference, same proportion under different illumination"
+            ],
+            [
+              "Pathological",
+              "Adie's Pupil, Horner Syndrome, Pharmacological mydriasis, Argyll Robertson Pupil, Benign episodic unilateral mydriasis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Physiological Anisocoria",
+        "icon": "emoji_nature",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1mm is present in about 20% of the normal population",
+          "Asymmetry persists to the same proportion under different levels of illumination"
+        ]
+      },
+      {
+        "title": "Pharmacologically Mydriatic Eye",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Does not constrict in bright light or on accomodation and there is no response to any concentration of pilocarpine"
+        ]
+      },
+      {
+        "title": "Argyll Robertson Pupils: The 'Prostitute's Pupil'",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Cause: neurosyphilis",
+          "Lesion: dorsal mid brain",
+          "Light near dissociation",
+          "Both pupils do not dilate well in dark",
+          "In bright light neither pupils constrict",
+          "On accomodation both constrict",
+          "After 0.1% pilocarpine neither pupil constricts distinguishing argyl robertson pupils from bilateral long standing tonic pupils",
+          "Clinical Pearl: Known as the 'Prostitute's Pupil' because it 'accommodates but does not react' (to light), a mnemonic from historical medical teaching."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Light-Near Dissociation",
+        "icon": "search",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Unilateral Causes",
+            "Bilateral Causes"
+          ],
+          "rows": [
+            [
+              "Afferent conduction defect",
+              "Neurosyphilis"
+            ],
+            [
+              "Adie pupil",
+              "Type 1 DM"
+            ],
+            [
+              "HZO",
+              "Myotonic dystrophy"
+            ],
+            [
+              "Aberrant 3rd n regeneration",
+              "Familial amyloidosis"
+            ],
+            [
+              "",
+              "Encephalitis"
+            ],
+            [
+              "",
+              "Alcoholism"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Chiasmal Visual Field Defects: An Anatomical Journey",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Visual ﬁeld defects depend on the location and direction of enlargement of compressive lesion as well as the anatomical relationship between the pituitary and chiasm.\n\n"
+      },
+      {
+        "title": "Chiasmal Visual Field Defects: Fiber Decussation & Lesion Correlation",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Fiber Location/Path",
+            "Chiasmal Traversal",
+            "Visual Field Defect"
+          ],
+          "rows": [
+            [
+              "Lower nasal optic n ﬁbres",
+              "Traverse the chiasm inferiorly anteriorly",
+              "Bitemporal superior quadrantanopia ﬁeld loss asymmetrical"
+            ],
+            [
+              "Upper nasal ﬁbres",
+              "Traverse the chiasm high and posteriorly",
+              "Bitemporal inferior quadrantanopia"
+            ],
+            [
+              "Macular ﬁbres",
+              "Decussate throughout the chiasm but concentrated posteriorly",
+              "Bitemporal hemianopic changes affecting the central and paracentral ﬁelds"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Specific Chiasmal Lesions & Patterns",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Craniopharyngioma: Anterior chiasm in conjunction with post ﬁx chiasm. Simultaneous involvement of the ﬁbres of the one optic n togeather with contralateral inferonasal ﬁbres looping forward into nerve in putative knee of wilbrand. Leads to Junctional scotoma (Central or paracentral defect on the side of optic n involvement + contralateral superotemporal defect)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Bitemporal Defects",
+        "icon": "search",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Cause"
+          ],
+          "rows": [
+            [
+              "Dermatochalasis"
+            ],
+            [
+              "Tilted disc"
+            ],
+            [
+              "Optic n coloboma"
+            ],
+            [
+              "Nasal retinoschisis"
+            ],
+            [
+              "Retinitis pigmentosa"
+            ],
+            [
+              "Functional nonphysiological visual loss"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pituitary Adenoma: Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1- Observation: silent tumour",
+          "2- Medical therapy : initial step and reduction in tumour size and secretion ( cabergoline- older promocriptin- somatostatin analogue octeriotide + supplementary hormonal correction as appropriate)",
+          "3- Surgery: transsphenoidal tumour debulking",
+          "4- Radiotherapy: sterotactic radiotherapy",
+          "5- Monitoring: serial assessment of visual function"
+        ]
+      },
+      {
+        "title": "Wernicke Hemianopic Pupil",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "Wernicke hemianopic pupil =optic tract lesion may therefore give rise to an afferent pupillary conduction defect.the pupillary light reﬂex will be normal when unaffected hemiretina is stimulated and absent when the involved hemiretina is stimulated"
+      },
+      {
+        "title": "Initial Assessment & History",
+        "icon": "history",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Assessing unequal pupils begins with a detailed history, including when and who noticed the difference in pupil size.",
+          "Identify whether there are associated ophthalmic or neurological symptoms.",
+          "Review any previous ophthalmic history.",
+          "Review systemic history (see also E Anisocoria, pp. 990–1).",
+          "Investigations: See E Pupil examination, p. 31."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Unequal Pupils",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Anisocoria",
+          "branches": [
+            "Physiological anisocoria",
+            "Iris pathology",
+            "Pharmacological",
+            "Sympathetic chain pathology (see E Anisocoria: sympathetic chain, pp. 796–7)",
+            "Parasympathetic chain pathology (see E Anisocoria: parasympathetic chain, p. 800)"
+          ]
+        }
+      },
+      {
+        "title": "Prevalence of Physiological Anisocoria",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Normal Population Affected",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Iris & Pharmacological Pathology",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Iris Pathology: 2° to intraocular surgery or trauma.",
+          "Pharmacological Anisocoria: Due to local instillation/inoculation (inadvertent or intentional).",
+          "Clinical features: Fixed large (parasympathetic agents) or fixed small pupils.",
+          "Unreactive to light or accommodation.",
+          "Clinically isolated, with no associated ptosis or ocular motility problems. (Anisocoria 795)"
+        ]
+      },
+      {
+        "title": "Pharmacological Investigations",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Dilated pupils: Instil 1% pilocarpine, wait for 45min. Pharmacological anisocoria is confirmed when there is refusal to fully constrict.",
+          "Constricted pupils: Instil 1% tropicamide, wait for 45min. Pharmacological anisocoria is confirmed when there is refusal to fully dilate."
+        ]
+      },
+      {
+        "title": "Anisocoria: Sympathetic Chain (Horner’s Syndrome)",
+        "icon": "neurology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The ocular sympathetic supply may be damaged anywhere along its route. The extent of sympathetic dysfunction, associated neurological signs, and pharmacological tests help to identify the level of the injury (796 Chapter 16 Neuro-ophthalmology)."
+      },
+      {
+        "title": "Horner’s Clinical Features",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Pupil is miotic, with normal light and near reaction.",
+          "Anisocoria is most marked in dim conditions.",
+          "Ptosis and apparent enophthalmos (due to 1–2mm upper lid ptosis and 1mm elevation of lower lid).",
+          "dIOP and conjunctival injection.",
+          "Facial anhidrosis: Suggests lesion of the first- or second-order neurone.",
+          "Iris hypochromia: Suggests a congenital lesion (also in long-standing acquired lesions)."
+        ]
+      },
+      {
+        "title": "Is it Isolated or Complex?",
+        "icon": "rule",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Check Signs",
+          "branches": [
+            "Cranial Nerves: IIn (fields, discs), IIIn, IVn, Vn, VIn",
+            "Cerebellum & PNS",
+            "Local signs (e.g. cavernous sinus pathology)",
+            "Disseminated signs (e.g. demyelination)",
+            "History: Pain (headache, neck, arm), Trauma, Surgery",
+            "Physical: Scars/Masses (lung apices, neck, thyroid)"
+          ]
+        }
+      },
+      {
+        "title": "Horner’s Diagnostic Testing",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Test Agent",
+            "Mechanism/Method",
+            "Positive Result for Horner’s"
+          ],
+          "rows": [
+            [
+              "Apraclonidine (1% or 0.5%)",
+              "Weak α1-agonist. Measure sizes at 0/60min in identical ambient lighting (bright/dim).",
+              "Pupil dilates (may also reverse ptosis)."
+            ],
+            [
+              "Cocaine (4%)",
+              "Blocks noradrenaline reuptake. Measure at 0/60min. Repeat at 1min. (Seldom performed).",
+              "No/poor pupillary dilation."
+            ],
+            [
+              "Hydroxyamfetamine (1%)",
+              "Identify level (seldom performed). Normal dilation = 1st/2nd order lesion. No/poor dilation = 3rd order.",
+              "Not reliable if within 48h of cocaine test."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Identify Cause & Level",
+        "icon": "map",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Identify cause: further investigation is directed by the likely cause and level of lesion (see Tables 16.21 and 16.22). Identify if congenital or acquired: old photographs may show changes to be long-standing (view with a 20D to see pupils); also look for additional clinical features (see E Congenital Horner’s syndrome, p. 797)."
+      },
+      {
+        "title": "Treatment and Prognosis",
+        "icon": "event_available",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Dependent on underlying cause; may involve urgent referral to other specialties.",
+          "Recovery of Horner’s depends on cause and treatment.",
+          "Cluster headaches (Raeder syndrome): recovery may occur within a few hours.",
+          "Invasive tumours: may cause relentless, irreversible progression."
+        ]
+      },
+      {
+        "title": "Congenital Horner’s Syndrome",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Usually idiopathic but can be 2° to birth trauma (e.g. forceps delivery).",
+          "Miosis, ptosis, and apparent enophthalmos.",
+          "Heterochromia: lighter iris pigmentation on ipsilateral side.",
+          "Facial flushing (‘harlequin’ sign): pale on affected side; seen on cycloplegic refraction or crying due to ipsilateral anhidrosis."
+        ]
+      },
+      {
+        "title": "CRITICAL CAUTION",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Acquired Horner’s syndrome in childhood should be investigated for neuroblastoma."
+        ]
+      },
+      {
+        "title": "Table 16.21: Investigations of Horner’s Syndrome",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Lesion type",
+            "Investigations may include"
+          ],
+          "rows": [
+            [
+              "Central",
+              "MRI brain/ spinal cord"
+            ],
+            [
+              "Preganglionic",
+              "CXR, CT thorax, Carotid Doppler, MRI/ MRA head/ neck, Lymph node (LN) biopsy"
+            ],
+            [
+              "Post-ganglionic",
+              "Carotid Doppler, MRI/ MRA head/ neck, MRI orbits, ENT assessment"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Table 16.22: Causes of Horner’s Syndrome",
+        "icon": "biomedical_extraction",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Lesion type",
+            "Location",
+            "Cause"
+          ],
+          "rows": [
+            [
+              "Central",
+              "Brainstem",
+              "CVA, Tumour, Demyelination"
+            ],
+            [
+              "Central",
+              "Spinal cord",
+              "Tumour, Syringomyelia, Trauma"
+            ],
+            [
+              "Preganglionic",
+              "Lung apex",
+              "Pancoast tumour, Trauma"
+            ],
+            [
+              "Preganglionic",
+              "Neck",
+              "Trauma, Surgery, Tumour (thyroid, cervical LN), CCA dissection"
+            ],
+            [
+              "Post-ganglionic",
+              "ICA",
+              "ICA dissection"
+            ],
+            [
+              "Post-ganglionic",
+              "Middle ear",
+              "Otitis media, Herpes zoster"
+            ],
+            [
+              "Post-ganglionic",
+              "Cavernous sinus",
+              "Thrombosis, Tumour"
+            ],
+            [
+              "Post-ganglionic",
+              "Orbit",
+              "Tolosa– Hunt, Tumour"
+            ],
+            [
+              "Post-ganglionic",
+              "Cluster headache",
+              "N/A"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Reference & Note",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "For anisocoria arising from disorders of the sympathetic and parasympathetic chains, see E Anisocoria: sympathetic chain, pp. 796–7 and E Anisocoria: parasympathetic chain, p. 800. (796-798 Chapter 16 Neuro-ophthalmology)"
+      },
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Horner Syndrome (oculosympathetic paresis) results from an interruption of the sympathetic nerve supply to the eye and adnexa. It is classically defined by the triad of miosis, ptosis, and anhidrosis. While often benign, its sudden onset—especially when accompanied by pain—can signal life-threatening conditions such as internal carotid artery dissection (ICAD) or Pancoast tumor."
+      },
+      {
+        "title": "The Three-Order Neuron Pathway",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1st Order (Central): Hypothalamus → Ciliospinal Center of Budge (C8-T2). Passes through the brainstem.",
+          "2nd Order (Pre-ganglionic): Ciliospinal Center → Over the Lung Apex → Superior Cervical Ganglion (Level of Mandible/C2).",
+          "3rd Order (Post-ganglionic): Superior Cervical Ganglion → Carotid Plexus → Through Cavernous Sinus → Long Ciliary Nerves → Iris Dilator & Müller's Muscle."
+        ]
+      },
+      {
+        "title": "Etiology by Localization",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Neuron Level",
+            "Common Etiologies",
+            "Associated Findings"
+          ],
+          "rows": [
+            [
+              "1st Order (Central)",
+              "Stroke (Lateral Medullary/Wallenberg), MS, Trauma, Syringomyelia",
+              "Contralateral hemiparesis, vertigo, ataxia"
+            ],
+            [
+              "2nd Order (Pre-ganglionic)",
+              "Pancoast Tumor (Lung), Thoracic Aneurysm, Birth Trauma (Klumpke), Iatrogenic (Surgery)",
+              "Arm pain, hand muscle wasting (T1 involvement)"
+            ],
+            [
+              "3rd Order (Post-ganglionic)",
+              "Carotid Dissection, Cluster Headache, Cavernous Sinus Thrombosis, Raeder Syndrome",
+              "Ophthalmoplegia (if cavernous sinus), Periorbital Pain"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Painful Horner: RED ALERTS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Internal Carotid Artery Dissection (ICAD) until proven otherwise.",
+          "Acute onset of facial, neck, or periorbital pain.",
+          "Amaurosis Fugax or TIA-like symptoms.",
+          "History of minor neck trauma (e.g., yoga, chiropractic, coughing).",
+          "Associated CN XII palsy (suggests extracranial CAD)."
+        ]
+      },
+      {
+        "title": "Clinical Signs & Ocular Findings",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Miosis: Anisocoria is greater in the dark (dilation lag).",
+          "Ptosis: Mild (1-2mm) due to Müller's muscle weakness.",
+          "Upside-down Ptosis: Elevation of the lower eyelid.",
+          "Anhidrosis: Loss of sweating (Total face: 1st order; Forehead only: 3rd order).",
+          "Iris Heterochromia: If congenital (affected eye is lighter).",
+          "Apparent Enophthalmos: Due to narrow palpebral fissure."
+        ]
+      },
+      {
+        "title": "Pharmacological Testing Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Apraclonidine 0.5% or 1% (Diagnosis). Horner pupil dilates; normal pupil does not (reversal of anisocoria).",
+          "Step 2: Cocaine 4% or 10% (Gold Standard Diagnosis). Horner pupil fails to dilate; normal pupil dilates.",
+          "Step 3: Hydroxyamphetamine 1% (Localization). Dilates 1st/2nd order; fails to dilate 3rd order.",
+          "Step 4: Phenylephrine 1% (3rd order check). Significant dilation suggests 3rd order due to denervation supersensitivity."
+        ]
+      },
+      {
+        "title": "Anisocoria Differential Diagnosis",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Anisocoria",
+          "branches": [
+            "Dark > Light (Sympathetic): Horner, Physiological Anisocoria, Long-standing Argyll Robertson",
+            "Light > Dark (Parasympathetic): Adie Tonic Pupil, CN III Palsy, Pharmacological Mydriasis, Trauma/Sphincter Damage",
+            "Normal Reactivity: Physiological Anisocoria (usually <1mm difference)"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Strategy",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Confirm Diagnosis (Apraclonidine/Cocaine test).",
+          "2. Determine Urgency: If PAINFUL → Immediate ER referral for MRA Head/Neck.",
+          "3. Localize: Check for associated CN palsies or 'long-tract' signs.",
+          "4. Imaging: MRI Brain, MRA/CTA Head & Neck, CT/X-ray Chest (Apex)."
+        ]
+      },
+      {
+        "title": "Prevalence of Etiologies",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Idiopathic",
+              "value": 40
+            },
+            {
+              "label": "Surgical/Trauma",
+              "value": 25
+            },
+            {
+              "label": "Neoplasia",
+              "value": 15
+            },
+            {
+              "label": "Carotid Dissection",
+              "value": 10
+            },
+            {
+              "label": "Vascular/Other",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Remember the Triad",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PAM is Horny",
+          "explanation": "Ptosis, Anhidrosis, and Miosis = Horner Syndrome."
+        }
+      },
+      {
+        "title": "Imaging Specifics for CAD",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Axial T1 with FAT SATURATION is the gold standard for detecting intramural hematoma.",
+          "MRA or CTA of the neck must include the 'carotid string sign'.",
+          "Scan from the Arch of the Aorta to the Circle of Willis."
+        ]
+      },
+      {
+        "title": "Pediatric Considerations",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Most common cause: Birth trauma (brachial plexus injury).",
+          "Crucial Red Flag: Neuroblastoma (must check urinary catecholamines/VMA).",
+          "Characteristic Sign: Iris heterochromia (hypochromia on the affected side)."
+        ]
+      },
+      {
+        "title": "Surgical Management",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Müller Muscle Conjunctival Resection (MMCR): For correcting the mild ptosis.",
+          "Fasanella-Servat Procedure: A variation of MMCR often used.",
+          "Levator Aponeurosis Advancement: Reserved for larger ptosis components."
+        ]
+      },
+      {
+        "title": "Clinical Pearls (High Yield)",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Dilation Lag: The anisocoria is most prominent 5 seconds after lights out.",
+          "Wallenberg Syndrome: Expect ipsilateral Horner + contralateral loss of pain/temp.",
+          "Apraclonidine False Negative: May occur in very acute cases (<48 hours) due to lack of receptor upregulation."
+        ]
+      },
+      {
+        "title": "Landmark Studies: The 'Pain' Evidence",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A landmark study by Biousse et al. noted that Horner syndrome occurs in approximately 25% to 58% of internal carotid artery dissections. In many cases, it is the *only* presenting sign before a major stroke occurs. Immediate anticoagulation or antiplatelet therapy is often required once the dissection is confirmed by imaging."
+      },
+      {
+        "title": "Summary of Complications",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Ischemic Stroke (if CAD is missed).",
+          "Metastatic spread of occult malignancy (Pancoast tumor).",
+          "Permanent ocular cosmetic defects (ptosis).",
+          "Progression of underlying neurological disease (MS/Tumor)."
+        ]
+      }
+    ],
+    "chapterId": "neuro",
+    "mergedFrom": [
+      "The Painful Horner: A Neurological Emergency",
+      "Autonomic Eye: A Comprehensive Guide to Pupillary & Visual Field Anomalies",
+      "Comprehensive Guide to Anisocoria & Horner’s Syndrome",
+      "Horner Syndrome: The Oculosympathetic Roadmap"
+    ]
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775384804470,
+  "communityId": "sub_1775384035715_8wg27pu45hpr8i",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-04-05T10:13:55.715Z"
+}

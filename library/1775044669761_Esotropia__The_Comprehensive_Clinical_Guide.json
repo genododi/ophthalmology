@@ -1,0 +1,345 @@
+{
+  "id": 1775044669761,
+  "seqId": 232,
+  "title": "Esotropia: The Comprehensive Clinical Guide",
+  "summary": "Esotropia is the most common form of childhood strabismus, characterized by an inward deviation of one or both eyes. This guide covers the spectrum from infantile onset and accommodative types to surgical management and landmark clinical evidence.",
+  "date": "2026-04-01T11:57:49.761Z",
+  "data": {
+    "title": "Esotropia: The Comprehensive Clinical Guide",
+    "summary": "Esotropia is the most common form of childhood strabismus, characterized by an inward deviation of one or both eyes. This guide covers the spectrum from infantile onset and accommodative types to surgical management and landmark clinical evidence.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='60' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='60' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><circle cx='140' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='125' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M40 20 Q60 10 80 20' fill='none' stroke='black' stroke-width='2'/><path d='M120 20 Q140 10 160 20' fill='none' stroke='black' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Esotropia (ET) is a form of strabismus where the visual axes intersect in front of the object of regard. It is categorized by onset (congenital vs. acquired), frequency (constant vs. intermittent), and mechanism (accommodative vs. non-accommodative). Precise diagnosis is critical as it may be the presenting sign of life-threatening pathology such as retinoblastoma or intracranial tumors."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence in Children",
+              "value": 2
+            },
+            {
+              "label": "Prevalence in Adults",
+              "value": 1
+            },
+            {
+              "label": "Associated with Hyperopia",
+              "value": 75
+            },
+            {
+              "label": "Infantile Onset (<6mo)",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Classification of Esotropia",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Esotropia Spectrum",
+          "branches": [
+            "Infantile (Essential) ET",
+            "Accommodative (Refractive/High AC/A)",
+            "Secondary (Sensory/Consecutive)",
+            "Special Syndromes (Duane/6th Nerve)",
+            "Pseudoesotropia"
+          ]
+        }
+      },
+      {
+        "title": "Infantile Esotropia Syndrome (IES)",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Onset: Within the first 6 months of life.",
+          "Angle: Usually large (>30 Prism Diopters) and stable.",
+          "Refraction: Usually normal for age (approx +1.50D).",
+          "Cross-fixation: Patient looks left with right eye and right with left eye.",
+          "Latent Nystagmus: Jerk nystagmus appearing when one eye is covered.",
+          "Dissociated Vertical Deviation (DVD): Upward drift of the non-fixing eye (found in 50-90%).",
+          "Inferior Oblique Overaction (IOOA): Frequent late finding."
+        ]
+      },
+      {
+        "title": "Accommodative Esotropia Subtypes",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Subtype",
+            "Mechanism",
+            "Clinical Features",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Refractive",
+              "High Hyperopia (Mean +4.00D)",
+              "Normal AC/A ratio",
+              "Full Cycloplegic Correction"
+            ],
+            [
+              "Non-Refractive",
+              "High AC/A Ratio",
+              "ET greater at near than distance",
+              "Bifocals (+2.50 or +3.00)"
+            ],
+            [
+              "Mixed",
+              "Hyperopia + High AC/A",
+              "Significant ET at both, worse at near",
+              "Full Correction + Bifocals"
+            ],
+            [
+              "Partially Accommodative",
+              "Incomplete reduction with glasses",
+              "Residual ET remains after full correction",
+              "Glasses + Surgery for residual"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Protocol",
+        "icon": "stethoscope",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: History (Onset, frequency, family history).",
+          "Step 2: Visual Acuity (Fix and Follow, CSM, or Snellen/LEA).",
+          "Step 3: Cover/Uncover and Alternate Cover Test (Prism neutralization).",
+          "Step 4: Ocular Motility (Versions/Ductions, look for IOOA or A/V patterns).",
+          "Step 5: Cycloplegic Refraction (1% Atropine or 1% Cyclopentolate mandatory).",
+          "Step 6: Dilated Fundus Exam (Rule out sensory causes like Retinoblastoma)."
+        ]
+      },
+      {
+        "title": "Sensory Esotropia Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Leukocoria (White pupillary reflex)",
+          "Optic Atrophy or Hypoplasia",
+          "Macular Scars (e.g., Toxoplasmosis)",
+          "Retinoblastoma (Must exclude in ALL new cases)",
+          "Dense Cataract"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Common Mimics",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Pseudoesotropia",
+              "Prominent epicanthal folds; symmetrical Hirschberg reflex."
+            ],
+            [
+              "Duane Syndrome (Type 1)",
+              "Limited abduction, globe retraction/narrowing of palpebral fissure on adduction."
+            ],
+            [
+              "6th Nerve Palsy",
+              "Recent onset, limited abduction, diplopia (if old enough), head turn."
+            ],
+            [
+              "Moebius Syndrome",
+              "Bilateral 6th and 7th nerve palsies (mask-like facies)."
+            ],
+            [
+              "Ciancia Syndrome",
+              "Large angle ET with limited abduction and jerk nystagmus."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Accommodative Convergence/Accommodation (AC/A) Ratio",
+        "icon": "calculate",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "Gradient Method Formula",
+          "explanation": "AC/A = (Δ1 - Δ2) / D. Where Δ1 is original deviation, Δ2 is deviation with lens, and D is power of lens used."
+        }
+      },
+      {
+        "title": "Surgical Management: Infantile ET",
+        "icon": "content_cut",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Stabilization: Ensure amblyopia is treated first.",
+          "2. Procedure Selection: Bilateral Medial Rectus (BMR) Recession is gold standard.",
+          "3. Dosing: 5mm for 20-25PD; 6mm for 30-35PD; 7mm for 45-50PD.",
+          "4. Associated Patterns: Address Inferior Oblique (Myectomy) if OAIO is present.",
+          "5. Timing: Ideally before 2 years of age to maximize binocular potential."
+        ]
+      },
+      {
+        "title": "Parks' Surgical Dosing Guide (Recession)",
+        "icon": "straighten",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Dev (PD)",
+            "BMR Recess (mm)",
+            "R&R Recess/Resect (mm)",
+            "Max Safe Recession"
+          ],
+          "rows": [
+            [
+              "15 PD",
+              "3.0 mm",
+              "3.0 / 4.0",
+              "Medial Rectus: 7.0-8.0 mm"
+            ],
+            [
+              "20 PD",
+              "3.5 mm",
+              "3.5 / 5.0",
+              "Lateral Rectus: 8.0-9.0 mm"
+            ],
+            [
+              "30 PD",
+              "4.5 mm",
+              "4.5 / 6.0",
+              "Caution: Overcorrection risk"
+            ],
+            [
+              "50 PD",
+              "6.0 mm",
+              "6.0 / 8.0",
+              "Consider 3-muscle surgery"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Post-Operative Complications",
+        "icon": "report_problem",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Slipped or Lost Muscle (Surgical emergency)",
+          "Consecutive Exotropia (Overcorrection)",
+          "Globe Perforation",
+          "Anterior Segment Ischemia (Risk if >2 muscles/eye)",
+          "Suture Granuloma or Tenon's Prolapse"
+        ]
+      },
+      {
+        "title": "Special Form: Acute Acquired Comitant ET",
+        "icon": "speed",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Swan Type: Following occlusion/loss of vision.",
+          "Burian-Franceschetti Type: Idiopathic, large angle, no refractive error.",
+          "Bielschowsky Type: Found in uncorrected myopes due to near work.",
+          "NEURO ALERT: Acute ET can be a sign of cerebellar tumor (Chiari Malformation)."
+        ]
+      },
+      {
+        "title": "The ELIS Trial & Timing of Surgery",
+        "icon": "history_edu",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "The Early vs. Late Infantile Strabismus (ELIS) study suggests that surgery performed before age 2, specifically between 6 months and 2 years, results in better stereopsis and gross binocularity compared to delayed surgery, though re-operation rates may be higher."
+      },
+      {
+        "title": "Clinical Pearls for the Board Exam",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Always check for a 'V' or 'A' pattern; 'V' is often IOOA, 'A' is often SOOA.",
+          "Prism Adaptation Test (PAT): Used to identify patients who 'eat' prism before surgery.",
+          "Monofixation Syndrome: A common 'success' state after ET surgery (small angle, central scotoma, peripheral fusion).",
+          "Sensory ET in adults: If sudden onset, think intracranial pressure."
+        ]
+      },
+      {
+        "title": "Mnemonic for Special Syndromes",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "DUANE-1",
+          "explanation": "D: Diminished Abduction, U: Up/Down shoots, A: Adduction causes globe retraction, N: Narrowing of fissure, E: Esotropia in primary position."
+        }
+      },
+      {
+        "title": "Investigations: Ancillary Testing",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Worth 4-Dot Test: Assess for suppression or diplopia.",
+          "Stereopsis Testing: Titmus Fly or Randot (IES usually has no stereopsis).",
+          "Hess Screen / Lancaster Red-Green: Useful for paralytic ET.",
+          "Neuroimaging (MRI/CT): Mandatory if ET is associated with neurological signs, ataxia, or papilledema."
+        ]
+      },
+      {
+        "title": "Summary of Success Criteria",
+        "icon": "task_alt",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Primary Success: Orthotropia within 10 PD of central alignment.",
+          "Functional Success: Restoration of gross stereopsis (e.g., 200-400 arc sec).",
+          "Cosmetic Success: Deviation not noticeable by casual observers."
+        ]
+      }
+    ],
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "_newlyImported": 1775044669761,
+  "communityId": "sub_1773775007770_r1ucv42dk742v4",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true
+}

@@ -1,0 +1,276 @@
+{
+  "id": 1775235744865,
+  "seqId": 622,
+  "title": "Phlyctenular Keratoconjunctivitis (PKC): A Comprehensive Clinical Guide",
+  "summary": "A localized Type IV hypersensitivity reaction of the ocular surface to microbial antigens, characterized by the formation of inflammatory nodules (phlyctenules). Historically linked to Tuberculosis, it is now most commonly associated with Staphylococcus aureus-induced blepharitis in developed nations.",
+  "date": "2026-04-03T17:02:24.865Z",
+  "data": {
+    "title": "Phlyctenular Keratoconjunctivitis (PKC): A Comprehensive Clinical Guide",
+    "summary": "A localized Type IV hypersensitivity reaction of the ocular surface to microbial antigens, characterized by the formation of inflammatory nodules (phlyctenules). Historically linked to Tuberculosis, it is now most commonly associated with Staphylococcus aureus-induced blepharitis in developed nations.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M25 50 Q 50 20 75 50 Q 50 80 25 50' stroke='hsl(215, 90%, 45%)' fill='none'/><circle cx='32' cy='45' r='4' fill='hsl(0, 80%, 60%)' /><path d='M32 45 L 42 48' stroke='hsl(0, 80%, 60%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Phlyctenular Keratoconjunctivitis (PKC) is a non-infectious, inflammatory nodular affection of the cornea and conjunctiva. It represents a delayed-type hypersensitivity (Type IV) response to a previously sensitized endogenous microbial antigen. The hallmark is the 'phlyctenule'—a small, greyish-white nodule surrounded by a localized zone of hyperaemia, which progresses to ulceration and eventual scarring."
+      },
+      {
+        "title": "Etiology: The Triggering Antigens",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Antigenic Sources",
+          "branches": [
+            "Staphylococcus aureus (Most Common in West)",
+            "Mycobacterium tuberculosis (Endemic regions)",
+            "Chlamydia trachomatis",
+            "Coccidioides immitis",
+            "Candida albicans",
+            "Intestinal Parasites (Hymenolepis nana, Giardia)",
+            "Herpes Simplex Virus"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Pediatric (Ages 5-15)",
+              "value": 85
+            },
+            {
+              "label": "Female Predominance",
+              "value": 70
+            },
+            {
+              "label": "Association with Blepharitis",
+              "value": 90
+            },
+            {
+              "label": "TB-Associated (Global)",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The 3-Step Mechanism",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Sensitization — Initial exposure to microbial proteins (e.g., Staph cell wall or Tuberculoprotein) primes the T-lymphocytes.",
+          "Step 2: Re-exposure — Secondary exposure to the same antigen triggers a localized Type IV hypersensitivity reaction.",
+          "Step 3: Infiltration — Accumulation of polymorphonuclear leukocytes (early) and macrophages/lymphocytes (late) leads to subepithelial nodule formation and eventual necrosis/ulceration."
+        ]
+      },
+      {
+        "title": "Classification by Anatomical Location",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Description",
+            "Prognosis"
+          ],
+          "rows": [
+            [
+              "Conjunctival Phlycten",
+              "Small nodule at the limbus or bulbar conjunctiva; moves with conjunctiva.",
+              "Good; heals without scarring."
+            ],
+            [
+              "Limbal Phlycten",
+              "Nodule straddling the limbus; often triangular with apex towards cornea.",
+              "May leave a triangular sector-shaped scar."
+            ],
+            [
+              "Corneal Phlycten",
+              "Starts at limbus, migrates centrally dragging a leash of vessels (Fascicular Ulcer).",
+              "Guarded; leaves permanent opacity (Nebula/Macula)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Patient Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Mild to severe irritation and foreign body sensation.",
+          "Intense lacrimation (tearing).",
+          "Severe Photophobia: Pathognomonic for corneal involvement; children often hide from light.",
+          "Blepharospasm: Involuntary eyelid closure.",
+          "Mucoid discharge (if secondary infection is present).",
+          "Itching (more common in Staph-related cases)."
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Phlyctenule: 1-3mm hard, greyish-white elevation.",
+          "Hyperemic Zone: Fan-shaped injection pointing towards the limbus.",
+          "Fascicular Ulcer: Serpiginous-like progression across the cornea with a 'leash' of vessels.",
+          "Marginal Phlycten: Can lead to peripheral thinning and gutter formation.",
+          "Chronic Blepharitis: Scurf, collarettes, and meibomian gland dysfunction (MGD).",
+          "Salzmann Nodular Degeneration: May occur secondary to long-standing PKC."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "order_approve",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Slit-Lamp Biomicroscopy: Detailed assessment of nodule morphology and corneal depth.",
+          "2. Eyelid Margin Culture: Identify Staphylococcus aureus colonization.",
+          "3. Mantoux Test (PPD) / IGRA (QuantiFERON): Essential to rule out occult TB, especially in endemic areas.",
+          "4. Chest X-Ray: Screen for pulmonary tuberculosis.",
+          "5. Sputum Analysis: If CXR is suggestive of active TB.",
+          "6. Stool Examination: Check for ova/cysts of intestinal parasites in recalcitrant pediatric cases."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis (DDx)",
+        "icon": "list",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Pingueculitis",
+              "Inflamed pre-existing pinguecula; nasal/temporal; no migration."
+            ],
+            [
+              "Nodular Episcleritis",
+              "Deeper purple hue; nodule does not ulcerate; less photophobia."
+            ],
+            [
+              "Herpes Simplex (Marginal)",
+              "Dendritic edge; decreased corneal sensation; recurrent."
+            ],
+            [
+              "Rosacea Keratitis",
+              "Associated facial telangiectasia/flushing; bilateral; inferior thinning."
+            ],
+            [
+              "Vernal Keratoconjunctivitis (VKC)",
+              "Trantas dots; giant papillae on tarsus; intense itching; stringy discharge."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management & Treatment Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Topical Steroids — Loteprednol 0.5% or Fluorometholone QID (tapered slowly) to reduce inflammation.",
+          "Step 2: Antibiotic Cover — Topical Erythromycin or Bacitracin ointment for lid margins.",
+          "Step 3: Lid Hygiene — Warm compresses and lid scrubs to manage underlying Staph blepharitis.",
+          "Step 4: Systemic Treatment — Oral Doxycycline (100mg BID) or Tetracycline for adults; Oral Erythromycin for children (Rosacea-related).",
+          "Step 5: Address Underlying Cause — Anti-TB therapy (RIPE regimen) if Mantoux/CXR is positive.",
+          "Step 6: Lubrication — Preservative-free artificial tears for symptomatic relief."
+        ]
+      },
+      {
+        "title": "Red Flags: Immediate Concerns",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Progressive corneal thinning or impending perforation.",
+          "Significant reduction in visual acuity.",
+          "Presence of systemic symptoms (weight loss, night sweats, chronic cough).",
+          "Steroid-induced Intraocular Pressure (IOP) spikes.",
+          "Secondary bacterial superinfection of the phlyctenular ulcer."
+        ]
+      },
+      {
+        "title": "Remember the Path of the Phlycten",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STARS",
+          "explanation": "S: Staph/TB (Main triggers), T: Type IV Hypersensitivity, A: Apex towards cornea, R: Rosacea association, S: Steroids (Primary treatment)."
+        }
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Photophobia in a child with a red eye should always raise suspicion for PKC or Keratitis.",
+          "The fascicular ulcer 'drags' its blood supply behind it; this leash of vessels is diagnostic.",
+          "Never start steroids without ruling out active Corneal Herpes Simplex (dendrite check).",
+          "If the phlyctenule is bilateral and recurrent, a systemic workup for TB is mandatory regardless of geographic location.",
+          "Salzmann nodules are often a long-term 'ghost' sign of previous phlyctenular disease."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Corneal Scarring: Leads to irregular astigmatism and vision loss.",
+          "Perforation: Rare, but possible in extreme thinning.",
+          "Recurrence: High if the underlying blepharitis or TB is not treated.",
+          "Secondary Infection: Bacterial keratitis can graft onto the ulcer site.",
+          "Amblyopia: In young children with central corneal scarring."
+        ]
+      },
+      {
+        "title": "Surgical & Advanced Interventions",
+        "icon": "home_repair_service",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "PTK (Phototherapeutic Keratectomy): To clear superficial scars after the eye is quiet.",
+          "Lamellar Keratoplasty: Required for deep scars or significant thinning.",
+          "Penetrating Keratoplasty: Reserved for full-thickness central scars or perforation.",
+          "Gundersen Flap: In rare, non-healing recalcitrant cases."
+        ]
+      }
+    ],
+    "generationPrompt": "Phylctenular conjunctivitis",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea"
+}

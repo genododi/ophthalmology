@@ -1,0 +1,182 @@
+{
+  "id": 1775044651250,
+  "seqId": 30,
+  "title": "Ocular Needle Stick Injury: Post-Exposure Prophylaxis (PEP) Protocol",
+  "summary": "A comprehensive clinical guide for the immediate management of percutaneous or mucocutaneous exposure to blood-borne pathogens (HIV, HBV, HCV) in the ophthalmic setting. Rapid risk stratification and timely PEP initiation are critical to preventing seroconversion.",
+  "date": "2026-04-01T11:57:31.250Z",
+  "data": {
+    "title": "Ocular Needle Stick Injury: Post-Exposure Prophylaxis (PEP) Protocol",
+    "summary": "A comprehensive clinical guide for the immediate management of percutaneous or mucocutaneous exposure to blood-borne pathogens (HIV, HBV, HCV) in the ophthalmic setting. Rapid risk stratification and timely PEP initiation are critical to preventing seroconversion.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 L70 50 M50 30 L50 70' stroke='hsl(215, 90%, 45%)' stroke-width='6' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Immediate First Aid (The First 60 Seconds)",
+        "icon": "warning",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "1. Percutaneous Injury: Wash the site immediately with soap and water. Do not scrub excessively; avoid caustic agents like bleach.",
+          "2. Mucocutaneous/Eye Splash: Flush the eyes/mucosa with saline or sterile water for at least 15 minutes using an eyewash station or irrigating solution.",
+          "3. Reporting: Notify your supervisor or Occupational Health department IMMEDIATELY to establish a baseline and documentation.",
+          "4. Source Assessment: Attempt to identify the source patient's status (HBV, HCV, HIV) through chart review or rapid testing if consent is obtained."
+        ]
+      },
+      {
+        "title": "The Pathogen Risk Hierarchy",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "HBV (High Risk)",
+              "value": 30
+            },
+            {
+              "label": "HCV (Moderate)",
+              "value": 3
+            },
+            {
+              "label": "HIV (Low)",
+              "value": 0.3
+            }
+          ]
+        }
+      },
+      {
+        "title": "PEP Red Flags & Timing",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "PEP must be initiated within 1-2 hours of exposure.",
+          "Delay beyond 72 hours renders PEP likely ineffective.",
+          "Never wait for source patient lab results before starting PEP if risk is high.",
+          "Assess for drug-drug interactions (e.g., antiretrovirals vs. common eye drops/anticoagulants)."
+        ]
+      },
+      {
+        "title": "HIV PEP Regimen: The 3-Drug Gold Standard",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Medication",
+            "Standard Dose",
+            "Class"
+          ],
+          "rows": [
+            [
+              "Tenofovir disoproxil fumarate (TDF)",
+              "300 mg QD",
+              "NRTI"
+            ],
+            [
+              "Emtricitabine (FTC)",
+              "200 mg QD",
+              "NRTI"
+            ],
+            [
+              "Dolutegravir (DTG)",
+              "50 mg QD",
+              "Integrase Inhibitor"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Remember the Protocol: THE-3",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "T-H-E-3",
+          "explanation": "T (Tenofovir), H (History of Source), E (Emtricitabine/Eyewash), 3 (3-drug regimen for 28 days)."
+        }
+      },
+      {
+        "title": "HBV Management Algorithm",
+        "icon": "vaccines",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "HBV Exposure",
+          "branches": [
+            "Unvaccinated: HBIG + Vaccine",
+            "Known Responder: No Action",
+            "Known Non-responder: HBIG x2 + Revaccinate"
+          ]
+        }
+      },
+      {
+        "title": "Follow-up Testing Schedule",
+        "icon": "calendar_month",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Interval",
+            "HIV",
+            "HCV",
+            "HBV"
+          ],
+          "rows": [
+            [
+              "Baseline",
+              "Yes",
+              "Yes",
+              "Yes"
+            ],
+            [
+              "6 Weeks",
+              "Yes",
+              "Yes",
+              "No"
+            ],
+            [
+              "3 Months",
+              "Yes",
+              "Yes (Ab)",
+              "No"
+            ],
+            [
+              "6 Months",
+              "No",
+              "Optional",
+              "No"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls for Ophthalmic Surgeons",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Use 'Hands-Free' technique for passing sharp instruments in the OR.",
+          "Double-gloving has been shown to reduce blood-to-skin volume in percutaneous injuries.",
+          "HCV Post-Exposure: There is no post-exposure prophylaxis for Hepatitis C. Monitor for seroconversion and refer to GI if ALT/PCR indicates infection.",
+          "Psychosocial Support: Exposure often leads to significant anxiety; provide counseling resources as standard of care."
+        ]
+      }
+    ],
+    "generationPrompt": "PEP after needle stick injury",
+    "chapterId": "paediatric"
+  },
+  "chapterId": "paediatric",
+  "_newlyImported": 1775044651250,
+  "communityId": "sub_1774878390655_vwlp70xuk",
+  "communityAuthor": "kemo",
+  "communityDate": "2026-03-30T13:46:30.656Z"
+}

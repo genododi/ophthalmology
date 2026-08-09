@@ -1,0 +1,337 @@
+{
+  "id": 1775478771238,
+  "seqId": 727,
+  "title": "Small Eyes, Big Problems: Nanophthalmos & Microphthalmos",
+  "summary": "A comprehensive clinical deep-dive into the spectrum of microphthalmic disorders. Distinguishing the structurally normal but miniaturized Nanophthalmos from the malformed Complex Microphthalmos is critical for preventing catastrophic surgical outcomes like uveal effusion.",
+  "date": "2026-04-06T12:32:51.238Z",
+  "data": {
+    "title": "Small Eyes, Big Problems: Nanophthalmos & Microphthalmos",
+    "summary": "A comprehensive clinical deep-dive into the spectrum of microphthalmic disorders. Distinguishing the structurally normal but miniaturized Nanophthalmos from the malformed Complex Microphthalmos is critical for preventing catastrophic surgical outcomes like uveal effusion.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M20 50 Q50 10 80 50 Q50 90 20 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><line x1='10' y1='10' x2='90' y2='90' stroke='hsl(0, 70%, 50%)' stroke-width='1' stroke-dasharray='4'/><text x='10' y='95' font-family='Arial' font-size='6' fill='hsl(215, 90%, 45%)'>AL &lt; 20mm</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definitions",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Nanophthalmos is a specific subtype of 'simple microphthalmos' characterized by a small eye (Axial Length <20mm) with a structurally normal, though crowded, appearance. In contrast, Microphthalmos describes a small eye that often possesses internal structural anomalies (colobomas, persistent fetal vasculature, etc.)."
+      },
+      {
+        "title": "The Microphthalmic Spectrum",
+        "icon": "account_tree",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Nanophthalmos",
+            "Simple Microphthalmos",
+            "Complex Microphthalmos"
+          ],
+          "rows": [
+            [
+              "Axial Length (AL)",
+              "Adult: <20.0 mm",
+              "AL <21.0 mm (Adult)",
+              "AL <21.0 mm (Adult)"
+            ],
+            [
+              "Anatomy",
+              "Structurally Normal; Thick Sclera",
+              "Structurally Normal",
+              "Anatomic Malformations Present"
+            ],
+            [
+              "Refractive Error",
+              "Extreme Hyperopia (+7 to +20D)",
+              "High Hyperopia",
+              "Variable; often High Hyperopia"
+            ],
+            [
+              "Associated Signs",
+              "Lens/Eye volume ratio ↑↑",
+              "Proportional reduction",
+              "Coloboma, PHPV, Anterior Segment Dysgenesis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology & Genetics",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Etiology",
+          "branches": [
+            "MFRP Gene (Nanophthalmos 2)",
+            "PRSS56 Gene (Nanophthalmos 6)",
+            "Thickened, non-compliant sclera",
+            "Reduced scleral protein permeability",
+            "Impaired vortex vein drainage"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Bilateral Involvement",
+              "value": 95
+            },
+            {
+              "label": "Sporadic Cases",
+              "value": 60
+            },
+            {
+              "label": "Autosomal Recessive",
+              "value": 30
+            },
+            {
+              "label": "Autosomal Dominant",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Small corneal diameter (<10mm white-to-white)",
+          "Shallow anterior chamber (ACD <1.5mm common)",
+          "Relatively large lens (high lens-to-eye volume ratio)",
+          "Narrow or closed angles (high risk of ACG)",
+          "Fundus: Macular folds, crowded optic disc, tortuous vessels",
+          "Thick sclera (often >2.0 mm on ultrasound)"
+        ]
+      },
+      {
+        "title": "RED FLAGS: The Surgical Nightmare",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "High risk of Spontaneous or Post-op Uveal Effusion",
+          "Expulsive Suprachoroidal Hemorrhage during intraocular surgery",
+          "Malignant Glaucoma (Ciliary Block) post-op",
+          "Non-rhegmatogenous retinal detachment",
+          "Avoid sudden intraocular pressure drops during surgery"
+        ]
+      },
+      {
+        "title": "Biometric Comparison",
+        "icon": "straighten",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Normal AL (mm)",
+              "value": 100
+            },
+            {
+              "label": "Post. Microphthalmos AL",
+              "value": 80
+            },
+            {
+              "label": "Nanophthalmos AL",
+              "value": 65
+            },
+            {
+              "label": "Microphthalmos AL",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Comprehensive Refraction: Confirm high hyperopia",
+          "2. A-Scan Biometry: Measure Axial Length (Gold Standard)",
+          "3. B-Scan Ultrasonography: Assess scleral thickness/choroidal status",
+          "4. Gonioscopy: Evaluate for angle closure or PAS",
+          "5. UBM (Ultrasound Biomicroscopy): Measure ACD and Ciliary Body anatomy",
+          "6. Fundus OCT: Check for foveal hypoplasia or macular folds"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Small Eye/High Hyperopia",
+          "branches": [
+            "Posterior Microphthalmos (Normal ant. seg, short AL)",
+            "Simple Microphthalmos (Proportional smallness)",
+            "Nanophthalmos (Disproportional, thick sclera)",
+            "High Hyperopia (Normal size eye, flat cornea/lens)",
+            "Phthisis Bulbi (Acquired atrophy, low IOP)",
+            "Anophthalmos (Total absence of ocular tissue)"
+          ]
+        }
+      },
+      {
+        "title": "Pre-Surgical Management Strategy",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Aggressive medical management of Glaucoma",
+          "2. Laser Peripheral Iridotomy (LPI) early if angle is narrow",
+          "3. Consider prophylactic Lamellar Sclerotomies (4 quadrants)",
+          "4. Pre-op systemics: Acetazolamide + Mannitol to soften eye",
+          "5. General anesthesia to ensure absolute control of venous pressure"
+        ]
+      },
+      {
+        "title": "Surgical Technique: Phacoemulsification",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Prefer micro-incisional approach (MICS)",
+          "Use OVD with high cohesive properties (Healon GV/5)",
+          "Perform small, centered capsulorhexis (risk of run-out)",
+          "Maintain deep AC: use automated infusion if possible",
+          "Consider IOL power: often requires 'piggyback' IOLs (e.g., +30 and +10)"
+        ]
+      },
+      {
+        "title": "Mnemonic: NANO Symptoms",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "N-A-N-O",
+          "explanation": "N: Narrow angles/Near-sightedness (extreme hyperopia); A: Axial length (<20mm); N: No other malformations; O: Outflow issues (Uveal Effusion)."
+        }
+      },
+      {
+        "title": "Clinical Pearls (Kanski Level)",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "The Lens-to-Eye Volume Ratio is 4-8x higher than normal in Nanophthalmos.",
+          "Uveal effusion syndrome occurs because the thick sclera acts like a 'noose' on vortex veins.",
+          "In Complex Microphthalmos, always check for systemic syndromes (e.g., Lenz, CHARGE, Walker-Warburg).",
+          "IOL calculation formulas: Haigis or Hoffer Q are generally more accurate for very short eyes."
+        ]
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Femtosecond laser-assisted sclerostomy (FLAS) for effusion management",
+          "AS-OCT guided angle assessment for surgical planning",
+          "Genetic counseling for MFRP-associated retinal dystrophies",
+          "Use of intrascleral IOL fixation (Yamane) in cases of zonular instability"
+        ]
+      },
+      {
+        "title": "Pediatric Considerations",
+        "icon": "fingerprint",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Amblyopia management is paramount. Early full cycloplegic refraction and patching are required. Monitor for early-onset angle-closure glaucoma, which can occur as early as the second decade of life in nanophthalmic patients."
+      }
+    ],
+    "generationPrompt": "Nanophthalmos vs microphthalmos",
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "bookmarked": true,
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 276,
+      "keywords": [
+        "microphthalmos",
+        "nanophthalmos",
+        "orbit",
+        "ocular",
+        "small"
+      ]
+    },
+    {
+      "pageNum": 844,
+      "keywords": [
+        "microphthalmos",
+        "problems",
+        "orbit",
+        "spectrum",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 342,
+      "keywords": [
+        "microphthalmos",
+        "ocular",
+        "symptoms",
+        "iol"
+      ]
+    },
+    {
+      "pageNum": 278,
+      "keywords": [
+        "microphthalmos",
+        "nanophthalmos",
+        "microphthalmic",
+        "ocular",
+        "small"
+      ]
+    },
+    {
+      "pageNum": 102,
+      "keywords": [
+        "microphthalmos",
+        "microphthalmic",
+        "ocular",
+        "surgical",
+        "small"
+      ]
+    },
+    {
+      "pageNum": 882,
+      "keywords": [
+        "microphthalmos",
+        "orbit",
+        "ocular",
+        "examination",
+        "symptoms"
+      ]
+    }
+  ]
+}

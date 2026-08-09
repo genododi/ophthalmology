@@ -1,0 +1,176 @@
+{
+  "id": 1775044681922,
+  "seqId": 354,
+  "title": "Bilateral Disc Swelling: Clinical Emergency & Diagnostic Framework",
+  "summary": "Bilateral disc swelling is a critical ophthalmic finding that demands immediate differentiation between life-threatening intracranial hypertension and other systemic or ocular pathologies. This visual guide outlines the essential clinical markers and the urgent diagnostic pathway.",
+  "date": "2026-04-01T11:58:01.922Z",
+  "data": {
+    "title": "Bilateral Disc Swelling: Clinical Emergency & Diagnostic Framework",
+    "summary": "Bilateral disc swelling is a critical ophthalmic finding that demands immediate differentiation between life-threatening intracranial hypertension and other systemic or ocular pathologies. This visual guide outlines the essential clinical markers and the urgent diagnostic pathway.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='55' cy='50' r='35' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='145' cy='50' r='35' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><g fill='hsl(215, 90%, 45%)' opacity='0.6'><circle cx='55' cy='50' r='12'><animate attributeName='r' values='10;14;10' dur='3s' repeatCount='indefinite'/></circle><circle cx='145' cy='50' r='12'><animate attributeName='r' values='10;14;10' dur='3s' repeatCount='indefinite'/></circle></g><path d='M45 50 L65 50 M55 40 L55 60 M135 50 L155 50 M145 40 L145 60' stroke='white' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Defining Bilateral Disc Swelling",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Bilateral disc swelling refers to the objective elevation and blurring of the optic nerve head margins in both eyes. This clinical finding is a medical priority. It may represent true papilledema (swelling specifically due to increased intracranial pressure) or pseudopapilledema (mimics of swelling). Because of the potential for vision loss and the association with life-threatening conditions like intracranial tumors or malignant hypertension, a systematic and rapid evaluation is mandatory."
+      },
+      {
+        "title": "The Differential Landscape",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Bilateral Disc Swelling",
+          "branches": [
+            "Increased Intracranial Pressure (Papilledema)",
+            "Pseudopapilledema (Optic Disc Drusen)",
+            "Malignant Hypertension",
+            "Inflammatory (Bilateral Papillitis)",
+            "Vascular (Bilateral CRVO)",
+            "Metabolic (Diabetic Papillopathy)",
+            "Toxic/Nutritional Neuropathy"
+          ]
+        }
+      },
+      {
+        "title": "CRITICAL RED FLAGS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "New-onset, severe, or 'worst ever' headache",
+          "Nausea and projectile vomiting (often worse in the morning)",
+          "Pulsatile tinnitus (whooshing sound in ears)",
+          "Transient Visual Obscurations (TVOs) - brief graying out of vision",
+          "Diplopia (usually horizontal, suggesting a Sixth Nerve Palsy)",
+          "Blood pressure readings exceeding 180/120 mmHg"
+        ]
+      },
+      {
+        "title": "Clinical Signs of True Swelling",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Blurring of the peripapillary nerve fiber layer",
+          "Obscuration of major retinal vessels as they leave the disc",
+          "Paton’s lines (circumferential retinal folds)",
+          "Flame-shaped hemorrhages at or near the disc margin",
+          "Cotton wool spots (indicative of axonal ischemia)",
+          "Absence of Spontaneous Venous Pulsation (SVP)",
+          "Hyperemic appearance of the optic nerve head"
+        ]
+      },
+      {
+        "title": "Urgent Diagnostic Process",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Immediate Blood Pressure Measurement - Exclude Malignant Hypertension.",
+          "Step 2: Comprehensive Eye Exam - Confirm bilateral involvement and assess for pseudopapilledema vs. true swelling.",
+          "Step 3: Multi-modal Imaging - Utilize Optical Coherence Tomography (OCT) and B-scan ultrasonography.",
+          "Step 4: Neuroimaging - Urgent MRI of the brain with contrast and MRV (Magnetic Resonance Venography) to check for masses or venous sinus thrombosis.",
+          "Step 5: Lumbar Puncture - If imaging is negative, perform LP to determine opening pressure and analyze CSF composition."
+        ]
+      },
+      {
+        "title": "Frisén Scale: Swelling Severity",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Stage 1 (Early)",
+              "value": 20
+            },
+            {
+              "label": "Stage 2 (Moderate)",
+              "value": 40
+            },
+            {
+              "label": "Stage 3 (Marked)",
+              "value": 60
+            },
+            {
+              "label": "Stage 4 (Severe)",
+              "value": 80
+            },
+            {
+              "label": "Stage 5 (Extreme)",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "Memory Aid: Papilledema Evaluation",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "P.A.P.I.L.",
+          "explanation": "P: Pressure (check ICP/BP); A: Axonal stasis; P: Pulsation loss (SVP); I: Imaging (MRI/MRV); L: Lumbar puncture."
+        }
+      },
+      {
+        "title": "Key Comparisons: True vs Pseudo",
+        "icon": "table",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "True Papilledema",
+            "Pseudopapilledema"
+          ],
+          "rows": [
+            [
+              "Vessel Obscuration",
+              "Vessels hidden by swelling",
+              "Vessels clearly visible"
+            ],
+            [
+              "Disc Surface",
+              "Hyperemic/Red",
+              "Yellowish/Refractile (Drusen)"
+            ],
+            [
+              "Nerve Fiber Layer",
+              "Hazy/Opaque",
+              "Normal/Clear"
+            ],
+            [
+              "SVP",
+              "Usually absent",
+              "Often present"
+            ],
+            [
+              "Hemorrhages",
+              "Common",
+              "Rare (except with drusen)"
+            ]
+          ]
+        }
+      }
+    ],
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044681922,
+  "communityId": "sub_1773775007770_etznca9mq70oh0",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

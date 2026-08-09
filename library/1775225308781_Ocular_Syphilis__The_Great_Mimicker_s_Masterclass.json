@@ -1,0 +1,261 @@
+{
+  "id": 1775225308781,
+  "seqId": 612,
+  "title": "Ocular Syphilis: The Great Mimicker’s Masterclass",
+  "summary": "A comprehensive clinical deep-dive into the ophthalmic manifestations of Treponema pallidum. From the 'Argyll Robertson Pupil' to 'Acute Syphilitic Posterior Placoid Chorioretinitis', this guide covers the resurgence of this systemic spirochete and its mandatory neurosyphilis management protocol.",
+  "date": "2026-04-03T14:08:28.781Z",
+  "data": {
+    "title": "Ocular Syphilis: The Great Mimicker’s Masterclass",
+    "summary": "A comprehensive clinical deep-dive into the ophthalmic manifestations of Treponema pallidum. From the 'Argyll Robertson Pupil' to 'Acute Syphilitic Posterior Placoid Chorioretinitis', this guide covers the resurgence of this systemic spirochete and its mandatory neurosyphilis management protocol.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q 50 20 70 50 Q 50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M45 40 Q 50 35 55 40 Q 60 45 55 50 Q 50 55 45 50 Q 40 45 45 40' fill='hsl(215, 90%, 45%)'/><path d='M20 20 L25 25 M80 20 L75 25 M20 80 L25 75 M80 80 L75 75' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><text x='50' y='95' font-size='6' text-anchor='middle' fill='hsl(215, 90%, 45%)' font-family='sans-serif' font-weight='bold'>T. PALLIDUM</text></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Syphilis is a chronic, multi-systemic infection caused by the spirochete *Treponema pallidum*. Known as 'The Great Mimicker,' ocular syphilis can present at any stage of the disease (primary, secondary, or tertiary) and can affect almost any ocular structure. It is increasingly common in the setting of HIV co-infection. Any ocular inflammation with an uncertain etiology should prompt testing for syphilis."
+      },
+      {
+        "title": "Epidemiological Trends",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "MSM Population %",
+              "value": 75
+            },
+            {
+              "label": "HIV Co-infection",
+              "value": 50
+            },
+            {
+              "label": "Secondary Stage Presentation",
+              "value": 85
+            },
+            {
+              "label": "Bilateral Involvement",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "title": "Classification by Disease Stage",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Syphilis Stages",
+          "branches": [
+            "Primary: Chancre (Rarely eyelid/conj)",
+            "Secondary: Rash, Uveitis, Optic Neuritis",
+            "Latent: Asymptomatic, Seropositive",
+            "Tertiary: Gummas, Argyll Robertson Pupil"
+          ]
+        }
+      },
+      {
+        "title": "Anterior Segment Manifestations",
+        "icon": "eye_tracking",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Interstitial Keratitis (IK): Chronic, 'ground-glass' cornea with ghost vessels (typically late/congenital).",
+          "Iris Roseolae: Transient capillary dilatations on the iris surface.",
+          "Anterior Uveitis: Can be granulomatous or non-granulomatous; often resistant to steroids alone.",
+          "Iris Nodules: Fleshy yellowish-red masses (Gummas) can occur on the iris or ciliary body.",
+          "Dislocated Lens: Rare complication of chronic inflammation."
+        ]
+      },
+      {
+        "title": "Posterior Segment Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "ASPPC: Acute Syphilitic Posterior Placoid Chorioretinitis (Large, yellowish-white subretinal lesions).",
+          "Vitreitis: Significant 'headlight in the fog' appearance (often more intense than toxoplasmosis).",
+          "Vasculitis: Typically an arteritis, often with perivascular sheathing/cuffing.",
+          "Neuroretinitis: Optic disc edema with a macular star pattern.",
+          "Necrotizing Retinitis: Can mimic Acute Retinal Necrosis (ARN) in immunocompromised patients."
+        ]
+      },
+      {
+        "title": "The 'Signature' Lesion: ASPPC",
+        "icon": "flare",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "Acute Syphilitic Posterior Placoid Chorioretinitis (ASPPC) is a highly suggestive finding. It presents as large, pale, yellowish-grey placoid lesions at the level of the RPE/choriocapillaris, typically in the macula or peripapillary area. OCT shows characteristic 'inner segment/outer segment' (IS/OS) junction disruption and punctate hyperreflectivity in the outer retina."
+      },
+      {
+        "title": "Neuro-Ophthalmic Signs",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Clinical Presentation",
+            "Significance"
+          ],
+          "rows": [
+            [
+              "Argyll Robertson Pupil",
+              "Small, irregular pupils; accommodate but don't react to light",
+              "Pathognomonic for Tertiary Syphilis (midbrain lesion)"
+            ],
+            [
+              "Optic Neuritis",
+              "Sudden vision loss, disc edema, APD present",
+              "Indicates CNS involvement (Neurosyphilis)"
+            ],
+            [
+              "Cranial Nerve Palsies",
+              "III, IV, or VI nerve involvement",
+              "Basal meningitis or gumma compression"
+            ],
+            [
+              "Papilledema",
+              "Bilateral disc swelling with increased ICP",
+              "Related to syphilitic meningitis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Serology Workup",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Test Type",
+            "Examples",
+            "Sensitivity/Specificity"
+          ],
+          "rows": [
+            [
+              "Non-Treponemal",
+              "RPR, VDRL",
+              "Reflects disease activity; can be false-negative in late stages (Prozone effect)."
+            ],
+            [
+              "Treponemal",
+              "FTA-ABS, TPPA, MHA-TP",
+              "Remains positive for life; used to confirm previous or current infection."
+            ],
+            [
+              "EIA / CIA",
+              "Automated Immunoassays",
+              "Often used in 'Reverse Screening' algorithms."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mandatory CSF Analysis",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Lumbar Puncture (LP) is MANDATORY for all cases of Ocular Syphilis.",
+          "Step 2: Check CSF VDRL (High specificity, low sensitivity).",
+          "Step 3: Check CSF Protein (>45 mg/dL) and WBC count (>5 cells/mm³).",
+          "Step 4: CSF FTA-ABS (High sensitivity, low specificity; helpful if negative to rule out)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "list",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Mimics of Syphilis",
+          "branches": [
+            "Sarcoidosis (Granulomatous uveitis)",
+            "Tuberculosis (Chorioretinitis)",
+            "Vogt-Koyanagi-Harada (VKH)",
+            "Viral Retinitis (ARN/PORN)",
+            "Lymphoma (Masquerade)"
+          ]
+        }
+      },
+      {
+        "title": "Management & Treatment Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Hospitalization for IV Therapy (Ocular = Neurosyphilis).",
+          "Step 2: Aqueous Crystalline Penicillin G: 18–24 million units per day (3–4 million units IV every 4 hours) for 10–14 days.",
+          "Step 3: Alternative (if PCN allergy): Ceftriaxone 2g IV daily OR Penicillin desensitization.",
+          "Step 4: Adjunctive Therapy: Topical steroids and cycloplegics for anterior uveitis; systemic steroids (after 24-48h of antibiotics) for severe posterior inflammation.",
+          "Step 5: Follow-up: Repeat RPR at 3, 6, and 12 months (expect a 4-fold drop in titer)."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Emergency Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Jarisch-Herxheimer Reaction: Acute febrile response within 24h of starting PCN; can worsen uveitis.",
+          "Rapidly Progressive Vision Loss: Potential optic nerve infarction or necrotizing retinitis.",
+          "HIV Co-infection: Higher risk of treatment failure and rapid progression to tertiary neurosyphilis.",
+          "Negative RPR with High Clinical Suspicion: Check for the 'Prozone Effect' (request dilution)."
+        ]
+      },
+      {
+        "title": "Mnemonics for Memory",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "ARP & IK",
+          "explanation": "A-R-P: Argyll Robertson Pupil (Accommodates, Reflex to light absent, Prostitutes' pupil). I-K: Interstitial Keratitis (the classic triad of Hutchinson: notched incisors, deafness, and IK)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Ocular syphilis is ALWAYS treated as neurosyphilis, regardless of CSF results.",
+          "The 'Prozone Effect' occurs when very high antibody titers interfere with the formation of the antigen-antibody lattice, causing a false negative RPR.",
+          "Interstitial Keratitis in syphilis is usually an immune-mediated reaction, not an active infection of the cornea.",
+          "Bilateral involvement is the rule, not the exception (60-70% of cases)."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Prognosis is generally excellent if treated early. However, delays can lead to permanent vision loss from optic atrophy, macular scarring (post-ASPPC), or secondary glaucoma. Chronic vitreitis can lead to tractional retinal detachment or epiretinal membrane formation. Recurrence is rare unless re-infection or inadequate initial treatment occurs."
+      }
+    ],
+    "generationPrompt": "Ocular syphilis",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro"
+}

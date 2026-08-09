@@ -1,0 +1,154 @@
+{
+  "id": 1775199711934,
+  "seqId": 605,
+  "title": "Mastering Lens Subluxation: From Etiology to Surgical Management",
+  "summary": "Lens subluxation (ectopia lentis) represents a complex zonular pathology requiring precise diagnostic evaluation and tailored surgical intervention. This guide synthesizes clinical classification, management algorithms, and emergency protocols for the modern ophthalmologist.",
+  "date": "2026-04-03T07:01:51.934Z",
+  "data": {
+    "title": "Mastering Lens Subluxation: From Etiology to Surgical Management",
+    "summary": "Lens subluxation (ectopia lentis) represents a complex zonular pathology requiring precise diagnostic evaluation and tailored surgical intervention. This guide synthesizes clinical classification, management algorithms, and emergency protocols for the modern ophthalmologist.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='42' cy='45' r='20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M10 50 L30 50' stroke='red' stroke-width='3'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Ectopia lentis is defined as the displacement of the crystalline lens from its physiological position due to zonular dehiscence. Subluxation is partial displacement; Luxation (dislocation) is total displacement. Prevalence is highly variable, often secondary to ocular trauma (most common) or systemic connective tissue disorders (Marfan syndrome, Homocystinuria)."
+      },
+      {
+        "title": "Etiology Mindmap",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Ectopia Lentis",
+          "branches": [
+            "Trauma (Most common)",
+            "Marfan Syndrome (Fibrillin-1 mutation)",
+            "Homocystinuria (CBS deficiency)",
+            "Weill-Marchesani Syndrome",
+            "Syphilis/Inflammation",
+            "Pseudoexfoliation Syndrome"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Signs",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Iridodonesis (tremulous iris)",
+          "Phacodonesis (lens movement)",
+          "Monocular diplopia",
+          "Refractive shift (induced astigmatism/myopia)",
+          "Secondary glaucoma (pupillary block or phacolytic)",
+          "Vitreous prolapse into anterior chamber"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "list",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Direction of Displacement"
+          ],
+          "rows": [
+            [
+              "Marfan",
+              "Supero-temporal"
+            ],
+            [
+              "Homocystinuria",
+              "Infero-nasal"
+            ],
+            [
+              "Weill-Marchesani",
+              "Inferior"
+            ],
+            [
+              "Trauma",
+              "Variable"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Assess zonular integrity (Slit lamp/Gonioscopy).",
+          "Step 2: Manage intraocular pressure (IOP).",
+          "Step 3: Determine need for surgery (Visual acuity, glaucoma, uveitis).",
+          "Step 4: Surgical planning (Capsular tension rings (CTR), Ahmed segment, pars plana vitrectomy).",
+          "Step 5: Post-op rehabilitation."
+        ]
+      },
+      {
+        "title": "Red Flags: Immediate Referral",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Acute Angle Closure Glaucoma from pupillary block.",
+          "Phacolytic glaucoma (lens proteins in trabecular meshwork).",
+          "Evidence of open globe injury if traumatic.",
+          "Progressive worsening of vision in children (Amblyopia risk)."
+        ]
+      },
+      {
+        "title": "Surgical Nuances",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Use of Trypan Blue (0.06%) to visualize capsule.",
+          "Stabilize capsule early with CTR or hook system.",
+          "Avoid over-inflation of anterior chamber.",
+          "Consider pars plana lensectomy in severe displacement.",
+          "Scleral fixation of IOL (Yamane technique) if zonules are insufficient."
+        ]
+      },
+      {
+        "title": "Remember the Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "HI-M",
+          "explanation": "Homocystinuria = Inferior displacement; Marfan = upward (supero-temporal) displacement."
+        }
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Femtosecond laser-assisted phacoemulsification (FLACS) helps reduce zonular stress during capsulotomy.",
+          "Development of adjustable suture-less scleral-fixated IOLs (Yamane technique).",
+          "Genetic counseling and systemic evaluation protocols have shifted toward early metabolic screening for Homocystinuria in suspected cases."
+        ]
+      }
+    ],
+    "generationPrompt": "Sublaxated lens",
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "read": true
+}

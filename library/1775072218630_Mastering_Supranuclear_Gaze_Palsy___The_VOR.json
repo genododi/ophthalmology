@@ -1,0 +1,156 @@
+{
+  "id": 1775072218630,
+  "seqId": 534,
+  "title": "Mastering Supranuclear Gaze Palsy & The VOR",
+  "summary": "Supranuclear gaze palsies involve disruption of the supranuclear pathways controlling eye movements, manifesting as loss of voluntary gaze while preserving the Vestibulo-Ocular Reflex (VOR). This guide bridges the neuro-anatomical pathways from the frontal eye fields to the brainstem PPRF.",
+  "date": "2026-04-01T19:36:58.630Z",
+  "data": {
+    "title": "Mastering Supranuclear Gaze Palsy & The VOR",
+    "summary": "Supranuclear gaze palsies involve disruption of the supranuclear pathways controlling eye movements, manifesting as loss of voluntary gaze while preserving the Vestibulo-Ocular Reflex (VOR). This guide bridges the neuro-anatomical pathways from the frontal eye fields to the brainstem PPRF.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='#1e40af' stroke-width='8'/><path d='M60 100 L140 100 M100 60 L100 140' stroke='#1e40af' stroke-width='4'/><circle cx='100' cy='100' r='15' fill='#1e40af'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition",
+        "icon": "neurology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Supranuclear gaze palsy is a clinical condition characterized by the inability to move the eyes in one or more directions of gaze, despite intact cranial nerves (III, IV, VI) and extraocular muscles. It is defined by the integrity of the VOR (doll's head maneuver), which confirms the lesion is superior to the ocular motor nuclei in the brainstem."
+      },
+      {
+        "title": "Neuro-Anatomical Hierarchy",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Supranuclear Control",
+          "branches": [
+            "Frontal Eye Fields (Saccades)",
+            "Parietal Eye Fields (Pursuit)",
+            "Superior Colliculus (Reflexive)",
+            "PPRF & MLF (Brainstem Integration)"
+          ]
+        }
+      },
+      {
+        "title": "The VOR: Diagnostic Differentiation",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Supranuclear Palsy",
+            "Infranuclear (Palsy)"
+          ],
+          "rows": [
+            [
+              "Voluntary Gaze",
+              "Impaired",
+              "Impaired"
+            ],
+            [
+              "VOR (Doll's Head)",
+              "Preserved (Intact)",
+              "Impaired"
+            ],
+            [
+              "Pathology Location",
+              "Cortex/Basal Ganglia",
+              "Nuclei/Nerves/Muscle"
+            ],
+            [
+              "Associated Signs",
+              "Parkinsonism, Dementia",
+              "Ptosis, Diplopia, Pupil involvement"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Image",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Acute onset (Stroke/Hemorrhage)",
+          "Papilledema (Raised ICP)",
+          "Contralateral hemiparesis",
+          "Ataxia/Vertigo (Brainstem syndrome)",
+          "Rapidly progressive cognitive decline"
+        ]
+      },
+      {
+        "title": "Epidemiology & Etiology",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "PSP (Progressive Supranuclear Palsy): Most common cause, prevalence ~5/100,000",
+          "Corticobasal Degeneration (CBD)",
+          "Niemann-Pick Type C",
+          "Whipple's Disease (Oculomasticatory myorhythmia)",
+          "Brainstem Stroke (Midbrain/Pontine)",
+          "Parinaud's Syndrome (Dorsal midbrain)"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Sequence",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Bedside VOR assessment (Oculocephalic reflex).",
+          "Step 2: Smooth pursuit and Saccadic velocity testing.",
+          "Step 3: MRI Brain (High resolution T1/T2, focus on midbrain/pons).",
+          "Step 4: Lumbar puncture if neuro-infectious/inflammatory suspected.",
+          "Step 5: Genetic testing (MAPT gene for PSP)."
+        ]
+      },
+      {
+        "title": "Mnemonic: PSP Features",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STEELE",
+          "explanation": "S: Supranuclear gaze palsy; T: Tall (often), E: Early falls; E: Extension (posture); L: Limb rigidity; E: Emotional lability."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Vertical gaze palsy often precedes horizontal involvement in PSP.",
+          "Square wave jerks are classic findings in supranuclear palsy.",
+          "Always assess for convergence insufficiency.",
+          "Hummingbird sign (MRI midbrain atrophy) is diagnostic for PSP."
+        ]
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Recent research focuses on Tau-pathology mitigation. Landmark studies (e.g., PASSPORT trial) highlight the use of monoclonal antibodies targeting extracellular Tau protein. Digital eye-tracking metrics are now being used as biomarkers for disease progression in clinical trials."
+      }
+    ],
+    "generationPrompt": "Supranuclear gaze palsy - VOR",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true
+}

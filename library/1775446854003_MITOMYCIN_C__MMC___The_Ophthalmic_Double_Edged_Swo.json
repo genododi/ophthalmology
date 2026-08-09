@@ -1,0 +1,311 @@
+{
+  "id": 1775446854003,
+  "seqId": 714,
+  "title": "MITOMYCIN-C (MMC): The Ophthalmic Double-Edged Sword",
+  "summary": "Mitomycin-C is a potent DNA-crosslinking alkylating agent isolated from Streptomyces caespitosus. Used as a powerful modulator of wound healing, it is indispensable in glaucoma filtration, refractive surgery, and ocular oncology, requiring precise dosing and handling due to its significant cytotoxic potential.",
+  "date": "2026-04-06T03:40:54.003Z",
+  "data": {
+    "title": "MITOMYCIN-C (MMC): The Ophthalmic Double-Edged Sword",
+    "summary": "Mitomycin-C is a potent DNA-crosslinking alkylating agent isolated from Streptomyces caespitosus. Used as a powerful modulator of wound healing, it is indispensable in glaucoma filtration, refractive surgery, and ocular oncology, requiring precise dosing and handling due to its significant cytotoxic potential.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 35 L70 35 M30 50 L70 50 M30 65 L70 65' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round'/><path d='M40 25 L40 75 M60 25 L60 75' stroke='hsl(30, 90%, 50%)' stroke-width='4' stroke-dasharray='4 2'/><circle cx='50' cy='50' r='8' fill='hsl(0, 80%, 50%)'/><text x='50' y='92' text-anchor='middle' font-size='8' font-family='Arial' fill='hsl(215, 90%, 45%)' font-weight='bold'>DNA CROSS-LINKER</text></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pharmacological Overview",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Mitomycin-C (MMC) is a potent antineoplastic antibiotic derived from Streptomyces caespitosus. It functions as a prodrug that undergoes bioreductive activation to become a multi-functional alkylating agent. In ophthalmology, it is primarily used off-label (except for Mitosol) to inhibit fibroblast proliferation and reduce scarring by preventing DNA replication, mitosis, and protein synthesis."
+      },
+      {
+        "title": "Mechanism of Action: The Alkylation Cascade",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "MMC Mechanism",
+          "branches": [
+            "Bioreductive Activation (via NQO1)",
+            "DNA Cross-linking (Guanine-Cytosine)",
+            "Inhibition of DNA Synthesis",
+            "Induction of Apoptosis",
+            "Anti-Angiogenic Effects"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Applications in Ophthalmology",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Glaucoma Filtration Surgery: Applied to the subconjunctival space/scleral flap to prevent bleb failure in Trabeculectomy and GDD surgery.",
+          "Refractive Surgery: Prophylactic use in PRK, LASEK, and PTK to prevent post-operative subepithelial haze (especially in high myopia or deep ablations).",
+          "Ocular Surface Oncology: Primary or adjuvant treatment for OSSN (Ocular Surface Squamous Neoplasia) and Primary Acquired Melanosis (PAM) with atypia.",
+          "Pterygium Surgery: Intraoperative application to the bare sclera or postoperative drops to reduce recurrence rates.",
+          "Cicatrizing Disease: Used in symblepharon lysis and DCR surgery to maintain ostium patency.",
+          "Corneal Procedures: Treatment of recurrent Salzmann's nodular degeneration or band keratopathy."
+        ]
+      },
+      {
+        "title": "Standard Dosing & Administration Protocols",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Procedure",
+            "Concentration",
+            "Duration of Exposure",
+            "Method"
+          ],
+          "rows": [
+            [
+              "Trabeculectomy",
+              "0.2 mg/mL to 0.5 mg/mL",
+              "2 to 5 minutes",
+              "Saturated sponges subconjunctival"
+            ],
+            [
+              "PRK (Haze Prevention)",
+              "0.02% (0.2 mg/mL)",
+              "15 to 30 seconds",
+              "Saturated circular sponge on stroma"
+            ],
+            [
+              "OSSN / PAM",
+              "0.02% to 0.04%",
+              "1 week ON, 1-3 weeks OFF",
+              "Topical drops QID (Cycle based)"
+            ],
+            [
+              "Pterygium (Intra-op)",
+              "0.02%",
+              "1 to 3 minutes",
+              "Direct application to bare sclera"
+            ],
+            [
+              "Nasolacrimal (DCR)",
+              "0.4 mg/mL",
+              "3 to 5 minutes",
+              "Sponge at the osteotomy site"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Efficacy Comparison: MMC vs. 5-Fluorouracil (5-FU)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "MMC Potency",
+              "value": 100
+            },
+            {
+              "label": "5-FU Potency",
+              "value": 10
+            },
+            {
+              "label": "MMC Duration of Effect",
+              "value": 90
+            },
+            {
+              "label": "5-FU Duration of Effect",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Contraindications & Extreme Cautions",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Active Ocular Infection",
+          "Pregnancy or Breastfeeding (Category X)",
+          "Pre-existing Scleral Thinning or Necrosis",
+          "Severe Dry Eye or Neurotrophic Keratopathy",
+          "Hypersensitivity to Mitomycin-C",
+          "Sjogren's Syndrome (high risk of melt)"
+        ]
+      },
+      {
+        "title": "Intraoperative Application Process (Trabeculectomy)",
+        "icon": "settings_suggest",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Reconstitution of MMC powder with sterile water or BSS (e.g., Mitosol kit).",
+          "Step 2: Dissection of Conjunctival Peritomy (usually limbus-based or fornix-based).",
+          "Step 3: Placement of MMC-soaked sponges (number and size vary) under Tenon's capsule.",
+          "Step 4: Ensure edges of conjunctiva are not in contact with MMC to avoid wound leak.",
+          "Step 5: Timer initiation for the specific duration (1-5 mins based on risk factors).",
+          "Step 6: Removal of all sponges and meticulous counting.",
+          "Step 7: Copious irrigation with 20-30mL of BSS to neutralize/remove residual MMC."
+        ]
+      },
+      {
+        "title": "Potential Complications: Ocular Surface & Beyond",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Tissue System",
+            "Acute Complications",
+            "Chronic / Delayed Complications"
+          ],
+          "rows": [
+            [
+              "Cornea",
+              "Persistent Epithelial Defect (PED)",
+              "Limbal Stem Cell Deficiency, Melt"
+            ],
+            [
+              "Sclera",
+              "Necritizing Scleritis (rare)",
+              "Scleral Thinning, Calcification"
+            ],
+            [
+              "Bleb (Glaucoma)",
+              "Wound Leak, Hypotony",
+              "Avascular Bleb, Endophthalmitis"
+            ],
+            [
+              "Anterior Chamber",
+              "Toxic Anterior Segment Syndrome",
+              "Cataract Progression"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "MMC Preparation & Safety (NIOSH Guidelines)",
+        "icon": "gavel",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Must be prepared in a Class II Biological Safety Cabinet (Laminar Flow).",
+          "Double-gloving and protective gowns required for staff.",
+          "Use of Luer-lock syringes to prevent accidental spray.",
+          "Chemotherapy-grade disposal containers for all sponges and sharps.",
+          "Avoid skin contact; if contact occurs, wash with soap and water immediately."
+        ]
+      },
+      {
+        "title": "Memory Aid: The 4 'C's of MMC Toxicity",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "THE 4 Cs",
+          "explanation": "C - Conjunctival thinning/avascularity; C - Cornea (melt and PED); C - Calcification of the sclera; C - Cataract (secondary to metabolic shift)."
+        }
+      },
+      {
+        "title": "Landmark Studies: The Evidence Base",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Fluorouracil Filtering Surgery Study (FFSS): Established antimetabolites in glaucoma, but highlighted the superiority of MMC in high-risk cases.",
+          "Chen et al. (1990): Pioneered the use of MMC in trabeculectomy, showing significant IOP reduction compared to 5-FU.",
+          "The Mitosol Trial: Phase 3 study leading to FDA approval of the first standardized MMC kit for ophthalmic surgery.",
+          "Majmudar et al. (2000): Established the 0.02% protocol for haze prevention in PRK."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Resident",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Always count sponges: A retained MMC sponge is a surgical catastrophe.",
+          "Bleb Management: MMC blebs are typically thin, cystic, and avascular; watch for late-onset leaks.",
+          "Topical OSSN Use: Instruct patients to use punctal occlusion and chilled drops to reduce irritation.",
+          "Reconstitution: MMC is unstable in solution; use within 24 hours (unless commercially stabilized like Mitosol)."
+        ]
+      },
+      {
+        "title": "Recent Advances & Future Directions",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Future MMC",
+          "branches": [
+            "Sustained-Release Implants",
+            "MMC-Loaded Nanoparticles",
+            "Intracameral MMC (Experimental)",
+            "Genetic Markers for MMC Sensitivity",
+            "Cross-linking synergistic protocols"
+          ]
+        }
+      },
+      {
+        "title": "Pediatric Considerations",
+        "icon": "child_care",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "In pediatric glaucoma, wound healing is exceptionally aggressive. MMC is often used in primary trabeculectomies in children, but with shorter exposure times (2 mins) and lower concentrations (0.2 mg/mL) to minimize the lifelong risk of thin-walled bleb endophthalmitis, which is higher in the pediatric population."
+      },
+      {
+        "title": "Differential: MMC Toxicity vs. OSSN Recurrence",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Feature",
+            "MMC Toxicity",
+            "OSSN Recurrence"
+          ],
+          "rows": [
+            [
+              "Epithelium",
+              "Diffuse punctate erosions / PED",
+              "Opalescent, leukoplakic, or gelatinous"
+            ],
+            [
+              "Vascularity",
+              "Avascular zones, corkscrew vessels",
+              "Feeder vessels, intrinsic vascularity"
+            ],
+            [
+              "Cytology/Impression",
+              "Atypical but benign reactive cells",
+              "Dysplastic cells, high N:C ratio"
+            ],
+            [
+              "Response to Cessation",
+              "Improves with stopping MMC",
+              "Continues to enlarge/progress"
+            ]
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "MMC",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea"
+}

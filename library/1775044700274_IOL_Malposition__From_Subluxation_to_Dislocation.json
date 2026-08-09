@@ -1,0 +1,156 @@
+{
+  "id": 1775044700274,
+  "seqId": 505,
+  "title": "IOL Malposition: From Subluxation to Dislocation",
+  "summary": "A comprehensive guide for the anterior segment surgeon on identifying, differentiating, and managing intraocular lens (IOL) instability, ranging from subtle tilt to complete crystalline lens or sulcus capsule complex failure.",
+  "date": "2026-04-01T11:58:20.274Z",
+  "data": {
+    "title": "IOL Malposition: From Subluxation to Dislocation",
+    "summary": "A comprehensive guide for the anterior segment surgeon on identifying, differentiating, and managing intraocular lens (IOL) instability, ranging from subtle tilt to complete crystalline lens or sulcus capsule complex failure.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><line x1='30' y1='30' x2='70' y2='70' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M30 70 Q50 40 70 30' stroke='red' stroke-width='2' fill='none'/></svg>",
+    "sections": [
+      {
+        "title": "Definitions: Subluxation vs. Dislocation",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Anatomical Status",
+            "Visual Impact"
+          ],
+          "rows": [
+            [
+              "IOL Subluxation",
+              "IOL remains partially within the visual axis; zonular/capsular support partially intact.",
+              "Induced astigmatism, glare, edge glare, diplopia."
+            ],
+            [
+              "IOL Dislocation",
+              "IOL has completely migrated from the visual axis into the vitreous or anterior chamber.",
+              "Aphakic vision, severe blurring, potential corneal/retinal trauma."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Etiology: Why does it happen?",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "IOL Instability Causes",
+          "branches": [
+            "Pseudoexfoliation Syndrome (PXF)",
+            "Trauma (Blunt/Penetrating)",
+            "Zonular Weakness/Marfan/Weill-Marchesani",
+            "Iatrogenic (Capsular tear during phaco)",
+            "Late Capsular Bag Contraction",
+            "In-the-bag dislocation"
+          ]
+        }
+      },
+      {
+        "title": "Emergency Warning Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "IOL touching corneal endothelium (risk of bullous keratopathy)",
+          "Pupillary block glaucoma",
+          "Retinal tear or detachment sign",
+          "IOL in AC causing secondary uveitis",
+          "Intractable IOP elevation"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Slit-Lamp: Assess tilt, decentration, and vitreous prolapse.",
+          "2. Gonioscopy: Evaluate zonular integrity and vitreous in AC.",
+          "3. Dilated Fundoscopy: Check for retinal breaks or vitreous pigment (Shafer's sign).",
+          "4. UBM/AS-OCT: Quantify IOL tilt and zonular dialysis extent.",
+          "5. B-Scan: Rule out retinal detachment if fundus view is obscured."
+        ]
+      },
+      {
+        "title": "Mnemonic: Why it slipped",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-Z-T-C",
+          "explanation": "P: Pseudoexfoliation, Z: Zonular laxity, T: Trauma, C: Capsular/Zonular contraction"
+        }
+      },
+      {
+        "title": "Management Options",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Observation (If stable, asymptomatic, non-toxic)",
+          "Medical (If IOP high: topical BB/prostaglandins)",
+          "IOL Repositioning (Scleral fixation/Iris claw)",
+          "IOL Exchange (If IOL damaged or lens type unsuitable)",
+          "Pars Plana Vitrectomy (Required for posterior dislocated lenses)",
+          "Scleral Fixation Sutured vs. Sutureless (Yamane Technique)"
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always check the contralateral eye for subclinical zonular weakness (e.g., subtle PXF).",
+          "Superior subluxation often points toward superior zonular dehiscence; investigate the inferior support before aggressive maneuvers.",
+          "If the IOL is dislocated into the vitreous, prioritize retinal health over quick IOL removal.",
+          "Modern Yamane technique is preferred for scleral fixation due to reduced risk of erosion compared to traditional McCannel sutures."
+        ]
+      },
+      {
+        "title": "Incidence Statistics",
+        "icon": "science",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Post-op Phaco (Low)",
+              "value": 10
+            },
+            {
+              "label": "PXF Eyes (Higher)",
+              "value": 65
+            },
+            {
+              "label": "Trauma-induced",
+              "value": 25
+            }
+          ]
+        }
+      }
+    ],
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "_newlyImported": 1775044700274,
+  "communityId": "sub_1774352254516_xuydyq21n02t4p",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z",
+  "read": true
+}

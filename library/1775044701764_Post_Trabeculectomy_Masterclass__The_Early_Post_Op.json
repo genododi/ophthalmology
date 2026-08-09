@@ -1,0 +1,299 @@
+{
+  "id": 1775044701764,
+  "seqId": 520,
+  "title": "Post-Trabeculectomy Masterclass: The Early Post-Op Matrix",
+  "summary": "A comprehensive clinical guide to managing the early postoperative period after glaucoma filtration surgery. Focuses on the critical relationship between IOP, Anterior Chamber (AC) depth, and bleb morphology to differentiate surgical success from sight-threatening complications.",
+  "date": "2026-04-01T11:58:21.764Z",
+  "data": {
+    "title": "Post-Trabeculectomy Masterclass: The Early Post-Op Matrix",
+    "summary": "A comprehensive clinical guide to managing the early postoperative period after glaucoma filtration surgery. Focuses on the critical relationship between IOP, Anterior Chamber (AC) depth, and bleb morphology to differentiate surgical success from sight-threatening complications.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><path d='M20,80 Q100,20 180,80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M50,70 Q100,40 150,70' fill='none' stroke='hsl(215, 90%, 65%)' stroke-width='2'/><circle cx='100' cy='85' r='5' fill='hsl(215, 90%, 45%)'/><text x='75' y='35' font-family='Arial' font-size='8' fill='hsl(215, 90%, 30%)'>FILTERING BLEB</text></svg>",
+    "sections": [
+      {
+        "title": "The Four-Quadrant Diagnostic Matrix",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Anterior Chamber (AC)",
+            "Low IOP (< 6 mmHg)",
+            "High IOP (> 21 mmHg)"
+          ],
+          "rows": [
+            [
+              "Shallow / Flat",
+              "1. Wound Leak (Seidel +)\n2. Overfiltration\n3. Serous Choroidal Detachment",
+              "1. Pupillary Block\n2. Ciliary Block (Malignant Glaucoma)\n3. Suprachoroidal Hemorrhage"
+            ],
+            [
+              "Deep",
+              "1. Excessive Filtration (Normal Early Post-Op)\n2. Late-stage Hypotony",
+              "1. Failed Bleb (Tight Sutures/Obstruction)\n2. Steroid Response (Delayed)\n3. Retained OVD"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Bleb Failure: Etiology & Mechanisms",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Bleb Failure",
+          "branches": [
+            "Internal Ostium Blockage (Iris, Blood, Fibrin)",
+            "Scleral Flap Adhesion (Tight Sutures)",
+            "Episcleral Fibrosis (Commonest)",
+            "Encapsulated Bleb (Tenon's Cyst)"
+          ]
+        }
+      },
+      {
+        "title": "Moorfields Bleb Grading System",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Grading Features"
+          ],
+          "rows": [
+            [
+              "Area",
+              "1 to 5 (Central to Diffuse)"
+            ],
+            [
+              "Height",
+              "1 to 4 (Flat to High)"
+            ],
+            [
+              "Vascularity",
+              "1 to 5 (Avascular to Engorged)"
+            ],
+            [
+              "Morphology",
+              "Microcystic vs. Encapsulated"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Pupillary Block Crisis",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden Rise in IOP with Shallow AC",
+          "Absence of Patent Peripheral Iridectomy (PI)",
+          "Iris Bombe configuration",
+          "EMERGENCY: Requires immediate YAG Peripheral Iridotomy"
+        ]
+      },
+      {
+        "title": "Differential: Pupillary Block vs. Ciliary Block",
+        "icon": "compare",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Pupillary Block",
+            "Ciliary Block"
+          ],
+          "rows": [
+            [
+              "Peripheral PI",
+              "Absent or Blocked",
+              "Patent PI present"
+            ],
+            [
+              "Iris Contour",
+              "Iris Bombe (Bowed)",
+              "Flat or Irregular"
+            ],
+            [
+              "Initial Tx",
+              "YAG PI",
+              "Cycloplegia / Atropine"
+            ],
+            [
+              "Mechanism",
+              "Aqueous entrapment",
+              "Vitreous displacement"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management of the Failing Bleb",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Clinical Assessment - Rule out internal ostium blockage via gonioscopy.",
+          "Step 2: Digital Pressure (Buratto's Maneuver) - Apply pressure through lower lid to force aqueous through flap.",
+          "Step 3: Laser Suture Lysis (LSL) - Use Hoskins lens to cut 10-0 nylon flap sutures (typically days 3-14).",
+          "Step 4: Pharmacological Modulation - Subconjunctival 5-FU (5mg in 0.1ml) to inhibit fibroblast proliferation.",
+          "Step 5: Bleb Needling - Break episcleral adhesions using a 27G or 30G needle, often with MMC (0.02%)."
+        ]
+      },
+      {
+        "title": "Red Flags: Post-Op Emergencies",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Blebitis: Milky/White bleb + localized inflammation.",
+          "Bleb-Related Endophthalmitis: Hypopyon + Severe pain + Vitritis.",
+          "Suprachoroidal Hemorrhage: Severe pain + Hard eye + Loss of red reflex.",
+          "Hypotony Maculopathy: Chorioretinal folds + Macular edema (IOP < 5)."
+        ]
+      },
+      {
+        "title": "Mnemonic: Evaluating the AC",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "P.S. M.A.C.",
+          "explanation": "P: Pressure (IOP), S: Seidel test, M: Morphology of bleb, A: Aqueous clarity (Cell/Flare), C: Choroidal status (B-Scan/Fundus)."
+        }
+      },
+      {
+        "title": "Epidemiology of Failure",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "African Ancestry",
+              "value": 85
+            },
+            {
+              "label": "Young Age (<40)",
+              "value": 70
+            },
+            {
+              "label": "Prior Surgery",
+              "value": 90
+            },
+            {
+              "label": "Uveitic Glaucoma",
+              "value": 75
+            }
+          ]
+        }
+      },
+      {
+        "title": "Surgical Landmarks for Trabeculectomy",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Scleral Flap: 3x4mm rectangular or triangular, 50% depth.",
+          "Internal Ostium: 1.5x2mm block removed with Kelly Punch.",
+          "Iridectomy: Basal, wider than the ostium to prevent blockage.",
+          "Suture Tension: Titrated to allow 1 drop/5 seconds of flow at 20mmHg."
+        ]
+      },
+      {
+        "title": "AS-OCT Bleb Imaging Patterns",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "AS-OCT Signs",
+          "branches": [
+            "Hypoechoic Spaces (Good Flow)",
+            "Multiformat Microcysts (Successful)",
+            "Subconjunctival Thickening (Failure)",
+            "Internal Ostium Patency"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Never perform digital pressure if you suspect a wound leak.",
+          "Always use Atropine 1% BID in 'shallow AC' cases until the cause is confirmed.",
+          "A 'Large, Low' bleb is usually better than a 'Small, High' bleb.",
+          "If IOP is high on Day 1, check the ostium with a Gonio lens immediately."
+        ]
+      },
+      {
+        "title": "Pharmacotherapy Protocols",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Agent",
+            "Concentration",
+            "Timing",
+            "Indications"
+          ],
+          "rows": [
+            [
+              "Mitomycin C (MMC)",
+              "0.2 - 0.5 mg/mL",
+              "Intraoperative (2-3 min)",
+              "High risk of failure, young patients"
+            ],
+            [
+              "5-Fluorouracil (5-FU)",
+              "50 mg/mL (0.1cc dose)",
+              "Postoperative (Needling)",
+              "Episcleral fibrosis, failing blebs"
+            ],
+            [
+              "Prednisolone Acetate",
+              "1% Q1H to Q2H",
+              "Postoperative (Weeks 1-4)",
+              "Prevent early inflammatory scarring"
+            ],
+            [
+              "Atropine Sulfate",
+              "1% BID",
+              "Postoperative (Weeks 1-2)",
+              "Stabilize AC, prevent ciliary block"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Landmark Studies",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "The Tube Versus Trabeculectomy (TVT) study and the Primary Tube Versus Trabeculectomy (PTVT) study have provided critical insights. The PTVT study showed that at 3 years, trabeculectomy with MMC had a higher success rate compared to tube shunts in primary surgical eyes, though complications like hypotony were more frequent in the trabeculectomy group."
+      }
+    ],
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "_newlyImported": 1775044701764,
+  "communityId": "sub_1774354969064_t8cawdzix",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T12:22:49.064Z"
+}

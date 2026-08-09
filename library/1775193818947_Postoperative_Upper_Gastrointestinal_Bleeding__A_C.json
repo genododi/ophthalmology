@@ -1,0 +1,161 @@
+{
+  "id": 1775193818947,
+  "seqId": 597,
+  "title": "Postoperative Upper Gastrointestinal Bleeding: A Critical Management Guide",
+  "summary": "Postoperative upper gastrointestinal (UGI) bleeding is a life-threatening complication necessitating rapid stabilization, multispecialty coordination, and precise endoscopic intervention. This guide outlines the evidence-based approach to the unstable surgical patient.",
+  "date": "2026-04-03T05:23:38.947Z",
+  "data": {
+    "title": "Postoperative Upper Gastrointestinal Bleeding: A Critical Management Guide",
+    "summary": "Postoperative upper gastrointestinal (UGI) bleeding is a life-threatening complication necessitating rapid stabilization, multispecialty coordination, and precise endoscopic intervention. This guide outlines the evidence-based approach to the unstable surgical patient.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M30 50 Q 50 20 70 50 T 30 50' fill='hsl(0, 80%, 60%)'/><line x1='50' y1='30' x2='50' y2='70' stroke='hsl(215, 90%, 45%)' stroke-width='4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Scope",
+        "icon": "medication",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Postoperative UGI bleeding refers to hemorrhage originating from the esophagus, stomach, or duodenum occurring within 30 days post-surgery. It is distinct from pre-existing conditions, often exacerbated by systemic stress, coagulopathy, and pharmacological factors."
+      },
+      {
+        "title": "Red Flags: Immediate Stabilization",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Hemodynamic instability (Tachycardia > 100bpm, Hypotension < 90mmHg systolic)",
+          "Hematemesis (bright red blood) or Coffee-ground emesis",
+          "Melena (tarry, black stools indicating >50mL blood loss)",
+          "Syncope or altered mental status",
+          "Signs of hypovolemic shock (cool/clammy skin, oliguria)"
+        ]
+      },
+      {
+        "title": "Etiology: Differential Diagnosis",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Primary Etiologies"
+          ],
+          "rows": [
+            [
+              "Acid-Peptic",
+              "Stress Ulceration (Curling/Cushing), NSAID/Steroid use"
+            ],
+            [
+              "Surgical/Vascular",
+              "Anastomotic bleeding, Dieulafoy’s lesion, Aorto-enteric fistula"
+            ],
+            [
+              "Mucosal",
+              "Mallory-Weiss tear, Erosive esophagitis/gastritis"
+            ],
+            [
+              "Systemic",
+              "Coagulopathy (DIC), Thrombocytopenia, Anticoagulant use"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Initial Resuscitation Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Secure two large-bore (16-18G) IV lines.",
+          "Step 2: Crystalloid fluid resuscitation (Goal: MAP > 65 mmHg).",
+          "Step 3: Transfuse PRBCs if Hb < 7 g/dL (or < 9 g/dL in high-risk cardiac patients).",
+          "Step 4: Reverse coagulopathy (FFP, Platelets, Vitamin K as indicated).",
+          "Step 5: Initiate IV PPI bolus (80mg) followed by infusion (8mg/hr)."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Hierarchy",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Diagnostics",
+          "branches": [
+            "Upper Endoscopy (Gold Standard)",
+            "CT Angiography",
+            "Angiography (Interventional)",
+            "Nasogastric Lavage (Limited Utility)"
+          ]
+        }
+      },
+      {
+        "title": "Endoscopic Intervention Modalities",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Thermal: Heater probe, Bipolar electrocoagulation.",
+          "Injection: Epinephrine (1:10,000 dilution) to induce vasoconstriction.",
+          "Mechanical: Endoclips for visible vessels or active spurting.",
+          "Topical: Hemospray (hemostatic powder) for diffuse oozing."
+        ]
+      },
+      {
+        "title": "Remember the Forrest Classification",
+        "icon": "remember",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "IA, IB, IIA, IIB, IIC, III",
+          "explanation": "IA: Spurting, IB: Oozing (High risk). IIA: Visible vessel, IIB: Adherent clot. IIC: Hematin-covered base, III: Clean base (Low risk)."
+        }
+      },
+      {
+        "title": "Prognostic Risk Scoring",
+        "icon": "school",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Rockall Score",
+              "value": 75
+            },
+            {
+              "label": "Glasgow-Blatchford",
+              "value": 90
+            },
+            {
+              "label": "AIMS65",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "PPIs reduce the need for surgery but do not improve mortality directly.",
+          "Early endoscopy (within 24 hours) is mandatory for hemodynamically stabilized patients.",
+          "Always check INR/PT/PTT; surgical patients are often on prophylactic anticoagulation.",
+          "Consult Interventional Radiology (IR) early if endoscopic attempts fail."
+        ]
+      }
+    ],
+    "generationPrompt": "Upper GIT bleed post surgery (Medicine & emergency)",
+    "chapterId": "surgery_care"
+  },
+  "chapterId": "surgery_care"
+}

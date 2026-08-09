@@ -1,0 +1,162 @@
+{
+  "id": 1774979998627,
+  "seqId": 16,
+  "title": "Mastering The Filtering Bleb: Clinical Evaluation & Management",
+  "summary": "A clinical guide to evaluating the post-trabeculectomy filtering bleb, balancing filtration efficiency with the prevention of sight-threatening complications. Proper assessment is the cornerstone of long-term IOP control.",
+  "date": "2026-03-31T17:59:58.627Z",
+  "data": {
+    "title": "Mastering The Filtering Bleb: Clinical Evaluation & Management",
+    "summary": "A clinical guide to evaluating the post-trabeculectomy filtering bleb, balancing filtration efficiency with the prevention of sight-threatening complications. Proper assessment is the cornerstone of long-term IOP control.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='30' fill='hsl(215, 90%, 45%)' opacity='0.2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='white' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Purpose",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A filtering bleb is a surgically created conjunctival elevation resulting from the flow of aqueous humor through a partial-thickness scleral flap (trabeculectomy). Its goal is to provide controlled subconjunctival aqueous drainage to achieve target intraocular pressure (IOP) and stabilize glaucomatous damage."
+      },
+      {
+        "title": "The INDIANA BLEB APPEARANCE GRADING SCALE (IBAGS)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Description/Grade"
+          ],
+          "rows": [
+            [
+              "Height",
+              "0 (flat) to 3 (prominent)"
+            ],
+            [
+              "Extent",
+              "Horizontal/Vertical area of diffusion"
+            ],
+            [
+              "Vascularity",
+              "1 (avascular) to 4 (hypervascular/engorged)"
+            ],
+            [
+              "Seidel",
+              "Positive (leak) vs Negative (no leak)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: The P.O.W.E.R. Assessment",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.O.W.E.R.",
+          "explanation": "P: Position (sup vs inf), O: Opacification/Cystic changes, W: Vascularity (Weight/Engorgement), E: Extent/Elevation, R: Rheology (Seidel sign/leakage)."
+        }
+      },
+      {
+        "title": "Clinical Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Positive Seidel test: Risk of endophthalmitis",
+          "Thin, 'cystic' bleb: High risk of bleb leak/infection",
+          "Encapsulated (Tenon's) cyst: Elevated IOP despite surgery",
+          "Hypervascularity: Indicator of imminent failure (fibrosis)",
+          "Flat, scarred bleb: 'Failed' bleb status"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Bleb Failure",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Bleb Failure Etiology",
+          "branches": [
+            "Fibrovascular proliferation (Tenon's capsule)",
+            "Scleral flap scarring",
+            "Suture overtightening",
+            "Infection (Blebitis)",
+            "Ocular surface inflammatory disease"
+          ]
+        }
+      },
+      {
+        "title": "Management Algorithm for Dysfunctional Blebs",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Digital ocular massage (if IOP high, no leak)",
+          "Step 2: Laser suture lysis (if flap is overtight)",
+          "Step 3: 5-FU/Mitomycin-C injections (if early fibrosis/engorgement)",
+          "Step 4: Needling revision with subconjunctival anti-metabolites",
+          "Step 5: Surgical revision (re-fashioning flap or excision of fibrosis)"
+        ]
+      },
+      {
+        "title": "Vascularity Distribution (Clinical Study Trends)",
+        "icon": "science",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Avascular (Good)",
+              "value": 60
+            },
+            {
+              "label": "Moderate",
+              "value": 25
+            },
+            {
+              "label": "Hypervascular",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Use fluorescein staining to detect occult leaks not visible under white light.",
+          "Superior blebs are generally more successful than inferior blebs due to lid-covered tear distribution.",
+          "Avoid excessive topical steroids early post-op to allow controlled fibrosis, unless intense inflammation is noted.",
+          "Always evaluate the bleb in primary gaze AND with the eyelid lifted to assess the full extent."
+        ]
+      },
+      {
+        "title": "Landmark Research Updates",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Recent evidence from the Tube Versus Trabeculectomy (TVT) study underscores that while bleb-based surgery offers superior pressure reduction, the longevity depends heavily on the 'bleb-maintenance' regimen. Newer studies focus on utilizing subconjunctival collagen matrix implants to modulate bleb scarring without the risks associated with intra-operative Mitomycin-C."
+      }
+    ],
+    "generationPrompt": "Filtering Bleb assessment",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

@@ -1,0 +1,297 @@
+{
+  "id": 1775384804712,
+  "seqId": 688,
+  "title": "CHEST PAIN IN OPHTHALMIC PRACTICE: TRIAGE, TRAUMA & TRIUMPH",
+  "summary": "A comprehensive clinical guide for ophthalmologists and emergency residents to navigate acute chest pain, from life-threatening post-operative pulmonary embolisms to atypical myocardial infarctions in surgical candidates.",
+  "date": "2026-04-05T10:26:44.712Z",
+  "data": {
+    "title": "CHEST PAIN IN OPHTHALMIC PRACTICE: TRIAGE, TRAUMA & TRIUMPH",
+    "summary": "A comprehensive clinical guide for ophthalmologists and emergency residents to navigate acute chest pain, from life-threatening post-operative pulmonary embolisms to atypical myocardial infarctions in surgical candidates.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='45' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='45' r='10' fill='hsl(215, 90%, 45%)'/><path d='M30 75 Q50 95 70 75' fill='none' stroke='red' stroke-width='3'/><path d='M45 70 L50 65 L55 70 L50 85 Z' fill='red'/><line x1='10' y1='10' x2='25' y2='25' stroke='red' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Core Definition & Classification",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "In the context of ophthalmic practice and emergency medicine, acute chest pain is a critical symptom that necessitates immediate triage to distinguish life-threatening conditions from benign ones. Acute Chest Pain: Any new-onset discomfort or pain in the thorax that may indicate cardiac, pulmonary, esophageal, or musculoskeletal pathology."
+      },
+      {
+        "title": "Prominent Differential Diagnosis",
+        "icon": "troubleshoot",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Category",
+            "Conditions / Pathology"
+          ],
+          "rows": [
+            [
+              "Life-Threatening",
+              "Acute Coronary Syndrome (ACS): Unstable Angina and Acute Myocardial Infarction (AMI); Pulmonary Embolism (PE): Sudden blockage by thrombus; Aortic Dissection: Tearing of the aortic wall; Tension Pneumothorax: Air trapped in pleural space; Esophageal Rupture: Catastrophic GI event."
+            ],
+            [
+              "Infectious / Inflammatory",
+              "Pericarditis, pneumonia, pleurisy."
+            ],
+            [
+              "Gastrointestinal",
+              "Gastro-esophageal reflux or esophageal spasm."
+            ],
+            [
+              "Musculoskeletal",
+              "Rib fractures, costochondritis."
+            ],
+            [
+              "Systemic Crisis",
+              "Sickle-cell crisis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Scenario 1: Acute MI in the Waiting Area",
+        "icon": "emergency",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Scenario: 65yo male, smoker, HTN, clutching chest with 'squeezing' pain radiating to jaw/arm.",
+          "Immediate Action: Shout for help, Call cardiac arrest team (Emergency Code), Assess ABC.",
+          "Clinical Picture: Diaphoresis (sweating), pale, breathless.",
+          "Drug Doses: High-flow O2 (100%), Aspirin 300mg chewed, Sublingual GTN, Morphine 5–10mg IV + Metoclopramide 10mg IV.",
+          "Investigations: 12-lead ECG (ST elevation/Q waves), Cardiac Troponins, CK-MB."
+        ]
+      },
+      {
+        "title": "Scenario 2: Post-Op Pulmonary Embolism (PE)",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Context: 75yo patient, 5 days post-vitrectomy (GA), sudden breathlessness + pleuritic pain.",
+          "Key Action: Call medical emergency team immediately (Do not wait for CXR if unstable).",
+          "Clinical Signs: Tachypnea (>20/min), tachycardia, hypotension, cyanosis.",
+          "Management: 100% O2, Morphine 10mg IV, immediate anticoagulation (LMWH or Unfractionated Heparin 10,000 U IV bolus).",
+          "Gold Standard: Spiral CT Pulmonary Angiography (CTPA)."
+        ]
+      },
+      {
+        "title": "Scenario 3 & 4: Surgical Emergencies",
+        "icon": "warning",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Presentation",
+            "Immediate Management"
+          ],
+          "rows": [
+            [
+              "Tension Pneumothorax",
+              "25yo male, lid procedure, respiratory distress, tracheal deviation to right.",
+              "14–16G cannula in 2nd ICS, mid-clavicular line. DO NOT wait for CXR."
+            ],
+            [
+              "Aortic Dissection",
+              "Tearing chest pain radiating to back/shoulder blades. Malignant HTN.",
+              "Urgent CT/MRI. Check unequal BP in arms. IV Phentolamine (2–5 mg) for BP crisis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Scenario 5: GCA & The Heart",
+        "icon": "visibility",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "mnemonic": "GCA Heart Risk",
+          "explanation": "80yo male, headache, jaw claudication. Large-vessel vasculitis involving aorta can lead to dissecting aneurysms or MI. Pathognomonic jaw claudication is highly predictive. Treatment: IV Methylprednisolone 1g/day for 3 days."
+        }
+      },
+      {
+        "title": "Scenario 6 & 7: MI Masquerades & Angina",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Inferior MI: Elderly/Diabetic presentation as 'indigestion' or epigastric discomfort. Look for ST elevation in II, III, aVF.",
+          "Stable Angina: Exertional pain relieved within 5 mins of rest.",
+          "Unstable Angina Red Flag: Pain at rest, >15 mins, or increasing frequency. Requires hospital admission.",
+          "Bruce Protocol: Exercise treadmill test; ST depression >2mm is significant."
+        ]
+      },
+      {
+        "title": "Scenario 8: Uveitis Systemic Review",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Uveitis & Chest Pain",
+          "branches": [
+            "Pericarditis: TB, RA, or SLE",
+            "Myocarditis: Syphilis",
+            "Pleuritic Pain: Sarcoidosis, GPA (Wegener's), or SLE",
+            "Cardiac Failure: TB, Sarcoidosis, or HIV"
+          ]
+        }
+      },
+      {
+        "title": "Scenario 9 & 10: Cocaine & Shock",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Cocaine: Causes intense vasospasm and sympathetic surge. Can lead to both Retinal Artery Occlusion (CRAO) and MI. Manage: ED cardiac monitoring + Ocular massage/paracentesis.",
+          "Hypovolemic Shock (AAA): Patient with AAA becomes cold/clammy with chest/abdominal pain. Tachycardia + BP drop. Manage: Two 14–16G cannulae, 1L rapid crystalloid, urgent surgery."
+        ]
+      },
+      {
+        "title": "Scenario 11 & 12: Sarcoidosis & Anaphylaxis",
+        "icon": "medical_services",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Cardiac Sarcoidosis: Bilateral hilar lymphadenopathy + mutton-fat KPs. Can cause conduction blocks/arrest. Screen with ECG and Echo.",
+          "FFA Anaphylaxis: Chest tightness + itching post-fluorescein. Manage: Adrenaline 0.5 mg IM (1:1000). Repeat every 5 mins. Observe 48 hours for biphasic reactions."
+        ]
+      },
+      {
+        "title": "Scenario 13, 14, 15: SLE, Marfan, & Pneumonia",
+        "icon": "school",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Clues",
+            "Findings & Management"
+          ],
+          "rows": [
+            [
+              "SLE Pericarditis",
+              "Butterfly rash, anterior uveitis, chest pain relieved by leaning forward.",
+              "ECG: Diffuse saddle-shaped ST-elevation. Treat with Steroids or NSAIDs."
+            ],
+            [
+              "Marfan Syndrome",
+              "Tall, high-arched palate, ectopia lentis, sudden excruciating chest pain.",
+              "Ruptured dissecting aortic aneurysm. Immediate cardiothoracic transfer."
+            ],
+            [
+              "Post-Op Pneumonia",
+              "3 days post-eye surgery, fever, cough, pleuritic pain.",
+              "Consolidation, bronchial breathing. Tx: Cefuroxime 1.5g IV + Clarithromycin 500mg IV."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Comparative Analysis: Chest Pain Types",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Ischaemic (ACS)",
+            "Pulmonary Embolism",
+            "Aortic Dissection",
+            "Musculoskeletal"
+          ],
+          "rows": [
+            [
+              "Site",
+              "Central, diffuse",
+              "Lateralized (often)",
+              "Between shoulder blades",
+              "Localized to rib"
+            ],
+            [
+              "Character",
+              "Dull, constricting, heavy",
+              "Sharp, pleuritic",
+              "Sharp, tearing",
+              "Sharp, stabbing"
+            ],
+            [
+              "Precipitants",
+              "Exercise, emotion, cold",
+              "Bed rest, surgery",
+              "Malignant HTN",
+              "Movement, twisting"
+            ],
+            [
+              "Relieved by",
+              "Rest, Nitrates",
+              "Nothing",
+              "Emergency surgery",
+              "Rest, NSAIDs"
+            ],
+            [
+              "Assoc. Signs",
+              "Sweating, Nausea",
+              "Dyspnea, Tachypnea",
+              "Unequal BP in arms",
+              "Local tenderness"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The 'Chest Pain' Algorithm",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Clinical Workup",
+          "branches": [
+            "Immediate (Shout/Triage): Unresponsive? → CPR (30:2). Responsive? → ABC & O2.",
+            "Detailed Triage: Heavy? (ECG/ACS), Sharp? (DVT/PE), Tearing? (Dissection), Neck veins/Absent breath? (Tension PTX).",
+            "Interventions: Aspirin 300mg, Nitrates (unless low BP), Morphine 10mg IV.",
+            "Secondary: CXR (TB, Pneumonia), D-Dimer (Exclude PE), CTPA/CTA.",
+            "Disposition: Transfer to CCU/ICU."
+          ]
+        }
+      },
+      {
+        "title": "Pearls, Pitfalls & Examiner's Picks",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Pearl: In GCA, visual loss is permanent; steroids protect the fellow eye and prevent systemic MI/Stroke.",
+          "Pitfall: Do NOT give Nitrates if BP <90 mmHg; it worsens cardiogenic shock.",
+          "Examiner's Pick: Suspect PE if an elderly patient collapses 1–2 weeks after ocular surgery.",
+          "Precaution: Topical Beta-blockers can mask hypoglycemia tachycardia or worsen asthma-related chest pain.",
+          "High Yield: D-Dimer has high sensitivity but low specificity; best for EXCLUDING PE when negative.",
+          "Red Flag: Sudden 'worst headache of life' followed by chest pain suggests ruptured aneurysm with stress cardiac events."
+        ]
+      }
+    ],
+    "generationPrompt": "In the context of ophthalmic practice and emergency medicine, acute chest pain is a critical symptom that necessitates immediate triage to distinguish life-threatening conditions from benign ones.\nDefinition & Classifications\nAcute Chest Pain: Any new-onset discomfort or pain in the thorax that may indicate cardiac, pulmonary, esophageal, or musculoskeletal pathology.\nClassifications of Chest Pain:\nLife-Threatening:\nAcute Coronary Syndrome (ACS): Unstable Angina and Acute Myocardial Infarction (AMI).\nPulmonary Embolism (PE): Sudden blockage of pulmonary circulation by a thrombus.\nAortic Dissection: Tearing of the aortic wall.\nTension Pneumothorax: Air trapped in the pleural space causing mediastinal shift.\nEsophageal Rupture: Catastrophic gastrointestinal event.\nOther Causes:\nPericarditis, pneumonia, pleurisy.\nGastro-esophageal reflux or esophageal spasm.\nMusculoskeletal: Rib fractures, costochondritis.\nSickle-cell crisis.\n--------------------------------------------------------------------------------\nOSCE & VIVA Clinical Scenarios\nScenario 1: Acute MI in the Waiting Area\nScenario: A 65-year-old male with hypertension and a 40-pack-year smoking history is waiting for his clinic appointment. He suddenly clutches his chest and reports severe \"squeezing\" retrosternal pain radiating to his left jaw and arm.\nAnswer:\nImmediate Management: Shout for help, Call the cardiac arrest team (Emergency Code), and assess ABC.\nClinical Picture: Patient may be sweating (diaphoresis), pale, and breathless.\nTreatment (Drug Doses):\nHigh-flow Oxygen: 100% via face mask.\nAspirin: 300 mg chewed immediately.\nNitrates: Sublingual GTN (spray or tablet).\nMorphine: 5–10 mg IV + antiemetic (e.g., Metoclopramide 10 mg IV).\nInvestigations: 12-lead ECG (look for ST elevation or pathologic Q waves), cardiac troponins, CK-MB.\nScenario 2: Post-Operative Pulmonary Embolism (PE)\nScenario: A 75-year-old patient 5 days post-vitrectomy surgery under general anesthesia reports sudden breathlessness and sharp, pleuritic chest pain that worsens with inspiration.\nAnswer:\nDiagnosis: Suspected Pulmonary Embolism (PE).\nKey Action: Call the medical emergency team. Do not delay for a CXR if the patient is unstable.\nClinical Signs: Tachypnea (>20/min), tachycardia, hypotension, and cyanosis.\nManagement: 100% O2, Morphine 10 mg IV for pain, and immediate anticoagulation with LMWH or Unfractionated Heparin (10,000 U IV bolus).\nHigh Yield: Spiral CT Pulmonary Angiography (CTPA) is the diagnostic gold standard.\nScenario 3: Tension Pneumothorax\nScenario: A thin, 25-year-old male presents for a minor lid procedure. He suddenly develops acute respiratory distress, chest pain, and his trachea is noted to be deviated to the right.\nAnswer:\nDiagnosis: Tension Pneumothorax (Left side).\nThreat: Rapidly leads to cardiorespiratory arrest due to compression of the great veins.\nManagement (Immediate): Insert a large-bore (14–16G) cannula into the 2nd intercostal space in the mid-clavicular line on the affected side.\nPitfall: Do not wait for a CXR to confirm the diagnosis.\nScenario 4: Aortic Dissection\nScenario: A patient reports \"tearing\" chest pain that radiates directly to the back between the shoulder blades. He is known to have poorly controlled malignant hypertension.\nAnswer:\nClinical Finding: Pain is sharp and \"tearing\" rather than heavy/constricting.\nInvestigation: Urgent CT scan or MRI. Check for unequal blood pressure in both arms.\nManagement: Cautious lowering of BP using IV agents like Phentolamine (2–5 mg IV) in specific crises.\nScenario 5: Chest Pain and Giant Cell Arteritis (GCA)\nScenario: An 80-year-old male with a history of headache and jaw claudication develops sudden chest pain.\nAnswer:\nKey Points: GCA is a large-vessel vasculitis that can involve the aorta, leading to dissecting aneurysms or myocardial infarction.\nExaminer's Pick: Pathognomonic jaw claudication is highly predictive of GCA.\nManagement: Immediate high-dose IV Methylprednisolone (1g/day for 3 days).\nScenario 6: Inferior MI masquerading as \"Indigestion\"\nScenario: An elderly lady scheduled for cataract surgery reports \"indigestion\" and epigastric discomfort rather than typical chest pain.\nAnswer:\nAtypical Presentation: Elderly and diabetic patients often present with \"silent\" or atypical MI.\nManagement: Treat all epigastric pain in high-risk patients as cardiac until proven otherwise. Obtain an immediate ECG.\nECG Finding: Look for ST elevation in the inferior leads (II, III, aVF).\nScenario 7: Stable vs. Unstable Angina\nScenario: A 60-year-old male reports chest pain only during exertion that is relieved within 5 minutes of rest.\nAnswer:\nDiagnosis: Stable Angina.\nRed Flag: If the pain occurs at rest, lasts longer than 15 minutes, or is increasing in frequency, it is Unstable Angina (part of ACS) and requires hospital admission.\nInvestigation: Exercise treadmill test (Bruce protocol); look for ST depression >2mm.\nScenario 8: Chest Pain as Systemic Review in Uveitis\nScenario: A VIVA examiner asks: \"What systemic diseases associated with uveitis cause chest pain?\".\nAnswer:\nPericarditis: Associated with Tuberculosis (TB), RA, or SLE.\nMyocarditis: Associated with Syphilis.\nPleuritic Pain: Associated with Sarcoidosis, GPA (Wegener's), or SLE.\nCardiac Failure: Associated with TB, Sarcoidosis, or HIV.\nScenario 9: Cocaine-Induced Chest Pain and CRAO\nScenario: A young male presents with sudden vision loss (CRAO) and acute chest pain.\nAnswer:\nMechanism: Cocaine causes intense vasospasm and sympathetic surge, leading to both retinal artery occlusion and myocardial ischemia.\nManagement: Refer to the emergency department for cardiac monitoring and treat the ocular occlusion (e.g., ocular massage, paracentesis).\nScenario 10: Chest Pain in Shock\nScenario: During a clinic visit, a patient with a known abdominal aortic aneurysm becomes cold, clammy, and reports chest and abdominal pain.\nAnswer:\nDiagnosis: Hypovolemic Shock (Ruptured aneurysm).\nVital Signs: Tachycardia (>100 bpm) and rapid drop in BP.\nManagement: Two wide-bore (14–16G) cannulae, rapid crystalloid infusion (up to 1L), and urgent surgical referral.\nScenario 11: Sarcoidosis and Cardiac Arrest\nScenario: A patient with bilateral hilar lymphadenopathy and mutton-fat keratic precipitates suddenly collapses with chest discomfort.\nAnswer:\nKey Point: Cardiac sarcoidosis can cause conduction blocks and sudden cardiac arrest.\nInvestigation: Screening ECG and Echo are indicated for all ocular sarcoidosis patients.\nScenario 12: Anaphylaxis and Chest Pain\nScenario: Seconds after Fluorescein injection for FFA, a patient reports \"tightness\" in the chest and becomes itchy.\nAnswer:\nDiagnosis: Anaphylactic Shock.\nManagement: Adrenaline 0.5 mg IM (1:1000). Repeat every 5 minutes if no improvement.\nPrecaution: Do not discharge for at least 48 hours due to risk of \"biphasic\" reactions.\nScenario 13: Chest Pain in SLE (Lupus)\nScenario: A 30-year-old female with a butterfly rash and anterior uveitis reports sharp chest pain relieved by leaning forward.\nAnswer:\nDiagnosis: Pericarditis secondary to SLE.\nInvestigation: ECG showing diffuse ST-elevation (saddle-shaped).\nTreatment: Systemic steroids or NSAIDs.\nScenario 14: Chest Pain and Marfan Syndrome\nScenario: A tall patient with high-arched palate and ectopia lentis presents with sudden excruciating chest pain.\nAnswer:\nDiagnosis: Ruptured dissecting aortic aneurysm.\nKey Finding: Marfan syndrome is a major risk factor for aortic root dilation and dissection.\nManagement: Immediate transfer to cardiothoracic surgery.\nScenario 15: Post-Operative Pneumonia\nScenario: Three days after eye surgery, a patient develops fever, productive cough, and pleuritic chest pain.\nAnswer:\nDiagnosis: Pneumonia.\nSigns: Consolidation, dull percussion note, and bronchial breathing.\nManagement: Empiric antibiotics (e.g., Cefuroxime 1.5g/8h IV + Clarithromycin 500mg/12h IV).\n--------------------------------------------------------------------------------\nComparison of Chest Pain Types\nFeature\nIschaemic Cardiac (ACS)\nPulmonary Embolism (PE)\nAortic Dissection\nMusculoskeletal\nSite\nCentral, diffuse\nLateralized (often)\nBetween shoulder blades\nLocalized to rib/cartilage\nCharacter\nDull, constricting, heavy\nSharp, pleuritic\nSharp, tearing\nSharp, stabbing\nPrecipitants\nExercise, emotion, cold\nProlonged bed rest, surgery\nMalignant Hypertension\nMovement, twisting\nRelieved by\nRest, Nitrates\nNothing\nEmergency surgery\nRest, NSAIDs\nAssoc. Signs\nSweating, Nausea\nDyspnea, Tachypnea\nUnequal BP in arms\nLocal tenderness\n--------------------------------------------------------------------------------\nWorkup & Approach Mind Map (The \"Chest Pain\" Algorithm)\nImmediate Assessment (The \"Shout and Triage\" Phase):\nUnresponsive? → Start CPR (30:2).\nResponsive? → Secure Airway, assess Breathing (O2 sats), and Circulation (BP/Pulse).\nDetailed Triage:\nHeavy/Squeezing? → ECG for ACS/MI.\nSharp/Pleuritic? → Look for DVT signs → PE.\nTearing/Back radiation? → Aortic Dissection.\nDistended neck veins + Absent breath sounds? → Tension Pneumothorax.\nEmergency Interventions:\nAspirin 300mg (ACS).\nNitrates (unless hypotensive).\nMorphine 10mg IV.\nSecondary Investigations:\nCXR (TB, pneumonia, cardiomegaly).\nD-Dimer (to exclude PE).\nCTPA/CTA (Vessels).\nDefinitive Disposition:\nTransfer to CCU/ICU.\n--------------------------------------------------------------------------------\nManagement Pearls & Pitfalls\nPearl: In GCA, visual loss is often permanent, but steroids are given to protect the other eye and prevent systemic MI/Stroke.\nPitfall: Do not give Nitrates to a patient who is hypotensive (BP <90 mmHg) as it may worsen cardiogenic shock.\nExaminer's Pick: In the elderly, always suspect PE if they collapse 1–2 weeks after ocular surgery.\nPrecaution: Topical Beta-blockers for glaucoma can mask the tachycardia sign of hypoglycemia or worsen an asthma-related chest pain.\nHigh Yield: A D-Dimer test has high sensitivity but low specificity; it is most useful for excluding PE when negative.\nRed Flag: Sudden \"worst headache of life\" followed by chest pain suggests a ruptured aneurysm with secondary stress-induced cardiac events.",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "_newlyImported": 1775384804712,
+  "communityId": "sub_1775384035715_rzunb50k3kms39",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-04-05T10:13:55.715Z",
+  "bookmarked": true
+}

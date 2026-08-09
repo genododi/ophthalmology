@@ -1,0 +1,314 @@
+{
+  "id": 1775044697083,
+  "seqId": 474,
+  "title": "Mastering OCT: The Retina & Optic Nerve Blueprint",
+  "summary": "A high-fidelity guide to Optical Coherence Tomography (OCT) interpretation, integrating cross-sectional retinal anatomy, quantitative RNFL metrics, and the latest biomarkers for macular and glaucomatous disease. Designed for the advanced clinician to navigate the nuances between 'Red Disease' and true pathology.",
+  "date": "2026-04-01T11:58:17.083Z",
+  "data": {
+    "title": "Mastering OCT: The Retina & Optic Nerve Blueprint",
+    "summary": "A high-fidelity guide to Optical Coherence Tomography (OCT) interpretation, integrating cross-sectional retinal anatomy, quantitative RNFL metrics, and the latest biomarkers for macular and glaucomatous disease. Designed for the advanced clinician to navigate the nuances between 'Red Disease' and true pathology.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M10,50 Q25,20 40,50 T70,50 T90,50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M10,55 Q25,25 40,55 T70,55 T90,55' fill='none' stroke='hsl(215, 90%, 30%)' stroke-width='1'/><circle cx='40' cy='50' r='2' fill='red'/><rect x='75' y='30' width='15' height='40' rx='2' fill='none' stroke='hsl(215, 90%, 45%)' stroke-dasharray='2 1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Physics",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Optical Coherence Tomography (OCT) is a non-invasive, non-contact imaging modality employing low-coherence interferometry (usually near-infrared light ~840nm) to produce high-resolution cross-sectional 'optical biopsies'. Time-Domain (TD) is obsolete; Spectral-Domain (SD) uses a spectrometer to achieve 5µm resolution, while Swept-Source (SS-OCT) uses a tunable laser at ~1050nm for deeper penetration into the choroid."
+      },
+      {
+        "title": "The 10 Retinal Layers on SD-OCT",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "OCT Band",
+            "Anatomic Correlation",
+            "Reflectivity",
+            "Clinical Significance"
+          ],
+          "rows": [
+            [
+              "ILM",
+              "Internal Limiting Membrane",
+              "Hyper-reflective",
+              "Vitreoretinal interface pathology"
+            ],
+            [
+              "RNFL",
+              "Retinal Nerve Fiber Layer",
+              "Hyper-reflective",
+              "Thickest at poles; thins in glaucoma"
+            ],
+            [
+              "GCL/IPL",
+              "Ganglion Cell/Inner Plexiform",
+              "Hypo-reflective",
+              "Early indicator of glaucomatous damage"
+            ],
+            [
+              "INL/OPL",
+              "Inner Nuclear/Outer Plexiform",
+              "Variable",
+              "Cystoid spaces (DME) often reside here"
+            ],
+            [
+              "ELM",
+              "External Limiting Membrane",
+              "Hyper (Thin Line)",
+              "Integrity predicts visual recovery"
+            ],
+            [
+              "EZ",
+              "Ellipsoid Zone (formerly IS/OS)",
+              "Hyper-reflective",
+              "Critical marker of photoreceptor health"
+            ],
+            [
+              "RPE / Bruch's",
+              "RPE/Bruch's Complex",
+              "Highly Hyper-reflective",
+              "Disrupted in AMD, CNV, or CSR"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Systematic Macular Interpretation",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Check Signal Strength (Must be >6/10 for reliability).",
+          "Step 2: Evaluate Foveal Contour (Normal dip vs. flattening vs. elevation).",
+          "Step 3: Analyze Intra-retinal Space (Check for cysts, exudates, hemorrhage).",
+          "Step 4: Inspect the EZ & RPE line (Look for 'shagginess' or pigment epithelial detachments).",
+          "Step 5: Review Quantitative Maps (Compare Central Subfield Thickness to normative data)."
+        ]
+      },
+      {
+        "title": "RNFL & Optic Nerve Analysis",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "ONH Metrics",
+          "branches": [
+            "TSNIT Curve (Double Hump)",
+            "BMO-MRW (Minimum Rim Width)",
+            "Ganglion Cell Analysis (GCA)",
+            "Cup-to-Disc Ratio (Linear)",
+            "Rim Area (mm²)"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Worry",
+        "icon": "report_problem",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sub-retinal Fluid (SRF): Indicator of active CNV, CSR, or VKH.",
+          "Intra-retinal Cysts (IRC): Hallmarks of DME, RVO, or post-cataract Irvine-Gass.",
+          "Hyper-reflective Foci: Migratory RPE cells or hard exudates; indicates chronicity and inflammation.",
+          "Full Thickness Macular Hole (FTMH): Immediate surgical referral if symptomatic.",
+          "Nasal Stepping on RNFL: High specificity for early glaucomatous damage.",
+          "Bilateral Diffuse Thinning: Consider neuro-ophthalmic causes (e.g., toxic, nutritional, or compressive optic neuropathy)."
+        ]
+      },
+      {
+        "title": "Macular Pathologies Classification",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Pathology",
+            "OCT Feature",
+            "Key Landmark/Study"
+          ],
+          "rows": [
+            [
+              "Dry AMD",
+              "Drusen (sub-RPE deposits), GA",
+              "AREDS 2"
+            ],
+            [
+              "Wet AMD",
+              "PED, SRF, SHRM, CNV",
+              "CATT Study"
+            ],
+            [
+              "DME",
+              "Sponge-like thickening, IRC",
+              "DRCR.net Protocols"
+            ],
+            [
+              "VMT",
+              "Adherent vitreous pulling fovea",
+              "IVTS Classification"
+            ],
+            [
+              "CSCR",
+              "Serous detachment, thickened choroid",
+              "Pachychoroid Spectrum"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Pitfalls: Why Your Scan is 'Red'",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Segmentation Error: Software misidentifies layers due to high myopia or dense media.",
+          "Decentration: The scan is not centered on the fovea/disc, mimicking focal loss.",
+          "Media Opacities: Cataracts or vitreous hemorrhage reduce signal, causing false thinning.",
+          "Axial Length: High myopes often show 'Red Disease' due to temporal shift of the bundles.",
+          "Vitreous Floaters: Casting shadows (signal drop-off) interpreted as RNFL loss."
+        ]
+      },
+      {
+        "title": "Mnemonic: ISNT Rule",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "I-S-N-T",
+          "explanation": "Normal Neuroretinal Rim thickness order: Inferior (thickest) > Superior > Nasal > Temporal (thinnest). Reversal often indicates glaucoma."
+        }
+      },
+      {
+        "title": "Epidemiology: Glaucoma Diagnosis Rate",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "SD-OCT Sensitivity",
+              "value": 85
+            },
+            {
+              "label": "Clinical Exam Only",
+              "value": 60
+            },
+            {
+              "label": "Specificity (RNFL)",
+              "value": 92
+            }
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workflow: Glaucoma",
+        "icon": "settings_suggest",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Clinical Correlate: Look at the Disc first.",
+          "2. Check RNFL Thickness: Look for focal 'V-shaped' defects.",
+          "3. Ganglion Cell Analysis: Check the Macula (parafoveal thinning).",
+          "4. Functional Correlation: Match OCT defects to Humphrey Visual Field (HVF).",
+          "5. Progression Analysis: Guided Progression Analysis (GPA) over 3+ scans."
+        ]
+      },
+      {
+        "title": "Differential: Macular Edema Sources",
+        "icon": "list",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Type",
+            "Distinguishing OCT Feature",
+            "Differential"
+          ],
+          "rows": [
+            [
+              "Cystoid (CME)",
+              "Petaloid pattern, mostly in OPL/INL",
+              "Post-Op (Irvine-Gass), Uveitis"
+            ],
+            [
+              "Neurosensory Detachment",
+              "Fluid under the retina (SRF)",
+              "AMD, CSCR, Optic Pit Maculopathy"
+            ],
+            [
+              "Schisis",
+              "Splitting of layers, often in RNFL/OPL",
+              "X-linked Retinoschisis, Myopic Traction"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ancillary Testing Integration",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "OCT-Angiography (OCT-A): Visualize flow without dye; detects CNV membranes.",
+          "Fundus Fluorescein Angiography (FFA): Gold standard for 'leakage' vs 'pooling'.",
+          "Fundus Autofluorescence (FAF): Detects metabolic stress (RPE health) in GA or dystrophies.",
+          "Enhanced Depth Imaging (EDI): Specifically used to measure choroidal thickness."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "The 'Bruch's Membrane Opening' (BMO) is the true anatomic edge of the optic nerve.",
+          "A 'Floor Effect' occurs when RNFL reaches ~50µm; OCT cannot measure further loss accurately.",
+          "Temporal thinning is common in non-glaucomatous optic atrophy (e.g., Toxic/Nutritional).",
+          "Always look at the 'En Face' image to ensure the scan line crossed the lesion of interest."
+        ]
+      },
+      {
+        "title": "Recent Advances: AI & Deep Learning",
+        "icon": "auto_awesome",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Artificial Intelligence algorithms (like Google Health and various FDA-approved platforms) are now capable of autonomous screening for Diabetic Retinopathy and predicting CNV conversion in AMD. Future OCT systems will likely integrate 'Fluid Volume' quantification as a routine metric for treatment intervals (Treat-and-Extend)."
+      },
+      {
+        "title": "Landmark Studies: The OCT Impact",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "OHTS: Demonstrated that thinner corneas (CCT) are risk factors, but OCT provides the structural proof of damage.",
+          "CATT/HARBOR: Established OCT as the primary tool for monitoring anti-VEGF response.",
+          "ALTS: Highlights the importance of structural vs. functional discordance in early glaucoma."
+        ]
+      }
+    ],
+    "chapterId": "investigations"
+  },
+  "chapterId": "investigations",
+  "_newlyImported": 1775044697083,
+  "communityId": "sub_1774352254516_mof32w9pvmmwvp",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

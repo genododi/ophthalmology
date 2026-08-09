@@ -1,0 +1,172 @@
+{
+  "id": 1775110572246,
+  "seqId": 541,
+  "title": "Limbus-to-Cornea: Masterclass in Limbal Stem Cell Deficiency (LSCD)",
+  "summary": "Limbal Stem Cell Deficiency (LSCD) is a profound ocular surface pathology resulting from the loss or dysfunction of the limbal stem cell niche, leading to conjunctivalization, chronic inflammation, and vision loss. This infographic synthesizes the latest in regenerative medicine and clinical management.",
+  "date": "2026-04-02T06:16:12.246Z",
+  "data": {
+    "title": "Limbus-to-Cornea: Masterclass in Limbal Stem Cell Deficiency (LSCD)",
+    "summary": "Limbal Stem Cell Deficiency (LSCD) is a profound ocular surface pathology resulting from the loss or dysfunction of the limbal stem cell niche, leading to conjunctivalization, chronic inflammation, and vision loss. This infographic synthesizes the latest in regenerative medicine and clinical management.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='10'/><path d='M100 20 A 80 80 0 0 1 180 100' fill='none' stroke='red' stroke-width='10'/><circle cx='100' cy='100' r='30' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "LSCD occurs when the limbal stem cell population (located in the Palisades of Vogt) is depleted, exhausted, or rendered dysfunctional. The primary barrier to conjunctival cell migration is lost, allowing conjunctival epithelium (goblet cells) to migrate onto the corneal surface, resulting in vascularization, scarring, and persistent epithelial defects."
+      },
+      {
+        "title": "Etiology Mindmap",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "LSCD Etiology",
+          "branches": [
+            "Chemical/Thermal Burns",
+            "Stevens-Johnson Syndrome (SJS)/TEN",
+            "Ocular Cicatricial Pemphigoid",
+            "Chronic Contact Lens Overwear",
+            "Iatrogenic (Surgery/Cryotherapy)",
+            "Aniridia (PAX6 mutation)"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features Checklist",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Chronic ocular surface pain/photophobia",
+          "Decreased visual acuity",
+          "Recurrent epithelial breakdown",
+          "Loss of limbal palisades of Vogt",
+          "Conjunctivalization (pannus)",
+          "Tear film instability (MGD, aqueous deficiency)",
+          "Chronic conjunctival inflammation"
+        ]
+      },
+      {
+        "title": "Staging (Dua's Classification)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Corneal Involvement"
+          ],
+          "rows": [
+            [
+              "I",
+              "Partial Limbal, Sectoral"
+            ],
+            [
+              "II",
+              "Partial Limbal, Multi-sectoral"
+            ],
+            [
+              "III",
+              "Total Limbal with central cornea"
+            ],
+            [
+              "IV",
+              "Total Limbal + Total Corneal"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to refer for Surgery",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Persistent epithelial defect > 2 weeks",
+          "Secondary microbial keratitis",
+          "Intractable ocular pain (glaucoma or surface nerve exposure)",
+          "Rapid centripetal progression of conjunctival pannus",
+          "Vision loss preventing daily function"
+        ]
+      },
+      {
+        "title": "Investigations Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Slit-lamp exam: Look for loss of Palisades of Vogt",
+          "2. Impression Cytology: Gold standard (look for goblet cells)",
+          "3. In-vivo Confocal Microscopy (IVCM): Identify basal cell density",
+          "4. Fluorescein staining: Map epithelial defects",
+          "5. Anterior Segment OCT: Measure corneal epithelial thickness"
+        ]
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Optimize surface: Preservative-free ATs + Scleral lenses",
+          "2. Address Ocular Surface inflammation: Topical steroids/CsA",
+          "3. Conjunctival Limbal Autograft (CLAU): Unilateral cases",
+          "4. Cultivated Limbal Epithelial Transplantation (CLET): Bilateral",
+          "5. Keratoprosthesis (Boston KPro): End-stage salvage"
+        ]
+      },
+      {
+        "title": "Mnemonic: Assessment",
+        "icon": "school",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "LSCD-Eyes",
+          "explanation": "L: Loss of palisades, S: Staining/fluorescein, C: Conjunctivalization, D: Defects (epithelial), Eyes: Examine for goblet cells via cytology."
+        }
+      },
+      {
+        "title": "Epidemiology Incidence (Proxy)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Chemical Burns",
+              "value": 60
+            },
+            {
+              "label": "SJS/TEN",
+              "value": 20
+            },
+            {
+              "label": "CL Overuse",
+              "value": 10
+            },
+            {
+              "label": "Iatrogenic",
+              "value": 10
+            }
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "LSCD",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "read": true
+}

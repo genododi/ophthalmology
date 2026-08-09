@@ -1,0 +1,235 @@
+{
+  "id": 1775044693003,
+  "seqId": 433,
+  "title": "Clinical Mastery: Acute Medicine & Ophthalmology Essentials",
+  "summary": "A comprehensive reference guide for medical professionals, covering high-stakes differential diagnoses, systemic medical management, and specialized ophthalmic clinical pathways.",
+  "date": "2026-04-01T11:58:13.003Z",
+  "data": {
+    "title": "Clinical Mastery: Acute Medicine & Ophthalmology Essentials",
+    "summary": "A comprehensive reference guide for medical professionals, covering high-stakes differential diagnoses, systemic medical management, and specialized ophthalmic clinical pathways.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='10'/><path d='M60 100 Q 100 60 140 100 T 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='5'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Differential Diagnosis of Chest Pain",
+        "icon": "heart_broken",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Acute MI",
+          "Angina/acute coronary syndrome",
+          "Aortic dissection",
+          "Tension pneumothorax",
+          "Pulmonary embolism",
+          "Oesophageal rupture",
+          "Pneumonia",
+          "Chest wall pain: muscular, rib fracture, bony metastasis, costochondritis",
+          "Gastro-oesophageal reflux",
+          "Pleurisy",
+          "Empyema",
+          "Pericarditis",
+          "Oesophageal spasm",
+          "Herpes zoster",
+          "Cervical spondylosis",
+          "Intrabdominal: cholecystitis, peptic ulcer, pancreatitis",
+          "Sickle cell crisis"
+        ]
+      },
+      {
+        "title": "Types of Optic Atrophy",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Appearance",
+            "Cupping",
+            "Vessels",
+            "Margin"
+          ],
+          "rows": [
+            [
+              "Primary",
+              "Chalky white",
+              "Shallow cup",
+              "Vessels normal",
+              "Well defined"
+            ],
+            [
+              "Secondary",
+              "Grey dirty white",
+              "Filled up",
+              "Normal/attenuated with sheathing",
+              "Blurred"
+            ],
+            [
+              "Consecutive",
+              "Waxy pallor",
+              "Normal",
+              "Grossely thinned out",
+              "Well defined"
+            ],
+            [
+              "Glaucomatous",
+              "Pale",
+              "Deep cupping",
+              "Interrupted at cup edge",
+              "Well defined"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls & Management Algorithms",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "• Optic atrophy may be unilateral or bilateral. • Optic atrophy may be congenital or acquired. • Optic atrophy may be primary, secondary or consecutive.\n\n[CAUSES]\nPrimary: optic neuritis, optic n compression by tumour, aneurysm, hereditary optic neuropathy, toxic and nutritional optic neuropathy.\nSecondary: chronic papilledema, AION, papillitis, ocular inflammatory causes of disc swelling.\nConsecutive: diseases of inner retina and its blood supply, extensive retinal photocoagulation, retinitis pigmentosa, previous central retinal a occlusion.\nGlaucomatous: primary or secondary glaucoma, congenital or acquired glaucoma."
+      },
+      {
+        "title": "Vasovagal vs. Anaphylactic Shock",
+        "icon": "warning",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Feature",
+            "Vasovagal attack",
+            "Anaphylactic shock"
+          ],
+          "rows": [
+            [
+              "Pulse",
+              "Bradycardia",
+              "Tachycardia"
+            ],
+            [
+              "Blood pressure",
+              "Normal",
+              "Hypotension"
+            ],
+            [
+              "Horseness of voice",
+              "Absent",
+              "Present"
+            ],
+            [
+              "Stridor, cough, wheezes",
+              "Absent",
+              "Present"
+            ],
+            [
+              "Skin colour",
+              "Pale",
+              "Reddish, pink"
+            ],
+            [
+              "Angioedema, urticaria",
+              "Absent",
+              "Present"
+            ],
+            [
+              "Onset of time",
+              "Immediate",
+              "Within minutes to hours"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "DVT: Risk, Signs, & Prevention",
+        "icon": "medication",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "DVT Management",
+          "branches": [
+            "Risks: Age, Pregnancy, Synthetic estrogen, Trauma, Surgery, Past DVT, Cancer, Obesity, Immobility, Thrombophilia",
+            "Signs: Calf warmth, Tenderness, Swelling, Erythema, Fever, Pitting edema",
+            "Prevention: Stop OCP 4w pre-op, Early mobilization, LMWH (Enoxaparin 20mg), Compression stockings, Pneumatic devices",
+            "DD: Cellulitis, Ruptured baker’s cyst"
+          ]
+        }
+      },
+      {
+        "title": "Anaphylaxis Management",
+        "icon": "emergency",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1. Secure airway, O2, intubate if needed.",
+          "2. Remove cause, raise feet.",
+          "3. Adrenaline IM 0.5mg (repeat q5min).",
+          "4. Chlorphenamine 10mg IV + Hydrocortisone 200mg IV.",
+          "5. IV 0.9% saline 500ml up to 2L.",
+          "6. Measure serum tryptase 1-6h post."
+        ]
+      },
+      {
+        "title": "Endocrine & Emergency Protocols",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "DKA MANAGEMENT: 1. ABC, 2. Two large bore cannulae, 3. Fluid resuscitation, 4. VBG/Glucose/Labs, 5. Insulin infusion 0.1unit/kg/h, 6. Monitor ketones hourly, 7. Start LMWH, 8. 10% glucose when glucose <14mmol/L to avoid hypoglycemia. \n\nHYPOGLYCEMIA: 15-20g quick acting carb, or IV glucose 10% 200ml/15min, or Glucagon 1mg.\n\nHHS: Rehydrate slowly over 48h, replace K+, insulin only if blood glucose not falling or ketonaemia exists."
+      },
+      {
+        "title": "CHRGE Syndrome",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "C: coloboma",
+          "H: heart defect",
+          "A: atresia coane",
+          "R: retarded growth",
+          "G: genital anomalies",
+          "E: ear abnormality syndrome"
+        ]
+      },
+      {
+        "title": "Functional Visual Loss Investigations",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Goldmann perimetry: Spiralling isopters",
+          "Normal stereoacuity = normal visual acuity",
+          "Fog good eye +6D",
+          "Reading vision test",
+          "Color vision (Ishihara)",
+          "Management: Counseling, Psych referral, Normal VEP, MRI visual pathway"
+        ]
+      },
+      {
+        "title": "Thyrotoxicosis Systemic Manifestations",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Increase temp, Agitation, Confusion, Coma",
+          "Tachycardia, Atrial fibrillation, Goitre, Thyroid bruit",
+          "Acute abdomen, Heart failure, Diarrhoea",
+          "Weight loss, Increase appetite, Sweating, Palpitation",
+          "Heat intolerance, Oligomenorrhoea, Infertility",
+          "Psychosis, Chorea, Panic, Itch, Urticaria"
+        ]
+      }
+    ],
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044693003,
+  "communityId": "sub_1773830990591_xgcuemnw4",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-18T10:49:50.593Z"
+}

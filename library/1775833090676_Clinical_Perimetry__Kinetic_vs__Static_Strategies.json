@@ -1,0 +1,236 @@
+{
+  "id": 1775833090676,
+  "seqId": 785,
+  "title": "Clinical Perimetry: Kinetic vs. Static Strategies",
+  "summary": "Mastering the physics and clinical applications of visual field testing is essential for detecting glaucomatous progression and neuro-ophthalmological defects. This guide contrasts traditional kinetic perimetry with modern automated static threshold techniques.",
+  "date": "2026-04-10T14:58:10.676Z",
+  "data": {
+    "title": "Clinical Perimetry: Kinetic vs. Static Strategies",
+    "summary": "Mastering the physics and clinical applications of visual field testing is essential for detecting glaucomatous progression and neuro-ophthalmological defects. This guide contrasts traditional kinetic perimetry with modern automated static threshold techniques.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e40af' stroke-width='2'/><circle cx='50' cy='50' r='20' fill='#1e40af' opacity='0.2'/><path d='M50 10 L50 90 M10 50 L90 50' stroke='#1e40af' stroke-width='1' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Foundations",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Perimetry measures the differential light sensitivity across the visual field. Kinetic perimetry (Goldmann) involves moving a stimulus of constant intensity toward the fixation point until detection (isopters). Static perimetry measures the threshold sensitivity at fixed locations by varying stimulus intensity (decibels, dB)."
+      },
+      {
+        "title": "Kinetic vs. Static Comparison",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Kinetic (Goldmann)",
+            "Static (Humphrey/Octopus)"
+          ],
+          "rows": [
+            [
+              "Stimulus",
+              "Moving (dynamic)",
+              "Stationary (flashing)"
+            ],
+            [
+              "Primary Data",
+              "Isopters (borders)",
+              "Threshold dB sensitivity"
+            ],
+            [
+              "Best Use",
+              "Peripheral field/Advanced loss",
+              "Glaucoma/Small scotomas"
+            ],
+            [
+              "Reproducibility",
+              "Operator dependent",
+              "Highly automated"
+            ],
+            [
+              "Quantification",
+              "Qualitative/Geometric",
+              "Quantitative/Numerical"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mechanism of Action",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Perimetry Principles",
+          "branches": [
+            "Isopter Mapping (Kinetic)",
+            "Hill of Vision (Static)",
+            "Differential Light Sensitivity",
+            "Fixation Monitoring"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Indications",
+        "icon": "list_alt",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Kinetic: Detecting peripheral contractions (e.g., Retinitis Pigmentosa, advanced Glaucoma).",
+          "Kinetic: Pediatric/Low-cognition patients (less demanding).",
+          "Static: Early detection of glaucomatous damage (RNFL thinning).",
+          "Static: Neuro-ophthalmology (Chiasmal/Retrochiasmal lesions).",
+          "Static: Longitudinal monitoring of VF index progression."
+        ]
+      },
+      {
+        "title": "Red Flags in Testing",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "High Fixation Losses (>20%): Invalidates reliability.",
+          "False Positives (>15%): Suggests 'trigger-happy' patient; elevates sensitivity.",
+          "False Negatives (>20%): Suggests inattention or advanced field loss.",
+          "Gaze Tracking Errors: Significant misalignment during testing."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Sequence",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Patient education and lens correction (near addition calculated per age).",
+          "Step 2: Trial frame alignment (check for rim artifacts).",
+          "Step 3: Fixation monitoring (Heijl-Krakau method for blind spot).",
+          "Step 4: Threshold strategy selection (SITA Fast vs. SITA Standard).",
+          "Step 5: Analysis of Global Indices (Mean Deviation, Pattern SD)."
+        ]
+      },
+      {
+        "title": "Mnemonic: Reliability Indices",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "F-F-F",
+          "explanation": "Fixation losses (check blind spot), False-positives (trigger-happy), False-negatives (inattention)."
+        }
+      },
+      {
+        "title": "Global Indices Explained",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Index",
+            "Meaning",
+            "Clinical Utility"
+          ],
+          "rows": [
+            [
+              "Mean Deviation (MD)",
+              "Average depth of field loss",
+              "Staging glaucoma severity"
+            ],
+            [
+              "Pattern SD (PSD)",
+              "Localized variance/scotoma depth",
+              "Detecting early/focal defects"
+            ],
+            [
+              "Visual Field Index (VFI)",
+              "Weighting central vs peripheral",
+              "Progression analysis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Always adjust for age: Thresholds naturally decline with aging due to miosis and media opacities.",
+          "The 'Hill of Vision': Imagine the central fovea as the peak; sensitivity drops rapidly toward the periphery.",
+          "SITA (Swedish Interactive Threshold Algorithm) reduces test time by 50% compared to traditional Full Threshold.",
+          "Look for 'biconcave' patterns in bitemporal hemianopia (chiasmal pathology).",
+          "Artifacts: Eyelid ptosis or trial lens rims can create 'pseudoscotomas' in superior fields."
+        ]
+      }
+    ],
+    "generationPrompt": "Kinetic vs static perimetry",
+    "chapterId": "investigations"
+  },
+  "chapterId": "investigations",
+  "kanskiMeta": [
+    {
+      "pageNum": 17,
+      "keywords": [
+        "perimetry",
+        "kinetic",
+        "static",
+        "testing",
+        "visual field"
+      ]
+    },
+    {
+      "pageNum": 18,
+      "keywords": [
+        "perimetry",
+        "kinetic",
+        "static",
+        "strategies",
+        "testing"
+      ]
+    },
+    {
+      "pageNum": 25,
+      "keywords": [
+        "perimetry",
+        "reliability",
+        "indices",
+        "visual field",
+        "goldmann"
+      ]
+    },
+    {
+      "pageNum": 21,
+      "keywords": [
+        "perimetry",
+        "kinetic",
+        "strategies",
+        "testing",
+        "reliability"
+      ]
+    },
+    {
+      "pageNum": 371,
+      "keywords": [
+        "perimetry",
+        "visual field"
+      ]
+    },
+    {
+      "pageNum": 375,
+      "keywords": [
+        "perimetry",
+        "mechanism",
+        "visual field"
+      ]
+    }
+  ]
+}

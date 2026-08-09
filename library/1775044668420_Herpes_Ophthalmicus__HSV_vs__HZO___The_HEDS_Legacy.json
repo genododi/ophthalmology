@@ -1,0 +1,312 @@
+{
+  "id": 1775044668420,
+  "seqId": 218,
+  "title": "Herpes Ophthalmicus: HSV vs. HZO & The HEDS Legacy",
+  "summary": "A comprehensive clinical guide to differentiating Herpes Simplex (HSV) and Herpes Zoster Ophthalmicus (HZO), featuring deep-dive analysis of the Herpetic Eye Disease Studies (HEDS) for evidence-based management.",
+  "date": "2026-04-01T11:57:48.420Z",
+  "data": {
+    "title": "Herpes Ophthalmicus: HSV vs. HZO & The HEDS Legacy",
+    "summary": "A comprehensive clinical guide to differentiating Herpes Simplex (HSV) and Herpes Zoster Ophthalmicus (HZO), featuring deep-dive analysis of the Herpetic Eye Disease Studies (HEDS) for evidence-based management.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 100 Q100 60 140 100 Q100 140 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M90 90 L110 110 M110 90 L90 110' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M100 70 L105 75 L100 80 L95 75 Z' fill='hsl(215, 90%, 45%)'/><path d='M130 90 L135 95 L130 100 L125 95 Z' fill='hsl(215, 90%, 45%)'/><path d='M70 105 L75 110 L70 115 L65 110 Z' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definitions & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Herpes Simplex Virus (HSV-1, rarely HSV-2) and Varicella Zoster Virus (VZV) are neurotropic DNA viruses. HSV Keratitis is the most common cause of infectious corneal blindness in the US. Herpes Zoster Ophthalmicus (HZO) results from reactivation of latent VZV in the Trigeminal (Gasserian) ganglion, specifically involving the Ophthalmic (V1) division."
+      },
+      {
+        "title": "Epidemiological Comparison",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "HSV Incidence/100k",
+              "value": 12
+            },
+            {
+              "label": "HZO Lifetime Risk %",
+              "value": 30
+            },
+            {
+              "label": "HZO Recurrence Risk",
+              "value": 25
+            },
+            {
+              "label": "HEDS Recurrence Reduc.",
+              "value": 45
+            }
+          ]
+        }
+      },
+      {
+        "title": "HSV Classification: Anatomical & Pathological",
+        "icon": "layers",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Description",
+            "Mechanism"
+          ],
+          "rows": [
+            [
+              "Epithelial",
+              "Dendritic or Geographic ulcers",
+              "Live viral replication"
+            ],
+            [
+              "Stromal (ISK)",
+              "Intact epithelium, haze/edema",
+              "Immune response to Ag"
+            ],
+            [
+              "Stromal (NSK)",
+              "Tissue necrosis, melting",
+              "Viral + Host destruction"
+            ],
+            [
+              "Endothelial",
+              "Disciform keratitis, KPs",
+              "Delayed hypersensitivity"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differentiating the Dendrites",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "HSV Dendrite",
+            "HZO Pseudodendrite"
+          ],
+          "rows": [
+            [
+              "Morphology",
+              "True ulcer, branching with bulbs",
+              "Elevated plaques, tapered ends"
+            ],
+            [
+              "Terminal Bulbs",
+              "Present (Stain with Rose Bengal)",
+              "Absent"
+            ],
+            [
+              "Central Ulceration",
+              "True excavation (Fluorescein +)",
+              "Minimal staining (Fluorescein +/-)"
+            ],
+            [
+              "Etiology",
+              "Active epithelial replication",
+              "Mucous plaque accumulation"
+            ],
+            [
+              "Edges",
+              "Swollen cells with viral replication",
+              "Heaped up debris"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "HZO Pathognomonic Signs",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Hutchinson Sign: Vesicles on tip/side of nose (Nasociliary nerve involvement); 3x higher risk of intraocular involvement.",
+          "Dermatomal Rash: Respects the midline, V1 distribution (Frontal, Lacrimal, Nasociliary nerves).",
+          "Post-Herpetic Neuralgia (PHN): Pain persisting >3 months after rash resolution.",
+          "Sectoral Iris Atrophy: Suggests past or present herpetic uveitis (often seen in HZO and CMV)."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Labs",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Clinical Exam: Slit-lamp exam and Corneal Sensitivity (Aesthesiometry - usually decreased).",
+          "2. Scraping/Swab: Viral culture (Gold standard but slow).",
+          "3. PCR: High sensitivity/specificity for HSV-1, HSV-2, VZV.",
+          "4. Giemsa Stain: Look for Multinucleated Giant Cells (Tzanck smear - non-specific).",
+          "5. In-Vivo Confocal Microscopy: Can visualize decreased sub-basal nerve plexus density."
+        ]
+      },
+      {
+        "title": "HEDS I: Findings Summary",
+        "icon": "school",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "HEDS I Results",
+          "branches": [
+            "Stromal Keratitis: Topical steroids (Pred Phos) + Trifluridine faster resolution & less progression.",
+            "Iridocyclitis: Oral Acyclovir (400mg 5x/day) beneficial for treatment.",
+            "Epithelial Keratitis: Oral Acyclovir does NOT prevent progression to stromal disease/uveitis."
+          ]
+        }
+      },
+      {
+        "title": "HEDS II: Prevention Study",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "HEDS II Results",
+          "branches": [
+            "Recurrence: 400mg Acyclovir BID for 1 year reduced recurrence by 45%.",
+            "Stromal Keratitis: Prophylaxis particularly effective for those with prior stromal history.",
+            "Stress: No statistical correlation found between stress and HSV recurrence (counter-intuitive)."
+          ]
+        }
+      },
+      {
+        "title": "Medical Management: HSV",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Standard Treatment"
+          ],
+          "rows": [
+            [
+              "Epithelial",
+              "Ganciclovir 0.15% gel 5x/day or Trifluridine 1% 9x/day"
+            ],
+            [
+              "Stromal (ISK)",
+              "Topical Steroid (Pred Forte 1%) + Prophylactic Antiviral"
+            ],
+            [
+              "Endothelial",
+              "Topical Steroid + Prophylactic Antiviral"
+            ],
+            [
+              "Neurotrophic",
+              "Lubrication, Serum tears, Cenegermin, Tarsorrhaphy"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Medical Management: HZO",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Oral Acyclovir: 800mg 5x/day for 7-10 days (Must start within 72 hrs of rash).",
+          "Oral Valacyclovir: 1g TID for 7-10 days (Better bioavailability).",
+          "Oral Famciclovir: 500mg TID for 7-10 days.",
+          "Topical Steroids: Required for uveitis or stromal keratitis, often needs long-term taper.",
+          "PHN Management: Gabapentin, Pregabalin, or Amitriptyline."
+        ]
+      },
+      {
+        "title": "Red Flags & Urgent Consults",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Stromal Melting/Perforation: Imminent risk in Necrotizing Keratitis.",
+          "Acute Retinal Necrosis (ARN): Rapidly progressive peripheral necrotizing retinitis (HSV/VZV).",
+          "Secondary Glaucoma: Trabeculitis or PAS causing severe IOP spikes.",
+          "Immunocompromised Status: Disseminated VZV or bilateral involvement."
+        ]
+      },
+      {
+        "title": "Mnemonics for the Resident",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STROMAL",
+          "explanation": "S: Steroids are needed, T: Trifluridine/Prophylaxis added, R: Red eye, O: Opacity (haze), M: Melting (if necrotizing), A: Acyclovir (HEDS proven), L: Long-term taper."
+        }
+      },
+      {
+        "title": "Surgical Techniques & Interventions",
+        "icon": "content_cut",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Debridement: Effective for epithelial HSV to reduce viral load.",
+          "2. Amniotic Membrane: Promotes healing in neurotrophic ulcers.",
+          "3. Tarsorrhaphy: Essential for severe neurotrophic keratopathy.",
+          "4. Penetrating Keratoplasty (PKP): Avoid in active disease; wait 1 year quiet.",
+          "5. Gundersen Flap: For chronic non-healing ulcers with low visual potential."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Mindmap",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Dendritiform Lesions",
+          "branches": [
+            "Acanthamoeba Keratitis (Early)",
+            "Healing Epithelial Defects",
+            "Tyrosinemia Type II",
+            "Soft Contact Lens Overwear",
+            "Topical Toxicity (Medicamentosa)"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls & Exam Prep",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Acyclovir 400mg BID (HSV) vs. 800mg 5x/day (Acute HZO) vs. 800mg daily (HZO prophylaxis).",
+          "HZO dendrites are 'stuck on' plaques and don't involve the basement membrane (unlike HSV).",
+          "Never use topical steroids alone in HSV; always cover with an antiviral.",
+          "Disciform keratitis is a clinical diagnosis; it is an immune reaction to viral antigen in the endothelium.",
+          "Zostavax (Live) vs. Shingrix (Recombinant): Shingrix is preferred and >90% effective in seniors."
+        ]
+      },
+      {
+        "title": "Recent Advances: ZEDS Study",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The Zoster Eye Disease Study (ZEDS) is currently investigating whether long-term suppressive Valacyclovir (1g daily) reduces complications of HZO, similar to how HEDS II proved effectiveness for HSV. Results are highly anticipated to standardize HZO prophylaxis."
+      }
+    ],
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044668420,
+  "communityId": "sub_1774337646552_nqwterqmy",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-24T07:34:06.553Z"
+}

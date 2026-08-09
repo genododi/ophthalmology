@@ -1,0 +1,241 @@
+{
+  "id": 1775044669381,
+  "seqId": 228,
+  "title": "Latent Nystagmus & Nystagmus Blockage Syndrome",
+  "summary": "A comprehensive clinical guide to the diagnosis, pathophysiology, and surgical management of infantile nystagmus variants. This poster contrasts the passive induction of Latent Nystagmus (LN) with the active dampening mechanism of Nystagmus Blockage Syndrome (NBS).",
+  "date": "2026-04-01T11:57:49.381Z",
+  "data": {
+    "title": "Latent Nystagmus & Nystagmus Blockage Syndrome",
+    "summary": "A comprehensive clinical guide to the diagnosis, pathophysiology, and surgical management of infantile nystagmus variants. This poster contrasts the passive induction of Latent Nystagmus (LN) with the active dampening mechanism of Nystagmus Blockage Syndrome (NBS).",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='60' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='60' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M140 50 L170 50 M140 50 L150 40 M140 50 L150 60' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round'/><rect x='100' y='30' width='20' height='40' fill='rgba(0,0,0,0.2)'/><path d='M20 50 Q 40 20 60 50 T 100 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definitions",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Nystagmus Variants",
+          "branches": [
+            "Latent Nystagmus (LN): Conjugate horizontal jerky nystagmus evoked only by monocular occlusion.",
+            "Manifest Latent Nystagmus (MLN): LN present with both eyes open but one eye is functionally suppressed (e.g., amblyopia).",
+            "Nystagmus Blockage Syndrome (NBS): A strategy where esotropia is used to dampen nystagmus intensity."
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Associations",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "LN in Infantile Esotropia",
+              "value": 50
+            },
+            {
+              "label": "LN in Dissociated Vertical Deviation",
+              "value": 90
+            },
+            {
+              "label": "NBS in Infantile Esotropia cases",
+              "value": 12
+            }
+          ]
+        }
+      },
+      {
+        "title": "Fundamental Rule: The Fast Phase",
+        "icon": "visibility",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "LN-TOWARD",
+          "explanation": "In Latent Nystagmus, the fast phase ALWAYS beats TOWARD the FIXATING (uncovered) eye. If you cover the Left Eye, the nystagmus beats Right."
+        }
+      },
+      {
+        "title": "Pathophysiology: Why it Happens",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Latent Nystagmus arises from a failure of binocular development in infancy. It is linked to the subcortical visual pathway (nucleus of the optic tract) where monocular input dominates. In NBS, the adduction of the eye places the eye in a 'null zone' or uses the mechanical restriction of the medial rectus to physically stabilize the globe, thereby improving visual acuity."
+      },
+      {
+        "title": "Comparison: LN vs. NBS",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Latent Nystagmus (LN)",
+            "Nystagmus Blockage (NBS)"
+          ],
+          "rows": [
+            [
+              "Primary Cause",
+              "Monocular occlusion/dissociation",
+              "Active adduction to dampen oscillation"
+            ],
+            [
+              "Fixation Pattern",
+              "Normal or slightly reduced monocularly",
+              "Prefers fixation in extreme adduction"
+            ],
+            [
+              "Associated Deviation",
+              "DVD and Infantile Esotropia (ET)",
+              "Pseudopalsy of Abduction / Large ET"
+            ],
+            [
+              "Effect of Prisms",
+              "Base-out prism increases nystagmus",
+              "Base-out prism may dampen nystagmus"
+            ],
+            [
+              "Fast Phase Direction",
+              "Toward the fixating eye",
+              "Varies, but dampened in adduction"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "NBS Classification (von Noorden)",
+        "icon": "schema",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "NBS Types",
+          "branches": [
+            "Type I: Nystagmus present in primary, disappears in adduction.",
+            "Type II: Nystagmus appears when the fixating eye moves from adduction to primary.",
+            "Type III: Manifest nystagmus in all positions, dampened by ET."
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Pseudo-NBS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sixth Nerve Palsy (Abducens): Rule out if abduction is limited without nystagmus.",
+          "Duane Retraction Syndrome: Look for globe retraction and palpebral fissure narrowing.",
+          "Ciancia Syndrome: Large angle ET with apparent abduction deficit, but full abduction on doll's head maneuver.",
+          "Mobius Syndrome: If associated with facial nerve palsy."
+        ]
+      },
+      {
+        "title": "Clinical Examination Steps",
+        "icon": "stethoscope",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Observe primary position with both eyes open (Check for MLN).",
+          "Step 2: Cover one eye and observe the onset and direction of jerky oscillations (LN).",
+          "Step 3: Perform 'Translucent Cover' test to maintain light input while dissociating.",
+          "Step 4: Assess head posture (Face turn toward fixating eye in LN).",
+          "Step 5: Check 'Vestibulo-Ocular Reflex' (VOR) to rule out true paretic abduction deficits."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Electronystagmography (ENG) or Video-oculography (VOG) showing 'decelerating slow phase' characteristic of INS/LN.",
+          "Cycloplegic Refraction: Hyperopia is common in infantile ET/NBS.",
+          "Stereopsis Testing: Usually absent or severely reduced.",
+          "Visual Acuity: Test monocularly using high plus lenses (+5.00D) rather than an opaque occluder to prevent inducing LN."
+        ]
+      },
+      {
+        "title": "Surgical Management of NBS",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Determine the 'Blocking' eye and the preferred adducted position.",
+          "Step 2: Large Recessions of Medial Recti (often exceeding standard tables).",
+          "Step 3: Posterior Fixation Sutures (Cüppers Faden procedure) to weaken the muscle in its field of action without changing primary position.",
+          "Step 4: Combined Recession + Faden if esotropia is massive and nystagmus is severe."
+        ]
+      },
+      {
+        "title": "Surgical Management of LN/MLN",
+        "icon": "surgical_sterilization",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Address underlying Strabismus (ET/DVD) first.",
+          "Step 2: If significant head turn exists, perform Kestenbaum-type procedure.",
+          "Step 3: Move the eyes in the direction of the head turn (opposite the null point).",
+          "Step 4: Consider Faden procedure on the fixating eye to dampen the MLN."
+        ]
+      },
+      {
+        "title": "Alexander's Law in LN",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Nystagmus intensity increases when the eye moves in the direction of the fast phase.",
+          "In LN, abduction of the fixating eye increases the fast-phase intensity.",
+          "In LN, adduction of the fixating eye decreases the fast-phase intensity.",
+          "This explains the head turn: the patient turns their face toward the fixating eye to keep it in adduction."
+        ]
+      },
+      {
+        "title": "Prognosis & Outcomes",
+        "icon": "trending_up",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Visual Acuity: Often good binocularly, but monocular testing is misleadingly poor.",
+          "Motor Alignment: Surgical success rate for NBS is approximately 60-70% for achieving <10PD.",
+          "Sensory: True 3D stereopsis is rarely achieved, but peripheral fusion is possible.",
+          "Stability: LN usually persists throughout life but may dampen with age."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Always suspect NBS in a child with a large-angle esotropia who cross-fixes and appears to have bilaterally limited abduction.",
+          "The 'translucent occluder' is your best friend: it allows enough light to prevent the 'darkness-induced' component of LN during VA testing.",
+          "Differentiating NBS from 'Ciancia Syndrome': Ciancia is a constellation of findings (Large ET, LN, DVD, Limited Abduction) where NBS is specifically the dampening mechanism.",
+          "Surgical overcorrection is a risk in NBS; however, under-correction usually results in a return of the compensatory head posture."
+        ]
+      }
+    ],
+    "generationPrompt": "latent nystagmus vs nystagmus blockage syndrome",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044669381,
+  "communityId": "sub_1774429038726_gsgx54yf0",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-03-25T08:57:18.726Z",
+  "bookmarked": true
+}

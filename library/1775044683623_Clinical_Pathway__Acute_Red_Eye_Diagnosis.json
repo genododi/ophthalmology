@@ -1,0 +1,143 @@
+{
+  "id": 1775044683623,
+  "seqId": 370,
+  "title": "Clinical Pathway: Acute Red Eye Diagnosis",
+  "summary": "An exhaustive clinical reference for the differential diagnosis of acute red eye. Categorized by visual acuity, pain levels, and intraocular pressure to ensure precise identification of ocular pathologies.",
+  "date": "2026-04-01T11:58:03.623Z",
+  "data": {
+    "title": "Clinical Pathway: Acute Red Eye Diagnosis",
+    "summary": "An exhaustive clinical reference for the differential diagnosis of acute red eye. Categorized by visual acuity, pain levels, and intraocular pressure to ensure precise identification of ocular pathologies.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M20 50 Q50 10 80 50 Q50 90 20 50' fill='none' stroke='red' stroke-width='1.5' opacity='0.6'/><path d='M30 40 L40 45 M30 60 L40 55 M70 40 L60 45 M70 60 L60 55' stroke='red' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Primary Categorization: Vision Status",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Acute Red Eye",
+          "branches": [
+            "Normal/near normal vision",
+            "Reduced vision"
+          ]
+        }
+      },
+      {
+        "title": "Normal/Near Normal Vision: Painful/Discomfort",
+        "icon": "warning",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Redness Type",
+            "Conditions & Clinical Presentation"
+          ],
+          "rows": [
+            [
+              "Diffuse superficial redness",
+              "Conjunctivitis: infective, allergic, or chemical; gritty/itchy; watery, mucoid, mucopurulent, or purulent exudate; papillae or follicles."
+            ],
+            [
+              "Diffuse deep redness",
+              "Anterior scleritis: severe pain; diffuse deep injection which does not blanch with vasoconstrictors (e.g. phenylephrine 10%), oedema; globe tender."
+            ],
+            [
+              "Circumlimbal redness",
+              "• Keratitis: photophobia, watering, circumlimbal injection, corneal infiltrate ± epithelial defect ± AC activity.\n• Anterior uveitis: photophobia, watering, Kps, AC activity ± pS.\n• Corneal FB: appropriate history, FB sensation, visible FB."
+            ],
+            [
+              "Sectoral redness",
+              "• Episcleritis: mild discomfort; may be recurrent; sectoral (occasionally diffuse) redness which blanches with topical vasoconstrictor (e.g. phenylephrine 10%); globe non-tender.\n• Marginal keratitis: photophobia, watering, marginal corneal infiltrate ± epithelial defect."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Normal/Near Normal Vision: Painless",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Subconjunctival haemorrhage: well-defined, confluent area of haemorrhage."
+        ]
+      },
+      {
+        "title": "Reduced Vision: Normal IOP (Corneoscleral & Uveal)",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Focus Area",
+            "Condition & Signs"
+          ],
+          "rows": [
+            [
+              "Abnormal corneosclera",
+              "• Corneal abrasion: photophobia, watering, sectoral/circumlimbal injection, epithelial defect.\n• Keratitis: photophobia, watering, circumlimbal injection, corneal infiltrate ± epithelial defect ± AC activity ± mucopurulent discharge."
+            ],
+            [
+              "Abnormal uvea",
+              "• Anterior uveitis: photophobia, watering, Kps, AC activity ± pS.\n• Endophthalmitis: pain, floaters, watering, diffuse deep injection, inflammation (vitreous > AC), chorioretinitis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Reduced Vision: Increased IOP (Critical)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Acute glaucoma: usually due to angle closure; photophobia, watering, corneal oedema, fixed mid-dilated pupil ± anterior segment/angle abnormalities such as rubeosis.",
+          "Hypertensive uveitis: AC cells and flare ± corneal involvement; often due to herpes group of viruses."
+        ]
+      },
+      {
+        "title": "Diagnostic Blanching Test",
+        "icon": "medication",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Phenylephrine 10%",
+          "explanation": "Used to differentiate redness: Episcleritis (blanches with topical vasoconstrictor) vs. Anterior Scleritis (does NOT blanch)."
+        }
+      },
+      {
+        "title": "Clinical Glossary & Abbreviations",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "AC: Anterior Chamber",
+          "FB: Foreign Body",
+          "Kps: Keratic precipitates",
+          "pS: Posterior synechiae",
+          "IOP: Intraocular pressure",
+          "±: Plus or minus / with or without"
+        ]
+      },
+      {
+        "title": "Additional Note",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "A C u"
+      }
+    ],
+    "chapterId": "conjunctiva"
+  },
+  "chapterId": "conjunctiva",
+  "_newlyImported": 1775044683623,
+  "communityId": "sub_1773775007770_ktam4hxxaeoag8",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

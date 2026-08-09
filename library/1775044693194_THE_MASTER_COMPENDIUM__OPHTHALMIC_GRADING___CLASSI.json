@@ -1,0 +1,691 @@
+{
+  "id": 1775044693194,
+  "seqId": 435,
+  "title": "THE MASTER COMPENDIUM: OPHTHALMIC GRADING & CLASSIFICATIONS",
+  "summary": "An exhaustive clinical resource mapping diagnostic criteria, staging systems, and severity scales across all ophthalmic subspecialties—from retinal dystrophies to orbital inflammation. Designed for board-certified mastery and rapid clinical reference.",
+  "date": "2026-04-01T11:58:13.194Z",
+  "data": {
+    "title": "THE MASTER COMPENDIUM: OPHTHALMIC GRADING & CLASSIFICATIONS",
+    "summary": "An exhaustive clinical resource mapping diagnostic criteria, staging systems, and severity scales across all ophthalmic subspecialties—from retinal dystrophies to orbital inflammation. Designed for board-certified mastery and rapid clinical reference.",
+    "summary_illustration": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"45\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"50\" cy=\"50\" r=\"15\" fill=\"hsl(215, 90%, 45%)\"/><path d=\"M20 50 Q 50 10 80 50 Q 50 90 20 50\" stroke=\"hsl(215, 90%, 45%)\" fill=\"none\" stroke-width=\"2\"/><path d=\"M50 20 L 50 10 M 50 90 L 50 80 M 80 50 L 90 50 M 10 50 L 20 50\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"2\"/><path d=\"M35 35 L 30 30 M 65 65 L 70 70 M 65 35 L 70 30 M 35 65 L 30 70\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"2\"/></svg>",
+    "sections": [
+      {
+        "title": "DEDICATION & FOREWORD",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Grading in ophthalmology. This work is dedicated to my father osama ahmed el barchoumi please don’t forget to pray for him and read al fateha."
+      },
+      {
+        "title": "Best Vitelliform Macular Dystrophy (BVMD)",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Stage",
+            "Clinical Findings",
+            "Diagnostics (EOG/FA/FAF/OCT)"
+          ],
+          "rows": [
+            [
+              "Previtelliform",
+              "Asymptomatic stage",
+              "Subnormal EOG (Arden index < 1.5)"
+            ],
+            [
+              "Vitelliform",
+              "Round sharply delineated, egg yolk appearance within RPE",
+              "FAF: Hyperautofluorescence"
+            ],
+            [
+              "Pseudohypopyon",
+              "Part of lesion regress at puberty; fluid level within lesion",
+              "OCT: Material beneath, above, within RPE"
+            ],
+            [
+              "Vitelliruptive",
+              "Lesion breaks up ('scrambled egg'); visual acuity drops",
+              "FA: Hypofluorescence; FAF: Late hypoautofluorescence"
+            ],
+            [
+              "Atrophic",
+              "Pigment disappears; atrophic RPE",
+              "Subnormal EOG continues; variable FA staining"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Macular Holes & Mimics",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Clinical Description",
+            "OCT Characteristics"
+          ],
+          "rows": [
+            [
+              "Vitreomacular Adhesion (VMA)",
+              "Residual attachment of vitreous within 3mm radius of central macula.",
+              "Perifoveal vitreomacular separation present; OCT: Observed appearance."
+            ],
+            [
+              "Vitreomacular Traction (VMT)",
+              "Perifoveal within 3mm PVD (not associated with vitromacular disease).",
+              "Retinal changes in OCT; distortion of inner retina with photoreceptor apposition."
+            ],
+            [
+              "Full Thickness Macular Hole (FTMH)",
+              "Interruption of all retinal layers from ILM to RPE +/- VMT.",
+              "Categorized as Small, Medium, or Large (>400μm)."
+            ],
+            [
+              "Lamellar Macular Hole",
+              "Partial thickness defect at inner retinal layers at the fovea.",
+              "Intact photoreceptor layer maintained."
+            ],
+            [
+              "Macular Pseudohole",
+              "Lesion mimics FTMH; distortion of perifoveal retina into heaped up edges by ERM.",
+              "No loss of retinal layers; thickness near normal; defect in ERM only."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Gass Classification of Clinical Macular Hole",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Stage 1a: Impending hole (Foveal flattening + underlying yellow spot)",
+          "Stage 1b: Occult hole (Foveal detachment + yellow ring)",
+          "Stage 2: Small FTMH (<400 microns); Defect: central, eccentric, or crescentic shape",
+          "Stage 3: FTMH > 400 microns with no vitreous separation",
+          "Stage 4: FTMH > 400 microns with vitreous separation (Complete PVD)"
+        ]
+      },
+      {
+        "title": "Uveitis Grading (SUN Classification)",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Grade",
+            "AC Cells (per 1mm field)",
+            "AC Flare Description"
+          ],
+          "rows": [
+            [
+              "0",
+              "<1 cell",
+              "None"
+            ],
+            [
+              "0.5+",
+              "1-5 cells",
+              "N/A"
+            ],
+            [
+              "1+",
+              "6-15 cells",
+              "Faint"
+            ],
+            [
+              "2+",
+              "15-25 cells",
+              "Moderate (Iris/lens details clear)"
+            ],
+            [
+              "3+",
+              "26-50 cells",
+              "Marked (Iris/lens details hazy)"
+            ],
+            [
+              "4+",
+              ">50 cells",
+              "Intense (Fibrin and plastic aqueous)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Vitreous Haze Grading",
+        "icon": "visibility",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Grade 0: Good view of Nerve Fiber Layer (NFL)",
+          "Grade +1: Clear disc and vessels but hazy NFL",
+          "Grade +2: Disc and vessels appear hazy",
+          "Grade +3: Only the optic disc is visible",
+          "Grade +4: Optic disc is not visible"
+        ]
+      },
+      {
+        "title": "Relative Afferent Pupillary Defect (RAPD)",
+        "icon": "lightbulb",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Grade 1 (0.4 log)",
+              "value": 20
+            },
+            {
+              "label": "Grade 2 (0.7 log)",
+              "value": 40
+            },
+            {
+              "label": "Grade 3 (1.1 log)",
+              "value": 60
+            },
+            {
+              "label": "Grade 4 (2.0 log)",
+              "value": 85
+            },
+            {
+              "label": "Grade 5 (Inf)",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "RAPD Grading Details",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Grade 1 (0.4 log unit): Weak initial restriction followed by greater redilation",
+          "Grade 2 (0.7 log unit): Initial stalling followed by greater redilation",
+          "Grade 3 (1.1 log unit): Immediate dilation",
+          "Grade 4 (2 log unit): Immediate dilation following prolonged illumination of the good eye for 6 seconds",
+          "Grade 5 (Infinity): Immediate dilation with no secondary constriction"
+        ]
+      },
+      {
+        "title": "Angle Grading: Van Herick & Shaffer Systems",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Grade",
+            "Van Herick (ACD/CT ratio)",
+            "Shaffer (Angle in Degrees)",
+            "Clinical Interpretation"
+          ],
+          "rows": [
+            [
+              "4",
+              ">/= 1 (ACD >/= full corneal thickness)",
+              "35-45°",
+              "Wide open; Ciliary body visualized"
+            ],
+            [
+              "3",
+              "1/4 to 1/2",
+              "25-35°",
+              "Incapable of closure; Scleral spur visible"
+            ],
+            [
+              "2",
+              "1/4",
+              "20°",
+              "Should undergo gonioscopy; Trabeculum seen"
+            ],
+            [
+              "1",
+              "< 1/4",
+              "10°",
+              "Dangerously narrowed; Schwalbe line +/- TM"
+            ],
+            [
+              "0 / Slit",
+              "Slit angle",
+              "0°",
+              "Closed; Iridocorneal contact; No structures identified"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Advanced Angle Systems",
+        "icon": "fingerprint",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Angle Analysis",
+          "branches": [
+            "Spaeth System: Iris insertion, Angular approach, Peripheral iris curvature",
+            "Scheie System: The opposite of Shaffer",
+            "Redman Smith Method: ACD measurement",
+            "Coloboma grading & Manns classification"
+          ]
+        }
+      },
+      {
+        "title": "Hypertensive Retinopathy",
+        "icon": "cardiology",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Grade 1: Mild generalized arteriolar narrowing",
+          "Grade 2: Focal arteriolar narrowing + A.V. nipping (Copper wiring appearance)",
+          "Grade 3: Grade 2 + retinal hemorrhage, exudate, and cotton wool spots",
+          "Grade 4: Grade 3 + Optic disc swelling"
+        ]
+      },
+      {
+        "title": "Sickle Cell Retinopathy",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Stage",
+            "Proliferative Findings",
+            "Non-Proliferative & Disc Signs"
+          ],
+          "rows": [
+            [
+              "1",
+              "Peripheral arteriolar occlusion",
+              "Venous tortuosity (AV shunting)"
+            ],
+            [
+              "2",
+              "Peripheral AV anastomosis proximal to non-perfused areas",
+              "Salmon patches (orange-red mid-peripheral hemorrhage)"
+            ],
+            [
+              "3",
+              "Sea fan neovascularization at edges of perfused retina",
+              "Black sunburst (peripheral RPE hyperplasia/atrophy)"
+            ],
+            [
+              "4",
+              "Vitreous hemorrhage (from NV)",
+              "Optic disc sign: Dark red blots due to small vessel occlusion"
+            ],
+            [
+              "5",
+              "Rhegmatogenous or Tractional Retinal Detachment",
+              "Macular retinal depression sign; peripheral color changes"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Retinopathy of Prematurity (ROP)",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Zone 1: Radius 2x distance from disc to center of macula.",
+          "Zone 2: From edge of Zone 1 to nasal ora serrata.",
+          "Zone 3: Residual temporal crescent anterior to Zone 2.",
+          "Stage 1: Demarcation line (thin, flat, white line parallel to ora).",
+          "Stage 2: Demarcation ridge (height and width; vessels enter the ridge).",
+          "Stage 3: Extraretinal fibrovascular proliferation (into vitreous; peak incidence ~35 weeks PCA).",
+          "Stage 4: Partial RD (4A: Extrafoveal, 4B: Foveal).",
+          "Stage 5: Total Retinal Detachment.",
+          "Plus Disease: Dilatation/tortuosity in at least 2 quadrants of posterior fundus.",
+          "Rush Disease (Aggressive ROP): Rapidly progressive in Zones 1/2 with prominent Plus disease."
+        ]
+      },
+      {
+        "title": "Keratoconus (Amsler-Krumeich)",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Stage",
+            "Refraction/Astigmatism",
+            "Mean K (D)",
+            "Corneal Thickness / Scarring"
+          ],
+          "rows": [
+            [
+              "1",
+              "Eccentric steepening; Myopia/Astig < 5D",
+              "< 48.00 D",
+              "Thick; No scarring"
+            ],
+            [
+              "2",
+              "Myopia/Astig 5D to 8D",
+              "< 53.00 D",
+              "> 400μm; No scarring"
+            ],
+            [
+              "3",
+              "Myopia/Astig 8D to 10D",
+              "> 53.00 D",
+              "300-400μm; No scarring"
+            ],
+            [
+              "4",
+              "Refraction not possible",
+              "> 55.00 D",
+              "< 300μm; Central scarring"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Proliferative Vitreoretinopathy (PVR)",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Type A (Minimal): Vitreous haze, pigment (tobacco dust) on inner retina.",
+          "Type B (Moderate): Retinal wrinkling, stiffening, rolled edges of breaks, vessel tortuosity.",
+          "Type C (Marked): Rigid retinal folds (starfolds), heavy vitreous condensation/strands.",
+          "Subtypes of C: Location (Pre-equatorial/Post-equatorial), Extent, Contraction Type (Focal, Diffuse, Subretinal, Circumferential, Anterior)."
+        ]
+      },
+      {
+        "title": "AMD Categories (AREDS)",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Category",
+            "Clinical Findings"
+          ],
+          "rows": [
+            [
+              "1 (No AMD)",
+              "None or few small drusen (<63 microns)"
+            ],
+            [
+              "2 (Early)",
+              "Multiple small drusen; few intermediate (63-124μm); RPE abnormalities"
+            ],
+            [
+              "3 (Interm.)",
+              "Extensive intermediate drusen; at least one large druse (>/=125μm); Geographic atrophy (no fovea)"
+            ],
+            [
+              "4 (Advanced)",
+              "Geographic atrophy involving fovea or Neovascular AMD features"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Staging: Aging vs AMD",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Normal Aging: Only drupelets; No AMD pigmentary abnormalities.",
+          "Early AMD: Medium drusen (>63 but <125 microns); No pigmentary abnormalities.",
+          "Intermediate AMD: Large drusen (>125) or any AMD pigmentary abnormalities.",
+          "Late AMD: Neovascular AMD and/or any geographic atrophy."
+        ]
+      },
+      {
+        "title": "Retinal Angiomatous Proliferation (RAP)",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Stage 1: Intraretinal NV; Telangiectatic vessels; small angiomatous lesions.",
+          "Stage 2: Subretinal NV; Extension into subretinal space; Edema/Exudates; Serous PED may exist.",
+          "Stage 3: Macular Neovessels; Perfusion via choroid + retinochoroidal anastomosis; evident clinically/angiographically."
+        ]
+      },
+      {
+        "title": "Chemical Burns (Limbal Stem Cell Deficiency)",
+        "icon": "warning",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Grade",
+            "Findings",
+            "Prognosis"
+          ],
+          "rows": [
+            [
+              "1",
+              "Clear cornea; No limbal ischemia",
+              "Excellent"
+            ],
+            [
+              "2",
+              "Hazy cornea; Visible iris; <1/3 ischemia",
+              "Good"
+            ],
+            [
+              "3",
+              "Total epithelial loss; Stromal haze; 1/3-1/2 ischemia",
+              "Guarded"
+            ],
+            [
+              "4",
+              "Opaque cornea; >1/2 limbal ischemia",
+              "Poor"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Hyphema & Papilledema",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Hyphema Grade 1: <= 1/3 AC volume.",
+          "Hyphema Grade 2: 1/3 - 1/2 AC volume.",
+          "Hyphema Grade 3: > 1/2 AC volume.",
+          "Hyphema Grade 4: Total volume (8-ball hyphema); Microhyphema: circulating cells only.",
+          "Papilledema Grade 0: Normal disc.",
+          "Papilledema Grade 1: Minimal; subtle C-shaped halo; normal temporal margin.",
+          "Papilledema Grade 2: Low degree; circumferential halo.",
+          "Papilledema Grade 3: Moderate; obscuration of 1+ major vessels leaving disc.",
+          "Papilledema Grade 4: Marked; partial obscuration of major vessels ON the disc.",
+          "Papilledema Grade 5: Severe; total obscuration of all vessels on the disc."
+        ]
+      },
+      {
+        "title": "Thyroid Eye Disease (TED) Classifications",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Proptosis & Orbit",
+          "branches": [
+            "NOSPEC: No signs (0), Only signs (1), Soft tissue (2), Proptosis (3), EOM (4), Corneal (5), Sight loss (6)",
+            "VISA: Vision (Optic Nerve), Inflammation, Strabismus, Appearance (Lid retraction/proptosis)",
+            "EUGOGO Activity: Spontaneous pain, Pain on gaze, Redness of eyelids, Swelling of conjunctiva/plica/lid, Chemosis",
+            "EUGOGO Severity: Mild (Minor impact), Mod-Severe (Lid >2mm, Proptosis >3mm, Diplopia), Sight Threatening (Optic neuropathy, Corneal breakdown)",
+            "Mourits Score: Lid edema/injection, Conjunctival chemosis/injection, Pain on movement. Score >=4 = Active.",
+            "Randle Curve: Active phase -> Regression phase -> Inactive plateau."
+          ]
+        }
+      },
+      {
+        "title": "Ptosis & Levator Function",
+        "icon": "face",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Levator Function",
+            "Severity/Ptosis",
+            "Surgical Plan"
+          ],
+          "rows": [
+            [
+              "Good (>10mm)",
+              "Severe (>2mm)",
+              "Aponeurotic repair"
+            ],
+            [
+              "Good (>10mm)",
+              "Mild (<2mm)",
+              "Fasanella-Servat (transmullarectomy)"
+            ],
+            [
+              "Moderate (4-10mm)",
+              "Any",
+              "Levator resection"
+            ],
+            [
+              "Poor (<4mm)",
+              "Any",
+              "Brow suspension"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Lid Laxity Tests & Grading",
+        "icon": "touch_app",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Test",
+            "Grade 0 (Normal)",
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4 (Severe)"
+          ],
+          "rows": [
+            [
+              "Snap Back",
+              "Immediate return",
+              "2-3 sec",
+              "4-5 sec",
+              ">5 sec",
+              "Never returns/Baseline fail"
+            ],
+            [
+              "Medial Canthal",
+              "0-1 mm displ.",
+              "2 mm",
+              "3 mm",
+              ">3 mm",
+              "Does not return"
+            ],
+            [
+              "Lateral Canthal",
+              "0-2 mm displ.",
+              "2-4 mm",
+              "4-6 mm",
+              ">6 mm",
+              "Does not return"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Surface & Infections",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "WHO Trachoma: TF (Follicles >0.5mm), TI (Intense inflammation), TS (Scarring), TT (Trichiasis), CO (Corneal Opacity).",
+          "WHO Xerophthalmia: XN (Night blindness), X1 (Xerosis/Bitot), X2 (Corneal xerosis), X3 (Ulcer <1/3 A; >1/3 B), XS (Scar), XF (Fundus).",
+          "Neurotrophic Keratopathy: Stage 1 (Epithelial irregularity), Stage 2 (PED with rolled edges), Stage 3 (Stromal melting).",
+          "OCP (Foster): Stage 1 (Chronic conjunctivitis/fibrosis), Stage 2 (Forniceal shortening), Stage 3 (Symblepharon), Stage 4 (Ankyloblepharon).",
+          "OCP (Mondino): Inferior forniceal depth loss: Stage 1 (<25%), 2 (25-50%), 3 (50-75%), 4 (>75%).",
+          "Chandler (Sinus): 1 (Preseptal), 2 (Postseptal), 3 (Subperiosteal abscess), 4 (Orbital abscess), 5 (Cavernous sinus thrombosis)."
+        ]
+      },
+      {
+        "title": "Glaucoma Progression Risk Matrix",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "IOP Category",
+            "CCT <= 555μm",
+            "CCT 555-588μm",
+            "CCT > 588μm"
+          ],
+          "rows": [
+            [
+              "> 25.75 mmHg",
+              "36% Risk",
+              "13% Risk",
+              "6% Risk"
+            ],
+            [
+              "23.75 - 25.75 mmHg",
+              "26% (C/D >0.5)",
+              "16% (C/D >0.5)",
+              "8% (C/D >0.5)"
+            ],
+            [
+              "< 23.75 mmHg",
+              "15% (C/D >0.5)",
+              "1% (C/D 0.3-0.5)",
+              "4% (C/D <0.3)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Vitreoretinal Degenerations & Phthisis",
+        "icon": "settings_ethernet",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Atrophia Bulbi: Grade 1 (No shrinkage), Grade 2 (Shrinkage), Grade 3 (Disorganization/Phthisis), Grade 4 (Ossification), Grade 5 (Calcium deposition).",
+          "FEVR: Stage 1 (Peripheral avascularity), Stage 2 (NV/Exudates), Stage 3 (Macula sparing RD), Stage 4 (Macula involving RD), Stage 5 (Total RD).",
+          "Snowflake Degeneration: Stage 1 (White-without-pressure <15y), Stage 2 (Crystalline deposits 15-25y), Stage 3 (Vascular sheathing 25-50y), Stage 4 (Atrophy/Pigment >60y).",
+          "North Carolina Dystrophy: Grade 1 (Drusen-like; asymptomatic), Grade 2 (Confluent deposits; guarded), Grade 3 (Atrophic macular lesions; low VA)."
+        ]
+      }
+    ],
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "_newlyImported": 1775044693194,
+  "communityId": "sub_1773864086833_pt34920wo",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-18T20:01:26.834Z"
+}

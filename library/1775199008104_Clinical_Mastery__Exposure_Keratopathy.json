@@ -1,0 +1,168 @@
+{
+  "id": 1775199008104,
+  "seqId": 604,
+  "title": "Clinical Mastery: Exposure Keratopathy",
+  "summary": "Exposure keratopathy is a sight-threatening condition resulting from incomplete eyelid closure (lagophthalmos), leading to ocular surface desiccation, epithelial breakdown, and potential stromal ulceration. Prompt identification and aggressive lubrication are mandatory to prevent visual morbidity.",
+  "date": "2026-04-03T06:50:08.104Z",
+  "data": {
+    "title": "Clinical Mastery: Exposure Keratopathy",
+    "summary": "Exposure keratopathy is a sight-threatening condition resulting from incomplete eyelid closure (lagophthalmos), leading to ocular surface desiccation, epithelial breakdown, and potential stromal ulceration. Prompt identification and aggressive lubrication are mandatory to prevent visual morbidity.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e88e5' stroke-width='4'/><path d='M30 40 Q 50 20 70 40' fill='none' stroke='#1e88e5' stroke-width='3'/><path d='M30 60 Q 50 80 70 60' fill='none' stroke='#1e88e5' stroke-width='3'/><ellipse cx='50' cy='50' rx='10' ry='15' fill='#1e88e5'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Exposure keratopathy results from a failure of the eyelid to provide adequate coverage of the globe. This disrupts the tear film, causing increased evaporation and hyperosmolarity. Without the blink-induced distribution of mucins and lipids, the corneal epithelium undergoes desiccation, shedding, and keratinization. In severe cases, secondary microbial keratitis occurs due to breach of the ocular surface barrier."
+      },
+      {
+        "title": "Etiology: The Failure of Closure",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Etiology",
+          "branches": [
+            "Facial Nerve Palsy (CN VII)",
+            "Proptosis / Thyroid Eye Disease",
+            "Eyelid Malposition (Ectropion)",
+            "Post-Surgical (Blepharoplasty)",
+            "Nocturnal Lagophthalmos",
+            "Sedation / ICU Coma"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "CN VII Palsy",
+              "value": 40
+            },
+            {
+              "label": "Thyroid Orbitopathy",
+              "value": 30
+            },
+            {
+              "label": "Post-surgical",
+              "value": 15
+            },
+            {
+              "label": "Critical Care",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Neurotrophic Keratitis",
+              "Diminished corneal sensation"
+            ],
+            [
+              "Dry Eye Disease (ADDE)",
+              "Aqueous deficiency w/o lagophthalmos"
+            ],
+            [
+              "Herpetic Keratitis",
+              "Dendritic ulcers, history of HSV"
+            ],
+            [
+              "Floppy Eyelid Syndrome",
+              "Lax upper lids, chronic papillary conjunctivitis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Emergency Status",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Infiltrate or stromal thinning (risk of perforation)",
+          "Hypopyon (secondary infectious keratitis)",
+          "Decreased visual acuity (involvement of visual axis)",
+          "Ocular pain disproportionate to findings (risk of globe integrity loss)"
+        ]
+      },
+      {
+        "title": "Clinical Examination Sequence",
+        "icon": "visibility",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Assess Bell's phenomenon (upward globe rotation on closure).",
+          "Step 2: Measure lagophthalmos gap in mm using a millimeter ruler.",
+          "Step 3: Slit-lamp biomicroscopy with Fluorescein staining to evaluate interpalpebral epithelial defects.",
+          "Step 4: Check corneal sensation with a cotton-wisp test (r/o neurotrophic component).",
+          "Step 5: Exophthalmometry (Hertel) to rule out underlying proptosis."
+        ]
+      },
+      {
+        "title": "Management Protocol",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Conservative: Preservative-free artificial tears (Q1H).",
+          "Nighttime: Preservative-free lubricating ointment.",
+          "Barrier: Moisture chambers / Hydrogel patches.",
+          "Mechanical: Taping eyelids closed during sleep.",
+          "Surgical: Temporary tarsorrhaphy, gold weight implants, or lower lid tightening."
+        ]
+      },
+      {
+        "title": "Mnemonic: The Ocular Surface",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STARE",
+          "explanation": "S: Severity of gap, T: Tear film evaluation, A: Antibiotic prophylaxis, R: Rest/Nocturnal protection, E: Eyelid position repair."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Always check the 'Bell's Phenomenon'. Patients lacking this are at extreme risk for corneal perforation.",
+          "Preservative-free preparations are mandatory if frequency exceeds 4x/day to prevent toxic epitheliopathy.",
+          "In ICU patients, consider the 'Vaseline technique' or clear plastic occlusive dressings to maintain moisture.",
+          "Gold weight implant (e.g., 0.8g to 1.6g) is the gold standard for facial nerve palsy-induced lagophthalmos.",
+          "Surgical correction should not be delayed if medical management fails to show epithelial healing within 48-72 hours."
+        ]
+      }
+    ],
+    "generationPrompt": "Exposure keratopathy",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea"
+}

@@ -1,0 +1,175 @@
+{
+  "id": 1775283835327,
+  "seqId": 634,
+  "title": "Exposure Keratopathy: Pathophysiology to Management",
+  "summary": "Exposure keratopathy represents a spectrum of corneal pathology resulting from incomplete eyelid closure (lagophthalmos), leading to ocular surface desiccation. It is a critical clinical challenge requiring prompt intervention to prevent secondary infection, ulceration, and vision loss.",
+  "date": "2026-04-04T06:23:55.327Z",
+  "data": {
+    "title": "Exposure Keratopathy: Pathophysiology to Management",
+    "summary": "Exposure keratopathy represents a spectrum of corneal pathology resulting from incomplete eyelid closure (lagophthalmos), leading to ocular surface desiccation. It is a critical clinical challenge requiring prompt intervention to prevent secondary infection, ulceration, and vision loss.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 40 Q50 20 70 40' stroke='hsl(215, 90%, 45%)' stroke-width='3' fill='none'/><path d='M30 60 Q50 80 70 60' stroke='hsl(215, 90%, 45%)' stroke-width='3' fill='none'/><ellipse cx='50' cy='50' rx='10' ry='15' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Etiology",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Exposure Keratopathy",
+          "branches": [
+            "Mechanical (Proptosis/Tumor)",
+            "Neurological (CN VII Palsy)",
+            "Iatrogenic (Surgery)",
+            "Lid Deformities (Ectropion)"
+          ]
+        }
+      },
+      {
+        "title": "Risk Factors Epidemiology",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "CN VII Palsy",
+              "value": 65
+            },
+            {
+              "label": "Post-blepharoplasty",
+              "value": 25
+            },
+            {
+              "label": "Proptosis",
+              "value": 60
+            },
+            {
+              "label": "Comatose State",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Urgent Intervention",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Infiltrate or hypopyon (Rule out infectious keratitis)",
+          "Corneal thinning/melting (Impending perforation)",
+          "Severe conjunctival injection/pain",
+          "Decreased visual acuity (Progression beyond superficial punctate keratopathy)"
+        ]
+      },
+      {
+        "title": "Clinical Features & Exam Findings",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Sign",
+            "Location/Appearance"
+          ],
+          "rows": [
+            [
+              "SPK",
+              "Inferior 1/3 of cornea"
+            ],
+            [
+              "Epithelial Defect",
+              "Inferior horizontal band"
+            ],
+            [
+              "Stroma",
+              "Thinning and haze"
+            ],
+            [
+              "Tear Film",
+              "Rapid breakup time (<5s)"
+            ],
+            [
+              "Lid",
+              "Lagophthalmos (measure in mm)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Slit-lamp biomicroscopy with Fluorescein staining to delineate epithelial defect.",
+          "Step 2: Measure lagophthalmos distance in mm using a ruler.",
+          "Step 3: Schirmer's test/TBUT to assess total tear film insufficiency.",
+          "Step 4: Corneal sensation testing (CN V integrity).",
+          "Step 5: If ulceration is present: Corneal scraping for culture and sensitivity."
+        ]
+      },
+      {
+        "title": "Mnemonic: ABCDE for Management",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "ABCDE",
+          "explanation": "A: Artificial tears (frequent), B: Barrier (lubricating ointment), C: Closure (taping/suture), D: Dew (humidity chamber), E: Eyelid surgery (tarsorrhaphy)."
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Neurotrophic Keratitis (diminished corneal sensation)",
+          "Severe Dry Eye Disease (SS, MGD)",
+          "Infectious Keratitis (Bacterial, Fungal, Viral)",
+          "Traumatic Abrasions",
+          "Drug Toxicity (preservative-induced)"
+        ]
+      },
+      {
+        "title": "Step-by-Step Management Ladder",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Level 1: Preservative-free artificial tears Q1H and viscous gels QHS.",
+          "Level 2: Moisture chamber goggles or taping the eyelid closed at night.",
+          "Level 3: Therapeutic Scleral Contact Lens or Amniotic Membrane Transplantation.",
+          "Level 4: Temporary tarsorrhaphy (suture or adhesive).",
+          "Level 5: Surgical reconstruction (Gold weight, ectropion repair, or permanent tarsorrhaphy)."
+        ]
+      },
+      {
+        "title": "Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always evaluate for concurrent Bell's Palsy or structural lid malposition.",
+          "Overnight protection is paramount; the blink reflex is absent during sleep.",
+          "If a patient is in an ICU setting, prophylactic lubrication is mandatory to prevent 'ICU-related exposure keratopathy'.",
+          "Corneal melting can occur rapidly; monitor thickness via anterior segment OCT if suspicion is high."
+        ]
+      }
+    ],
+    "generationPrompt": "Exposure keratopathy",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea"
+}

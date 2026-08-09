@@ -1,0 +1,330 @@
+{
+  "id": 1775044653737,
+  "seqId": 63,
+  "title": "The Master Mimicker: Ocular Tuberculosis",
+  "summary": "Ocular Tuberculosis is a complex, extrapulmonary manifestation of Mycobacterium tuberculosis infection. It presents as a diverse range of uveitic entities, often requiring a high index of suspicion and a multi-disciplinary approach for diagnosis and management with Anti-Tubercular Therapy (ATT).",
+  "date": "2026-04-01T11:57:33.737Z",
+  "data": {
+    "title": "The Master Mimicker: Ocular Tuberculosis",
+    "summary": "Ocular Tuberculosis is a complex, extrapulmonary manifestation of Mycobacterium tuberculosis infection. It presents as a diverse range of uveitic entities, often requiring a high index of suspicion and a multi-disciplinary approach for diagnosis and management with Anti-Tubercular Therapy (ATT).",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M30 30 Q50 10 70 30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 70 Q50 90 70 70' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='35' cy='45' r='3' fill='hsl(0, 70%, 50%)'/><circle cx='65' cy='55' r='4' fill='hsl(0, 70%, 50%)'/><circle cx='50' cy='25' r='2' fill='hsl(0, 70%, 50%)'/><path d='M75 40 L85 30 M75 60 L85 70' stroke='hsl(215, 90%, 45%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Ocular Tuberculosis (OTB) refers to an infection by Mycobacterium tuberculosis (M. tb) in the eye, its adnexa, or the optic nerve. It can occur via direct invasion (primary) or, more commonly, via hematogenous spread from a distant site (secondary), often without clinically evident pulmonary involvement. It is a 'Master Mimicker' due to its ability to present as any form of intraocular inflammation."
+      },
+      {
+        "title": "Epidemiological Landscape",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Endemic Areas (India/SEA)",
+              "value": 85
+            },
+            {
+              "label": "Non-Endemic (Western)",
+              "value": 15
+            },
+            {
+              "label": "HIV Co-infection Link",
+              "value": 40
+            },
+            {
+              "label": "Extrapulmonary TB ratio",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "M. Tuberculosis",
+          "branches": [
+            "Direct Bacillary Invasion (Rare)",
+            "Delayed Hypersensitivity (Type IV)",
+            "Hematogenous Seeding (Choroid)",
+            "Molecular Mimicry (Autoimmunity)",
+            "Latent TB Reactivation"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Classification of TB Uveitis",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Clinical Features",
+            "Key Sign"
+          ],
+          "rows": [
+            [
+              "Anterior Uveitis",
+              "Chronic, granulomatous inflammation",
+              "Mutton-fat KPs, Iris nodules"
+            ],
+            [
+              "Intermediate Uveitis",
+              "Vitreous haze, snowballs, snowbanking",
+              "Pars planitis-like presentation"
+            ],
+            [
+              "Posterior Uveitis",
+              "Choroiditis (Focal/Multifocal/Serpiginous)",
+              "Serpiginous-like choroiditis (SLC)"
+            ],
+            [
+              "Panuveitis",
+              "Involvement of all segments",
+              "Dense vitritis with choroidal lesions"
+            ],
+            [
+              "Scleritis",
+              "Necrotizing or non-necrotizing",
+              "Hard to distinguish from autoimmune"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Posterior Segment Phenotypes",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Tuberculoma: Large, solitary yellowish subretinal mass (2-10mm) with exudative RD.",
+          "Multifocal Choroiditis: Discrete yellowish-gray lesions at the RPE/Choriocapillaris level.",
+          "Serpiginous-like Choroiditis (SLC): Amoeboid, centrifugal progression, often sparing the fovea initially.",
+          "Endophthalmitis: Rare, seen in immunocompromised or miliary TB.",
+          "Subretinal Abscess: Rapidly enlarging yellowish lesion, may lead to perforation."
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Slit-lamp: Mutton-fat Keratic Precipitates (KPs), Koeppe and Busacca iris nodules.",
+          "Gonioscopy: Broad-based peripheral anterior synechiae (PAS) or angle nodules.",
+          "Fundus: Perivasculitis (Periphlebitis) with 'candle-wax' drippings (rare, mimic Sarcoid).",
+          "Vitreous: Vitreous seeds or string-of-pearls opacities.",
+          "Eales Disease: Peripheral periphlebitis and non-perfusion leading to vitreous hemorrhage."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup: Step-by-Step",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Clinical Suspicion (Granulomatous inflammation or endemic background)",
+          "Step 2: Immunological Screening (TST/Mantoux >15mm or positive IGRA/QuantiFERON)",
+          "Step 3: Radiology (Chest X-ray or High-Resolution CT Chest to look for hilar adenopathy/calcifications)",
+          "Step 4: Ancillary Ocular Imaging (OCT for CME, FFA/ICGA for choroiditis and ischemia)",
+          "Step 5: Invasive Sampling (Aqueous/Vitreous tap for PCR for IS6110 gene and Culture)",
+          "Step 6: Multidisciplinary Consultation (Pulmonologist or Infectious Disease specialist)"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis (DDx)",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "TB Mimics",
+          "branches": [
+            "Sarcoidosis (Hilar nodes, ACE high)",
+            "Syphilis (RPR/FTA-ABS needed)",
+            "Vogt-Koyanagi-Harada (Exudative RD)",
+            "Sympathetic Ophthalmia",
+            "Primary CNS Lymphoma (Masking)",
+            "Toxoplasmosis (Satellite lesions)"
+          ]
+        }
+      },
+      {
+        "title": "Ocular TB vs. Classical Serpiginous",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Classical Serpiginous",
+            "TB SLC"
+          ],
+          "rows": [
+            [
+              "Etiology",
+              "Autoimmune",
+              "Infectious (TB)"
+            ],
+            [
+              "Laterality",
+              "Strictly Bilateral",
+              "Often Unilateral/Asymmetric"
+            ],
+            [
+              "Inflammation",
+              "Minimal/Absent Vitritis",
+              "Significant Vitritis"
+            ],
+            [
+              "Lesions",
+              "Peripapillary Start",
+              "Multifocal/Peripheral Start"
+            ],
+            [
+              "Treatment",
+              "Immunosuppression",
+              "ATT + Steroids"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management: The 4-Drug ATT Regimen",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Intensive Phase (2 Months): Rifampin (10mg/kg), Isoniazid (5mg/kg), Pyrazinamide (25mg/kg), Ethambutol (15mg/kg).",
+          "Continuation Phase (4-7 Months): Rifampin and Isoniazid only.",
+          "Corticosteroid Integration: Start Prednisolone (1mg/kg) 48-72 hours AFTER initiating ATT to prevent Paradoxical Reaction (Jarisch-Herxheimer like).",
+          "Slow Steroid Taper: Over 6-12 weeks depending on clinical response.",
+          "Monitoring: Liver Function Tests (LFTs) and visual field/color vision for Ethambutol toxicity."
+        ]
+      },
+      {
+        "title": "Red Flags & Monitoring",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Paradoxical Worsening (Upgrading reaction) after starting ATT.",
+          "Ethambutol Optic Neuropathy (Loss of color vision/central scotoma).",
+          "Rifampin-induced Hepatitis (Jaundice, elevated LFTs).",
+          "Non-response to ATT after 2 months (re-evaluate diagnosis).",
+          "Presence of CNVM in healing choroidal scars."
+        ]
+      },
+      {
+        "title": "Diagnostic Criteria (COTS-1 Group)",
+        "icon": "fact_check",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Requirement"
+          ],
+          "rows": [
+            [
+              "Confirmed OTB",
+              "M. tb cultured from ocular fluids or PCR positive."
+            ],
+            [
+              "Probable OTB",
+              "Clinical signs + Positive TST/IGRA + CXR findings."
+            ],
+            [
+              "Possible OTB",
+              "Clinical signs + Positive TST/IGRA (Normal CXR)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonics for TB Signs",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "THE MASK",
+          "explanation": "T: Tuberculoma, H: Hypersensitivity, E: Eales Disease, M: Multifocal Choroiditis, A: Anterior (Granulomatous), S: Serpiginous-like, K: Keratic Precipitates (Mutton-fat)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Never start steroids alone if TB is suspected; it can lead to devastating bacillary multiplication.",
+          "Quantiferon-Gold is more specific than TST in BCG-vaccinated populations.",
+          "Serpiginous-like choroiditis in an Asian patient is Ocular TB until proven otherwise.",
+          "Ischemia in Eales disease is peripheral; management requires peripheral laser photocoagulation (PRP)."
+        ]
+      },
+      {
+        "title": "Surgical Interventions",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Pars Plana Vitrectomy (PPV): Indicated for non-clearing vitreous hemorrhage, tractional RD, or diagnostic biopsy.",
+          "Cataract Surgery: Delay until inflammation is quiet for at least 3 months.",
+          "Intravitreal Anti-VEGF: For secondary Choroidal Neovascular Membranes (CNVM).",
+          "Glaucoma Surgery: Required for refractory secondary OHT or PAS."
+        ]
+      },
+      {
+        "title": "Landmark Studies: COTS-1 & COTS-2",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "The Collaborative Ocular Tuberculosis Study (COTS) provided evidence-based guidelines. COTS-1 highlighted that initiating ATT in 'Probable' cases significantly reduced the risk of recurrence compared to steroids alone. COTS-2 focuses on consensus-based management algorithms for diverse phenotypes like SLC and Tuberculoma, emphasizing that 6 months of ATT is often sufficient for most ocular manifestations."
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Recurrence: Low if full course of ATT is completed.",
+          "Vision Loss: Most common due to Macular Scars, CME, or Optic Atrophy.",
+          "Phthisis Bulbi: Possible in end-stage, untreated panuveitis.",
+          "Prognosis: Generally good with early diagnosis and triple/quadruple therapy."
+        ]
+      }
+    ],
+    "generationPrompt": "TB in uveitis",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "_newlyImported": 1775044653737,
+  "communityId": "sub_1774729714881_lwcyeg1su",
+  "communityAuthor": "kiko",
+  "communityDate": "2026-03-28T20:28:34.882Z"
+}

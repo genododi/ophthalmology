@@ -1,0 +1,257 @@
+{
+  "id": 1775044670246,
+  "seqId": 237,
+  "title": "Mastering the 4 Prism Diopter Base Out Test",
+  "summary": "A sophisticated objective clinical tool used to detect microstrabismus and small central suppression scotomas (monofixation syndrome) by observing the biphasic ocular motor response to prism displacement.",
+  "date": "2026-04-01T11:57:50.246Z",
+  "data": {
+    "title": "Mastering the 4 Prism Diopter Base Out Test",
+    "summary": "A sophisticated objective clinical tool used to detect microstrabismus and small central suppression scotomas (monofixation syndrome) by observing the biphasic ocular motor response to prism displacement.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><path d='M40,70 L100,20 L160,70 Z' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='70' cy='60' r='10' fill='hsl(215, 90%, 45%)'/><circle cx='130' cy='60' r='10' fill='hsl(215, 90%, 45%)'/><line x1='100' y1='20' x2='115' y2='60' stroke='hsl(30, 90%, 50%)' stroke-width='2' stroke-dasharray='4'/><text x='10' y='90' font-family='Arial' font-size='10' fill='hsl(215, 90%, 45%)'>4Δ BASE OUT</text></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The 4 Prism Diopter (4Δ) Base Out Test, originally described by Irvine and later popularized by Jampolsky, is an objective method to identify microtropia (microstrabismus) when subjective tests like stereopsis or Bagolini lenses are inconclusive. It relies on the Hering’s Law of equal innervation and the presence or absence of a central suppression scotoma (typically 1° to 3° in size)."
+      },
+      {
+        "title": "Physiological Foundation",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Sensory-Motor Laws",
+          "branches": [
+            "Hering's Law: Equal innervation to yolk muscles",
+            "Fusional Vergence: Corrective adduction for binocularity",
+            "Panum's Area: Limits of sensory fusion",
+            "Suppression Scotoma: Cortical inhibition of central macula"
+          ]
+        }
+      },
+      {
+        "title": "Core Indications",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Suspected Microstrabismus (Microtropia)",
+          "Subnormal stereopsis (60-200 arcsec) with no apparent deviation",
+          "Monofixation Syndrome (Primary or Secondary)",
+          "Anisometropic Amblyopia screening",
+          "Unexplained mild reduction in visual acuity"
+        ]
+      },
+      {
+        "title": "Standard Operating Procedure",
+        "icon": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Patient fixates on a small accommodative target (e.g., a single 6/9 letter) at distance (6m) or near (33cm).",
+          "Step 2: Ensure the patient is wearing their full refractive correction.",
+          "Step 3: Quickly place a 4Δ prism Base Out over the right eye while observing the movements of both eyes.",
+          "Step 4: Remove the prism and allow fusion to recover.",
+          "Step 5: Repeat the process by placing the 4Δ prism Base Out over the left eye.",
+          "Step 6: Carefully document the biphasic movement (Version followed by Vergence)."
+        ]
+      },
+      {
+        "title": "The Normal (Bifoveal) Response",
+        "icon": "sync_alt",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Phase 1 (Version): The prism shifts the image onto the temporal retina. Both eyes move towards the apex of the prism (conjugate movement) to refixate.",
+          "Phase 2 (Vergence): The fellow eye (without prism) performs a slow fusional adduction (vergence) to eliminate diplopia, as the image is now on its nasal retina."
+        ]
+      },
+      {
+        "title": "The Abnormal (Scotoma) Response",
+        "icon": "error",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Prism Over...",
+            "Observation"
+          ],
+          "rows": [
+            [
+              "Eye with Scotoma",
+              "NO movement of either eye (Image remains within scotoma)."
+            ],
+            [
+              "Fixating Eye",
+              "Both eyes move (Version), but NO fusional adduction occurs (Image falls on scotoma of fellow eye)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Response Map",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Test Results",
+          "branches": [
+            "Normal: Conjugate shift + Refixation adduction",
+            "Suppression: Conjugate shift ONLY (No refixation)",
+            "Atypical: No movement at all (Prism over scotoma eye)",
+            "Inconclusive: Poor cooperation or large scotoma (>4Δ)"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Reduced Stereopsis",
+        "icon": "list",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "4Δ BO Result",
+            "Worth 4-Dot",
+            "Stereopsis"
+          ],
+          "rows": [
+            [
+              "Bifoveal Fixation",
+              "Normal (Biphasic)",
+              "4 dots",
+              "40 arcsec"
+            ],
+            [
+              "Microtropia",
+              "Abnormal",
+              "4 dots (peripheral fusion)",
+              "60-200 arcsec"
+            ],
+            [
+              "Monofixation Syndrome",
+              "Abnormal",
+              "Dipolopia or Suppression",
+              "Subnormal"
+            ],
+            [
+              "Accommodative Esotropia",
+              "Variable",
+              "Suppression",
+              "Poor/Nil"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Microtropia in Gen Pop",
+              "value": 1
+            },
+            {
+              "label": "Secondary to Surgery",
+              "value": 25
+            },
+            {
+              "label": "Anisometropic Pts",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Critical Red Flags & Pitfalls",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Poor fixation: Can mimic an abnormal test result.",
+          "Large scotomas: If scotoma > 4 prism diopters, test is invalid.",
+          "Atypical Microtropia: Some patients with microtropia lack a scotoma (rare).",
+          "Over-interpretation: Normal patients can occasionally show delayed vergence due to fatigue."
+        ]
+      },
+      {
+        "title": "The '4-S' Memory Aid",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "4-S Test",
+          "explanation": "4 Diopters, Small Scotoma, Search for Symmetry, Stereopsis Correlation."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "auto_awesome",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Always perform the test at distance AND near to check for consistency.",
+          "Ensure the target is small enough to require foveal fixation.",
+          "Wait at least 5 seconds between eyes for fusional recovery.",
+          "A 'negative' test (normal response) effectively rules out microtropia with central scotoma."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Parks (1969) established the 'Monofixation Syndrome' concept, highlighting that the 4Δ BO test is a primary diagnostic criterion. Recent studies using high-speed eye tracking have validated the biphasic nature of the 4Δ BO test, showing that the initial saccade (version) occurs within 200ms, while the vergence component follows at a significantly higher latency and lower velocity."
+      },
+      {
+        "title": "Pediatric Considerations",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Test is difficult in children under 4 years old due to fixation stability.",
+          "Use a flickering toy or video for distance fixation to maintain interest.",
+          "Useful in differentiating refractive amblyopia from microtropic amblyopia."
+        ]
+      },
+      {
+        "title": "Management of Findings",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Full Cycloplegic Refraction.",
+          "2. Correct Anisometropia.",
+          "3. Patching therapy if amblyopia is present (note: microtropia usually limits VA to 6/9-6/12).",
+          "4. Surgery is rarely indicated for the micro-deviation itself unless a large manifest component co-exists."
+        ]
+      }
+    ],
+    "chapterId": "optics"
+  },
+  "chapterId": "optics",
+  "_newlyImported": 1775044670247,
+  "communityId": "sub_1773775007769_4htopdlkq8efd4",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.769Z"
+}

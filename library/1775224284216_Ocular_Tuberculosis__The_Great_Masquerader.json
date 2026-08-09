@@ -1,0 +1,333 @@
+{
+  "id": 1775224284216,
+  "seqId": 611,
+  "title": "Ocular Tuberculosis: The Great Masquerader",
+  "summary": "A comprehensive clinical guide to the diagnosis, classification, and management of Mycobacterium tuberculosis infections affecting the visual system. This resource integrates the latest COTS (Collaborative Ocular Tuberculosis Study) guidelines with gold-standard anatomical and pharmacological protocols.",
+  "date": "2026-04-03T13:51:24.216Z",
+  "data": {
+    "title": "Ocular Tuberculosis: The Great Masquerader",
+    "summary": "A comprehensive clinical guide to the diagnosis, classification, and management of Mycobacterium tuberculosis infections affecting the visual system. This resource integrates the latest COTS (Collaborative Ocular Tuberculosis Study) guidelines with gold-standard anatomical and pharmacological protocols.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M20 20 L30 30 M80 20 L70 30 M20 80 L30 70 M80 80 L70 70' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M45 45 Q47 42 50 45 Q53 48 55 45' fill='none' stroke='red' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "1. Clinical Definition & Overview",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Ocular Tuberculosis is an infectious disease caused by Mycobacterium tuberculosis (M. tb) that can affect any part of the eye, its adnexa, or the optic nerve. It is often a manifestation of extra-pulmonary TB (EPTB) and can occur in the absence of active systemic or pulmonary disease. It presents either through direct tissue invasion by the bacilli or as a delayed-type hypersensitivity reaction (Type IV) to mycobacterial antigens."
+      },
+      {
+        "title": "2. Global Epidemiology & Risk",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Endemic Regions (Incidence/100k)",
+              "value": 90
+            },
+            {
+              "label": "Non-Endemic (Incidence/100k)",
+              "value": 10
+            },
+            {
+              "label": "HIV Co-infection Risk",
+              "value": 75
+            },
+            {
+              "label": "Latent TB Conversion (Lifetime)",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "3. Anatomical Classification",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Ocular TB",
+          "branches": [
+            "Adnexal (Lids, Lacrimal gland, Conjunctiva, Sclera)",
+            "Anterior Segment (Granulomatous Iritis, Keratitis)",
+            "Posterior Segment (Choroiditis, Retinal Vasculitis, Neuroretinitis)",
+            "Orbital (Orbital Cellulitis, Periostitis)",
+            "Optic Nerve (Papillitis, Optic Neuropathy)"
+          ]
+        }
+      },
+      {
+        "title": "4. Pathophysiology Mechanisms",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Inhalation of droplet nuclei containing M. tuberculosis.",
+          "2. Primary pulmonary infection and Ghon complex formation.",
+          "3. Hematogenous dissemination via alveolar capillaries to the uveal tract (highly vascular).",
+          "4. Latency within the RPE or uveal macrophages.",
+          "5. Reactivation: Direct bacterial multiplication vs. Immune-mediated inflammation (Delayed Hypersensitivity)."
+        ]
+      },
+      {
+        "title": "5. Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Anterior: 'Mutton-fat' Keratic Precipitates (KPs), Koeppe/Busacca nodules.",
+          "Sclera: Necrotizing or non-necrotizing anterior scleritis.",
+          "Choroid: Unifocal/Multifocal tubercles (yellowish-white lesions).",
+          "Retina: Perivasculitis (predominantly venulitis) and Eales Disease.",
+          "Vitreous: 'Snowball' opacities or dense vitritis in endophthalmitis cases."
+        ]
+      },
+      {
+        "title": "6. Posterior Segment Phenotypes",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Phenotype",
+            "Clinical Description",
+            "Key Differentiation"
+          ],
+          "rows": [
+            [
+              "Choroidal Tubercle",
+              "Yellow-gray nodules (0.5 - 3mm) usually at the posterior pole.",
+              "Sign of acute miliary spread."
+            ],
+            [
+              "Serpiginous-like Choroiditis (SLC)",
+              "Multifocal, amoeboid, non-contiguous lesions. Start in periphery.",
+              "Unlike classic Serpiginous, SLC often spares the peripapillary area initially."
+            ],
+            [
+              "Tuberculoma",
+              "Large solitary subretinal mass (up to 10mm) with exudative detachment.",
+              "Often mimics amelanotic melanoma."
+            ],
+            [
+              "Eales Disease",
+              "Peripheral retinal perivasculitis, non-perfusion, and neovascularization.",
+              "Primarily affects young healthy males in India/Middle East."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "7. Diagnostic Workup Protocol",
+        "icon": "checklist",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Step 1: Detailed History (Systemic symptoms, exposure, travel).",
+          "Step 2: TST (Mantoux) >10mm (endemic) or >5mm (high risk/HIV).",
+          "Step 3: IGRA (QuantiFERON-TB Gold) for higher specificity.",
+          "Step 4: Imaging: Chest X-ray and HRCT Chest (Hilar lymphadenopathy).",
+          "Step 5: Ocular Fluids: PCR for IS6110 sequence or mpb64.",
+          "Step 6: Gold Standard (Rarely possible): Culture on Lowenstein-Jensen medium."
+        ]
+      },
+      {
+        "title": "8. Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Entity",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Sarcoidosis",
+              "Bilateral, hilar nodes (symmetrical), elevated ACE/Lysozyme."
+            ],
+            [
+              "Syphilis",
+              "Salt & pepper fundus, positive RPR/FTA-ABS."
+            ],
+            [
+              "Vogt-Koyanagi-Harada",
+              "Bilateral, serous detachments, diffuse uveal thickening, sunset-glow fundus."
+            ],
+            [
+              "Toxoplasmosis",
+              "Focal retinochoroiditis adjacent to a pigmented scar."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9. COTS Diagnostic Criteria",
+        "icon": "verified",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Definite Ocular TB: M. tb found in ocular fluids/tissues via culture or PCR.",
+          "Probable Ocular TB: Ocular signs + positive TST/IGRA + systemic TB evidence (Chest HRCT).",
+          "Possible Ocular TB: Ocular signs + positive TST/IGRA, but no systemic evidence on imaging."
+        ]
+      },
+      {
+        "title": "10. Management: Anti-Tubercular Therapy (ATT)",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Drug",
+            "Standard Adult Dose",
+            "Key Side Effect",
+            "Ophthalmic Monitoring"
+          ],
+          "rows": [
+            [
+              "Rifampin (R)",
+              "10 mg/kg (max 600mg)",
+              "Hepatotoxicity, Orange secretions",
+              "Baseline Liver Function Tests"
+            ],
+            [
+              "Isoniazid (I)",
+              "5 mg/kg (max 300mg)",
+              "Peripheral neuropathy, Hepatotoxicity",
+              "Co-administer Vitamin B6 (Pyridoxine)"
+            ],
+            [
+              "Pyrazinamide (P)",
+              "20-25 mg/kg",
+              "Hyperuricemia, Gout",
+              "Monitor Uric Acid"
+            ],
+            [
+              "Ethambutol (E)",
+              "15 mg/kg",
+              "Optic Neuritis (Dose-dependent)",
+              "Monthly Visual Acuity, Color Vision (Ishihara), Humphrey Visual Field (HVF 10-2)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "11. Treatment Regimen & Duration",
+        "icon": "calendar_month",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Intensive Phase (2 Months): HRPE (Four drugs daily).",
+          "Continuation Phase (4-7 Months): HR (Two drugs daily).",
+          "Note: Total duration usually 6-9 months; extended to 12 months in CNS involvement or slow responders."
+        ]
+      },
+      {
+        "title": "12. Corticosteroid Adjunct Protocol",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Mandatory to control 'Paradoxical Reaction' (worsening after starting ATT).",
+          "Oral Prednisolone: 1 mg/kg/day started 48-72 hours after initiating ATT.",
+          "Slow Taper: Reduce over 6-12 weeks depending on clinical response.",
+          "Topical: Prednisolone Acetate 1% for anterior segment inflammation."
+        ]
+      },
+      {
+        "title": "13. Red Flags & Critical Warnings",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Ethambutol Toxicity: Progressive, painless bilateral vision loss and red-green color deficiency. Discontinue drug immediately if suspected.",
+          "Paradoxical Reaction (Jarisch-Herxheimer-like): Rapid worsening of uveitis/vitritis shortly after ATT initiation. Increase steroid dose.",
+          "Multidrug-Resistant (MDR-TB): Failure to respond to ATT after 2 months of compliant therapy.",
+          "Adrenal Crisis: If steroids are tapered too rapidly after long-term use."
+        ]
+      },
+      {
+        "title": "14. Mnemonics for Residents",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "RIPE",
+          "explanation": "Standard ATT: Rifampin, Isoniazid, Pyrazinamide, Ethambutol."
+        }
+      },
+      {
+        "title": "15. The 6 C's of TB Choroiditis",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "6 Cs",
+          "explanation": "Choroidal tubercles, Creeping (Serpiginous), Conglomerate (Tuberculoma), Caseous (Necrosis), Chronic, Contiguous."
+        }
+      },
+      {
+        "title": "16. Recent Advances & Landmark Studies",
+        "icon": "history_edu",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "COTS-1 Study: Confirmed that starting ATT in confirmed/probable TB reduces recurrence of uveitis by >50%.",
+          "Ultra-sensitive PCR: Targetting repetitive elements like IS6110 improves diagnostic yield in aqueous samples.",
+          "Interferon-Gamma Release Assays (IGRA): Now preferred over Mantoux in BCG-vaccinated populations due to higher specificity."
+        ]
+      },
+      {
+        "title": "17. Complications & Prognosis",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Complicated Cataract (due to chronic inflammation or steroids).",
+          "Secondary Glaucoma (Trabeculitis or Pupillary Block).",
+          "Tractional Retinal Detachment (Eales Disease).",
+          "Cystoid Macular Edema (CME) - most common cause of vision loss.",
+          "Optic Atrophy (Ethambutol or chronic papillitis)."
+        ]
+      },
+      {
+        "title": "18. High-Yield Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "TB can mimic any intraocular inflammation; always test for TB in granulomatous or refractory uveitis.",
+          "Negative Chest X-ray does NOT rule out Ocular TB; perform HRCT Chest if suspicion is high.",
+          "Eales Disease is a diagnosis of exclusion: think TB first in a young man with peripheral retinal perivasculitis.",
+          "Always check baseline visual fields and color vision BEFORE starting Ethambutol.",
+          "ATT without steroids in Ocular TB may lead to severe inflammatory damage due to the release of mycobacterial antigens."
+        ]
+      }
+    ],
+    "generationPrompt": "Ocular tuberculosis",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis"
+}

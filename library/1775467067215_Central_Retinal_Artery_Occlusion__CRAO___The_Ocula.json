@@ -1,0 +1,279 @@
+{
+  "id": 1775467067215,
+  "seqId": 720,
+  "title": "Central Retinal Artery Occlusion (CRAO): The Ocular Stroke",
+  "summary": "A critical ophthalmic emergency characterized by sudden, painless, profound vision loss. CRAO is a sentinel event for systemic cardiovascular disease and stroke, requiring immediate diagnosis, ocular pressure reduction, and a comprehensive systemic workup.",
+  "date": "2026-04-06T09:17:47.216Z",
+  "data": {
+    "title": "Central Retinal Artery Occlusion (CRAO): The Ocular Stroke",
+    "summary": "A critical ophthalmic emergency characterized by sudden, painless, profound vision loss. CRAO is a sentinel event for systemic cardiovascular disease and stroke, requiring immediate diagnosis, ocular pressure reduction, and a comprehensive systemic workup.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='#ff4444'/><path d='M20 50 Q 35 45 50 50 T 80 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round'/><path d='M30 30 Q 40 40 50 50 T 70 70' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1.5' stroke-dasharray='4 2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Central Retinal Artery Occlusion (CRAO) is a true vascular emergency of the eye, analogous to a cerebral stroke. It occurs when the main artery supplying the inner retina is obstructed, leading to acute ischemia. The foveola remains red (the 'Cherry-Red Spot') because it is thin and receives oxygen from the underlying choriocapillaris, while the surrounding infarcted retinal nerve fiber layer becomes opaque and white."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Incidence (per 100k)",
+              "value": 2
+            },
+            {
+              "label": "Male Predominance",
+              "value": 65
+            },
+            {
+              "label": "Mean Age (Years)",
+              "value": 60
+            },
+            {
+              "label": "HTN Comorbidity",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The Three Embolic Culprits",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Emboli Sources",
+          "branches": [
+            "Cholesterol (Hollenhorst): Carotid origin, refractile/orange",
+            "Calcific: Heart valves, white/dull, more obstructive",
+            "Fibrin-Platelet: Mural thrombi, long/dull/grayish"
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiological Mechanisms",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Intracellular edema of the inner 2/3 of the retina (Ganglion Cell Layer).",
+          "Pyknosis of nuclei and eventual necrosis of retinal elements.",
+          "Survival window: In primates, irreversible damage occurs after 90–240 minutes of total occlusion.",
+          "Cilioretinal artery presence (15–30% of population) may preserve the foveal region."
+        ]
+      },
+      {
+        "title": "Clinical Classification",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Subtype",
+            "Incidence",
+            "Visual Prognosis",
+            "Key Feature"
+          ],
+          "rows": [
+            [
+              "Non-arteritic (NACRAO)",
+              "95%",
+              "Poor (typically CF to LP)",
+              "Permanent embolic/thrombotic"
+            ],
+            [
+              "Arteritic (GCA-related)",
+              "5%",
+              "Extremely Poor",
+              "Ophthalmic artery involved, ESR/CRP high"
+            ],
+            [
+              "Transient CRAO",
+              "Varies",
+              "Variable/Good",
+              "Amaurosis fugax, spontaneous reperfusion"
+            ],
+            [
+              "NACRAO with Cilioretinal Sparing",
+              "15-30%",
+              "Fair (20/40 or better)",
+              "Central island of vision preserved"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Afferent Pupillary Defect (APD): Rapidly present, often profound.",
+          "Cherry-Red Spot: Macular center remains red against white retina.",
+          "Box-carring: Segmentation of the blood column in retinal veins.",
+          "Cattle-tracking: Interrupted flow in retinal arterioles.",
+          "Narrowed Arterioles: Severe attenuation and straightening.",
+          "Optic Disc Edema: More common in the Arteritic (GCA) variety."
+        ]
+      },
+      {
+        "title": "Diagnostic Investigation Strategy",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Immediate Clinical Exam & VA testing.",
+          "2. STAT ESR, CRP, and Platelets (Rule out GCA).",
+          "3. Multi-modal Imaging: OCT and FFA.",
+          "4. Systemic Workup: Carotid Doppler, Echocardiography (TEE preferred).",
+          "5. Neurology Referral: Evaluation for acute stroke (MRI/MRA)."
+        ]
+      },
+      {
+        "title": "Imaging Characteristics",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Modality",
+            "Acute Phase (Hours/Days)",
+            "Chronic Phase (Weeks/Months)"
+          ],
+          "rows": [
+            [
+              "OCT (SD-OCT)",
+              "Hyper-reflectivity/thickening of inner layers",
+              "Marked thinning/atrophy of inner retina"
+            ],
+            [
+              "FFA",
+              "Marked delay in arm-to-retina & filling time",
+              "Vessel caliber return; late staining"
+            ],
+            [
+              "Fundus Autofluo",
+              "Hypo-autofluorescence due to edema blockage",
+              "Often returns to normal pattern"
+            ],
+            [
+              "ERG",
+              "Diminished b-wave (inner retina); normal a-wave",
+              "Persistent b-wave reduction"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Emergency Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "1. Digital Ocular Massage: Firm pressure for 10-15s, then release (dislodge embolus).",
+          "2. Anterior Chamber Paracentesis: 0.1-0.2ml removal using 30G needle at limbus.",
+          "3. IOP Reduction: Acetazolamide 500mg IV/PO + topical Beta-blockers/Alpha-agonists.",
+          "4. Vasodilation: Breathe into a paper bag (increase CO2) or Carbogen therapy.",
+          "5. Systemic: Aspirin 325mg and urgent Stroke Center transfer."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "White Retina Ddx",
+          "branches": [
+            "Ocular Ischemic Syndrome (OIS): Mid-periphery hemorrhages",
+            "Commotio Retinae: History of trauma (Berlin's edema)",
+            "BRAO: Focal whitening in a vascular distribution",
+            "Tay-Sachs / Storage Diseases: Bilateral, chronic, pediatric",
+            "Quinine Toxicity: Rapid onset, history of ingestion"
+          ]
+        }
+      },
+      {
+        "title": "URGENT RED FLAGS: GCA Warning",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Scalp tenderness or Jaw Claudication",
+          "New-onset headache in elderly patients",
+          "Proximal muscle aches (Polymyalgia Rheumatica)",
+          "Bilateral vision loss (indicates imminent disaster)",
+          "Elevated ESR (>50) or CRP (>10)"
+        ]
+      },
+      {
+        "title": "Mnemonic: CHERRY Symptoms",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "CHERRY",
+          "explanation": "C: Cilioretinal sparing (sometimes), H: Hollenhorst plaques, E: Emergency workup needed, R: Red spot (macula), R: Reduced VA (acute/painless), Y: Yield (High stroke risk)."
+        }
+      },
+      {
+        "title": "Complications & Long-term Monitoring",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Neovascularization of the Iris (NVI): Occurs in ~18% of cases (Rubeosis Iridis).",
+          "Neovascular Glaucoma (NVG): Onset typically 4-12 weeks (the '100-day' window).",
+          "Neovascularization of the Disc (NVD): Less common than in CRVO.",
+          "Retinal Atrophy: Chronic inner retinal thinning on OCT."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The EAGLE Study investigated Intra-arterial Fibrinolysis (tPA). It found no significant visual benefit compared to conservative management and noted a higher risk of adverse events. Current consensus favors rapid stroke center evaluation. Newer studies are exploring Hyperbaric Oxygen Therapy (HBOT) within 8 hours as a potentially effective adjunct."
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "CRAO is an Ocular Stroke until proven otherwise—check the carotids and the heart.",
+          "In a patient under 50, consider thrombophilia workup, trauma, or vasospastic triggers (Migraine/Cocaine).",
+          "Digital massage should be done with a Goldman lens or finger to fluctuate IOP and 'flush' the clot.",
+          "If the cherry-red spot is missing but VA is NLP, suspect Ophthalmic Artery Occlusion (no choroidal flow)."
+        ]
+      }
+    ],
+    "generationPrompt": "CRAO",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "read": true,
+  "bookmarked": true
+}

@@ -1,0 +1,253 @@
+{
+  "id": 1775044695130,
+  "seqId": 456,
+  "title": "Mastering Accommodative Esotropia: The Definitive Clinical Guide",
+  "summary": "Accommodative Esotropia (AET) is the most common cause of childhood strabismus, driven by the physiological link between accommodation and convergence. This guide provides a deep dive into the pathophysiology, AC/A ratios, and evidence-based management protocols for ophthalmology residents and fellows.",
+  "date": "2026-04-01T11:58:15.130Z",
+  "data": {
+    "title": "Mastering Accommodative Esotropia: The Definitive Clinical Guide",
+    "summary": "Accommodative Esotropia (AET) is the most common cause of childhood strabismus, driven by the physiological link between accommodation and convergence. This guide provides a deep dive into the pathophysiology, AC/A ratios, and evidence-based management protocols for ophthalmology residents and fellows.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='60' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='140' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='60' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><circle cx='128' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M85,30 Q100,20 115,30' fill='none' stroke='hsl(30, 90%, 50%)' stroke-width='2'/><path d='M90,70 L110,70' stroke='hsl(215, 90%, 45%)' stroke-width='4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Accommodative Esotropia (AET) is defined as an inward deviation of the eyes associated with the activation of the accommodative reflex. It typically arises from uncorrected hyperopia, a high accommodative convergence to accommodation (AC/A) ratio, or a combination of both. It is the primary reason for strabismus surgery and optical intervention in the pediatric population."
+      },
+      {
+        "title": "Epidemiology & Onset",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Mean Age of Onset (2.5 yrs)",
+              "value": 90
+            },
+            {
+              "label": "Hyperopia > +2.00D",
+              "value": 85
+            },
+            {
+              "label": "Family History",
+              "value": 30
+            },
+            {
+              "label": "Amblyopia Prevalence",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Donders Theory",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Accommodative Reflex",
+          "branches": [
+            "Hyperopia (+2.00 to +7.00D) triggers excessive accommodation for distance clarity",
+            "Accommodative Convergence (AC) is triggered via the synkinetic triad",
+            "Insufficient Fusional Divergence (FD) fails to counteract the convergence",
+            "High AC/A Ratio: Convergence response is disproportionately high for the accommodative effort"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Classification",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Mechanism",
+            "Deviation Characteristics"
+          ],
+          "rows": [
+            [
+              "Refractive AET",
+              "Normal AC/A; High Hyperopia (+2.00 to +10.00D)",
+              "ET at Distance ≈ ET at Near"
+            ],
+            [
+              "Non-Refractive AET",
+              "High AC/A; Variable Hyperopia",
+              "ET at Near >> ET at Distance"
+            ],
+            [
+              "Mixed AET",
+              "High AC/A + Significant Hyperopia",
+              "ET at Near > ET at Distance (Both significant)"
+            ],
+            [
+              "Partially Accommodative",
+              "Residual ET despite full cycloplegic correction",
+              "Mechanical/Anatomic changes (muscle contracture)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mandatory Diagnostic Workup",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Visual Acuity: Age-appropriate testing (Lea, Snellen, or Fix-Follow-Maintain).",
+          "2. Cycloplegic Refraction: MUST use 1% Atropine (gold standard for esotropia) or 1% Cyclopentolate.",
+          "3. Prism & Cover Test: Measure at 6m and 33cm with accommodative targets.",
+          "4. AC/A Ratio Assessment: Gradient method or Heterophoria method.",
+          "5. Sensory Testing: Worth 4-Dot and Stereopsis (Titmus/Lang) to assess potential for fusion."
+        ]
+      },
+      {
+        "title": "Calculating the AC/A Ratio",
+        "icon": "calculate",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Gradient Method Formula",
+          "explanation": "AC/A = (Deviation with lens - Deviation without lens) / Lens Power. Normal: 3:1 to 5:1. High: >5:1."
+        }
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Infantile Esotropia",
+              "Onset < 6 months; Large angle (>30PD); Constant."
+            ],
+            [
+              "Sensory Esotropia",
+              "Secondary to poor vision in one eye (e.g., Cataract, Optic Nerve Hypoplasia)."
+            ],
+            [
+              "Abducens (VI) Nerve Palsy",
+              "Incomitant; worse on abduction; limited lateral rectus function."
+            ],
+            [
+              "Pseudostrabismus",
+              "Apparent ET due to prominent epicanthal folds; Orthophoric on Hirschberg."
+            ],
+            [
+              "Duanes Type 1",
+              "Limited abduction + Globe retraction on adduction."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Step-by-Step",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Prescribe FULL cycloplegic hyperopic correction (do not deduct for tone).",
+          "Step 2: Treat Amblyopia (Patching or Atropine penalization) if visual acuity is asymmetric.",
+          "Step 3: High AC/A? Add Bifocals (Executive flat-top) if near deviation remains high with straight distance.",
+          "Step 4: Re-evaluate at 4-6 weeks. If residual deviation exists with full glasses, it is 'Partially Accommodative'.",
+          "Step 5: Surgical Intervention for the NON-accommodative component only."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Diagnostic Pitfalls",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset ET in an older child (rule out CNS tumor/hydrocephalus).",
+          "Presence of Nystagmus (suggests neurological or sensory origin).",
+          "Incomitant deviation (suggests paralytic or restrictive strabismus).",
+          "Leukocoria (must rule out Retinoblastoma before managing ET)."
+        ]
+      },
+      {
+        "title": "Surgical Intervention: Principles",
+        "icon": "surgical_sterilization",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Indication: Residual esotropia of >10-15 PD with full hyperopic correction.",
+          "Surgical Target: Correct the 'Manifest' or 'Non-accommodative' portion only.",
+          "Procedure: Bilateral Medial Rectus Recession (BMRR) is standard.",
+          "Risk: Over-correction can lead to consecutive Exotropia as the child grows and hyperopia wanes."
+        ]
+      },
+      {
+        "title": "Bifocal Rx for High AC/A",
+        "icon": "style",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "The Executive Rule",
+          "explanation": "Always prescribe an 'Executive' or 'Flat-top' bifocal. The line MUST bisect the pupil to ensure the child actually uses the add for near tasks."
+        }
+      },
+      {
+        "title": "Prognosis & Long-term Follow-up",
+        "icon": "history",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Hyperopia typically increases until age 6-7, then gradually decreases.",
+          "Annual cycloplegic refraction is mandatory.",
+          "Sensory Outcome: High chance of peripheral fusion; bifoveal fixation is rare.",
+          "Weaning: Glasses can sometimes be tapered in teenage years if the AC/A ratio allows."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Resident Exams",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Cycloplegic 'Gold Standard': If you suspect AET but refraction is low, re-refract with Atropine 1% for 3 days.",
+          "The 'Near Point' Test: If the child can't maintain fusion at 33cm with an accommodative target, suspect High AC/A.",
+          "Miotics: Echothiophate iodide 0.125% can be used to induce peripheral accommodation and reduce the AC/A ratio (watch for iris cysts).",
+          "Monofixation Syndrome: A common result of treated AET, characterized by a small-angle ET (<8PD) and central scotoma."
+        ]
+      },
+      {
+        "title": "Landmark Evidence: PEDIG Studies",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "The Pediatric Eye Disease Investigator Group (PEDIG) studies have refined our understanding of AET. Key findings include the effectiveness of patching for associated amblyopia and the validation that starting with full plus correction is the most effective initial management strategy."
+      }
+    ],
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "_newlyImported": 1775044695130,
+  "communityId": "sub_1774116237982_x73c7sgkl",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-21T18:03:57.982Z"
+}

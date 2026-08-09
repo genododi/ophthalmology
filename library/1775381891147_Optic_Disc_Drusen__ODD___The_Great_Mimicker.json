@@ -1,0 +1,287 @@
+{
+  "id": 1775381891147,
+  "seqId": 673,
+  "title": "Optic Disc Drusen (ODD): The Great Mimicker",
+  "summary": "Optic Disc Drusen are acellular, calcified hyaline-like deposits located within the prelaminar optic nerve head. They are a primary cause of pseudopapilledema and require rigorous multimodal imaging to differentiate from life-threatening optic disc edema.",
+  "date": "2026-04-05T09:38:11.147Z",
+  "data": {
+    "title": "Optic Disc Drusen (ODD): The Great Mimicker",
+    "summary": "Optic Disc Drusen are acellular, calcified hyaline-like deposits located within the prelaminar optic nerve head. They are a primary cause of pseudopapilledema and require rigorous multimodal imaging to differentiate from life-threatening optic disc edema.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='12' fill='hsl(45, 90%, 60%)' opacity='0.8'/><circle cx='48' cy='48' r='3' fill='white' opacity='0.9'/><circle cx='53' cy='52' r='3' fill='white' opacity='0.9'/><circle cx='50' cy='50' r='14' fill='none' stroke='hsl(45, 90%, 50%)' stroke-width='1' stroke-dasharray='2 2'/><path d='M50 38 L50 20 M50 62 L50 80 M62 50 L80 50 M38 50 L20 50' stroke='hsl(0, 70%, 50%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Optic Disc Drusen (ODD) are globular, often calcified collections of hyaline material located in the prelaminar portion of the optic nerve head. They are distinct from 'drusen' associated with AMD (which are located between RPE and Bruch's membrane). ODD are progressive, often starting as 'buried' in childhood and becoming 'visible' on the surface by the second decade of life."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence (Clinical)",
+              "value": 0.4
+            },
+            {
+              "label": "Prevalence (Autopsy)",
+              "value": 2.2
+            },
+            {
+              "label": "Bilateral Presentation",
+              "value": 75
+            },
+            {
+              "label": "Caucasian Predisposition",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "genetics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Inherited Anatomical Predisposition — Small scleral canal (crowded disc).",
+          "Step 2: Axoplasmic Stasis — Crowding leads to mechanical obstruction of orthograde axoplasmic transport in the optic nerve fibers.",
+          "Step 3: Mitochondrial Extrusion — Degenerating axons release mitochondria into the extracellular space.",
+          "Step 4: Calcium Deposition — Calcium salts (hydroxyapatite) deposit on the mitochondrial remnants and acellular matrix.",
+          "Step 5: Confluence & Growth — Small micro-drusen coalesce into larger, calcified lobulated masses.",
+          "Step 6: Progressive Atrophy — Chronic compression leads to RNFL thinning and visual field defects."
+        ]
+      },
+      {
+        "title": "Classification by Appearance",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Buried Drusen (Pediatric)",
+            "Surface/Visible Drusen (Adult)"
+          ],
+          "rows": [
+            [
+              "Disc Appearance",
+              "Elevated, blurred margins, no cup",
+              "Lumpy-bumpy, 'fish-egg' appearance"
+            ],
+            [
+              "Vessels",
+              "Anomalous branching, trifurcations",
+              "Tortuosity, displaced by nodules"
+            ],
+            [
+              "Autofluorescence",
+              "Negative or minimal",
+              "Brightly Hyper-autofluorescent"
+            ],
+            [
+              "B-Scan Ultrasound",
+              "Highly reflective, but deep",
+              "Highly reflective at low gain with shadowing"
+            ],
+            [
+              "OCT Appearance",
+              "Sub-surface signal void with hyper-reflective cap",
+              "Surface nodules with posterior shadowing"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Lumpy-bumpy optic disc margin (Surface ODD).",
+          "Absence of physiological cup (Small scleral canal).",
+          "Anomalous vascular branching (Trifurcations, early branching).",
+          "Peripapillary pigmentary changes (Greyish-yellow circumpapillary halo).",
+          "Absence of Paton's folds (Helps distinguish from papilledema).",
+          "Visible Spontaneous Venous Pulsations (SVP) in 80% (Often absent in papilledema)."
+        ]
+      },
+      {
+        "title": "Critical Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Sign",
+            "ODD (Pseudopapilledema)",
+            "True Papilledema"
+          ],
+          "rows": [
+            [
+              "Disc Hyperemia",
+              "Absent",
+              "Present"
+            ],
+            [
+              "SVP",
+              "Usually Present",
+              "Absent"
+            ],
+            [
+              "RNFL Edema",
+              "Absent",
+              "Present (Obscures vessels)"
+            ],
+            [
+              "Exudates/Cotton Wool",
+              "Very Rare",
+              "Common in acute stage"
+            ],
+            [
+              "Small Scleral Canal",
+              "Common",
+              "Not specific"
+            ],
+            [
+              "Fluorescein Leakage",
+              "Negative (Staining only)",
+              "Profuse early leakage"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Investigation Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Fundus Autofluorescence (FAF): The first-line test for visible drusen. ODD are naturally autofluorescent due to calcium/porphyrins.",
+          "2. B-Scan Ultrasonography: Gold standard for calcified drusen. Look for high reflectivity at low gain (-15dB) with posterior acoustic shadowing.",
+          "3. EDI-OCT (Enhanced Depth Imaging): Gold standard for buried ODD. Shows signal-void core with hyper-reflective margins.",
+          "4. Automated Perimetry (SITA-Standard): Essential to monitor for arcuate scotomas or enlarged blind spots (75% of patients).",
+          "5. Fluorescein Angiography (FFA): Used if diagnosis is uncertain; shows late staining without the leakage seen in papilledema."
+        ]
+      },
+      {
+        "title": "Visual Field Defects",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Enlarged Blind Spot",
+              "value": 85
+            },
+            {
+              "label": "Arcuate/Inferred Defect",
+              "value": 60
+            },
+            {
+              "label": "Generalized Constriction",
+              "value": 20
+            },
+            {
+              "label": "Normal VF (Buried)",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Worry",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden vision loss (Rule out NAION or CNVM).",
+          "Headache/Nausea/Tinnitus (Evaluate for high ICP/Papilledema).",
+          "New onset Flame Hemorrhages (Usually suggests acute edema or AION).",
+          "Absence of ODD on B-scan in an elevated disc (Check MRI/MRV).",
+          "Bilateral elevation in an obese female of childbearing age (IIH suspect)."
+        ]
+      },
+      {
+        "title": "Management & Treatment Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Baseline Assessment — Document with FAF, EDI-OCT, and HVF 24-2.",
+          "Step 2: Observation — Most cases require only annual monitoring.",
+          "Step 3: IOP Control — Consider ocular hypotensives if progressive field loss occurs (though controversial, reduces total nerve stress).",
+          "Step 4: Treat Complications — Anti-VEGF (e.g., Ranibizumab 0.5mg or Aflibercept 2mg) for peripapillary CNVM.",
+          "Step 5: Genetic Counseling — Mention AD inheritance pattern to family members."
+        ]
+      },
+      {
+        "title": "Mnemonic for ODD Imaging",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "B.A.S.E.",
+          "explanation": "B: B-scan (Shadowing at low gain); A: Autofluorescence (Hyper-AF); S: Signal-void on EDI-OCT; E: Early vascular branching."
+        }
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "priority_high",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Non-Arteritic Anterior Ischemic Optic Neuropathy (NAION) — Higher risk due to 'Disc at Risk' anatomy.",
+          "Peripapillary Choroidal Neovascularization (pCNVM) — Can cause sudden subretinal hemorrhage.",
+          "Central Retinal Vein Occlusion (CRVO) — Rare, but secondary to mechanical compression.",
+          "Progressive Visual Field Constriction — Slow but irreversible.",
+          "Prognosis: Usually good for central acuity; guarded for peripheral fields."
+        ]
+      },
+      {
+        "title": "Recent Advances: ODDS Consortium",
+        "icon": "lightbulb",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "The Optic Disc Drusen Studies (ODDS) Consortium recently standardized the diagnosis. A key finding is that 'Peripapillary Hyper-reflective Ovoid Mass-like Structures' (PHOMS) are NOT drusen, but rather herniated axons. True ODD on EDI-OCT must have a hyporeflective core and should be located internal to the peripapillary RNFL. This has revolutionized how we differentiate ODD from other forms of pseudopapilledema."
+      },
+      {
+        "title": "Clinical Pearls for the Resident",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "ODD can cause a 'Pseudo-blind spot enlargement' on VF due to the physical size of the nerve.",
+          "If you see drusen and the patient has a large cup, rethink the diagnosis.",
+          "In children, the disc looks full and 'pinkish' rather than 'waxy' because the drusen are buried deep.",
+          "Always perform a B-scan at low gain; high gain can give false positives due to gain-related artifacts.",
+          "ODD are often found in patients with Retinitis Pigmentosa and Angioid Streaks."
+        ]
+      }
+    ],
+    "generationPrompt": "Disc drusens",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro"
+}

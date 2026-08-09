@@ -1,0 +1,180 @@
+{
+  "id": 1775044681245,
+  "seqId": 347,
+  "title": "GATT vs Goniotomy vs Ab Externo Trabeculotomy",
+  "summary": "An exhaustive comparative analysis of surgical trabeculotomy techniques. This poster distinguishes between the minimally invasive GATT approach, the focal goniotomy, and the traditional ab externo trabeculotomy procedure.",
+  "date": "2026-04-01T11:58:01.245Z",
+  "data": {
+    "title": "GATT vs Goniotomy vs Ab Externo Trabeculotomy",
+    "summary": "An exhaustive comparative analysis of surgical trabeculotomy techniques. This poster distinguishes between the minimally invasive GATT approach, the focal goniotomy, and the traditional ab externo trabeculotomy procedure.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M20 50 L80 50 M50 20 L50 80' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/><path d='M30 30 L70 70' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "The Surgical Trinity",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Trabeculotomy Techniques",
+          "branches": [
+            "GATT (Gonioscopy-Assisted)",
+            "Goniotomy",
+            "Ab Externo Trabeculotomy"
+          ]
+        }
+      },
+      {
+        "title": "Head-to-Head Comparison",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "GATT",
+            "Goniotomy",
+            "Ab Externo"
+          ],
+          "rows": [
+            [
+              "Surgical Access",
+              "Ab Interno (Inside)",
+              "Ab Interno (Inside)",
+              "Ab Externo (Outside)"
+            ],
+            [
+              "Incision Scope",
+              "Up to 360 Degrees",
+              "Focal / Segmental",
+              "Segmental (usually 1/3)"
+            ],
+            [
+              "Primary Tool",
+              "Suture or Microcatheter",
+              "Goniotomy Knife / Needle",
+              "Trabeculotome"
+            ],
+            [
+              "Scleral Flap",
+              "No",
+              "No",
+              "Yes (Required)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "GATT: Gonioscopy-Assisted Transluminal Trabeculotomy",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Ab interno approach utilizing a gonioscopic lens for visualization.",
+          "Cannulation of Schlemm's canal is performed via a clear corneal incision.",
+          "Uses a 5-0 or 6-0 prolene suture or a specialized microcatheter (e.g., iTrack).",
+          "Achieves a circumferential (360-degree) opening of the trabecular meshwork.",
+          "Considered a 'MIGS' (Minimally Invasive Glaucoma Surgery) procedure."
+        ]
+      },
+      {
+        "title": "Goniotomy: The Focal Approach",
+        "icon": "precision_manufacturing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Traditional ab interno procedure often used in pediatric glaucoma.",
+          "Direct incision into the trabecular meshwork to reach Schlemm's canal.",
+          "Limited by the direct line-of-sight across the anterior chamber.",
+          "Does not involve cannulating the canal circumferentially.",
+          "Requires a clear cornea for adequate visualization of the angle."
+        ]
+      },
+      {
+        "title": "Ab Externo Trabeculotomy: The Classic Route",
+        "icon": "layers",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Traditional 'outside-in' approach to the trabecular meshwork.",
+          "Requires conjunctival peritomy and the creation of a partial-thickness scleral flap.",
+          "Schlemm's canal is located and unroofed from the external surface.",
+          "A metal trabeculotome is inserted into the canal and rotated into the anterior chamber.",
+          "Typically used when corneal clarity is insufficient for ab interno visualization."
+        ]
+      },
+      {
+        "title": "Invasive vs. Minimally Invasive",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "GATT (Minimally Invasive)",
+              "value": 20
+            },
+            {
+              "label": "Goniotomy (Moderate)",
+              "value": 40
+            },
+            {
+              "label": "Ab Externo (High Invasiveness)",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "Surgical Process: Ab Interno (GATT/Goniotomy)",
+        "icon": "cyclone",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Corneal incision and viscoelastic injection.",
+          "Step 2: Head tilt and microscope adjustment for gonioscopic view.",
+          "Step 3: Incision through the trabecular meshwork into Schlemm's canal.",
+          "Step 4: (GATT) Cannulation 360 degrees using a suture or catheter.",
+          "Step 5: Pulling the tool through to rupture the meshwork into the chamber."
+        ]
+      },
+      {
+        "title": "Critical Warnings & Contraindications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Poor visualization of the angle precludes ab interno approaches (GATT/Goniotomy).",
+          "Active neovascular glaucoma is a contraindication for these procedures.",
+          "Post-operative hyphema is a common risk across all trabeculotomy types.",
+          "Previous failed glaucoma surgeries may distort the anatomy of Schlemm's canal."
+        ]
+      },
+      {
+        "title": "Quick Recall",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "G.G.A.",
+          "explanation": "GATT = 360° Internal, Goniotomy = Focal Internal, Ab Externo = External Scleral Flap."
+        }
+      }
+    ],
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "_newlyImported": 1775044681245,
+  "communityId": "sub_1773775007770_q14ps7wnns0ofw",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

@@ -1,0 +1,292 @@
+{
+  "id": 1775129327943,
+  "seqId": 557,
+  "title": "Glaucomatocyclitic Crisis: The Posner-Schlossman Guide",
+  "summary": "A comprehensive clinical roadmap for Posner-Schlossman Syndrome (PSS), characterized by recurrent, unilateral episodes of markedly elevated intraocular pressure (40–60 mmHg) with mild anterior chamber inflammation in young to middle-aged patients.",
+  "date": "2026-04-02T11:28:47.943Z",
+  "data": {
+    "title": "Glaucomatocyclitic Crisis: The Posner-Schlossman Guide",
+    "summary": "A comprehensive clinical roadmap for Posner-Schlossman Syndrome (PSS), characterized by recurrent, unilateral episodes of markedly elevated intraocular pressure (40–60 mmHg) with mild anterior chamber inflammation in young to middle-aged patients.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><circle cx='100' cy='100' r='30' fill='hsl(215, 90%, 45%)'/><path d='M100 60 L100 30 M130 100 L160 100 M100 140 L100 170 M70 100 L40 100' stroke='hsl(215, 90%, 45%)' stroke-width='5' stroke-linecap='round'/><circle cx='85' cy='140' r='3' fill='hsl(215, 90%, 45%)'/><circle cx='100' cy='150' r='3' fill='hsl(215, 90%, 45%)'/><circle cx='115' cy='140' r='3' fill='hsl(215, 90%, 45%)'/><text x='110' y='60' font-family='Arial' font-size='24' font-weight='bold' fill='red'>↑IOP</text></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Posner-Schlossman Syndrome (PSS) is a rare inflammatory glaucoma characterized by acute, recurrent bouts of significantly elevated Intraocular Pressure (IOP), often reaching 40-60 mmHg. Despite the high pressure, symptoms are surprisingly mild, and the anterior chamber reaction is minimal, often self-limiting but potentially damaging to the optic nerve over time."
+      },
+      {
+        "title": "Epidemiological Profile",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Male Predominance",
+              "value": 65
+            },
+            {
+              "label": "Age 20-50 Range",
+              "value": 90
+            },
+            {
+              "label": "Unilateral Cases",
+              "value": 95
+            },
+            {
+              "label": "HLA-B54 Association",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "PSS Pathogenesis",
+          "branches": [
+            "Viral Trigger: Cytomegalovirus (CMV) is the primary suspect; HSV/VZV also implicated.",
+            "Trabeculitis: Inflammation of the trabecular meshwork reduces aqueous outflow.",
+            "Genetic Factor: Strong association with HLA-B54 (especially in Asian populations).",
+            "Autonomic Dysfunction: Possible vascular or sympathetic dysregulation component."
+          ]
+        }
+      },
+      {
+        "title": "Classic Clinical Presentation",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Sudden onset of mild ocular discomfort or dull ache.",
+          "Slightly blurred vision or 'halos' around lights (due to corneal edema).",
+          "Eye is usually WHITE and quiet (unlike acute angle-closure).",
+          "Recurrent history: Patients often recognize the 'feeling' of an attack.",
+          "Mydriasis: The pupil of the affected eye may be slightly larger than the fellow eye."
+        ]
+      },
+      {
+        "title": "Slit-Lamp Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Corneal Edema: Fine microcystic edema if IOP is high.",
+          "Keratic Precipitates (KPs): Few, discrete, round, white, non-granulomatous KPs (central or inferior).",
+          "AC Reaction: Trace to 1+ cells/flare (disproportionately mild for the IOP level).",
+          "Gonioscopy: Open angles, no peripheral anterior synechiae (PAS), no neovascularization.",
+          "Optic Nerve: Often normal initially, but chronic recurrence leads to glaucomatous cupping."
+        ]
+      },
+      {
+        "title": "Diagnostic Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "IOP Level",
+            "KP Appearance",
+            "Iris Changes",
+            "Angle Status"
+          ],
+          "rows": [
+            [
+              "Posner-Schlossman",
+              "Very High (40-60)",
+              "Fine, Non-granulomatous",
+              "Normal iris",
+              "Open"
+            ],
+            [
+              "Fuchs Heterochromic (FHI)",
+              "Mildly High",
+              "Diffuse, Stellate",
+              "Heterochromia/Atrophy",
+              "Open (Fine vessels)"
+            ],
+            [
+              "Herpetic Uveitis",
+              "Moderate to High",
+              "Granulomatous or Stellate",
+              "Sectoral Atrophy",
+              "Open"
+            ],
+            [
+              "Acute Angle Closure",
+              "Very High",
+              "None (early)",
+              "Mid-dilated pupil",
+              "Closed"
+            ],
+            [
+              "Pigmentary Glaucoma",
+              "High (Exercise-induced)",
+              "Pigmented (Krukenberg Spindle)",
+              "Transillumination defects",
+              "Open (Heavy pigment)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Goldmann Applanation Tonometry: Confirm IOP elevation.",
+          "2. Gonioscopy: Crucial to rule out angle closure.",
+          "3. Aqueous Tap (PCR): Test for CMV, HSV, and VZV DNA if recurrence is frequent.",
+          "4. Corneal Endothelial Cell Count: Monitor for CMV-induced loss.",
+          "5. OCT RNFL & Visual Fields: Baseline and serial monitoring for glaucoma progression."
+        ]
+      },
+      {
+        "title": "Acute Medical Management",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Class",
+            "Drug Examples",
+            "Frequency"
+          ],
+          "rows": [
+            [
+              "Topical Steroid",
+              "Prednisolone Acetate 1%",
+              "QID to Q1H (Taper fast)"
+            ],
+            [
+              "Beta-Blocker",
+              "Timolol 0.5%",
+              "BID"
+            ],
+            [
+              "Alpha-Agonist",
+              "Brimonidine 0.2%",
+              "TID"
+            ],
+            [
+              "CAI (Topical)",
+              "Dorzolamide 2%",
+              "TID"
+            ],
+            [
+              "CAI (Oral)",
+              "Acetazolamide 250mg",
+              "QID (Only if severe)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The CMV Connection & Antivirals",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Topical Ganciclovir 0.15% (Zirgan): Used 4-6 times daily if PCR is CMV positive.",
+          "Oral Valganciclovir (Valcyte): Induction dose 900mg BID for 3 weeks, then maintenance 450-900mg QD.",
+          "Benefit: Reduces frequency of recurrences and stabilizes IOP.",
+          "Caution: Monitor CBC/CMP for systemic side effects (bone marrow suppression)."
+        ]
+      },
+      {
+        "title": "CRITICAL: Prostaglandin Warning",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Avoid Prostaglandin Analogs (PGAs) during the acute phase.",
+          "PGAs can exacerbate intraocular inflammation.",
+          "Risk of Cystoid Macular Edema (CME) in an inflammatory state.",
+          "Miotics (Pilocarpine) are contraindicated; they may increase inflammation and cause synechiae."
+        ]
+      },
+      {
+        "title": "Surgical Intervention",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "Surgery is rarely needed for the acute attack. However, if medical therapy fails to prevent progressive glaucomatous damage due to frequent recurrences, a Trabeculectomy or Glaucoma Drainage Device (GDD) may be indicated. Results are generally good, but steroids must be managed carefully."
+      },
+      {
+        "title": "PSS Memory Aid",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "THE 3 S's of POSNER",
+          "explanation": "Sudden High Pressure (40s), Small KPs (Few/Non-granulomatous), Self-limiting (usually resolves in days to weeks)."
+        }
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Long-term Risks",
+          "branches": [
+            "Permanent Glaucomatous Optic Neuropathy",
+            "Corneal Endothelial Cell Loss (CMV-related)",
+            "Steroid-Induced Glaucoma (from over-treatment)",
+            "Posterior Subcapsular Cataract"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls & BCSC High Yields",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Always perform gonioscopy: Unilateral high pressure in a young male is AAC until proven otherwise.",
+          "Look for 'Sentinel KPs': Sometimes only 1 or 2 are present.",
+          "IOP during episodes is often 40-50, but the optic nerve can look perfectly healthy initially.",
+          "Treatment is aimed at lowering IOP first, then controlling the minimal inflammation.",
+          "Recent studies suggest checking for CMV in all recurrent or refractory cases."
+        ]
+      },
+      {
+        "title": "Recent Landmark Insights",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "Contemporary research emphasizes that PSS may not be as 'benign' as once thought. Studies from Singapore and Japan have shown that up to 25% of patients eventually require glaucoma surgery. The role of CMV is now widely accepted, leading to a shift toward using Valganciclovir for recurrent cases to prevent long-term trabecular meshwork scarring."
+      }
+    ],
+    "generationPrompt": "Young male + high iop (40s) in one eye",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "communitySource": true,
+  "author": "dodo",
+  "citation": "Author: dodo",
+  "_serverSynced": true
+}

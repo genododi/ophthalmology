@@ -1,0 +1,155 @@
+{
+  "id": 1775044661919,
+  "seqId": 152,
+  "title": "Choroidal Melanoma: A Comprehensive Clinical Guide",
+  "summary": "Choroidal melanoma is the most common primary intraocular malignancy in adults, arising from melanocytes within the uveal tract. Early detection via clinical markers is essential for systemic prognosis and vision preservation.",
+  "date": "2026-04-01T11:57:41.919Z",
+  "data": {
+    "title": "Choroidal Melanoma: A Comprehensive Clinical Guide",
+    "summary": "Choroidal melanoma is the most common primary intraocular malignancy in adults, arising from melanocytes within the uveal tract. Early detection via clinical markers is essential for systemic prognosis and vision preservation.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M50 10 A40 40 0 0 1 90 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='6'/><path d='M70 40 Q 85 50 70 60' fill='hsl(215, 90%, 20%)' /><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)' opacity='0.4'/><line x1='50' y1='10' x2='50' y2='20' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Disease Overview",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Choroidal melanoma is a malignant tumor arising from the melanocytes of the uveal tract. It represents approximately 80% of all uveal melanomas and is recognized as the most common primary intraocular cancer found in the adult population."
+      },
+      {
+        "title": "Predisposing Risk Factors",
+        "icon": "person",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Fair skin and light eye color (Blue/Green)",
+          "Oculodermal melanocytosis (Nevus of Ota)",
+          "Presence of pre-existing uveal nevi",
+          "BRCA1-associated protein 1 (BAP1) mutation",
+          "Congenital ocular melanocytosis"
+        ]
+      },
+      {
+        "title": "Predicting Growth: The TFSOM-UHHD Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "TFSOM-UHHD",
+          "explanation": "T: Thickness > 2 mm; F: Fluid (subretinal); S: Symptoms (blurred vision/flashes); O: Orange pigment (lipofuscin); M: Margin within 3 mm of optic disc; U: Ultrasound (acoustic hollowness); HH: Halo absence; D: Drusen absence."
+        }
+      },
+      {
+        "title": "Common Clinical Presentation",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Symptoms",
+          "branches": [
+            "Painless Blurred Vision",
+            "Visual Field Defects",
+            "Photopsia (Flashes of Light)",
+            "Floaters",
+            "Asymptomatic (Incidental Finding)"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Imaging Standards",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Modality",
+            "Key Findings"
+          ],
+          "rows": [
+            [
+              "B-Scan Ultrasound",
+              "Acoustic hollowness, choroidal excavation, and 'collar-button' (mushroom) shape."
+            ],
+            [
+              "Fluorescein Angiography",
+              "Double circulation pattern (simultaneous retinal and tumor vessel filling)."
+            ],
+            [
+              "Optical Coherence Tomography",
+              "Subretinal fluid and 'shaggy' photoreceptor appearance."
+            ],
+            [
+              "Fundus Photography",
+              "Documentation of pigmentation (melanotic vs. amelanotic) and borders."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CRITICAL WARNING SIGNS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Rapid growth of a documented pre-existing nevus",
+          "Presence of Sentinel Vessels (dilated episcleral vessels)",
+          "Extraocular extension through the scleral emissary channels",
+          "Diffuse growth pattern (higher risk of delayed diagnosis)"
+        ]
+      },
+      {
+        "title": "Management Pathway",
+        "icon": "settings",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Step 1: Observation for small, low-risk, dormant lesions.",
+          "Step 2: Radiation Therapy (Plaque Brachytherapy or Proton Beam).",
+          "Step 3: Surgical Enucleation for large tumors or blind/painful eyes.",
+          "Step 4: Systemic Surveillance for hepatic metastasis."
+        ]
+      },
+      {
+        "title": "Metastatic Risk by Genetics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Chromosome 3 Monosomy (High Risk)",
+              "value": 85
+            },
+            {
+              "label": "Chromosome 3 Disomy (Low Risk)",
+              "value": 15
+            },
+            {
+              "label": "Class 1 Gene Profile",
+              "value": 10
+            },
+            {
+              "label": "Class 2 Gene Profile",
+              "value": 70
+            }
+          ]
+        }
+      }
+    ],
+    "chapterId": "tumours"
+  },
+  "chapterId": "tumours",
+  "_newlyImported": 1775044661919,
+  "communityId": "sub_1773775007771_zhux45dedcjx8f",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.771Z"
+}

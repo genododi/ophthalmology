@@ -1,0 +1,221 @@
+{
+  "id": 1775825619111,
+  "seqId": 779,
+  "title": "Intraocular Malignancy Mastery: Retinoblastoma vs. Choroidal Melanoma",
+  "summary": "A comprehensive comparative analysis between the most common primary intraocular malignancies in pediatric and adult populations. This guide synthesizes clinical presentation, molecular drivers, and gold-standard management strategies.",
+  "date": "2026-04-10T12:53:39.111Z",
+  "data": {
+    "title": "Intraocular Malignancy Mastery: Retinoblastoma vs. Choroidal Melanoma",
+    "summary": "A comprehensive comparative analysis between the most common primary intraocular malignancies in pediatric and adult populations. This guide synthesizes clinical presentation, molecular drivers, and gold-standard management strategies.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='35' cy='40' r='8' fill='hsl(215, 90%, 45%)'/><circle cx='65' cy='40' r='8' fill='hsl(215, 90%, 45%)'/><path d='M30 70 Q50 60 70 70' stroke='hsl(215, 90%, 45%)' stroke-width='4' fill='none'/></svg>",
+    "sections": [
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "RB Incidence (per million)",
+              "value": 15
+            },
+            {
+              "label": "CM Incidence (per million)",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Immediate Referral",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Leukocoria (white pupil) in any child < 5 years old.",
+          "Sudden onset strabismus in a child.",
+          "Unexplained vision loss + elevated pigmented choroidal mass.",
+          "Painful red eye with secondary glaucoma in a phthisical or atrophic eye.",
+          "Extrascleral extension of melanoma (poor prognosis)."
+        ]
+      },
+      {
+        "title": "Clinical Comparison Matrix",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Retinoblastoma (RB)",
+            "Choroidal Melanoma (CM)"
+          ],
+          "rows": [
+            [
+              "Age",
+              "Infants/Children (mean 18mo)",
+              "Adults (median 55-60yr)"
+            ],
+            [
+              "Genetic Driver",
+              "RB1 gene (13q14) mutation",
+              "GNAQ / GNA11 mutations"
+            ],
+            [
+              "Growth Pattern",
+              "Endophytic/Exophytic",
+              "Domed (mushroom shape)"
+            ],
+            [
+              "Vascularity",
+              "Highly vascular, calcified",
+              "Vascularized with intrinsic flow"
+            ],
+            [
+              "Systemic Risk",
+              "Metastasis to bone/CNS",
+              "Metastasis to liver"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology Core",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Malignant Transformation",
+          "branches": [
+            "RB: Knudson's Two-Hit Hypothesis",
+            "CM: Uveal Melanocyte Activation",
+            "RB: Retinal Progenitor Cell Origin",
+            "CM: BAP1/SF3B1/EIF1AX Mutations"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Pathway",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Step 1: Dilated Indirect Fundoscopy & B-Scan Ultrasound.",
+          "Step 2: RB: Orbital MRI (check optic nerve). CM: Liver LFTs & PET/CT.",
+          "Step 3: RB: Lumbar Puncture (if high risk). CM: Fine Needle Aspiration (FNA) if unsure.",
+          "Step 4: Genetic testing for familial counseling (RB1 germline testing)."
+        ]
+      },
+      {
+        "title": "Management Framework",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Retinoblastoma: Goal is eye preservation and vision. Treatment includes systemic chemoreduction (VEC protocol: Vincristine, Etoposide, Carboplatin), intra-arterial chemotherapy (Melphalan), intravitreal chemotherapy, and focal laser/cryotherapy.",
+          "Choroidal Melanoma: COMS (Collaborative Ocular Melanoma Study) criteria. Small tumors: TTT or plaque brachytherapy (I-125). Medium: Plaque brachytherapy. Large: Enucleation vs. Proton Beam Radiotherapy.",
+          "Recent Advances: Intravitreal Topotecan for RB vitreous seeds; Tebentafusp for metastatic Uveal Melanoma."
+        ]
+      },
+      {
+        "title": "Mnemonic: ABCDEF for Melanoma",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "TFSOM-UHHD",
+          "explanation": "To differentiate suspicious nevi from Melanoma: Thickness >2mm, Fluid (subretinal), Symptoms (photopsia), Orange pigment, Margin near disc, Ultrasonographic Hollowness, Absence of Halo, Absence of Drusen."
+        }
+      },
+      {
+        "title": "Clinical Pearls & Landmark Studies",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "RB Landmark Study: Children's Oncology Group (COG) protocols have improved 5-year survival rates to >95%.",
+          "CM Landmark Study: COMS study proved that plaque brachytherapy is equivalent to enucleation for medium-sized choroidal melanomas regarding mortality.",
+          "Always evaluate the fellow eye in RB; bilateral disease occurs in ~30% of cases.",
+          "A pigmented lesion with orange pigment (lipofuscin) is highly suggestive of malignant melanoma."
+        ]
+      }
+    ],
+    "generationPrompt": "Comparative study of treatment of retinoblastoma vs choroidal nelanoma",
+    "chapterId": "tumours"
+  },
+  "chapterId": "tumours",
+  "read": true,
+  "bookmarked": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 865,
+      "keywords": [
+        "choroidal melanoma",
+        "intraocular",
+        "malignancy",
+        "choroidal",
+        "melanoma"
+      ]
+    },
+    {
+      "pageNum": 876,
+      "keywords": [
+        "retinoblastoma",
+        "intraocular",
+        "malignancy",
+        "choroidal",
+        "melanoma"
+      ]
+    },
+    {
+      "pageNum": 404,
+      "keywords": [
+        "retinoblastoma",
+        "choroidal melanoma",
+        "intraocular",
+        "choroidal",
+        "melanoma"
+      ]
+    },
+    {
+      "pageNum": 843,
+      "keywords": [
+        "retinoblastoma",
+        "choroidal melanoma",
+        "intraocular",
+        "choroidal",
+        "melanoma"
+      ]
+    },
+    {
+      "pageNum": 870,
+      "keywords": [
+        "choroidal melanoma",
+        "choroidal",
+        "melanoma",
+        "tumours",
+        "uveal melanoma"
+      ]
+    },
+    {
+      "pageNum": 866,
+      "keywords": [
+        "choroidal melanoma",
+        "malignancy",
+        "choroidal",
+        "melanoma",
+        "tumours"
+      ]
+    }
+  ]
+}

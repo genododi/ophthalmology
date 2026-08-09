@@ -1,0 +1,264 @@
+{
+  "id": 1775832473712,
+  "seqId": 784,
+  "title": "Electrophysiology Masterclass: MF-ERG, Pattern-ERG & Full-Field ERG",
+  "summary": "A deep dive into the clinical applications and neuro-anatomical specificity of electrodiagnostic testing in ophthalmology. Distinguishing retinal layer pathology through objective waveform analysis.",
+  "date": "2026-04-10T14:47:53.712Z",
+  "data": {
+    "title": "Electrophysiology Masterclass: MF-ERG, Pattern-ERG & Full-Field ERG",
+    "summary": "A deep dive into the clinical applications and neuro-anatomical specificity of electrodiagnostic testing in ophthalmology. Distinguishing retinal layer pathology through objective waveform analysis.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 100 L80 60 L100 140 L120 100 L140 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='6'/></svg>",
+    "sections": [
+      {
+        "title": "Definitions & Clinical Focus",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Modality",
+            "Anatomical Target",
+            "Stimulus Type"
+          ],
+          "rows": [
+            [
+              "Full-Field (ffERG)",
+              "Generalized Photoreceptor/Bipolar",
+              "Flash stimulus across retina"
+            ],
+            [
+              "Pattern (PERG)",
+              "Retinal Ganglion Cells",
+              "Checkerboard/Grating contrast"
+            ],
+            [
+              "Multifocal (mfERG)",
+              "Local Cones/Bipolar (Macula)",
+              "Hexagonal mosaic array"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "ffERG: The ISCEV Standard",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Dark-Adapted (Scotopic): Measures rod-mediated responses (0.01 and 3.0 ERG).",
+          "Light-Adapted (Photopic): Measures cone-mediated responses (3.0 and 30Hz flicker).",
+          "a-wave: Hyperpolarization of photoreceptors.",
+          "b-wave: Depolarization of ON-bipolar cells.",
+          "Oscillatory Potentials: Inner retinal/amacrine cell activity."
+        ]
+      },
+      {
+        "title": "PERG: Ganglion Cell Integrity",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "P50: Reflects macular/ganglion cell function.",
+          "N95: Highly specific marker for ganglion cell dysfunction (e.g., glaucoma, optic neuropathy).",
+          "Does not require diffuse retinal health, but requires stable fixation.",
+          "Amplitude correlates with the number of functioning RGCs."
+        ]
+      },
+      {
+        "title": "mfERG: Localized Macular Mapping",
+        "icon": "grid_view",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Produces a 3D topographic map of cone-driven activity in the central 40-50 degrees.",
+          "Crucial for diagnosing hydroxychloroquine toxicity (pre-perimetric phase).",
+          "Useful in occult macular dystrophies, cone-rod dystrophies, and toxic maculopathies.",
+          "N1 (negative deflection) and P1 (positive peak) represent retinal response."
+        ]
+      },
+      {
+        "title": "Red Flags for Testing",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Stable fixation is MANDATORY for PERG and mfERG; inaccurate results in nystagmus or poor visual acuity.",
+          "Severe media opacities (dense cataract/vitreous hemorrhage) attenuate ffERG results significantly.",
+          "Corneal scarring or surface disease alters electrode impedance.",
+          "Uncalibrated monitors or non-ISCEV standard protocols lead to misdiagnosis."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Process",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Patient dark adaptation (20 mins for scotopic ffERG).",
+          "Step 2: Electrode placement (DTL fiber or Gold cup) with thorough corneal anesthesia.",
+          "Step 3: Impedance check (ensure low resistance <5kΩ).",
+          "Step 4: Stimulus delivery (ISCEV standardized intensity).",
+          "Step 5: Waveform analysis comparing patient trace to age-matched laboratory normative data."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Clinical Scenario",
+            "Preferred Test"
+          ],
+          "rows": [
+            [
+              "Glaucoma Progression",
+              "PERG (N95 amplitude)"
+            ],
+            [
+              "Hydroxychloroquine Screening",
+              "mfERG (central ring loss)"
+            ],
+            [
+              "Retinitis Pigmentosa",
+              "ffERG (b-wave reduction)"
+            ],
+            [
+              "Occult Macular Dystrophy",
+              "mfERG"
+            ],
+            [
+              "Cone-Rod Dystrophy",
+              "ffERG (photopic loss > scotopic)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: ERG Waveforms",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-B-O",
+          "explanation": "P (Photoreceptors = a-wave), B (Bipolar cells = b-wave), O (Others/Amacrine = Oscillatory Potentials)."
+        }
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "OCT-Angiography correlation with PERG: Mapping microvascular changes in glaucoma.",
+          "Artificial Intelligence in automated waveform recognition to reduce human interpretation bias.",
+          "Portable handheld ERG devices are improving utility in pediatric and non-clinic environments.",
+          "Studies confirm mfERG is superior to standard visual fields for detecting early toxicity."
+        ]
+      },
+      {
+        "title": "Diagnostic Utility Distribution",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Generalized Retinal Disease",
+              "value": 90
+            },
+            {
+              "label": "Macular Pathologies",
+              "value": 75
+            },
+            {
+              "label": "Glaucomatous Optic Neuropathy",
+              "value": 65
+            },
+            {
+              "label": "Toxic Retinopathy",
+              "value": 85
+            }
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Mferg vs pattern erg vs fullfield erg",
+    "chapterId": "investigations"
+  },
+  "chapterId": "investigations",
+  "kanskiMeta": [
+    {
+      "pageNum": 633,
+      "keywords": [
+        "erg",
+        "pattern",
+        "iscev",
+        "standard",
+        "ganglion"
+      ]
+    },
+    {
+      "pageNum": 372,
+      "keywords": [
+        "erg",
+        "pattern",
+        "perg",
+        "ganglion",
+        "cell"
+      ]
+    },
+    {
+      "pageNum": 632,
+      "keywords": [
+        "erg",
+        "pattern",
+        "investigations",
+        "focus",
+        "iscev"
+      ]
+    },
+    {
+      "pageNum": 652,
+      "keywords": [
+        "erg",
+        "pattern",
+        "investigations",
+        "macular",
+        "distribution"
+      ]
+    },
+    {
+      "pageNum": 656,
+      "keywords": [
+        "erg",
+        "pattern",
+        "macular",
+        "field",
+        "oct"
+      ]
+    },
+    {
+      "pageNum": 376,
+      "keywords": [
+        "erg",
+        "pattern",
+        "perg",
+        "ganglion",
+        "cell"
+      ]
+    }
+  ]
+}

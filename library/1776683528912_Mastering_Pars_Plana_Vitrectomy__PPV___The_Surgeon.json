@@ -1,0 +1,338 @@
+{
+  "id": 1776683528912,
+  "seqId": 798,
+  "title": "Mastering Pars Plana Vitrectomy (PPV): The Surgeon's Playbook",
+  "summary": "A high-fidelity guide to small-gauge Pars Plana Vitrectomy, covering fluidics, surgical maneuvers, and the latest evidence-based protocols for the vitreoretinal specialist.",
+  "date": "2026-04-20T11:12:08.912Z",
+  "data": {
+    "title": "Mastering Pars Plana Vitrectomy (PPV): The Surgeon's Playbook",
+    "summary": "A high-fidelity guide to small-gauge Pars Plana Vitrectomy, covering fluidics, surgical maneuvers, and the latest evidence-based protocols for the vitreoretinal specialist.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M35 30 L45 50 M50 25 L50 45 M65 30 L55 50' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round'/><path d='M30 70 Q50 85 70 70' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Surgical Entry: The Anatomy of Access",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Trocar Placement",
+          "branches": [
+            "Phakic: 4.0 mm from limbus (protects crystalline lens)",
+            "Pseudophakic/Aphakic: 3.5 mm from limbus",
+            "Angle: 5-30 degree bi-planar entry for self-sealing",
+            "Location: Usually Superotemporal, Superonasal, and Inferotemporal",
+            "Avoid: 3 and 9 o'clock (Long Ciliary Arteries/Nerves)"
+          ]
+        }
+      },
+      {
+        "title": "Small-Gauge Instrumentation Comparison",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Gauge",
+            "Diameter (mm)",
+            "Flow Rate",
+            "Wound Integrity"
+          ],
+          "rows": [
+            [
+              "23g",
+              "0.64 mm",
+              "Highest",
+              "Often requires suture"
+            ],
+            [
+              "25g",
+              "0.50 mm",
+              "Moderate",
+              "Usually self-sealing"
+            ],
+            [
+              "27g",
+              "0.40 mm",
+              "Low",
+              "Exceptional sealing"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Fluidics: Vacuum vs. Flow Control",
+        "icon": "water_drop",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Duty Cycle: Proportion of time port is open. High duty cycle = more efficient shaving.",
+          "Cut Rate: Modern vitrectors reach 7,500 - 20,000 cpm. Higher rates reduce retinal traction/tug.",
+          "Venturini (Vacuum): Footpedal controls suction directly. Faster response for PVD induction.",
+          "Peristaltic (Flow): Footpedal controls flow rate. More stable for delicate peeling near the retina."
+        ]
+      },
+      {
+        "title": "Standard PPV Procedural Workflow",
+        "icon": "reorder",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Trocar insertion & Infusion line placement (Verify tip is in vitreous cavity).",
+          "Step 2: Core Vitrectomy: High cut rate, moderate vacuum to clear central opacities.",
+          "Step 3: Posterior Vitreous Detachment (PVD) Induction: Use suction or Triesence to lift the hyaloid.",
+          "Step 4: Peripheral Shave: Scleral depression to remove vitreous base (critical in RD cases).",
+          "Step 5: Endolaser / Cryotherapy: Treatment of retinal breaks or panretinal photocoagulation.",
+          "Step 6: Fluid-Air Exchange (FAX): Aspiration of subretinal/intravitreal fluid under air.",
+          "Step 7: Tamponade Injection: Gas (SF6, C3F8) or Silicone Oil.",
+          "Step 8: Port Removal & Massage: Check for leaks and suture if necessary."
+        ]
+      },
+      {
+        "title": "Inducing PVD: The 'Suction & Lift' Technique",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Staining: Use Triamcinolone Acetonide (Triesence) to visualize the posterior hyaloid face.",
+          "Approach: Engage hyaloid over the optic nerve head where it is thickest.",
+          "Action: Apply 300-400 mmHg vacuum, lift slowly toward the center of the eye.",
+          "Sign: The 'Weiss Ring' confirms detachment of the peripapillary glial tissue."
+        ]
+      },
+      {
+        "title": "ILM Peeling: Tools & Dyes",
+        "icon": "colorize",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Dye/Tool",
+            "Application",
+            "Pro-Tip"
+          ],
+          "rows": [
+            [
+              "Indocyanine Green (ICG)",
+              "Stains ILM",
+              "Risk of RPE toxicity if high conc."
+            ],
+            [
+              "Brilliant Blue G (BBG)",
+              "Stains ILM",
+              "Safer profile than ICG."
+            ],
+            [
+              "Eckardt Forceps",
+              "Fine grasping",
+              "Ideal for initiating the 'pinch'."
+            ],
+            [
+              "Diamond Dusted Scraper",
+              "ILM initiation",
+              "Good for creating a starting flap."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Intraoperative Emergencies",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Suprachoroidal Hemorrhage: Sudden hardening of eye, 'darkening' of red reflex.",
+          "Subretinal Infusion: Retina billows up immediately upon starting infusion.",
+          "Iatrogenic Retinal Break: Usually occurs during peripheral shave or PVD induction.",
+          "Lens Touch: Immediate cataract formation (whitening of the lens cortex).",
+          "High IOP: Risk of Central Retinal Artery Occlusion (CRAO) if infusion is too high for too long."
+        ]
+      },
+      {
+        "title": "Tamponade Duration & Properties",
+        "icon": "show_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Air (Days)",
+              "value": 5
+            },
+            {
+              "label": "SF6 (Weeks)",
+              "value": 14
+            },
+            {
+              "label": "C3F8 (Weeks)",
+              "value": 56
+            },
+            {
+              "label": "Silicone Oil (Months)",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "Remember the '3 S's' of Gas Fill",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "S.S.S.",
+          "explanation": "Stay down (Positioning), See floaters (Bubble visualization), Scuba/Soar (No flying/diving while gas is in the eye)."
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Post-op Media Opacity",
+        "icon": "search",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Cloudy Post-op Eye",
+          "branches": [
+            "Vitreous Hemorrhage (Breakthrough or residual)",
+            "Endophthalmitis (Pain + Hypopyon)",
+            "Gas-Lens Interface (Cataract)",
+            "Corneal Edema (High IOP or endothelial trauma)",
+            "Fibrin Reaction (Common in Diabetics)"
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "The 'Silver Lining' Sign: Air-fluid interface helps find small peripheral breaks.",
+          "Avoid 'Cold' Laser: Ensure the laser spot has a slight grey-white uptake for permanent adhesion.",
+          "Trocars: Always check the valved cannulas for patency before insertion.",
+          "Ergonomics: Keep the patient's head level and your chair height set to avoid back strain during long cases."
+        ]
+      },
+      {
+        "title": "Landmark VR Studies to Know",
+        "icon": "school",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Study",
+            "Main Finding"
+          ],
+          "rows": [
+            [
+              "PVR Study",
+              "Role of Silicone Oil vs Gas in PVR."
+            ],
+            [
+              "DRCR Protocol S",
+              "Vitrectomy vs Anti-VEGF for Vit Hem."
+            ],
+            [
+              "EVS",
+              "Tap & Inject vs PPV for Endophthalmitis."
+            ],
+            [
+              "SCORE",
+              "Steroids for RVO-related edema."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Complication Management",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Port Leakage: Use 8-0 or 9-0 Vicryl/Monocryl if a 'wick' of vitreous is present or if pressure is low.",
+          "Persistent Macular Hole: Consider 'Inverted ILM Flap' technique or autologous blood patch.",
+          "Subretinal Gas: Ensure the break is completely flat and dry before finishing FAX.",
+          "Oil Emulsification: Remove silicone oil within 3-6 months if possible to prevent glaucoma."
+        ]
+      }
+    ],
+    "generationPrompt": "PPV tips & tricks",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "kanskiMeta": [
+    {
+      "pageNum": 336,
+      "keywords": [
+        "vitrectomy",
+        "duration",
+        "post",
+        "pars",
+        "plana"
+      ]
+    },
+    {
+      "pageNum": 526,
+      "keywords": [
+        "vitrectomy",
+        "intraoperative",
+        "media",
+        "pars",
+        "plana"
+      ]
+    },
+    {
+      "pageNum": 698,
+      "keywords": [
+        "vitrectomy",
+        "vitreoretinal",
+        "surgical",
+        "small",
+        "gauge"
+      ]
+    },
+    {
+      "pageNum": 697,
+      "keywords": [
+        "vitrectomy",
+        "vitreoretinal",
+        "access",
+        "small",
+        "gauge"
+      ]
+    },
+    {
+      "pageNum": 619,
+      "keywords": [
+        "vitrectomy",
+        "small",
+        "peeling",
+        "pars",
+        "plana"
+      ]
+    },
+    {
+      "pageNum": 333,
+      "keywords": [
+        "vitrectomy",
+        "intraoperative",
+        "studies",
+        "complication",
+        "pars"
+      ]
+    }
+  ],
+  "read": true
+}

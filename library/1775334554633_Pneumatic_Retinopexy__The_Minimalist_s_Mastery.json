@@ -1,0 +1,311 @@
+{
+  "id": 1775334554633,
+  "seqId": 647,
+  "title": "Pneumatic Retinopexy: The Minimalist's Mastery",
+  "summary": "Pneumatic Retinopexy (PnR) is a minimally invasive, office-based surgical procedure for repairing primary rhegmatogenous retinal detachments (RRD) using intraocular gas and retinopexy. It offers excellent visual outcomes and avoids the morbidity of scleral buckling or vitrectomy in selected patients.",
+  "date": "2026-04-04T20:29:14.633Z",
+  "data": {
+    "title": "Pneumatic Retinopexy: The Minimalist's Mastery",
+    "summary": "Pneumatic Retinopexy (PnR) is a minimally invasive, office-based surgical procedure for repairing primary rhegmatogenous retinal detachments (RRD) using intraocular gas and retinopexy. It offers excellent visual outcomes and avoids the morbidity of scleral buckling or vitrectomy in selected patients.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='#1a73e8' stroke-width='4'/><path d='M40,140 Q100,60 160,140' fill='none' stroke='#f44336' stroke-width='3' stroke-dasharray='5,5'/><circle cx='100' cy='90' r='35' fill='#e3f2fd' stroke='#2196f3' stroke-width='2'/><path d='M95,65 L105,65 M100,60 L100,70' stroke='#2196f3' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Pneumatic Retinopexy (PnR) is an office-based procedure involving the intravitreal injection of an expansile gas bubble (SF6 or C3F8) combined with retinopexy (cryotherapy or laser photocoagulation). It relies on the principles of surface tension and buoyancy to tamponade retinal breaks, allowing the retinal pigment epithelium (RPE) pump to dehydrate the subretinal space and reattach the neurosensory retina."
+      },
+      {
+        "title": "The 'Perfect' Candidate: Indications",
+        "icon": "checklist",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "PnR Indications",
+          "branches": [
+            "Single Break or Cluster",
+            "Superior 8 Clock Hours (8 to 4)",
+            "Breaks within 1 Clock Hour",
+            "Clear Media / Good View",
+            "Willing & Able to Position",
+            "Absence of PVR > Grade C"
+          ]
+        }
+      },
+      {
+        "title": "Contraindications & Red Flags",
+        "icon": "report",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Inferior retinal breaks (4 o'clock to 8 o'clock)",
+          "Proliferative Vitreoretinal Retinopathy (PVR) Grade C or D",
+          "Physical/Mental inability to maintain strict positioning",
+          "Uncontrolled glaucoma (relative contraindication due to IOP spikes)",
+          "Severe media opacities (Dense vitreous heme/Cataract)",
+          "Multiple breaks spanning >1-2 clock hours"
+        ]
+      },
+      {
+        "title": "Success Rates: Primary vs. Secondary",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Primary Success (PnR)",
+              "value": 75
+            },
+            {
+              "label": "Secondary Success (PnR + Rescue)",
+              "value": 98
+            },
+            {
+              "label": "Primary Success (Scleral Buckle)",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "Expansile Gas Properties",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Gas Type",
+            "Concentration",
+            "Duration",
+            "Expansion"
+          ],
+          "rows": [
+            [
+              "Sulfur Hexafluoride (SF6)",
+              "100% (Pure)",
+              "10-14 Days",
+              "2.0x (in 24-48h)"
+            ],
+            [
+              "Perfluoropropane (C3F8)",
+              "100% (Pure)",
+              "6-8 Weeks",
+              "4.0x (in 72-96h)"
+            ],
+            [
+              "Air",
+              "N/A",
+              "1-3 Days",
+              "No expansion"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Step-by-Step Procedure",
+        "icon": "reorder",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Surgical prep (Povidone-iodine) and anesthesia (subconjunctival lidocaine).",
+          "Step 2: Pre-injection retinopexy (usually Cryotherapy) to the break(s).",
+          "Step 3: Paracentesis (AC Tap) to lower IOP, especially if injecting >0.3ml gas.",
+          "Step 4: Intravitreal injection of 0.3ml C3F8 or 0.5ml SF6 via 30G needle, 3.5-4.0mm from limbus.",
+          "Step 5: Immediate check of CRA patency (Indirect Ophthalmoscopy).",
+          "Step 6: Positioning (Head tilt to ensure bubble doesn't trap at the injection site).",
+          "Step 7: Post-operative positioning for 5-10 days (Bubble over break)."
+        ]
+      },
+      {
+        "title": "Retinopexy Modalities",
+        "icon": "lightbulb",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Cryotherapy",
+            "Laser (LIO)"
+          ],
+          "rows": [
+            [
+              "Timing",
+              "Before gas injection",
+              "After retina is flat (24-48h)"
+            ],
+            [
+              "Mechanism",
+              "Instant cold adhesion",
+              "Thermal pigmentary scar"
+            ],
+            [
+              "Inflammation",
+              "Higher (increased PVR risk?)",
+              "Lower inflammation"
+            ],
+            [
+              "Ease of Use",
+              "Good through hazy media",
+              "Requires clear media"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: The PNR Checklist",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "S.U.P.E.R.",
+          "explanation": "S: Superior breaks only. U: Unbroken view (clear media). P: Positionable patient. E: Expansile gas (SF6/C3F8). R: Retinopexy (Laser/Cryo)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Steam-roller Maneuver: If subretinal fluid (SRF) is bullous, have the patient lie face down, then slowly rotate to the desired position to 'push' fluid away from the macula.",
+          "Inverted Steam-roller: Used for superior detachments to move fluid away from the break.",
+          "Fish-egg Prevention: Inject gas with the patient's head turned so the injection site is highest; avoid 'pumping' the syringe.",
+          "Gas-Fluid Exchange: The bubble closes the break, and the RPE pump usually clears the SRF within 24-48 hours.",
+          "The 'Window' Effect: Gas allows for excellent visualization of the break for laser once the retina is flat."
+        ]
+      },
+      {
+        "title": "Intraoperative Complications",
+        "icon": "warning",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Complication",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Fish-egg Bubbles",
+              "Flick the globe or wait for coalescence"
+            ],
+            [
+              "Subconjunctival Gas",
+              "Observation (harmless)"
+            ],
+            [
+              "Gas in Canal of Petit",
+              "Repositioning head maneuver"
+            ],
+            [
+              "IOP Spike / CRAO",
+              "Immediate AC Tap / Digital Massage"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Postoperative Complications",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "New Retinal Breaks (7-15%): Most common cause of failure, usually occurring in the inferior quadrants.",
+          "Proliferative Vitreoretinal Retinopathy (PVR): Occurs in ~3-5%.",
+          "Subretinal Gas: Entry of gas into the subretinal space through the break.",
+          "Cataract progression (less common than with vitrectomy).",
+          "Delayed SRF absorption."
+        ]
+      },
+      {
+        "title": "The PIVOT Trial Findings",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "The Pneumatic Retinopexy versus Vitrectomy for Retinal Detachment (PIVOT) Trial demonstrated that while PnR has a lower primary reattachment rate (80.6% vs 93.2%), patients in the PnR group had significantly better functional outcomes, including higher mean ETDRS visual acuity (79.9 vs 75.0 letters) and less metamorphopsia at 1 year. This 'PnR Paradox' suggests that PnR may be more gentle on the macula."
+      },
+      {
+        "title": "Altitude & Travel Warnings",
+        "icon": "airplanemode_active",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "NO AIR TRAVEL until the gas bubble is completely resolved (risk of catastrophic IOP rise and CRAO).",
+          "NO Nitrous Oxide anesthesia (commonly used in dental or general surgery).",
+          "Avoid mountain passes or significant altitude changes.",
+          "Patients MUST wear a medic-alert wristband indicating intraocular gas."
+        ]
+      },
+      {
+        "title": "Investigations & Workup",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Dilated Scleral Depression (360 degrees) to rule out inferior breaks.",
+          "2. B-Scan Ultrasound if vitreous hemorrhage obscures the view.",
+          "3. Macular OCT to determine Macula-On vs. Macula-Off status.",
+          "4. Baseline IOP and Gonioscopy (if history of glaucoma)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis for Failure",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Suspected Cause",
+            "Clinical Clues",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Inadequate Tamponade",
+              "Persistent SRF under the primary break",
+              "Check positioning / add more gas"
+            ],
+            [
+              "New/Missed Break",
+              "SRF in a new quadrant or increasing",
+              "Scleral Buckle or PPV"
+            ],
+            [
+              "PVR Progression",
+              "Fixed retinal folds, star folds",
+              "Vitrectomy with Membrane Peel"
+            ],
+            [
+              "Subretinal Gas",
+              "Bubble visible behind the retina",
+              "Immediate repositioning or PPV"
+            ]
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Pneumatic retinopexy",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "read": true,
+  "bookmarked": true
+}

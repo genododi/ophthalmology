@@ -1,0 +1,172 @@
+{
+  "id": 1775044656060,
+  "seqId": 87,
+  "title": "Contact Lens Mastery: From Refractive Correction to Keratoconus Rehabilitation",
+  "summary": "A comprehensive clinical guide to contact lens (CL) modalities, fitting principles, and the specific armamentarium required for the complex management of keratoconus.",
+  "date": "2026-04-01T11:57:36.060Z",
+  "data": {
+    "title": "Contact Lens Mastery: From Refractive Correction to Keratoconus Rehabilitation",
+    "summary": "A comprehensive clinical guide to contact lens (CL) modalities, fitting principles, and the specific armamentarium required for the complex management of keratoconus.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 30 70 50 T30 50' fill='hsl(215, 90%, 20%)' opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Classification of Contact Lenses",
+        "icon": "apps",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Modality",
+            "Material",
+            "Primary Use"
+          ],
+          "rows": [
+            [
+              "Soft (SCL)",
+              "Hydrogel / Silicone Hydrogel",
+              "Myopia, Hyperopia, Astigmatism"
+            ],
+            [
+              "Rigid Gas Permeable (RGP)",
+              "Fluorosilicone Acrylate",
+              "Irregular Astigmatism, Keratoconus"
+            ],
+            [
+              "Hybrid",
+              "RGP center / Soft skirt",
+              "Comfort + Visual Acuity"
+            ],
+            [
+              "Scleral",
+              "High Dk RGP material",
+              "Severe Ectasia, Ocular Surface Disease"
+            ],
+            [
+              "Orthokeratology",
+              "Reverse Geometry RGP",
+              "Myopia Control"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Keratoconus: CL Modality Hierarchy",
+        "icon": "grain",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Keratoconus Correction",
+          "branches": [
+            "Piggyback Systems",
+            "RGP (Corneal)",
+            "Hybrid Lenses",
+            "Scleral Lenses (Mini/Large)"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Contact Lens Wear",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Pseudomonas Aeruginosa keratitis (rapid onset)",
+          "Acanthamoeba keratitis (pain out of proportion to exam)",
+          "Corneal neovascularization due to hypoxia",
+          "Acute red eye (CLARE/CLPU)",
+          "Tight lens syndrome"
+        ]
+      },
+      {
+        "title": "Common CL Complications",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "GPC",
+              "value": 35
+            },
+            {
+              "label": "Dry Eye",
+              "value": 85
+            },
+            {
+              "label": "Infiltrative Keratitis",
+              "value": 25
+            },
+            {
+              "label": "Microbial Keratitis",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Management of Complications",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Immediate cessation of lens wear",
+          "Step 2: Culture of lens case and ocular surface if infection suspected",
+          "Step 3: Topical antibiotics (Fluoroquinolones) for suspected MK",
+          "Step 4: Lubrication and mast cell stabilizers for GPC",
+          "Step 5: Refit lens geometry or material after resolution"
+        ]
+      },
+      {
+        "title": "Mnemonic: Signs of Over-wear/Hypoxia",
+        "icon": "school",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "EDEMA",
+          "explanation": "E: Epithelial microcysts, D: Descemet's striae, E: Endothelial polymegethism, M: Myopic shift, A: Acute endothelial cell loss."
+        }
+      },
+      {
+        "title": "Fitting Principles for Keratoconus",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Aim for 'Three-point touch' in corneal RGP fitting: central apical touch and mid-peripheral bearing.",
+          "Scleral lenses vault the entire cornea and limbus, landing on the conjunctiva, eliminating corneal mechanical stress.",
+          "Piggyback: Place a thin high-Dk silicone hydrogel lens under the RGP to enhance comfort.",
+          "Calculate 'Vault' for scleral lenses: Ensure 100-200 microns of clearance after settling.",
+          "Topography-guided fitting is standard: Use E-map or Sagittal maps to predict base curve."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Never dispense CLs to a patient with active blepharitis or MGD without prior treatment.",
+          "Always check oxygen transmissibility (Dk/t) for patients with history of hypoxic stress.",
+          "For scleral lenses, use preservative-free saline to prevent toxic epitheliopathy.",
+          "Hydrogel lenses are contraindicated in patients with extreme dry eye; recommend daily disposables with high water content or silicone hydrogel with low modulus.",
+          "In Keratoconus, regular topography is essential to monitor progression before fitting."
+        ]
+      }
+    ],
+    "chapterId": "refractive"
+  },
+  "chapterId": "refractive",
+  "_newlyImported": 1775044656060,
+  "communityId": "sub_1773754343765_zd805sox8",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T13:32:23.766Z"
+}

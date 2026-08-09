@@ -1,0 +1,347 @@
+{
+  "id": 1775557892286,
+  "seqId": 759,
+  "title": "Post-Trabeculectomy Hypotony: Bleb Leak vs. Overfiltration",
+  "summary": "A high-fidelity clinical roadmap for differentiating and managing low intraocular pressure after glaucoma filtration surgery. Mastering the nuance between conjunctival dehiscence and excessive aqueous egress through the scleral flap.",
+  "date": "2026-04-07T10:31:32.286Z",
+  "data": {
+    "title": "Post-Trabeculectomy Hypotony: Bleb Leak vs. Overfiltration",
+    "summary": "A high-fidelity clinical roadmap for differentiating and managing low intraocular pressure after glaucoma filtration surgery. Mastering the nuance between conjunctival dehiscence and excessive aqueous egress through the scleral flap.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 Q50 20 80 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M25 45 Q50 35 75 45' fill='hsl(215, 90%, 45%)' opacity='0.3'/><circle cx='50' cy='30' r='5' fill='hsl(215, 90%, 45%)'/><path d='M50 35 L50 45 M45 40 L55 40' stroke='white' stroke-width='1'/><path d='M48 25 L52 25 M50 25 L50 20' stroke='hsl(0, 80%, 50%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definitions & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Hypotony is typically defined as IOP ≤ 6 mmHg. A BLEB LEAK involves a physical breach in the conjunctival barrier (positive Seidel test), whereas OVERFILTRATION refers to excessive aqueous flow through the scleral flap into the subconjunctival space despite an intact conjunctiva (negative Seidel test). Both lead to a shallow anterior chamber and potential vision loss."
+      },
+      {
+        "title": "Etiology: Why the Pressure Drops",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Hypotony Causes",
+          "branches": [
+            "Bleb Leak: Conjunctival tear, wound dehiscence, Mitomycin-C induced necrosis",
+            "Overfiltration: Loose scleral sutures, oversized flap, excessive MMC use",
+            "Internal: Ciliary body detachment, Cyclodialysis cleft, Ciliary shutdown (uveitis)"
+          ]
+        }
+      },
+      {
+        "title": "Incidence & Timing",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Early Overfiltration (Week 1)",
+              "value": 85
+            },
+            {
+              "label": "Early Bleb Leak (Week 1)",
+              "value": 40
+            },
+            {
+              "label": "Late Bleb Leak (Years)",
+              "value": 65
+            },
+            {
+              "label": "Hypotony Maculopathy",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Leak vs. Overfiltration",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Bleb Leak",
+            "Overfiltration",
+            "Ciliary Shutdown"
+          ],
+          "rows": [
+            [
+              "Seidel Test",
+              "Positive (Fluorescein clearance)",
+              "Negative",
+              "Negative"
+            ],
+            [
+              "Bleb Appearance",
+              "Flat or low; localized defect",
+              "Large, diffuse, succulent",
+              "Flat / No Bleb"
+            ],
+            [
+              "Anterior Chamber",
+              "Shallow or Flat",
+              "Shallow or Flat",
+              "Deep or Shallow"
+            ],
+            [
+              "IOP",
+              "Very low (<4 mmHg)",
+              "Low (4-7 mmHg)",
+              "Low"
+            ],
+            [
+              "Primary Cause",
+              "Conjunctival break",
+              "Low outflow resistance",
+              "Aqueous suppression/Inflammation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Classification of Bleb Leaks",
+        "icon": "category",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Timing",
+            "Characteristics"
+          ],
+          "rows": [
+            [
+              "Type I (Early)",
+              "1-2 weeks post-op",
+              "Wound dehiscence, surgical trauma"
+            ],
+            [
+              "Type II (Late)",
+              "Months to years",
+              "Avascular, cystic bleb; MMC-related necrosis"
+            ],
+            [
+              "Point Leak",
+              "Anytime",
+              "Pinpoint 'sweating' through thin wall"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "microscope",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "IOP measurement (Goldmann or Tonopen)",
+          "Seidel Test: Use 10% fluorescein (undiluted) for better visualization",
+          "Corneal Signs: Vogt's striae (Descemet folds)",
+          "Iris: Anterior bowing, iridocorneal contact",
+          "Fundus: Choroidal effusions ('kissing' choroidals if severe)",
+          "Macula: Chorioretinal folds (Hypotony Maculopathy)"
+        ]
+      },
+      {
+        "title": "The Seidel Test Protocol",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Instill topical anesthetic (Proparacaine).",
+          "Step 2: Apply a 2% or 10% Fluorescein strip directly to the suspected leak site.",
+          "Step 3: Examine under the Slit Lamp using a Cobalt Blue filter.",
+          "Step 4: Look for 'dilution' or 'streaming' of dark orange/yellow dye by clear aqueous.",
+          "Step 5: Apply gentle digital pressure on the globe (Provocative Seidel) if initially negative."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Immediate Surgical Consultation",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Endophthalmitis: Purulent discharge, severe pain, hypopyon, vitreous cells.",
+          "Flat Anterior Chamber (Grade 3): Iridocorneal contact from center to periphery; risk of PAS and corneal decompensation.",
+          "Suprachoroidal Hemorrhage: Sudden pain, loss of red reflex, high IOP (switches from low to high).",
+          "Kissing Choroidals: Apposition of choroidal elevations in the posterior pole."
+        ]
+      },
+      {
+        "title": "Management of Early Bleb Leak",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Aqueous Suppressants: Paradoxically used to reduce flow through leak to allow healing.",
+          "2. Large Diameter Bandage Contact Lens (BCL): 16-20mm lens to compress leak.",
+          "3. Cyanoacrylate or Fibrin Glue: For small focal defects.",
+          "4. Pressure Patching: For 24-48 hours (less common now).",
+          "5. Surgical Repair: Resuturing of conjunctiva with 10-0 Nylon (tapered needle)."
+        ]
+      },
+      {
+        "title": "Management of Overfiltration",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Conservative: Observation + Topical Atropine (deepen AC) + Steroids (induce scarring).",
+          "2. Simmons Shell / Pressure Patch: External compression to limit flow.",
+          "3. Autologous Blood Injection: Into the bleb to induce fibrin clot and scarring.",
+          "4. Transconjunctival Compression Sutures: (e.g., 'Cushing' or 'X' sutures) to tighten flap.",
+          "5. Surgical Revision: Return to OR to add scleral flap sutures."
+        ]
+      },
+      {
+        "title": "Hypotony Mnemonic: SHADE",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "SHADE",
+          "explanation": "S: Scleral flap overfiltration; H: Hemorrhage (Suprachoroidal); A: Aqueous suppression (Ciliary shutdown); D: Detachment (Ciliary body/Choroidal); E: External leak (Bleb leak)."
+        }
+      },
+      {
+        "title": "Agrawal & Agrawal Grading of Hypotony Maculopathy",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Grade",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Grade 1",
+              "Chorioretinal folds limited to the periphery"
+            ],
+            [
+              "Grade 2",
+              "Folds extending to the posterior pole but not fovea"
+            ],
+            [
+              "Grade 3",
+              "Folds involving the fovea, significant vision drop"
+            ],
+            [
+              "Grade 4",
+              "Permanent structural changes / Subretinal fibrosis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Differentiate a 'sweating' bleb from a 'leaking' bleb: Sweating is diffuse oozing through intact tissue; leaking is a focal stream.",
+          "Always perform a Seidel test before dilating a post-op trabeculectomy patient.",
+          "Atropine 1% BID is vital in overfiltration to prevent ciliary muscle spasm and further AC shallowing.",
+          "In late-onset leaks, risk of blebitis/endophthalmitis is high; use fortified antibiotics if suspicious.",
+          "Don't wait too long to fix a flat AC; 48 hours of lens-cornea touch leads to permanent damage."
+        ]
+      },
+      {
+        "title": "Advanced Surgical Techniques",
+        "icon": "construction",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Tenon's Advancement: For late MMC-induced leaks, sliding healthy posterior Tenon's tissue over the defect.",
+          "Wisdom of Wise: Using a 4-mirror lens to perform Laser Suture Lysis (not applicable here, but relevant to *preventing* overfiltration).",
+          "Tisseel Fibrin Sealant: For 'sweating' avascular blebs.",
+          "Cross-linked Hyaluronic Acid: Emerging injectable to bulk up thin bleb walls."
+        ]
+      }
+    ],
+    "generationPrompt": "Bleb leak vs bleb overfiltration",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "bookmarked": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 431,
+      "keywords": [
+        "trabeculectomy",
+        "hypotony",
+        "glaucoma",
+        "pressure",
+        "surgical"
+      ]
+    },
+    {
+      "pageNum": 425,
+      "keywords": [
+        "trabeculectomy",
+        "hypotony",
+        "overfiltration",
+        "glaucoma",
+        "pressure"
+      ]
+    },
+    {
+      "pageNum": 427,
+      "keywords": [
+        "trabeculectomy",
+        "hypotony",
+        "glaucoma",
+        "leaks",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 422,
+      "keywords": [
+        "trabeculectomy",
+        "hypotony",
+        "glaucoma",
+        "pressure",
+        "drops"
+      ]
+    },
+    {
+      "pageNum": 397,
+      "keywords": [
+        "trabeculectomy",
+        "hypotony",
+        "glaucoma",
+        "ocular",
+        "surgical"
+      ]
+    },
+    {
+      "pageNum": 421,
+      "keywords": [
+        "trabeculectomy",
+        "hypotony",
+        "glaucoma",
+        "post"
+      ]
+    }
+  ]
+}

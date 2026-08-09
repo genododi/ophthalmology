@@ -1,0 +1,163 @@
+{
+  "id": 1775424166859,
+  "seqId": 713,
+  "title": "Epiretinal Membrane (ERM) Mastery: Clinical Approach",
+  "summary": "A comprehensive guide to the pathogenesis, clinical evaluation, and surgical management of idiopathic and secondary Epiretinal Membranes. Master the 'Macular Pucker' spectrum from observation to peeling.",
+  "date": "2026-04-05T21:22:46.859Z",
+  "data": {
+    "title": "Epiretinal Membrane (ERM) Mastery: Clinical Approach",
+    "summary": "A comprehensive guide to the pathogenesis, clinical evaluation, and surgical management of idiopathic and secondary Epiretinal Membranes. Master the 'Macular Pucker' spectrum from observation to peeling.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 30 70 50 T50 70' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "An ERM is a fibrocellular proliferation on the inner surface of the internal limiting membrane (ILM). Pathophysiology involves the migration of glial cells (Müller cells), RPE cells, and hyalocytes through retinal breaks or via a posterior vitreous detachment (PVD) creating a scaffold for contraction, leading to macular surface distortion, striae, and pseudo-hole formation."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Idiopathic (>60yo)",
+              "value": 90
+            },
+            {
+              "label": "Post-Retinal Detachment",
+              "value": 25
+            },
+            {
+              "label": "Post-Retinal Vein Occlusion",
+              "value": 20
+            },
+            {
+              "label": "Post-Inflammatory",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags & Urgent Findings",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapid vision loss (rule out macular edema/tractional detachment)",
+          "Severe distortion (Amsler grid scotoma)",
+          "Presence of full-thickness macular hole (FTMH) associated with ERM",
+          "Signs of neovascularization (secondary to RVO)"
+        ]
+      },
+      {
+        "title": "Classification (Gass Classification)",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Stage",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Grade 0",
+              "Cellophane maculopathy: thin, transparent, no distortion"
+            ],
+            [
+              "Grade 1",
+              "Crinkled cellophane: mild retinal wrinkling/striae"
+            ],
+            [
+              "Grade 2",
+              "Macular pucker: thick, opaque membrane with severe distortion"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "ERM Mimics",
+          "branches": [
+            "Vitreomacular Traction (VMT)",
+            "Macular Hole",
+            "Cystoid Macular Edema (CME)",
+            "Combined Hamartoma of Retina/RPE",
+            "Epiretinal Gliosis from PDR"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: BCVA and Amsler Grid (Metamorphopsia assessment)",
+          "Step 2: Dilated Fundoscopy (Observe sheen, striae, and vascular tortuosity)",
+          "Step 3: OCT Macula (Gold standard: check for ectopic inner foveal layers, Foveal contour, CMT)",
+          "Step 4: Fluorescein Angiography (If secondary cause like RVO is suspected)"
+        ]
+      },
+      {
+        "title": "Surgical Technique: Membrane Peel",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Core Vitrectomy (23G/25G/27G system)",
+          "2. PVD induction using active aspiration",
+          "3. Staining: Use Triamcinolone (Triesence) or Brilliant Blue G (ILM blue) for visualization",
+          "4. Delamination: Use microforceps to grasp membrane edge and peel",
+          "5. ILM Peeling: Recommended to prevent recurrence (peel 2-3 disc diameters)",
+          "6. Air-Fluid Exchange (if indicated)"
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Visual acuity of 20/40 or worse is a general threshold for surgery.",
+          "Metamorphopsia is a better surgical indication than just visual acuity.",
+          "ERM recurrence after ILM peeling is significantly lower (<5%).",
+          "Expect improvement to be gradual over 3-6 months post-op."
+        ]
+      },
+      {
+        "title": "Mnemonic: Surgical Indications",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "P.U.C.K.E.R.",
+          "explanation": "Progressive vision decline, Unacceptable distortion (metamorphopsia), Centrally affecting vision, Key symptoms interfering with daily life, Examining findings show severe pucker, Ready for surgical intervention (20/40 threshold)."
+        }
+      }
+    ],
+    "generationPrompt": "ERM case approach",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "read": true
+}

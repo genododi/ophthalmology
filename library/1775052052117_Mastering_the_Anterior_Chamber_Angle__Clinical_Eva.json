@@ -1,0 +1,147 @@
+{
+  "id": 1775052052117,
+  "seqId": 526,
+  "title": "Mastering the Anterior Chamber Angle: Clinical Evaluation & Gonioscopy",
+  "summary": "The definitive guide to anterior chamber angle assessment, transitioning from clinical suspicion to precise, evidence-based gonioscopic grading for glaucoma management.",
+  "date": "2026-04-01T14:00:52.117Z",
+  "data": {
+    "title": "Mastering the Anterior Chamber Angle: Clinical Evaluation & Gonioscopy",
+    "summary": "The definitive guide to anterior chamber angle assessment, transitioning from clinical suspicion to precise, evidence-based gonioscopic grading for glaucoma management.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M50 10 L50 90 M10 50 L90 50' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Anatomy: The Angle Landmarks (Schwalbe to Ciliary Body)",
+        "icon": "visibility",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Schwalbe's Line: Termination of Descemet's membrane.",
+          "2. Non-pigmented Trabecular Meshwork: Posterior to Schwalbe's.",
+          "3. Pigmented Trabecular Meshwork: Primary site of aqueous outflow.",
+          "4. Scleral Spur: The most anterior projection of the sclera; attachment site of the ciliary muscle.",
+          "5. Ciliary Body Band: The vascularized, darker, most posterior structure visible."
+        ]
+      },
+      {
+        "title": "Shaffer Grading System",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Grade",
+            "Angle Width (Degrees)",
+            "Description",
+            "Clinical Risk"
+          ],
+          "rows": [
+            [
+              "Grade 4",
+              "35-45°",
+              "Ciliary body visible",
+              "None"
+            ],
+            [
+              "Grade 3",
+              "20-35°",
+              "Scleral spur visible",
+              "None"
+            ],
+            [
+              "Grade 2",
+              "20°",
+              "Trabecular meshwork visible",
+              "Possible closure"
+            ],
+            [
+              "Grade 1",
+              "10°",
+              "Schwalbe's line visible",
+              "High risk"
+            ],
+            [
+              "Grade 0",
+              "0°",
+              "No structures visible",
+              "Closed angle"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Gonioscopy Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Peripheral Anterior Synechiae (PAS)",
+          "Iris processes masking the angle",
+          "Neovascularization of the angle (NVA)",
+          "Blood in Schlemm's Canal (high episcleral venous pressure)",
+          "Exfoliation material on the trabecular meshwork"
+        ]
+      },
+      {
+        "title": "Spaulding's Mnemonic for Gonioscopy",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "I Can See The Scleral Spur",
+          "explanation": "I (Iris) - C (Ciliary Body) - S (Scleral Spur) - T (Trabecular Meshwork) - S (Schwalbe's Line). Posterior to Anterior."
+        }
+      },
+      {
+        "title": "Technique: Dynamic Gonioscopy",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Instill topical anesthetic; ensure patient is upright or supine.",
+          "Step 2: Apply gonioscopy lens (e.g., Goldmann 3-mirror or Posner 4-mirror) with viscoelastic coupling agent.",
+          "Step 3: Keep the beam narrow and vertical (1-2mm width) to avoid light-induced pupil constriction.",
+          "Step 4: Use indentation (compression) gonioscopy to differentiate appositional from synechial closure.",
+          "Step 5: If angle opens under compression, the closure is appositional (potential for LPI)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Narrow Angles",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Narrow Angle Etiology",
+          "branches": [
+            "Pupillary Block (Most common)",
+            "Plateau Iris Syndrome",
+            "Phacomorphic Glaucoma",
+            "Malignant Glaucoma (Aqueous misdirection)",
+            "Uveitis (Synechial closure)"
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances: Imaging vs. Gonioscopy",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "AS-OCT (Anterior Segment OCT): Non-contact, high resolution (5-10 microns). Useful for objectively measuring AOD500 (Angle Opening Distance at 500 microns).",
+          "UBM (Ultrasound Biomicroscopy): 35-50 MHz frequency. The gold standard for visualizing structures behind the iris (e.g., ciliary cysts, ciliary body position).",
+          "Note: Gonioscopy remains the clinical gold standard as it allows for direct observation of pigment and PAS that OCT may miss."
+        ]
+      }
+    ],
+    "generationPrompt": "Anterior chamber angle assessment & measuring",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "read": true
+}

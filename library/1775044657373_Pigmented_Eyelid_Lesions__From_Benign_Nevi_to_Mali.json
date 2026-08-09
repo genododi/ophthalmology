@@ -1,0 +1,299 @@
+{
+  "id": 1775044657373,
+  "seqId": 102,
+  "title": "Pigmented Eyelid Lesions: From Benign Nevi to Malignant Melanoma",
+  "summary": "A comprehensive clinical guide to the diagnosis, classification, and management of pigmented lesions of the periocular region. Essential for distinguishing benign melanocytic proliferation from life-threatening malignancies like Lentigo Maligna Melanoma.",
+  "date": "2026-04-01T11:57:37.373Z",
+  "data": {
+    "title": "Pigmented Eyelid Lesions: From Benign Nevi to Malignant Melanoma",
+    "summary": "A comprehensive clinical guide to the diagnosis, classification, and management of pigmented lesions of the periocular region. Essential for distinguishing benign melanocytic proliferation from life-threatening malignancies like Lentigo Maligna Melanoma.",
+    "summary_illustration": "<svg viewBox='0 0 100 60' xmlns='http://www.w3.org/2000/svg'><path d='M10,30 Q50,5 90,30 Q50,55 10,30 Z' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='30' r='12' fill='hsl(215, 90%, 45%)' opacity='0.3'/><circle cx='50' cy='30' r='6' fill='hsl(215, 90%, 45%)'/><circle cx='35' cy='22' r='3' fill='#5d4037'/><circle cx='38' cy='25' r='1.5' fill='#795548'/><path d='M10,30 L90,30' stroke='hsl(215, 90%, 45%)' stroke-width='0.5' stroke-dasharray='2,2'/></svg>",
+    "sections": [
+      {
+        "title": "Overview & Clinical Significance",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Pigmented eyelid lesions encompass a broad spectrum ranging from common benign nevi to highly aggressive malignant melanomas. The eyelid is a unique anatomical site where skin thickness is minimal, and proximity to the globe and orbit makes early diagnosis critical. While basal cell carcinoma (BCC) is the most common eyelid malignancy, pigmented variants can mimic melanoma, requiring high clinical suspicion and histopathological confirmation."
+      },
+      {
+        "title": "Epidemiological Trends",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Benign Nevi",
+              "value": 85
+            },
+            {
+              "label": "Seborrheic Keratosis",
+              "value": 40
+            },
+            {
+              "label": "Pigmented BCC",
+              "value": 15
+            },
+            {
+              "label": "Eyelid Melanoma",
+              "value": 1
+            }
+          ]
+        }
+      },
+      {
+        "title": "Anatomical Classification",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Pigmented Lesions",
+          "branches": [
+            "Epidermal (Lentigo, Freckle)",
+            "Dermal (Blue Nevus, Nevus of Ota)",
+            "Melanocytic Nevi (Junctional, Compound, Intradermal)",
+            "Non-Melanocytic (Pigmented BCC, Seborrheic Keratosis)",
+            "Malignant (Melanoma, Lentigo Maligna)"
+          ]
+        }
+      },
+      {
+        "title": "The Melanocytic Nevi Spectrum",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Location of Melanocytes",
+            "Clinical Appearance",
+            "Malignant Potential"
+          ],
+          "rows": [
+            [
+              "Junctional",
+              "Dermal-epidermal junction",
+              "Flat, well-circumscribed, dark brown macule",
+              "Low"
+            ],
+            [
+              "Compound",
+              "Junction + Dermis",
+              "Pigmented papule, may have hair",
+              "Low"
+            ],
+            [
+              "Intradermal",
+              "Dermis only",
+              "Skin-colored to tan, dome-shaped papule",
+              "Minimal"
+            ],
+            [
+              "Blue Nevus",
+              "Deep Dermis",
+              "Blue-grey nodule due to Tyndall effect",
+              "Rare"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The ABCDE Screening Tool",
+        "icon": "remember",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "ABCDE Rule",
+          "explanation": "Asymmetry of shape; Border irregularity (notched/blurred); Color variegation (multiple shades); Diameter >6mm; Evolution (change in size, shape, or symptoms)."
+        }
+      },
+      {
+        "title": "Malignant Melanoma Subtypes",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Subtype",
+            "Features"
+          ],
+          "rows": [
+            [
+              "Lentigo Maligna",
+              "Sun-damaged skin, flat, slow radial growth"
+            ],
+            [
+              "Superficial Spreading",
+              "Most common, irregular borders, varied color"
+            ],
+            [
+              "Nodular",
+              "Aggressive, vertical growth phase, dark blue-black"
+            ],
+            [
+              "Acral Lentiginous",
+              "Rare on eyelids; affects palms/soles"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Critical Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Madarosis (loss of eyelashes) within the lesion area",
+          "Destruction of the Meibomian gland orifices",
+          "Ulceration or spontaneous bleeding",
+          "Acquired Melanosis with 'satellite' lesions",
+          "Change in pigment onto the palpebral conjunctiva",
+          "Rapid growth or increase in thickness (vertical growth phase)"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Comprehensive History: UV exposure, family hx, rate of change.",
+          "2. Slit-Lamp Examination: High-mag assessment of lid margin and conjunctiva.",
+          "3. Dermoscopy: Evaluation of pigment network, dots, and vessels.",
+          "4. Photodocumentation: Baseline imaging for monitoring.",
+          "5. Biopsy: Full-thickness incisional (wedge) or excisional if small.",
+          "6. Histopathology: H&E staining + Immunohistochemistry (S100, MART-1, Mel-5, HMB-45)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis (Pigmented)",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Mimickers",
+          "branches": [
+            "Seborrheic Keratosis (Stuck-on)",
+            "Pigmented BCC (Pearly border)",
+            "Actinic Keratosis",
+            "Dermatosis Papulosa Nigra",
+            "Pyogenic Granuloma (Old)",
+            "Subcorneal Hemorrhage"
+          ]
+        }
+      },
+      {
+        "title": "Breslow Thickness Staging",
+        "icon": "straighten",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Thickness (mm)",
+            "5-Year Survival"
+          ],
+          "rows": [
+            [
+              "< 0.75 mm",
+              "95-100%"
+            ],
+            [
+              "0.76 - 1.50 mm",
+              "80-90%"
+            ],
+            [
+              "1.51 - 4.00 mm",
+              "60-75%"
+            ],
+            [
+              "> 4.00 mm",
+              "< 50%"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Management Margins",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Melanoma in situ: 5mm surgical margin.",
+          "Breslow <1mm: 1cm surgical margin.",
+          "Breslow 1-2mm: 1-2cm surgical margin (difficult on eyelid).",
+          "Mohs Micrographic Surgery: Contested for melanoma but widely used for pigmented BCC.",
+          "Slow-Mohs (Permanent Sections): Often preferred for melanoma to ensure clearance."
+        ]
+      },
+      {
+        "title": "Ocular Melanocytosis (Nevus of Ota)",
+        "icon": "fingerprint",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "A congenital dermal melanocytosis involving the distribution of the trigeminal nerve (V1, V2). It presents as slate-blue hyperpigmentation of the periocular skin and ipsilateral scleral blueing. These patients carry a higher risk of uveal melanoma (1 in 400) and glaucoma, requiring annual fundoscopy and IOP checks."
+      },
+      {
+        "title": "Clinical Pearls for the Resident",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Lid margin nevi often 'kiss' the opposing lid (Kissing Nevus), suggesting origin before eyelid separation in utero.",
+          "Pigmented BCC often retains a pearly border and telangiectasia; look closely with the slit-lamp.",
+          "Biopsy is MANDATORY for any new pigmented lesion in an adult or any changing lesion in a child.",
+          "Sentinel Lymph Node Biopsy (SLNB) should be considered for tumors >0.8mm thick or those with ulceration.",
+          "Map biopsies are essential if Primary Acquired Melanosis (PAM) of the conjunctiva is suspected alongside the lid lesion."
+        ]
+      },
+      {
+        "title": "Recent Advances: Targeted Therapy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "BRAF Inhibitors: Vemurafenib/Dabrafenib for V600E mutations.",
+          "MEK Inhibitors: Trametinib often used in combination.",
+          "Checkpoint Inhibitors: Pembrolizumab (anti-PD-1) for metastatic or unresectable melanoma.",
+          "Ipilimumab: Anti-CTLA-4 therapy."
+        ]
+      },
+      {
+        "title": "Prognostic Factors",
+        "icon": "monitoring",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Vertical growth phase (worst prognosis).",
+          "Mitotic rate (measured in mitoses/mm²).",
+          "Presence of ulceration.",
+          "Lymphovascular or perineural invasion.",
+          "Nodal involvement (most significant predictor of survival)."
+        ]
+      }
+    ],
+    "generationPrompt": "pigmented lid lesions",
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "_newlyImported": 1775044657373,
+  "communityId": "sub_1774522679797_r8c2w7hye",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-03-26T10:57:59.797Z"
+}

@@ -1,0 +1,236 @@
+{
+  "id": 1775025022807,
+  "seqId": 22,
+  "title": "Adie’s Tonic Pupil & Holmes-Adie Syndrome",
+  "summary": "A comprehensive clinical guide to the most common cause of isolated anisocoria in young adults, characterized by post-ganglionic parasympathetic denervation and aberrant regeneration.",
+  "date": "2026-04-01T06:30:22.807Z",
+  "data": {
+    "title": "Adie’s Tonic Pupil & Holmes-Adie Syndrome",
+    "summary": "A comprehensive clinical guide to the most common cause of isolated anisocoria in young adults, characterized by post-ganglionic parasympathetic denervation and aberrant regeneration.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='#e3f2fd' stroke='#1565c0' stroke-width='2'/><circle cx='100' cy='100' r='45' fill='#333'/><path d='M100 55 A45 45 0 0 1 145 100' fill='none' stroke='#ffeb3b' stroke-width='4' stroke-linecap='round'/><path d='M60 100 Q80 80 100 100 T140 100' fill='none' stroke='#1565c0' stroke-width='2' opacity='0.5'/><circle cx='100' cy='100' r='15' fill='#000'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Adie’s Tonic Pupil (ATP) is a benign clinical entity resulting from damage to the post-ganglionic parasympathetic innervation of the iris sphincter and ciliary muscle (located in the ciliary ganglion or short ciliary nerves). It is characterized by a mid-dilated pupil that reacts poorly to light but exhibits a slow, 'tonic' response to near effort and exhibits denervation supersensitivity to dilute miotics."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Female Predominance",
+              "value": 70
+            },
+            {
+              "label": "Age 20-40 Range",
+              "value": 85
+            },
+            {
+              "label": "Unilateral at Onset",
+              "value": 80
+            },
+            {
+              "label": "Bilateral Involvement (Annual Rate)",
+              "value": 4
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: Why Does the Ganglion Fail?",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Ciliary Ganglionitis",
+          "branches": [
+            "Idiopathic (Most Common)",
+            "Viral Prodrome (VZV, HSV)",
+            "Orbital Trauma / Surgery",
+            "Ischemia (Giant Cell Arteritis)",
+            "Autoimmune (Miller-Fisher Syndrome)",
+            "Paraneoplastic Syndromes"
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The 97% Rule",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Normally, 97% of ciliary ganglion fibers serve the ciliary muscle (accommodation) and only 3% serve the iris sphincter (light reflex). After damage, fibers regrow randomly. Because there are so many more 'accommodation' fibers, they overwhelmingly re-innervate the iris sphincter. This 'Aberrant Regeneration' explains the Light-Near Dissociation: the pupil constricts during near effort because the ciliary muscle signal is misdirected to the iris."
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "microscope",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Anisocoria: Greater in bright light (affected pupil is larger).",
+          "Sectoral Iris Palsy: Segmental paralysis of the iris sphincter.",
+          "Vermiform Movements: 'Worm-like' iris contractions visible under slit-lamp.",
+          "Tonic Near Response: Slow constriction followed by even slower redilation.",
+          "Decreased Accommodation: Transient blurred near vision in the acute phase."
+        ]
+      },
+      {
+        "title": "The Holmes-Adie Syndrome Triad",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "The Adie Triad",
+          "explanation": "1. Tonic Pupil (unilateral or bilateral). 2. Tendon Reflexes absent or diminished (Deep Tendon Reflexes, particularly the Achilles and patellar). 3. Autonomic Dysfunction (e.g., localized segmental anhidrosis - Ross Syndrome)."
+        }
+      },
+      {
+        "title": "Pharmacological Diagnostic Workup",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Measure resting pupil sizes in dark and light room conditions.",
+          "Step 2: Prepare Dilute Pilocarpine (0.1% or 0.125%). Standard 1% pilocarpine must be diluted with sterile saline.",
+          "Step 3: Instill one drop in both eyes (the normal eye acts as a control).",
+          "Step 4: Wait 30–45 minutes in a dimly lit room.",
+          "Step 5: Re-evaluate. A POSITIVE test shows constriction of the Adie's pupil (denervation supersensitivity) while the normal pupil remains unchanged.",
+          "Step 6: If no response, consider higher concentrations to R/O Pharmacological Blockade."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Large Pupil",
+        "icon": "clinical_notes",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Adie’s Tonic Pupil",
+            "3rd Nerve Palsy",
+            "Pharmacological",
+            "Argyll Robertson"
+          ],
+          "rows": [
+            [
+              "Light Reflex",
+              "Absent/Minimal",
+              "Absent",
+              "Absent",
+              "Absent"
+            ],
+            [
+              "Near Reflex",
+              "Slow/Tonic",
+              "Absent",
+              "Absent",
+              "Brisk (LND)"
+            ],
+            [
+              "Pilo 0.125%",
+              "Constricts",
+              "No response",
+              "No response",
+              "N/A"
+            ],
+            [
+              "Pilo 1%",
+              "Constricts",
+              "Constricts",
+              "No response",
+              "Constricts"
+            ],
+            [
+              "Associated Signs",
+              "Sector palsy/DTR loss",
+              "Ptosis/Diplopia",
+              "History of drops",
+              "Small/Irregular/Neurosyphilis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Rule out CN III Palsy!",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Acute onset Ptosis or Diplopia (Suggests CN III)",
+          "Severe Headache or 'Worst Headache of Life' (Aneurysm risk)",
+          "Extraocular Muscle limitation (Down and Out)",
+          "Absence of Light-Near Dissociation",
+          "Sudden onset in patients with vascular risk factors"
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Resident Exams",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Long-standing Adie's pupils tend to become smaller over time ('Little Old Adie's').",
+          "Bilateral Adie's can mimic Argyll Robertson but ATP pupils are usually mid-dilated, not miotic.",
+          "Sectoral palsy is best seen using a slit-lamp with a narrow beam to stimulate specific iris segments.",
+          "The site of the lesion is the Ciliary Ganglion (Post-ganglionic)."
+        ]
+      },
+      {
+        "title": "Management & Patient Counseling",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Observation: The primary management for this benign condition.",
+          "Reassurance: Explain the non-neurological, non-life-threatening nature.",
+          "Reading Glasses: May help with unequal accommodation (unequal adds).",
+          "Cosmetic Miotics: Very dilute pilocarpine (0.05% - 0.1%) can be used for cosmesis or to reduce photophobia.",
+          "Sunglasses: For symptomatic glare in bright light."
+        ]
+      },
+      {
+        "title": "Prognosis & Follow-up",
+        "icon": "history",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "The prognosis is excellent. While the tonicity often persists, accommodation usually recovers through aberrant regeneration over several months. Patients should be warned that there is a 4% annual risk of the second eye becoming involved. Periodic follow-up is recommended to monitor for the development of bilateral involvement or associated autonomic features (Ross Syndrome)."
+      },
+      {
+        "title": "Key Landmark: Ross Syndrome",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "Ross Syndrome",
+          "explanation": "A rare progression/variant of Holmes-Adie characterized by the Triad of: 1. Tonic Pupil, 2. Hyporeflexia, and 3. Segmental Anhidrosis (inability to sweat in certain areas). It represents a more widespread degeneration of the autonomic nervous system."
+        }
+      }
+    ],
+    "generationPrompt": "Adies",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true
+}

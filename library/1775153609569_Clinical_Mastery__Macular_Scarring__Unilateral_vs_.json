@@ -1,0 +1,147 @@
+{
+  "id": 1775153609569,
+  "seqId": 575,
+  "title": "Clinical Mastery: Macular Scarring (Unilateral vs. Bilateral)",
+  "summary": "Macular scarring represents the terminal phase of various chorioretinal pathologies. Distinguishing between unilateral etiologies (often traumatic or infectious) and bilateral causes (often dystrophic or systemic) is the cornerstone of clinical workup.",
+  "date": "2026-04-02T18:13:29.569Z",
+  "data": {
+    "title": "Clinical Mastery: Macular Scarring (Unilateral vs. Bilateral)",
+    "summary": "Macular scarring represents the terminal phase of various chorioretinal pathologies. Distinguishing between unilateral etiologies (often traumatic or infectious) and bilateral causes (often dystrophic or systemic) is the cornerstone of clinical workup.",
+    "summary_illustration": "<svg viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 30 70 50 T30 50' fill='hsl(215, 90%, 20%)' opacity='0.5'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Etiological Classification",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Macular Scar",
+          "branches": [
+            "Unilateral: Trauma (Commotio/Rupture), POHS, Toxoplasmosis, CNVM post-treatment",
+            "Bilateral: AMD (Geographic Atrophy), Stargardt Disease, Best Disease, Pattern Dystrophies, Congenital Infections"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Etiology",
+            "Appearance",
+            "Bilateral Potential"
+          ],
+          "rows": [
+            [
+              "Toxoplasmosis",
+              "Chorioretinal scar w/ pigmentary clumps",
+              "Usually Unilateral"
+            ],
+            [
+              "POHS",
+              "Punctate 'punched out' lesions",
+              "Bilateral"
+            ],
+            [
+              "Stargardt Disease",
+              "Snail-track/Pisciform atrophy",
+              "Bilateral (Symmetric)"
+            ],
+            [
+              "Traumatic Rupture",
+              "Concentric to optic nerve, sub-RPE hemorrhage",
+              "Unilateral"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags for Active Progression",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Presence of subretinal fluid (SRF) indicating active CNVM",
+          "New lipid exudation at scar margins",
+          "Vitritis or anterior chamber cell (Active Infection)",
+          "Progressive visual field loss",
+          "Metamorphopsia in asymptomatic eye"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Multimodal Imaging (FAF for metabolic health, OCT for structural atrophy)",
+          "Step 2: OCT-Angiography to rule out subclinical flow in occult CNVM",
+          "Step 3: Serology (IgG/IgM for Toxo, Histoplasma, Syphilis)",
+          "Step 4: ERG/EOG if bilateral symmetric dystrophy is suspected"
+        ]
+      },
+      {
+        "title": "Epidemiology Comparison",
+        "icon": "science",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "AMD (Bilateral)",
+              "value": 90
+            },
+            {
+              "label": "Toxoplasmosis (Unilateral)",
+              "value": 65
+            },
+            {
+              "label": "Trauma (Unilateral)",
+              "value": 40
+            },
+            {
+              "label": "Stargardt (Bilateral)",
+              "value": 25
+            }
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: Dystrophic Scars",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "B.A.R.S.",
+          "explanation": "B-Best Disease (Vitelliform), A-AMD (Atrophy), R-Retinitis Pigmentosa (Macular involvement), S-Stargardt (ABCA4 mutation)."
+        }
+      },
+      {
+        "title": "Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "In unilateral scars, always examine the fellow eye periphery for 'satellite' lesions.",
+          "FAF is the gold standard for defining the borders of Geographic Atrophy.",
+          "Traumatic ruptures often have a latent period for CNVM development; watch 3-6 months post-injury.",
+          "Genetic testing is now standard-of-care for idiopathic bilateral maculopathy."
+        ]
+      }
+    ],
+    "generationPrompt": "Macular scar ( unilateral vs bilateral)",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "read": true
+}

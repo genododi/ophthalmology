@@ -1,0 +1,285 @@
+{
+  "id": 1775044701671,
+  "seqId": 519,
+  "title": "Hyphema: A Comprehensive Clinical Roadmap",
+  "summary": "Hyphema, the presence of red blood cells within the anterior chamber, is a common consequence of ocular trauma and systemic disease. This guide provides a high-yield, resident-level overview of classification, management protocols, and critical complications.",
+  "date": "2026-04-01T11:58:21.671Z",
+  "data": {
+    "title": "Hyphema: A Comprehensive Clinical Roadmap",
+    "summary": "Hyphema, the presence of red blood cells within the anterior chamber, is a common consequence of ocular trauma and systemic disease. This guide provides a high-yield, resident-level overview of classification, management protocols, and critical complications.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='#0047AB' stroke-width='4'/><path d='M30 130 Q100 110 170 130 L165 170 Q100 180 35 170 Z' fill='#D32F2F'/><path d='M30 130 Q100 110 170 130' fill='none' stroke='#B71C1C' stroke-width='2'/><circle cx='100' cy='100' r='40' fill='none' stroke='#333' stroke-width='2'/><circle cx='100' cy='100' r='15' fill='#333'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "A hyphema is the accumulation of red blood cells (RBCs) in the anterior chamber, typically settling inferiorly due to gravity. While most cases are traumatic, resulting from the rupture of iris or ciliary body vessels (e.g., the Major Arterial Circle), spontaneous cases must prompt investigation into iris neovascularization, uveitis, or hematological dyscrasias."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Male Predominance",
+              "value": 75
+            },
+            {
+              "label": "Blunt Trauma Cause",
+              "value": 85
+            },
+            {
+              "label": "Age < 20 Years",
+              "value": 60
+            },
+            {
+              "label": "Rebleed Incidence",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiological Classification",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Etiology",
+          "branches": [
+            "Traumatic (Blunt, Penetrating, Iatrogenic)",
+            "Neovascular (Diabetes, CRVO, OIS)",
+            "Inflammatory (Herpetic Uveitis, Fuchs Uveitis Syndrome)",
+            "Neoplastic (Retinoblastoma, Iris Melanoma, Juvenile Xanthogranuloma)",
+            "Hematologic (Sickle Cell, Hemophilia, Von Willebrand)",
+            "Drug-Induced (Warfarin, Aspirin, Clopidogrel)"
+          ]
+        }
+      },
+      {
+        "title": "Hyphema Grading System",
+        "icon": "format_list_numbered",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Grade",
+            "Volume of Anterior Chamber Filled",
+            "Visual Prognosis"
+          ],
+          "rows": [
+            [
+              "Microhyphema",
+              "Circulating RBCs only (no layering)",
+              "Excellent"
+            ],
+            [
+              "Grade I",
+              "Less than 33% (1/3) filled",
+              "Good (>90% achieve 20/40)"
+            ],
+            [
+              "Grade II",
+              "33% to 50% (1/2) filled",
+              "Fair"
+            ],
+            [
+              "Grade III",
+              "50% to 100% (nearly full)",
+              "Guarded"
+            ],
+            [
+              "Grade IV",
+              "100% filled ('8-Ball' or 'Black' Hyphema)",
+              "Poor risk of corneal staining"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Critical Pathophysiology",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1. Blunt force causes anteroposterior compression and equatorial expansion.",
+          "2. Rapid increase in intraocular pressure (IOP).",
+          "3. Posterior displacement of the iris-lens diaphragm.",
+          "4. Shearing of vessels at the Iris Root or Ciliary Body (Angle Recession).",
+          "5. Hemorrhage into the Aqueous Humor."
+        ]
+      },
+      {
+        "title": "The Sickle Cell Emergency",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "MANDATORY screening for Sickle Cell Trait/Disease (SCD) in all African American/Mediterranean patients.",
+          "AVOID Carbonic Anhydrase Inhibitors (CAIs) - Methazolamide/Acetazolamide increase sickling via acidosis.",
+          "AVOID Hyperosmotic agents (Mannitol) - can cause hemoconcentration and sickling.",
+          "IOP Threshold for surgery is lower (>24 mmHg for >24 hours) due to risk of CRAO/Optic Atrophy."
+        ]
+      },
+      {
+        "title": "Comprehensive Ocular Examination",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Visual Acuity (initial and daily monitoring).",
+          "Slit-lamp exam: Assess Grade, Clot status (Red vs. Black), and Corneal Staining.",
+          "IOP measurement: Goldmann applanation is preferred (unless ruptured globe).",
+          "Deferred Gonioscopy: Perform at 2-4 weeks to assess for angle recession/PAS.",
+          "Dilated Fundoscopy: Rule out retinal tears, dialysis, or Berlin's edema (Commotio Retinae).",
+          "B-Scan Ultrasonography: If view is obscured to rule out RD or vitreous hemorrhage."
+        ]
+      },
+      {
+        "title": "Standard Medical Management",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Bed rest with Head of Bed elevated to 30-45 degrees (promotes settling).",
+          "2. Rigid Fox Shield at all times (prevent further trauma).",
+          "3. Cycloplegia (Atropine 1% BID/TID) to reduce iris movement and spasm.",
+          "4. Topical Steroids (Pred Forte 1% QID) to reduce inflammation.",
+          "5. Antifibrinolytics (Aminocaproic Acid 50mg/kg q4h) - Consider in high-risk/pediatric cases to prevent rebleed.",
+          "6. IOP control: Beta-blockers or Alpha-agonists first-line."
+        ]
+      },
+      {
+        "title": "Indications for Surgical Intervention",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Uncontrolled IOP: >50 mmHg for 2 days or >35 mmHg for 7 days.",
+          "Early Corneal Blood Staining: Any sign of endothelial pigment/haze.",
+          "Total Hyphema (8-Ball): If IOP > 35 mmHg for 5 days.",
+          "Persistence: Large clot remaining for >10 days (risk of PAS).",
+          "Sickle Cell: IOP >24 mmHg for >24 hours."
+        ]
+      },
+      {
+        "title": "Surgical Techniques",
+        "icon": "architecture",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Simple Paracentesis: Burping the wound to lower IOP.",
+          "2. AC Washout: Two-port irrigation/aspiration of liquid blood.",
+          "3. Clot Express: Manual expression through a larger limbal incision (less common).",
+          "4. Automated Vitrectomy: Using a vitrector probe to remove organized clot (highest safety)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "UGH Syndrome",
+              "IOL haptic rubbing iris; chronic inflammation/IOP/blood."
+            ],
+            [
+              "Fuchs Uveitis",
+              "Diffuse stellate KPs, iris atrophy, fine NVI (Amsler sign)."
+            ],
+            [
+              "Neovascular Glaucoma",
+              "NVI at pupillary margin, fibrous membrane in angle."
+            ],
+            [
+              "Juvenile Xanthogranuloma",
+              "Yellow-orange iris nodules in children."
+            ],
+            [
+              "Herpetic Uveitis",
+              "High IOP, sector iris atrophy, corneal scarring."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Major Complications",
+        "icon": "report_problem",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Complications",
+          "branches": [
+            "Secondary Glaucoma (Aqueous outflow obstruction)",
+            "Rebleeding (Highest risk Days 2-5)",
+            "Corneal Blood Staining (Endothelial toxicity)",
+            "Peripheral Anterior Synechiae (PAS)",
+            "Optic Atrophy (from IOP spikes)",
+            "Phthisis Bulbi (in severe trauma)"
+          ]
+        }
+      },
+      {
+        "title": "Memory Aid: The 5-Day Rule",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "RE-BLEED",
+          "explanation": "R: Risk peaks at day 2-5; E: Elevate head; B: Beta-blockers (avoid CAIs in Sickle); L: Look for corneal staining; E: Every day VA/IOP; E: Evaluate for SCD; D: Defer gonioscopy."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Aspirin and NSAIDs are STRICTLY contraindicated as they increase the risk of rebleeding.",
+          "An 8-ball hyphema is black because the blood is deoxygenated and trapped; it is not necessarily older than red blood.",
+          "Corneal blood staining begins in the deep stroma and can take years to clear, often from the periphery inward.",
+          "Angle recession is found in 70-100% of traumatic hyphema cases; long-term glaucoma follow-up is mandatory."
+        ]
+      },
+      {
+        "title": "Recent Evidence & Landmark Studies",
+        "icon": "history_edu",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The 'Aminocaproic Acid vs. Placebo' trials demonstrated a significant reduction in rebleed rates (from 25-30% down to 3-4%) in high-risk populations. Recent Cochrane reviews emphasize that while systemic antifibrinolytics reduce rebleeds, they do not necessarily improve final visual acuity compared to standard conservative management. Current standard of care focuses on outpatient management for Grade I-II unless social factors or SCD are present."
+      }
+    ],
+    "chapterId": "trauma"
+  },
+  "chapterId": "trauma",
+  "_newlyImported": 1775044701671,
+  "communityId": "sub_1774367341669_whes3ti2z",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-24T15:49:01.670Z",
+  "read": true
+}

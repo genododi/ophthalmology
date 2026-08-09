@@ -1,0 +1,288 @@
+{
+  "id": 1775044688385,
+  "seqId": 416,
+  "title": "Pseudoexfoliation Syndrome (PXF): The Microfibrillopathy Masterclass",
+  "summary": "Pseudoexfoliation Syndrome (PXF) is a systemic, age-related microfibrillopathy characterized by the deposition of white, dandruff-like fibrillar material throughout the anterior segment and visceral organs. It is the most common identifiable cause of open-angle glaucoma worldwide, presenting unique challenges in both medical management and phacoemulsification surgery.",
+  "date": "2026-04-01T11:58:08.385Z",
+  "data": {
+    "title": "Pseudoexfoliation Syndrome (PXF): The Microfibrillopathy Masterclass",
+    "summary": "Pseudoexfoliation Syndrome (PXF) is a systemic, age-related microfibrillopathy characterized by the deposition of white, dandruff-like fibrillar material throughout the anterior segment and visceral organs. It is the most common identifiable cause of open-angle glaucoma worldwide, presenting unique challenges in both medical management and phacoemulsification surgery.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/1999/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M30 30 L35 35 M65 30 L60 35 M30 70 L35 65 M65 70 L60 65 M50 25 L50 30 M50 75 L50 70 M25 50 L30 50 M75 50 L70 50' stroke='white' stroke-width='2' stroke-linecap='round'/><path d='M40 40 Q50 35 60 40 Q65 50 60 60 Q50 65 40 60 Q35 50 40 40' fill='none' stroke='white' stroke-width='1' stroke-dasharray='2,2'/><text x='50' y='95' font-family='Arial' font-size='6' text-anchor='middle' fill='hsl(215, 90%, 45%)'>Target Configuration</text></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Pseudoexfoliation (PXF) is a generalized ordered proteolysis disorder. It involves the production and progressive accumulation of an abnormal fibrillar extracellular material. While visually most prominent on the anterior lens capsule, it is a systemic condition affecting the heart, lungs, liver, and kidneys. Clinically, it manifests as white flaky material on the pupillary margin and lens, leading to secondary open-angle glaucoma (PXG) and significant zonular instability."
+      },
+      {
+        "title": "Epidemiology & Genetic Landscape",
+        "icon": "genetics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "LOXL1 Gene Association",
+              "value": 99
+            },
+            {
+              "label": "Prevalence > 70 years",
+              "value": 15
+            },
+            {
+              "label": "Scandinavian Heritage",
+              "value": 25
+            },
+            {
+              "label": "Bilateral Involvement (at 10 yrs)",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The LOXL1 Nexus",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "PXF Material",
+          "branches": [
+            "LOXL1 Gene (Lysyl Oxidase-like 1)",
+            "Elastin Metabolism Disorder",
+            "TGF-Beta 1 Elevation",
+            "Oxidative Stress",
+            "MMP/TIMP Imbalance"
+          ]
+        }
+      },
+      {
+        "title": "The Ocular 'Bull's Eye' Anatomy",
+        "icon": "potted_plant",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Central Disk: Translucent zone on the anterior lens capsule.",
+          "Intermediate Clear Zone: Created by the mechanical rubbing of the iris during miosis/mydriasis.",
+          "Peripheral Granular Zone: Often only visible after maximal pupillary dilation; shows a 'hoarfrost' appearance.",
+          "Pupillary Margin: White flakes resembling dandruff ('moth-eaten' appearance).",
+          "Iris Sphincter: Atrophy leading to 'moth-eaten' transillumination defects at the ruff."
+        ]
+      },
+      {
+        "title": "Gonioscopy Findings",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Sampaolesi Line: Pigment deposition anterior to Schwalbe's line.",
+          "Hyperpigmentation: Dense, dark, 'tobacco-dust' pigment in the trabecular meshwork.",
+          "Narrow Angles: Occurs in ~15% due to anterior lens displacement (zonular laxity).",
+          "Dandruff-like flecks in the angle."
+        ]
+      },
+      {
+        "title": "PXF vs. True Exfoliation",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "PXF Syndrome",
+            "True Exfoliation"
+          ],
+          "rows": [
+            [
+              "Etiology",
+              "Genetics (LOXL1)",
+              "Infrared/Heat (Glassblowers)"
+            ],
+            [
+              "Material",
+              "Fibrillar protein",
+              "Capsular lamellar peeling"
+            ],
+            [
+              "Appearance",
+              "White flakes/Target",
+              "Clear scrolls of capsule"
+            ],
+            [
+              "Systemic",
+              "Yes",
+              "No"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pseudoexfoliative Glaucoma (PXG) Profile",
+        "icon": "monitoring",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "More aggressive than POAG with higher mean IOP and larger diurnal fluctuations.",
+          "Faster rate of progression and greater optic nerve damage at presentation.",
+          "Poorer response to medical therapy compared to POAG.",
+          "High risk of unilateral presentation initially, with high conversion rate of the fellow eye."
+        ]
+      },
+      {
+        "title": "Surgical Red Flags: The 'Phaco Nightmare'",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Poor Pupillary Dilation (Miosis) due to iris stromal fibrosis.",
+          "Zonular Dehiscence and Phacodonesis (Lens wobbling).",
+          "Spontaneous Lens Subluxation.",
+          "Increased risk of Vitreous Loss and Dropped Nucleus.",
+          "Capsular Phimosis and IOL Decentration post-operatively.",
+          "Corneal Endothelial Vulnerability."
+        ]
+      },
+      {
+        "title": "Intraoperative Management Protocol",
+        "icon": "precision_manufacturing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Mechanical Pupil Expansion (Iris hooks or Malyugin Ring).",
+          "Step 2: Liberal use of Cohesive OVD to stabilize the lens and expand the pupil.",
+          "Step 3: Carefully sized Capsulorhexis (Not too small, to prevent phimosis).",
+          "Step 4: Gentle Hydrodissection (Avoid over-pressurizing the bag).",
+          "Step 5: Capsular Tension Ring (CTR) insertion early if zonular instability is noted.",
+          "Step 6: Slow-motion Phacoemulsification with reduced parameters.",
+          "Step 7: Consider 3-piece IOL if sulcus fixation is required due to posterior capsule rupture."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "account_tree",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Pigmentary Glaucoma",
+              "Mid-peripheral transillumination, younger myopes, Krukenberg spindle."
+            ],
+            [
+              "Primary Open Angle",
+              "No PXF material, lower IOP spikes, normal zonules."
+            ],
+            [
+              "Uveitic Glaucoma",
+              "Cells/flare, synechiae, keratic precipitates."
+            ],
+            [
+              "Amyloidosis",
+              "Glass wool vitreous opacities, systemic amyloid signs."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Systemic Associations",
+        "icon": "cardiology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Systemic PXF",
+          "branches": [
+            "Cardiovascular (MI, TIA/Stroke risk)",
+            "Sensorineural Hearing Loss",
+            "Abdominal Aortic Aneurysm",
+            "Renal Artery Stenosis",
+            "Pelvic Organ Prolapse"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls & 'Remember'",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "SAMPAOLESI",
+          "explanation": "S: Sampaolesi line, A: Age-related, M: Miosis (Poor dilation), P: Pigment in angle, A: Aggressive IOP, O: Open angle, L: LOXL1 gene, E: Exfoliation material, S: Subluxation risk, I: Instability of zonules."
+        }
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Medical: Prostaglandins are 1st line; Aqueous suppressants (Beta-blockers/CAIs) for spikes.",
+          "Laser: SLT (Selective Laser Trabeculoplasty) is highly effective due to heavy pigmentation but carries higher risk of post-laser IOP spikes.",
+          "Surgical: Trabeculectomy or Tube Shunts have higher failure rates than in POAG; MIGS is an emerging option."
+        ]
+      },
+      {
+        "title": "Investigation & Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Dilated Slit Lamp Exam (Gold Standard).",
+          "2. Gonioscopy (Vital for grading angle and pigment).",
+          "3. Pachymetry (CCT often thinner or normal).",
+          "4. Optic Nerve Imaging (OCT RNFL/GCC).",
+          "5. Visual Field (24-2 SITA Standard).",
+          "6. UBM (if zonular dialysis is suspected)."
+        ]
+      },
+      {
+        "title": "Landmark Study: EMGT",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "The Early Manifest Glaucoma Trial (EMGT) sub-analysis revealed that PXF is a strong independent risk factor for progression. Patients with PXF progressed twice as fast as those with POAG. Each 1 mmHg of IOP reduction reduced the risk of progression by approximately 10%."
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Late IOL-Capsular bag complex dislocation (can occur 5-15 years post-op).",
+          "Corneal decompensation due to endothelial PXF deposition.",
+          "Higher incidence of Posterior Capsule Opacification (PCO).",
+          "Prognosis: Guarded for PXG; requires frequent monitoring of IOP and Visual Fields (every 3-4 months)."
+        ]
+      }
+    ],
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "_newlyImported": 1775044688385,
+  "communityId": "sub_1773775007770_ihxpe2rigrd97v",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true
+}

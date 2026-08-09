@@ -1,0 +1,334 @@
+{
+  "id": 1775044698171,
+  "seqId": 485,
+  "title": "Miller Fisher Syndrome: The Neuro-Ophthalmic Triad",
+  "summary": "A rare, acute inflammatory demyelinating polyneuropathy and a variant of Guillain-Barré Syndrome (GBS). It is clinically defined by the classic triad of ataxia, areflexia, and ophthalmoplegia, often triggered by molecular mimicry following a preceding infection.",
+  "date": "2026-04-01T11:58:18.171Z",
+  "data": {
+    "title": "Miller Fisher Syndrome: The Neuro-Ophthalmic Triad",
+    "summary": "A rare, acute inflammatory demyelinating polyneuropathy and a variant of Guillain-Barré Syndrome (GBS). It is clinically defined by the classic triad of ataxia, areflexia, and ophthalmoplegia, often triggered by molecular mimicry following a preceding infection.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 80 Q100 40 140 80 M60 120 Q100 160 140 120' stroke='hsl(215, 90%, 45%)' stroke-width='8' fill='none' stroke-linecap='round'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)'/><path d='M40 100 H160 M100 40 V160' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4 4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Miller Fisher Syndrome (MFS) is an acute paralytic illness considered a regional variant of Guillain-Barré Syndrome (GBS). It is characterized by a unique tropism for the cranial nerves, particularly those governing ocular motility. The condition is strongly associated with anti-GQ1b IgG antibodies, which react with gangliosides concentrated at the nodes of Ranvier in oculomotor nerves and muscle spindles."
+      },
+      {
+        "title": "The Classic Diagnostic Triad",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "MFS Triad",
+          "branches": [
+            "Ophthalmoplegia (External > Internal)",
+            "Ataxia (Gait and Trunk)",
+            "Areflexia (Loss of Deep Tendon Reflexes)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiological Landscape",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "GBS Proportion (West)",
+              "value": 5
+            },
+            {
+              "label": "GBS Proportion (Asia)",
+              "value": 20
+            },
+            {
+              "label": "Male Predominance",
+              "value": 66
+            },
+            {
+              "label": "Post-Infection Trigger",
+              "value": 72
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Antecedent Infection: Campylobacter jejuni or Haemophilus influenzae.",
+          "2. Molecular Mimicry: Bacterial lipooligosaccharides resemble human gangliosides.",
+          "3. Antibody Production: Development of IgG anti-GQ1b antibodies.",
+          "4. Targeted Attack: Antibodies bind to high concentrations of GQ1b in CN III, IV, VI, and dorsal root ganglia.",
+          "5. Nerve Conduction Failure: Complement-mediated damage at the neuromuscular junction."
+        ]
+      },
+      {
+        "title": "Comprehensive Ocular Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Acute onset of bilateral symmetrical external ophthalmoplegia.",
+          "Diplopia is often the presenting complaint.",
+          "Ptosis (usually bilateral) is common.",
+          "Pupillary involvement (Internal Ophthalmoplegia) in 25-50% of cases.",
+          "Saccadic palsy or 'one-and-a-half' syndrome (rare).",
+          "Ocular bobbing or opsoclonus (rare reports)."
+        ]
+      },
+      {
+        "title": "Extra-Ocular Clinical Features",
+        "icon": "directions_run",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Cerebellar-like ataxia: Disproportionate to the degree of sensory loss.",
+          "Generalized areflexia or marked hyporeflexia.",
+          "Bulbar palsy (dysarthria, dysphagia) in overlapping cases.",
+          "Mild distal sensory symptoms (paresthesias).",
+          "Facial nerve palsy (Bell's-like) in up to 30%."
+        ]
+      },
+      {
+        "title": "Mnemonic: To Remember the Triad",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Miller Fisher is a FAR-out Triad",
+          "explanation": "F: Falls (Ataxia), A: Areflexia (Loss of reflexes), R: Red-reflex/Eyes (Ophthalmoplegia)."
+        }
+      },
+      {
+        "title": "Emergency Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapidly progressive respiratory distress (Diaphragmatic weakness).",
+          "Severe dysphagia (Aspiration risk).",
+          "Autonomic instability (Labile blood pressure, arrhythmias).",
+          "Decreased level of consciousness (Indicates Bickerstaff Encephalitis overlap)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Matrix",
+        "icon": "list",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Differentiator",
+            "Diagnostic Test"
+          ],
+          "rows": [
+            [
+              "Myasthenia Gravis",
+              "Diurnal fluctuation, no areflexia, no ataxia",
+              "Ice pack test, AChR antibodies"
+            ],
+            [
+              "Botulism",
+              "Prominent pupillary dilation, descending paralysis",
+              "Stool toxin assay"
+            ],
+            [
+              "Wernicke Encephalopathy",
+              "Altered mental status, thiamine deficiency",
+              "MRI brain, clinical response to B1"
+            ],
+            [
+              "Brainstem Stroke",
+              "Sudden onset, focal deficits, long-tract signs",
+              "MRI (DWI)"
+            ],
+            [
+              "Bickerstaff Encephalitis",
+              "Drowsiness/Coma, extensor plantar responses",
+              "MRI, anti-GQ1b positivity"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Serology: Anti-GQ1b IgG antibody (Highly sensitive: >90% in MFS).",
+          "2. Lumbar Puncture: Looking for Albuminocytologic Dissociation.",
+          "3. Neurophysiology: Nerve Conduction Studies (NCS) - showing reduced sensory nerve action potentials.",
+          "4. Neuroimaging: MRI Brain/Orbit to rule out structural/ischemic lesions."
+        ]
+      },
+      {
+        "title": "CSF Findings in MFS",
+        "icon": "fluid_meditation",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Finding"
+          ],
+          "rows": [
+            [
+              "Protein",
+              "Elevated (Albuminocytologic Dissociation)"
+            ],
+            [
+              "White Cell Count",
+              "Normal (<5 cells/µL)"
+            ],
+            [
+              "Timing",
+              "May be normal in the first week of symptoms"
+            ],
+            [
+              "Glucose",
+              "Normal"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Classification of Anti-GQ1b Syndromes",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Anti-GQ1b Spectrum",
+          "branches": [
+            "Miller Fisher Syndrome (MFS)",
+            "Bickerstaff Brainstem Encephalitis (BBE)",
+            "Acute Ophthalmoparesis (AO)",
+            "Pharyngeal-Cervical-Brachial variant of GBS"
+          ]
+        }
+      },
+      {
+        "title": "Management & Treatment Protocols",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Admission & Monitoring: Vital capacity, swallowing, and cardiac rhythm.",
+          "2. Intravenous Immunoglobulin (IVIG): 0.4 g/kg/day for 5 days.",
+          "3. Plasmapheresis (PE): 5 sessions over 1-2 weeks (alternative to IVIG).",
+          "4. Supportive Care: Lubricating drops for lagophthalmos, occlusion for diplopia.",
+          "5. Physical Therapy: Focus on balance and gait training."
+        ]
+      },
+      {
+        "title": "Medication Dosage Summary",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Treatment",
+            "Dose",
+            "Duration"
+          ],
+          "rows": [
+            [
+              "IVIG",
+              "2 g/kg total dose",
+              "Divided over 5 days"
+            ],
+            [
+              "Plasmapheresis",
+              "200-250 mL/kg",
+              "5 exchanges"
+            ],
+            [
+              "Corticosteroids",
+              "Not recommended",
+              "Found ineffective in GBS/MFS"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Prognosis & Recovery Timeline",
+        "icon": "query_builder",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Recovery Onset (Days)",
+              "value": 15
+            },
+            {
+              "label": "Mean Full Recovery (Months)",
+              "value": 30
+            },
+            {
+              "label": "Recurrence Rate (%)",
+              "value": 3
+            },
+            {
+              "label": "Resolution of Ataxia (%)",
+              "value": 95
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls for the Fellow",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Anti-GQ1b antibodies are essentially 100% specific for this clinical spectrum.",
+          "Normal CSF in the first 48 hours does NOT rule out MFS.",
+          "The ataxia in MFS is peripheral (proprioceptive) rather than purely cerebellar.",
+          "Papilledema is rare but can occur due to high CSF protein levels.",
+          "If the patient is sleepy, look for Bickerstaff Brainstem Encephalitis overlap."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Recent research focuses on the 'GBS classification group' criteria which help distinguish MFS from other mimics earlier in the course. Landmark studies have shown that while IVIG hastens the onset of recovery, the ultimate long-term prognosis (at 6 months) is excellent regardless of treatment in mild cases, though treatment is standard of care to prevent progression to respiratory failure."
+      }
+    ],
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "_newlyImported": 1775044698171,
+  "communityId": "sub_1774352254516_shmytflgc3xi3l",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

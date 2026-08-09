@@ -1,0 +1,283 @@
+{
+  "id": 1775329685730,
+  "seqId": 646,
+  "title": "Choroidal Detachment & The Hypotony Spectrum",
+  "summary": "A comprehensive clinical guide to the pathophysiology, diagnosis, and management of ciliochoroidal effusions and low intraocular pressure. Designed for ophthalmic residents and vitreoretinal fellows.",
+  "date": "2026-04-04T19:08:05.730Z",
+  "data": {
+    "title": "Choroidal Detachment & The Hypotony Spectrum",
+    "summary": "A comprehensive clinical guide to the pathophysiology, diagnosis, and management of ciliochoroidal effusions and low intraocular pressure. Designed for ophthalmic residents and vitreoretinal fellows.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 Q 35 30 50 30 Q 65 30 80 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M20 50 Q 35 70 50 70 Q 65 70 80 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M25 50 Q 40 40 50 40 Q 60 40 75 50' fill='hsl(215, 90%, 75%)' opacity='0.6'/><path d='M25 50 Q 40 60 50 60 Q 60 60 75 50' fill='hsl(215, 90%, 75%)' opacity='0.6'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Choroidal detachment (ciliochoroidal effusion) is the abnormal accumulation of fluid (serous) or blood (hemorrhagic) in the suprachoroidal space between the sclera and the choroid. Hypotony is clinically defined as an IOP ≤ 6.5 mmHg (more than 2 SD below the mean), though 'functional' hypotony occurs when IOP is low enough to cause structural changes like maculopathy."
+      },
+      {
+        "title": "The Vicious Cycle of Hypotony",
+        "icon": "sync",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Inciting Event: Incisional surgery, trauma, or inflammation.",
+          "2. Initial Hypotony: Outflow exceeds inflow or wound leak occurs.",
+          "3. Fluid Shift: Trans-scleral pressure gradient allows fluid into suprachoroidal space.",
+          "4. Ciliary Body Detachment: Fluid causes forward rotation/detachment of the CB.",
+          "5. Shutdown: Detached CB produces significantly less aqueous humor.",
+          "6. Profound Hypotony: Persistent low IOP worsens the detachment, leading to ocular phthisis if untreated."
+        ]
+      },
+      {
+        "title": "Classification: Serous vs. Hemorrhagic",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Serous Effusion",
+            "Suprachoroidal Hemorrhage (SCH)"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Subacute/Gradual",
+              "Abrupt (often intraoperative or post-op)"
+            ],
+            [
+              "Pain Level",
+              "Mild discomfort or painless",
+              "Excruciating, severe 'boring' pain"
+            ],
+            [
+              "IOP",
+              "Typically very low (hypotony)",
+              "Often high or rapidly rising"
+            ],
+            [
+              "Appearance",
+              "Translucent, smooth lobes",
+              "Dark, opaque, reddish-brown masses"
+            ],
+            [
+              "B-Scan",
+              "Anechoic (clear) suprachoroidal space",
+              "Heterogeneous echoes (clotting blood)"
+            ],
+            [
+              "Transillumination",
+              "Positive (light passes through)",
+              "Negative (shadow blocked by blood)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Common Etiological Triggers",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Post-Glaucoma Surgery",
+              "value": 85
+            },
+            {
+              "label": "Ocular Trauma",
+              "value": 60
+            },
+            {
+              "label": "Uveitis/Inflammation",
+              "value": 40
+            },
+            {
+              "label": "Vitreoretinal Surgery",
+              "value": 35
+            },
+            {
+              "label": "Nanophthalmos",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Essential Diagnostic Workup",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Seidel Test: Check for wound leaks or blep over-filtration.",
+          "Gonioscopy: Assess for cyclodialysis clefts (internal drainage).",
+          "B-Scan Ultrasonography: Essential to confirm 'biconvex' shape and differentiate from RD.",
+          "UBM (Ultrasound Biomicroscopy): Visualize 360° ciliary body detachment.",
+          "Posterior Pole OCT: Look for chorioretinal folds (maculopathy).",
+          "Dilated Fundus Exam: Check for 'kissing choroidals' (central touch)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Is it a Detachment?",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Choroidal Mimics",
+          "branches": [
+            "Rhegmatogenous RD (Concave, moves with eye, fluid is subretinal)",
+            "Exudative RD (Shifting fluid, underlying tumor or VKH syndrome)",
+            "Uveal Effusion Syndrome (Nanophthalmos, thick sclera, high protein fluid)",
+            "Ring Melanoma (Solid mass on B-scan/UBM, local vascularization)",
+            "Suprachoroidal Hemorrhage (Painful, opaque on transillumination)"
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Urgent Intervention Required",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Kissing Choroidals: Opposing lobes touching centrally (risk of retinal adhesion/trauma).",
+          "Flat Anterior Chamber (Grade 3): Iridocorneal touch (risk of PAS and corneal decompensation).",
+          "Explosive Suprachoroidal Hemorrhage: Sudden extrusion of intraocular contents during surgery.",
+          "Decreasing VA with Folds: Progressive hypotony maculopathy.",
+          "Persistent Cleft: Unresolved cyclodialysis cleft leads to chronic phthisis."
+        ]
+      },
+      {
+        "title": "Hypotony Maculopathy Features",
+        "icon": "grid_view",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Chorioretinal Folds: Radial or parallel lines (Stellate pattern at fovea).",
+          "Retinal Vascular Tortuosity: Dilation of vessels due to scleral thickening.",
+          "Optic Disc Edema: Due to reduced axoplasmic flow and low IOP gradient.",
+          "Increased Scleral Thickness: Compensatory thickening in low-pressure states.",
+          "Refractive Shift: Often leads to an induced hyperopic shift."
+        ]
+      },
+      {
+        "title": "Medical Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Cycloplegia: Atropine 1% TID (shifts lens-iris diaphragm back, stabilizes CB).",
+          "2. Topical Steroids: Prednisolone Acetate 1% q1h to q4h (reduces uveoscleral outflow).",
+          "3. Stop Aqueous Suppressants: Discontinue BB, CAI, or Alpha-agonists.",
+          "4. Systemic Steroids: Consider Prednisone 1mg/kg if inflammatory or idiopathic.",
+          "5. Pressure Patching/Large Diameter BCL: If wound leak is suspected."
+        ]
+      },
+      {
+        "title": "Surgical Technique: Sclerostomy Drainage",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Localization: Identify maximally elevated quadrant via B-scan.",
+          "2. Peritomy: Conjunctival incision 3-4mm from limbus.",
+          "3. Scleral Incision: Radial or T-shaped 4-6mm posterior to limbus.",
+          "4. Drainage: Allow xanthochromic (serous) or dark (hemorrhagic) fluid to egress.",
+          "5. AC Reform: Inject BSS or Healon to restore globe volume and push fluid out.",
+          "6. Closure: Sclera may be left open (wicking) or closed; suture conjunctiva."
+        ]
+      },
+      {
+        "title": "Mnemonic: 'HEM' For Hemorrhage Risk",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "HEM",
+          "explanation": "H: High BP (Uncontrolled hypertension); E: Elderly (Atherosclerosis/Stiff vessels); M: Myopia (Thin sclera/Longer axial length)."
+        }
+      },
+      {
+        "title": "Recent Advances & Landmark Evidence",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Drainage Timing: For SCH, delaying drainage for 7-14 days allows clot liquefaction (fibrinolysis).",
+          "TPA Use: Intracameral/Suprachoroidal Tissue Plasminogen Activator (tPA) for dissolving stubborn clots.",
+          "VALVE Study: Importance of valved glaucoma implants (Ahmed) in reducing early post-op hypotony.",
+          "Scleral Collagen Cross-linking: Investigational treatment to stiffen the sclera in chronic hypotony."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Fellow",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Distinguishing RD from CD: CD does not cross the attachments of the vortex veins (4 quadrants).",
+          "Nanophthalmos Warning: These patients are at extreme risk for uveal effusion syndrome; prophylactic sclerostomies are often performed.",
+          "The 'Muffled' Reflex: A dark or obscured red reflex in a post-op patient with high IOP is SCH until proven otherwise.",
+          "Choroidal Tap Timing: If the AC is flat and corneal health is failing, do not wait for fluid to 'mature'—drain immediately."
+        ]
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Prognosis"
+          ],
+          "rows": [
+            [
+              "Serous CD",
+              "Good if cause (leak) is fixed"
+            ],
+            [
+              "Limited SCH",
+              "Guarded but visual recovery possible"
+            ],
+            [
+              "Massive SCH",
+              "Poor; high risk of phthisis bulbi"
+            ],
+            [
+              "Chronic Hypotony",
+              "Poor; risk of permanent foveal damage"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Special Population: Nanophthalmos",
+        "icon": "genetics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "Defined by an axial length < 20.5mm. These eyes have thick, non-compliant scleras that impede protein clearance from the suprachoroidal space. High risk for 'Uveal Effusion Syndrome.' Management often requires 'thick sclera' surgery (vortex vein decompression or scleral thinning)."
+      }
+    ],
+    "generationPrompt": "Choroidal detachment & hypotony",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal"
+}

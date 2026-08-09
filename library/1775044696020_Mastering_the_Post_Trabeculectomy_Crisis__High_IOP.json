@@ -1,0 +1,286 @@
+{
+  "id": 1775044696020,
+  "seqId": 465,
+  "title": "Mastering the Post-Trabeculectomy Crisis: High IOP Management",
+  "summary": "The early post-operative period after trabeculectomy is a critical window where surgical success is determined. This guide provides a comprehensive framework for diagnosing and managing elevated Intraocular Pressure (IOP) in the freshly operated eye.",
+  "date": "2026-04-01T11:58:16.020Z",
+  "data": {
+    "title": "Mastering the Post-Trabeculectomy Crisis: High IOP Management",
+    "summary": "The early post-operative period after trabeculectomy is a critical window where surgical success is determined. This guide provides a comprehensive framework for diagnosing and managing elevated Intraocular Pressure (IOP) in the freshly operated eye.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 30 Q50 10 70 30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M40 30 L60 30 L55 35 L45 35 Z' fill='hsl(215, 90%, 45%)' opacity='0.6'/><path d='M50 50 L50 35' stroke='red' stroke-width='2' stroke-dasharray='2,2'/><circle cx='50' cy='55' r='8' fill='hsl(215, 90%, 45%)' opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Trabeculectomy remains the 'gold standard' for surgical glaucoma management. A 'fresh' trabeculectomy (Days 1–14) requires meticulous monitoring. Failure to achieve the target IOP in this phase often indicates a mechanical or physiological blockage of the newly created drainage pathway. Early intervention is paramount to prevent bleb failure and irreversible glaucomatous damage."
+      },
+      {
+        "title": "The Post-Op Exam Checklist",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Visual Acuity: Rule out 'wipe-out' syndrome or macular serous detachment.",
+          "IOP Measurement: Goldmann Applanation (avoid excessive pressure) or Tonopen.",
+          "Bleb Morphology: Assess height (elevated vs. flat), extent (diffuse vs. localized), and vascularity (corkscrew vessels).",
+          "Seidel Test: Use 2% Fluorescein to check for wound or bleb leaks.",
+          "Anterior Chamber Depth: Grade using Van Herick or Shaffer (Peripheral vs. Central depth).",
+          "Internal Ostium: Gonioscopic view of the sclerostomy site (if safe/view allows).",
+          "Fundoscopy: Rule out choroidal effusions or suprachoroidal hemorrhage."
+        ]
+      },
+      {
+        "title": "Moorfields Bleb Grading System",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Score/Description"
+          ],
+          "rows": [
+            [
+              "Area",
+              "1 (Small) to 5 (Large/Diffuse)"
+            ],
+            [
+              "Height",
+              "1 (Flat) to 4 (Very High/Cystic)"
+            ],
+            [
+              "Vascularity",
+              "1 (Avascular) to 5 (Very Congested)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: High IOP Post-Trab",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "High IOP + Deep AC",
+          "branches": [
+            "Tight Scleral Flap Sutures",
+            "Obstruction of Internal Ostium (Blood, Fibrin, Iris, Vitreous)",
+            "Encapsulated Bleb (Tenon's Cyst - usually >2 weeks)",
+            "Steroid Response (rarely on Day 1)",
+            "Pre-existing Peripheral Anterior Synechiae (PAS)"
+          ]
+        }
+      },
+      {
+        "title": "Emergency Red Flags (High IOP + Shallow AC)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Malignant Glaucoma (Ciliary Block): High IOP, Shallow AC, no choroidals.",
+          "Suprachoroidal Hemorrhage: Sudden pain, loss of vision, high IOP, dark fundus mass.",
+          "Pupillary Block: High IOP, iris bombe, usually due to absent/blocked iridectomy.",
+          "Incarceration of Vitreous: Blockage of the ostium by vitreous wick."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Gonioscopy: Vital to see if iris or blood is plugging the ostium.",
+          "2. B-Scan Ultrasound: Crucial if the media is hazy to rule out Suprachoroidal Hemorrhage.",
+          "3. AS-OCT: Visualizes the scleral flap, subconjunctival space, and ostium patency.",
+          "4. UBM: Detailed view of the ciliary body position in suspected Malignant Glaucoma."
+        ]
+      },
+      {
+        "title": "Causes of Raised IOP Comparison",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "AC Depth",
+            "Bleb Status"
+          ],
+          "rows": [
+            [
+              "Tight Sutures",
+              "Deep",
+              "Flat/Low"
+            ],
+            [
+              "Ostium Block",
+              "Deep",
+              "Flat/Low"
+            ],
+            [
+              "Malignant Glaucoma",
+              "Very Shallow",
+              "Flat"
+            ],
+            [
+              "Pupillary Block",
+              "Shallow (Bombe)",
+              "Flat"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management: The Step-by-Step Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Digital Ocular Massage (Allen-Burian Maneuver) to force fluid through the flap.",
+          "Step 2: Laser Suture Lysis (LSL) if sutures are too tight (use Hoskins lens).",
+          "Step 3: Medical Therapy (Aqueous suppressants, but avoid miotics if malignant glaucoma is suspected).",
+          "Step 4: Atropine 1% for Malignant Glaucoma or Pupillary Block.",
+          "Step 5: AC Reformation or Surgical Revision if mechanical blockage persists."
+        ]
+      },
+      {
+        "title": "Laser Suture Lysis (LSL) Success Factors",
+        "icon": "bolt",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Day 1-7 (Optimal)",
+              "value": 95
+            },
+            {
+              "label": "Day 8-14 (Variable)",
+              "value": 60
+            },
+            {
+              "label": "Day >14 (Poor)",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearl: The Scleral Flap",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Suture tension is a balance: Too tight = High IOP; Too loose = Hypotony/Flat AC.",
+          "Always place adjustable or releasable sutures if you anticipate a high risk of failure.",
+          "Check for 'Overhang' of the bleb, which may indicate posterior flow."
+        ]
+      },
+      {
+        "title": "Mnemonic for Post-Op Assessment",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "B.I.G. H.E.L.P.",
+          "explanation": "B: Bleb (Height/Vascularity), I: Inflammation (AC cells), G: Gonioscopy (Ostium), H: Hemorrhage (Choroidal), E: Effusion, L: Leak (Seidel), P: Pressure (IOP)."
+        }
+      },
+      {
+        "title": "Specific Surgical Obstructions",
+        "icon": "build",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Blood/Fibrin: Can be cleared with Intracameral TPA (25 micrograms).",
+          "Iris Incarceration: Requires surgical repositioning or YAG PI if localized.",
+          "Vitreous: Requires anterior vitrectomy to clear the ostium.",
+          "Tenon's Cyst: Requires needling with MMC or 5-FU."
+        ]
+      },
+      {
+        "title": "Malignant Glaucoma Management",
+        "icon": "emergency_home",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "1. Cycloplegia: Immediate Atropine 1% TID to pull the ciliary body back.",
+          "2. Aqueous Suppressants: IV Mannitol, Oral Acetazolamide, Timolol.",
+          "3. YAG Capsulotomy/Hyaloidotomy: To break the aqueous misdirection.",
+          "4. Pars Plana Vitrectomy (PPV): With 'Zonulo-hyaloido-vitrectomy' if medical therapy fails."
+        ]
+      },
+      {
+        "title": "Pharmacological Arsenal",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Drug Type",
+            "Indication",
+            "Caution"
+          ],
+          "rows": [
+            [
+              "Topical Steroids (Pred Forte 1%)",
+              "Every 1-2 hours to prevent scarring",
+              "Monitor for steroid-induced IOP spike (weeks later)"
+            ],
+            [
+              "Topical Atropine 1%",
+              "Shallow AC / Malignant Glaucoma",
+              "Avoid in very wide angles unless necessary"
+            ],
+            [
+              "5-Fluorouracil (5-FU)",
+              "Subconjunctival injection for failing blebs",
+              "Risk of corneal epithelial toxicity"
+            ],
+            [
+              "TPA (Tissue Plasminogen Activator)",
+              "Intracameral for fibrin/clot in ostium",
+              "Risk of hyphema"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Prognosis & Landmarks",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "TVT Study (Tube vs Trab): Trabeculectomy with MMC remains effective but has higher early complication rates than tubes.",
+          "Early high IOP is a significant predictor of long-term surgical failure if not addressed within the first 14 days.",
+          "Encapsulated blebs (Tenon's cyst) often respond well to needling with an 80% success rate if performed early."
+        ]
+      }
+    ],
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "_newlyImported": 1775044696020,
+  "communityId": "sub_1774352254516_cbheie316ahd2l",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z",
+  "read": true
+}

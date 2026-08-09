@@ -1,0 +1,164 @@
+{
+  "id": 1775158754490,
+  "seqId": 591,
+  "title": "Retinopathy of Prematurity (ROP): Clinical Mastery",
+  "summary": "ROP is a proliferative vitreoretinopathy affecting the developing retinal vasculature of preterm infants. Understanding the International Classification of ROP (ICROP3) is vital for timely screening and preventing irreversible blindness through laser or anti-VEGF therapy.",
+  "date": "2026-04-02T19:39:14.490Z",
+  "data": {
+    "title": "Retinopathy of Prematurity (ROP): Clinical Mastery",
+    "summary": "ROP is a proliferative vitreoretinopathy affecting the developing retinal vasculature of preterm infants. Understanding the International Classification of ROP (ICROP3) is vital for timely screening and preventing irreversible blindness through laser or anti-VEGF therapy.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q 50 30 70 50' stroke='hsl(215, 90%, 45%)' stroke-width='3' fill='none'/><path d='M30 50 Q 50 70 70 50' stroke='hsl(215, 90%, 45%)' stroke-width='3' fill='none'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "GA < 28 weeks",
+              "value": 90
+            },
+            {
+              "label": "Low Birth Weight < 1000g",
+              "value": 85
+            },
+            {
+              "label": "Supplemental O2",
+              "value": 70
+            },
+            {
+              "label": "Sepsis/Infection",
+              "value": 40
+            },
+            {
+              "label": "Blood Transfusion",
+              "value": 35
+            }
+          ]
+        }
+      },
+      {
+        "title": "ICROP3 Classification: Zones & Stages",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "ROP Classification",
+          "branches": [
+            "Zone I: Post-pole (2x disc-fovea)",
+            "Zone II: To ora serrata (nasal)",
+            "Zone III: Remaining temporal crescent",
+            "Stage 1: Demarcation line",
+            "Stage 2: Ridge",
+            "Stage 3: Extraretinal fibrovascular proliferation",
+            "Stage 4: Subtotal RD",
+            "Stage 5: Total RD"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Plus Disease: Venous dilation and arteriolar tortuosity in at least two quadrants.",
+          "Pre-plus: Vascular abnormality insufficient for plus disease but abnormal.",
+          "Aggressive ROP (A-ROP): Rapidly progressive, posterior, often flat, without classic stages.",
+          "Failure to recognize 'Notch' in vascular pattern indicating skip areas."
+        ]
+      },
+      {
+        "title": "Screening Guidelines (AAP/AAO)",
+        "icon": "schedule",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: First exam at 31 weeks CA or 4 weeks postnatal (whichever is later).",
+          "Step 2: Infants > 1500g or > 30 weeks GA at discretion of neonatologist.",
+          "Step 3: Follow-up weekly or bi-weekly based on retinal maturity and stage.",
+          "Step 4: Stop at vascularization to Zone III (approx 45 weeks CA)."
+        ]
+      },
+      {
+        "title": "Remember the Mnemonic: PLUS",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.L.U.S.",
+          "explanation": "P: Posterior pole involvement, L: Lacerated/dilated vessels, U: U-turn vessels, S: Stasis/Tortuosity."
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Differential",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Familial Exudative Vitreoretinopathy (FEVR)",
+              "Autosomal dominant, older children, family history"
+            ],
+            [
+              "Incontinentia Pigmenti",
+              "X-linked, dermal/dental findings, pigmentary changes"
+            ],
+            [
+              "Retinoblastoma",
+              "Leukocoria, calcification on B-scan"
+            ],
+            [
+              "Persistent Fetal Vasculature (PFV)",
+              "Unilateral, microphthalmos, stalk to optic nerve"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Treatment Modalities",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Laser Photocoagulation: Peripheral retinal ablation (Gold standard).",
+          "Anti-VEGF (Bevacizumab): Inject 0.625mg into vitreous cavity; effective for Zone I disease.",
+          "Surgical Vitrectomy: Indicated for Stage 4B and 5 RD; lensectomy often required.",
+          "Scleral Buckling: Indicated for detached retinas with open funnel in selected cases."
+        ]
+      },
+      {
+        "title": "Landmark Studies & Recent Advances",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "CRYO-ROP (1988): Established cryotherapy as effective treatment.",
+          "ETROP (2003): Defined 'Type 1 ROP' requiring immediate intervention.",
+          "BEAT-ROP (2011): Demonstrated efficacy of intravitreal Bevacizumab, especially in Zone I.",
+          "RAINBOW Study: Confirmed efficacy of Ranibizumab vs Laser."
+        ]
+      }
+    ],
+    "generationPrompt": "ROP",
+    "chapterId": "paediatric"
+  },
+  "chapterId": "paediatric",
+  "read": false
+}

@@ -1,0 +1,268 @@
+{
+  "id": 1775378497320,
+  "seqId": 667,
+  "title": "Mitochondrial Myopathies: CPEO vs. Kearns-Sayre Syndrome",
+  "summary": "A high-yield clinical overview of the spectrum of mitochondrial ocular myopathies, ranging from isolated Chronic Progressive External Ophthalmoplegia (CPEO) to the life-threatening systemic triad of Kearns-Sayre Syndrome (KSS). This guide covers the genetic basis, diagnostic workup, and critical cardiac monitoring requirements.",
+  "date": "2026-04-05T08:41:37.320Z",
+  "data": {
+    "title": "Mitochondrial Myopathies: CPEO vs. Kearns-Sayre Syndrome",
+    "summary": "A high-yield clinical overview of the spectrum of mitochondrial ocular myopathies, ranging from isolated Chronic Progressive External Ophthalmoplegia (CPEO) to the life-threatening systemic triad of Kearns-Sayre Syndrome (KSS). This guide covers the genetic basis, diagnostic workup, and critical cardiac monitoring requirements.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M25 40 Q50 20 75 40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M25 45 Q50 35 75 45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4' stroke-linecap='round'/><path d='M40 60 Q50 55 60 60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><circle cx='50' cy='65' r='8' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M45 65 L55 65 M50 60 L50 70' stroke='white' stroke-width='1'/><path d='M70 70 L80 80 M75 70 L85 80' stroke='hsl(215, 90%, 45%)' stroke-width='2' opacity='0.6'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definitions",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Chronic Progressive External Ophthalmoplegia (CPEO) is characterized by slow, progressive, bilateral, non-fatigable ptosis followed by symmetrical restriction of all extraocular movements. When CPEO is associated with multisystem involvement including pigmentary retinopathy, onset before age 20, and cardiac conduction defects, it is classified as Kearns-Sayre Syndrome (KSS)."
+      },
+      {
+        "title": "Pathophysiology & Genetics",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "mtDNA Mutations",
+          "branches": [
+            "Single large-scale mtDNA deletions (most common in KSS)",
+            "Nuclear DNA mutations affecting mtDNA maintenance (POLG1, PEO1, SLC25A4)",
+            "Heteroplasmy: Ratio of mutant to wild-type mtDNA determines severity",
+            "High metabolic demand tissues (Extraocular muscles, Retina, Heart) affected first",
+            "Maternal inheritance (point mutations) or Sporadic (deletions)"
+          ]
+        }
+      },
+      {
+        "title": "The KSS Diagnostic Triad",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "KSS Triad",
+          "explanation": "MUST have all three: 1. Onset < 20 years old. 2. CPEO (Ptosis + Ophthalmoplegia). 3. Pigmentary Retinopathy (Salt-and-pepper). PLUS at least one of: Cardiac conduction block, CSF protein >100mg/dL, or Cerebellar Ataxia."
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "CPEO Presentation",
+            "KSS Presentation"
+          ],
+          "rows": [
+            [
+              "Ptosis",
+              "Slowly progressive, bilateral, symmetrical. Often the first sign.",
+              "Severe, early onset. Significant levator function loss."
+            ],
+            [
+              "Motility",
+              "Symmetrical restriction in all gazes. No diplopia (usually).",
+              "Total ophthalmoplegia over time; 'Frozen eye'."
+            ],
+            [
+              "Fundus",
+              "Usually normal.",
+              "Salt-and-pepper pigmentary retinopathy (mid-periphery & posterior pole)."
+            ],
+            [
+              "Pupils",
+              "Spared. No RAPD.",
+              "Spared, though retinopathy may affect visual fields."
+            ],
+            [
+              "Cornea",
+              "Reduced Bell's phenomenon (risk for exposure).",
+              "Reduced Bell's phenomenon; risk of neurotrophic keratitis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Differentiating Features"
+          ],
+          "rows": [
+            [
+              "Myasthenia Gravis",
+              "Fatigability, variability, diurnal fluctuation, Cogan's lid twitch, Ice test (+)."
+            ],
+            [
+              "Oculopharyngeal MD",
+              "Autosomal Dominant, onset in 5th-6th decade, dysphagia, limb-girdle weakness."
+            ],
+            [
+              "Graves' Disease (TED)",
+              "Lid retraction (vs ptosis), proptosis, restrictive strabismus on forced duction."
+            ],
+            [
+              "Miller Fisher Syndrome",
+              "Acute onset, ataxia, areflexia, post-viral, GQ1b antibodies (+)."
+            ],
+            [
+              "Congenital Ptosis",
+              "Present from birth, lid lag on downgaze, poor levator function."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Process",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Clinical History & Exam (Evaluate for ptosis symmetry and diplopia presence).",
+          "Step 2: Cardiology Referral (MANDATORY EKG/Holter to rule out heart block).",
+          "Step 3: Blood/Urine Testing (Lactate, Pyruvate, Creatine Kinase levels).",
+          "Step 4: Genetic Testing (Targeted mtDNA deletion/point mutation analysis via blood/saliva).",
+          "Step 5: Lumbar Puncture (If KSS suspected: evaluate for CSF protein > 100 mg/dL).",
+          "Step 6: Muscle Biopsy (Gold standard if genetics inconclusive: Gomori Trichrome staining for 'Ragged Red Fibers')."
+        ]
+      },
+      {
+        "title": "Lethal Warning Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Syncope or Dizziness (Potential Mobitz II or 3rd-degree heart block)",
+          "Sudden cardiac death risk in KSS (requires pacemaker)",
+          "Severe Dysphagia (Aspiration risk in CPEO+ syndromes)",
+          "Acute corneal ulceration post-ptosis surgery (Absent Bell's)"
+        ]
+      },
+      {
+        "title": "Histopathology & Microscopy",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Ragged Red Fibers (RRF): Subsarcolemmal accumulation of abnormal mitochondria (Gomori Trichrome).",
+          "COX-Negative Fibers: Cytochrome c oxidase deficiency in specific muscle fibers.",
+          "Electron Microscopy: 'Parking lot' crystalline inclusions (paracrystalline).",
+          "Succinate Dehydrogenase (SDH) staining: Hyper-reactive 'blue' fibers."
+        ]
+      },
+      {
+        "title": "Systemic Monitoring (KSS)",
+        "icon": "cardiology",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Cardiac Block Risk",
+              "value": 90
+            },
+            {
+              "label": "Ataxia Presence",
+              "value": 75
+            },
+            {
+              "label": "Short Stature",
+              "value": 60
+            },
+            {
+              "label": "Deafness",
+              "value": 45
+            },
+            {
+              "label": "Diabetes Mellitus",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Management Strategies",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Conservative: Ptosis crutches on glasses, prisms (rarely needed).",
+          "Ptosis Surgery: Frontalis suspension (Sling) is preferred over levator resection.",
+          "Surgical Caution: Under-correct ptosis to prevent exposure keratopathy.",
+          "Medical: Coenzyme Q10 (120-160mg/day) and L-Carnitine (limited evidence).",
+          "Cardiac: Prophylactic pacemaker placement for KSS with any conduction delay."
+        ]
+      },
+      {
+        "title": "Surgical Pearls",
+        "icon": "handyman",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STAY SAFE SURGERY",
+          "explanation": "S: Sling (Frontalis), T: Tension-free, A: Avoid overcorrection, Y: Yield to poor Bell's, S: Silicone rods (reversible), A: Artificial tears, F: Frequent follow-up, E: Exposure check."
+        }
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Mitochondrial Replacement Therapy (MRT): 'Three-parent baby' techniques for prevention.",
+          "Gene Editing: Zinc-finger nucleases (ZFNs) to shift heteroplasmy in vitro.",
+          "Study: Zeviani et al. (1988) first established the link between mtDNA deletions and KSS/CPEO.",
+          "Nadir et al. (2023): Investigating Elamipretide for mitochondrial stabilization."
+        ]
+      },
+      {
+        "title": "Epidemiology at a Glance",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Prevalence: ~1.6 per 100,000 for all mitochondrial diseases.",
+          "Gender: No predilection; affects males and females equally.",
+          "Onset CPEO: Typically 18-40 years.",
+          "Onset KSS: Strictly < 20 years (usually first decade)."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Because EOM restriction is symmetrical, patients rarely complain of diplopia; they simply turn their heads.",
+          "CPEO is the most common manifestation of mitochondrial disease in adults.",
+          "Always check for orbicularis weakness (often present in CPEO, mimicking MG).",
+          "The pigmentary retinopathy of KSS is often asymptomatic and doesn't usually cause significant vision loss, unlike Retinitis Pigmentosa.",
+          "A negative muscle biopsy does NOT rule out CPEO if only one muscle group was sampled (mosaic distribution)."
+        ]
+      }
+    ],
+    "generationPrompt": "CPEO VS KSS",
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "read": true
+}

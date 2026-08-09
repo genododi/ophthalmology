@@ -1,0 +1,400 @@
+{
+  "id": 1775044675752,
+  "seqId": 290,
+  "title": "Ophthalmic Masterclass: Therapeutics, Tonometry & Uveitis Essentials",
+  "summary": "An exhaustive clinical guide covering corticosteroid systemic effects, the latest anti-VEGF landscape, tonometry error sources, and a deep dive into uveitic syndromes and JIA screening protocols.",
+  "date": "2026-04-01T11:57:55.752Z",
+  "data": {
+    "title": "Ophthalmic Masterclass: Therapeutics, Tonometry & Uveitis Essentials",
+    "summary": "An exhaustive clinical guide covering corticosteroid systemic effects, the latest anti-VEGF landscape, tonometry error sources, and a deep dive into uveitic syndromes and JIA screening protocols.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><line x1='20' y1='20' x2='35' y2='35' stroke='hsl(30, 90%, 50%)' stroke-width='3'/><rect x='60' y='65' width='20' height='20' rx='2' fill='hsl(140, 70%, 50%)'/></svg>",
+    "sections": [
+      {
+        "title": "Systemic Side Effects of Oral Corticosteroids",
+        "icon": "medication",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Steroid Toxicity (Dose & Duration Dependent)",
+          "branches": [
+            "Metabolic: Weight gain, Hyperglycemia, Diabetes, Cushing syndrome",
+            "Psychological: Mood changes (behavioral, cognitive dysfunction), Mental health problems (Depression, Psychotic reactions), Insomnia",
+            "Gastrointestinal: Indigestion, Stomach ulceration, Pancreatitis",
+            "Musculoskeletal: Osteoporosis, Myopathy",
+            "Ocular: Visual change (Cataract, Glaucoma)",
+            "Systemic: HTN, Adrenal gland suppression, Excessive sweating, Anaphylaxis",
+            "Electrolytes & Infection: Hypokalemia, Infections (VZV, T.b)"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearl: Steroid Mnemonic",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STEROIDS",
+          "explanation": "S: Stomach ulcers, T: Thin skin/bones, E: Eye (Cataract/Glaucoma), R: Restlessness (Insomnia), O: Obesity, I: Infection/Immune suppression, D: Diabetes/Dysglycemia, S: Suppression of Adrenals."
+        }
+      },
+      {
+        "title": "Modern Anti-VEGF Armamentarium",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Biosimilars",
+          "Farcizumab (Vabismo) - Dual VEGF/Ang-2 inhibitor",
+          "Eylea 8mg (High-dose Aflibercept)",
+          "Brolucizumab (Beovu/Vsiqqb)",
+          "Bevacizumab (Avastin) - Off-label gold standard",
+          "Ranibizumab (Lucentis)",
+          "Aflibercept (Eylea) 2mg"
+        ]
+      },
+      {
+        "title": "Mydricaine 2% Composition",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "Mydricaine 2% (0.3ml total volume) contains: \n• 0.12mg Adrenaline\n• 1mg Atropine\n• 6mg Propacaine.\nUsed for breaking resistant posterior synechiae."
+      },
+      {
+        "title": "Lymphoma Risk Warning",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Azathioprine (monotherapy) increases risk of lymphoma.",
+          "Anti-TNF agents (monotherapy) increase risk of lymphoma.",
+          "Clinical Note: Combination therapy may further alter this risk profile."
+        ]
+      },
+      {
+        "title": "Goldmann Applanation Tonometry (GAT): 11 Sources of Error",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Factor",
+            "Impact on IOP Reading",
+            "Clinical Context/Correction"
+          ],
+          "rows": [
+            [
+              "Thick Mires",
+              "Overestimate",
+              "Too much fluorescein used"
+            ],
+            [
+              "Thin Mires",
+              "Underestimate",
+              "Insufficient fluorescein"
+            ],
+            [
+              "Pressure on Globe",
+              "Overestimate",
+              "Observer accidentally pressing on the lid"
+            ],
+            [
+              "Thin Cornea",
+              "Underestimate",
+              "Common post-LASIK or keratoconus"
+            ],
+            [
+              "Thick Cornea",
+              "Overestimate",
+              "Increased central corneal thickness (CCT)"
+            ],
+            [
+              "Corneal Oedema",
+              "Underestimate",
+              "Lowers stromal resistance"
+            ],
+            [
+              "Astigmatism (>3D)",
+              "Distorted Mires",
+              "Rotate prism so red line aligns with minus axis or take average of 2 readings 90° apart"
+            ],
+            [
+              "Incorrect Calibration",
+              "Variable",
+              "Tonometer check required at 0, 20, 60 mmHg"
+            ],
+            [
+              "Wide Pulse Pressure",
+              "Fluctuating",
+              "Take midpoint or highest level observed"
+            ],
+            [
+              "Repeated Readings",
+              "Fall in IOP",
+              "Massaging effect/aqueous expression"
+            ],
+            [
+              "Tight Collar/Breath Holding",
+              "Rise in IOP",
+              "Obstructs venous return (Valsalva-like)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Heterochromia Iridis",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Causes"
+          ],
+          "rows": [
+            [
+              "Hypochromia (Lighter Eye)",
+              "Idiopathic congenital, Congenital Horner syndrome, Waardenburg syndrome"
+            ],
+            [
+              "Hyperchromia (Darker Eye)",
+              "Unilateral use of topical Prostaglandin analogues, Nevus of Ota, Ocular siderosis, Diffuse iris nevus or Melanoma, Sturge-Weber syndrome"
+            ],
+            [
+              "Hypo- or Hyperchromia",
+              "Fuchs Uveitic Syndrome, Other chronic anterior uveitides"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Fuchs Heterochromic Uveitis vs. Posner-Schlossman Syndrome",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Fuchs Uveitic Syndrome (FUS)",
+            "Posner-Schlossman Syndrome (PSS)"
+          ],
+          "rows": [
+            [
+              "Age/Sex",
+              "Middle age/elderly (Avg 40), No sex predilection",
+              "Young to middle age, Predominantly young males"
+            ],
+            [
+              "Laterality",
+              "Unilateral (90-95%)",
+              "Unilateral recurrent"
+            ],
+            [
+              "Symptoms",
+              "Blur, haloes, NO PAIN",
+              "Blur, haloes, ACUTE PAIN"
+            ],
+            [
+              "IOP/Eye Appearance",
+              "IOP mid 20s, White eye",
+              "IOP high (30-40 mmHg), White eye"
+            ],
+            [
+              "Keratic Precipitates (KPs)",
+              "Fine, stellate, white/grey, diffuse over entire endothelium",
+              "Minimal flare, occasional cells; KPs are large, confluent, colorless, on inferior 1/3"
+            ],
+            [
+              "Iris Changes",
+              "Heterochromia, atrophy (wash-out/moth-eaten), abnormal vessels, Koeppe/Busacca nodules",
+              "No synechiae"
+            ],
+            [
+              "Gonioscopy",
+              "Open angle +/- Twig-like neovascularization (60%)",
+              "Open angle"
+            ],
+            [
+              "Complications",
+              "PSC/Cortical cataract, Vitritis (40%), Macular edema (only post-surgery)",
+              "Glaucoma (recurrent attacks)"
+            ],
+            [
+              "Posterior Pole",
+              "Peripheral chorioretinitis scars, retinal dialysis",
+              "Fundus: Generally normal unless chronic glaucoma"
+            ],
+            [
+              "Treatment",
+              "Treat as POAG; Treat complications; Steroids ineffective",
+              "Topical steroids, treat IOP; Acute trabeculitis management"
+            ],
+            [
+              "Causative Associations",
+              "Rubella, Toxoplasmosis?",
+              "Secondary to HSV"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "HLA Associations in Uveitis",
+        "icon": "fingerprint",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "HLA Type",
+            "Associated Disease"
+          ],
+          "rows": [
+            [
+              "HLA-B27",
+              "Recurrent Acute Anterior Uveitis (AAU)"
+            ],
+            [
+              "HLA-A29",
+              "Birdshot Retinochoroidopathy"
+            ],
+            [
+              "HLA-B51 / HLA-B5",
+              "Behcet Syndrome"
+            ],
+            [
+              "HLA-B7 / HLA-DR2",
+              "Presumed Ocular Histoplasmosis (POHS)"
+            ],
+            [
+              "HLA-DR4",
+              "Sympathetic Ophthalmia"
+            ],
+            [
+              "HLA-DR4",
+              "Vogt-Koyanagi-Harada (VKH)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "ILAR 2004 Classification of JIA",
+        "icon": "child_care",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Oligoarticular",
+            "Polyarticular RF -ve",
+            "Polyarticular RF +ve",
+            "Still's Disease",
+            "Enthesitis/Psoriatic"
+          ],
+          "rows": [
+            [
+              "Joint Count",
+              "≤ 4 joints (Knee > Ankle > Wrists)",
+              "≥ 5 joints (Small = Large joints)",
+              "≥ 5 joints",
+              "Systemic involvement",
+              "Tendons, Ligaments"
+            ],
+            [
+              "F:M Ratio",
+              "5:1",
+              "3:1",
+              "1:1",
+              "Variable",
+              "Variable"
+            ],
+            [
+              "Age of Onset",
+              "2 years",
+              "Childhood",
+              "Childhood",
+              "Childhood",
+              "Childhood"
+            ],
+            [
+              "ANA Status",
+              "Positive",
+              "40% Positive",
+              "Negative",
+              "Negative",
+              "Variable"
+            ],
+            [
+              "RF Status",
+              "Negative",
+              "Negative",
+              "Positive",
+              "Negative",
+              "Negative"
+            ],
+            [
+              "Uveitis Risk",
+              "20% (High Risk)",
+              "5-10%",
+              "Rare",
+              "Rare",
+              "High Risk"
+            ],
+            [
+              "Systemic Signs",
+              "None",
+              "None",
+              "None",
+              "Fever, Rash, LAD, Hepatosplenomegaly",
+              "Fever, Rash"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Juvenile Idiopathic Arthritis (JIA) Screening Protocols",
+        "icon": "school",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Initial examination within 6 weeks of 1st JIA diagnosis.",
+          "Step 2: High risk (ANA+, female, onset <7yrs) = 3-4 monthly review intervals.",
+          "Step 3: Newly diagnosed Oligo/Psoriatic/Poly/Enthesitis = 2-month exams for the first 6 months regardless of ANA.",
+          "Step 4: Polyarticular JIA = Every 3-4 months (may reduce to 6m after several years).",
+          "Step 5: Systemic onset & Polyarticular RF+ve = Initial screening + Annual review.",
+          "Step 6: Continue regular review until age 12.",
+          "Urgent Referral: Any visual symptoms or suspicious ocular signs require slit lamp exam within 1 week."
+        ]
+      },
+      {
+        "title": "High Risk Factors for JIA Uveitis",
+        "icon": "priority_high",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Presence of ANA (Antinuclear Antibody)",
+          "Onset of JIA before 7 years of age",
+          "Female gender",
+          "Oligoarticular subtype",
+          "Psoriatic/Enthesitis-related subtypes"
+        ]
+      }
+    ],
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "_newlyImported": 1775044675752,
+  "communityId": "sub_1774352254516_gzqmytde2tlo9y",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z",
+  "read": true
+}

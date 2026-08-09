@@ -1,0 +1,302 @@
+{
+  "id": 1775391033152,
+  "seqId": 698,
+  "title": "Ischemic Maculopathy in Diabetic Retinopathy",
+  "summary": "A devastating complication of diabetic retinopathy characterized by the loss of the foveal capillary network. Diagnosis relies on identifying foveal avascular zone (FAZ) enlargement and irregularity, often leading to irreversible central vision loss despite management of macular edema.",
+  "date": "2026-04-05T12:10:33.152Z",
+  "data": {
+    "title": "Ischemic Maculopathy in Diabetic Retinopathy",
+    "summary": "A devastating complication of diabetic retinopathy characterized by the loss of the foveal capillary network. Diagnosis relies on identifying foveal avascular zone (FAZ) enlargement and irregularity, often leading to irreversible central vision loss despite management of macular edema.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='100' cy='100' r='20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-dasharray='4 2'/><path d='M60 60 L80 80 M140 60 L120 80 M60 140 L80 120 M140 140 L120 120' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-linecap='round'/><circle cx='100' cy='100' r='5' fill='hsl(215, 90%, 45%)'/><path d='M100 40 Q110 70 100 100 Q90 130 100 160' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1' opacity='0.3'/><path d='M40 100 Q70 110 100 100 Q130 90 160 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1' opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Ischemic Maculopathy",
+          "branches": [
+            "Capillary Non-Perfusion (CNP) in the Macula",
+            "Enlargement of the Foveal Avascular Zone (FAZ)",
+            "Disruption of the Perifoveal Capillary Arcade",
+            "Primary cause of 'Unexplained' vision loss in DR",
+            "Can coexist with Diabetic Macular Edema (DME)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence in Mild NPDR",
+              "value": 7
+            },
+            {
+              "label": "Prevalence in Severe NPDR",
+              "value": 35
+            },
+            {
+              "label": "Prevalence in PDR",
+              "value": 60
+            },
+            {
+              "label": "Risk with Type 1 DM",
+              "value": 45
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology Flow",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Chronic Hyperglycemia induces oxidative stress and AGES formation",
+          "2. Retinal capillary pericyte apoptosis and basement membrane thickening",
+          "3. Leukoembolization and capillary endothelial damage",
+          "4. Microvascular occlusion leading to capillary non-perfusion",
+          "5. Localized foveal hypoxia and FAZ expansion"
+        ]
+      },
+      {
+        "title": "ETDRS Grading of Macular Ischemia",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Grade",
+            "FAZ Appearance",
+            "Capillary Outlining"
+          ],
+          "rows": [
+            [
+              "Grade 0 (None)",
+              "Normal circular FAZ",
+              "Complete arcade"
+            ],
+            [
+              "Grade 1 (Mild)",
+              "Slightly enlarged or irregular FAZ",
+              "Minor gaps in arcade"
+            ],
+            [
+              "Grade 2 (Moderate)",
+              "FAZ diameter 0.5-1.0mm",
+              "Obvious capillary dropout"
+            ],
+            [
+              "Grade 3 (Severe)",
+              "FAZ diameter >1.0mm",
+              "Extensive loss of perifoveal vessels"
+            ],
+            [
+              "Grade 4 (Extreme)",
+              "FAZ non-measurable",
+              "Massive macular capillary loss"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "VA: Poor vision (20/200 or worse) without significant DME",
+          "Amsler Grid: Central scotomas (often dense)",
+          "Fundoscopy: 'Featureless' macula (loss of normal luster)",
+          "Retinal Thinning: Appears as increased foveal depression reflex",
+          "Peripheral Signs: Often associated with NVD/NVE or extensive IRMA"
+        ]
+      },
+      {
+        "title": "RED FLAGS: Warning Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Vision loss disproportionate to clinical macular edema",
+          "Rapid drop in VA following panretinal photocoagulation (PRP)",
+          "Failure of DME to respond to adequate anti-VEGF therapy",
+          "Ghost vessels in the macula on slit-lamp biomicroscopy",
+          "Extensive Cotton Wool Spots in the macular region"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup: Imaging Gold Standards",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Imaging Modalities",
+          "branches": [
+            "FFA: Gold standard for perifoveal arcade integrity",
+            "OCTA: Visualizes SCP and DCP (Deep Capillary Plexus)",
+            "Structural OCT: Shows 'Inner Retinal Thinning'",
+            "Microperimetry: Maps functional scotoma to ischemia",
+            "Adaptive Optics: Direct visualization of pericyte loss"
+          ]
+        }
+      },
+      {
+        "title": "OCTA Features of Ischemia",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Ischemic Change"
+          ],
+          "rows": [
+            [
+              "FAZ Area",
+              "Increased (Mean > 0.4mm²)"
+            ],
+            [
+              "Vessel Density",
+              "Significantly Reduced"
+            ],
+            [
+              "FAZ Circularity",
+              "Decreased (Irregularity Index)"
+            ],
+            [
+              "Plexus Involvement",
+              "DCP often affected more than SCP"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "REMEMBER: The FFA Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "B.A.D. Macula",
+          "explanation": "B: Broken arcade; A: Area of FAZ enlarged; D: Dropout of capillaries."
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "school",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature from DM Ischemia"
+          ],
+          "rows": [
+            [
+              "BRVO / CRVO",
+              "Segmental/hemispheric ischemia; collateral vessels present"
+            ],
+            [
+              "Macular Telangiectasia Type 2",
+              "Temporal foveal loss; ectatic vessels; no DM history"
+            ],
+            [
+              "Radiation Retinopathy",
+              "Delayed onset; history of radiotherapy; similar FAZ loss"
+            ],
+            [
+              "Sickle Cell Maculopathy",
+              "Sharp demarcation of ischemia; 'temporal' foveal thinning"
+            ],
+            [
+              "Talc Retinopathy",
+              "Refractile crystals in small end-arterioles"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management & Treatment Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Strict Systemic Control (HbA1c < 7.0%, BP < 130/80, Lipids)",
+          "Step 2: Anti-VEGF Therapy (May improve VA if DME is present, but won't reverse ischemia)",
+          "Step 3: Fenofibrate Therapy (ACCORD/FIELD studies show reduction in DR progression)",
+          "Step 4: Avoid Grid Laser Photocoagulation in areas of profound ischemia",
+          "Step 5: Visual Rehabilitation (Low vision aids for dense central scotomas)"
+        ]
+      },
+      {
+        "title": "Surgical Considerations",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "PPV for TRD: Ischemia increases risk of post-op neovascular glaucoma",
+          "ILM Peeling: Controversial in ischemia; may worsen inner retinal mechanical stress",
+          "PRP: Ensure peripheral ischemia is treated to reduce VEGF load and protect the macula"
+        ]
+      },
+      {
+        "title": "Prognosis & Outcomes",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Prognostic Factors",
+          "branches": [
+            "Initial VA (Best predictor of final outcome)",
+            "FAZ Size > 1.0mm² (Poor prognosis)",
+            "Concurrent Renal Disease",
+            "Response to Anti-VEGF (Limited in ischemia)"
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances & Trials",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Recent studies using OCT-Angiography (OCTA) have identified 'Dalla' or 'PAM' (Paracentral Acute Middle Maculopathy) as a potential biomarker for acute ischemic events in the inner nuclear layer. The PANORAMA study highlights the role of Aflibercept in reducing vision-threatening complications, though specific reversal of macular ischemia remains elusive. Research into Rho-kinase (ROCK) inhibitors and Tie2 activators (Faricimab) aims to stabilize the retinal vasculature more effectively than traditional VEGF monotherapy."
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always check FFA/OCTA if a patient has 20/200 vision but 'looks like' they only have mild NPDR.",
+          "Ischemic maculopathy is a contraindication to traditional macular grid laser in that quadrant.",
+          "The Deep Capillary Plexus (DCP) on OCTA is the primary oxygen source for the high-metabolic-demand synaptic layers; its loss correlates most strongly with poor VA.",
+          "Warn patients that despite 'clearing the fluid' with injections, vision may not improve if the FAZ is enlarged."
+        ]
+      }
+    ],
+    "generationPrompt": "Ischemic maculopathy in diabetic retinopathy",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina"
+}

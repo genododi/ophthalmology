@@ -1,0 +1,331 @@
+{
+  "id": 1775044653815,
+  "seqId": 64,
+  "title": "Infectious Uveitis: Clinical Blueprint",
+  "summary": "A comprehensive guide to the diagnosis and management of intraocular infections, covering viral, bacterial, parasitic, and fungal etiologies. Designed for board-certified specialists and residents focusing on high-yield clinical findings and evidence-based treatment protocols.",
+  "date": "2026-04-01T11:57:33.815Z",
+  "data": {
+    "title": "Infectious Uveitis: Clinical Blueprint",
+    "summary": "A comprehensive guide to the diagnosis and management of intraocular infections, covering viral, bacterial, parasitic, and fungal etiologies. Designed for board-certified specialists and residents focusing on high-yield clinical findings and evidence-based treatment protocols.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='40' fill='hsl(215, 90%, 45%)' opacity='0.2'/><path d='M70,100 Q100,60 130,100 Q100,140 70,100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='110' cy='90' r='5' fill='red' opacity='0.8'><animate attributeName='opacity' values='0.8;0.2;0.8' dur='2s' repeatCount='indefinite'/></circle><circle cx='95' cy='110' r='4' fill='red' opacity='0.6'><animate attributeName='opacity' values='0.6;0.1;0.6' dur='2.5s' repeatCount='indefinite'/></circle><path d='M150,50 L170,30 M160,160 L180,180' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Infectious uveitis accounts for 20-30% of uveitis cases in tertiary centers. It involves inflammation of the uveal tract (iris, ciliary body, choroid) caused by the direct invasion and multiplication of pathogens (viruses, bacteria, parasites, or fungi). Prompt recognition is critical to prevent irreversible vision loss from retinal necrosis, optic neuropathy, or secondary glaucoma."
+      },
+      {
+        "title": "Epidemiological Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Toxoplasmosis",
+              "value": 85
+            },
+            {
+              "label": "Herpetic (HSV/VZV)",
+              "value": 70
+            },
+            {
+              "label": "Syphilis",
+              "value": 40
+            },
+            {
+              "label": "Tuberculosis",
+              "value": 30
+            },
+            {
+              "label": "Cytomegalovirus",
+              "value": 25
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathogen Classification",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Infectious Uveitis",
+          "branches": [
+            "Viral (HSV, VZV, CMV, EBV, HIV)",
+            "Parasitic (Toxoplasma, Toxocara, DUSN)",
+            "Bacterial (Syphilis, TB, Bartonella, Borrelia)",
+            "Fungal (Candida, Aspergillus, Histoplasmosis)"
+          ]
+        }
+      },
+      {
+        "title": "Herpetic Anterior Uveitis Features",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Unilateral presentation (usually)",
+          "Elevated Intraocular Pressure (IOP) due to trabeculitis",
+          "Sectoral Iris Atrophy (highly suggestive of VZV)",
+          "Stellate Keratic Precipitates (KPs) distributed diffusely",
+          "Decreased corneal sensation (Cranial Nerve V involvement)"
+        ]
+      },
+      {
+        "title": "Ocular Syphilis: The Great Imitator",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Clinical Presentation"
+          ],
+          "rows": [
+            [
+              "Anterior",
+              "Granulomatous or non-granulomatous iritis"
+            ],
+            [
+              "Posterior",
+              "Acute Syphilitic Posterior Placoid Chorioretinitis (ASPPC)"
+            ],
+            [
+              "Vessels",
+              "Vasculitis (arteritis and phlebitis)"
+            ],
+            [
+              "Optic Nerve",
+              "Peripapillary roseola, Optic neuritis"
+            ],
+            [
+              "Workup",
+              "Treponemal (FTA-ABS/TPPA) + Non-treponemal (RPR/VDRL)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Acute Retinal Necrosis (ARN) Criteria",
+        "icon": "warning",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "1. One or more foci of retinal necrosis with discrete borders in the peripheral retina.",
+          "2. Rapid progression in the absence of antiviral therapy.",
+          "3. Circumferential spread of the infection.",
+          "4. Occlusive vasculopathy with arteriolar involvement.",
+          "5. Prominent inflammatory response in the vitreous and anterior chamber."
+        ]
+      },
+      {
+        "title": "Toxoplasmosis Management (Classic Triple)",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Medication",
+            "Dosage",
+            "Duration / Notes"
+          ],
+          "rows": [
+            [
+              "Pyrimethamine",
+              "100mg loading dose, then 25-50mg daily",
+              "Monitor CBC for bone marrow suppression"
+            ],
+            [
+              "Sulfadiazine",
+              "2g loading dose, then 1g QID",
+              "Risk of crystalluria; maintain hydration"
+            ],
+            [
+              "Folinic Acid",
+              "5-25mg 3x weekly",
+              "Prevents Pyrimethamine-induced leucopenia"
+            ],
+            [
+              "Prednisolone",
+              "0.5-1.0 mg/kg daily",
+              "START 48 HOURS AFTER antibiotics begin"
+            ],
+            [
+              "Alternative",
+              "Trimethoprim/Sulfamethoxazole (160/800mg) BID",
+              "Often used for prophylaxis or ease of use"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Masquerade Syndromes",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Infectious",
+            "Non-Infectious Mimic"
+          ],
+          "rows": [
+            [
+              "ARN",
+              "Behçet's Disease (Occlusive vasculitis)"
+            ],
+            [
+              "CMV Retinitis",
+              "Progressive Outer Retinal Necrosis (PORN)"
+            ],
+            [
+              "Toxoplasmosis",
+              "Primary Intraocular Lymphoma"
+            ],
+            [
+              "Tuberculosis",
+              "Sarcoidosis (Granulomatous)"
+            ],
+            [
+              "Fungal Endophthalmitis",
+              "Endogenous Bacterial Endophthalmitis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "EMERGENCY: Red Flags",
+        "icon": "report",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapidly expanding creamy-white peripheral retinal lesions (ARN)",
+          "Severely elevated IOP with minimal KPs in a painful eye",
+          "New onset 'string of pearls' vitreous opacities (Fungal)",
+          "Profound vision loss with cherry-red spot in Syphilis (Vascular occlusion)",
+          "Iris roseola (syphilitic nodules)"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Hierarchy",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Clinical Exam (Slit lamp + Dilated Funduscopy)",
+          "Step 2: Multimodal Imaging (OCT Macula/RNFL, Fundus Autofluorescence)",
+          "Step 3: Serology (Quantiferon Gold, RPR/FTA-ABS, Toxoplasma IgG/IgM)",
+          "Step 4: Intraocular Sampling (AC Tap or Vitreous Tap for PCR)",
+          "Step 5: Goldmann-Witmer Coefficient (GWC) to compare antibody titers"
+        ]
+      },
+      {
+        "title": "Mnemonic: Toxo Clinical Signs",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "H.O.G.S.",
+          "explanation": "H: Headlights in the fog (vitritis over lesion); O: Old scar adjacent to new lesion; G: Granulomatous inflammation; S: Satellite lesion."
+        }
+      },
+      {
+        "title": "Viral Treatment Protocols",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "HSV/VZV Anterior: Acyclovir 400mg (HSV) or 800mg (VZV) 5x daily.",
+          "ARN: IV Acyclovir (10mg/kg q8h) for 10-14 days OR Valacyclovir 2g TID.",
+          "CMV: Intravitreal Ganciclovir (2mg/0.05mL) or Foscarnet injections.",
+          "Maintenance: Long-term oral antivirals to prevent recurrence in ARN."
+        ]
+      },
+      {
+        "title": "Surgical Considerations",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Diagnostic Pars Plana Vitrectomy (PPV) for PCR and Cytology.",
+          "Prophylactic Laser Retinopexy for ARN (to prevent RD).",
+          "Silicone Oil Tamponade in cases of necrotic Rhegmatogenous RD.",
+          "Glaucoma Drainage Devices for refractory herpetic glaucoma."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Never start systemic steroids for uveitis without ruling out Syphilis or TB.",
+          "CMV Retinitis in HIV typically occurs when CD4+ count is < 50 cells/uL.",
+          "Aqueous PCR has a high sensitivity (>90%) for viral uveitis but lower for Toxo.",
+          "Kyrieleis Arteriolitis: Segmental periarterial exudates seen in Toxo or VZV.",
+          "Candida endophthalmitis often presents as 'fluff-ball' vitreous opacities."
+        ]
+      },
+      {
+        "title": "Recent Advances: mNGS",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Metagenomic Next-Generation Sequencing (mNGS) is an emerging tool for detecting 'unbiased' pathogens from intraocular fluids. Unlike PCR, which requires a primer for a specific suspected pathogen, mNGS sequences all DNA/RNA in a sample, making it invaluable for diagnosing rare or atypical infectious uveitis cases where standard cultures/PCR are negative."
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Retinal Detachment (ARN)",
+              "value": 75
+            },
+            {
+              "label": "Secondary Glaucoma",
+              "value": 45
+            },
+            {
+              "label": "Cystoid Macular Edema",
+              "value": 35
+            },
+            {
+              "label": "Optic Atrophy",
+              "value": 20
+            }
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "infectious uveitis",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "_newlyImported": 1775044653815,
+  "communityId": "sub_1774731894613_mnu62rvxf",
+  "communityAuthor": "kiko",
+  "communityDate": "2026-03-28T21:04:54.613Z"
+}

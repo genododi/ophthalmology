@@ -1,0 +1,325 @@
+{
+  "id": 1775824266620,
+  "seqId": 777,
+  "title": "Amiodarone Ocular Toxicity: A Fellow's Comprehensive Guide",
+  "summary": "Amiodarone is a Class III anti-arrhythmic known for high lipophilicity and a long half-life, leading to multi-layered ocular manifestations. While vortex keratopathy is nearly ubiquitous and benign, Amiodarone-Associated Optic Neuropathy (AAON) represents a sight-threatening emergency requiring careful differentiation from NAION.",
+  "date": "2026-04-10T12:31:06.620Z",
+  "data": {
+    "title": "Amiodarone Ocular Toxicity: A Fellow's Comprehensive Guide",
+    "summary": "Amiodarone is a Class III anti-arrhythmic known for high lipophilicity and a long half-life, leading to multi-layered ocular manifestations. While vortex keratopathy is nearly ubiquitous and benign, Amiodarone-Associated Optic Neuropathy (AAON) represents a sight-threatening emergency requiring careful differentiation from NAION.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M50 30 Q60 50 50 70 M40 35 Q55 50 40 65 M60 35 Q45 50 60 65' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1.5' stroke-linecap='round'><animateTransform attributeName='transform' type='rotate' from='0 50 50' to='360 50 50' dur='10s' repeatCount='indefinite'/></path><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)' opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Overview & Pharmacology",
+        "icon": "medication",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Amiodarone is an iodine-rich benzofuran derivative used for refractory ventricular and supraventricular arrhythmias. Due to its cationic amphiphilic nature, it binds to polar lipids and accumulates in lysosomes, forming complexed intralysosomal inclusions. Its half-life ranges from 20 to 100 days, meaning ocular side effects can persist or even appear months after drug cessation."
+      },
+      {
+        "title": "Incidence of Ocular Findings",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Cornea Verticillata",
+              "value": 95
+            },
+            {
+              "label": "Lens Deposits",
+              "value": 15
+            },
+            {
+              "label": "Optic Neuropathy",
+              "value": 2
+            },
+            {
+              "label": "Dry Eye Symptoms",
+              "value": 25
+            },
+            {
+              "label": "Blue Skin/Lids",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: Lysosomal Phospholipidosis",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Mechanism",
+          "branches": [
+            "Drug-lipid complex formation",
+            "Inhibition of lysosomal phospholipases",
+            "Intracellular accumulation in epithelial tissues",
+            "Tear film secretion & Cornea/Conjunctiva absorption",
+            "Axoplasmic flow stasis in Optic Nerve"
+          ]
+        }
+      },
+      {
+        "title": "Cornea Verticillata (Vortex Keratopathy)",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Bilateral, golden-brown/grey deposits in the basal corneal epithelium.",
+          "Pattern starts at the junction of the middle and lower thirds of the cornea.",
+          "Dose-dependent: Rarely seen at doses <100mg/day; almost universal >400mg/day.",
+          "Visual acuity is usually unaffected, though halos/glare can occur.",
+          "Reversible over 3–20 months following discontinuation."
+        ]
+      },
+      {
+        "title": "Blodi's Staging of Keratopathy",
+        "icon": "reorder",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Stage",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Stage 1",
+              "Fine horizontal line in lower third of cornea."
+            ],
+            [
+              "Stage 2",
+              "Early arborization (branching) from the main line."
+            ],
+            [
+              "Stage 3",
+              "Full 'whirl' or 'vortex' appearance."
+            ],
+            [
+              "Stage 4",
+              "Irregular clumps of pigment with visual disturbances."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "AAON vs. NAION: The Critical Distinction",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Feature",
+            "Amiodarone Neuropathy (AAON)",
+            "Non-Arteritic Ischemic (NAION)"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Insidious / Slowly Progressive",
+              "Acute / Sudden"
+            ],
+            [
+              "Laterality",
+              "Often Bilateral (Simultaneous)",
+              "Usually Unilateral (Sequential)"
+            ],
+            [
+              "Disc Edema",
+              "Prolonged (Months)",
+              "Transient (Weeks)"
+            ],
+            [
+              "Resolution",
+              "Slow after drug cessation",
+              "Spontaneous but fixed deficit"
+            ],
+            [
+              "Mechanism",
+              "Mechanical Obstruction / Toxicity",
+              "Vascular Insufficiency / Ischemia"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Examination",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Baseline Slit-Lamp Exam & Fundoscopy prior to treatment.",
+          "Step 2: Annual surveillance for asymptomatic patients.",
+          "Step 3: Immediate BCVA, Color Vision (Ishihara), and VF if symptoms arise.",
+          "Step 4: OCT RNFL to document disc edema thickness.",
+          "Step 5: Coordination with Cardiology for medication review."
+        ]
+      },
+      {
+        "title": "EMERGENCY: Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden decrease in visual acuity or blurred vision.",
+          "New onset arcuate or altitudinal visual field defects.",
+          "Acquired color vision deficiency (Dyschromatopsia).",
+          "Asymptomatic bilateral optic disc swelling.",
+          "Persistent halos that interfere with driving."
+        ]
+      },
+      {
+        "title": "Mnemonic: DDx of Cornea Verticillata",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "F-A-B-R-Y-C",
+          "explanation": "F: Fabry Disease (X-linked alpha-galactosidase A deficiency); A: Amiodarone; B: Baytan (triadimenol); R: Rhopressa/Rocklatan (Netarsudil); Y: Yielding to Chloroquine/Hydroxychloroquine; C: Chlorpromazine / Clofazimine / Cyclophosphamide."
+        }
+      },
+      {
+        "title": "Clinical Pearls for Resident Exams",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Amiodarone is 37% iodine by weight.",
+          "Unlike NAION, AAON does not have a 'disc at risk' (small C/D ratio) prerequisite.",
+          "Vortex keratopathy is NOT a reason to stop the drug.",
+          "Anterior subcapsular lens deposits occur in 50% of patients on >600mg/day for 6+ months.",
+          "Pseudotumor cerebri has been rarely reported in association with amiodarone."
+        ]
+      },
+      {
+        "title": "Management & Legal Protection",
+        "icon": "gavel",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Inform Cardiology immediately if AAON is suspected.",
+          "Do NOT stop the drug unilaterally (risk of fatal arrhythmia).",
+          "If AAON confirmed, discontinuation is usually required to save vision.",
+          "Document 'Risk-Benefit Discussion' in the medical record.",
+          "Perform serial VF and OCT to monitor resolution after cessation."
+        ]
+      },
+      {
+        "title": "Recent Evidence: Meta-Analysis Data",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Recent systematic reviews indicate that while amiodarone users have a 2x increased risk of developing optic neuropathy compared to the general population, the absolute risk remains low (~0.1% per year). Distinguishing drug-induced neuropathy from idiopathic NAION remains a clinical challenge, often relying on the duration of disc edema (prolonged in AAON)."
+      },
+      {
+        "title": "Mnemonic: Amiodarone Side Effects",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "6-P's of Amiodarone",
+          "explanation": "1. Photosensitivity (Skin/Lids); 2. Pigment (Vortex Keratopathy); 3. Pulmonary Fibrosis (Most serious systemic); 4. Peripheral Neuropathy; 5. Pro-arrhythmic (QT prolongation); 6. Papilledema/Papillopathy (AAON)."
+        }
+      },
+      {
+        "title": "Summary of Other Ocular Effects",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Secondary Effects",
+          "branches": [
+            "Eyelid: Bluish-grey discoloration",
+            "Conjunctiva: Inclusion bodies",
+            "Lens: Anterior subcapsular dust-like opacities",
+            "Lacrimal: Drug secretion in tears (Sicca)",
+            "Extraocular: Occasional myopathy"
+          ]
+        }
+      },
+      {
+        "title": "Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Keratopathy: 100% reversible, no permanent sequelae.",
+          "Lens Deposits: Usually stable, rarely affects vision.",
+          "AAON: Variable; some regain vision post-cessation, others have permanent field loss.",
+          "Systemic: Pulmonary and hepatic toxicities are the primary drivers of mortality."
+        ]
+      }
+    ],
+    "generationPrompt": "Amiodarone ocular side effects",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "bookmarked": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 186,
+      "keywords": [
+        "ocular",
+        "incidence"
+      ]
+    },
+    {
+      "pageNum": 454,
+      "keywords": [
+        "ocular",
+        "evidence"
+      ]
+    },
+    {
+      "pageNum": 830,
+      "keywords": [
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 831,
+      "keywords": [
+        "ocular",
+        "emergency",
+        "recent",
+        "side",
+        "effects"
+      ]
+    },
+    {
+      "pageNum": 902,
+      "keywords": [
+        "ocular",
+        "toxicity",
+        "oct",
+        "visual field"
+      ]
+    },
+    {
+      "pageNum": 164,
+      "keywords": [
+        "ocular",
+        "cornea"
+      ]
+    }
+  ]
+}

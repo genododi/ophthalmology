@@ -1,0 +1,175 @@
+{
+  "id": 1775054846036,
+  "seqId": 529,
+  "title": "Precision Ocular Biometry: IOL Master vs. Ultrasound",
+  "summary": "Mastering the shift from acoustic to optical biometry is fundamental for modern refractive cataract surgery. This guide compares gold-standard optical coherence interferometry with immersion A-scan ultrasound to optimize IOL power calculations.",
+  "date": "2026-04-01T14:47:26.036Z",
+  "data": {
+    "title": "Precision Ocular Biometry: IOL Master vs. Ultrasound",
+    "summary": "Mastering the shift from acoustic to optical biometry is fundamental for modern refractive cataract surgery. This guide compares gold-standard optical coherence interferometry with immersion A-scan ultrasound to optimize IOL power calculations.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M20 50 L80 50 M50 20 L50 80' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M30 30 L70 70' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Definitions & Modality Comparison",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "IOL Master (Optical)",
+            "Ultrasound (A-Scan)"
+          ],
+          "rows": [
+            [
+              "Measurement Principle",
+              "Partial Coherence Interferometry",
+              "Pulse-Echo Ultrasound"
+            ],
+            [
+              "Contact Method",
+              "Non-contact",
+              "Contact (Applanation)"
+            ],
+            [
+              "Axial Resolution",
+              "12 microns",
+              "100-150 microns"
+            ],
+            [
+              "Speed of Sound",
+              "N/A (Optical path length)",
+              "1550 m/s (standardized)"
+            ],
+            [
+              "Corneal Compression",
+              "None",
+              "High risk (if applanated)"
+            ],
+            [
+              "Patient Comfort",
+              "Excellent",
+              "Requires topical anesthesia"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Indications for A-Scan Ultrasound",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Dense mature cataracts (White/Black/Brown cataracts)",
+          "Advanced posterior subcapsular cataracts",
+          "Vitreous hemorrhage or dense asteroid hyalosis",
+          "Corneal scarring preventing light penetration",
+          "Phthisis bulbi or microphthalmos",
+          "Fixation difficulties or nystagmus"
+        ]
+      },
+      {
+        "title": "Measurement Accuracy Hierarchy",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "IOL Master (Optical)",
+              "value": 98
+            },
+            {
+              "label": "Immersion USG",
+              "value": 85
+            },
+            {
+              "label": "Contact USG",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "The IOL Master Process",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Patient alignment to the chinrest; fixate on the internal target.",
+          "Step 2: Dual-beam emission to measure axial length (AL) from tear film to RPE.",
+          "Step 3: Automated keratometry using 6 spots in a hexagonal pattern.",
+          "Step 4: White-to-White (WTW) measurement for anterior segment evaluation.",
+          "Step 5: Automated calculation using SRK/T, Holladay 2, or Barrett Universal II formulas."
+        ]
+      },
+      {
+        "title": "Gold Standard: Immersion vs. Contact",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Immersion Technique: Use a Prager shell filled with BSS; avoids direct pressure on the globe, decreasing error by ~0.15mm.",
+          "Contact Technique: Risk of corneal indentation leading to artifactual shortening of the AL by up to 0.5mm, causing hyperopic shift.",
+          "Standardized Velocity: Always confirm 1550 m/s in phakic eyes. Use 1532 m/s for aphakic and 1532 m/s for pseudophakic eyes.",
+          "Signal Quality: Ensure clear retinal spike with 80-100% gain."
+        ]
+      },
+      {
+        "title": "Mnemonic: IOL Accuracy",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "O-I-L",
+          "explanation": "O: Optical is best (IOL Master); I: Immersion is second; L: Least precise is contact (Log/Applanation)."
+        }
+      },
+      {
+        "title": "Sources of Error",
+        "icon": "fingerprint",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Biometry Errors",
+          "branches": [
+            "Corneal compression",
+            "Incorrect velocity settings",
+            "Fixation errors",
+            "Lens tilt/decentration",
+            "IOL constant mismatch"
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "A 1mm error in AL measurement results in a ~2.5D error in IOL power calculation.",
+          "Always compare eyes: AL difference between two eyes should typically be <0.3mm.",
+          "Refractive Surprise: Always re-verify biometry if the calculated IOL power differs by >1.0D from the predicted emmetropic power.",
+          "Modern Formula Evolution: Shift from regression formulas (SRK II) to vergence-based formulas (Barrett, Hill-RBF, Haigis) to account for effective lens position (ELP)."
+        ]
+      }
+    ],
+    "generationPrompt": "IOL master vs ultrasound biometry",
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "communitySource": true,
+  "author": "dodo",
+  "citation": "Author: dodo",
+  "_serverSynced": true,
+  "read": true
+}

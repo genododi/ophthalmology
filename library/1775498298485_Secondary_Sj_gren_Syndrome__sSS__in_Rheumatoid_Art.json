@@ -1,0 +1,216 @@
+{
+  "id": 1775498298485,
+  "seqId": 743,
+  "title": "Secondary Sjögren Syndrome (sSS) in Rheumatoid Arthritis",
+  "summary": "Secondary Sjögren syndrome is a common, often under-diagnosed autoimmune epithelitis occurring in the context of Rheumatoid Arthritis. It manifests as a keratoconjunctivitis sicca driven by lymphocytic infiltration of the lacrimal glands, requiring a precise multidisciplinary management approach.",
+  "date": "2026-04-06T17:58:18.485Z",
+  "data": {
+    "title": "Secondary Sjögren Syndrome (sSS) in Rheumatoid Arthritis",
+    "summary": "Secondary Sjögren syndrome is a common, often under-diagnosed autoimmune epithelitis occurring in the context of Rheumatoid Arthritis. It manifests as a keratoconjunctivitis sicca driven by lymphocytic infiltration of the lacrimal glands, requiring a precise multidisciplinary management approach.",
+    "summary_illustration": "<svg viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q 50 20 70 50 T 30 50' fill='hsl(215, 90%, 80%)'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Secondary Sjögren Syndrome (sSS) is defined as the development of autoimmune exocrinopathy (dry eye, dry mouth) in patients with a pre-existing connective tissue disease, most commonly Rheumatoid Arthritis (RA). Prevalence of sSS in RA patients is estimated between 10-30%, significantly impacting quality of life and ocular surface health."
+      },
+      {
+        "title": "Demographics & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Female:Male Ratio",
+              "value": 90
+            },
+            {
+              "label": "Prevalence in RA",
+              "value": 25
+            },
+            {
+              "label": "Peak Onset (Decade)",
+              "value": 50
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Epithelitis Model",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Target Organ Damage",
+          "branches": [
+            "CD4+ T-cell infiltration",
+            "Ductal epithelial apoptosis",
+            "Anti-Ro/SSA & La/SSB antibodies",
+            "Cytokine cascade (IFN-alpha)"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Ocular: Chronic burning, grittiness, foreign body sensation.",
+          "Oral: Xerostomia, dysphagia to dry foods.",
+          "Systemic: Fatigue, arthralgia, lymphadenopathy.",
+          "Ocular Surface: Reflex tearing depletion."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup (The 2016 ACR/EULAR Criteria)",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Test",
+            "Threshold for Positivity"
+          ],
+          "rows": [
+            [
+              "Schirmer's I Test",
+              "<= 5mm / 5 minutes"
+            ],
+            [
+              "Ocular Staining Score (OSS)",
+              ">= 5 per eye"
+            ],
+            [
+              "Anti-Ro/SSA Antibodies",
+              "Positive"
+            ],
+            [
+              "Salivary Gland Biopsy",
+              "Focus score >= 1/4mm²"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Severe Complications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Corneal melts or perforations due to extreme keratomalacia.",
+          "Development of B-cell MALT Lymphoma (increased risk in SS).",
+          "Severe filamentary keratitis impeding visual axis.",
+          "Secondary bacterial superinfection (e.g., Staph aureus)."
+        ]
+      },
+      {
+        "title": "Management Step-by-Step",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Patient education & environmental modification (humidifiers, eyelid hygiene).",
+          "Step 2: Preservative-free artificial tears (qid to hourly) and lubricating gels at night.",
+          "Step 3: Anti-inflammatory agents (Topical Cyclosporine 0.05% or Lifitegrast 5%).",
+          "Step 4: Punctal occlusion (collagen plugs for trial, then silicon).",
+          "Step 5: Systemic management of RA (DMARDs/Biologics) by Rheumatology."
+        ]
+      },
+      {
+        "title": "Mnemonic: Ocular Dryness Assessment",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STORM",
+          "explanation": "S - Schirmer Test; T - Tear break-up time (TBUT); O - Ocular Surface Staining (Lissamine Green); R - Rose Bengal (optional); M - Mucin/Meibomian status."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always evaluate Meibomian Gland Dysfunction (MGD) concurrently.",
+          "RA patients on Plaquenil (Hydroxychloroquine) require baseline and annual fundus screening.",
+          "SS increases risk of corneal graft failure if transplant is indicated.",
+          "Don't rely solely on Schirmer's—OSS (staining) is a better functional marker."
+        ]
+      }
+    ],
+    "generationPrompt": "Secondary sjogren - RhA",
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "kanskiMeta": [
+    {
+      "pageNum": 387,
+      "keywords": [
+        "secondary",
+        "syndrome",
+        "risk",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 451,
+      "keywords": [
+        "syndrome",
+        "rheumatoid",
+        "arthritis",
+        "risk",
+        "severe"
+      ]
+    },
+    {
+      "pageNum": 304,
+      "keywords": [
+        "secondary",
+        "syndrome",
+        "rheumatoid",
+        "arthritis",
+        "keratoconjunctivitis"
+      ]
+    },
+    {
+      "pageNum": 448,
+      "keywords": [
+        "secondary",
+        "syndrome",
+        "arthritis",
+        "severe",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 795,
+      "keywords": [
+        "syndrome"
+      ]
+    },
+    {
+      "pageNum": 660,
+      "keywords": [
+        "secondary",
+        "syndrome",
+        "risk",
+        "ocular"
+      ]
+    }
+  ]
+}

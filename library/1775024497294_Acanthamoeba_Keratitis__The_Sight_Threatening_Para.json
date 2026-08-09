@@ -1,0 +1,172 @@
+{
+  "id": 1775024497294,
+  "seqId": 21,
+  "title": "Acanthamoeba Keratitis: The Sight-Threatening Paradox",
+  "summary": "Acanthamoeba keratitis (AK) is a severe, potentially blinding protozoan infection of the cornea, characterized by intense pain disproportionate to clinical findings. Early detection is the cornerstone of visual preservation, as delayed diagnosis often leads to ring infiltrate formation and scleritis.",
+  "date": "2026-04-01T06:21:37.294Z",
+  "data": {
+    "title": "Acanthamoeba Keratitis: The Sight-Threatening Paradox",
+    "summary": "Acanthamoeba keratitis (AK) is a severe, potentially blinding protozoan infection of the cornea, characterized by intense pain disproportionate to clinical findings. Early detection is the cornerstone of visual preservation, as delayed diagnosis often leads to ring infiltrate formation and scleritis.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='12'/><path d='M100 40 L100 160 M40 100 L160 100' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='20' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Acanthamoeba is a free-living, ubiquitous protozoan (cysts and trophozoites) found in water, soil, and dust. AK is primarily associated with contact lens wear (85-90% of cases). Prevalence is rising due to increased soft contact lens (SCL) usage and improper hygiene, such as tap water rinsing or swimming in lenses."
+      },
+      {
+        "title": "Pathophysiology: The Two-Stage Life Cycle",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Life Cycle",
+          "branches": [
+            "Trophozoite: Active, mobile, feeds on bacteria/corneal epithelial cells",
+            "Encystment: Dormant state, highly resistant to chlorine/anti-amoebic drugs",
+            "Adhesion: Mannose-binding protein facilitates corneal binding",
+            "Proteolysis: Secretion of collagenases/serine proteases inducing stromal necrosis"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Staging (Hine/Seal Classification)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Clinical Manifestation"
+          ],
+          "rows": [
+            [
+              "I",
+              "Epitheliitis, punctate staining, microcysts"
+            ],
+            [
+              "II",
+              "Stromal infiltrates, perineuritis, radial keratoneuritis"
+            ],
+            [
+              "III",
+              "Ring infiltrate, anterior uveitis"
+            ],
+            [
+              "IV",
+              "Scleritis, hypopyon, secondary glaucoma, perforation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Diagnostic Pitfalls",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Pain disproportionate to slit-lamp signs (The 'Classic' mismatch)",
+          "Radial keratoneuritis (inflamed corneal nerves)",
+          "Failure to respond to antibiotic or antiviral therapy",
+          "Ring infiltrate (usually a sign of late-stage disease)",
+          "Diagnostic delay exceeding 2-3 weeks significantly worsens prognosis"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Corneal scraping (Gold standard) - Non-nutrient agar with E. coli overlay.",
+          "Step 2: In-vivo Confocal Microscopy (IVCM) - Visualizing double-walled cysts in vivo.",
+          "Step 3: PCR for Acanthamoeba DNA - Highly sensitive (up to 95%).",
+          "Step 4: Histopathology (if penetrating keratoplasty is performed) - Calcofluor white staining."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Herpes Simplex",
+              "Dendritic ulcers, positive history of recurrence"
+            ],
+            [
+              "Fungal Keratitis",
+              "Feathered edges, satellite lesions"
+            ],
+            [
+              "Bacterial Keratitis",
+              "Mucopurulent discharge, rapid progression"
+            ],
+            [
+              "Neurotrophic Keratitis",
+              "Reduced corneal sensitivity"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Treatment Protocol",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Biguanides: Polyhexamethylene biguanide (PHMB) 0.02% or Chlorhexidine 0.02%.",
+          "Diamidines: Propamidine isethionate 0.1% (Brolene).",
+          "Adjuncts: Topical NSAIDs (for pain control), Cycloplegics (Atropine 1%).",
+          "Systemic: Oral Itraconazole may be considered in refractory cases.",
+          "Duration: Minimum 6-12 months of topical therapy to clear encysted forms."
+        ]
+      },
+      {
+        "title": "Memory Aid: The 3 R's of AK",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "R.R.R.",
+          "explanation": "Radiating pain (disproportionate), Radial keratoneuritis (nerve inflammation), Ring infiltrate (classic stromal ring)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always suspect AK in contact lens wearers with persistent red eye.",
+          "Stop all contact lens wear immediately.",
+          "Avoid topical steroids early in the disease; they promote trophozoite transformation and proliferation.",
+          "Surgical intervention (PKP) is only for non-responsive cases/perforation due to high recurrence rates in inflamed tissue."
+        ]
+      }
+    ],
+    "generationPrompt": "Acanthameoba",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true
+}

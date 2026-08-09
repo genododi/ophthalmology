@@ -1,0 +1,363 @@
+{
+  "id": 1775044684360,
+  "seqId": 378,
+  "title": "ECG Mastery & Acute Respiratory Assessment",
+  "summary": "A comprehensive clinical guide to methodical ECG interpretation, ventricular conduction disorders, and the emergency management of the acutely breathless patient. Designed for FRCS Internal and Emergency Medicine examination preparation.",
+  "date": "2026-04-01T11:58:04.360Z",
+  "data": {
+    "title": "ECG Mastery & Acute Respiratory Assessment",
+    "summary": "A comprehensive clinical guide to methodical ECG interpretation, ventricular conduction disorders, and the emergency management of the acutely breathless patient. Designed for FRCS Internal and Emergency Medicine examination preparation.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><path d='M10,50 L40,50 L50,20 L65,80 L75,50 L100,50 L110,10 L125,90 L140,50 L190,50' fill='none' stroke='#1d4ed8' stroke-width='3'/><path d='M150,20 A15,15 0 1,1 180,20 A15,15 0 1,1 150,20' fill='#ef4444' opacity='0.2'/><path d='M30,30 L30,20 L40,20 M30,70 L30,80 L40,80 M170,30 L170,20 L160,20 M170,70 L170,80 L160,80' fill='none' stroke='#94a3b8' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "ECG: A Methodical Preliminary Approach",
+        "icon": "checklist",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "First confirm the patient's name and age, and the ECG date.",
+          "Calculate Rate: At usual speed (25mm/s) each 'big square' is 0.2s; each 'small square' is 0.04s. Divide 300 by the number of big squares per R-R interval.",
+          "Assess Rhythm: If not regular, use the 'card method': lay a card along ECG, marking positions of 3 successive R waves. Slide to check equality. Note if rates are multiples (varying block) or 100% irregular (AF or VF)."
+        ]
+      },
+      {
+        "title": "Rhythm Classification",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Rhythm Type",
+            "Characteristics"
+          ],
+          "rows": [
+            [
+              "Sinus Rhythm",
+              "P wave (upright in II, III, & aVF; inverted in aVR) followed by a QRS complex."
+            ],
+            [
+              "Atrial Fibrillation (AF)",
+              "No discernible P waves; QRS complexes are irregularly irregular."
+            ],
+            [
+              "Atrial Flutter",
+              "'Sawtooth' baseline of atrial depolarization (~300/min) and regular QRS complexes."
+            ],
+            [
+              "Nodal Rhythm",
+              "Normal QRS complex; P waves absent or occur just before or within the QRS."
+            ],
+            [
+              "Ventricular Rhythm",
+              "QRS complexes >0.12s with P waves following them."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Frontal Cardiac Axis",
+        "icon": "explore",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Mean Frontal Axis",
+          "branches": [
+            "Sum of ventricular forces during depolarization",
+            "Lies at 90° to the isoelectric complex",
+            "Normal: -30° to +90° (Leads I and II both positive)",
+            "LAD (-30° to -90°): Left anterior hemiblock, Inferior MI, VT (LV focus), WPW",
+            "RAD (+90° to +180°): RVH, PE, Anterolateral MI, Left posterior hemiblock, WPW"
+          ]
+        }
+      },
+      {
+        "title": "P Wave & P-R Interval",
+        "icon": "waves",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "P Wave: Normally precedes each QRS.",
+          "Absent P: AF, sinoatrial block, junctional rhythm.",
+          "Dissociation: Complete heart block.",
+          "P mitrale: Bifid; indicates left atrial hypertrophy.",
+          "P pulmonale: Peaked; indicates right atrial hypertrophy (Pseudo-P-pulmonale if K+ ↓).",
+          "P-R Interval: Start of P to start of QRS. Normal: 0.12-0.2s (3-5 small squares).",
+          "Prolonged P-R: Delayed AV conduction (1st degree heart block).",
+          "Short P-R: Fast AV conduction (accessory pathway e.g., WPW)."
+        ]
+      },
+      {
+        "title": "QRS, QT, & T Wave Dynamics",
+        "icon": "monitoring",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Normal Findings",
+            "Abnormalities / Causes"
+          ],
+          "rows": [
+            [
+              "QRS Complex",
+              "<0.12s (3 small squares)",
+              ">0.12s: Ventricular conduction defects (BBB). Large: Ventricular hypertrophy."
+            ],
+            [
+              "Q Wave",
+              "<0.04s wide, <2mm deep (V5, V6, aVL, I)",
+              "Pathological: Acute MI (within hours)."
+            ],
+            [
+              "QT Interval",
+              "QTc = QT / √cycle length. Normal: 0.38-0.42s",
+              "Prolonged: Ischaemia, Myocarditis, Bradycardia, Head injury, Hypothermia, K+/Ca2+/Mg2+ ↓, Drugs (Quinidine, Macrolides, Amiodarone, TCAs)."
+            ],
+            [
+              "ST Segment",
+              "Isoelectric",
+              "Elevated (>1mm): Infarction. Depressed (>0.5mm): Ischaemia."
+            ],
+            [
+              "T Wave",
+              "Inverted in aVR, V1 (occ. V2)",
+              "Abnormal: Inverted in I, II, V4-V6. Peaked: Hyperkalaemia. Flattened: Hypokalaemia."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Chest Lead Placement",
+        "icon": "location_on",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "V1-V6 Placement",
+          "explanation": "V1: R sternal edge, 4th IC space; V2: L sternal edge, 4th IC space; V3: Mid-way V2/V4; V4: Apex beat; V5: Anterior axillary line; V6: Mid-axillary line (V7: Posterior axillary line). Finish with long rhythm strip in Lead II."
+        }
+      },
+      {
+        "title": "Bundle Branch Blocks",
+        "icon": "alt_route",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "General: Prolongation of QRS >0.12s. Incomplete blocks <0.12s.",
+          "RBBB: QRS >0.12s, 'RSR' in V1, Dominant R in V1, Inverted T in V1-V3/V4, Deep wide S in V6. (Normal variant, PE, Cor Pulmonale).",
+          "LBBB: QRS >0.12s, 'M pattern' in V5, No septal Q, Inverted T in I, aVL, V5-V6. (IHD, HTN, Cardiomyopathy, Fibrosis). NB: Cannot comment on ST/T if LBBB present.",
+          "Bifascicular: RBBB + Left bundle hemiblock (e.g., LAD).",
+          "Trifascicular: Bifascicular block + 1st degree heart block."
+        ]
+      },
+      {
+        "title": "Ventricular Hypertrophy",
+        "icon": "fitness_center",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "LVH Criteria: R wave in V6 >25mm OR (S in V1 + R in V6) >35mm.",
+          "RVH Criteria: Dominant R wave in V1, T wave inversion V1-V3/V4, Deep S in V6, RAD.",
+          "Dominant R in V1 Causes: RVH, RBBB, Posterior MI, WPW types.",
+          "Low Voltage QRS (<5mm limb leads): Hypothyroidism, COPD, ↑ Haematocrit, Chest wall impedance (Renal failure, Emphysema), PE, BBB, Amyloid, Pericardial effusion/pericarditis."
+        ]
+      },
+      {
+        "title": "Heart Blocks (A-V Block)",
+        "icon": "block",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1st Degree: PR >0.20s. Rarely symptomatic.",
+          "2nd Degree Mobitz I: Progressive lengthening of PR until a dropped beat occurs.",
+          "2nd Degree Mobitz II: Constant PR for conducted beats; some P waves not conducted (2:1/3:1). High asystole risk.",
+          "3rd Degree (Complete): Atria and ventricles beat independently (AV dissociation). Narrow QRS if escape is AV node/His; Broad if distal Purkinje."
+        ]
+      },
+      {
+        "title": "Wave Abnormalities & MI Evolution",
+        "icon": "timer",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "ECG Patterns",
+          "branches": [
+            "MI Localisation: Inferior (II, III, aVF), Anteroseptal (V1-4), Anterolateral (V4-6, I, aVL), Posterior (Tall R/ST-down in V1-2)",
+            "MI Timeline: Hours (Peaked T, ST rise) -> 24h (T inverts, ST resolves) -> Days (Pathological Q waves form)",
+            "ST Elevation: Acute MI, Normal Variant (high take-off), Prinzmetal's, Pericarditis (Saddle-shaped), LV Aneurysm",
+            "ST Depression: Ischaemic (Horizontal), Digoxin (Downward sloping/reversed tick), Normal (Upward sloping)",
+            "T Inversion: Ischaemia, LVH, PE, RBBB, Subarachnoid hemorrhage, Lithium, HOCM"
+          ]
+        }
+      },
+      {
+        "title": "Exercise ECG Testing",
+        "icon": "directions_run",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Indications: Confirm IHD, cardiac function/tolerance, post-MI prognosis, treatment evaluation, exercise arrhythmias.",
+          "Contraindications: Unstable angina, Recent Q wave MI (<5 days), Severe AS, Uncontrolled HTN/HF/arrhythmia.",
+          "Cautions: LBBB, Pacemakers, COPD, Stroke/OA.",
+          "Interpretation: 75% sensitivity for CAD. 5% false positive (higher in middle-aged women). Down-sloping ST 1mm J-point depression = 99% predictive of 2-3 vessel disease."
+        ]
+      },
+      {
+        "title": "STOP THE EXERCISE TEST IF:",
+        "icon": "stop_circle",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Chest pain or dyspnoea occurs.",
+          "Patient feels faint, exhausted, or may fall.",
+          "ST segment elevation/depression >2mm.",
+          "Atrial or ventricular arrhythmia (not just ectopics).",
+          "BP fall or failure of HR/BP to rise.",
+          "BP excessive rise (systolic >230mmHg).",
+          "Development of AV block or LBBB.",
+          "90% maximal heart rate achieved."
+        ]
+      },
+      {
+        "title": "Bedside Chest Medicine & ABGs",
+        "icon": "air",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "PEFR: Correlates with FEV1; estimates airway calibre. Used to monitor asthmatics.",
+          "Pulse Oximetry: Assessment of SaO2. Alarm at 90%. PaO2 ≤ 80% is abnormal.",
+          "ABG Normal pH: 7.40 ± 0.05. Acidosis < 7.35; Alkalosis > 7.45.",
+          "Simple Rules: CO2 is acidic gas (4.5-6.0 kPa). HCO3- is alkaline (22-28 mmol/L).",
+          "Respiratory changes follow CO2; Metabolic follows HCO3-."
+        ]
+      },
+      {
+        "title": "Acid-Base Analysis Example",
+        "icon": "calculate",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Example: pH 7.05, CO2 2.0 kPa, HCO3- 8.0 mmol/L.\nStep 1: Acidosis (pH low).\nStep 2: CO2 low (Opposite of acidosis = compensatory).\nStep 3: HCO3- low (In keeping with acidosis = primary cause).\nResult: Metabolic Acidosis."
+      },
+      {
+        "title": "The Acute Breathless (Dyspnea) Patient",
+        "icon": "emergency",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Causes of Breathlessness",
+          "branches": [
+            "Wheezy: Asthma, COPD Exac, Heart Failure, Anaphylaxis",
+            "Stridor: Tumor/FB, Epiglottitis, Laryngeal trauma",
+            "Crepitations: Heart failure, Pneumonia, Bronchiectasis",
+            "Clear Chest: PE, Metabolic Acidosis (DKA), Anemia, Shock, CNS, Salicylates",
+            "Others: Pneumothorax, Pleural effusion"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis of Acute Breathlessness",
+        "icon": "difference",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "C/P (Clinical Presentation)",
+            "CXR Findings",
+            "ABG / ECG Signs"
+          ],
+          "rows": [
+            [
+              "Pulmonary Oedema",
+              "Cyanosis, frothy sputum, JVP↑, basal crackles",
+              "Cardiomegaly, oedema",
+              "↓PaO2, ↓PaCO2 / Tachycardia, Ischaemia"
+            ],
+            [
+              "Pulmonary Embolism",
+              "Pleurisy, syncope, shock, signs absent in lung",
+              "Normal or Prominent hilar vessels",
+              "↓PaO2, ↓PaCO2 / RBBB, S1Q3T3"
+            ],
+            [
+              "Acute Asthma",
+              "Wheeze, tachycardia, pulsus paradoxus",
+              "Hyperinflation",
+              "↓PaO2, ↓PaCO2 (↑ in extremis) / Tachycardia"
+            ],
+            [
+              "COPD Exacerbation",
+              "Smoker, flapping tremor, cyanosis",
+              "Hyperinflation, bullae",
+              "⇓PaO2, ⇑PaCO2, ↑H+ (Type II) / RV strain"
+            ],
+            [
+              "Pneumonia",
+              "Fever, rigors, pleural rub, confusion",
+              "Consolidation",
+              "↓PaO2, ↓PaCO2 / Tachycardia"
+            ],
+            [
+              "Metabolic Acidosis",
+              "Fetor (ketones), air hunger, dehydration",
+              "Normal",
+              "PaO2 normal, ⇓PaCO2, ↑H+"
+            ],
+            [
+              "Psychogenic",
+              "No cyanosis, carpopedal spasm",
+              "Normal",
+              "PaO2 normal, ⇓PaCO2, ↓H+"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pulmonary Embolism & Metabolic Metabolic Summary",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "PE: Sinus tachycardia commonest. RAD, RBBB, RV strain (T inversion/ST dep in V1-V2). Rare: S1Q3T3.",
+          "Digoxin: ST depression/T inversion V5-6 (reversed tick). Toxicity causes any arrhythmia.",
+          "Hyperkalaemia: Tall tented T, wide QRS, absent P, 'sine wave'.",
+          "Hypokalaemia: Small T waves, prominent U waves.",
+          "Hypercalcaemia: Short QT interval.",
+          "Hypocalcaemia: Long QT interval, small T waves."
+        ]
+      },
+      {
+        "title": "Reference Source",
+        "icon": "attribution",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Waleed Badr, FRCS INTERNAL & EMERGENCY MEDICINE FOR FRCS (GLASG) EXAM, 2016."
+      }
+    ],
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "_newlyImported": 1775044684360,
+  "communityId": "sub_1773775007770_8zj0hev7p63ozl",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true,
+  "bookmarked": true
+}

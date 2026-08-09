@@ -1,0 +1,173 @@
+{
+  "id": 1775044699266,
+  "seqId": 495,
+  "title": "Mastering ECG Interpretation: A Visual Guide",
+  "summary": "This comprehensive visual guide provides a clear framework for ECG interpretation with diagrams, focusing on wave morphology, timing intervals, and rhythm identification. It is designed to facilitate rapid clinical assessment and accurate diagnostic reasoning.",
+  "date": "2026-04-01T11:58:19.266Z",
+  "data": {
+    "title": "Mastering ECG Interpretation: A Visual Guide",
+    "summary": "This comprehensive visual guide provides a clear framework for ECG interpretation with diagrams, focusing on wave morphology, timing intervals, and rhythm identification. It is designed to facilitate rapid clinical assessment and accurate diagnostic reasoning.",
+    "summary_illustration": "<svg viewBox=\"0 0 200 100\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 50 L40 50 L45 40 L50 50 L60 50 L70 10 L85 90 L95 50 L110 50 L115 42 L125 50 L150 50\" fill=\"none\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"5\" y=\"5\" width=\"190\" height=\"90\" rx=\"5\" fill=\"none\" stroke=\"#ccc\" stroke-width=\"1\" stroke-dasharray=\"4 2\"/></svg>",
+    "sections": [
+      {
+        "title": "The Core Subject",
+        "icon": "description",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "This resource focuses on the essential principles of ECG interpretation with diagrams, ensuring a systematic approach to reading electrocardiograms in a clinical setting."
+      },
+      {
+        "title": "Anatomy of the ECG Complex",
+        "icon": "account_tree",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Component",
+            "Electrical Event",
+            "Normal Duration/Morphology"
+          ],
+          "rows": [
+            [
+              "P Wave",
+              "Atrial Depolarization",
+              "Upright in I, II, aVF; <0.12s"
+            ],
+            [
+              "PR Interval",
+              "AV Nodal Delay",
+              "0.12 – 0.20 seconds"
+            ],
+            [
+              "QRS Complex",
+              "Ventricular Depolarization",
+              "0.06 – 0.10 seconds"
+            ],
+            [
+              "ST Segment",
+              "Early Ventricular Repolarization",
+              "Isoelectric line"
+            ],
+            [
+              "T Wave",
+              "Ventricular Repolarization",
+              "Asymmetrical; upright in most leads"
+            ],
+            [
+              "QT Interval",
+              "Total Ventricular Activity",
+              "Usually < 0.44s (Rate dependent)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Systematic Interpretation Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "ECG Analysis",
+          "branches": [
+            "Rate (BPM)",
+            "Rhythm (Regularity)",
+            "Cardiac Axis",
+            "P-Wave Morphology",
+            "Interval Durations (PR, QRS, QT)",
+            "ST Segment & T Waves"
+          ]
+        }
+      },
+      {
+        "title": "Calculating Heart Rate",
+        "icon": "calculate",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Find an R wave on a heavy grid line.",
+          "Step 2: Count large squares to the next R wave.",
+          "Step 3: Use the sequence 300-150-100-75-60-50.",
+          "Step 4: For irregular rhythms, count R waves in 6 seconds and multiply by 10."
+        ]
+      },
+      {
+        "title": "Interval Cheat Sheet",
+        "icon": "timer",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "PR (Min 0.12s)",
+              "value": 60
+            },
+            {
+              "label": "PR (Max 0.20s)",
+              "value": 100
+            },
+            {
+              "label": "QRS (Normal 0.10s)",
+              "value": 50
+            },
+            {
+              "label": "QRS (Wide >0.12s)",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flag Findings",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "ST-Segment Elevation (Potential STEMI)",
+          "ST-Segment Depression (Ischemia)",
+          "Widened QRS Complex (>0.12s)",
+          "Absent P-waves with Irregular Rhythm (AFib)",
+          "Pathological Q-waves (Old Infarct)",
+          "Prolonged QT Interval (Risk of Torsades de Pointes)"
+        ]
+      },
+      {
+        "title": "Remember the Steps",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "R-R-A-H-I",
+          "explanation": "Rate: Fast or slow?; Rhythm: Regular or irregular?; Axis: Normal, Left, or Right?; Hypertrophy: Ventricular or Atrial?; Infarction: ST changes or Q waves?"
+        }
+      },
+      {
+        "title": "The Visual Glossary",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "ECG interpretation with diagrams: The cornerstone of cardiac diagnostics.",
+          "Isoelectric Line: The baseline from which all waves deviate.",
+          "Small Square: 0.04 seconds / 1mm.",
+          "Large Square: 0.20 seconds / 5mm.",
+          "12-Lead View: Provides a 3D electrical perspective of the heart."
+        ]
+      }
+    ],
+    "chapterId": "theatre"
+  },
+  "chapterId": "theatre",
+  "_newlyImported": 1775044699266,
+  "communityId": "sub_1774352254516_55bd0lmv8av3t3",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

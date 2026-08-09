@@ -1,0 +1,328 @@
+{
+  "id": 1775233199756,
+  "seqId": 618,
+  "title": "Microbial Keratitis: The Corneal Abscess Masterclass",
+  "summary": "Corneal abscess (Microbial Keratitis) is a sight-threatening ophthalmic emergency characterized by suppurative inflammation of the corneal stroma. Rapid identification of pathogens and aggressive antimicrobial therapy are mandatory to prevent perforation and permanent vision loss.",
+  "date": "2026-04-03T16:19:59.756Z",
+  "data": {
+    "title": "Microbial Keratitis: The Corneal Abscess Masterclass",
+    "summary": "Corneal abscess (Microbial Keratitis) is a sight-threatening ophthalmic emergency characterized by suppurative inflammation of the corneal stroma. Rapid identification of pathogens and aggressive antimicrobial therapy are mandatory to prevent perforation and permanent vision loss.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='25' fill='#e0e0e0' stroke='#999' stroke-width='1'/><path d='M40 40 Q 50 35 60 45 Q 55 55 45 50 Z' fill='#fff9c4' stroke='#fbc02d' stroke-width='1' opacity='0.9'/><path d='M35 65 Q 50 60 65 65' fill='none' stroke='#ff5252' stroke-width='2' stroke-linecap='round'/><line x1='15' y1='50' x2='25' y2='50' stroke='#ff5252' stroke-width='1'/><line x1='75' y1='50' x2='85' y2='50' stroke='#ff5252' stroke-width='1'/><line x1='50' y1='15' x2='50' y2='25' stroke='#ff5252' stroke-width='1'/><line x1='50' y1='75' x2='50' y2='85' stroke='#ff5252' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Microbial Keratitis (MK) is an infectious process involving the corneal epithelium and stroma. A 'corneal abscess' specifically refers to a localized collection of white blood cells (neutrophils), necrotic tissue, and pathogens within the stroma, often presenting as a dense, yellowish-white opacity with an overlying epithelial defect."
+      },
+      {
+        "title": "Major Risk Factors (Epidemiology)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "data": [
+          {
+            "label": "Contact Lens Wear",
+            "value": 45
+          },
+          {
+            "label": "Ocular Trauma",
+            "value": 25
+          },
+          {
+            "label": "Ocular Surface Disease",
+            "value": 15
+          },
+          {
+            "label": "Post-Surgical",
+            "value": 10
+          },
+          {
+            "label": "Immunosuppression",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "title": "Common Pathogens & Characteristics",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Pathogen",
+            "Common Clinical Appearance",
+            "Typical Patient Profile"
+          ],
+          "rows": [
+            [
+              "Staphylococcus aureus",
+              "Well-defined, round, white-creamy abscess.",
+              "Chronic lid disease, post-op, bullous keratopathy."
+            ],
+            [
+              "Pseudomonas aeruginosa",
+              "Rapidly spreading, soup-like melting, greenish discharge.",
+              "Contact lens wearers (overnight use)."
+            ],
+            [
+              "Streptococcus pneumoniae",
+              "Serpiginous ulcer, deep stromal abscess, hypopyon.",
+              "Related to trauma or dacryocystitis."
+            ],
+            [
+              "Moraxella catarrhalis",
+              "Indolent, often in the inferior cornea.",
+              "Debilitated, elderly, or alcoholic patients."
+            ],
+            [
+              "Fungal (Filamentous)",
+              "Feathery margins, satellite lesions, immune ring.",
+              "Agricultural trauma (vegetative matter)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Four Stages of Pathogenesis",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Stage of Infiltration: PMN migration from limbus/tears into the stroma.",
+          "2. Stage of Active Ulceration: Necrosis and sloughing of epithelium and stroma.",
+          "3. Stage of Regression: Immune response limits the infection; lines of demarcation form.",
+          "4. Stage of Cicatrization: Healing via fibroblast activity, resulting in permanent nebula, macula, or leucoma."
+        ]
+      },
+      {
+        "title": "EMERGENCY: Red Flags for Perforation",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Descemetocele formation (clear bubble in the floor of the ulcer)",
+          "Sudden decrease in IOP (intraocular pressure)",
+          "Seidel's test positive (aqueous leak)",
+          "Shallow or flat anterior chamber",
+          "Iris prolapse into the corneal defect",
+          "Rapidly progressive stromal thinning ('melting')"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup: The Scrape Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Stop antibiotics 24-48h if possible (unless severe).",
+          "2. Instill topical anesthetic (Proparacaine preferred over Tetracaine).",
+          "3. Scrape the base and the active margins using a Kimura spatula or 25G needle.",
+          "4. Inoculate onto Blood Agar, Chocolate Agar, and Sabouraud Dextrose Agar.",
+          "5. Prepare slides for Gram and Giemsa stains (and KOH/Calcofluor white if fungal suspected)."
+        ]
+      },
+      {
+        "title": "Culture Media Reference",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Medium",
+            "Target Organism"
+          ],
+          "rows": [
+            [
+              "Blood Agar",
+              "Aerobic bacteria, fungi"
+            ],
+            [
+              "Chocolate Agar",
+              "Haemophilus, Neisseria"
+            ],
+            [
+              "Sabouraud Agar",
+              "Fungi (Yeast and Filamentous)"
+            ],
+            [
+              "Thioglycollate Broth",
+              "Anaerobes"
+            ],
+            [
+              "Non-nutrient Agar + E. coli",
+              "Acanthamoeba"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Severity Classification (Jones Criteria)",
+        "icon": "fact_check",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Severity",
+            "Infiltrate Size",
+            "Depth",
+            "Hypopyon"
+          ],
+          "rows": [
+            [
+              "Mild",
+              "< 2 mm",
+              "Superficial 1/3",
+              "Absent"
+            ],
+            [
+              "Moderate",
+              "2 - 6 mm",
+              "Middle 1/3 to 2/3",
+              "Small/Fibrinous"
+            ],
+            [
+              "Severe",
+              "> 6 mm or Scleral involvement",
+              "Posterior 1/3 (Inner)",
+              "Large/Significant"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Initial Management: Medical Protocol",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Monotherapy (Non-central, <2mm): Fluoroquinolones (Moxifloxacin 0.5% or Gatifloxacin 0.5%) q1h.",
+          "Duotherapy (Severe/Central): Fortified Tobramycin (15mg/mL) + Fortified Vancomycin (50mg/mL) q1h around the clock.",
+          "Cycloplegia: Atropine 1% BID or Cyclopentolate 1% TID to reduce pain and prevent synechiae.",
+          "Oral Doxycycline: 100mg BID to inhibit collagenase and prevent melting.",
+          "Steroid Timing: Wait at least 48-72h of effective antibiotic cover (SCUT trial recommendations)."
+        ]
+      },
+      {
+        "title": "Fortified Antibiotic Preparation (Pearls)",
+        "icon": "healing",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Vancomycin (50mg/mL): Add 10mL of sterile water or BSS to 500mg Vancomycin powder. Stable for 14 days refrigerated. Tobramycin (15mg/mL): Add 2mL of injectable Tobramycin (40mg/mL) to a 5mL bottle of 0.3% Tobramycin ophthalmic solution."
+      },
+      {
+        "title": "Mnemonic for Bacterial Features",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.S.E.U.D.O.",
+          "explanation": "P: Painful (Severe), S: Soup-like melt, E: Extended wear CL risk, U: Ulceration rapid, D: Discharge (Greenish/Purulent), O: Odor (often associated with Pseudomonas cultures)."
+        }
+      },
+      {
+        "title": "Surgical Intervention Mindmap",
+        "icon": "flat_ware",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Surgical Options",
+          "branches": [
+            "Cyanoacrylate Tissue Glue (for <2mm perforations)",
+            "Conjunctival Flap (for chronic non-healing ulcers)",
+            "Therapeutic Penetrating Keratoplasty (TPK)",
+            "Amniotic Membrane Graft (for persistent epithelial defects)",
+            "Bandage Contact Lens (only after infection is sterilized)"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "rule",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Mimics of MK",
+          "branches": [
+            "Sterile Marginal Keratitis (Staph Hypersensitivity)",
+            "Mooren's Ulcer",
+            "Rheumatoid Arthritis related PUK",
+            "Herpetic Simplex Keratitis (Necrotizing)",
+            "Topical Anesthetic Abuse Keratopathy"
+          ]
+        }
+      },
+      {
+        "title": "Landmark Study: The SCUT Trial",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Steroids for Corneal Ulcers Trial (SCUT).",
+          "Finding: No significant difference in visual outcome at 3 months for the whole group.",
+          "Subgroup benefit: Patients with very poor baseline vision and central/deep ulcers showed better outcomes with early steroids (after 48h of antibiotics).",
+          "Key Rule: Never start steroids until the organism is identified and fungal/acanthamoeba are ruled out."
+        ]
+      },
+      {
+        "title": "Complications and Prognosis",
+        "icon": "emergency_home",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Endophthalmitis (Infection spread to the vitreous/aqueous).",
+          "Secondary Glaucoma (Inflammatory debris blocking the trabecular meshwork).",
+          "Anterior Polychromatic Cataract.",
+          "Corneal Leucoma (Permanent opaque scar).",
+          "Phthisis Bulbi (Shrinkage of the eye following severe infection)."
+        ]
+      },
+      {
+        "title": "Pathogens that can Penetrate Intact Epithelium",
+        "icon": "fingerprint",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "N.H.L.C.",
+          "explanation": "N: Neisseria gonorrhoeae, H: Haemophilus influenzae, L: Listeria monocytogenes, C: Corynebacterium diphtheriae."
+        }
+      },
+      {
+        "title": "High-Yield Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "The 'Lid Flip': Always evert the eyelid to look for retained foreign bodies (e.g., a lost contact lens) which can be the nidus for infection.",
+          "Acanthamoeba Hint: Pain out of proportion to clinical signs and radial keratoneuritis.",
+          "Moraxella: Classically occurs in patients with pre-existing ocular surface disease and malnutrition.",
+          "Toxicity vs. Infection: If the ulcer is not improving, consider if the 1-hour drops are causing 'medicamentosa' or toxic epithelial toxicity.",
+          "Hypopyon: In bacterial ulcers, the hypopyon is usually sterile (inflammatory); in fungal ulcers, it may contain active fungal elements."
+        ]
+      }
+    ],
+    "generationPrompt": "Corneal abscess",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "read": true,
+  "bookmarked": true
+}

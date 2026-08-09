@@ -1,0 +1,209 @@
+{
+  "id": 1775044662406,
+  "seqId": 157,
+  "title": "NEOVASCULAR GLAUCOMA (NVG): A Comprehensive Guide",
+  "summary": "Neovascular glaucoma is a challenging condition driven by posterior segment ischaemia, leading to the formation of a fibrovascular membrane in the iris and drainage angle. This guide details the progression from open-angle to synechial closure, common causes like CrVO and diabetes, and the transformative role of anti-VEGF therapies.",
+  "date": "2026-04-01T11:57:42.406Z",
+  "data": {
+    "title": "NEOVASCULAR GLAUCOMA (NVG): A Comprehensive Guide",
+    "summary": "Neovascular glaucoma is a challenging condition driven by posterior segment ischaemia, leading to the formation of a fibrovascular membrane in the iris and drainage angle. This guide details the progression from open-angle to synechial closure, common causes like CrVO and diabetes, and the transformative role of anti-VEGF therapies.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M50 35 L50 20 M65 50 L80 50 M50 65 L50 80 M35 50 L20 50 M60 40 L70 30 M60 60 L70 70 M40 60 L30 70 M40 40 L30 30' stroke='red' stroke-width='1.5' stroke-linecap='round'/><path d='M35 50 Q50 45 65 50' fill='none' stroke='rgba(255,0,0,0.5)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Pathophysiology & Progression",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Posterior segment ischaemia drives neovascularization of the iris and drainage angle.",
+          "2. This leads to the development of a fibrovascular membrane.",
+          "3. Initially, the membrane overlies the trabecular meshwork so that the angle appears open.",
+          "4. Over time, Peripheral Anterior Synechiae (PAS) form.",
+          "5. The fibrovascular membrane contracts to cause complete synechial angle closure."
+        ]
+      },
+      {
+        "title": "Major Contributors to NVG",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Ischaemic CrVO",
+              "value": 33
+            },
+            {
+              "label": "Diabetes",
+              "value": 33
+            },
+            {
+              "label": "Other Causes",
+              "value": 34
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Causes & Risk Factors",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Ischaemic CrVO (common); risk of progression to NVG is 50%.",
+          "Diabetic retinopathy (common); risk of NVG highest in PDr.",
+          "Other vascular disorders: OIS, CrAO, BrVO.",
+          "Other retinal disease: chronic retinal detachment, sickle cell retinopathy.",
+          "Retinal or choroidal tumours."
+        ]
+      },
+      {
+        "title": "Clinical Features & Presentation",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Pain is often a feature and may be severe.",
+          "The predisposing condition may be known or suggested by history (e.g. sudden loss of vision several months previously in cases of CrVO and NVG).",
+          "Iris rubeosis: abnormal/non-radial vessels at pupil sphincter margin.",
+          "Increased Intraocular Pressure (iIOP).",
+          "AC flare/cells and hyphaema.",
+          "Ectropion uvea.",
+          "Conjunctival injection and corneal oedema (if acute iIOP or decompensating).",
+          "Disc changes and field loss as for POAG (see E Primary open-angle glaucoma, pp. 390–1)."
+        ]
+      },
+      {
+        "title": "Gonioscopy Classifications",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Findings"
+          ],
+          "rows": [
+            [
+              "General",
+              "Abnormal vessels in the angle"
+            ],
+            [
+              "Open-angle type",
+              "Fibrovascular membrane overlying the trabeculum"
+            ],
+            [
+              "Angle-closure type",
+              "Membrane + synechial angle closure"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Investigations",
+        "icon": "search",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Dilated fundoscopy in all cases ± FFA to determine cause.",
+          "Carotid Doppler US: performed if no retinal pathology or asymmetric diabetic retinopathy is found.",
+          "B-scan US: if there is a poor fundal view (cataract may be associated with chronic retinal pathology such as tumours, detachment, and inflammation).",
+          "Haematological/biochemical factors: looking for factors that increase the hypoxic drive, e.g. anaemia."
+        ]
+      },
+      {
+        "title": "Core Treatment Philosophy",
+        "icon": "info",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Treatment of NVG (see p. 405) has often been challenging and unsatisfactory but is undergoing a positive transformation with the advent of anti-VeGF therapies. It is important to remember that anti-VeGF therapy alone will not control NVG, unless the posterior segment hypoxic drive is also addressed through adequate PrP, etc."
+      },
+      {
+        "title": "Addressing Underlying Causes",
+        "icon": "healing",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Treatment Action"
+          ],
+          "rows": [
+            [
+              "Retinal ischaemia",
+              "PrP (Panretinal Photocoagulation)"
+            ],
+            [
+              "Retinal detachment",
+              "Retinal reattachment"
+            ],
+            [
+              "Carotid artery stenosis",
+              "Carotid endarterectomy (if suitable)"
+            ],
+            [
+              "Exacerbating factors",
+              "Address anaemia, hyperviscosity"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Managing Neovascularization",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "PrP to decrease retinal ischaemic drive long term.",
+          "If no fundal view exists, anti-VeGF therapy can be administered to temporize.",
+          "Vitrectomy/endolaser photocoagulation ± cataract extraction (depending on visual prognosis).",
+          "Anti-VeGF impact: Significant impact on neovascularization and improves survival of drainage surgery.",
+          "Bevacizumab Evidence: Small retrospective studies show regression of neovascularization and decreased IOP when used alone or with PrP."
+        ]
+      },
+      {
+        "title": "Managing IOP and Inflammation",
+        "icon": "water_drop",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Cycloplegic: e.g. atropine 1% 2×/d.",
+          "Frequent topical steroids: e.g. prednisolone acetate 1% 1- to 4-hourly.",
+          "Ocular hypotensive agents: as for POAG.",
+          "If medical treatment fails: Consider trabeculectomy (augmented), tubeshunt procedures, or cyclodestruction (e.g. cyclodiode), depending on visual prognosis."
+        ]
+      },
+      {
+        "title": "Pain Management & The Blind Eye",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Use Cycloplegia (atropine) and topical corticosteroids for pain.",
+          "Lubricants for sick corneal epithelium (keep high index of suspicion for microbial keratitis).",
+          "Consider full ocular surface regime for dry eyes/blepharitis/drop toxicity.",
+          "If the eye is blind and painful: Consider retrobulbar alcohol or chlorpromazine, or evisceration/enucleation."
+        ]
+      }
+    ],
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "_newlyImported": 1775044662406,
+  "communityId": "sub_1773775007771_uj7u8r4y8rovnd",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.771Z",
+  "read": true
+}

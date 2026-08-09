@@ -1,0 +1,332 @@
+{
+  "id": 1775044669095,
+  "seqId": 225,
+  "title": "Pulmonary Embolism: The Critical Systemic Perspective",
+  "summary": "Pulmonary Embolism (PE) is a life-threatening occlusion of the pulmonary vasculature, representing a major perioperative risk and a systemic emergency. This guide provides comprehensive clinical mastery, from Virchow's Triad to Purtscher-like retinopathy.",
+  "date": "2026-04-01T11:57:49.095Z",
+  "data": {
+    "title": "Pulmonary Embolism: The Critical Systemic Perspective",
+    "summary": "Pulmonary Embolism (PE) is a life-threatening occlusion of the pulmonary vasculature, representing a major perioperative risk and a systemic emergency. This guide provides comprehensive clinical mastery, from Virchow's Triad to Purtscher-like retinopathy.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M30,20 Q50,10 70,20 Q85,35 80,60 Q75,85 50,90 Q25,85 20,60 Q15,35 30,20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M40,40 L60,60 M60,40 L40,60' stroke='red' stroke-width='4' stroke-linecap='round'/><path d='M50,25 V85 M30,55 H70' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='2,2'/><circle cx='55' cy='45' r='5' fill='red' opacity='0.6'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Pulmonary Embolism (PE) is the sudden occlusion of a pulmonary arterial vessel by an embolus (most commonly a thrombus from deep vein thrombosis, but also air, fat, or amniotic fluid). It is the third most common cause of cardiovascular death and a critical consideration in prolonged ophthalmic surgeries (e.g., orbital exenteration, complex retinal detachment repair)."
+      },
+      {
+        "title": "Epidemiological Impact",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Incidence (per 1k/yr)",
+              "value": 15
+            },
+            {
+              "label": "Untreated Mortality",
+              "value": 30
+            },
+            {
+              "label": "Treated Mortality",
+              "value": 8
+            },
+            {
+              "label": "DVT Co-occurrence",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: Virchow's Triad",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Virchow's Triad",
+          "branches": [
+            "Endothelial Injury (Trauma, Surgery, Venepuncture)",
+            "Stasis (Immobility, Obstructive Sleep Apnea, Ocular Surgery >2hrs)",
+            "Hypercoagulability (Factor V Leiden, Cancer, Pregnancy, OCP)"
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiological Sequence",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Embolus lodges in pulmonary artery",
+          "2. Increase in Pulmonary Vascular Resistance (PVR)",
+          "3. Right Ventricular (RV) afterload increase",
+          "4. RV dilation and septal shift to the left",
+          "5. Decreased Left Ventricular filling & Cardiac Output",
+          "6. V/Q mismatch and profound hypoxemia"
+        ]
+      },
+      {
+        "title": "Classification by Severity",
+        "icon": "monitoring",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Class",
+            "Clinical Markers",
+            "Mortality"
+          ],
+          "rows": [
+            [
+              "Massive",
+              "SBP <90 mmHg or Shock",
+              ">15%"
+            ],
+            [
+              "Submassive",
+              "RV strain (Echo) or Troponin elevation",
+              "3-15%"
+            ],
+            [
+              "Low Risk",
+              "Stable BP, Normal Biomarkers",
+              "<1%"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Ophthalmic Connection: Purtscher-like Retinopathy",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Rare manifestation of systemic microembolization (Fat/Air/Thrombotic).",
+          "Clinical Signs: Multiple Cotton Wool Spots (CWS), Purtscher Flecken (areas of inner retinal whitening), and intraretinal hemorrhages.",
+          "Mechanism: Microvascular occlusion and complement-mediated (C5a) leukoembolization.",
+          "Differential: Diabetics or Hypertensives can mimic, but Purtscher's is typically acute and associated with recent trauma or systemic emboli.",
+          "Prognosis: Often resolves spontaneously; visual outcome depends on macular ischemia."
+        ]
+      },
+      {
+        "title": "Clinical Symptoms Profile",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Sudden Onset Dyspnea (82%)",
+          "Pleuritic Chest Pain (49%)",
+          "Cough (20%)",
+          "Hemoptysis (7%)",
+          "Syncope (indicates massive PE)",
+          "Apprehension / Impending Doom"
+        ]
+      },
+      {
+        "title": "Diagnostic Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Hypotension (SBP < 90 mmHg)",
+          "Oxygen Saturation < 90% on Room Air",
+          "Tachycardia > 100 bpm in Ophthalmic Post-op",
+          "Unilateral Calf Swelling (DVT sign)",
+          "New onset Right Bundle Branch Block (ECG)"
+        ]
+      },
+      {
+        "title": "Simplified Wells Criteria (Pre-test Probability)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Clinical Feature",
+            "Points"
+          ],
+          "rows": [
+            [
+              "Clinical Signs of DVT",
+              "3.0"
+            ],
+            [
+              "Alternative Dx Less Likely than PE",
+              "3.0"
+            ],
+            [
+              "Heart Rate > 100 bpm",
+              "1.5"
+            ],
+            [
+              "Immobilization (>3 days) or Surgery (last 4 wks)",
+              "1.5"
+            ],
+            [
+              "Previous PE or DVT",
+              "1.5"
+            ],
+            [
+              "Hemoptysis",
+              "1.0"
+            ],
+            [
+              "Malignancy (active or treated in 6 months)",
+              "1.0"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Investigation Strategy",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Risk Stratify: Use Wells Criteria or PERC rule.",
+          "2. Biomarkers: High-sensitivity D-dimer (only if Wells <= 4).",
+          "3. Imaging: CT Pulmonary Angiogram (CTPA) - Gold Standard.",
+          "4. Alternative Imaging: V/Q Scan if Renal Failure or Contrast Allergy.",
+          "5. Bedside Echo: Look for 'McConnell's Sign' (RV free wall akinesia)."
+        ]
+      },
+      {
+        "title": "Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Stabilization: High-flow O2, fluid resuscitation (cautious).",
+          "2. Immediate Anticoagulation: LMWH (Enoxaparin 1mg/kg) or UFH.",
+          "3. Thrombolysis: Alteplase (tPA) reserved for Massive PE.",
+          "4. Long-term Anticoagulation: DOACs (Rivaroxaban, Apixaban) for 3-6 months.",
+          "5. Interventional: Catheter-directed thrombectomy for high-risk cases."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Myocardial Infarction",
+              "ECG shows ST-elevation/depression; Troponin rise pattern."
+            ],
+            [
+              "Pneumothorax",
+              "Acute onset, absent breath sounds, tracheal deviation."
+            ],
+            [
+              "Pneumonia",
+              "Fever, productive cough, CXR infiltrates."
+            ],
+            [
+              "Aortic Dissection",
+              "Tearing back pain, unequal BP in arms, widened mediastinum."
+            ],
+            [
+              "Anxiety/Panic",
+              "Normal SpO2, circumoral tingling, normal D-dimer."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: Signs of PE",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "THROMBI",
+          "explanation": "T: Tachycardia, H: Hemoptysis, R: Reduced SaO2, O: Orthopnea, M: Mid-line chest pain (Pleuritic), B: Breathlessness, I: Increased RR (Tachypnea)."
+        }
+      },
+      {
+        "title": "Landmark Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "S1Q3T3 is famous but only present in <20% of cases.",
+          "A normal CXR in a hypoxic patient should strongly raise suspicion of PE.",
+          "D-dimer has high sensitivity but poor specificity; it is for 'ruling out' only.",
+          "The PESI score (Pulmonary Embolism Severity Index) helps decide on home vs hospital care.",
+          "In Ophthalmic surgery, avoid retrobulbar blocks in patients on full anticoagulation."
+        ]
+      },
+      {
+        "title": "Surgical/Procedural Interventions",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Inferior Vena Cava (IVC) Filters: Used if anticoagulation is contraindicated (e.g., immediate post-op bleeding risk).",
+          "Surgical Embolectomy: Indicated for massive PE when thrombolysis fails or is contraindicated.",
+          "Catheter-Directed Thrombolysis (CDT): Lower doses of tPA delivered directly to the clot."
+        ]
+      },
+      {
+        "title": "Evidence-Based Landmarks",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Study",
+            "Key Finding"
+          ],
+          "rows": [
+            [
+              "PEITHO Trial",
+              "Tenecteplase in submassive PE reduces decompensation but increases bleed risk."
+            ],
+            [
+              "EINSTEIN-PE",
+              "Rivaroxaban is non-inferior to standard therapy (Enox/Warfarin)."
+            ],
+            [
+              "PROSPECT",
+              "Validated the use of D-dimer adjusted by clinical probability."
+            ]
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Pulmonary embolism",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "_newlyImported": 1775044669095,
+  "communityId": "sub_1774441114485_fpl0tpciv",
+  "communityAuthor": "Dodo",
+  "communityDate": "2026-03-25T12:18:34.486Z",
+  "read": true
+}

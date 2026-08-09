@@ -1,0 +1,176 @@
+{
+  "id": 1774975263675,
+  "seqId": 10,
+  "title": "TASS vs. Infectious Endophthalmitis: A Diagnostic Divide",
+  "summary": "Toxic Anterior Segment Syndrome (TASS) and postoperative endophthalmitis represent the two most feared acute inflammatory complications following intraocular surgery. Mastering their rapid differentiation is critical for sight-saving management.",
+  "date": "2026-03-31T16:41:03.675Z",
+  "data": {
+    "title": "TASS vs. Infectious Endophthalmitis: A Diagnostic Divide",
+    "summary": "Toxic Anterior Segment Syndrome (TASS) and postoperative endophthalmitis represent the two most feared acute inflammatory complications following intraocular surgery. Mastering their rapid differentiation is critical for sight-saving management.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 30 70 50 T30 50' fill='hsl(215, 90%, 45%)' opacity='0.3'/><rect x='45' y='20' width='10' height='60' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "TASS vs. Endophthalmitis: Key Clinical Differentiators",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "TASS (Toxic)",
+            "Endophthalmitis (Infectious)"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "12-24 hours post-op",
+              "2-7+ days post-op"
+            ],
+            [
+              "Pain",
+              "Usually mild or absent",
+              "Severe, throbbing"
+            ],
+            [
+              "Vision",
+              "Variable, improves with steroids",
+              "Progressively worsening"
+            ],
+            [
+              "Conjunctival Injection",
+              "Diffuse/Limbus-based",
+              "Significant, chemotic"
+            ],
+            [
+              "Corneal Edema",
+              "Limbus-to-limbus",
+              "Localized/Focal"
+            ],
+            [
+              "Anterior Chamber",
+              "Fibrin/Hypopyon",
+              "Cells, fibrin, vitritis"
+            ],
+            [
+              "Vitreous",
+              "Usually clear (Quiet)",
+              "Inflammation (Vitritis)"
+            ],
+            [
+              "Systemic Signs",
+              "Absent",
+              "Possible (rarely)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "TASS Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Inability to visualize the posterior pole (requires tap)",
+          "Presence of any vitreous haze/cells",
+          "Worsening pain 48h+ post-op",
+          "Decreasing visual acuity after initial stabilization"
+        ]
+      },
+      {
+        "title": "Pathophysiology & Etiology",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Post-op Inflammation",
+          "branches": [
+            "TASS (Chemical toxicity)",
+            "Infectious (Bacterial/Fungal)",
+            "Endogenous (Hematogenous)"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis for AC Inflammation",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Retained Lens Material",
+              "Presence of visible cortical/nuclear fragments"
+            ],
+            [
+              "Iris Trauma",
+              "TID (Transillumination defects), sphincter tears"
+            ],
+            [
+              "IOL Malposition",
+              "Haptic displacement, iris chafing"
+            ],
+            [
+              "Uveitis Recurrence",
+              "History of chronic ocular inflammation"
+            ],
+            [
+              "Vitreous Wick Syndrome",
+              "Strands through wound; risk of endophthalmitis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "TASS Mnemonics: Common Triggers",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.I.P.E.S.",
+          "explanation": "P: Preservatives (e.g., BAC), I: Impurities (endotoxins), P: pH/Osmolality mismatch, E: Enzymatic residues, S: Sterilizing agents."
+        }
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Clinical index of suspicion (Early vs Late onset).",
+          "Step 2: If vitritis exists: Emergent Vitreous Tap/Biopsy.",
+          "Step 3: Intravitreal antibiotics (Vancomycin 1mg/0.1ml + Ceftazidime 2.25mg/0.1ml).",
+          "Step 4: If TASS suspected: Aggressive topical Steroids (Prednisolone Acetate 1% q1h).",
+          "Step 5: Monitor IOP and repeat culture/Tap if no improvement at 24-48h."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "TASS is an inflammatory response to non-infectious substances; it is non-infectious by definition.",
+          "Any vitreous haze essentially rules out TASS and confirms Endophthalmitis until proven otherwise.",
+          "Always inspect the surgical logs/sterilization logs when a TASS cluster occurs.",
+          "The EVS (Endophthalmitis Vitrectomy Study) remains the gold standard for treatment guidelines regarding vitrectomy vs. tap/inject.",
+          "Post-operative pain is the patient's most reliable symptom for early infection."
+        ]
+      }
+    ],
+    "generationPrompt": "TASS vs endophthalmitis",
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "bookmarked": true
+}

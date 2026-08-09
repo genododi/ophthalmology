@@ -1,0 +1,281 @@
+{
+  "id": 1775044692915,
+  "seqId": 432,
+  "title": "Neuro-Ophthalmic Pupil & Chiasm Masterclass",
+  "summary": "An exhaustive clinical guide to pupillary abnormalities, pharmacological testing, and chiasmal visual field defects. This poster integrates anatomical localization with evidence-based diagnostic protocols for the Ophthalmic specialist.",
+  "date": "2026-04-01T11:58:12.915Z",
+  "data": {
+    "title": "Neuro-Ophthalmic Pupil & Chiasm Masterclass",
+    "summary": "An exhaustive clinical guide to pupillary abnormalities, pharmacological testing, and chiasmal visual field defects. This poster integrates anatomical localization with evidence-based diagnostic protocols for the Ophthalmic specialist.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='50' r='12' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='30' cy='50' r='4' fill='hsl(215, 90%, 45%)'/><circle cx='70' cy='50' r='18' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='70' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M45 50 L55 50' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='2,2'/><path d='M20 80 Q50 90 80 80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Causes of Horner Syndrome: Anatomical Localization",
+        "icon": "lan",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Horner Syndrome (Oculosympathetic Palsy)",
+          "branches": [
+            "Central (1st Order): Brain stem (stroke, tumor, demyelination), Lateral Medullary (Wallenberg) syndrome, Cervical spinal cord lesion, Diabetic autonomic neuropathy",
+            "Preganglionic (2nd Order): Pancoast tumour, Carotid and aortic aneurysm, Thoracic spinal cord lesion, Miscellaneous neck lesions (thyroid tumour, enlarged lymph nodes, trauma, postsurgical)",
+            "Post-ganglionic (3rd Order): Internal carotid dissection, Nasopharyngeal tumour, Cavernous sinus mass, Otitis media, Cluster headache, Migrainous neuralgia",
+            "Special Variants: Bilateral Horner (Cervical spine surgery or Diabetic neuropathy)"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "PAINFUL HORNER SYNDROME: Should raise the immediate possibility of Carotid Dissection",
+          "Anisocoria is accentuated in DIM LIGHT (Lag in dilation)",
+          "Mild Ptosis (1-2mm superiorly) + Slightly elevation of inferior lid (Inferior Ptosis/Upside-down ptosis) due to weakness of inferior tarsal muscle",
+          "Hypochromia/Heterochromia: Seen if congenital or long-standing",
+          "Reduced ipsilateral sweating: Only if the lesion occurs below the superior cervical ganglion",
+          "Systemic Exam: Check Cranial Nerves, Peripheral Nervous System (T1 grip strength), Neck, and Regional Lymph Nodes (Neurologist referral often indicated)"
+        ]
+      },
+      {
+        "title": "Clinical Pearl: The PAM Mnemonic",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.A.M. (Horner Triad)",
+          "explanation": "P: Ptosis (Superior and Inferior/Müller's muscle); A: Anhidrosis (Reduced sweating); M: Miosis (Constricted pupil)."
+        }
+      },
+      {
+        "title": "Pharmacological Testing for Horner Syndrome",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Drug Agent",
+            "Action/Mechanism",
+            "Diagnostic Role",
+            "Result & Interpretation"
+          ],
+          "rows": [
+            [
+              "Apraclonidine (0.5% or 1%)",
+              "Alpha-1 receptors are upregulated in denervated dilator pupillae (Denervation Supersensitivity)",
+              "Confirm Diagnosis (Horner or not)",
+              "Horner pupil will dilate, ptosis improved. Check at 30 min; if -ve, recheck after 45 min. Latent period: 7 days before +ve."
+            ],
+            [
+              "Cocaine (4%)",
+              "Blocks reuptake of Noradrenaline (NA) at nerve endings. Accumulates NA in normal pupils.",
+              "Confirm Diagnosis (Reserved for acute/equivocal cases)",
+              "Horner pupil will NOT dilate (no NA being secreted). Normal pupil dilates."
+            ],
+            [
+              "Hydroxyamphetamine (1%)",
+              "Potentiates release of NA from functional post-ganglionic nerve endings.",
+              "Differentiate Pre vs Post-ganglionic",
+              "Post-ganglionic Horner will NOT dilate (No NA available to release). Pre-ganglionic/Central will dilate."
+            ],
+            [
+              "Phenylephrine (1%) (Diluted from 2.5/10%)",
+              "Direct alpha-agonist; acts on denervation hypersensitivity of local motor nerve.",
+              "Differentiate Pre vs Post-ganglionic",
+              "10-day established Post-ganglionic: Dilates and ptosis relieved. Central/Preganglionic: Both will NOT dilate."
+            ],
+            [
+              "Adrenaline (0.1%)",
+              "Action similar to Phenylephrine.",
+              "Localization",
+              "Post-ganglionic Horner pupil will dilate."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Adie Tonic Pupil: Pathophysiology & Signs",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Pathology: Denervation of post-ganglionic parasympathetic supply to sphincter pupillae and ciliary muscle; may follow viral illness or occasionally AD inheritance.",
+          "Sites of dysfunction: Ciliary ganglion; in Holmes-Adie syndrome, dorsal root ganglion is involved in reflex pathways.",
+          "Demographics: Female predilection; initially one eye, second eye involvement typically develops within months/years.",
+          "Symptoms: Anisocoria, blurring of near vision.",
+          "Signs: Large regular pupil; Direct light reflex is absent or sluggish.",
+          "Vermiform movements of the pupillary border (segmental palsy).",
+          "Consensual response: Constriction absent or sluggish in response to light stimulation of fellow eye.",
+          "Light-Near Dissociation: Pupil responds to near, but re-dilatation is very slow.",
+          "Accommodation: Tonicity with slowed/impaired focusing for near and prolonged refocusing in the distance.",
+          "Long-standing: May become small ('Little Old Adie')."
+        ]
+      },
+      {
+        "title": "Adie Pupil: Associations & Management",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Holmes-Adie Syndrome: Tonic pupil + decreased lower limb deep tendon reflexes.",
+          "Ross Syndrome: Tonic pupil + excessive sweating.",
+          "Other Associations: Orthostatic hypotension, bowel obstruction, urinary retention.",
+          "Testing: 0.1-0.125% Pilocarpine leads to constriction of abnormal pupil (Denervation Hypersensitivity).",
+          "Screening: Syphilis serology should be checked in patients with bilateral tonic pupils.",
+          "Treatment: Reading glasses, Sunglasses, Low-conc Pilocarpine drops for cosmetics/photophobia, Thoracic sympathectomy for sweating."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Anisocoria",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Differentiating Characteristics"
+          ],
+          "rows": [
+            [
+              "Physiological Anisocoria",
+              "~1mm difference in 20% of population. Asymmetry persists to same proportion in different light levels."
+            ],
+            [
+              "Horner Syndrome",
+              "Anisocoria greater in dim light. Associated ptosis and dilation lag."
+            ],
+            [
+              "Adie Tonic Pupil",
+              "Large pupil, sluggish light reflex, segmental vermiform movements, 0.125% pilocarpine sensitivity."
+            ],
+            [
+              "Pharmacological Mydriasis",
+              "Does NOT constrict in bright light, on accommodation, or to any concentration of pilocarpine."
+            ],
+            [
+              "Argyll Robertson Pupil",
+              "Neurosyphilis. Small, irregular, light-near dissociation. No response to 0.1% pilocarpine."
+            ],
+            [
+              "Benign Episodic Unilateral Mydriasis",
+              "Transient, often associated with migraines."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Argyll Robertson Pupil (ARP)",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Cause: Neurosyphilis.",
+          "Lesion: Dorsal midbrain.",
+          "Classic Feature: Light-Near Dissociation (Accommodates but does not react).",
+          "Darkness: Both pupils do not dilate well.",
+          "Bright Light: Neither pupils constrict.",
+          "Accommodation: Both constrict.",
+          "Pharmacology: After 0.1% pilocarpine, neither pupil constricts (Distinguishes ARP from long-standing Adie)."
+        ]
+      },
+      {
+        "title": "Causes of Light-Near Dissociation",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Unilateral",
+            "Bilateral"
+          ],
+          "rows": [
+            [
+              "Afferent conduction defect",
+              "Neurosyphilis"
+            ],
+            [
+              "Adie pupil",
+              "Type 1 Diabetes Mellitus"
+            ],
+            [
+              "Herpes Zoster Ophthalmicus (HZO)",
+              "Myotonic dystrophy"
+            ],
+            [
+              "Aberrant 3rd Nerve Regeneration",
+              "Familial amyloidosis, Encephalitis, Alcoholism"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Visual Fields & Chiasmal Anatomy",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Lower Nasal Optic Nerve Fibers: Traverse the chiasm inferiorly and anteriorly. Lesion leads to Bitemporal Superior Quadrantanopia (Often asymmetrical).",
+          "2. Upper Nasal Fibers: Traverse the chiasm high and posteriorly. Lesion leads to Bitemporal Inferior Quadrantanopia (e.g., Craniopharyngioma).",
+          "3. Junctional Scotoma: Simultaneous involvement of one optic nerve + contralateral inferonasal fibers looping forward (Knee of Wilbrand). Results in Central/Paracentral defect + Contralateral Superotemporal defect.",
+          "4. Macular Fibers: Decussate throughout chiasm but concentrated posteriorly. Lesion leads to Bitemporal hemianopic changes in central/paracentral fields.",
+          "5. Note: Field defects depend on location, direction of enlargement, and anatomical relationship between pituitary and chiasm."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Bitemporal Defects",
+        "icon": "list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Dermatochalasis",
+          "2. Tilted disc",
+          "3. Optic nerve coloboma",
+          "4. Nasal retinoschisis",
+          "5. Retinitis pigmentosa",
+          "6. Functional non-physiological visual loss"
+        ]
+      },
+      {
+        "title": "Management of Pituitary Adenoma",
+        "icon": "medication_liquid",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Observation (Silent tumours)",
+          "Step 2: Medical Therapy (Initial step for size/secretion reduction: Cabergoline, Older Bromocriptine, Somatostatin analogues like Octreotide + Hormonal correction)",
+          "Step 3: Surgery (Transsphenoidal tumour debulking)",
+          "Step 4: Radiotherapy (Stereotactic radiotherapy)",
+          "Step 5: Monitoring (Serial assessment of visual function)"
+        ]
+      },
+      {
+        "title": "Clinical Sign: Wernicke Hemianopic Pupil",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "An optic tract lesion may give rise to an afferent pupillary conduction defect known as the Wernicke hemianopic pupil. In this condition, the pupillary light reflex will be normal when the unaffected hemiretina is stimulated and absent when the involved hemiretina is stimulated."
+      }
+    ],
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044692915,
+  "communityId": "sub_1773829298671_x10pok1tl",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-18T10:21:38.671Z",
+  "read": true
+}

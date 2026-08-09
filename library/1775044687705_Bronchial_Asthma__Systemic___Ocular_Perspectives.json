@@ -1,0 +1,279 @@
+{
+  "id": 1775044687705,
+  "seqId": 409,
+  "title": "Bronchial Asthma: Systemic & Ocular Perspectives",
+  "summary": "A comprehensive clinical guide to bronchial asthma, focusing on the GINA-aligned management protocols, underlying pathophysiology, and the critical ocular associations including atopic disease and steroid-induced complications.",
+  "date": "2026-04-01T11:58:07.705Z",
+  "data": {
+    "title": "Bronchial Asthma: Systemic & Ocular Perspectives",
+    "summary": "A comprehensive clinical guide to bronchial asthma, focusing on the GINA-aligned management protocols, underlying pathophysiology, and the critical ocular associations including atopic disease and steroid-induced complications.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M30,70 Q20,70 20,50 Q20,30 40,30 Q45,20 55,20 Q75,20 75,45 Q85,45 85,60 Q85,75 70,75 L30,75' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M45,40 L55,60 M55,40 L45,60' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-linecap='round'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "description",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Bronchial asthma is a heterogeneous chronic inflammatory airway disease characterized by a history of respiratory symptoms such as wheeze, shortness of breath, chest tightness, and cough that vary over time and in intensity, together with variable expiratory airflow limitation. From an ophthalmic perspective, it is frequently associated with atopic ocular surface diseases (AKC/VKC)."
+      },
+      {
+        "title": "Epidemiology & Global Burden",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Global Prevalence",
+              "value": 10
+            },
+            {
+              "label": "Pediatric Incidence",
+              "value": 14
+            },
+            {
+              "label": "Adult Onset",
+              "value": 7
+            },
+            {
+              "label": "Atopy Association",
+              "value": 80
+            }
+          ]
+        }
+      },
+      {
+        "title": "Samter’s Triad (AERD)",
+        "icon": "remember",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "A.S.A.",
+          "explanation": "Aspirin Exacerbated Respiratory Disease consists of: 1. Asthma, 2. Sinusitis/Nasal Polyps, 3. Aspirin/NSAID Sensitivity."
+        }
+      },
+      {
+        "title": "Pathophysiology: The Th2 Cascade",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Asthma Inflammation",
+          "branches": [
+            "Type 2 Inflammation (IL-4, IL-5, IL-13)",
+            "Mast Cell Degranulation & Histamine",
+            "Eosinophilic Infiltration",
+            "Airway Remodeling (Subepithelial Fibrosis)",
+            "Bronchial Smooth Muscle Hypertrophy"
+          ]
+        }
+      },
+      {
+        "title": "Ocular Associations & Manifestations",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Atopic Keratoconjunctivitis (AKC): Chronic, bilateral, potentially blinding inflammation.",
+          "Vernal Keratoconjunctivitis (VKC): Seasonal, giant papillae (cobblestones), Horner-Trantas dots.",
+          "Keratoconus: High association due to chronic eye rubbing (itch-scratch cycle).",
+          "Steroid-Induced Glaucoma: Secondary to chronic systemic or inhaled corticosteroid use.",
+          "Posterior Subcapsular Cataracts (PSC): Common side effect of long-term ICS or systemic prednisone.",
+          "Allergic Conjunctivitis: Frequently co-exists with allergic asthma and rhinitis."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Spirometry: Demonstrate reversible airflow obstruction (FEV1 increase >12% and >200mL).",
+          "2. Peak Expiratory Flow (PEF) Monitoring: Diurnal variability >10%.",
+          "3. Bronchial Provocation: Methacholine or Histamine challenge (PC20 < 8mg/mL).",
+          "4. Fractional Exhaled Nitric Oxide (FeNO): Marker of eosinophilic inflammation.",
+          "5. Allergy Testing: Skin prick tests or Specific IgE."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "COPD",
+              "Post-bronchodilator FEV1/FVC < 0.70; smoking history"
+            ],
+            [
+              "Vocal Cord Dysfunction",
+              "Inspiratory stridor; flattened inspiratory loop on spirometry"
+            ],
+            [
+              "CHF",
+              "Basal crackles; orthopnea; B-type Natriuretic Peptide (BNP) elevated"
+            ],
+            [
+              "PE",
+              "Acute onset; pleuritic chest pain; normal spirometry"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "GINA Management: Track 1 (Preferred)",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Step",
+            "Controller & Preferred Relief Treatment"
+          ],
+          "rows": [
+            [
+              "Step 1-2",
+              "As-needed low dose ICS-Formoterol"
+            ],
+            [
+              "Step 3",
+              "Maintenance & Reliever low dose ICS-Formoterol (MART)"
+            ],
+            [
+              "Step 4",
+              "Maintenance & Reliever medium dose ICS-Formoterol (MART)"
+            ],
+            [
+              "Step 5",
+              "Add LAMA; Add Biologic (Anti-IgE, Anti-IL5, Anti-IL4R); Consider OCS"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Status Asthmaticus",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Silent Chest (Ominous sign of minimal air movement)",
+          "Cyanosis or SpO2 < 90% on room air",
+          "Altered Mental Status (Confusion or exhaustion)",
+          "Inability to speak in full sentences",
+          "Paradoxical Thoraco-abdominal breathing",
+          "Normal or elevated PaCO2 (Indicates impending respiratory failure)"
+        ]
+      },
+      {
+        "title": "Biologic Therapies (Precision Medicine)",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Omalizumab: Anti-IgE (For severe allergic asthma).",
+          "Mepolizumab/Reslizumab: Anti-IL5 (For eosinophilic asthma).",
+          "Benralizumab: Anti-IL5 Receptor α.",
+          "Dupilumab: Anti-IL4/IL13 (Also used for severe Atopic Dermatitis).",
+          "Tezepelumab: Anti-TSLP (Targets upstream epithelial cytokines)."
+        ]
+      },
+      {
+        "title": "Asthma Phenotypes",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Phenotypes",
+          "branches": [
+            "Allergic (Early Onset)",
+            "Non-Allergic",
+            "Adult-Onset (Female predominance)",
+            "Asthma with Persistent Airflow Limitation",
+            "Asthma with Obesity"
+          ]
+        }
+      },
+      {
+        "title": "Ocular Side Effects of Asthma Tx",
+        "icon": "healing",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Inhaled Corticosteroids (ICS): Risk of Ocular Hypertension/Glaucoma if technique is poor (facial deposition).",
+          "Systemic Corticosteroids: Highest risk for PSC Cataracts and Glaucoma.",
+          "Antimuscarinic agents (LAMA/SAMA): May trigger Acute Angle Closure in susceptible narrow angles.",
+          "Dupilumab: Frequently causes Conjunctivitis and Blepharitis as a side effect (10-25%)."
+        ]
+      },
+      {
+        "title": "Clinical Pearls & Exam High-Yields",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "A normal CXR does not rule out asthma; it is usually normal or shows hyperinflation.",
+          "Avoid Beta-Blockers (even topical Timolol) in asthmatics as they can trigger fatal bronchospasm.",
+          "The 'Asthmatic Eye': Always check IOP and lens clarity in patients on long-term steroid therapy.",
+          "Charcot-Leyden crystals and Curschmann spirals are classic pathology findings in sputum.",
+          "Exercise-induced bronchoconstriction (EIB) peaks 5-10 minutes after stopping exercise."
+        ]
+      },
+      {
+        "title": "Landmark Studies",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Study",
+            "Focus",
+            "Key Finding"
+          ],
+          "rows": [
+            [
+              "SYGMA 1 & 2",
+              "ICS-Formoterol",
+              "PRN ICS-formoterol is superior to SABA alone for symptom control and exacerbation reduction."
+            ],
+            [
+              "CAPTAIN",
+              "Triple Therapy",
+              "Addition of LAMA to ICS/LABA improves lung function in uncontrolled asthma."
+            ],
+            [
+              "CAMP",
+              "Childhood Asthma",
+              "ICS improves airway hyperresponsiveness but does not prevent lung function decline over time."
+            ]
+          ]
+        }
+      }
+    ],
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "_newlyImported": 1775044687705,
+  "communityId": "sub_1773775007770_6h20px9yvozs5r",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

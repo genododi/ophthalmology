@@ -1,0 +1,178 @@
+{
+  "id": 1775157229043,
+  "seqId": 582,
+  "title": "Rhegmatogenous vs. Tractional Retinal Detachment: The Diagnostic Divide",
+  "summary": "A high-yield comparative analysis of the two most common forms of retinal detachment. Distinguishing the mechanical pathophysiology is essential for surgical planning and visual prognosis.",
+  "date": "2026-04-02T19:13:49.043Z",
+  "data": {
+    "title": "Rhegmatogenous vs. Tractional Retinal Detachment: The Diagnostic Divide",
+    "summary": "A high-yield comparative analysis of the two most common forms of retinal detachment. Distinguishing the mechanical pathophysiology is essential for surgical planning and visual prognosis.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M20 50 Q 50 20 80 50' stroke='red' stroke-width='3' fill='none'/><path d='M20 50 Q 50 80 80 50' stroke='green' stroke-width='3' fill='none'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Rhegmatogenous (RRD)",
+            "Tractional (TRD)"
+          ],
+          "rows": [
+            [
+              "Mechanism",
+              "Retinal break + Liquefied vitreous",
+              "Vitreoretinal fibrovascular bands"
+            ],
+            [
+              "Primary Driver",
+              "Fluid Dynamics (Subretinal fluid)",
+              "Mechanical force (Centripetal)"
+            ],
+            [
+              "Retinal Break",
+              "Required",
+              "None required"
+            ],
+            [
+              "Appearance",
+              "Convex, undulating, mobile",
+              "Concave, taut, non-mobile"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "RRD Prevalence",
+              "value": 70
+            },
+            {
+              "label": "TRD Prevalence",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features Comparison",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "RRD: Photopsias and floaters preceding shadow.",
+          "TRD: Gradual, progressive painless vision loss.",
+          "RRD: Shaffer sign (vitreous pigment) in 70% of acute cases.",
+          "TRD: History of PDR, Sickle Cell, or penetrating trauma."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Retinal Detachment Ddx",
+          "branches": [
+            "RRD",
+            "TRD",
+            "Exudative RD",
+            "Retinoschisis",
+            "Choroidal Detachment"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Emergency Presentation",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Macula-ON status: Ophthalmic emergency requiring surgery <24 hours.",
+          "Acute drop in visual acuity (suggests macula-off).",
+          "Signs of PVD: Dense tobacco dust (Shaffer's) in anterior vitreous.",
+          "Intraocular Pressure: Paradoxical hypotony in chronic detachments."
+        ]
+      },
+      {
+        "title": "Investigation Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Dilated Indirect Ophthalmoscopy with scleral indentation.",
+          "Step 2: 3-Mirror Goldmann Gonioscopy (for peripheral breaks).",
+          "Step 3: B-Scan Ultrasonography (mandatory if media is opaque).",
+          "Step 4: OCT Macula (confirming subretinal fluid vs. schisis).",
+          "Step 5: FFA (for TRD: mapping neovascularization/leakage)."
+        ]
+      },
+      {
+        "title": "Mnemonic: Identifying RRD",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "BREAK",
+          "explanation": "B: Blind spot (visual field defect), R: Retinal tear, E: Elevation of retina, A: Acute onset, K: Kinetic mobility."
+        }
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Primary Surgical Approach"
+          ],
+          "rows": [
+            [
+              "RRD",
+              "Pars Plana Vitrectomy / Scleral Buckle"
+            ],
+            [
+              "TRD",
+              "Pars Plana Vitrectomy + Membrane Peeling"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "In TRD, if there is a suspected break, it converts to a 'Combined RRD/TRD'—highly complex.",
+          "Scleral buckle is often favored in phakic patients for RRD to avoid cataract progression.",
+          "Membrane peeling in TRD must be done from posterior-to-anterior; delamination vs. segmentation.",
+          "Always check the fellow eye in RRD patients: 10-15% risk of bilateral involvement.",
+          "Peripheral retinoschisis is non-mobile and does not require surgery unless symptomatic and progressing toward macula."
+        ]
+      }
+    ],
+    "generationPrompt": "TRD vs RRD",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal"
+}

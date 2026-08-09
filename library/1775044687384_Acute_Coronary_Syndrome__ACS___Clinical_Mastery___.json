@@ -1,0 +1,342 @@
+{
+  "id": 1775044687384,
+  "seqId": 406,
+  "title": "Acute Coronary Syndrome (ACS): Clinical Mastery & Management",
+  "summary": "A high-fidelity clinical guide to the spectrum of Acute Coronary Syndrome, covering the pathophysiology, diagnostic imperatives, and emergency management protocols of UA, NSTEMI, and STEMI.",
+  "date": "2026-04-01T11:58:07.384Z",
+  "data": {
+    "title": "Acute Coronary Syndrome (ACS): Clinical Mastery & Management",
+    "summary": "A high-fidelity clinical guide to the spectrum of Acute Coronary Syndrome, covering the pathophysiology, diagnostic imperatives, and emergency management protocols of UA, NSTEMI, and STEMI.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M50 20 C60 10 90 15 90 45 C90 70 50 90 50 90 C50 90 10 70 10 45 C10 15 40 10 50 20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 45 L45 45 L50 30 L55 60 L60 45 L75 45' fill='none' stroke='red' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/><circle cx='50' cy='50' r='3' fill='hsl(215, 90%, 45%)'><animate attributeName='r' values='2;4;2' dur='1s' repeatCount='indefinite'/></circle></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Spectrum",
+        "icon": "cardiology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Acute Coronary Syndrome (ACS) represents a spectrum of clinical conditions ranging from unstable angina (UA) to non–ST-segment elevation myocardial infarction (NSTEMI) and ST-segment elevation myocardial infarction (STEMI). It is characterized by a sudden reduction in blood flow to the heart, typically due to plaque rupture or erosion and subsequent thrombus formation."
+      },
+      {
+        "title": "Pathophysiological Mechanisms",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "ACS Pathogenesis",
+          "branches": [
+            "Plaque Rupture/Erosion: Most common; exposes prothrombotic core",
+            "Thrombosis: Platelet aggregation and fibrin mesh formation",
+            "Inflammation: Cytokine-mediated weakening of the fibrous cap",
+            "Coronary Vasospasm: Prinzmetal angina or cocaine-induced",
+            "Supply-Demand Mismatch: Type 2 MI (Tachycardia, Anemia, Sepsis)",
+            "Spontaneous Coronary Artery Dissection (SCAD): Non-atherosclerotic tear"
+          ]
+        }
+      },
+      {
+        "title": "ACS Classification Criteria",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Unstable Angina (UA)",
+            "NSTEMI",
+            "STEMI"
+          ],
+          "rows": [
+            [
+              "ECG Changes",
+              "ST depression / T-wave inversion",
+              "ST depression / T-wave inversion",
+              "ST elevation (≥1mm in 2 leads)"
+            ],
+            [
+              "Troponin (T or I)",
+              "Normal",
+              "Elevated (Positive)",
+              "Elevated (Positive)"
+            ],
+            [
+              "Occlusion Level",
+              "Partial/Transient",
+              "Partial / Sub-total",
+              "Complete Transmural"
+            ],
+            [
+              "Primary Goal",
+              "Ischemia Prevention",
+              "Ischemia Prevention/PCI",
+              "Immediate Reperfusion"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The 12-Lead ECG: Territory Mapping",
+        "icon": "monitor_heart",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Leads",
+            "Territory",
+            "Artery Involved"
+          ],
+          "rows": [
+            [
+              "V1 - V2",
+              "Septal",
+              "LAD (proximal)"
+            ],
+            [
+              "V3 - V4",
+              "Anterior",
+              "LAD"
+            ],
+            [
+              "I, aVL, V5, V6",
+              "Lateral",
+              "LCx or Diagonal LAD"
+            ],
+            [
+              "II, III, aVF",
+              "Inferior",
+              "RCA (85%) or LCx"
+            ],
+            [
+              "V7 - V9",
+              "Posterior",
+              "RCA or LCx"
+            ],
+            [
+              "V3R, V4R",
+              "Right Ventricle",
+              "RCA"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Cardiac Biomarker Kinetics",
+        "icon": "timeline",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Troponin Rise (Hrs)",
+              "value": 3
+            },
+            {
+              "label": "Troponin Peak (Hrs)",
+              "value": 24
+            },
+            {
+              "label": "Troponin Duration (Days)",
+              "value": 10
+            },
+            {
+              "label": "CK-MB Peak (Hrs)",
+              "value": 18
+            }
+          ]
+        }
+      },
+      {
+        "title": "Emergency RED FLAGS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "New onset S3 gallop or pulmonary rales (Acute Heart Failure)",
+          "New systolic murmur (Papillary Muscle Rupture or VSD)",
+          "Persistent hypotension (Cardiogenic Shock)",
+          "Dynamic ST-segment changes despite therapy",
+          "Ventricular Tachycardia or Fibrillation",
+          "Chest pain refractory to nitrates"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Not All Chest Pain is ACS",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Chest Pain Ddx",
+          "branches": [
+            "Vascular: Aortic Dissection, Pulmonary Embolism",
+            "Pulmonary: Pneumothorax, Pneumonia, Pleurisy",
+            "GI: GERD, Esophageal Spasm, Boerhaave Syndrome",
+            "Musculoskeletal: Costochondritis, Rib fracture",
+            "Cardiac: Pericarditis, Myocarditis"
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic for Initial Management",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "MONA-BASH",
+          "explanation": "M: Morphine (if pain refractory), O: Oxygen (if Sat <90%), N: Nitrates (Vasodilation), A: Aspirin (325mg chewable), B: Beta-blockers (if no HF), A: ACE Inhibitors, S: Statins (High-intensity), H: Heparin/Anticoagulation."
+        }
+      },
+      {
+        "title": "Step-by-Step STEMI Protocol",
+        "icon": "emergency",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Immediate 12-Lead ECG (within 10 minutes of arrival)",
+          "Step 2: Loading doses of ASA (325mg) and P2Y12 inhibitor (e.g., Ticagrelor 180mg)",
+          "Step 3: Assess for Primary PCI (Door-to-balloon time < 90 mins)",
+          "Step 4: If PCI not available within 120 mins, consider Fibrinolytics (Door-to-needle < 30 mins)",
+          "Step 5: Anticoagulation (UFH or Bivalirudin)",
+          "Step 6: Post-procedure Statins and Beta-blockers"
+        ]
+      },
+      {
+        "title": "TIMI Risk Score for UA/NSTEMI",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Risk Factor",
+            "Points"
+          ],
+          "rows": [
+            [
+              "Age ≥ 65",
+              "1"
+            ],
+            [
+              "≥ 3 CHD Risk Factors",
+              "1"
+            ],
+            [
+              "Prior Coronary Stenosis ≥ 50%",
+              "1"
+            ],
+            [
+              "ST-segment deviation on ECG",
+              "1"
+            ],
+            [
+              "≥ 2 Anginal episodes in 24h",
+              "1"
+            ],
+            [
+              "ASA use in last 7 days",
+              "1"
+            ],
+            [
+              "Elevated Cardiac Biomarkers",
+              "1"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Ophthalmic Connection",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Hollenhorst Plaques: Cholesterol emboli seen on fundoscopy suggest carotid or aortic atherosclerosis, risk markers for future ACS.",
+          "Hypertensive Retinopathy: Grades III-IV indicate severe systemic end-organ damage and higher risk for MI.",
+          "Perioperative Management: Ophthalmic surgery is low risk, but ACS in the last 6 months requires cardiology clearance.",
+          "Antiplatelet Strategy: DAPT (Aspirin + P2Y12) should generally not be stopped for intravitreal injections or cataract surgery."
+        ]
+      },
+      {
+        "title": "Mechanical Complications",
+        "icon": "healing",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Post-MI Complications",
+          "branches": [
+            "LV Free Wall Rupture: Leads to Cardiac Tamponade (Days 3-5)",
+            "Papillary Muscle Rupture: Acute Mitral Regurgitation & Pulmonary Edema",
+            "Ventricular Septal Defect (VSD): New harsh systolic murmur; L-to-R shunt",
+            "Dressler Syndrome: Post-MI Pericarditis (Weeks later; autoimmune)",
+            "Ventricular Aneurysm: Persistent ST elevation weeks after MI"
+          ]
+        }
+      },
+      {
+        "title": "Evidence-Based Pharmacotherapy",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Drug Class",
+            "Specific Agent & Dose",
+            "Evidence/Landmark"
+          ],
+          "rows": [
+            [
+              "P2Y12 Inhibitor",
+              "Ticagrelor 180mg load, 90mg BID",
+              "PLATO Trial: Superior to Clopidogrel in ACS"
+            ],
+            [
+              "Beta-Blocker",
+              "Metoprolol Tartrate 25-50mg q6-12h",
+              "COMMIT/CCS-2: Benefit if no HF/shock"
+            ],
+            [
+              "High-Intensity Statin",
+              "Atorvastatin 80mg daily",
+              "PROVE IT-TIMI 22: High dose better post-ACS"
+            ],
+            [
+              "Mineralocorticoid Antag.",
+              "Eplerenone 25-50mg daily",
+              "EPHESUS: Benefit in post-MI EF < 40%"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "High-Sensitivity Troponins (hs-cTn): Can rule out MI in 1-3 hours if initial levels are low and repeat levels are stable.",
+          "Type 2 Myocardial Infarction: Ischemia due to supply-demand mismatch (e.g., severe anemia) rather than plaque rupture; treatment involves correcting the underlying cause.",
+          "Dual Antiplatelet Therapy (DAPT) Duration: Standard is 12 months post-PCI, but can be shortened to 1-6 months for high-bleeding risk patients.",
+          "Cocaine-Induced MI: Avoid non-selective beta-blockers due to risk of unopposed alpha-adrenergic stimulation/vasospasm.",
+          "The 'Widow Maker': Proximal LAD occlusion, leading to massive anterior wall infarction and high mortality."
+        ]
+      }
+    ],
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "_newlyImported": 1775044687384,
+  "communityId": "sub_1773775007770_jfpiqdevnutdjs",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

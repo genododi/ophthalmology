@@ -1,0 +1,333 @@
+{
+  "id": 1775044664605,
+  "seqId": 178,
+  "title": "Mastering Eyelid Laceration & Wound Repair",
+  "summary": "A comprehensive guide to the surgical restoration of adnexal integrity. This poster covers everything from basic marginal alignment to complex canalicular reconstruction and tissue loss management, essential for any ophthalmic surgeon.",
+  "date": "2026-04-01T11:57:44.605Z",
+  "data": {
+    "title": "Mastering Eyelid Laceration & Wound Repair",
+    "summary": "A comprehensive guide to the surgical restoration of adnexal integrity. This poster covers everything from basic marginal alignment to complex canalicular reconstruction and tissue loss management, essential for any ophthalmic surgeon.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M10 50 Q 50 20 90 50 Q 50 80 10 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M25 40 L35 60 M45 35 L55 65 M65 40 L75 60' stroke='red' stroke-width='1.5' stroke-linecap='round'/><path d='M30 35 C 35 30, 45 30, 50 35' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Overview & Goals",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Eyelid wound repair focuses on restoring three-dimensional anatomy while preserving globe protection and aesthetic symmetry. The primary goals are anatomical alignment (especially the lid margin), maintaining a smooth posterior surface to prevent corneal abrasion, and ensuring dynamic function (levator and orbicularis integrity)."
+      },
+      {
+        "title": "Key Surgical Anatomy",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Lid Layers",
+          "branches": [
+            "Anterior Lamella: Skin & Orbicularis Oculi",
+            "The 'Grey Line': Riolan's muscle (surgical landmark)",
+            "Middle Lamella: Orbital Septum",
+            "Posterior Lamella: Tarsus & Conjunctiva",
+            "Canalicular System: Medial 8-10mm of margin"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiological Trends",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Blunt Trauma",
+              "value": 45
+            },
+            {
+              "label": "Sharp/Laceration",
+              "value": 35
+            },
+            {
+              "label": "Dog Bites",
+              "value": 15
+            },
+            {
+              "label": "Burns/Others",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Immediate Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Signs of Open Globe (Peaked pupil, Seidel positive)",
+          "Orbital Compartment Syndrome (Proptosis + High IOP)",
+          "Fat Prolapse (Indicates Orbital Septum breach)",
+          "Marcus-Gunn Pupil (Optic Nerve involvement)",
+          "Foreign Body Sensation (Suspect Intraocular FB)"
+        ]
+      },
+      {
+        "title": "Pre-Operative Workup",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Visual Acuity assessment (Medico-legal priority).",
+          "Step 2: Rule out ruptured globe and intraocular foreign bodies via Slit Lamp.",
+          "Step 3: Evaluate Lid Margin and Canalicular involvement using Bowman probes if needed.",
+          "Step 4: Assess Levator function (Excursion) to rule out aponeurosis dehiscence.",
+          "Step 5: CT Orbit (thin cuts) if high-velocity injury or metal-on-metal suspected."
+        ]
+      },
+      {
+        "title": "Laceration Classification",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Description",
+            "Complexity"
+          ],
+          "rows": [
+            [
+              "Marginal",
+              "Involves the lid edge/grey line",
+              "High"
+            ],
+            [
+              "Non-Marginal",
+              "Skin/muscle only",
+              "Low"
+            ],
+            [
+              "Canalicular",
+              "Medial to punctum",
+              "Critical"
+            ],
+            [
+              "Lamellar",
+              "Only one lamella involved",
+              "Moderate"
+            ],
+            [
+              "With Tissue Loss",
+              "Avulsion of tissue >25%",
+              "Advanced"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Suture Material Selection",
+        "icon": "healing",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Tissue Type",
+            "Suture Choice",
+            "Technique"
+          ],
+          "rows": [
+            [
+              "Tarsal Plate",
+              "5-0 or 6-0 Vicryl",
+              "Partial thickness"
+            ],
+            [
+              "Lid Margin",
+              "6-0 Silk or Prolene",
+              "Vertical Mattress"
+            ],
+            [
+              "Skin",
+              "6-0 Plain Gut or Prolene",
+              "Simple Interrupted"
+            ],
+            [
+              "Canaliculus",
+              "10-0 Nylon / 8-0 Vicryl",
+              "Pericanalicular"
+            ],
+            [
+              "Muscle",
+              "6-0 Vicryl",
+              "Buried knots"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Repair of Marginal Lacerations",
+        "icon": "school",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Placement of the 'Master Suture' at the Grey Line (6-0 Silk) to align margin.",
+          "2. Placement of Lash Line and Posterior Margin sutures (long ends left for traction).",
+          "3. Interrupted Tarsal sutures (5-0 Vicryl) - MUST NOT pass through conjunctiva.",
+          "4. Skin closure (6-0 Nylon or Gut).",
+          "5. Tie marginal suture ends over the skin sutures to prevent corneal irritation."
+        ]
+      },
+      {
+        "title": "The Rule of Quarters (Tissue Loss)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Defect Size",
+            "Recommended Procedure"
+          ],
+          "rows": [
+            [
+              "< 25%",
+              "Direct primary closure"
+            ],
+            [
+              "25% - 50%",
+              "Tenzel Semicircular Flap"
+            ],
+            [
+              "> 50% (Upper)",
+              "Cutler-Beard Bridge Flap"
+            ],
+            [
+              "> 50% (Lower)",
+              "Hughes Tarsoconjunctival Flap"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Remember: The Lid 'STITCH'",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "S.T.I.T.C.H.",
+          "explanation": "S: Symmetry of lash line; T: Tarsal alignment; I: Inversion avoidance (Everting sutures); T: Tension-free closure; C: Canalicular check; H: Hemostasis."
+        }
+      },
+      {
+        "title": "Canalicular Reconstruction",
+        "icon": "medication",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Lacrimal Repair",
+          "branches": [
+            "Monoka Stent (Monocanalicular)",
+            "Crawford Tubing (Bicanalicular)",
+            "Pigtail Probe (Locating medial end)",
+            "Microscopic Anastomosis (Pericanalicular sutures)"
+          ]
+        }
+      },
+      {
+        "title": "Dog Bites: Special Protocols",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Copious irrigation (Normal Saline/Betadine)",
+          "Prophylactic Augmentin (Amoxicillin-Clavulanate)",
+          "Check Tetanus Status",
+          "Rabies post-exposure prophylaxis if animal unknown",
+          "Primary closure is generally preferred in the face due to vascularity"
+        ]
+      },
+      {
+        "title": "Post-Operative Care",
+        "icon": "cardiology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Antibiotic Ointment (Erythromycin/Bacitracin) TID",
+          "Cool compresses for first 48 hours to minimize edema",
+          "Suture removal: Skin (5-7 days), Marginal (10-14 days)",
+          "Avoid heavy lifting or straining (Valsalva)",
+          "Protect eye with a shield if globe integrity was a concern"
+        ]
+      },
+      {
+        "title": "Clinical Pearls (High Yield)",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always 'evert' the wound edges to account for future scar contraction (prevent notching).",
+          "The 'Grey Line' is your most important anatomical landmark for marginal repair.",
+          "If the canalicular system is involved, repair it BEFORE the eyelid skin.",
+          "Never use cautery near the lid margin; it can lead to permanent lash loss and lid notching."
+        ]
+      },
+      {
+        "title": "Common Complications",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Lid Notching",
+              "value": 12
+            },
+            {
+              "label": "Ptosis",
+              "value": 8
+            },
+            {
+              "label": "Epiphora",
+              "value": 15
+            },
+            {
+              "label": "Ectropion",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Landmark Studies: Bionic Lids?",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Recent advances emphasize the use of 2-Octyl Cyanoacrylate (Dermabond) for non-tension skin wounds. Studies show equivalent aesthetic outcomes to sutures with reduced procedure time. In canalicular trauma, the 'Masterka' stent (suture-less) is gaining traction for ease of insertion and reduced nasal trauma."
+      }
+    ],
+    "generationPrompt": "lid wound repair",
+    "chapterId": "lids"
+  },
+  "chapterId": "lids",
+  "_newlyImported": 1775044664605,
+  "communityId": "sub_1774524165435_uzsfw5rpx",
+  "communityAuthor": "geno",
+  "communityDate": "2026-03-26T11:22:45.435Z"
+}

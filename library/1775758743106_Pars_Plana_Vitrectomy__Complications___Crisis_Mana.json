@@ -1,0 +1,364 @@
+{
+  "id": 1775758743106,
+  "seqId": 772,
+  "title": "Pars Plana Vitrectomy: Complications & Crisis Management",
+  "summary": "A high-yield, comprehensive clinical guide to identifying, preventing, and managing the multi-phasic complications of pars plana vitrectomy (PPV). Essential for vitreoretinal fellows and residents mastering the surgical landscape.",
+  "date": "2026-04-09T18:19:03.106Z",
+  "data": {
+    "title": "Pars Plana Vitrectomy: Complications & Crisis Management",
+    "summary": "A high-yield, comprehensive clinical guide to identifying, preventing, and managing the multi-phasic complications of pars plana vitrectomy (PPV). Essential for vitreoretinal fellows and residents mastering the surgical landscape.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1d4ed8' stroke-width='2'/><path d='M30 50 Q 50 20 70 50' fill='none' stroke='#1d4ed8' stroke-width='2'/><path d='M30 50 Q 50 80 70 50' fill='none' stroke='#1d4ed8' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='#1d4ed8'/><line x1='75' y1='25' x2='55' y2='45' stroke='#ef4444' stroke-width='2' stroke-linecap='round'/><line x1='80' y1='30' x2='60' y2='50' stroke='#ef4444' stroke-width='2' stroke-linecap='round'/><path d='M20 50 L10 50 M50 20 L50 10 M80 50 L90 50 M50 80 L50 90' stroke='#3b82f6' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Overview & Taxonomy",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Pars Plana Vitrectomy (PPV) is the cornerstone of posterior segment surgery. While 23G, 25G, and 27G micro-incisional vitrectomy surgery (MIVS) has reduced trauma, complications remain significant. They are categorized by timing: Intraoperative (related to instrumentation and technique), Early Postoperative (<2 weeks), and Late Postoperative (>2 weeks)."
+      },
+      {
+        "title": "Epidemiology & Risk Profile",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Nuclear Sclerosis (Post-PPV)",
+              "value": 85
+            },
+            {
+              "label": "Iatrogenic Retinal Breaks",
+              "value": 15
+            },
+            {
+              "label": "Vitreous Hemorrhage",
+              "value": 10
+            },
+            {
+              "label": "PVR (following RD repair)",
+              "value": 8
+            },
+            {
+              "label": "Endophthalmitis (MIVS)",
+              "value": 1
+            }
+          ]
+        }
+      },
+      {
+        "title": "Intraoperative Disasters: The Danger Zone",
+        "icon": "warning",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Intraoperative Complications",
+          "branches": [
+            "Scleral/Trocar: Subconjunctival gas, poor wound seal, uveal incarceration",
+            "Lens: Iatrogenic cataract (lens touch), phacofragmentation drop",
+            "Cornea: Epithelial edema (DM fold), Descemet's detachment",
+            "Vascular: Suprachoroidal hemorrhage (SCH), Retinal artery occlusion",
+            "Retina: Iatrogenic breaks (at trocar site or during traction relief)"
+          ]
+        }
+      },
+      {
+        "title": "Early Postoperative Management (0-14 Days)",
+        "icon": "history",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Complication",
+            "Clinical Sign",
+            "Management Protocol"
+          ],
+          "rows": [
+            [
+              "Endophthalmitis",
+              "Severe pain, hypopyon, loss of Red Reflex",
+              "TAP & Inject: Vancomycin (1mg/0.1ml) + Ceftazidime (2.25mg/0.1ml)"
+            ],
+            [
+              "Ocular Hypertension",
+              "IOP > 30mmHg, corneal edema",
+              "Aqueous suppressants (Timolol, Brimonidine); check gas volume"
+            ],
+            [
+              "Fibrinous Reaction",
+              "Fibrin in AC, posterior synechiae",
+              "Intensive topical Pred Forte 1% or subconjunctival steroids"
+            ],
+            [
+              "Hypotony",
+              "IOP < 5mmHg, choroidal effusions",
+              "Suture leaky trocars, check for cyclodialysis cleft"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Late Complications: The Long-Term Burden",
+        "icon": "timelapse",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Cataract Progression: 80-100% of phakic patients require surgery within 2 years.",
+          "Proliferative Vitreoretinopathy (PVR): The leading cause of RD repair failure.",
+          "Epiretinal Membrane (ERM): Secondary to surgical trauma or residual hyaloid.",
+          "Neovascular Glaucoma: Especially in diabetic patients post-PPV.",
+          "Cystoid Macular Edema (CME): Persistent inflammation or Irvine-Gass.",
+          "Silicone Oil Emulsification: 'Inverse hypopyon' and secondary glaucoma."
+        ]
+      },
+      {
+        "title": "Proliferative Vitreoretinopathy (PVR) Grading",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Grade",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Grade A",
+              "Minimal: Pigment clumps/vitreous haze"
+            ],
+            [
+              "Grade B",
+              "Moderate: Inner retinal wrinkling, rolled edges of break"
+            ],
+            [
+              "Grade C",
+              "Severe: Full-thickness fixed retinal folds (CP: posterior, CA: anterior)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Endophthalmitis Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Clinical Suspicion (Pain out of proportion, AC cells/hypopyon).",
+          "Step 2: Immediate Vitreous/AC Tap (Gram stain, Culture & Sensitivity).",
+          "Step 3: Intravitreal Antibiotics (Vancomycin 1mg/0.1ml and Ceftazidime 2.25mg/0.1ml).",
+          "Step 4: Intensive Topical Antibiotics/Corticosteroids.",
+          "Step 5: Immediate Vitrectomy (EVS Trial: recommended if vision is Light Perception (LP))."
+        ]
+      },
+      {
+        "title": "CRITICAL RED FLAGS",
+        "icon": "emergency_home",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden loss of Light Perception (LP) - rule out Central Retinal Artery Occlusion.",
+          "Increasing pain after post-op Day 1 - suspect Endophthalmitis.",
+          "Progressive vision loss with 'curtain' - suspect recurrent Detachment or PVR.",
+          "Hard eye on palpation - Acute Post-vitrectomy IOP spike (Gas expansion)."
+        ]
+      },
+      {
+        "title": "Mnemonic: Post-PPV Vision Loss",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.O.P.S.",
+          "explanation": "P: Pressure (IOP spike); O: Oil/Gas (Overfill or migration); P: PVR/Peeling trauma; S: Sepsis (Endophthalmitis)."
+        }
+      },
+      {
+        "title": "Landmark Studies in Vitreoretinal Complications",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Silicone Study: Compared Silicone Oil vs. Sulfur Hexafluoride (SF6) for PVR. Oil was superior to SF6 for retinal reattachment.",
+          "EVS (Endophthalmitis Vitrectomy Study): Confirmed immediate PPV is beneficial for patients presenting with Light Perception (LP) vision or worse.",
+          "DRCR.net Protocol N: Evaluated PPV for DME; found it may be beneficial when vitreoretinal traction is present."
+        ]
+      },
+      {
+        "title": "Silicone Oil vs. Gas (C3F8/SF6) Management",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Gas (Long-acting)",
+            "Silicone Oil"
+          ],
+          "rows": [
+            [
+              "Positioning",
+              "Critical (Face down)",
+              "Less critical"
+            ],
+            [
+              "Air Travel",
+              "Strictly Forbidden",
+              "Allowed"
+            ],
+            [
+              "IOP Issues",
+              "Expansion (Boyle's Law)",
+              "Emulsification/Block"
+            ],
+            [
+              "Removal",
+              "Spontaneous resorption",
+              "Surgical removal needed"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Pearl: Avoiding Iatrogenic Breaks",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Angle Trocar Entry: 30-45 degree tunnel for better self-sealing.",
+          "2. Clear the Base: Use Chandelier lighting or indentation to view and clear the vitreous base.",
+          "3. Trim the Wound: Ensure no vitreous incarceration before removing trocars.",
+          "4. Check for 'Whisps': Use Triamcinolone Acetonide (Kenalog) to visualize residual hyaloid.",
+          "5. Low-Vacuum Entry: Approach the retina with caution using high-cut rate, low-vacuum settings."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: TASS vs. Endophthalmitis",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "TASS",
+            "Endophthalmitis"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "12-24 hours",
+              "2-7 days"
+            ],
+            [
+              "Pain",
+              "Minimal",
+              "Severe"
+            ],
+            [
+              "Corneal Edema",
+              "Limbal-to-Limbal",
+              "Localized/Minimal"
+            ],
+            [
+              "Treatment",
+              "Steroids",
+              "Intravitreal Antibiotics"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always perform a 360° depressed fundus exam at the conclusion of every vitrectomy.",
+          "If IOP is high post-op with gas, check for pupillary block or expansion issues.",
+          "Pre-op prophylactic Aspirin usually doesn't need to be stopped for PPV, but Warfarin/DOACs require individual risk assessment.",
+          "Triamcinolone staining is your best friend for ensuring a complete posterior vitreous detachment (PVD)."
+        ]
+      }
+    ],
+    "generationPrompt": "PPV complications",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 700,
+      "keywords": [
+        "vitrectomy",
+        "complications",
+        "retinopathy",
+        "proliferative vitreoretinopathy",
+        "pvr"
+      ]
+    },
+    {
+      "pageNum": 336,
+      "keywords": [
+        "vitrectomy",
+        "retinopathy",
+        "risk",
+        "early",
+        "postoperative"
+      ]
+    },
+    {
+      "pageNum": 526,
+      "keywords": [
+        "vitrectomy",
+        "retinopathy",
+        "intraoperative",
+        "early",
+        "protocol"
+      ]
+    },
+    {
+      "pageNum": 333,
+      "keywords": [
+        "vitrectomy",
+        "complications",
+        "risk",
+        "intraoperative",
+        "postoperative"
+      ]
+    },
+    {
+      "pageNum": 698,
+      "keywords": [
+        "vitrectomy",
+        "retinopathy",
+        "pvr",
+        "risk",
+        "intraoperative"
+      ]
+    },
+    {
+      "pageNum": 345,
+      "keywords": [
+        "vitrectomy",
+        "complications",
+        "risk",
+        "early",
+        "postoperative"
+      ]
+    }
+  ]
+}

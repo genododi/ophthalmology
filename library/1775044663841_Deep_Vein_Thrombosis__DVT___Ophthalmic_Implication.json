@@ -1,0 +1,342 @@
+{
+  "id": 1775044663841,
+  "seqId": 171,
+  "title": "Deep Vein Thrombosis (DVT): Ophthalmic Implications & Perioperative Care",
+  "summary": "While often viewed as a systemic condition, Deep Vein Thrombosis (DVT) is a critical concern for the ophthalmic surgeon regarding perioperative risk, anticoagulation management, and the shared pathophysiology with Retinal Vein Occlusion (RVO). This guide bridges the gap between systemic thromboembolism and ophthalmic practice.",
+  "date": "2026-04-01T11:57:43.841Z",
+  "data": {
+    "title": "Deep Vein Thrombosis (DVT): Ophthalmic Implications & Perioperative Care",
+    "summary": "While often viewed as a systemic condition, Deep Vein Thrombosis (DVT) is a critical concern for the ophthalmic surgeon regarding perioperative risk, anticoagulation management, and the shared pathophysiology with Retinal Vein Occlusion (RVO). This guide bridges the gap between systemic thromboembolism and ophthalmic practice.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='50' cy='50' r='8' fill='hsl(0, 80%, 50%)'/><path d='M75 75 L85 85 M85 75 L75 85' stroke='hsl(0, 80%, 50%)' stroke-width='3'/><path d='M20 70 L30 90 L10 90 Z' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Ophthalmic Relevance",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Deep Vein Thrombosis (DVT) is the formation of a blood clot (thrombus) within the deep venous system, most commonly in the lower extremities. In ophthalmology, it is relevant for: 1) Perioperative management of patients on systemic anticoagulants; 2) Post-operative risk in prolonged orbital or reconstructive surgeries; and 3) Shared hypercoagulable risk factors with Retinal Vein Occlusions (RVO)."
+      },
+      {
+        "title": "Pathophysiology: Virchow’s Triad",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Virchow's Triad",
+          "branches": [
+            "Endothelial Injury (Surgery, Trauma, Vasculitis)",
+            "Stasis of Blood Flow (Immobility, Obstructive tumors, Post-op bed rest)",
+            "Hypercoagulability (Factor V Leiden, Protein C/S deficiency, Malignancy, Pregnancy)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Surgical Risk",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Major Orbital Surgery Risk",
+              "value": 15
+            },
+            {
+              "label": "Cataract Surgery Risk",
+              "value": 1
+            },
+            {
+              "label": "General Population Incidence",
+              "value": 5
+            },
+            {
+              "label": "Recurrence Rate (1yr)",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Ocular Link: DVT and Retinal Vein Occlusion",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Patients with DVT/PE have a higher Hazard Ratio (approx 1.5) for developing RVO.",
+          "Shared Risk Factors: Hypertension, Diabetes, Hyperlipidemia.",
+          "Thrombophilia screen (Factor V Leiden, Antiphospholipid Ab) indicated in young patients (<50) with RVO.",
+          "The presence of RVO should prompt a review of the patient's systemic VTE history."
+        ]
+      },
+      {
+        "title": "Wells Clinical Prediction Rule for DVT",
+        "icon": "rule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Clinical Feature",
+            "Points"
+          ],
+          "rows": [
+            [
+              "Active Cancer (treatment within 6 months)",
+              "+1"
+            ],
+            [
+              "Paralysis, Paresis, or Immobilization of lower limb",
+              "+1"
+            ],
+            [
+              "Bedridden >3 days or Major Surgery within 12 weeks",
+              "+1"
+            ],
+            [
+              "Localized tenderness along the deep venous system",
+              "+1"
+            ],
+            [
+              "Entire leg swollen",
+              "+1"
+            ],
+            [
+              "Calf swelling >3cm compared to asymptomatic side",
+              "+1"
+            ],
+            [
+              "Pitting edema confined to the symptomatic leg",
+              "+1"
+            ],
+            [
+              "Collateral superficial veins (non-varicose)",
+              "+1"
+            ],
+            [
+              "Alternative diagnosis is at least as likely as DVT",
+              "-2"
+            ],
+            [
+              "SCORE: 2+ (DVT Likely) | <2 (DVT Unlikely)",
+              "TOTAL"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features of DVT",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Unilateral leg pain and tenderness.",
+          "Swelling (Edema) of the calf or thigh.",
+          "Warmth and erythema over the affected area.",
+          "Homan's Sign: Pain in calf upon dorsiflexion of the foot (Low sensitivity).",
+          "Distended superficial veins."
+        ]
+      },
+      {
+        "title": "Systemic Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Cellulitis",
+              "Fever, well-demarcated skin erythema"
+            ],
+            [
+              "Baker's Cyst",
+              "Posterior knee mass, sudden pop"
+            ],
+            [
+              "Lymphedema",
+              "Chronic, non-pitting, dorsal foot swelling"
+            ],
+            [
+              "Muscle Tear",
+              "Sudden onset during activity, bruising"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Algorithm",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Clinical Assessment (Wells Score calculation)",
+          "Step 2: D-Dimer Assay (High sensitivity, low specificity; used to rule out in low-risk pts)",
+          "Step 3: Compression Ultrasonography (CUS) - Gold standard bedside test",
+          "Step 4: CT Venography or MRI (Used if CUS is inconclusive or for pelvic DVT)",
+          "Step 5: Venography (Historical gold standard, now rarely used)"
+        ]
+      },
+      {
+        "title": "RED FLAG: Pulmonary Embolism (PE)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset Dyspnea (Shortness of breath)",
+          "Pleuritic Chest Pain",
+          "Hemoptysis (Coughing up blood)",
+          "Tachycardia & Tachypnea",
+          "Syncope or Sudden Death"
+        ]
+      },
+      {
+        "title": "Perioperative Management of Anticoagulants",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Surgery Type",
+            "Bleeding Risk",
+            "Management of Warfarin/DOAC"
+          ],
+          "rows": [
+            [
+              "Cataract / Intravitreal Injection",
+              "Minimal",
+              "Continue anticoagulation; maintain therapeutic INR"
+            ],
+            [
+              "Trabeculectomy / Glaucoma Drainage Device",
+              "High",
+              "Consider stopping 3-5 days prior; bridge with LMWH if high VTE risk"
+            ],
+            [
+              "Dacryocystorhinostomy (DCR)",
+              "High",
+              "Must stop anticoagulants; risk of epistaxis/orbital hemorrhage"
+            ],
+            [
+              "Orbital Decompression / Enucleation",
+              "High",
+              "Stop anticoagulants; bridge therapy usually required"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: VTE RISK Factors",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "THROMBOSIS",
+          "explanation": "T: Trauma/Travel, H: Hormones (OCP/HRT), R: Road (Surgery) >30 mins, O: Old age, M: Malignancy, B: Blood disorders, O: Obesity, S: Stasis, I: Intravenous lines, S: Smoking."
+        }
+      },
+      {
+        "title": "Medication Guide: Systemic Anticoagulation",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Unfractionated Heparin: Rapid onset, reversible with Protamine.",
+          "Enoxaparin (LMWH): 1mg/kg BID (Treatment) or 40mg QD (Prophylaxis).",
+          "Warfarin: Vitamin K antagonist; monitor INR (Goal 2.0-3.0).",
+          "DOACs (Apixaban/Rivaroxaban): No monitoring required; specific reversal agents (Andexanet alfa) now available."
+        ]
+      },
+      {
+        "title": "Bridge Therapy Protocol",
+        "icon": "menu_book",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Stop Warfarin 5 days before high-risk ophthalmic surgery.",
+          "2. Start therapeutic LMWH 3 days before surgery.",
+          "3. Last dose of LMWH 24 hours prior to surgery.",
+          "4. Check INR on morning of surgery (Target <1.5).",
+          "5. Resume LMWH and Warfarin 12-24 hours post-operatively once hemostasis is secured."
+        ]
+      },
+      {
+        "title": "Key Ophthalmic Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Regional anesthesia (Peribulbar/Retrobulbar) in anticoagulated patients carries a higher risk of retrobulbar hemorrhage.",
+          "Sub-Tenon's or Topical anesthesia is preferred for patients with DVT on blood thinners.",
+          "In Orbital Compartment Syndrome (OCS) secondary to hemorrhage, emergent lateral canthotomy/cantholysis is mandatory regardless of DVT history."
+        ]
+      },
+      {
+        "title": "Recent Advances: Landmark Studies",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "BRIDGE Trial: Showed that for many patients with AFib, bridging with LMWH increased bleeding without reducing VTE—leads to more conservative bridging in eye surgery.",
+          "COMPASS Trial: Low-dose Rivaroxaban + Aspirin reduces major adverse limb and cardiovascular events but increases bleeding risk.",
+          "ORBIT Study: Investigated VTE risk in oculoplastic surgery; highlighted importance of early mobilization."
+        ]
+      },
+      {
+        "title": "Emergency Signs: Orbital Hemorrhage",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden Proptosis and Deep Pain",
+          "Rock-hard globe on palpation",
+          "Afferent Pupillary Defect (APD)",
+          "Vision Loss/Decreased Color Vision",
+          "Nausea/Vomiting (Oculocardiac reflex)"
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "history_edu",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Post-Thrombotic Syndrome (PTS) occurs in 20-50% of DVT patients, causing chronic leg pain and ulcers. In ophthalmic terms, if DVT is secondary to a hypercoagulable state, the risk of bilateral RVO or CRAO is significantly elevated. Recurrence of VTE is 10% in the first year without anticoagulation."
+      },
+      {
+        "title": "Pediatric Considerations",
+        "icon": "family_history",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "DVT is rare in children but increasing in tertiary care settings. In pediatric RVO (rare), a full DVT/VTE workup is mandatory. Causes often involve central venous catheters, nephrotic syndrome, or inherited thrombophilias like Factor V Leiden or G20210A prothrombin mutation."
+      }
+    ],
+    "generationPrompt": "DVT",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "_newlyImported": 1775044663841,
+  "communityId": "sub_1774441892785_n7yf2w3sh",
+  "communityAuthor": "Dodo",
+  "communityDate": "2026-03-25T12:31:32.786Z",
+  "read": true
+}

@@ -1,0 +1,380 @@
+{
+  "id": 1775044663461,
+  "seqId": 168,
+  "title": "Endophthalmitis: The Ultimate Clinical Compendium",
+  "summary": "A sight-threatening emergency involving severe intraocular inflammation, most commonly due to bacterial or fungal infection. Rapid diagnosis, prompt intravitreal intervention, and adherence to evidence-based protocols are critical for visual salvage.",
+  "date": "2026-04-01T11:57:43.461Z",
+  "data": {
+    "title": "Endophthalmitis: The Ultimate Clinical Compendium",
+    "summary": "A sight-threatening emergency involving severe intraocular inflammation, most commonly due to bacterial or fungal infection. Rapid diagnosis, prompt intravitreal intervention, and adherence to evidence-based protocols are critical for visual salvage.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M30 70 Q 50 60 70 70' stroke='hsl(0, 80%, 50%)' stroke-width='3' fill='none'/><path d='M45 20 L55 20 L55 45 L45 45 Z' fill='hsl(215, 90%, 45%)'/><path d='M48 45 L52 45 L50 55 Z' fill='hsl(215, 90%, 45%)'/><rect x='42' y='15' width='16' height='4' rx='1' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Scope",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Endophthalmitis is defined as severe inflammation of the inner coats of the eye, specifically the vitreous and aqueous humors. It is categorized as Exogenous (inoculation from the environment, e.g., surgery, trauma) or Endogenous (hematogenous spread from a distant focus). It represents the most feared complication in ophthalmic surgery."
+      },
+      {
+        "title": "Incidence by Procedure",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Post-Cataract (Phaco)",
+              "value": 4
+            },
+            {
+              "label": "Intravitreal Injection",
+              "value": 2
+            },
+            {
+              "label": "Pars Plana Vitrectomy",
+              "value": 3
+            },
+            {
+              "label": "Bleb-associated",
+              "value": 15
+            },
+            {
+              "label": "Open Globe Trauma",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiological Classification",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Onset",
+            "Common Pathogens",
+            "Clinical Context"
+          ],
+          "rows": [
+            [
+              "Acute Post-Op",
+              "1–7 days",
+              "S. epidermidis (70%), S. aureus, Strep spp.",
+              "Most common; post-cataract/IVT"
+            ],
+            [
+              "Delayed Post-Op",
+              "Weeks to Months",
+              "C. acnes, Candida, S. epidermidis",
+              "Often sequestered in capsular bag"
+            ],
+            [
+              "Bleb-Associated",
+              "Anytime (Late)",
+              "Streptococcus, H. influenzae",
+              "Post-Glaucoma filtration surgery"
+            ],
+            [
+              "Post-Traumatic",
+              "Days",
+              "Bacillus cereus, S. epidermidis",
+              "High risk with intraocular foreign body"
+            ],
+            [
+              "Endogenous",
+              "Variable",
+              "Klebsiella (liver abscess), Candida",
+              "Immunocompromised/Hospitalized"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology Process",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Microbial Inoculation: Pathogens enter the vitreous cavity (exogenous) or uveal tract (endogenous).",
+          "2. Proliferation: Microbes multiply rapidly in the nutrient-rich vitreous, escaping early immune detection.",
+          "3. Toxogenesis: Release of bacterial exotoxins and enzymes (proteases) that directly damage photoreceptors.",
+          "4. Host Response: Massive influx of neutrophils (PMNs) and release of inflammatory cytokines (IL-1, TNF-alpha).",
+          "5. Retinal Destruction: Bystander damage from host inflammatory mediators leads to irreversible retinal necrosis.",
+          "6. Organization: Chronic inflammation leads to cyclitic membrane formation and tractional retinal detachment."
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Lid Edema and Chemosis: Significant soft tissue swelling.",
+          "Conjunctival Injection: Intense circumcorneal flush.",
+          "Corneal Edema: Due to toxic endothelial damage.",
+          "Hypopyon: Layered WBCs in the anterior chamber (present in 75-85%).",
+          "Fibrinous Membrane: Dense AC reaction often obscuring the pupil.",
+          "Vitritis: Dense vitreous cells and debris causing loss of red reflex.",
+          "Afferent Pupillary Defect (APD): Suggests advanced retinal or optic nerve damage."
+        ]
+      },
+      {
+        "title": "URGENT RED FLAGS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Pain that is out of proportion to clinical signs.",
+          "Sudden, profound loss of vision (Light Perception or worse).",
+          "Rapidly progressing hypopyon within hours.",
+          "Loss of Red Reflex or inability to visualize fundus.",
+          "Proptosis or limited motility (suggests panophthalmitis)."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Clinical Suspicion: History of recent surgery or trauma + pain/vision loss.",
+          "2. B-Scan Ultrasonography: Essential if fundus is obscured. Look for vitreal opacities, membranes, or RD.",
+          "3. Vitreous Tap/Biopsy: Gold standard. Needle aspiration (0.1ml) or undiluted vitreous cutter sample.",
+          "4. Aqueous Tap: Lower yield than vitreous but easier to perform (0.1ml).",
+          "5. Microbiological Processing: Immediate Gram/Giemsa stain, culture on Blood, Chocolate, Sabouraud, and Thioglycolate.",
+          "6. Molecular Diagnosis: PCR for 16S rDNA (high sensitivity, especially if pre-treated)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis (TASS vs Endophthalmitis)",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Toxic Anterior Segment Syndrome (TASS)",
+            "Infectious Endophthalmitis"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Usually <24 hours",
+              "Usually 2–7 days"
+            ],
+            [
+              "Pain",
+              "Minimal to mild",
+              "Severe (in 75%)"
+            ],
+            [
+              "Corneal Edema",
+              "Limbus to limbus (diffuse)",
+              "Localized or secondary"
+            ],
+            [
+              "Vitritis",
+              "Absent (strictly anterior)",
+              "Severe (hallmark sign)"
+            ],
+            [
+              "Response to Steroids",
+              "Rapidly improves",
+              "No effect or worsening"
+            ],
+            [
+              "Etiology",
+              "Chemical/Instrument contamination",
+              "Bacterial/Fungal infection"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "EVS Treatment Algorithm (Based on Endophthalmitis Vitrectomy Study)",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "EVS Protocol (Post-Cataract)",
+          "branches": [
+            "Vision Hand Motions (HM) or Better: Tap and Inject Antibiotics",
+            "Vision Light Perception (LP): Immediate Pars Plana Vitrectomy (PPV) + Antibiotics",
+            "Systemic Antibiotics: Found not useful (Amikacin/Ceftazidime) in EVS",
+            "Corticosteroids: Dexamethasone 0.4mg Intravitreal (controversial but common)"
+          ]
+        }
+      },
+      {
+        "title": "Pharmacotherapy: Intravitreal Dosing",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Drug",
+            "Class",
+            "Dose (in 0.1 ml)",
+            "Coverage"
+          ],
+          "rows": [
+            [
+              "Vancomycin",
+              "Glycopeptide",
+              "1.0 mg",
+              "Gram-positives (MRSA included)"
+            ],
+            [
+              "Ceftazidime",
+              "3rd Gen Cephalosporin",
+              "2.25 mg",
+              "Gram-negatives (Pseudomonas)"
+            ],
+            [
+              "Amikacin",
+              "Aminoglycoside",
+              "0.4 mg",
+              "Gram-negatives (if Ceftazidime allergy)"
+            ],
+            [
+              "Amphotericin B",
+              "Antifungal",
+              "5 - 10 μg",
+              "Fungal (Yeasts/Molds)"
+            ],
+            [
+              "Voriconazole",
+              "Antifungal",
+              "100 μg",
+              "Aspergillus/Candida"
+            ],
+            [
+              "Dexamethasone",
+              "Steroid",
+              "0.4 mg",
+              "Reduce inflammatory damage"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Technique: PPV Steps",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Anesthesia: Retrobulbar or general (if severe pain/uncooperative).",
+          "2. Trocar Placement: Careful 23G/25G/27G entry; caution with hypotony.",
+          "3. Sample Collection: Obtain undiluted vitreous sample before turning on infusion.",
+          "4. Core Vitrectomy: Clear central opacities to improve antibiotic distribution.",
+          "5. Avoid PVD Induction: The retina is extremely necrotic/friable; do not induce PVD.",
+          "6. Antibiotic Injection: Controlled injection into the mid-vitreous cavity."
+        ]
+      },
+      {
+        "title": "Post-Traumatic Specifics",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Bacillus cereus: Most common in soil-related trauma; causes rapid panophthalmitis in 24h.",
+          "IOFB: Retained foreign bodies increase risk by 10x.",
+          "Clostridium: Rare but causes 'Gas Gangrene' of the eye with rapid vision loss.",
+          "Immediate PPV: Often indicated earlier in trauma than in post-cataract cases."
+        ]
+      },
+      {
+        "title": "Remember: The 'Triple-V' Strategy",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "VVV",
+          "explanation": "Vision (LP vs HM), Vitreous (Tap vs Vitrectomy), Vancomycin (The cornerstone of therapy)."
+        }
+      },
+      {
+        "title": "Landmark Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Povidone-Iodine 5%: Only proven prophylactic measure to reduce endophthalmitis risk.",
+          "Intracameral Cefuroxime (1mg/0.1ml): ESCRS study showed 5x reduction in post-op infection.",
+          "C. acnes: Suspect if there is a 'white plaque' on the posterior capsule months after surgery.",
+          "Klebsiella Endogenous: Often presents with a 'hypopyon of the posterior pole' (subretinal abscess)."
+        ]
+      },
+      {
+        "title": "Prognosis & Outcomes",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "S. epidermidis (20/40+)",
+              "value": 85
+            },
+            {
+              "label": "Staphylococcus aureus",
+              "value": 50
+            },
+            {
+              "label": "Streptococcus spp.",
+              "value": 30
+            },
+            {
+              "label": "Gram Negative Bacilli",
+              "value": 15
+            },
+            {
+              "label": "Bacillus cereus",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Complications & Sequelae",
+        "icon": "report_problem",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Retinal Detachment (Tractional or Rhegmatogenous).",
+          "Phthisis Bulbi: Hypotony and shrinkage of the globe.",
+          "Secondary Glaucoma: Due to inflammatory debris or PAS.",
+          "Cyclitic Membrane: Resulting in ciliary body detachment.",
+          "Evisceration/Enucleation: Required if panophthalmitis occurs or for intractable pain."
+        ]
+      }
+    ],
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "_newlyImported": 1775044663461,
+  "communityId": "sub_1773775007770_sd72107x7u3kpi",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

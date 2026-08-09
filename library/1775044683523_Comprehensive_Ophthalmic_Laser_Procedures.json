@@ -1,0 +1,334 @@
+{
+  "id": 1775044683523,
+  "seqId": 369,
+  "title": "Comprehensive Ophthalmic Laser Procedures",
+  "summary": "An exhaustive clinical guide to laser applications in the retina, glaucoma management, and lens surgery. This manual details specific indications, precise laser settings, procedural methodologies, and critical complication profiles for world-class ophthalmic care.",
+  "date": "2026-04-01T11:58:03.523Z",
+  "data": {
+    "title": "Comprehensive Ophthalmic Laser Procedures",
+    "summary": "An exhaustive clinical guide to laser applications in the retina, glaucoma management, and lens surgery. This manual details specific indications, precise laser settings, procedural methodologies, and critical complication profiles for world-class ophthalmic care.",
+    "summary_illustration": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"#1d4ed8\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"50\" cy=\"50\" r=\"15\" fill=\"#1d4ed8\" fill-opacity=\"0.2\"/><path d=\"M10 50 L90 50 M50 10 L50 90\" stroke=\"#1d4ed8\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\"/><path d=\"M20 20 L50 50\" stroke=\"#ef4444\" stroke-width=\"2\" stroke-linecap=\"round\"/><circle cx=\"20\" cy=\"20\" r=\"2\" fill=\"#ef4444\"/></svg>",
+    "sections": [
+      {
+        "title": "Retinal Laser: Panretinal Photocoagulation (PRP)",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Category",
+            "Clinical Details"
+          ],
+          "rows": [
+            [
+              "Indications",
+              "DR: active proliferative retinopathy, some cases of high-risk preproliferative retinopathy. Other ischaemic retinopathies (e.g. CrVO) with either established neovascularization or high-risk features. rubeosis/nVG."
+            ],
+            [
+              "Consent (Aims)",
+              "Stop disease progression; further laser treatment may well be required."
+            ],
+            [
+              "Consent (Limitations)",
+              "Does not improve vision; is not an alternative to glycaemic control, etc."
+            ],
+            [
+              "Consent (Expectations)",
+              "Pain, loss of peripheral field (with driving implications), scotomas, worsened acuity (e.g. macular decompensation), choroidal or retinal detachment, d dark adaptation, and vitreous haemorrhage."
+            ],
+            [
+              "Preparation",
+              "Instil topical anaesthetic (e.g. oxybuprocaine); position fundus CL (e.g. transequator) with coupling agent."
+            ],
+            [
+              "Laser Settings",
+              "532nm/green wavelength (Argon); 200- to 500-micron spot size; 0.1s duration; adjust power for gently blanching burn."
+            ],
+            [
+              "Technique",
+              "Consider temporal barrier (≥ 2–3DD from fovea) for 'no go' zone. Place ≥1,000 burns outside vascular arcades (burn-width intervals). 2nd session of ≥1,000 usually performed weeks later."
+            ],
+            [
+              "Tips",
+              "Adjust power for variable take-up. If pain occurs: reduce duration (e.g. 0.05s) and increase power. Multi-spot pattern systems (e.g. PaSCaL) are faster and use shorter durations."
+            ],
+            [
+              "Review",
+              "3-weekly ± fill-in PrP until response."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "PRP Red Flags & Complications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Pain",
+          "Transient visual loss",
+          "Permanent loss of peripheral field (driving implications)",
+          "Decreased dark adaptation (night vision effect)",
+          "Permanent scotomas",
+          "Worsened acuity (macular decompensation or inadvertent macular laser)",
+          "Choroidal or retinal detachment",
+          "Vitreous haemorrhage"
+        ]
+      },
+      {
+        "title": "Macular Laser (Focal or Grid)",
+        "icon": "center_focus_strong",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Indication: Clinically significant macular oedema.",
+          "Consent: Explain reduction of sight loss, need for retreatment, pain, scotomas, worsened acuity, retinal/choroidal detachment.",
+          "Prep: Topical anaesthetic + fundus CL (e.g. area centralis) with coupling agent.",
+          "Settings: 532nm/green; 50-200 micron spot; 0.08–0.1s; very gentle blanching burn. Smaller/shorter for central burns.",
+          "Focal Technique: Burns to microaneurysms 500-3000 microns from foveal centre (min 300 if outside FAZ).",
+          "Grid Technique: Burns ≥1 burn-width apart around fovea; min 500 microns from foveal centre and disc margin.",
+          "Review: 3 months or sooner."
+        ]
+      },
+      {
+        "title": "Macular Laser Complications",
+        "icon": "report_problem",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Pain and Scotomas",
+          "Worsened acuity (decompensation or scar 'creep')",
+          "Choroidal or retinal detachment",
+          "Choroidal neovascular membrane",
+          "Vitreous haemorrhage"
+        ]
+      },
+      {
+        "title": "Laser Retinopexy",
+        "icon": "healing",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Retinopexy",
+          "branches": [
+            "Indications: Retinal break with RD risk (usually U-tears) without excessive SRF",
+            "Slit-lamp: For equatorial and post-equatorial lesions",
+            "Indirect: For anterior lesions (with indentation) or cryotherapy"
+          ]
+        }
+      },
+      {
+        "title": "Nd-YAG Peripheral Iridotomy (PI)",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Indications: Angle closure with pupil block (Acute/Subacute/Chronic/1°/2°) & Prophylaxis for occludable angles.",
+          "Consent: Explain purpose, bilateral treatment, failure risk, bleeding, inflammation, corneal burns, monocular diplopia.",
+          "Pre-Medication: Pilocarpine 2% (iris tension) + Apraclonidine 1% (IOP spike/bleeding prevention) + Anaesthetic.",
+          "Laser Setup: 2-3 pulse bursts of 3–6mJ (higher for thick/pigmented irides); Angle the beam (not perpendicular).",
+          "Positioning: Abraham lens + coupling agent.",
+          "Site Selection: Superior (under lid), peripheral, ideally in iris crypt.",
+          "Execution: Focus and fire; success shown by forward gush of pigment-loaded aqueous (usually 2–4 shots).",
+          "Post-op: Topical steroid (dexamethasone 0.1% 6x/d for 1wk); IOP check at 30-60min; Review within 10d."
+        ]
+      },
+      {
+        "title": "Nd-YAG PI Complications",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Bleeding (stop with lens pressure)",
+          "Inflammation (increase steroids)",
+          "Raised IOP",
+          "Corneal burns (caution in shallow AC)",
+          "Glare and optical aberrations (avoid interpalpebral area/tear meniscus)"
+        ]
+      },
+      {
+        "title": "Trabeculoplasty: ALT vs SLT",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Argon (ALT)",
+            "Selective (SLT)"
+          ],
+          "rows": [
+            [
+              "Indications",
+              "OAG with pigmented TM (POAG/PXF/PDS); Medical/Surg ineffective.",
+              "As for ALT, but more targeted, utilizes less energy."
+            ],
+            [
+              "Laser Settings",
+              "Argon: 50um, 0.1s, 300-1000mW; Diode: 100um, 0.1-0.2s, 800-1200mW.",
+              "400-micron spot; 3ns duration; 0.6mJ initial energy."
+            ],
+            [
+              "Technique",
+              "50 equally spaced shots over 180° on anterior border of pigmented TM.",
+              "50 non-overlapping spots over inferior 180° centered on TM."
+            ],
+            [
+              "Reaction",
+              "Mild blanching or small bubble.",
+              "Adjust power 0.1mJ below bubble formation level."
+            ],
+            [
+              "Failure Rate",
+              "6–10% per year (often sudden).",
+              "N/A (Transient corneal endotheliopathy seen)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Argon Laser Peripheral Iridoplasty (ALPI)",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Indications: Plateau iris syndrome (common), APAC (rare).",
+          "Method: Ring of burns to peripheral iris stroma (Abraham/Goldmann lens).",
+          "Applications: 20–50 burns over 360° (≥2 spot sizes apart).",
+          "Settings: 200-500um spot, 0.2-0.5s duration, 200-400mW power.",
+          "Complications: Inflammation (mild), IOP spike, corneal burns."
+        ]
+      },
+      {
+        "title": "Ciliary Body Laser: Cyclodiode & ECP",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Trans-scleral (Cyclodiode)",
+            "Endoscopic (ECP)"
+          ],
+          "rows": [
+            [
+              "Indications",
+              "Intractable IOP (rubeotic/synechial); unwell patients; temporizing pre-trab.",
+              "Refractory IOP; easier in pseudophakic eyes; can combine with Phaco."
+            ],
+            [
+              "Laser Settings",
+              "1,500mW power; 1,500ms duration.",
+              "60–90mW power; continuous duration."
+            ],
+            [
+              "Method",
+              "Contact probe 0.5–2mm from limbus; 5–10 shots per quadrant.",
+              "Limbal or pars plana; laser process until shrinkage/whitening."
+            ],
+            [
+              "Precautions",
+              "Avoid 3/9 o’clock and superior quadrant; avoid audible 'pops'.",
+              "Fill AC with viscoelastic; avoid treating 'valleys'; avoid 'pops'."
+            ],
+            [
+              "Post-Procedure",
+              "Steroids 4x/d 1wk; continue glaucoma meds; review 1–2wk.",
+              "Antibiotics, Steroids, continue glaucoma meds; oral acetazolamide stat."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Cyclodestructive Complications",
+        "icon": "dangerous",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Anterior inflammation / Hypopyon (in NVG)",
+          "Hypotony and Phthisis",
+          "Haemorrhage and Scleral thinning",
+          "Perforation",
+          "Cataract and Lens subluxation",
+          "Sympathetic Ophthalmia / Endophthalmitis",
+          "CMO (for ECP)",
+          "Suprachoroidal haemorrhage / RD (for ECP)"
+        ]
+      },
+      {
+        "title": "Nd-YAG Posterior Capsulotomy",
+        "icon": "flare",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Indication: Visually significant PCO.",
+          "Caution: Assess for uveitis, glaucoma, macular oedema, retinal degeneration (high-risk).",
+          "Prep: Mydriatics (Tropicamide 1% ± Phenylephrine 2.5%); Capsulotomy lens + coupling agent.",
+          "Settings: 1–1.5mJ (higher for thicker PCO); Angle the beam.",
+          "Technique 1 (Full Ring): Posterior capsulorhexis (detached capsule free-floating).",
+          "Technique 2 (Partial Ring): Inferior hinge (capsule drops but stays attached).",
+          "Technique 3 (Cross): Peripheral start in each axis.",
+          "Post-op: Topical steroid 4x/d 2wk; Review 4–6 weeks for visual axis clarity and inflammation check."
+        ]
+      },
+      {
+        "title": "YAG Capsulotomy Risks",
+        "icon": "error",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Lens damage (pitting, dislocation)",
+          "Inflammation (severe in uveitics)",
+          "Floaters",
+          "Retinal damage (tears, detachment)",
+          "Corneal oedema",
+          "Increased IOP",
+          "Cystoid Macular Oedema (CMO)",
+          "Failure/need for retreatment"
+        ]
+      },
+      {
+        "title": "Femtosecond & Excimer Lasers",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Laser Type",
+            "Applications"
+          ],
+          "rows": [
+            [
+              "Femtosecond (FSL)",
+              "Cataract: Clear corneal incisions, LRIs, capsulorhexis, lens fragmentation. Refractive: LASIK flaps, ICRS channels, keratoplasty cuts."
+            ],
+            [
+              "Excimer",
+              "Ablative reshaping of the cornea for PRK, LASIK, and LASEK."
+            ]
+          ]
+        }
+      }
+    ],
+    "chapterId": "lasers"
+  },
+  "chapterId": "lasers",
+  "_newlyImported": 1775044683523,
+  "communityId": "sub_1773775007770_rurytsv84p1r47",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

@@ -1,0 +1,348 @@
+{
+  "id": 1775761007773,
+  "seqId": 774,
+  "title": "CSNB: Congenital Stationary Night Blindness",
+  "summary": "A comprehensive clinical guide to a heterogeneous group of non-progressive retinal disorders characterized by nyctalopia, specific electroretinographic signatures, and signaling defects between photoreceptors and bipolar cells. Essential for differentiating stable from progressive retinal dystrophies.",
+  "date": "2026-04-09T18:56:47.773Z",
+  "data": {
+    "title": "CSNB: Congenital Stationary Night Blindness",
+    "summary": "A comprehensive clinical guide to a heterogeneous group of non-progressive retinal disorders characterized by nyctalopia, specific electroretinographic signatures, and signaling defects between photoreceptors and bipolar cells. Essential for differentiating stable from progressive retinal dystrophies.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 Q35 20 50 50 T80 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M50 50 L50 80' fill='none' stroke='hsl(0, 80%, 50%)' stroke-width='3' stroke-dasharray='2 2'/><circle cx='50' cy='35' r='5' fill='hsl(215, 90%, 45%)'/><path d='M70 20 A 15 15 0 1 0 85 35' fill='none' stroke='hsl(45, 90%, 50%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Congenital Stationary Night Blindness (CSNB) is a group of rare, genetically determined, non-progressive retinal disorders. While patients present with impaired night vision (nyctalopia) from birth, the condition is 'stationary,' meaning it does not lead to total blindness. It is primarily categorized into those with a normal fundus (Schubert-Bornschein and Riggs types) and those with an abnormal fundus (Oguchi disease and Fundus Albipunctatus). The hallmark is a defect in the transmission of signals from the photoreceptors to the second-order neurons (ON-bipolar cells)."
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "X-linked (Most Common)",
+              "value": 70
+            },
+            {
+              "label": "Autosomal Recessive",
+              "value": 25
+            },
+            {
+              "label": "Autosomal Dominant",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Inheritance Patterns",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "CSNB Genetics",
+          "branches": [
+            "X-Linked (NYX, CACNA1F)",
+            "Autosomal Recessive (GRM6, TRPM1, GPR179, CABP4)",
+            "Autosomal Dominant (RHO, PDE6B, GNAT1 - Riggs type)"
+          ]
+        }
+      },
+      {
+        "title": "Classification: Schubert-Bornschein Type",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Complete (cCSNB / Type 1)",
+            "Incomplete (iCSNB / Type 2)"
+          ],
+          "rows": [
+            [
+              "Primary Defect",
+              "ON-bipolar cell pathway totally blocked",
+              "Both ON- and OFF-pathways partially affected"
+            ],
+            [
+              "Genetics",
+              "NYX (XL), TRPM1 (AR), GRM6 (AR)",
+              "CACNA1F (XL), CABP4 (AR)"
+            ],
+            [
+              "Rod Function",
+              "Absent/Severely reduced",
+              "Recordable but significantly reduced"
+            ],
+            [
+              "Cone Function",
+              "Relatively normal",
+              "Subnormal (reduced amplitude)"
+            ],
+            [
+              "Refractive Error",
+              "High Myopia (> -6.00D common)",
+              "Moderate Myopia to Hyperopia"
+            ],
+            [
+              "ERG Signature",
+              "Negative ERG (No b-wave in scotopic)",
+              "Negative ERG (Reduced b-wave in scotopic)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Signal Block",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Photoreceptor captures photon and hyperpolarizes.",
+          "2. Reduced Glutamate release into the synaptic cleft.",
+          "3. cCSNB: Defect in mGluR6 receptor or TRPM1 channel prevents ON-bipolar depolarization.",
+          "4. iCSNB: Defect in Ca2+ channels (CACNA1F) impairs neurotransmitter release from both rods/cones.",
+          "5. Result: Interruption of signal transmission despite normal photoreceptor structure."
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Nyctalopia (Difficulty in dark or dim light)",
+          "Decreased Visual Acuity (20/30 to 20/200)",
+          "Nystagmus (Often horizontal, present from infancy)",
+          "Strabismus (Exotropia or Esotropia)",
+          "Paradoxical Pupillary Response (Constriction in darkness)",
+          "Myopia (Usually high in X-linked variants)",
+          "Normal Fundus appearance (in Schubert-Bornschein and Riggs)"
+        ]
+      },
+      {
+        "title": "The Diagnostic Gold Standard: ERG",
+        "icon": "query_stats",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Scotopic 0.01 (Rod Response): Non-recordable in Complete; profoundly reduced in Incomplete.",
+          "Scotopic 3.0 (Maximal Response): 'Negative ERG' (Large a-wave, but b-wave amplitude is smaller than a-wave).",
+          "Photopic 3.0 (Cone Response): Normal in Complete; reduced amplitude and square-wave appearance in Incomplete.",
+          "30 Hz Flicker: Normal timing in Complete; markedly delayed and bifid appearance in Incomplete.",
+          "Dark Adaptation: Elevated rod threshold (stays at cone level in Complete; slow descent in Incomplete)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis (Nyctalopia with Normal Fundus)",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Key Differentiating Features",
+            "ERG Finding"
+          ],
+          "rows": [
+            [
+              "Early Retinitis Pigmentosa",
+              "Progressive field loss, family history of blindness",
+              "Reduced a-wave and b-wave (non-negative)"
+            ],
+            [
+              "Vitamin A Deficiency",
+              "Bitot spots, dry eye, history of malabsorption",
+              "Reduced amplitudes; reversible with treatment"
+            ],
+            [
+              "Congenital Achromatopsia",
+              "Photophobia, color blindness, nystagmus",
+              "Absent Photopic ERG; Normal Scotopic ERG"
+            ],
+            [
+              "Bradyopsia",
+              "Delayed adaptation to light changes (RGS9/R9AP)",
+              "Delayed recovery of b-wave"
+            ],
+            [
+              "Melanoma-Associated Retinopathy",
+              "Adult onset, paraneoplastic, sudden nyctalopia",
+              "Negative ERG (Antibodies against TRPM1)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Specific Variant: Oguchi Disease",
+        "icon": "wb_sunny",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Oguchi Disease",
+          "branches": [
+            "Genetics: SAG (Arrestin) or GRK1 mutation",
+            "Clinical: Mizuo-Nakamura Phenomenon",
+            "Fundus: Metallic golden-yellow sheen in light",
+            "Adaptation: Sheen disappears after 2-12 hours of dark adaptation",
+            "ERG: Riggs-type; slow b-wave recovery after prolonged dark"
+          ]
+        }
+      },
+      {
+        "title": "Specific Variant: Fundus Albipunctatus",
+        "icon": "grain",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Mutation: RDH5 gene (impaired 11-cis retinal regeneration)",
+          "Fundus: Multiple, small, uniform white-yellow dots (sparing fovea)",
+          "Symptoms: Stationary night blindness; slow recovery of vision after bright light",
+          "ERG: Initially reduced amplitudes; normalize after ultra-prolonged dark adaptation (hours)",
+          "Differentiate from: Retinitis Punctata Albescens (which is progressive)"
+        ]
+      },
+      {
+        "title": "Management & Patient Care",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Accurate Diagnosis: Confirm 'stationary' nature to provide prognosis (reassurance to family).",
+          "2. Refraction: Early and accurate correction of myopia to prevent refractive amblyopia.",
+          "3. Strabismus/Nystagmus: Monitor and treat surgically if a significant compensatory head turn is present.",
+          "4. Low Vision Aids: Refer for bioptics or specialized dim-light mobility training if required.",
+          "5. Genetic Counseling: Determine inheritance pattern for family planning.",
+          "6. Career Guidance: Advise against professions requiring night driving or dark-room activities."
+        ]
+      },
+      {
+        "title": "Red Flags: When to Doubt CSNB",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Progressive narrowing of visual fields (suggests RP)",
+          "Bone-spicule pigmentation or vessel attenuation (suggests RP)",
+          "Absence of 'negative' ERG configuration (b-wave > a-wave)",
+          "History of nyctalopia starting in adolescence (not congenital)",
+          "Rapidly declining visual acuity"
+        ]
+      },
+      {
+        "title": "Remember: The ERG Waveforms",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "NEG-B",
+          "explanation": "N: Night blindness, E: Early onset, G: Genetic, B: B-wave is Bottomed out (Negative ERG: b-wave amplitude < a-wave amplitude)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "The 'Paradoxical Pupil' (constriction when lights go out) is a classic sign of CSNB and Achromatopsia.",
+          "Mizuo-Nakamura Phenomenon is pathognomonic for Oguchi disease but can rarely be seen in X-linked Retinoschisis.",
+          "X-linked CSNB is the most common cause of a negative ERG in a child with a normal fundus.",
+          "Unlike RP, the a-wave in CSNB remains normal because the primary defect is post-photoreceptoral.",
+          "High myopia is so prevalent in cCSNB that its absence should prompt re-evaluation of the diagnosis."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Research",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Recent research focuses on gene therapy for CACNA1F and TRPM1 mutations using AAV vectors. Studies in animal models (e.g., the noble's rat) have shown restoration of b-wave function and signal transmission. Advanced imaging with Adaptive Optics (AO) has confirmed that while signal transmission is blocked, the photoreceptor mosaic remains structurally intact, making CSNB an ideal candidate for future gene replacement therapies."
+      }
+    ],
+    "generationPrompt": "CSNB",
+    "chapterId": "paediatric"
+  },
+  "chapterId": "paediatric",
+  "kanskiMeta": [
+    {
+      "pageNum": 406,
+      "keywords": [
+        "congenital",
+        "definition",
+        "ocular",
+        "examination",
+        "differential"
+      ]
+    },
+    {
+      "pageNum": 342,
+      "keywords": [
+        "congenital",
+        "iol",
+        "inheritance",
+        "ocular",
+        "disease"
+      ]
+    },
+    {
+      "pageNum": 749,
+      "keywords": [
+        "congenital",
+        "recent",
+        "strabismus"
+      ]
+    },
+    {
+      "pageNum": 14,
+      "keywords": [
+        "congenital",
+        "blindness",
+        "prevalence",
+        "examination",
+        "normal"
+      ]
+    },
+    {
+      "pageNum": 646,
+      "keywords": [
+        "congenital",
+        "stationary",
+        "blindness",
+        "erg",
+        "nyctalopia"
+      ]
+    },
+    {
+      "pageNum": 827,
+      "keywords": [
+        "congenital",
+        "ophthalmology",
+        "inheritance",
+        "ocular",
+        "differential"
+      ]
+    }
+  ]
+}

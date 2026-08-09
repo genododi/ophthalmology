@@ -1,0 +1,163 @@
+{
+  "id": 1775063894130,
+  "seqId": 531,
+  "title": "Mastering Biometry: The Architecture of Refractive Precision",
+  "summary": "Biometry error is the leading cause of surprise in modern cataract surgery. This guide provides a systematic approach to identifying, quantifying, and mitigating axial length and keratometry inaccuracies to achieve emmetropic outcomes.",
+  "date": "2026-04-01T17:18:14.130Z",
+  "data": {
+    "title": "Mastering Biometry: The Architecture of Refractive Precision",
+    "summary": "Biometry error is the leading cause of surprise in modern cataract surgery. This guide provides a systematic approach to identifying, quantifying, and mitigating axial length and keratometry inaccuracies to achieve emmetropic outcomes.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='30' fill='none' stroke='#1e88e5' stroke-width='4'/><path d='M20 50 L80 50' stroke='#1e88e5' stroke-width='2'/><path d='M50 20 L50 80' stroke='#1e88e5' stroke-width='2'/><circle cx='50' cy='50' r='2' fill='#d32f2f'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Impact",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Biometry error refers to any inaccuracy in the measurement of the axial length (AL), corneal curvature (K), or anterior chamber depth (ACD) that leads to a discrepancy between the predicted and achieved postoperative refractive outcome. A 1 mm error in AL corresponds to approximately 2.5 to 3.0 D of refractive surprise. Achieving refractive targets within ±0.50 D in >90% of eyes is the current gold standard."
+      },
+      {
+        "title": "Epidemiology of Refractive Surprise",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "AL Measurement Error",
+              "value": 70
+            },
+            {
+              "label": "K Measurement Error",
+              "value": 20
+            },
+            {
+              "label": "IOL Calculation Error",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Suspect Error",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Difference in AL > 0.1 mm between eyes",
+          "Inconsistent keratometry across multiple readings",
+          "Steep K > 47.0 D or Flat K < 40.0 D",
+          "Short AL (< 22.0 mm) or Long AL (> 25.0 mm)",
+          "Staphyloma indicated on A-scan trace",
+          "History of prior corneal refractive surgery (LASIK/PRK)"
+        ]
+      },
+      {
+        "title": "Sources of Biometry Error (Mindmap)",
+        "icon": "hub",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Biometry Error",
+          "branches": [
+            "Axial Length (AL) Inaccuracy",
+            "Keratometry (K) Inaccuracy",
+            "IOL Constant Selection",
+            "Formula Inappropriate for Eye Shape"
+          ]
+        }
+      },
+      {
+        "title": "Systematic Troubleshooting Process",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Check signal quality (SNR) on Optical Biometry (e.g., IOLMaster 700).",
+          "Step 2: Validate K-values via Topography or Tomography (Pentacam).",
+          "Step 3: Perform contact or immersion ultrasound if optical biometry fails (e.g., dense cataract).",
+          "Step 4: Recalculate using Barrett Universal II or Kane formula for extreme axial lengths.",
+          "Step 5: Verify IOL power constants (User-specific constants)."
+        ]
+      },
+      {
+        "title": "Comparison of Biometry Modalities",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Method",
+            "Precision",
+            "Limitation"
+          ],
+          "rows": [
+            [
+              "IOLMaster (PCI)",
+              "High (< 0.02mm)",
+              "Cannot penetrate dense cataracts"
+            ],
+            [
+              "Immersion USG",
+              "Moderate",
+              "Technician dependent"
+            ],
+            [
+              "Contact USG",
+              "Lower",
+              "Corneal compression flattens AL"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: Remember the 4 Rules",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-A-K-S",
+          "explanation": "P: Precision (Check SNR), A: Axial Length (Verify with USG), K: Keratometry (Check for dry eye/topography), S: Selection (Choose modern formulas)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Always dry the ocular surface before keratometry to avoid tear film instability.",
+          "In post-LASIK eyes, utilize Barrett True-K or ASCRS Online Calculator.",
+          "A signal-to-noise ratio < 2.0 on optical biometry necessitates manual verification.",
+          "When in doubt, use Immersion A-scan; never rely solely on contact A-scan."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The introduction of Swept-Source OCT-based biometry (e.g., IOLMaster 700) has significantly reduced errors in eyes with dense media. Landmark studies (e.g., Melles et al.) demonstrate that the Barrett Universal II formula consistently outperforms older generation formulas (Hoffer Q, SRK/T) in eyes with extreme axial lengths."
+      }
+    ],
+    "generationPrompt": "Biometry error",
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true,
+  "bookmarked": true
+}

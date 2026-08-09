@@ -1,0 +1,424 @@
+{
+  "id": 1775557373670,
+  "seqId": 758,
+  "title": "Glaucoma Filtration Surgery Complications: Decoding Bleb Leaks & Overfiltration",
+  "summary": "This poster provides a comprehensive, resident-level guide to two critical complications of glaucoma filtration surgery: bleb leaks and bleb overfiltration. Master their definitions, pathophysiology, clinical presentation, and evidence-based management strategies to safeguard your patients' vision.",
+  "date": "2026-04-07T10:22:53.670Z",
+  "data": {
+    "title": "Glaucoma Filtration Surgery Complications: Decoding Bleb Leaks & Overfiltration",
+    "summary": "This poster provides a comprehensive, resident-level guide to two critical complications of glaucoma filtration surgery: bleb leaks and bleb overfiltration. Master their definitions, pathophysiology, clinical presentation, and evidence-based management strategies to safeguard your patients' vision.",
+    "summary_illustration": "<svg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"blebGradient\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\n      <stop offset=\"0%\" style=\"stop-color:hsl(215, 90%, 75%);stop-opacity:1\" />\n      <stop offset=\"100%\" style=\"stop-color:hsl(215, 90%, 45%);stop-opacity:1\" />\n    </linearGradient>\n  </defs>\n  <!-- Sclera -->\n  <path d=\"M50 0 C77.6 0 100 22.4 100 50 C100 77.6 77.6 100 50 100 C22.4 100 0 77.6 0 50 C0 22.4 22.4 0 50 0 Z\" fill=\"#F0F0F0\"/>\n  <!-- Iris -->\n  <circle cx=\"50\" cy=\"50\" r=\"25\" fill=\"hsl(215, 70%, 55%)\"/>\n  <!-- Pupil -->\n  <circle cx=\"50\" cy=\"50\" r=\"12\" fill=\"#333\"/>\n  <!-- Bleb -->\n  <path d=\"M50 20 C60 15 70 20 70 30 C70 40 50 45 30 30 C30 20 40 15 50 20 Z\" fill=\"url(#blebGradient)\" stroke=\"hsl(215, 90%, 35%)\" stroke-width=\"1.5\"/>\n  <!-- Subtle leak -->\n  <path d=\"M50 20 L50 10 L55 12 Z\" fill=\"none\" stroke=\"hsl(0, 80%, 60%)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-dasharray=\"1 3\">\n    <animate attributeName=\"opacity\" values=\"0;1;0\" dur=\"2s\" repeatCount=\"indefinite\"/>\n  </path>\n  <!-- Arrow for overfiltration / shallow AC -->\n  <path d=\"M40 75 Q50 65 60 75\" fill=\"none\" stroke=\"hsl(45, 90%, 60%)\" stroke-width=\"2\" stroke-linecap=\"round\" />\n  <path d=\"M40 75 L45 70 M60 75 L55 70\" fill=\"none\" stroke=\"hsl(45, 90%, 60%)\" stroke-width=\"2\" stroke-linecap=\"round\" />\n</svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Overview",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "**Bleb Leak**: An epithelial defect in the conjunctival bleb allowing aqueous humor to escape from the anterior chamber. This leads to hypotony, increases the risk of infection (blebitis/endophthalmitis), and can result in vision loss. The Seidel test is positive.\n\n**Bleb Overfiltration**: Excessive aqueous humor outflow through a patent filtration bleb, leading to severe and prolonged hypotony, often without an overt leak (Seidel test negative). This can result in characteristic findings like choroidal detachment and hypotonous maculopathy, potentially causing irreversible vision loss if not managed promptly."
+      },
+      {
+        "title": "2. Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**Bleb Leaks**: Early (first 3 months): 1.7-8.0%; Late (after 3 months): 2.7-10.0%.",
+          "**Risk Factors for Leaks**: Anti-metabolites (MMC/5-FU), superior blebs, thin-walled/avascular blebs, older age, post-operative inflammation, scleral flap ischemia, history of trauma/eye rubbing.",
+          "**Bleb Overfiltration**: Incidence of severe hypotony ranges from 1-10% post-trabeculectomy.",
+          "**Risk Factors for Overfiltration**: Younger age, high myopia, history of uveitis, extensive anti-metabolite use, very low pre-operative IOP, thin scleral flap, tightly secured limbal sutures (preventing peripheral leakage)."
+        ]
+      },
+      {
+        "title": "3. Etiology & Pathophysiology: Bleb Leak",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Bleb Leak Mechanisms",
+          "branches": [
+            "Suture erosion (e.g., 10-0 Nylon)",
+            "Conjunctival wound dehiscence",
+            "Microcyst rupture (thin, cystic blebs)",
+            "Ischemic necrosis (excessive MMC/cautery)",
+            "Trauma (eye rubbing, contact lens insertion)",
+            "Delayed epithelialization/healing (steroids, systemic factors)"
+          ]
+        }
+      },
+      {
+        "title": "4. Etiology & Pathophysiology: Overfiltration",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Overfiltration Pathophysiology",
+          "branches": [
+            "Excessive aqueous outflow (low resistance)",
+            "Thin/avascular bleb wall (high permeability)",
+            "Scleral flap incompetence (too loose, inadequate closure)",
+            "Over-potentiated anti-metabolite effect (MMC/5-FU)",
+            "Reduced episcleral venous pressure",
+            "Ciliary body detachment (functional aqueous suppression)"
+          ]
+        }
+      },
+      {
+        "title": "5. Classification / Subtypes",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Subtype",
+            "Description & Key Features"
+          ],
+          "rows": [
+            [
+              "Bleb Leak",
+              "Early Leak (<3 months)",
+              "Often suture-related or wound dehiscence, exposed scleral flap, visible defect."
+            ],
+            [
+              "Bleb Leak",
+              "Late Leak (>3 months)",
+              "Microcyst rupture in thin-walled, avascular blebs; ischemic necrosis area."
+            ],
+            [
+              "Overfiltration",
+              "Simple Hypotony",
+              "IOP 4-8 mmHg, often asymptomatic or mild vision changes, sometimes choroidal folds."
+            ],
+            [
+              "Overfiltration",
+              "Hypotonous Maculopathy",
+              "IOP < 6 mmHg, choroidal folds, retinal striae, disc edema, significant vision loss (myopic shift)."
+            ],
+            [
+              "Overfiltration",
+              "Choroidal Detachment",
+              "Serous fluid accumulation in suprachoroidal space (visible mounds), with or without severe hypotony. Can lead to 'kissing choroidals'."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "6. Clinical Features & Symptoms: Bleb Leak",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Watering / Epiphora",
+          "Foreign body sensation / Gritty feeling",
+          "Blurred vision (due to hypotony or corneal edema)",
+          "Reduced visual acuity",
+          "Bleb tenderness to touch",
+          "Flat or shallow anterior chamber",
+          "History of recent trauma or eye rubbing"
+        ]
+      },
+      {
+        "title": "7. Clinical Features & Symptoms: Overfiltration",
+        "icon": "blur_on",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Blurred vision (most common, often gradual)",
+          "Reduced visual acuity (especially with hypotonous maculopathy)",
+          "Headache (ocular hypotony)",
+          "Eye pain or discomfort (dull ache)",
+          "Photophobia",
+          "Shallow anterior chamber (variable, can be deep if choroidals push iris forward)",
+          "Myopic shift (due to choroidal detachment or lens-iris diaphragm pushing forward)"
+        ]
+      },
+      {
+        "title": "8. Ocular Examination Findings: Bleb Leak",
+        "icon": "ophthalmology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "**Seidel Test**: Positive (gold standard; fluorescein dilution under cobalt blue light).",
+          "**IOP**: Often low (<6 mmHg).",
+          "**Bleb Morphology**: Flat, diffuse, thin-walled, avascular; discrete epithelial defect or microcyst.",
+          "**Anterior Chamber**: Shallow, potentially flat (lens-cornea touch).",
+          "**Conjunctiva**: Localized injection/inflammation around the leak.",
+          "**Fundus**: Disc edema, choroidal folds (if significant hypotony)."
+        ]
+      },
+      {
+        "title": "9. Ocular Examination Findings: Overfiltration",
+        "icon": "search",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "**IOP**: Consistently very low (<6 mmHg, often 0-4 mmHg).",
+          "**Bleb Morphology**: Large, diffuse, cystic, often healthy-appearing or very elevated; usually no overt leak.",
+          "**Anterior Chamber**: Shallow to flat; peripheral anterior synechiae (PAS) if chronic.",
+          "**Cornea**: Striae, edema (with very low IOP).",
+          "**Fundus (Hypotonous Maculopathy)**: Choroidal folds (Paton's lines), retinal striae, optic disc edema, macular edema.",
+          "**Fundus (Choroidal Detachment)**: Serous elevation of the choroid, visible as smooth, dark brown mounds, typically peripheral. Kissing choroidals in severe cases."
+        ]
+      },
+      {
+        "title": "10. Investigations & Diagnostic Workup",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "1. **Detailed History & Symptoms**: Surgical details, post-op course, current medications, specific symptoms.",
+          "2. **Visual Acuity & Refraction**: Baseline and changes (e.g., myopic shift).",
+          "3. **IOP Measurement**: Crucial for diagnosing hypotony. Multiple readings often helpful.",
+          "4. **Slit-lamp Biomicroscopy**: Assess AC depth, bleb morphology, corneal status, presence of PAS, inflammation.",
+          "5. **Seidel Test**: Mandatory for suspected bleb leak (2% fluorescein strip, cobalt blue filter).",
+          "6. **Gonioscopy**: Assess angle, look for cyclodialysis cleft, PAS, other bleb internal features.",
+          "7. **Fundus Examination**: Direct/indirect ophthalmoscopy to evaluate for choroidal folds, disc edema, choroidal detachment, hypotonous maculopathy.",
+          "8. **Anterior Segment OCT (AS-OCT)**: Gold standard for visualizing bleb wall integrity, confirming leak pathway, assessing AC depth, irido-corneal touch.",
+          "9. **Posterior Segment OCT**: Confirm hypotonous maculopathy (retinal folds, subretinal fluid, choroidal thickening).",
+          "10. **B-scan Ultrasonography**: If media opacities (corneal edema, hyphema) obscure view, to visualize choroidal detachment or suprachoroidal hemorrhage."
+        ]
+      },
+      {
+        "title": "11. Differential Diagnosis",
+        "icon": "mind_alert",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "**Blebitis / Endophthalmitis**",
+              "Acute pain, redness, severe vision loss, hypopyon, vitreous cells, purulent bleb. **(EMERGENCY! Culture and prompt treatment)**"
+            ],
+            [
+              "**Cyclodialysis Cleft**",
+              "History of trauma/surgery, deep AC (often), direct visualization with gonioscopy/AS-OCT, resistant hypotony."
+            ],
+            [
+              "**Retinal Detachment**",
+              "Vitreous cells, specific fundus appearance (undulating retina, not smooth choroidal detachments).",
+              "Uveitic Hypotony",
+              "Evidence of active inflammation, often associated with posterior synechiae, keratic precipitates."
+            ],
+            [
+              "**Pre-existing Low IOP**",
+              "Patient's baseline IOP may naturally be low, no other signs of complication."
+            ],
+            [
+              "**Other causes of Shallow AC**",
+              "Pupillary block, aqueous misdirection syndrome (malignant glaucoma - typically high IOP)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "12. Staging / Grading (Hypotony & Complications)",
+        "icon": "line_start_arrow_notch",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "While no single universal staging system exists, hypotony and its complications are clinically graded by severity:\n\n*   **Hypotony**: \n    *   **Mild**: IOP 6-8 mmHg, often asymptomatic.\n    *   **Moderate**: IOP 3-5 mmHg, may cause mild vision blur, choroidal folds.\n    *   **Severe**: IOP < 3 mmHg, usually symptomatic with hypotonous maculopathy, significant choroidal detachment, or shallow/flat AC.\n*   **Choroidal Detachment**: Graded by extent (e.g., quadrant involvement, touching choroidals).\n*   **Hypotonous Maculopathy**: Graded by visual acuity and OCT findings (presence/severity of folds, striae, subretinal fluid)."
+      },
+      {
+        "title": "13. Management & Treatment: Bleb Leak",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "**Conservative (First-line)**:",
+          "1.  **Aqueous Suppressants**: Topical beta-blockers (e.g., Timolol 0.5% BID), alpha-agonists (e.g., Brimonidine 0.2% BID), oral carbonic anhydrase inhibitors (e.g., Acetazolamide 250 mg QID). Reduces aqueous flow through the leak.",
+          "2.  **Pressure Patch/Shield**: Apply for 24-48 hours to promote self-closure and splint the conjunctiva.",
+          "3.  **Bandage Contact Lens (BCL)**: Acts as a physical barrier, protects the healing epithelium, stabilizes the bleb.",
+          "4.  **Autologous Blood Injection**: Inject 0.1-0.2 mL of patient's own blood into the subconjunctival space adjacent to the leak (induces fibrosis).",
+          "5.  **Topical Antibiotics**: Prophylactic (e.g., Moxifloxacin 0.5% QID) if leak is chronic, exposed, or high-risk for infection.",
+          "6.  **Atropine 1% BID**: Cycloplegia stabilizes AC, reduces inflammation, pushes lens-iris diaphragm posteriorly.\n\n**Surgical Repair (If conservative fails or severe)**:",
+          "1.  **Conjunctival Advancement**: Mobilize healthy conjunctiva from adjacent areas to cover and resuture over the leaking area (e.g., 8-0 Vicryl/Nylon).",
+          "2.  **Bleb Revision/Excision**: Excision of the thin, avascular bleb wall and reconstruction with more robust tissue, often combined with a conjunctival advancement.",
+          "3.  **Scleral Flap Re-suturing**: If the leak is due to dehiscence of the original scleral flap.",
+          "4.  **Tissue Adhesives**: Cyanoacrylate glue over small, persistent leaks (often with a BCL)."
+        ]
+      },
+      {
+        "title": "14. Management & Treatment: Bleb Overfiltration",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "**Conservative (First-line)**:",
+          "1.  **STOP Aqueous Suppressants & Steroids**: This is crucial to allow IOP to rise and facilitate scar formation, unless active inflammation mandates steroid use.",
+          "2.  **Head-down Positioning / Pressure Patching**: Increases episcleral venous pressure.",
+          "3.  **Viscoelastic Injection**: Into the anterior chamber (e.g., Healon, Viscoat) to temporarily tamponade inflow and raise IOP, deepening the AC.",
+          "4.  **Atropine 1% BID**: Cycloplegia to push the lens-iris diaphragm back, deepen the AC, and reduce ciliary body inflammation/fluid production.",
+          "5.  **Subconjunctival Injection of Autologous Blood**: Similar to leaks, can induce fibrosis to reduce outflow.\n\n**Surgical Intervention (If severe hypotony, flat AC, or progressive maculopathy)**:",
+          "1.  **Scleral Flap Resuturing/Tightening**: Placement of additional 10-0 Nylon or Prolene sutures (adjustable or releasable) to the scleral flap to increase outflow resistance.",
+          "2.  **Bleb Revision/Reconstruction**: Excision of a large, overfiltering bleb and reconstruction with more robust tissue (e.g., scleral patch graft, conjunctival advancement).",
+          "3.  **Choroidal Drainage**: If 'kissing' choroidals are present and threatening vision/cornea. Requires creating sclerotomies (e.g., 2.5mm posterior to limbus) to drain suprachoroidal fluid, often combined with AC reformation.",
+          "4.  **AC Reformation with Air/Viscoelastic**: If flat AC with imminent lens-cornea touch."
+        ]
+      },
+      {
+        "title": "15. Surgical Techniques (Bleb & Flap Repair)",
+        "icon": "surgical",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "**Conjunctival Advancement**: Dissection of healthy conjunctiva from fornix, mobilization, and re-suturing (e.g., 8-0 Vicryl) to cover the bleb defect.",
+          "**Bleb Excision & Reconstruction**: Excision of dysfunctional bleb tissue, often followed by scleral patch graft (donor sclera, pericardium) covered by a conjunctival flap.",
+          "**Scleral Flap Resuturing**: Identification of original scleral flap margins, placement of 10-0 Nylon or Prolene sutures (fixed or adjustable) to increase outflow resistance. Topical steroids and anti-VEGF agents may be used adjunctively.",
+          "**Choroidal Drainage**: Typically involves radial sclerotomies (e.g., 2.5 mm posterior to limbus, 1/2 thickness) followed by drainage of suprachoroidal fluid and AC reformation with air/viscoelastic."
+        ]
+      },
+      {
+        "title": "16. Complications & Prognosis",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "**Bleb Leak Complications**: Blebitis, endophthalmitis (high risk!), persistent hypotony, flat anterior chamber, peripheral anterior synechiae, cataract.",
+          "**Overfiltration Complications**: Persistent hypotonous maculopathy (irreversible vision loss is possible), suprachoroidal hemorrhage, chronic choroidal detachment, secondary angle-closure glaucoma, persistent hypotony, cataract, corneal decompensation (if flat AC).",
+          "**Prognosis**: Good for both if managed early and effectively. Poor if infection occurs (endophthalmitis) or chronic hypotony leads to irreversible maculopathy. Visual recovery from hypotonous maculopathy is variable and may be incomplete."
+        ]
+      },
+      {
+        "title": "17. Red Flags / Emergency Signs",
+        "icon": "crisis_alert",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "**Acute onset of severe pain, redness, and vision loss post-trabeculectomy**: Immediate suspicion for blebitis or endophthalmitis. Culture and prompt empiric broad-spectrum intravitreal antibiotics are critical.",
+          "**Flat anterior chamber with lens-cornea touch**: Risk of irreversible corneal decompensation (endothelial damage, bullous keratopathy) and cataract formation. Requires emergency AC reformation (e.g., viscoelastic/air injection).",
+          "**Progressive vision loss with severe hypotony and/or hypotonous maculopathy**: Indicates potential for irreversible visual impairment; urgent intervention is needed.",
+          "**Sudden, excruciating pain with profound vision loss during hypotony**: Suspect suprachoroidal hemorrhage (requires urgent B-scan and potential surgical drainage)."
+        ]
+      },
+      {
+        "title": "18. Mnemonics & Memory Aids",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "FLAT AC Management (for shallow/flat anterior chamber)",
+          "explanation": "**F**luids (IV to rehydrate cautiously, or AC **F**ormation with air/viscoelastic)\n**L**aser (YAG capsulotomy if pupillary block)\n**A**tropine (cycloplegia)\n**T**amponade (Pressure patch, Bandage Contact Lens, Viscoelastic)"
+        }
+      },
+      {
+        "title": "19. Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Always perform a Seidel test for any suspected bleb issue – even if the bleb looks fine, a microleak can be present.",
+          "Hypotonous maculopathy symptoms (blurred vision, myopic shift) can precede clear fundus signs; be vigilant with low IOP.",
+          "Early intervention for flat AC is crucial to prevent permanent corneal damage and cataract progression.",
+          "A large, 'healthy-looking' cystic bleb can still be severely overfiltering.",
+          "Anti-metabolite use significantly increases the risk of both early and late bleb leaks and overfiltration.",
+          "Patient education on avoiding eye rubbing, proper eye drop technique, and signs of complications is paramount post-op.",
+          "Differentiate blebitis from sterile inflammation; culture is mandatory for any suspected infection."
+        ]
+      },
+      {
+        "title": "20. Recent Advances & Landmark Studies",
+        "icon": "experiment",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "**Anterior Segment OCT (AS-OCT)**: Revolutionized diagnosis of bleb morphology, leak identification, and early detection of subclinical choroidal detachments or hypotonous maculopathy. Allows for precise localization of leaks and objective assessment of bleb health.\n\n**Novel Surgical Glues**: Bio-compatible surgical glues (e.g., Tisseel, ReSure Sealant) offer less invasive options for small bleb leaks, providing temporary closure and reducing the need for sutures, particularly for avascular blebs.\n\n**Minimally Invasive Glaucoma Surgeries (MIGS)**: While not directly managing bleb complications, the increasing adoption of MIGS aims to reduce the incidence of bleb-related complications altogether by avoiding traditional external filtration pathways.\n\n**The Tube Versus Trabeculectomy (TVT) Study**: Provided crucial evidence comparing the efficacy and safety profiles of trabeculectomy with adjunctive mitomycin C versus aqueous shunts in refractory glaucoma, influencing surgical decision-making and complication anticipation."
+      },
+      {
+        "title": "21. Pediatric / Special Population Considerations",
+        "icon": "child_care",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "**Pediatric Glaucoma**: Bleb complications are more common in children due to enhanced wound healing (leading to bleb failure/scarring) and often more robust inflammatory responses. Hypotony is a significant concern, potentially leading to amblyopia.\n\n**High Myopia**: Increased risk of hypotony and hypotonous maculopathy due to thinner sclera and increased axial length. Extreme caution with anti-metabolites is warranted.\n\n**Uveitic Glaucoma**: Challenging due to underlying inflammation, increasing the risk of bleb failure, but also susceptible to hypotony from cyclitic membrane formation or ciliary body shutdown. Meticulous anti-inflammatory management is crucial."
+      }
+    ],
+    "generationPrompt": "Bleb leak vs bleb overfiltration",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 350,
+      "keywords": [
+        "glaucoma",
+        "filtration",
+        "surgery",
+        "classification",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 354,
+      "keywords": [
+        "glaucoma",
+        "definition",
+        "epidemiology",
+        "risk",
+        "factors"
+      ]
+    },
+    {
+      "pageNum": 429,
+      "keywords": [
+        "glaucoma",
+        "filtration",
+        "surgery",
+        "overfiltration",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 387,
+      "keywords": [
+        "glaucoma",
+        "risk",
+        "classification",
+        "ocular",
+        "signs"
+      ]
+    },
+    {
+      "pageNum": 355,
+      "keywords": [
+        "glaucoma",
+        "surgery",
+        "risk",
+        "factors",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 398,
+      "keywords": [
+        "glaucoma",
+        "surgery",
+        "risk",
+        "factors",
+        "leak"
+      ]
+    }
+  ]
+}

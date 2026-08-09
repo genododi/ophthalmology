@@ -1,0 +1,176 @@
+{
+  "id": 1775055914688,
+  "seqId": 530,
+  "title": "Mastery of Corneal Astigmatism: From Diagnostics to Surgical Correction",
+  "summary": "Corneal astigmatism, defined by non-spherical corneal curvature, necessitates precise diagnostic mapping and evidence-based surgical intervention. This guide navigates the path from topometric analysis to advanced refractive correction techniques.",
+  "date": "2026-04-01T15:05:14.688Z",
+  "data": {
+    "title": "Mastery of Corneal Astigmatism: From Diagnostics to Surgical Correction",
+    "summary": "Corneal astigmatism, defined by non-spherical corneal curvature, necessitates precise diagnostic mapping and evidence-based surgical intervention. This guide navigates the path from topometric analysis to advanced refractive correction techniques.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><ellipse cx='50' cy='50' rx='20' ry='35' fill='none' stroke='hsl(215, 90%, 80%)' stroke-width='3'/><path d='M10 50 L90 50 M50 10 L50 90' stroke='hsl(215, 90%, 20%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Corneal astigmatism occurs when the corneal surface is toroidal rather than spherical. It is defined as a refractive state where the eye's refractive power varies across different meridians, resulting in two focal lines instead of a single point (Sturm's Conoid). Pathophysiology typically relates to the anterior corneal surface curvature, though posterior corneal surface contribution (PCC) is critical in modern surgical planning."
+      },
+      {
+        "title": "Classification of Astigmatism",
+        "icon": "schema",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Meridian Orientation",
+            "Power Relationship"
+          ],
+          "rows": [
+            [
+              "With-the-Rule (WTR)",
+              "Steepest axis 90° (±30°)",
+              "Minus cylinder at 180°"
+            ],
+            [
+              "Against-the-Rule (ATR)",
+              "Steepest axis 180° (±30°)",
+              "Minus cylinder at 90°"
+            ],
+            [
+              "Oblique",
+              "Axis between 30°-60° or 120°-150°",
+              "Varies"
+            ],
+            [
+              "Regular",
+              "Principals 90° apart",
+              "Consistent"
+            ],
+            [
+              "Irregular",
+              "Meridians not 90° apart",
+              "Non-orthogonal / Pathologic"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Suspect Ectasia",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Inferior steepening on topography (Klyce/Maeda)",
+          "High Scissoring reflex on retinoscopy",
+          "KISA% index > 60",
+          "I-S ratio > 1.4 D",
+          "Unexplained refractive shifts in adolescents"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Sequence",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Manifest Refraction (Subjective)",
+          "Step 2: Placido-disk Topography (Curvature)",
+          "Step 3: Scheimpflug Imaging (Pentacam - Elevation/Pachymetry)",
+          "Step 4: Optical Coherence Tomography (Epithelial mapping)",
+          "Step 5: Wavefront Analysis (Total ocular aberration)"
+        ]
+      },
+      {
+        "title": "Surgical Correction Algorithms",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Correction Modality",
+          "branches": [
+            "LVC (LASIK/PRK/SMILE)",
+            "Toric IOL Implantation",
+            "Limbal Relaxing Incisions (LRI)",
+            "Femtosecond Laser Astigmatic Keratotomy (AK)"
+          ]
+        }
+      },
+      {
+        "title": "The 'T-O-R-I-C' Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "T.O.R.I.C.",
+          "explanation": "Topography check, Orientation alignment (0-180), Rotation risks, IOL stability, Capsular bag integrity."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Always account for Posterior Corneal Astigmatism (PCA) using the Barrett Toric Calculator.",
+          "Surgically Induced Astigmatism (SIA) at the incision site should be calculated via vector analysis.",
+          "For cataract surgery: Consider LRI for < 1.0D and Toric IOL for > 1.0D of corneal astigmatism.",
+          "Epithelial thickness mapping is the 'gold standard' for detecting early Keratoconus."
+        ]
+      },
+      {
+        "title": "Comparison of Surgical Techniques",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Procedure",
+            "Max Correction",
+            "Pros",
+            "Cons"
+          ],
+          "rows": [
+            [
+              "LASIK",
+              "Up to 5.0D",
+              "Fast recovery, predictable",
+              "Flap-related complications"
+            ],
+            [
+              "SMILE",
+              "Up to 3.0D",
+              "Biomechanically stable",
+              "No cyclotorsion correction"
+            ],
+            [
+              "Toric IOL",
+              "1.0D to 10D+",
+              "Internal correction",
+              "Rotational instability"
+            ],
+            [
+              "LRI",
+              "0.5D - 1.5D",
+              "Minimal cost",
+              "Regression of effect"
+            ]
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Corneal astigmatism correction",
+    "chapterId": "refractive"
+  },
+  "chapterId": "refractive",
+  "read": true
+}

@@ -1,0 +1,334 @@
+{
+  "id": 1775486464278,
+  "seqId": 737,
+  "title": "Superotemporal Retinal Tears: Risk, Laser & Prophylaxis",
+  "summary": "A comprehensive clinical guide to the diagnosis and management of superior retinal breaks. Focused on high-risk features like myopia, lattice degeneration, and trauma, with evidence-based protocols for laser retinopexy to prevent rhegmatogenous retinal detachment.",
+  "date": "2026-04-06T14:41:04.278Z",
+  "data": {
+    "title": "Superotemporal Retinal Tears: Risk, Laser & Prophylaxis",
+    "summary": "A comprehensive clinical guide to the diagnosis and management of superior retinal breaks. Focused on high-risk features like myopia, lattice degeneration, and trauma, with evidence-based protocols for laser retinopexy to prevent rhegmatogenous retinal detachment.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M100 20 A80 80 0 0 1 180 100' fill='none' stroke='hsl(0, 80%, 50%)' stroke-width='8' stroke-dasharray='10,5'/><path d='M130 50 L150 70 M150 50 L130 70' stroke='hsl(0, 80%, 50%)' stroke-width='4'/><circle cx='140' cy='60' r='15' fill='hsla(0, 80%, 50%, 0.2)'/><path d='M100 100 L140 60' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='2,2'/><text x='100' y='115' font-family='sans-serif' font-size='10' text-anchor='middle' fill='hsl(215, 90%, 45%)'>SUPEROTEMPORAL RISK</text></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A retinal tear is a full-thickness break in the neurosensory retina, typically resulting from vitreoretinal traction during a Posterior Vitreous Detachment (PVD). Superotemporal tears are clinically critical because gravity facilitates the rapid downward spread of subretinal fluid, leading to macula-threatening rhegmatogenous retinal detachment (RRD) faster than inferior breaks."
+      },
+      {
+        "title": "Epidemiology & Risk Statistics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Lattice in Population",
+              "value": 8
+            },
+            {
+              "label": "Breaks in Myopia >-6D",
+              "value": 15
+            },
+            {
+              "label": "RD in Lattice Pts",
+              "value": 1
+            },
+            {
+              "label": "Symptomatic Tears to RD",
+              "value": 50
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The Triple Threat",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Risk Factors",
+          "branches": [
+            "High Myopia (>6D/26mm axial length)",
+            "Lattice Degeneration (thinning + adhesion)",
+            "Blunt Trauma (Contrecoup/Dialysis)",
+            "Pseudophakia/Aphakia",
+            "Family History of RD"
+          ]
+        }
+      },
+      {
+        "title": "Classification of Retinal Breaks",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Morphology",
+            "Risk Level",
+            "Mechanism"
+          ],
+          "rows": [
+            [
+              "Horseshoe (U-Tear)",
+              "Flap of retina pulled anteriorly",
+              "High",
+              "Dynamic Vitreous Traction"
+            ],
+            [
+              "Operculated",
+              "Plug of retina pulled completely free",
+              "Low-Moderate",
+              "Released Traction"
+            ],
+            [
+              "Atrophic Hole",
+              "Round thinning without traction",
+              "Low",
+              "Localized Atrophy"
+            ],
+            [
+              "Retinal Dialysis",
+              "Disinsertion at Ora Serrata",
+              "Very High",
+              "Trauma-induced"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation: Symptoms",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Photopsia: Flashing lights in periphery (dynamic traction)",
+          "Floaters: Sudden onset 'cobwebs' or 'flies'",
+          "Weiss Ring: Circular floater signifying complete PVD",
+          "Tobacco Dust: Shafer's sign (RPE cells in vitreous)",
+          "Curtain Sign: Progressive visual field loss (indicates RD evolution)"
+        ]
+      },
+      {
+        "title": "The Ocular Examination Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Wide Dilation: Phenylephrine 2.5% + Tropicamide 1%.",
+          "2. Slit-Lamp Bio: Search for Shafer's sign in anterior vitreous.",
+          "3. Indirect Ophthalmoscopy: 20D/28D lens 360-degree sweep.",
+          "4. Scleral Depression: Mandatory to visualize the Ora and flap base.",
+          "5. Three-Mirror Gonioscopy: Detailed view of suspicious lesions."
+        ]
+      },
+      {
+        "title": "Shafer's Sign (Tobacco Dust)",
+        "icon": "error",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Presence of pigment cells in the anterior vitreous.",
+          "90% predictive value for a retinal break in the setting of acute PVD.",
+          "Must perform exhaustive scleral depression to find the break."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Degenerative Retinoschisis",
+              "Inner wall elevation, no tobacco dust, absolute scotoma"
+            ],
+            [
+              "White Without Pressure",
+              "Flat, milky appearance, common in blacks/myopes"
+            ],
+            [
+              "Pavingstone Degeneration",
+              "Yellow-white atrophic patches, prominent choroidal vessels"
+            ],
+            [
+              "Choroidal Detachment",
+              "Brown, solid-appearing elevation, low IOP"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "AAO PPP Indications for Laser",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Symptomatic Horseshoe Tears: Treat urgently (high risk of RD).",
+          "Acute Symptomatic Operculated Tears: Usually safe to observe unless high risk (e.g. fellow eye RD).",
+          "Traumatic Dialysis: Treat promptly even if asymptomatic.",
+          "Lattice with Symptomatic Tear: Treat the tear and the lattice.",
+          "Asymptomatic Lattice: Observation generally recommended, except in high-risk eyes (Aphakia, Fellow eye RD).",
+          "Asymptomatic Horseshoe Tears: Controversial; many treat if large or superior."
+        ]
+      },
+      {
+        "title": "Laser Retinopexy Technique",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Anesthesia: Topical Proparacaine (Sub-tenon's if scleral depression needed).",
+          "2. Wavelength: 532nm (Green) or 810nm (Diode).",
+          "3. Spot Size: 200-500 microns (depends on contact lens).",
+          "4. Duration: 0.1 to 0.2 seconds.",
+          "5. Application: 3 rows of nearly confluent burns (Grade II-III white) surrounding the break.",
+          "6. Coverage: Ensure burns extend to the Ora Serrata for U-tears."
+        ]
+      },
+      {
+        "title": "The S.A.L.T. Mnemonic",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "S.A.L.T.",
+          "explanation": "Factors making a break high risk: S: Symptoms (acute), A: Aphakia/Pseudophakia, L: Lattice (extensive), T: Trauma or Top (Superior) location."
+        }
+      },
+      {
+        "title": "Complications of Laser Prophylaxis",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Epiretinal Membrane (ERM) formation (~3-5%).",
+          "Cystoid Macular Edema (CME) - rare with peripheral laser.",
+          "Inadvertent foveal burn (ensure orientation).",
+          "Iatrogenic retinal breaks.",
+          "Failure: Progression to RD despite laser (usually due to inadequate treatment of the anterior horn)."
+        ]
+      },
+      {
+        "title": "Emergency Signs: Failed Prophylaxis",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Increasing photopsia/floaters post-laser.",
+          "Subretinal fluid extending beyond the laser barricade.",
+          "Visual field defect ('Shadow' or 'Curtain').",
+          "Decreased visual acuity (Macular involvement)."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Fellows",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always treat the 'horns' (anterior edges) of a horseshoe tear all the way to the Ora.",
+          "In cases of Vitreous Hemorrhage where the retina isn't visible, B-scan is mandatory to rule out RD.",
+          "Laser takes 7-14 days to reach maximum chorioretinal adhesion strength.",
+          "Advise patients: No heavy lifting or jarring exercise for 2 weeks post-laser."
+        ]
+      },
+      {
+        "title": "Evidence & Landmark Studies",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The AAO Preferred Practice Patterns (PPP) and several retrospective series (e.g., Byer et al.) emphasize that while 10% of the population has retinal breaks, only 1 in 10,000 develops RD annually. This underscores the importance of treating only 'high-risk' symptomatic breaks. The PIVOT trial and other surgical studies focus on RD repair, but the consensus remains that laser retinopexy is the gold standard for symptomatic tear prophylaxis with a >95% success rate."
+      }
+    ],
+    "generationPrompt": "Superotemporal tears ( myopia, lattice degeneration, trauma) - laser prophylaxis",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 553,
+      "keywords": [
+        "rop",
+        "retinal",
+        "laser",
+        "retinal detachment",
+        "threat"
+      ]
+    },
+    {
+      "pageNum": 552,
+      "keywords": [
+        "rop",
+        "retinal",
+        "retinal detachment",
+        "classification",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 682,
+      "keywords": [
+        "superotemporal",
+        "retinal",
+        "laser",
+        "prophylaxis",
+        "retinal detachment"
+      ]
+    },
+    {
+      "pageNum": 417,
+      "keywords": [
+        "laser",
+        "ocular",
+        "protocol",
+        "complications",
+        "iol"
+      ]
+    },
+    {
+      "pageNum": 660,
+      "keywords": [
+        "retinal",
+        "laser",
+        "retinal detachment",
+        "breaks",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 563,
+      "keywords": [
+        "retinal",
+        "laser",
+        "retinal detachment",
+        "ocular",
+        "signs"
+      ]
+    }
+  ]
+}

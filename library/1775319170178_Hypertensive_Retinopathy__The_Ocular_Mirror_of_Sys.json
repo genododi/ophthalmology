@@ -1,0 +1,285 @@
+{
+  "id": 1775319170178,
+  "seqId": 640,
+  "title": "Hypertensive Retinopathy: The Ocular Mirror of Systemic Health",
+  "summary": "Hypertensive retinopathy (HR) represents the spectrum of retinal microvascular changes resulting from systemic hypertension. It serves as a vital clinical indicator of target organ damage and long-term cardiovascular risk.",
+  "date": "2026-04-04T16:12:50.178Z",
+  "data": {
+    "title": "Hypertensive Retinopathy: The Ocular Mirror of Systemic Health",
+    "summary": "Hypertensive retinopathy (HR) represents the spectrum of retinal microvascular changes resulting from systemic hypertension. It serves as a vital clinical indicator of target organ damage and long-term cardiovascular risk.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)' opacity='0.2'/><path d='M20 50 Q 35 40, 50 50 T 80 50' fill='none' stroke='red' stroke-width='1.5' stroke-linecap='round'><animate attributeName='stroke-width' values='1.5;0.5;1.5' dur='3s' repeatCount='indefinite'/></path><path d='M25 45 L25 55 M75 45 L75 55' stroke='hsl(215, 90%, 45%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Hypertensive retinopathy is the primary ocular manifestation of systemic arterial hypertension. It involves a series of pathophysiological changes in the retinal microvasculature, categorized into vasoconstrictive, sclerotic, and exudative phases. Its presence, particularly Grade 3 or 4, is a strong predictor of systemic morbidity, including stroke, myocardial infarction, and renal failure."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence in Adults >40y",
+              "value": 10
+            },
+            {
+              "label": "Risk in Hypertensive Pts",
+              "value": 75
+            },
+            {
+              "label": "Incidence in Black Populations",
+              "value": 15
+            },
+            {
+              "label": "Association with Stroke Risk",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiological Progression",
+        "icon": "process",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Vasoconstrictive Phase — Acute BP rise triggers myogenic autoregulation, leading to generalized arteriolar narrowing (vasospasm).",
+          "Step 2: Sclerotic Phase — Chronic elevation causes intimal thickening, hyaline degeneration, and muscular hyperplasia, resulting in 'Copper' or 'Silver' wiring.",
+          "Step 3: Exudative Phase — Breakdown of the blood-retinal barrier (BRB) leads to leakage of plasma and blood (Hemorrhages, Exudates).",
+          "Step 4: Complication Phase — Ischemia and secondary vascular occlusions (RVO, RAM) or optic nerve swelling in malignant HTN."
+        ]
+      },
+      {
+        "title": "Keith-Wagener-Barker (KWB) Grading",
+        "icon": "format_list_numbered",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Grade",
+            "Clinical Signs",
+            "Systemic Significance"
+          ],
+          "rows": [
+            [
+              "Grade I",
+              "Mild generalized arteriolar narrowing ('Silver wiring')",
+              "Benign, chronic hypertension"
+            ],
+            [
+              "Grade II",
+              "Focal narrowing and AV nicking (Gunn's sign)",
+              "Usually asymptomatic, long-standing HTN"
+            ],
+            [
+              "Grade III",
+              "Hemorrhages (flame), CWS, Hard Exudates (Macular Star)",
+              "Associated with target organ damage (Heart/Kidney)"
+            ],
+            [
+              "Grade IV",
+              "Grade III findings PLUS Optic Disc Edema (Papilledema)",
+              "Hypertensive Crisis/Malignant HTN; Medical Emergency"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mitchell-Wong Classification",
+        "icon": "category",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Classification",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Mild",
+              "Generalized/focal narrowing, AV nicking, wall opacity"
+            ],
+            [
+              "Moderate",
+              "Hemorrhages (blot/flame), Microaneurysms, CWS"
+            ],
+            [
+              "Malignant",
+              "Moderate signs + Optic disc swelling"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "AV Crossing Abnormalities",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "AV Nicking Signs",
+          "branches": [
+            "Gunn Sign: Compression of vein at crossing",
+            "Salus Sign: Deflection of vein (90 degrees)",
+            "Bonnet Sign: Distal banking of the vein",
+            "Copper/Silver Wiring: Reflex change"
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "ophthalmology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Arteriolar Narrowing: Ratio of arteriole to vein (A/V ratio) reduced from normal 2:3 to 1:2 or less.",
+          "Flame Hemorrhages: Located in the Nerve Fiber Layer (NFL).",
+          "Cotton Wool Spots (CWS): Focal retinal ischemia in the NFL.",
+          "Hard Exudates: Lipid deposits in Henle's layer (Macular Star pattern).",
+          "Elschnig Spots: Small black spots surrounded by yellow halos (Choroidal infarcts).",
+          "Siegrist Streaks: Linear hyperpigmented streaks along choroidal vessels."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "rule",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Diabetic Retinopathy",
+              "More Microaneurysms; deep blot hemorrhages"
+            ],
+            [
+              "CRVO",
+              "Unilateral; 'Blood and Thunder' fundus; dilated veins"
+            ],
+            [
+              "Ocular Ischemic Syndrome",
+              "Low IOP; mid-peripheral hemorrhages; pain"
+            ],
+            [
+              "Radiation Retinopathy",
+              "History of radiotherapy; very slow progression"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "EMERGENCY: Grade IV Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Bilateral Optic Disc Edema (Malignant Hypertension)",
+          "Severe Headache and Confusion (Encephalopathy)",
+          "Systolic BP >180 mmHg or Diastolic BP >120 mmHg",
+          "Chest pain or Shortness of breath (Cardiac Involvement)",
+          "Decreased Urine Output (Renal Failure)"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Comprehensive BP Profile: Multiple readings/24hr monitoring.",
+          "2. Dilated Fundus Exam: Gold standard for grading.",
+          "3. OCT Macula/RNFL: To quantify edema or subretinal fluid.",
+          "4. Systemic Labs: Serum Creatinine, eGFR, Urinalysis (Proteinuria).",
+          "5. EKG/Echocardiogram: Assess for LVH or ischemia."
+        ]
+      },
+      {
+        "title": "Management & Treatment",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Chronic HTN: Gradual BP reduction via ACE inhibitors, ARBs, or Calcium Channel Blockers.",
+          "Hypertensive Crisis: Immediate hospitalization; reduce MAP by max 25% in first hour to prevent ischemic stroke.",
+          "Ocular Complications: Intravitreal Anti-VEGF or Steroids for secondary macular edema.",
+          "Laser Photocoagulation: For macroaneurysms if leaking/threatening fovea."
+        ]
+      },
+      {
+        "title": "Mnemonic: Signs of HR",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "V-E-S-S-E-L",
+          "explanation": "V: Vasoconstriction, E: Exudates (Hard), S: Silver wiring, S: Star (Macular), E: Edema (Disc), L: Light reflex changes."
+        }
+      },
+      {
+        "title": "Ocular Complications",
+        "icon": "emergency",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "HTN Sequelae",
+          "branches": [
+            "Retinal Vein Occlusion (BRVO/CRVO)",
+            "Retinal Artery Occlusion (BRAO/CRAO)",
+            "Retinal Artery Macroaneurysm (RAM)",
+            "Ischemic Optic Neuropathy (NAION)",
+            "Epiretinal Membrane (ERM)"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls & Exam Tips",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Hypertensive Choroidopathy (Elschnig spots/Siegrist streaks) is usually seen in acute, severe HTN episodes (e.g., Preeclampsia).",
+          "If HR is UNILATERAL, suspect Carotid Artery Stenosis on the side with 'spared' retina (the stenosis protects the eye from high pressure).",
+          "Cotton wool spots (CWS) are NOT specific to HTN; they occur in DM, HIV, Anemia, and SLE.",
+          "The 'Silver Wire' appearance occurs when the vessel wall becomes so thick and opaque that the blood column is no longer visible."
+        ]
+      },
+      {
+        "title": "Landmark Studies",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Beaver Dam Eye Study: Showed prevalence of HR is approx 10% in the general population.",
+          "Blue Mountains Eye Study: Linked mild HR signs to increased risk of long-term stroke mortality.",
+          "ARIC Study: Demonstrated that retinal vascular caliber changes can predict the development of clinical hypertension."
+        ]
+      }
+    ],
+    "generationPrompt": "Hypertensive retinopathy",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina"
+}

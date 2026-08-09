@@ -1,0 +1,243 @@
+{
+  "id": 1775044682676,
+  "seqId": 362,
+  "title": "Comprehensive Ocular Manifestations of CMV and HIV",
+  "summary": "An exhaustive clinical guide to the ophthalmic complications of Cytomegalovirus and HIV, covering anterior and posterior segment diseases, diagnostic markers like CD4+ counts, and evolving treatment paradigms in the era of Antiretroviral Therapy (ART).",
+  "date": "2026-04-01T11:58:02.676Z",
+  "data": {
+    "title": "Comprehensive Ocular Manifestations of CMV and HIV",
+    "summary": "An exhaustive clinical guide to the ophthalmic complications of Cytomegalovirus and HIV, covering anterior and posterior segment diseases, diagnostic markers like CD4+ counts, and evolving treatment paradigms in the era of Antiretroviral Therapy (ART).",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M20,50 Q50,10 80,50 Q50,90 20,50' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><path d='M40,40 L45,45 M55,40 L50,45 M40,60 L45,55 M55,60 L50,55' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><circle cx='75' cy='25' r='5' fill='hsl(0, 80%, 50%)'/><circle cx='85' cy='35' r='3' fill='hsl(0, 80%, 50%)'/></svg>",
+    "sections": [
+      {
+        "title": "CMV: Anterior Uveitis & Endotheliitis",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Anterior Uveitis (Immunocompetent): Occurs in healthy individuals; increasingly recognized as a cause of unilateral, hypertensive uveitis.",
+          "Clinical Features: Unilateral, usually with increased Intraocular Pressure (iIOP). Note: There may be no obvious iris atrophy, distinguishing it from HSV or VZV.",
+          "Corneal Endotheliitis (Commoner in Far East): Focal (coin-shaped) to diffuse bullous keratopathy.",
+          "Endotheliitis Signs: Stromal corneal oedema, Keratic Precipitates (KPs) of variable appearance.",
+          "Anterior Chamber (AC) Inflammation: Usually mild with no Posterior Synechiae (PS); ± diffuse iris atrophy and iIOP.",
+          "Treatment: Often challenging; may respond to oral valganciclovir. IOP control can be difficult."
+        ]
+      },
+      {
+        "title": "CMV Retinitis: The Global Impact",
+        "icon": "biotech",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Incidence in AIDS (Pre-ART)",
+              "value": 40
+            },
+            {
+              "label": "RD Complication Rate",
+              "value": 30
+            },
+            {
+              "label": "Optic Nerve Disease",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "HIV: Global Epidemiology & Stats (2015-2016)",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "HIV (HIV-1 and 2) is an RNA retrovirus infecting CD4+ T-cells. Statistics: 736.7 million people living with HIV end of 2015. ART expansion reduced deaths to 1.1 million in 2015 (45% fewer than 2005). Over 18 million were on ART by mid-2016. Most cases are in developing countries (sub-Saharan Africa) linked to socio-economic deprivation. Transmission: blood, bodily fluids, unprotected sex, IV drug abuse, transfusions, and vertical transmission."
+      },
+      {
+        "title": "Table 11.17: Ophthalmic Complications of HIV",
+        "icon": "table",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Region",
+            "Infective",
+            "Tumour",
+            "Other"
+          ],
+          "rows": [
+            [
+              "Adnexae",
+              "HZO, Molluscum contagiosum, Preseptal cellulitis",
+              "Kaposi’s sarcoma, SCC",
+              "Conjunctival microvasculopathy"
+            ],
+            [
+              "Orbit",
+              "Orbital cellulitis",
+              "Non-Hodgkin’s lymphoma",
+              "-"
+            ],
+            [
+              "Anterior Segment",
+              "Viral (VZV, HSV), Bacterial (S. aureus, S. epidermidis, P. aeruginosa), Protozoan (microsporidia) keratitis",
+              "-",
+              "Conjunctival microvasculopathy, Vortex keratopathy (antivirals, atovaquone), dry eye, Anterior uveitis"
+            ],
+            [
+              "Posterior Segment",
+              "CMV, VZV (PORN, ARN), HSV (ARN), Toxoplasma, Syphilis, Pneumocystis, Cryptococcus, TB",
+              "Ocular-CNS non-Hodgkin’s lymphoma",
+              "Retinal microvasculopathy, Ischaemic maculopathy, Immune recovery uveitis"
+            ],
+            [
+              "Neuro-ophthalmic",
+              "Cerebral toxoplasmosis, Cryptococcal meningitis, Neurosyphilis, PML",
+              "Ocular-CNS non-Hodgkin’s lymphoma",
+              "Optic neuritis, Optic atrophy, Ocular motility disorders"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CD4 Levels and Typical Ocular Disease",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "CD4 count (cells/mm3)",
+            "Ocular disease"
+          ],
+          "rows": [
+            [
+              "250–500",
+              "HZO, TB"
+            ],
+            [
+              "150–250",
+              "Lymphoma, Kaposi’s sarcoma"
+            ],
+            [
+              "50–150",
+              "Pneumocystosis, Toxoplasmosis, Microsporidiosis, VZV retinitis"
+            ],
+            [
+              "<50",
+              "CMV retinitis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Disease Markers & Management",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Markers: CD4 level (immunocompromise/susceptibility indicator) and Viral Load (RNA copies/mL, risk of progression).",
+          "ART Regimen: At least 3 drugs—usually 2 nucleoside reverse transcriptase inhibitors + 1 protease inhibitor or non-nucleoside reverse transcriptase inhibitor.",
+          "Coordination: Care must be shared between an experienced HIV ophthalmologist and an HIV physician."
+        ]
+      },
+      {
+        "title": "HIV Anterior Segment Conditions",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Conjunctival Microvasculopathy: Common; irregular-calibre vessels, often in a corkscrew pattern; may associate with retinal microvasculopathy.",
+          "VZV Keratouveitis: Common; may lack HZO rash. Features: moderate anterior uveitis, iIOP, iris atrophy. Rx: Systemic aciclovir/famciclovir.",
+          "HSV Keratouveitis: Equal prevalence to general population but more severe in HIV; limbal, more recurrences, larger/less defined dendrites. Rx: Topical ± systemic antiviral.",
+          "Microsporidial Keratouveitis: Bilateral irritation, photophobia, punctate keratopathy, follicular conjunctivitis, and/or anterior uveitis.",
+          "Anterior Uveitis: Seen in >50% of HIV patients. VZV/HSV cause mild inflammation with iIOP. Posterior uveitis (Toxo/Syphilis) also causes AC inflammation.",
+          "Drug-Induced Uveitis: Caused by Rifabutin (anti-atypical mycobacteria) and Cidofovir (anti-CMV)."
+        ]
+      },
+      {
+        "title": "CMV Retinitis: Clinical Presentations",
+        "icon": "monitoring",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "CMV Retinitis",
+          "branches": [
+            "Symptoms: Floaters, dVA, field loss",
+            "Anterior: AC inflammation/stellate KPs (usually mild/absent)",
+            "Vitritis: Usually mild or absent",
+            "Haemorrhagic Retinitis: 'Pizza pie' appearance (necrosis + haemorrhage)",
+            "Granular Retinitis: Indolent, minimal haemorrhage, no vascular sheathing",
+            "Perivascular Retinitis: 'Frosted branch angiitis' following retinal vessels"
+          ]
+        }
+      },
+      {
+        "title": "Specific Anti-CMV Treatment Protocols",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Prophylaxis: Sustain CD4 count >50/mm3 via ART.",
+          "Induction Therapy: Initial high-dose treatment to control active infection.",
+          "Maintenance Therapy: Lifelong treatment if immune recovery does not occur.",
+          "Drug Options: PO Valganciclovir; IV Ganciclovir (Neutropenia risk); IV Foscarnet (Renal toxicity risk); IV Cidofovir (Renal toxicity, uveitis risk).",
+          "Local Therapy: Intravitreal injections of ganciclovir and/or foscarnet."
+        ]
+      },
+      {
+        "title": "Posterior Segment: Toxoplasma & Fungal Infections",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Toxoplasma Retinochoroiditis: More severe in HIV; often multifocal/bilateral. Moderate/severe vitritis/uveitis. Common neuro-toxo association. Always requires treatment; corticosteroids usually avoided.",
+          "Pneumocystis carinii Choroiditis: Bilateral yellow patches (1/4 to 2DD) around posterior pole. Minimal vitritis. Rx: systemic co-trimoxazole or pentamidine.",
+          "Cryptococcus Choroiditis: Associated with meningitis. Multifocal off-white lesions ± retinitis/endophthalmitis. Rx: Systemic amphotericin or fluconazole."
+        ]
+      },
+      {
+        "title": "Immune Recovery & Microvasculopathy",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Immune Recovery Uveitis (IRU): Paradoxical worsening of inflammation in inactive CMV retinitis as T-cells recover. Features: severe vitritis, TRD, CMO, neovascularization.",
+          "Syphilis Choroiditis: Co-infection due to sexual transmission; protean manifestations.",
+          "HIV Microvasculopathy: Affects 75%; mechanism unclear (thrombotic vs immune vs direct infection).",
+          "Retinal Microvasculopathy signs: Vessel tortuosity, Cotton Wool Spots (CWS), telangiectasia, intraretinal haemorrhages, venous/arterial occlusions."
+        ]
+      },
+      {
+        "title": "Treatment Safety Warning",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Neutropenia Risk: Associated with Valganciclovir and IV Ganciclovir.",
+          "Renal Toxicity: Major side effect of IV Foscarnet and IV Cidofovir.",
+          "Drug-Induced Uveitis: Specifically linked to Cidofovir and Rifabutin therapy.",
+          "Steroid Contraindication: Ocular toxoplasmosis in HIV is not normally given with corticosteroids."
+        ]
+      }
+    ],
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "_newlyImported": 1775044682676,
+  "communityId": "sub_1773775007770_ffuzkzrm6s8ns6",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true
+}

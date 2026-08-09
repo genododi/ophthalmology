@@ -1,0 +1,271 @@
+{
+  "id": 1775044694977,
+  "seqId": 454,
+  "title": "GLAUCOMA CLINICAL MASTERY: FROM PATHOLOGY TO PERIOPERATIVE SURGERY",
+  "summary": "An exhaustive clinical reference covering optic nerve anatomy, visual field analysis, medical therapeutics, and the management of high-stakes surgical complications. Designed for residents and fellows to master primary, secondary, and congenital glaucoma subtypes.",
+  "date": "2026-04-01T11:58:14.977Z",
+  "data": {
+    "title": "GLAUCOMA CLINICAL MASTERY: FROM PATHOLOGY TO PERIOPERATIVE SURGERY",
+    "summary": "An exhaustive clinical reference covering optic nerve anatomy, visual field analysis, medical therapeutics, and the management of high-stakes surgical complications. Designed for residents and fellows to master primary, secondary, and congenital glaucoma subtypes.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M50 35 L50 65 M35 50 L65 50' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><path d='M50 50 L80 20 M80 20 L70 20 M80 20 L80 30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><text x='50' y='85' text-anchor='middle' font-size='6' font-family='sans-serif' fill='hsl(215, 90%, 45%)'>IOP & OPTIC NERVE</text></svg>",
+    "sections": [
+      {
+        "title": "Peripapillary Atrophy: Alpha vs. Beta Zones",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Optic Disc Atrophy",
+          "branches": [
+            "Alpha Zone (Outer): Irregular pigmentation and thinning of the Retinal Pigment Epithelium (RPE). Common and may be seen in normal eyes.",
+            "Beta Zone (Inner): Total atrophy of RPE and choriocapillaris. Visualization of large choroidal vessels and sclera. Highly associated with glaucomatous damage.",
+            "Clinical Significance: Beta zone presence and enlargement are strong predictors of glaucomatous progression and visual field loss.",
+            "Management: Monitor with objective longitudinal imaging (Stereoscopic photos or OCT) to detect RNFL changes and zone progression.",
+            "Differential Diagnosis: Myopic crescent (tilted disc) and historical chorioretinitis scars."
+          ]
+        }
+      },
+      {
+        "title": "Humphrey Visual Field (HVF) 24-2 & SITA FAST",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Paracentral Scotomas: Localized field defects near fixation; typical signs of early glaucomatous optic neuropathy.",
+          "SITA FAST Algorithm: Swedish Interactive Threshold Algorithm designed for time-saving.",
+          "Rationale for SITA FAST: Reduces test time significantly by relying on probability estimation. Stops when sufficient data points are acquired.",
+          "Clinical Benefit: Mitigates patient fatigue and improves reliability for detecting subtle defects compared to older full-threshold techniques.",
+          "Functional-Structural Correlation: VF defects (function) must correlate with optic nerve changes (structure, e.g., OCT thinning)."
+        ]
+      },
+      {
+        "title": "Primary Open Angle Glaucoma (POAG) Essentials",
+        "icon": "visibility",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "POAG with IOP < 22 mm Hg",
+              "value": 40
+            },
+            {
+              "label": "Glaucomatous damage on initial exam",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "POAG Diagnostic Pearls",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Between 30% and 50% of individuals with glaucomatous optic neuropathy and/or visual field loss present with an initial IOP measurement below 22 mm Hg. This reflects that IOP can vary significantly over a 24-hour period. Differentiating Glaucoma from other neuropathies on MRI: Post-contrast enhancement of the optic nerve is NOT consistent with glaucoma and suggests inflammatory, infectious, or compressive etiologies."
+      },
+      {
+        "title": "Medical Management: Prostaglandin Analogues (PGAs)",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Primary Pathway - PGAs lower IOP primarily by increasing uveoscleral outflow (pressure-insensitive).",
+          "Step 2: Mechanism - Binding to receptors triggers a cascade leading to remodeling of the ciliary body and uveoscleral tissues.",
+          "Step 3: Drug Selection - First-line therapy due to high efficacy and once-daily dosing.",
+          "Step 4: Intolerance Management - Switch to preservative-free agents or change drug classes (e.g., fixed combination Beta-blocker/CAI).",
+          "Step 5: Alternative - Offer Selective Laser Trabeculoplasty (SLT) as non-invasive control."
+        ]
+      },
+      {
+        "title": "RED FLAG: PGA Side Effects",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Conjunctival Hyperemia (Redness)",
+          "Trichomegaly (Eyelash growth)",
+          "Iris Hyperpigmentation",
+          "Deepening of the upper eyelid sulcus",
+          "Risk of Reactivation: Use with caution in history of herpetic keratitis or uveitis."
+        ]
+      },
+      {
+        "title": "Post-Trabeculectomy Day 1: The 'Shallow AC' Matrix",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "IOP Level",
+            "Clinical Mechanism",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Overfiltration",
+              "Low (e.g. 3 mmHg)",
+              "Excess drainage through sclerostomy/flap (Seidel -)",
+              "Atropine 1%, stop suppressants, check B-scan for CD."
+            ],
+            [
+              "Bleb Leak",
+              "Low (e.g. 3 mmHg)",
+              "Aqueous leaking from conjunctiva (Seidel +)",
+              "Bandage Contact Lens (BCL), tight patch, or suturing."
+            ],
+            [
+              "Ciliary Shutdown",
+              "Low",
+              "Severe inflammation or Choroidal Detachment (CD)",
+              "Topical cycloplegics, intensive steroids."
+            ],
+            [
+              "Pupillary Block",
+              "High",
+              "Obstructed/non-patent Peripheral Iridectomy (PI)",
+              "Mydriatics, Nd:YAG Laser PI once cornea clear."
+            ],
+            [
+              "Malignant Glaucoma",
+              "Very High (e.g. 70 mmHg)",
+              "Aqueous misdirection; ciliolenticular block",
+              "IV Mannitol, Acetazolamide, Atropine 1%, YAG Hyaloidotomy, PPV."
+            ],
+            [
+              "Suprachoroidal Hge",
+              "High",
+              "Acute hemorrhagic event in suprachoroidal space",
+              "Immediate wound closure, IV Mannitol, posterior sclerotomy."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Neovascular Glaucoma (NVG) Management",
+        "icon": "cardiology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "RUBEOTIC",
+          "explanation": "R: Retinal vein occlusion (CRVO), U: Uveitis, B: BRVO, E: Eales disease, O: Ocular Ischemic Syndrome, T: Trauma/Tumor, I: Intraocular surgery/Inflammation, C: Central retinal artery occlusion (CRAO)."
+        }
+      },
+      {
+        "title": "NVG Clinical Protocol",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Presentation: Rubeosis Iridis (NVI) and secondary angle closure.",
+          "Underlying Cause: Retinal ischemia triggers VEGF release.",
+          "Treatment (Disease): Panretinal Photocoagulation (PRP) and Intravitreal Anti-VEGF.",
+          "Treatment (IOP): Aqueous suppressants (Acetazolamide, Alpha agonists).",
+          "Surgery: Glaucoma Drainage Devices (GDD/Valves) if visual potential exists.",
+          "Blind Painful Eye: Cyclodestructive procedures (CPC/Cryo)."
+        ]
+      },
+      {
+        "title": "Secondary Glaucoma & Complex Scenarios",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Secondary Glaucomas",
+          "branches": [
+            "Pseudoexfoliation (PXF): Deposition of dandruff-like material; most common cause of secondary OAG. Risk of zonular weakness and poor dilation in surgery.",
+            "Uveitis-Glaucoma-Hyphema (UGH) Syndrome: Caused by IOL dislocation or iris chafe. Manage with IOL repositioning or exchange.",
+            "Posner-Schlossman (Glaucomatocyclitic Crisis): Young male, pain, IOP 40s, mild uveitis, open angle. Associated with CMV/HSV. Treat with steroids + suppressants.",
+            "Silicone Oil Glaucoma: Migration of emulsified oil into AC or blocking meshwork. Requires oil removal or aqueous suppressants.",
+            "Steroid-Induced: Due to glycosaminoglycan deposition in trabecular meshwork; common in RA patients on long-term treatment."
+          ]
+        }
+      },
+      {
+        "title": "Primary Congenital Glaucoma (PCG)",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Inheritance: Autosomal recessive in ~90% of cases.",
+          "Recurrence Risk: 1%–5% for siblings of affected child (or 0%–25% in clinical scenarios).",
+          "Triad: Epiphora, Photophobia, Blepharospasm.",
+          "Signs: Buphthalmos (enlarged globe), Corneal edema, Haab's striae (Descemet's breaks).",
+          "Examination: EUA (Exam Under Anesthesia) for IOP, corneal diameter, and pachymetry.",
+          "Surgery: Goniotomy or Trabeculotomy are preferred initial angle surgeries."
+        ]
+      },
+      {
+        "title": "Surgical Innovations: MIGS & NPGS",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Surgery Type",
+            "Indications",
+            "Clinical Rationale"
+          ],
+          "rows": [
+            [
+              "MIGS",
+              "Elderly with comorbidities (COPD, Parkinson's)",
+              "Better safety profile; easier maintenance than trabeculectomy."
+            ],
+            [
+              "NPGS",
+              "POAG, Pigmentary, PXF, High Myopia, Sturge-Weber",
+              "Reduces IOP with less tissue dissection."
+            ],
+            [
+              "GDD (Tube)",
+              "High target reduction; refractory cases",
+              "Used when filtration surgery is likely to fail (e.g. NVG)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Glaucoma Emergencies Checklist",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Acute Secondary Glaucoma (IOP 40+) in soccer players (Traumatic Hyphema/Angle Recession).",
+          "Gas-induced Pupillary Block after Full-Thickness Macular Hole surgery.",
+          "Expulsive Choroidal Hemorrhage during cataract surgery (Acute shallow AC, high IOP).",
+          "Iris Bombe & Seclusio Pupillae in JRA Uveitis - requires urgent Peripheral Iridotomy (PI).",
+          "NPGS Contraindications: Neovascular, narrow angle, and congenital glaucoma."
+        ]
+      },
+      {
+        "title": "Advanced Glaucoma Presentation",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "End-stage glaucoma is characterized by extensive peripheral vision loss, resulting in only a small central and temporal island remaining (Tunnel Vision). Examination often reveals a RAPD (Grade 1), signifying severe unilateral optic nerve damage. Optic atrophy types: Primary (follows retrobulbar lesion), Secondary (follows disc edema), Consecutive (follows chronic retinal disease), and Glaucomatous (rim loss and deep cupping)."
+      }
+    ],
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "_newlyImported": 1775044694977,
+  "communityId": "sub_1773975660957_bgmlh23yu",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-20T03:01:00.957Z"
+}

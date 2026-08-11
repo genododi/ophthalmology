@@ -1,0 +1,599 @@
+{
+  "id": 1776511149688,
+  "seqId": 795,
+  "title": "Merged: Cataract Surgery Complications: A Comprehensive Clinical Atlas",
+  "summary": "A deep-dive into the intraoperative and postoperative challenges of cataract surgery, ranging from posterior capsule rupture to endophthalmitis. This guide provides evidence-based management protocols and high-yield clinical pearls for the ophthalmic surgeon.",
+  "date": "2026-04-18T11:19:08.959Z",
+  "data": {
+    "title": "Cataract Surgery Complications: A Comprehensive Clinical Atlas",
+    "summary": "A deep-dive into the intraoperative and postoperative challenges of cataract surgery, ranging from posterior capsule rupture to endophthalmitis. This guide provides evidence-based management protocols and high-yield clinical pearls for the ophthalmic surgeon.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M60 100 Q100 60 140 100 Q100 140 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M80 100 L120 100 M100 80 L100 120' stroke='red' stroke-width='4' stroke-linecap='round'/><path d='M40 40 L160 160' stroke='rgba(255,0,0,0.3)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Temporal Classification of Complications",
+        "icon": "schedule",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Cataract Complications",
+          "branches": [
+            "Intraoperative (PCR, Hemorrhage, Iris Prolapse)",
+            "Early Postoperative (<1 week: TASS, Endophthalmitis, High IOP)",
+            "Late Postoperative (>1 month: PCO, CME, IOL Malposition, RD)",
+            "Wound-related (Leaks, Induced Astigmatism)"
+          ]
+        }
+      },
+      {
+        "title": "Incidence & Epidemiology",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "PCO (at 5 yrs)",
+              "value": 30
+            },
+            {
+              "label": "PCR (Residents)",
+              "value": 4
+            },
+            {
+              "label": "CME (Clinical)",
+              "value": 2
+            },
+            {
+              "label": "Endophthalmitis",
+              "value": 0.1
+            },
+            {
+              "label": "Supra. Hemorrhage",
+              "value": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "title": "Intraoperative Red Flags: The 'Big Three'",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden deepening of the AC (Posterior Capsule Rupture)",
+          "Hard eye + Loss of red reflex (Expulsive Suprachoroidal Hemorrhage)",
+          "Asymmetric 'Argentinian Flag' sign (Intumescent tear risk)",
+          "Loss of followability or vitreous in the port"
+        ]
+      },
+      {
+        "title": "Posterior Capsule Rupture (PCR) Management",
+        "icon": "handyman",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Freeze! Do not pull the phaco tip out; maintain AC stability with OVD through the sideport.",
+          "Step 2: Inject dispersive OVD beneath the nuclear fragments to prevent posterior migration.",
+          "Step 3: Lower bottle height/aspiration settings and remove phaco tip carefully.",
+          "Step 4: Perform Bimanual Anterior Vitrectomy (cut/suck mode) using high cut rate (2500+ CPM).",
+          "Step 5: Assess residual capsular support; implant IOL in sulcus with optic capture or ACIOL if needed."
+        ]
+      },
+      {
+        "title": "TASS vs. Infectious Endophthalmitis",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "TASS (Toxic Anterior Segment)",
+            "Acute Endophthalmitis"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Early (12–24 hours)",
+              "Delayed (3–7 days)"
+            ],
+            [
+              "Pain",
+              "Usually absent or mild",
+              "Severe, throbbing"
+            ],
+            [
+              "Eyelid Edema",
+              "Minimal",
+              "Significant/Chemosis"
+            ],
+            [
+              "Limbus-to-Limbus Edema",
+              "Common (Diffuse)",
+              "Rare (Local or absent)"
+            ],
+            [
+              "Vitreous Involvement",
+              "Absent",
+              "Significant Vitritis (B-scan +)"
+            ],
+            [
+              "Treatment",
+              "Intensive Topical Steroids",
+              "Intravitreal Antibiotics + Vitrectomy"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Endophthalmitis Vitrectomy Study (EVS) Protocol",
+        "icon": "history_edu",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Visual Acuity 'Light Perception' (LP) only: Immediate PPV is indicated.",
+          "Visual Acuity 'Hand Motion' (HM) or better: Tap & Inject is sufficient.",
+          "Antibiotics: Vancomycin (1mg/0.1ml) + Ceftazidime (2.25mg/0.1ml).",
+          "Amikacin is an alternative for Ceftazidime but carries risk of macular toxicity."
+        ]
+      },
+      {
+        "title": "Mnemonic: 'RAPID' for Post-op Pain",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "RAPID",
+          "explanation": "R: Retained fragment; A: Acute Endophthalmitis; P: Pressure (IOP) spike; I: Iritis/TASS; D: Detachment of Retina."
+        }
+      },
+      {
+        "title": "Cystoid Macular Edema (Irvine-Gass Syndrome)",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "CME Management",
+          "branches": [
+            "Diagnosis: OCT (intraretinal cysts) & FFA (Flower-petal leak)",
+            "First-line: Topical NSAIDs (Nepafenac 0.3% or Bromfenac) + Steroids",
+            "Second-line: Sub-tenon Triamcinolone or Intravitreal Anti-VEGF",
+            "Risk Factors: Diabetes, ERM, Vein Occlusions, Prostaglandin use"
+          ]
+        }
+      },
+      {
+        "title": "UGH Syndrome (Uveitis-Glaucoma-Hyphema)",
+        "icon": "error",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Etiology: Mechanical chafing of the iris/ciliary body by IOL (often ACIOL or sulcus IOL).",
+          "Signs: Micro-hyphema, pigment dispersion, elevated IOP, chronic low-grade inflammation.",
+          "Management: Topical IOP lowering and steroids; often requires IOL exchange or repositioning.",
+          "High-yield: Use Ultrasound Biomicroscopy (UBM) to visualize IOL-haptic-iris contact."
+        ]
+      },
+      {
+        "title": "Late Complication: PCO",
+        "icon": "layers",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Posterior Capsule Opacification (PCO) is the most common late complication. It results from the migration and proliferation of residual lens epithelial cells (LECs). Types include Fibrotic (metaplastic LECs) and Elschnig Pearls (swollen LECs). Management is YAG Laser Capsulotomy. Note: Perform only after 3 months post-op to allow IOL stability and prevent CME risk."
+      },
+      {
+        "title": "Landmark Studies: ESCRS Antibiotic Prophylaxis",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Study showed a 5-fold decrease in endophthalmitis with intracameral Cefuroxime (1mg in 0.1ml).",
+          "Current Trends: Use of intracameral Moxifloxacin (Vigamox off-label) is increasing in the US.",
+          "Povidone-iodine (5%) in the conjunctival sac for 3 minutes is the single most important aseptic step."
+        ]
+      },
+      {
+        "title": "Suprachoroidal Hemorrhage Management",
+        "icon": "emergency",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1. Immediate recognition: AC shallows, IOP rises, loss of red reflex.",
+          "2. Rapid wound closure: Use 10-0 Nylon immediately to secure the eye.",
+          "3. Stop the surgery: Do not attempt to drain blood in the primary setting.",
+          "4. Post-op: Systemic steroids and IOP control. Delayed drainage (7-14 days) if choroidals are kissing."
+        ]
+      },
+      {
+        "title": "Pediatric Considerations",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Nearly 100% PCO rate: Primary Posterior Capsulotomy + Anterior Vitrectomy (PPC+AV) is mandatory.",
+          "Higher inflammatory response: Require aggressive topical/systemic steroids.",
+          "Risk of Glaucoma: Lifetime risk of 'Aphakic Glaucoma' even after successful IOL placement."
+        ]
+      },
+      {
+        "title": "Special Case: Pseudoexfoliation (PXF)",
+        "icon": "flare",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Risk Phase",
+            "Complication & Strategy"
+          ],
+          "rows": [
+            [
+              "Pre-operative",
+              "Poor dilation (use Malyugin rings), phacodonesis assessment."
+            ],
+            [
+              "Intra-operative",
+              "Zonular dialysis; use Capsular Tension Ring (CTR) or CTS."
+            ],
+            [
+              "Post-operative",
+              "Late IOL-Capsular bag complex dislocation (Sunset Syndrome)."
+            ],
+            [
+              "Long-term",
+              "High risk of post-op IOP spikes and corneal decompensation."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "The 'Seidel Test' should be performed on every clear corneal wound if a leak is suspected.",
+          "Don't chase a dropped nucleus: If a large fragment goes south, perform vitrectomy and refer to a vitreoretinal surgeon.",
+          "Descemet's Detachment: Usually occurs at the incision; inject air or 20% SF6 to 're-bubble' the membrane.",
+          "IOL Power Error: Rule out wrong biometry or transcription error before considering IOL exchange or piggyback IOL."
+        ]
+      },
+      {
+        "title": "--- Sub-topics from: Post-Cataract Surgery Complications: The Master Clinical Roadmap ---",
+        "icon": "merge",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "An exhaustive guide to identifying and managing post-cataract surgical complications, ranging from posterior capsule rupture to endophthalmitis. This poster integrates incidence statistics, intraoperative management protocols, and clinical pearls for the anterior segment surgeon."
+      },
+      {
+        "title": "Incidence of Post-Cataract Complications",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Corneal Oedema",
+              "value": 10
+            },
+            {
+              "label": "PCO (by 2 years)",
+              "value": 10
+            },
+            {
+              "label": "Cystoid Macular Oedema (Max)",
+              "value": 12
+            },
+            {
+              "label": "Increased Anterior Inflammation",
+              "value": 6
+            },
+            {
+              "label": "PCR without Vitreous Loss",
+              "value": 2
+            },
+            {
+              "label": "PCR with Vitreous Loss",
+              "value": 1
+            },
+            {
+              "label": "Wound Leak",
+              "value": 1
+            },
+            {
+              "label": "Retinal Detachment",
+              "value": 0.7
+            },
+            {
+              "label": "Iris Prolapse",
+              "value": 0.7
+            },
+            {
+              "label": "Loss of Nuclear Fragment",
+              "value": 0.3
+            },
+            {
+              "label": "Choroidal Haemorrhage",
+              "value": 0.1
+            },
+            {
+              "label": "Endophthalmitis",
+              "value": 0.1
+            }
+          ]
+        }
+      },
+      {
+        "title": "Signs of Posterior Capsule Rupture (PCR)",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Sudden deepening or shallowing of the Anterior Chamber (AC)",
+          "Momentary pupillary dilation",
+          "Nucleus falls away and cannot be approached by phaco tip",
+          "Marked slowing of aspiration due to clogged vitreous in phaco tip",
+          "Torn capsule may be directly visible",
+          "Vitreous gel may be directly visible"
+        ]
+      },
+      {
+        "title": "Sequelae of Vitreous Loss after PCR",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Vitreous Loss Sequel",
+          "branches": [
+            "CMO (Cystoid Macular Oedema)",
+            "Retinal Detachment",
+            "Endophthalmitis",
+            "Updrawn Pupil",
+            "Uveitis",
+            "Vitreous Touch",
+            "Vitreous Wick Syndrome",
+            "Glaucoma",
+            "Dislocation of IOL"
+          ]
+        }
+      },
+      {
+        "title": "PCR Management: Core Principles",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Management depends on the magnitude of the tear",
+          "Depends on the size and type of any residual lens material",
+          "Depends on the presence or absence of vitreous prolapse",
+          "CRITICAL: Do NOT pull out the phaco probe immediately (maintains AC pressure)"
+        ]
+      },
+      {
+        "title": "PCR Surgical Protocol",
+        "icon": "precision_manufacturing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Inject dispersive viscoelastic before removing phaco probe",
+          "Step 2: If a complete or nearly complete nucleus remains, convert to ECCE",
+          "Step 3: If residual nuclear fragments, remove by phaco using low bottle height and low aspiration flow rate",
+          "Step 4: If large fragments, use visco-expression after extending the main wound",
+          "Step 5: Once remnants are removed, replug the tear with dispersive OVD",
+          "Step 6: Gently fill the AC with cohesive viscoelastic",
+          "Step 7: Use manual aspiration cannula with irrigation OFF to aspirate residual cortex",
+          "Step 8: Remove all vitreous from AC, wound, and capsular tear with a vitrector",
+          "Step 9: Infusion cannula of vitrector remains HIGH; Cutter remains LOW",
+          "Step 10: Visualize vitreous using 0.1 ml of 40mg/ml Triamcinolone"
+        ]
+      },
+      {
+        "title": "IOL Selection & Implantation Strategy",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Scenario",
+            "Lens Type/Action",
+            "Power Adjustment / Notes"
+          ],
+          "rows": [
+            [
+              "Small PC Tear",
+              "PC IOL",
+              "Standard placement"
+            ],
+            [
+              "Large Tear (Optic Capture)",
+              "3-Piece Sulcus IOL",
+              "0.5 D less in power"
+            ],
+            [
+              "Large Tear (No Optic Capture)",
+              "3-Piece Sulcus IOL",
+              "0.5 - 1.0 D less in power"
+            ],
+            [
+              "Insufficient Capsular Support",
+              "AC IOL with Iridectomy",
+              "Standard AC IOL protocol"
+            ],
+            [
+              "Post-Implantation (PC/AC)",
+              "Pilocarpine",
+              "Constrict pupil following PC IOL or prior to AC IOL"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Complications: Continuous List",
+        "icon": "list_alt",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "Additional complications noted include: Corneal decompensation, chronic endophthalmitis, and specific post-operative inflammation rates ranging from 2% to 6%. PCO remains a primary late complication at 10% within 2 years."
+      },
+      {
+        "title": "Differential Diagnosis: Acute Post-Op Vision Loss",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Key Features"
+          ],
+          "rows": [
+            [
+              "Acute Endophthalmitis",
+              "Severe pain, hypopyon, fibrin, chemosis"
+            ],
+            [
+              "TASS",
+              "Immediate onset (12-24h), no pain, limbus-to-limbus edema"
+            ],
+            [
+              "Acute Glaucoma",
+              "Elevated IOP, corneal edema, mid-dilated pupil"
+            ],
+            [
+              "Suprachoroidal Hemorrhage",
+              "Loss of red reflex, sudden pain, AC shallowing"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CRITICAL RED FLAGS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Endophthalmitis (0.1%): Immediate referral if pain/hypopyon present",
+          "Choroidal Haemorrhage (0.1%): Intraoperative disaster requiring immediate wound closure",
+          "Loss of nuclear fragment posteriorly (0.3%): Requires vitreoretinal consultation",
+          "Wound leak (1%): Risk for hypotony and endophthalmitis",
+          "Iris Prolapse (0.7%): Requires surgical repair to prevent infection"
+        ]
+      },
+      {
+        "title": "Mnemonic for PCR Signs: 'D.R.O.P.'",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "D.R.O.P.",
+          "explanation": "D: Deepening/shallowing of AC. R: Red reflex change/loss. O: Out of reach nucleus (falls away). P: Pupil dilation (momentary)."
+        }
+      },
+      {
+        "title": "Clinical Pearl: Vitreous Visualization",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always use preservative-free Triamcinolone (0.1ml of 40mg/ml) to stain vitreous strands.",
+          "Stained vitreous appears as white specks trapped in the gel, making clean-up far more precise.",
+          "Ensure AC is stable with OVD before starting the vitrectomy cutter."
+        ]
+      }
+    ],
+    "generationPrompt": "Cataract surgery complications",
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "_newlyImported": 1775382579073,
+  "communityId": "sub_1775382179346_ql98nhjg8ca5no",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-04-05T09:42:59.346Z",
+  "kanskiMeta": [
+    {
+      "pageNum": 319,
+      "keywords": [
+        "cataract",
+        "surgery",
+        "lens",
+        "intraoperative",
+        "capsule"
+      ]
+    },
+    {
+      "pageNum": 321,
+      "keywords": [
+        "cataract",
+        "surgery",
+        "complications",
+        "iol",
+        "lens"
+      ]
+    },
+    {
+      "pageNum": 315,
+      "keywords": [
+        "cataract",
+        "surgery",
+        "lens",
+        "capsule",
+        "macular"
+      ]
+    },
+    {
+      "pageNum": 345,
+      "keywords": [
+        "cataract",
+        "surgery",
+        "complications",
+        "iol",
+        "lens"
+      ]
+    },
+    {
+      "pageNum": 313,
+      "keywords": [
+        "cataract",
+        "lens",
+        "posterior",
+        "capsule",
+        "loss"
+      ]
+    },
+    {
+      "pageNum": 429,
+      "keywords": [
+        "cataract",
+        "surgery",
+        "iol",
+        "lens",
+        "incidence"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,596 @@
+{
+  "id": 1776511149864,
+  "seqId": 798,
+  "title": "Merged: Clinical Mastery: Full-Thickness Macular Hole (FTMH)",
+  "summary": "A comprehensive guide to the pathogenesis, diagnostic staging, and surgical management of full-thickness macular holes, focusing on the current gold standard: pars plana vitrectomy with ILM peeling.",
+  "date": "2026-04-18T11:19:08.959Z",
+  "data": {
+    "title": "Clinical Mastery: Full-Thickness Macular Hole (FTMH)",
+    "summary": "A comprehensive guide to the pathogenesis, diagnostic staging, and surgical management of full-thickness macular holes, focusing on the current gold standard: pars plana vitrectomy with ILM peeling.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e40af' stroke-width='2'/><ellipse cx='50' cy='50' rx='10' ry='5' fill='#ef4444'/><path d='M30 50 Q 50 30 70 50' stroke='#1e40af' fill='none' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A Full-Thickness Macular Hole (FTMH) is a foveal dehiscence involving all retinal layers from the internal limiting membrane (ILM) to the retinal pigment epithelium (RPE). It typically results from tangential and anteroposterior vitreous traction at the macula."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Female:Male",
+              "value": 85
+            },
+            {
+              "label": "Age >60",
+              "value": 90
+            },
+            {
+              "label": "Bilateral involvement",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The Tractional Theory",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "FTMH Etiology",
+          "branches": [
+            "Anteroposterior Vitreous Traction",
+            "Tangential Epiretinal Membrane Traction",
+            "Aging-related Vitreous Liquefaction (Synchisis)"
+          ]
+        }
+      },
+      {
+        "title": "Gass Classification System (Stages)",
+        "icon": "list",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Anatomic Description",
+            "OCT Finding"
+          ],
+          "rows": [
+            [
+              "1a",
+              "Foveal detachment (occult hole)",
+              "Foveal flattening, loss of depression"
+            ],
+            [
+              "1b",
+              "Occult hole",
+              "Small intraretinal cyst"
+            ],
+            [
+              "2",
+              "Small full-thickness defect (<400um)",
+              "Full thickness opening"
+            ],
+            [
+              "3",
+              "Large defect (>400um)",
+              "Operculum present, no PVD"
+            ],
+            [
+              "4",
+              "Complete PVD",
+              "Weiss ring present"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Emergency Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Metamorphopsia (Amsler grid distortion)",
+          "Central scotoma expansion",
+          "Sudden drop in BCVA",
+          "Associated Rhegmatogenous Retinal Detachment (RRD)"
+        ]
+      },
+      {
+        "title": "Mnemonic: Symptoms",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "M.A.C.U.L.A.",
+          "explanation": "Metamorphopsia (wavy lines), Amsler grid distortion, Central vision loss, Unilateral symptoms, Loss of contrast sensitivity, Aching (minimal/none)."
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: BCVA - Usually 20/70 to 20/200.",
+          "Step 2: Amsler Grid testing - Reveal central metamorphopsia.",
+          "Step 3: Slit-Lamp Biomicroscopy - Watzke-Allen test (positive).",
+          "Step 4: SD-OCT - Gold standard to confirm hole diameter and integrity of EZ (Ellipsoid Zone)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Differentiator"
+          ],
+          "rows": [
+            [
+              "Lamellar Macular Hole",
+              "Intact photoreceptors"
+            ],
+            [
+              "Macular Pseudohole",
+              "Epiretinal membrane contraction"
+            ],
+            [
+              "Vitreomacular Traction (VMT)",
+              "Retinal attachment intact"
+            ],
+            [
+              "Cystoid Macular Edema",
+              "Intraretinal fluid accumulation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Pars Plana Vitrectomy (PPV) - 23/25/27 Gauge.",
+          "Step 2: Induction of PVD - Vital for releasing traction.",
+          "Step 3: Internal Limiting Membrane (ILM) Peeling - Use of Brilliant Blue G or Indocyanine Green (ICG).",
+          "Step 4: Fluid-Air Exchange.",
+          "Step 5: Tamponade - C3F8 (14%) or SF6 (20%) gas.",
+          "Step 6: Face-down positioning - Essential for 3-5 days."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Closure rates exceed 90-95% for most primary macular holes.",
+          "Inverted ILM flap technique is preferred for chronic or large (>400um) holes.",
+          "Post-operative BCVA improvement is highly dependent on the integrity of the Ellipsoid Zone (EZ) on OCT.",
+          "Risk of cataract progression is nearly 100% following gas tamponade."
+        ]
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Recent landmark trends emphasize the use of autologous platelet-rich plasma (PRP) or amniotic membrane grafts for refractory macular holes. Additionally, studies on micro-incision vitrectomy (MIVS) demonstrate faster recovery times and reduced inflammation."
+      },
+      {
+        "title": "--- Sub-topics from: Mastering the Macular Hole: From Pathogenesis to Post-Op ---",
+        "icon": "merge",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A comprehensive clinical deep-dive into Full-Thickness Macular Holes (FTMH), covering the evolution of staging from Gass to IVTS, gold-standard diagnostic maneuvers, and the nuances of vitreoretinal surgical management."
+      },
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A Full-Thickness Macular Hole (FTMH) is a primary neurosensory retinal defect involving all layers from the internal limiting membrane (ILM) to the outer segments of the photoreceptors. It typically occurs at the fovea centralis, leading to a significant loss of central visual acuity and metamorphopsia. While most are idiopathic and related to age-related vitreoretinal interface changes, they can also be secondary to trauma or high myopia."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Female Predilection (%)",
+              "value": 75
+            },
+            {
+              "label": "Age > 60 years (%)",
+              "value": 90
+            },
+            {
+              "label": "Bilateral Risk (No PVD)",
+              "value": 15
+            },
+            {
+              "label": "Bilateral Risk (With PVD)",
+              "value": 2
+            }
+          ]
+        }
+      },
+      {
+        "title": "Causes of Secondary Macular Hole",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Secondary FTMH",
+          "branches": [
+            "Blunt Ocular Trauma",
+            "High Myopia (>6D)",
+            "Cystoid Macular Edema (CME)",
+            "Macular Telangiectasia Type 2",
+            "Solar Retinopathy",
+            "Lightning Strikes"
+          ]
+        }
+      },
+      {
+        "title": "The Gass Staging System (Historical Gold Standard)",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Description",
+            "Clinical Appearance"
+          ],
+          "rows": [
+            [
+              "Stage 1A",
+              "Impending Hole (Foveolar Detachment)",
+              "Central yellow spot; loss of foveal reflex."
+            ],
+            [
+              "Stage 1B",
+              "Occult Hole (Foveal Detachment)",
+              "Central yellow ring; further elevation of the foveola."
+            ],
+            [
+              "Stage 2",
+              "Early FTMH (<400 μm)",
+              "Small eccentric break in the foveal floor; 'can-opener' tear."
+            ],
+            [
+              "Stage 3",
+              "Established FTMH (>400 μm)",
+              "Large hole with cuff of subretinal fluid; No Weiss Ring."
+            ],
+            [
+              "Stage 4",
+              "FTMH with Complete PVD",
+              "Large hole; Weiss ring present on biomicroscopy."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "IVTS Classification (Modern OCT-Based)",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Size Category",
+            "Horizontal Diameter"
+          ],
+          "rows": [
+            [
+              "Small",
+              "≤ 250 μm"
+            ],
+            [
+              "Medium",
+              "> 250 μm and ≤ 400 μm"
+            ],
+            [
+              "Large",
+              "> 400 μm"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Gass Theory",
+        "icon": "psychology",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Perifoveal Vitreous Detachment begins.",
+          "2. Focal tangential traction at the fovea by the posterior hyaloid.",
+          "3. Cystic changes occur in the foveolar layers (Stage 1).",
+          "4. Centrifugal migration of photoreceptors.",
+          "5. Full-thickness dehiscence and centripetal retraction of retinal edges."
+        ]
+      },
+      {
+        "title": "Clinical Features & Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Progressive decrease in central vision (usually 20/80 to 20/400).",
+          "Metamorphopsia: Distorted lines on Amsler Grid.",
+          "Central Scotoma: A 'hole' in the center of vision.",
+          "Micropsia: Objects appearing smaller.",
+          "Typically painless and unilateral onset."
+        ]
+      },
+      {
+        "title": "Diagnostic Ocular Examination",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Watzke-Allen Sign: Slit beam over hole is perceived as thinned or broken.",
+          "Laser Beam Test: 50um spot disappears into the hole.",
+          "Biomicroscopy: Round, red lesion with yellow-white deposits (drusen-like) at the base.",
+          "Cuff of Subretinal Fluid: Surrounding the hole edges.",
+          "Pseudo-operculum: Suspended tissue over the hole (condensed vitreous)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Don't Be Fooled!",
+        "icon": "school",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Differential",
+            "Key Differentiating Feature",
+            "OCT Finding"
+          ],
+          "rows": [
+            [
+              "Epiretinal Membrane (ERM) Pseudohole",
+              "Verticalized foveal edges; no tissue loss.",
+              "Steep foveal contour, thick ERM."
+            ],
+            [
+              "Lamellar Macular Hole",
+              "Partial thickness; intact photoreceptor layer.",
+              "Middling retinal layer defect; 'anvil' shape."
+            ],
+            [
+              "Cystoid Macular Edema",
+              "Cystic spaces; intact ILM floor.",
+              "Hyporeflective intraretinal cysts."
+            ],
+            [
+              "Solar Retinopathy",
+              "History of sun gazing.",
+              "Outer retinal/RPE disruption only."
+            ],
+            [
+              "Macular Telangiectasia Type 2",
+              "Temporal foveal thinning; telangiectatic vessels.",
+              "Internal limiting membrane (ILM) draping."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Spectral Domain OCT (SD-OCT): The gold standard for sizing and staging.",
+          "2. Amsler Grid: To document the area of metamorphopsia.",
+          "3. Fundus Fluorescein Angiography (FFA): Shows 'window defect' early, but rarely necessary.",
+          "4. Microperimetry: Maps the depth and extent of the central scotoma.",
+          "5. Fundus Autofluorescence (FAF): Increased autofluorescence in the hole due to RPE unmasking."
+        ]
+      },
+      {
+        "title": "Surgical Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Pars Plana Vitrectomy (23G, 25G, or 27G).",
+          "2. Induction of Posterior Vitreous Detachment (PVD) if not present.",
+          "3. ILM Peeling: Often aided by Brilliant Blue G (BBG) or Indocyanine Green (ICG).",
+          "4. Fluid-Air Exchange (FAX).",
+          "5. Gas Tamponade: Long-acting (C3F8) or short-acting (SF6).",
+          "6. Post-operative positioning: Face-down for 3-7 days (surgeon dependent)."
+        ]
+      },
+      {
+        "title": "Red Flags & Urgent Considerations",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Acute vision drop in the fellow eye (15% risk).",
+          "Signs of Endophthalmitis post-op (pain, hypopyon).",
+          "Iatrogenic retinal breaks during surgery.",
+          "Rapidly progressive cataract (common after vitrectomy).",
+          "Elevated Intraocular Pressure (IOP) from gas expansion."
+        ]
+      },
+      {
+        "title": "Remember the Watzke-Allen Test",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "BREAK",
+          "explanation": "Beam broken = Macular hole; Ray is bent = Pseudohole; Entirely normal = Malingering/Functional; All light seen = Lamellar hole; Kinked beam = Epiretinal membrane."
+        }
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Cataract formation (occurs in >75% within 2 years).",
+          "Retinal Detachment (1-2% risk).",
+          "Visual field defects (often related to air-fluid exchange).",
+          "RPE Toxicity (if ICG dye is used for ILM peeling).",
+          "Success Rate: >90% closure for Stage 2 holes."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Small holes (<250μm) have a higher chance of spontaneous closure (rare but documented).",
+          "Inverted ILM flap technique is superior for large holes (>400μm) and high myopia.",
+          "The presence of a Weiss ring confirms Stage 4 and reduces risk to the fellow eye.",
+          "OCT 'Base Diameter' is always larger than 'Minimum Linear Diameter' (MLD)."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "MIVS (Micro-Incision Vitrectomy Surgery): Reducing surgical trauma and recovery time.",
+          "Ocrplasmin (Jetrea): Pharmacologic vitreolysis for VMT, though use has declined due to limited efficacy in FTMH.",
+          "Autologous Retinal Flaps: For refractory or ultra-large holes.",
+          "Valved Cannulas: Maintaining stable IOP during ILM peeling.",
+          "Platelet-Rich Plasma (PRP) adjuvants: Exploring biological 'glue' for closure."
+        ]
+      },
+      {
+        "title": "Long-Term Monitoring Protocol",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Week 1: Check IOP and wound integrity.",
+          "2. Month 1: Monitor gas bubble resolution and OCT for closure.",
+          "3. Month 3: Assess visual acuity and metamorphopsia improvement.",
+          "4. Ongoing: Annual Amsler Grid monitoring of the fellow eye."
+        ]
+      }
+    ],
+    "generationPrompt": "Macular hole",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "_newlyImported": 1775382585335,
+  "communityId": "sub_1775194252495_6nlv7ezqwqzmsk",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-04-03T05:30:52.495Z",
+  "kanskiMeta": [
+    {
+      "pageNum": 614,
+      "keywords": [
+        "macular hole",
+        "thickness",
+        "macular",
+        "vitrectomy",
+        "vitreoretinal"
+      ]
+    },
+    {
+      "pageNum": 616,
+      "keywords": [
+        "macular hole",
+        "thickness",
+        "macular",
+        "definition",
+        "symptoms"
+      ]
+    },
+    {
+      "pageNum": 618,
+      "keywords": [
+        "macular hole",
+        "thickness",
+        "macular",
+        "vitrectomy",
+        "classification"
+      ]
+    },
+    {
+      "pageNum": 568,
+      "keywords": [
+        "macular hole",
+        "thickness",
+        "macular",
+        "symptoms",
+        "full"
+      ]
+    },
+    {
+      "pageNum": 5,
+      "keywords": [
+        "macular hole",
+        "thickness",
+        "macular",
+        "system",
+        "test"
+      ]
+    },
+    {
+      "pageNum": 621,
+      "keywords": [
+        "macular hole",
+        "macular",
+        "vitrectomy",
+        "system",
+        "hole"
+      ]
+    }
+  ]
+}

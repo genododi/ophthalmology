@@ -1,0 +1,355 @@
+{
+  "id": 1776511149403,
+  "seqId": 791,
+  "title": "Merged: VIP:::FRCS:DKA: Systemic Emergency & Ophthalmic Implications",
+  "summary": "Diabetic Ketoacidosis (DKA) is a life-threatening triad of hyperglycemia, ketosis, and metabolic acidosis. While primarily systemic, it presents critical ophthalmic risks including acute refractive shifts, snowflake cataracts, and the vision-threatening emergency of Rhino-orbital-cerebral Mucormycosis.",
+  "date": "2026-04-18T11:19:08.958Z",
+  "data": {
+    "title": "VIP:::FRCS:DKA: Systemic Emergency & Ophthalmic Implications",
+    "summary": "Diabetic Ketoacidosis (DKA) is a life-threatening triad of hyperglycemia, ketosis, and metabolic acidosis. While primarily systemic, it presents critical ophthalmic risks including acute refractive shifts, snowflake cataracts, and the vision-threatening emergency of Rhino-orbital-cerebral Mucormycosis.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M60 100 Q100 40 140 100 Q100 160 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)'/><path d='M150 50 L170 70 M170 50 L150 70' stroke='red' stroke-width='4'/><text x='55' y='180' font-family='Arial' font-size='12' fill='hsl(215, 90%, 45%)' font-weight='bold'>KETONES & GLUCOSE</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Diagnostic Triad",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "DKA Diagnostic Triad",
+          "branches": [
+            "Hyperglycemia: Blood Glucose >250 mg/dL (13.9 mmol/L)",
+            "Ketosis: Presence of Acetoacetate/β-hydroxybutyrate in blood or urine",
+            "Metabolic Acidosis: Arterial pH <7.30 or Bicarbonate <18 mEq/L"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Precipitating Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Infection (Pneumonia/UTI)",
+              "value": 45
+            },
+            {
+              "label": "Insulin Non-compliance",
+              "value": 25
+            },
+            {
+              "label": "New Onset Diabetes",
+              "value": 15
+            },
+            {
+              "label": "Acute MI/Stroke",
+              "value": 10
+            },
+            {
+              "label": "Idiopathic",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Ocular Manifestations of DKA",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Ocular Structure",
+            "Clinical Finding",
+            "Pathophysiology"
+          ],
+          "rows": [
+            [
+              "Refraction",
+              "Acute Myopia or Hyperopia",
+              "Osmotic swelling of the lens and changes in aqueous refractive index."
+            ],
+            [
+              "Lens",
+              "Snowflake Cataract",
+              "Subcapsular opacities due to sudden osmotic stress; may be reversible with slow control."
+            ],
+            [
+              "Intraocular Pressure",
+              "Hypotony",
+              "Severe dehydration leading to decreased aqueous production by ciliary body."
+            ],
+            [
+              "Extraocular Muscles",
+              "Ophthalmoplegia",
+              "Can occur due to cranial nerve palsies or secondary Mucormycosis."
+            ],
+            [
+              "Orbit",
+              "Proptosis / Apex Syndrome",
+              "Secondary to invasive fungal infections (Mucor/Rhizopus) in acidotic states."
+            ],
+            [
+              "Retina",
+              "Lipemia Retinalis",
+              "Creamy white appearance of retinal vessels when serum triglycerides >2500 mg/dL."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CRITICAL EMERGENCY: Mucormycosis",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Rhino-orbital-cerebral Mucormycosis is a fatal fungal infection triggered by DKA.",
+          "Red Flag: Black necrotic eschar on the palate or turbinates.",
+          "Red Flag: Orbital Apex Syndrome (CN III, IV, VI, V1 involvement) + Vision Loss.",
+          "Mechanism: Acidosis releases iron from sequestering proteins, feeding fungal growth (Rhizopus/Mucor).",
+          "Treatment: URGENT surgical debridement + IV Amphotericin B + Reversal of Acidosis."
+        ]
+      },
+      {
+        "title": "ADA Severity Classification",
+        "icon": "grading",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Mild",
+            "Moderate",
+            "Severe"
+          ],
+          "rows": [
+            [
+              "Plasma Glucose",
+              ">250",
+              ">250",
+              ">250"
+            ],
+            [
+              "Arterial pH",
+              "7.25 - 7.30",
+              "7.00 - 7.24",
+              "<7.00"
+            ],
+            [
+              "Serum Bicarb",
+              "15 - 18",
+              "10 - 14",
+              "<10"
+            ],
+            [
+              "Anion Gap",
+              ">10",
+              ">12",
+              ">12"
+            ],
+            [
+              "Mental Status",
+              "Alert",
+              "Drowsy",
+              "Stupor/Coma"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Systemic Pathophysiology",
+        "icon": "genetics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Absolute Insulin Deficiency + Counter-regulatory Hormone Excess (Glucagon, Cortisol).",
+          "2. Increased Lipolysis → Increased Free Fatty Acids.",
+          "3. Hepatic Ketogenesis → Production of Acetoacetate and β-hydroxybutyrate.",
+          "4. Ketoacidosis → Bicarbonate buffering exhaustion.",
+          "5. Osmotic Diuresis → Profound dehydration and electrolyte depletion (K+, Na+)."
+        ]
+      },
+      {
+        "title": "Stepwise Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Fluid Resuscitation: 1L 0.9% NaCl over 1 hour, then adjust based on Na+ status.",
+          "2. Potassium Replacement: If K+ <5.2 mEq/L, start replacement BEFORE or with insulin. If K+ <3.3, hold insulin.",
+          "3. Insulin Therapy: 0.1 Unit/kg bolus followed by 0.1 U/kg/hr infusion. Goal: Reduce glucose by 50-75 mg/dL/hr.",
+          "4. Glucose Switch: When blood glucose reaches 200 mg/dL, add 5% Dextrose (D5NS) to prevent hypoglycemia.",
+          "5. Bicarbonate: Only if pH <6.9. Rarely used due to risk of paradoxical CSF acidosis."
+        ]
+      },
+      {
+        "title": "Mnemonic: The 'DKA' Management",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "DKA Fluids",
+          "explanation": "D: Dehydration (Isotonic Saline); K: Potassium (Replace even if normal due to total body depletion); A: Anion Gap (Target the gap, not just the glucose)."
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguisher"
+          ],
+          "rows": [
+            [
+              "HHS",
+              "Glucose >600, No Ketosis, pH >7.3"
+            ],
+            [
+              "Alcoholic Ketoacidosis",
+              "History of binge, lower glucose levels"
+            ],
+            [
+              "Starvation Ketosis",
+              "Bicarb >18, Glucose usually normal"
+            ],
+            [
+              "Uremic Acidosis",
+              "High BUN/Cr, No ketonemia"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Investigation & Imaging",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Dilated Fundus Exam: Monitor for progression of DR after rapid glycemic control (Early Worsening Phenomenon).",
+          "CT/MRI Orbit & Sinuses: Indicated if any ptosis, proptosis, or ophthalmoplegia (Rule out Mucor).",
+          "A-Scan/B-Scan: Evaluate lens thickness and vitreous status if view is obscured.",
+          "IOP Measurement: High importance as hypotony reflects systemic hydration status."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Pseudohyponatremia: Measured Na+ drops 1.6 mEq/L for every 100 mg/dL glucose elevation.",
+          "Paradoxical DR Worsening: Aggressive insulin therapy can temporarily exacerbate Diabetic Retinopathy.",
+          "Euglycemic DKA: Seen in patients on SGLT2 inhibitors (Canagliflozin); pH is low but glucose is <250.",
+          "Cerebral Edema: Most common cause of death in pediatric DKA patients; monitor for headache and bradycardia."
+        ]
+      },
+      {
+        "title": "Complications and Prognosis",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "DKA Complications",
+          "branches": [
+            "Cerebral Edema (Pediatric risk)",
+            "Hypokalemia (Iatrogenic leading to arrhythmias)",
+            "Hypoglycemia (Overshoot from insulin)",
+            "Acute Respiratory Distress Syndrome (ARDS)",
+            "Thromboembolism (Hypercoagulable state)"
+          ]
+        }
+      },
+      {
+        "title": "Recent Landmark Studies",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The DCCT (Diabetic Control and Complications Trial) and EDIC follow-up studies established the 'Metabolic Memory' concept. While intensive control prevents long-term DR, rapid correction in the setting of DKA/severe hyperglycemia can lead to transient worsening of soft exudates and macular edema. The CLOVER trial and various ADA guidelines emphasize that managing DKA requires focusing on the anion gap closure rather than just normalization of blood glucose."
+      }
+    ],
+    "generationPrompt": "DKA",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "_newlyImported": 1776504119182,
+  "communityId": "sub_1775843722086_czvg7hqodnc9g0",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-04-10T17:55:22.086Z",
+  "kanskiMeta": [
+    {
+      "pageNum": 633,
+      "keywords": [
+        "erg",
+        "critical",
+        "investigation"
+      ]
+    },
+    {
+      "pageNum": 444,
+      "keywords": [
+        "systemic",
+        "ocular",
+        "complications",
+        "recent",
+        "cataract"
+      ]
+    },
+    {
+      "pageNum": 632,
+      "keywords": [
+        "erg",
+        "classification",
+        "investigation",
+        "imaging"
+      ]
+    },
+    {
+      "pageNum": 372,
+      "keywords": [
+        "erg",
+        "systemic",
+        "implications",
+        "diagnostic",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 489,
+      "keywords": [
+        "systemic",
+        "factors",
+        "ocular",
+        "manifestations",
+        "critical"
+      ]
+    },
+    {
+      "pageNum": 537,
+      "keywords": [
+        "systemic",
+        "factors",
+        "ocular",
+        "protocol",
+        "investigation"
+      ]
+    }
+  ]
+}

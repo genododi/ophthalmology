@@ -1,0 +1,386 @@
+{
+  "id": 1782755735195,
+  "seqId": 865,
+  "title": "Herpetic Panuveitis: Clinical Masterclass",
+  "summary": "An evidence-based clinical guide to diagnosing, classifying, and managing herpetic panuveitis, focusing on Acute Retinal Necrosis (ARN) and Progressive Outer Retinal Necrosis (PORN). Designed for advanced ophthalmological study, residency preparation, and clinical practice.",
+  "date": "2026-06-29T17:55:35.195Z",
+  "data": {
+    "title": "Herpetic Panuveitis: Clinical Masterclass",
+    "summary": "An evidence-based clinical guide to diagnosing, classifying, and managing herpetic panuveitis, focusing on Acute Retinal Necrosis (ARN) and Progressive Outer Retinal Necrosis (PORN). Designed for advanced ophthalmological study, residency preparation, and clinical practice.",
+    "summary_illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\" width=\"100%\" height=\"100%\"><defs><radialGradient id=\"eyeGlow\" cx=\"50%\" cy=\"50%\" r=\"50%\"><stop offset=\"0%\" stop-color=\"#ffefdb\" stop-opacity=\"1\"/><stop offset=\"70%\" stop-color=\"#ffb3a7\" stop-opacity=\"0.6\"/><stop offset=\"100%\" stop-color=\"#8b0000\" stop-opacity=\"0\"/></radialGradient></defs><rect width=\"120\" height=\"120\" fill=\"#0d1117\" rx=\"10\"/><circle cx=\"60\" cy=\"60\" r=\"45\" fill=\"none\" stroke=\"#30363d\" stroke-width=\"2\"/><circle cx=\"60\" cy=\"60\" r=\"35\" fill=\"#161b22\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"4 2\"/><path d=\"M 25,60 C 25,25 95,25 95,60 C 95,95 25,95 25,60 Z\" fill=\"none\" stroke=\"#58a6ff\" stroke-width=\"2\"/><circle cx=\"60\" cy=\"60\" r=\"15\" fill=\"url(#eyeGlow)\"/><circle cx=\"60\" cy=\"60\" r=\"10\" fill=\"none\" stroke=\"#ff7b72\" stroke-width=\"2\"/><path d=\"M 40,35 Q 48,45 60,35 T 80,35\" fill=\"none\" stroke=\"#da3637\" stroke-width=\"2.5\" stroke-linecap=\"round\"/><circle cx=\"42\" cy=\"42\" r=\"2\" fill=\"#ff7b72\"/><circle cx=\"78\" cy=\"42\" r=\"2\" fill=\"#ff7b72\"/><circle cx=\"60\" cy=\"78\" r=\"2\" fill=\"#ff7b72\"/><path d=\"M 32,50 Q 28,60 35,70\" fill=\"none\" stroke=\"#f0883e\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M 88,50 Q 92,60 85,70\" fill=\"none\" stroke=\"#f0883e\" stroke-width=\"2\" stroke-linecap=\"round\"/><circle cx=\"50\" cy=\"58\" r=\"1.5\" fill=\"#ffffff\"/><circle cx=\"68\" cy=\"64\" r=\"1\" fill=\"#ffffff\"/><circle cx=\"58\" cy=\"66\" r=\"1.2\" fill=\"#ffffff\"/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Herpetic panuveitis is a severe, sight-threatening intraocular inflammatory condition caused by members of the Herpesviridae family, most commonly Varicella-Zoster Virus (VZV), Herpes Simplex Virus 1 (HSV-1), Herpes Simplex Virus 2 (HSV-2), and Cytomegalovirus (CMV). It is characterized by widespread inflammation involving the anterior chamber, vitreous cavity, and the retina/choroid. The clinical presentation ranges from aggressive necrotizing herpetic retinopathies, such as Acute Retinal Necrosis (ARN) in immunocompetent individuals and Progressive Outer Retinal Necrosis (PORN) in immunocompromised patients, to severe panuveitis accompanied by secondary ocular hypertension, occlusive vasculitis, and exudative or rhegmatogenous retinal detachments."
+      },
+      {
+        "title": "Pathogen Distribution in Herpetic Panuveitis (ARN)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Varicella-Zoster Virus (VZV)",
+              "value": 55
+            },
+            {
+              "label": "Herpes Simplex Virus 1 (HSV-1)",
+              "value": 25
+            },
+            {
+              "label": "Herpes Simplex Virus 2 (HSV-2)",
+              "value": 15
+            },
+            {
+              "label": "Cytomegalovirus & Others",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Herpetic Panuveitis Pathogenesis",
+          "branches": [
+            "Viral Latency: Latent infection established in the trigeminal, ciliary, or dorsal root ganglia.",
+            "Reactivation & Axonal Transport: Retrograde transport of active viral particles along sensory nerves to ocular structures.",
+            "Direct Cytopathic Damage: Active viral replication inside RPE, neurosensory retina, and vascular endothelial cells.",
+            "Occlusive Retinal Vasculitis: Severe inflammatory reaction causing endothelial swelling, fibrin deposition, and thrombosis of retinal arteries.",
+            "Host Immune Response: T-cell mediated delayed hypersensitivity driving vitritis, anterior chamber reaction, and tissue necrosis."
+          ]
+        }
+      },
+      {
+        "title": "Clinical Comparison: ARN vs. PORN",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Clinical Feature",
+            "Acute Retinal Necrosis (ARN)",
+            "Progressive Outer Retinal Necrosis (PORN)"
+          ],
+          "rows": [
+            [
+              "Immune Status",
+              "Typically immunocompetent patients",
+              "Severely immunocompromised (CD4+ < 50 cells/µL)"
+            ],
+            [
+              "Primary Etiology",
+              "VZV (most common), HSV-1, HSV-2",
+              "VZV (almost exclusively)"
+            ],
+            [
+              "Vitritis & AC Reaction",
+              "Severe, prominent (mutton-fat KPs, heavy vitreous haze)",
+              "Minimal to absent (\"clear\" vitreous despite necrosis)"
+            ],
+            [
+              "Vascular Involvement",
+              "Severe occlusive vasculitis (primarily arteritis)",
+              "Minimal or absent vascular inflammation"
+            ],
+            [
+              "Lesion Characteristics",
+              "Coalescing peripheral full-thickness necrotizing lesions",
+              "Multifocal, deep, patchy outer retinal necrosis"
+            ],
+            [
+              "Progression Pattern",
+              "Circumferential spread inward toward the posterior pole",
+              "Rapid, patch-like coalescence; early macular involvement"
+            ],
+            [
+              "Optic Nerve Involvement",
+              "Common (inflammatory optic neuropathy)",
+              "Rare early on; occurs in late stages"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Ocular Pain: Severe, deep, boring pain, often worsened by eye movement (indicative of scleritis or optic nerve sheath inflammation).",
+          "Visual Symptoms: Rapidly progressive loss of vision, dense floaters, and peripheral visual field defects.",
+          "Anterior Segment: Granulomatous or stellate keratoprecipitates (KPs), sectoral iris transillumination defects (strongly suggestive of VZV or HSV), and posterior synechiae.",
+          "Ocular Hypertension: Secondary glaucoma common due to direct trabeculitis and inflammatory debris obstructing the trabecular meshwork."
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "eye_tracking",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Vitreous: Heavy cellular reaction (vitritis) with vitreous condensation, banding, and eventual traction.",
+          "Retinal Necrosis: Well-demarcated, creamy-white or yellowish patches of full-thickness necrosis starting in the peripheral retina.",
+          "Vasculitis: Prominent perivascular sheathing (perivasculitis) affecting predominantly retinal arteriole branches, leading to a 'frosted branch' appearance.",
+          "Optic Disc: Hyperemia, edema, or pallor secondary to papillitis or retrobulbar optic neuropathy."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Anterior Chamber or Vitreous Tap: Obtain 0.1–0.2 mL of undiluted aqueous or vitreous fluid under sterile conditions.",
+          "Step 2: Quantitative Polymerase Chain Reaction (qPCR): Standard of care for identifying HSV-1, HSV-2, VZV, and CMV DNA (High sensitivity/specificity).",
+          "Step 3: Goldmann-Witmer Coefficient (GWC): Compare intraocular antibody levels with systemic levels. GWC > 3 indicates local antibody production.",
+          "Step 4: Fluorescein Angiography (FFA): Demarcates areas of severe capillary non-perfusion, occlusive retinal arteriolitis, and optic nerve leakage.",
+          "Step 5: Optical Coherence Tomography (OCT): Evaluates macular status (edema, epiretinal membranes, macular ischemia) and outer retinal thinning.",
+          "Step 6: B-Scan Ultrasonography: Essential if vitritis or cataract obscures the fundus; rules out retinal detachment and choroidal effusion."
+        ]
+      },
+      {
+        "title": "American Uveitis Society (AUS) Diagnostic Criteria for ARN",
+        "icon": "gavel",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Criterion 1: One or more foci of retinal necrosis with discrete borders located in the peripheral retina.",
+          "Criterion 2: Rapid, relentless progression of the necrotic lesions in the absence of antiviral therapy.",
+          "Criterion 3: Circumferential disease progression (spreading along the peripheral retina).",
+          "Criterion 4: Occlusive vasculitis with a predilection for retinal arteriole branches.",
+          "Criterion 5: Prominent inflammatory reaction in both the anterior chamber and vitreous cavity."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Spectrum",
+        "icon": "clinical_research",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Differential Diagnosis",
+            "Distinguishing Ophthalmic & Systemic Features"
+          ],
+          "rows": [
+            [
+              "Ocular Toxoplasmosis",
+              "Focal white retinochoroiditis adjacent to a hyperpigmented chorioretinal scar; minimal vasculitis; 'headlight in the fog' presentation."
+            ],
+            [
+              "Syphilitic Panuveitis",
+              "Multifocal placoid chorioretinitis; positive Treponemal/Non-treponemal serology (RPR/VDRL, FTA-ABS). 'Great Masquerader'."
+            ],
+            [
+              "Tuberculous Serpiginous-like Choroiditis",
+              "Active yellowish amoeboid lesions extending from the juxtapapillary region; positive IGRA/Quantiferon Gold; systemic TB history."
+            ],
+            [
+              "Behcet's Disease",
+              "Recurrent, transient hypopyon; diffuse retinal vasculitis (mostly phlebitis); systemic oral/genital aphthous ulcers; HLA-B51 positive."
+            ],
+            [
+              "Endogenous Endophthalmitis",
+              "History of IV drug use, indwelling catheters, or systemic bacteremia; rapid progression; vitreous microabscesses."
+            ],
+            [
+              "Vogt-Koyanagi-Harada (VKH)",
+              "Bilateral diffuse granulomatous panuveitis; exudative retinal detachments; sunset glow fundus; neurological, auditory, and cutaneous signs."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Emergency Red Flags & Warning Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden Visual Field Loss: Highly suspicious for acute, rhegmatogenous retinal detachment (occurs in up to 75% of untreated ARN cases).",
+          "Bilateral Involvement (BARN): Sudden onset of floaters or decreased vision in the contralateral eye (Bilateral Acute Retinal Necrosis).",
+          "Rapidly Progressive Optic Nerve Dysfunction: Afferent pupillary defect (APD), loss of color vision, and central scotoma, indicating direct optic nerve invasion.",
+          "Widespread Retinal Pale-Whitening: Extensive peripheral outer retinal whitening combined with severe vascular occlusion, indicating imminent total retinal necrosis."
+        ]
+      },
+      {
+        "title": "Systemic & Local Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Immediate Antiviral Induction: Initiate Intravenous Acyclovir (10 mg/kg three times daily) for 7 to 10 days OR high-dose Oral Valacyclovir (2 g three times daily) for equivalent ocular bio-availability.",
+          "Step 2: Intravitreal Antiviral Injections: Perform immediate intravitreal injection of Ganciclovir (2.0 mg/0.1 mL) or Foscarnet (2.4 mg/0.1 mL) 1 to 2 times weekly, especially if the posterior pole is threatened.",
+          "Step 3: Delayed Oral Corticosteroid Therapy: Initiate Prednisolone (1 mg/kg/day) 24 to 48 hours AFTER therapeutic antiviral coverage has been established. This dampens severe intraocular inflammation without risking viral replication.",
+          "Step 4: Maintenance Antiviral Therapy: Transition to Oral Valacyclovir (1 g three times daily) or Famciclovir (500 mg three times daily) for a minimum of 6 weeks to 3 months to prevent contralateral eye involvement.",
+          "Step 5: Antithrombotic Therapy: Administer low-dose oral Aspirin (81 to 325 mg daily) to minimize the risk of microvascular thrombosis and widespread retinal arterial occlusion."
+        ]
+      },
+      {
+        "title": "Surgical Interventions & Techniques",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Prophylactic Laser Photocoagulation: Applied 360-degrees posterior to the border of healthy and necrotic retina to wall off and prevent rhegmatogenous retinal detachment (RRD).",
+          "Pars Plana Vitrectomy (PPV): Indicated for dense vitritis preventing fundus evaluation, progressive tractional retinal detachment, or rhegmatogenous retinal detachment.",
+          "Silicone Oil Tamponade: Highly recommended during PPV for ARN-associated RRD because multiple, large, posterior, and ragged retinal breaks are common in necrotic retina."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "troubleshoot",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rhegmatogenous Retinal Detachment (RRD): The most common and severe complication, occurring in 50% to 75% of ARN cases due to necrosis-induced retinal breaks.",
+          "Ischemic Optic Neuropathy: Direct viral invasion of the optic nerve head or occlusive vasculitis of the short posterior ciliary arteries, leading to permanent vision loss.",
+          "Macular Pathology: Epiretinal membrane (ERM) formation, macular edema, and macular ischemia secondary to chronic inflammation.",
+          "Prognosis: Guarded. Visual outcome depends heavily on early diagnostic confirmation and initiation of aggressive antiviral therapy prior to macular or optic nerve involvement."
+        ]
+      },
+      {
+        "title": "Mnemonic for Acute Retinal Necrosis",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "A.R.N. S.P.R.E.A.D.",
+          "explanation": "A: Arteriolitis (severe occlusive arteritis); R: Rapid progression of necrosis; N: Necrotic peripheral patches; S: Sectoral iris defects; P: Painful eye; R: Retinal Detachment risk (high); E: Early intravitreal therapy; A: Avoid steroids initially; D: Delayed contralateral eye involvement (BARN)."
+        }
+      },
+      {
+        "title": "Landmark Clinical Insights",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Oral Valacyclovir Efficacy: Studies demonstrate that oral Valacyclovir (2 g TID) achieves intravitreal concentrations comparable to IV Acyclovir, making outpatient therapy a safe and viable option.",
+          "Bilateral Prevention: Without systemic antivirals, the risk of bilateral involvement (BARN) within 2 years is approximately 75%. This drops to less than 15% with appropriate oral maintenance therapy.",
+          "Early Vitrectomy Trend: Modern clinical series suggest early pars plana vitrectomy combined with intravitreal foscarnet/ganciclovir may reduce the rate of retinal detachment to under 20%."
+        ]
+      },
+      {
+        "title": "High-Yield Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Never initiate systemic corticosteroids alone or prior to commencing effective antiviral therapy. Doing so can cause rapid, devastating, and irreversible pan-retinal necrosis.",
+          "Always perform a thorough dilated fundus examination of the contralateral eye at every single visit, even if the patient is entirely asymptomatic, to monitor for early subclinical signs of BARN.",
+          "When treating elderly patients or those with pre-existing renal insufficiency, ensure baseline serum creatinine is checked and adjust Acyclovir/Valacyclovir dosages accordingly to avoid crystalline nephropathy.",
+          "Sectoral iris transillumination defects accompanied by a high intraocular pressure and a seemingly 'standard' anterior uveitis is herpetic until proven otherwise; monitor the posterior segment closely."
+        ]
+      }
+    ],
+    "generationPrompt": "herpetic panuveitis",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "kanskiMeta": [
+    {
+      "pageNum": 434,
+      "keywords": [
+        "uveitis",
+        "acute retinal necrosis",
+        "retinal",
+        "necrosis",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 435,
+      "keywords": [
+        "uveitis",
+        "panuveitis",
+        "symptoms",
+        "ocular",
+        "findings"
+      ]
+    },
+    {
+      "pageNum": 451,
+      "keywords": [
+        "uveitis",
+        "ocular",
+        "examination",
+        "systemic",
+        "surgical"
+      ]
+    },
+    {
+      "pageNum": 454,
+      "keywords": [
+        "uveitis",
+        "panuveitis",
+        "symptoms",
+        "ocular",
+        "differential"
+      ]
+    },
+    {
+      "pageNum": 455,
+      "keywords": [
+        "uveitis",
+        "retinal",
+        "symptoms",
+        "examination",
+        "findings"
+      ]
+    },
+    {
+      "pageNum": 441,
+      "keywords": [
+        "uveitis",
+        "retinal",
+        "symptoms",
+        "ocular",
+        "investigations"
+      ]
+    },
+    {
+      "pageNum": 446,
+      "keywords": [
+        "uveitis",
+        "panuveitis",
+        "retinal",
+        "necrosis",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 489,
+      "keywords": [
+        "uveitis",
+        "retinal",
+        "ocular",
+        "investigations",
+        "systemic"
+      ]
+    }
+  ],
+  "read": true
+}

@@ -1,0 +1,236 @@
+{
+  "id": 1775494304320,
+  "seqId": 741,
+  "title": "Mastering Leber Hereditary Optic Neuropathy (LHON): The Mitochondrial Paradigm",
+  "summary": "LHON is a maternally inherited mitochondrial disorder characterized by painless, subacute, sequential vision loss, primarily affecting young adult males. It represents the quintessential archetype of mitochondrial optic neuropathies.",
+  "date": "2026-04-06T16:51:44.320Z",
+  "data": {
+    "title": "Mastering Leber Hereditary Optic Neuropathy (LHON): The Mitochondrial Paradigm",
+    "summary": "LHON is a maternally inherited mitochondrial disorder characterized by painless, subacute, sequential vision loss, primarily affecting young adult males. It represents the quintessential archetype of mitochondrial optic neuropathies.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e40af' stroke-width='2'/><path d='M30 50 Q50 20 70 50 T50 80 T30 50' fill='#3b82f6' opacity='0.3'/><circle cx='50' cy='50' r='5' fill='#1e40af'/></svg>",
+    "sections": [
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Male/Female Ratio",
+              "value": 80
+            },
+            {
+              "label": "Age of Onset (Years)",
+              "value": 25
+            },
+            {
+              "label": "Genetic Penetrance (Males)",
+              "value": 50
+            },
+            {
+              "label": "Genetic Penetrance (Females)",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Mitochondrial Genetics: The Core Defect",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "LHON Mutations",
+          "branches": [
+            "m.11778G>A (ND4) - 70%",
+            "m.3460G>A (ND1) - 13%",
+            "m.14484T>C (ND6) - 14%",
+            "Maternal Transmission"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Suspect LHON",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Painless, subacute sequential vision loss in one eye followed by the other within weeks/months.",
+          "Profound dyschromatopsia (red-green deficiency) out of proportion to acuity.",
+          "Absence of pain on eye movement (differentiates from Optic Neuritis).",
+          "Family history of sudden blindness in maternal relatives.",
+          "Young male presenting with cecocentral scotoma."
+        ]
+      },
+      {
+        "title": "Clinical Staging Framework",
+        "icon": "list",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Duration",
+            "Ocular Findings"
+          ],
+          "rows": [
+            [
+              "Pre-symptomatic",
+              "Years",
+              "Normal or tortuous vessels"
+            ],
+            [
+              "Acute",
+              "0-6 months",
+              "Pseudo-disc edema, peripapillary telangiectasia"
+            ],
+            [
+              "Atrophic",
+              ">6 months",
+              "Optic nerve head pallor, RNF loss"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "DDx for Optic Atrophy",
+          "branches": [
+            "Toxic/Nutritional (Tobacco-Alcohol)",
+            "Optic Neuritis (MS)",
+            "Compressive (Pituitary Adenoma)",
+            "Dominant Optic Atrophy (OPA1)",
+            "Glaucomatous Atrophy"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Careful history (maternal lineage) and clinical exam.",
+          "Step 2: Fundoscopy (look for characteristic telangiectatic microangiopathy).",
+          "Step 3: OCT (RNFL thickness analysis - note initial swelling followed by thinning).",
+          "Step 4: Visual Field (Humphrey 30-2: typically dense cecocentral scotoma).",
+          "Step 5: Genetic testing (Mitochondrial DNA blood panel for the 3 primary mutations)."
+        ]
+      },
+      {
+        "title": "Management & Therapeutic Advances",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Idebenone (Short-chain Coenzyme Q10 analogue): Improves mitochondrial ATP production. Approved at 900mg/day (divided dose).",
+          "Gene Therapy: Lumevoq (Lenadogene nolparvovec) - viral vector delivery of wild-type ND4 gene via intravitreal injection.",
+          "Avoidance of toxic factors: Strict cessation of tobacco and ethanol consumption.",
+          "Neuro-ophthalmological monitoring: Frequent follow-up for the fellow eye."
+        ]
+      },
+      {
+        "title": "Remember the 11778",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "L.H.O.N.",
+          "explanation": "L: Loss (Subacute), H: Hereditary (Maternal), O: Optic Nerve (Pseudo-edema), N: ND4/ND1/ND6 mutations."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Pseudo-disc edema does not leak on Fluorescein Angiography.",
+          "The '14484' mutation has a significantly better prognosis for spontaneous visual recovery.",
+          "Mitochondrial genes are not affected by Mendelian inheritance laws (maternal only).",
+          "LHON-Plus syndrome: consider if patient exhibits dystonia, tremor, or cardiac conduction defects."
+        ]
+      }
+    ],
+    "generationPrompt": "DD optic atrophy - LHON",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "kanskiMeta": [
+    {
+      "pageNum": 777,
+      "keywords": [
+        "optic neuropathy",
+        "leber hereditary",
+        "lhon",
+        "hereditary",
+        "neuropathy"
+      ]
+    },
+    {
+      "pageNum": 776,
+      "keywords": [
+        "optic neuropathy",
+        "leber hereditary",
+        "lhon",
+        "hereditary",
+        "neuropathy"
+      ]
+    },
+    {
+      "pageNum": 758,
+      "keywords": [
+        "optic neuropathy",
+        "leber hereditary",
+        "hereditary",
+        "neuropathy",
+        "neuropathies"
+      ]
+    },
+    {
+      "pageNum": 765,
+      "keywords": [
+        "optic neuropathy",
+        "leber hereditary",
+        "hereditary",
+        "neuropathy",
+        "neuropathies"
+      ]
+    },
+    {
+      "pageNum": 905,
+      "keywords": [
+        "optic neuropathy",
+        "neuropathy",
+        "defect",
+        "optic",
+        "optic atrophy"
+      ]
+    },
+    {
+      "pageNum": 127,
+      "keywords": [
+        "optic neuropathy",
+        "neuropathy",
+        "defect",
+        "optic",
+        "ted"
+      ]
+    }
+  ]
+}

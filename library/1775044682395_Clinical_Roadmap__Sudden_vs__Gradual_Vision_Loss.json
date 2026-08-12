@@ -1,0 +1,181 @@
+{
+  "id": 1775044682395,
+  "seqId": 359,
+  "title": "Clinical Roadmap: Sudden vs. Gradual Vision Loss",
+  "summary": "An exhaustive diagnostic framework for Ophthalmic assessment, categorizing vision loss by onset (sudden vs. gradual), presence of pain, duration, and anatomical findings. This guide ensures high-fidelity clinical differentiation across all major ocular pathologies.",
+  "date": "2026-04-01T11:58:02.395Z",
+  "data": {
+    "title": "Clinical Roadmap: Sudden vs. Gradual Vision Loss",
+    "summary": "An exhaustive diagnostic framework for Ophthalmic assessment, categorizing vision loss by onset (sudden vs. gradual), presence of pain, duration, and anatomical findings. This guide ensures high-fidelity clinical differentiation across all major ocular pathologies.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M110 30 L180 30 M110 50 L180 50 M110 70 L180 70' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round'/><path d='M100 50 L40 95' stroke='red' stroke-width='2' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Sudden/Recent Loss of Vision: Painless (Transient)",
+        "icon": "timer",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Painless Transient Loss",
+          "branches": [
+            "Few seconds’ duration (Unilateral): GCA (age >55y, weight loss, fatigue, jaw/tongue claudication, pulseless/tender/thickened temporal artery, ieSr/Crp); Papilloedema (bilateral disc swelling, loss of SVp, peripapillary haemorrhages, features of raised ICp); Impending CRVO (dilated, tortuous retinal veins, haemorrhages); OIS (veins dilated and irregular but not tortuous, mid-peripheral haemorrhages; ± NVD, iIOp, carotid bruits).",
+            "Few seconds’ duration (Bilateral): Papilloedema: see described previously.",
+            "Few minutes’ duration (Unilateral): Amaurosis fugax (complete or partial monocular blindness ± evidence of emboli, AF, carotid bruits); GCA (see described previously).",
+            "Few minutes’ duration (Bilateral): Vertebrobasilar artery insufficiency (recurrent episodes ± ataxia, dysphasia, dysarthria, hemiparesis, hemisensory disturbance).",
+            "Up to 1h duration (Bilateral): Migraine: aura—fortification spectra, transient VF defects; followed by unilateral headache, associated nausea/vomiting, photophobia, phonopohobia, exercise aggravation, and often FH."
+          ]
+        }
+      },
+      {
+        "title": "Persistent Painless Loss: Cornea & Vitreous",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Abnormal cornea - Hydrops: acute corneal oedema associated with underlying disease such as keratoconus.",
+          "Abnormal vitreous - Vitreous haemorrhage: varies from microscopic level to completely obscuring the fundus."
+        ]
+      },
+      {
+        "title": "Persistent Painless Loss: Abnormal Fundus (Vascular & Retinal)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Clinical Features"
+          ],
+          "rows": [
+            [
+              "CRAO",
+              "rApD, attenuated arterioles, pale fundus, cherry-red spot."
+            ],
+            [
+              "CRVO",
+              "dilated tortuous veins, haemorrhages in all four quadrants ± macular oedema ± CWS, rApD; BrVO may give symptomatic altitudinal defects, particularly if on temporal arcade."
+            ],
+            [
+              "RRD",
+              "flashes/floaters, tobacco dust, convex elevated retina with (multiple) break(s)."
+            ],
+            [
+              "ERD",
+              "convex elevated retina with shifting fluid, no break."
+            ],
+            [
+              "TRD",
+              "concave elevated retina with tractional membranes."
+            ],
+            [
+              "Intermediate uveitis",
+              "floaters, vitritis, snow balls/banking ± macular oedema."
+            ],
+            [
+              "Posterior uveitis",
+              "floaters, significantly reduced vision; vitritis, retinal/ choroidal infiltrates, macular oedema, vascular sheathing/occlusion, haemorrhages."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Persistent Painless Loss: Disc, Macula & Normal Fundus",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Abnormal disc - AION: rApD, pale oedematous disc ± flame-shaped haemorrhages; may have altitudinal field defect; may be arteritic (with symptoms of GCA) or non-arteritic (usually sectoral disc swelling).",
+          "Abnormal macula - Choroidal neovascular membrane: distortion ± positive scotoma, drusen, subretinal membrane ± haemorrhage, exudate.",
+          "Abnormal macula - CSC: colour desaturation, micropsia, serous detachment of neurosensory retina.",
+          "Normal fundus - Cortical blindness: ± denial, small residual field; normal pupil reactions; abnormal CT/MrI head.",
+          "Normal fundus - Functional: inconsistent acuity between different tests and at different times, normal ophthalmic examination, normal eDTs, spiralling and/or crossing of isopters on kinetic perimetry."
+        ]
+      },
+      {
+        "title": "Sudden/Recent Loss of Vision: Painful",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Abnormal cornea - APAC: usually hypermetropic, haloes, frontal headache, vomiting; injected, corneal oedema, fixed semi-dilated pupil, shallow AC with closed angle, raised IOp.",
+          "Abnormal cornea - Bullous keratopathy: thickened, hazy cornea, stromal/subepithelial oedema, bullae, evidence of underlying pathology, e.g. ACIOl, Fuchs’ endothelial dystrophy, etc.",
+          "Abnormal cornea - Keratitis: photophobia, watering, circumlimbal injection, corneal infiltrate ± epithelial defect ± AC activity.",
+          "Abnormal disc - Optic neuritis: usually age 18–45y, with retro-orbital pain, especially on eye movement, rApD, reduced colour vision, VF defects, swollen disc ± peripapillary flame-shaped haemorrhages; may also be painless.",
+          "Abnormal uvea - Anterior uveitis: anterior pain, photophobia, mildly reduced vision, circumlimbal injection, AC cells and flare, Kps.",
+          "Normal fundus - Retrobulbar neuritis: as for optic neuritis, but with a normal disc; may also be painless."
+        ]
+      },
+      {
+        "title": "Gradual Loss of Vision: Generalized",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Abnormal cornea - Corneal dystrophies: corneal clouding (deposition/oedema); usually bilateral but may be asymmetric; common types include Fuchs’ endothelial dystrophy in the elderly and reis–Bucklers dystrophy in young adults.",
+          "Abnormal cornea - Keratoconus: refractive error from progressive astigmatism; corneal oedema from acute hydrops; usually bilateral but may be asymmetric.",
+          "Abnormal lens - Cataract: uni- or bilateral opacification of the lens; cloudy, misty; glare; commonest in the elderly."
+        ]
+      },
+      {
+        "title": "Gradual Loss of Vision: Central (Macula)",
+        "icon": "center_focus_strong",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Note: Macular disease usually leads to distortion ± micropsia and early dVA; pupillary responses and colour vision are relatively preserved.",
+          "AMD: very common bilateral disease of the elderly; the commonest type is ‘dry’ changes which are associated with gradual, patchy central loss.",
+          "Macular dystrophies: group of diseases with specific patterns occurring in younger age group; bilateral disease; may have FH, and genetic testing is sometimes possible.",
+          "Diabetic maculopathy: ischaemia may lead to gradual dVA; oedema may lead to more acute distortion/dVA; associated with other diabetic changes.",
+          "CMO: oedema resulting in distortion/dVA; may be associated with surgery, inflammation, or vascular disease."
+        ]
+      },
+      {
+        "title": "Gradual Loss: Central (Optic Disc/Nerve)",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Note: Optic nerve disease usually leads to dimness and darkening of colours; although commonly central, it may lead to peripheral or generalized loss of vision; pupillary responses, colour vision, and brightness testing are all reduced.",
+          "Compressive optic neuropathy: progressive dVA, disc pallor ± pain, involvement of other local structures.",
+          "LHON: severe sequential dVA over weeks/months, telangiectatic vessels around disc (acutely); usually young adult ♂; FH.",
+          "Toxic or nutritional optic neuropathies: slowly progressive, symmetrical dVA with central scotomata; relevant nutritional, therapeutic, or toxic history.",
+          "Inflammatory optic neuropathies: associated with systemic disease (e.g. sarcoid, vasculitis, and syphilis); often very steroid-sensitive.",
+          "Chronic papilloedema: sustained disc swelling due to raised ICp may cause permanent optic nerve dysfunction, including dVA and field defects, and optic disc pallor."
+        ]
+      },
+      {
+        "title": "Gradual Loss: Peripheral or Patchy",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Abnormal choroid/retina - Posterior uveitis: floaters, patchy loss of vision ± central distortion/dVA from CMO; may include chorioretinitis, vitritis, and retinal vasculitis.",
+          "Abnormal choroid/retina - RP: bilateral concentric field loss, peripheral ‘bone spicule’ pigmentation, retinal arteriole attenuation, and optic disc pallor.",
+          "Abnormal optic disc - Glaucoma: asymptomatic peripheral field loss; usually bilateral, but often asymmetric; characteristic cupping and other disc changes; often associated with iIOp."
+        ]
+      },
+      {
+        "title": "Source Metadata & Document References",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "Su DD e N /re C e NT lOSS OF VISION 981 | 289 | 982 | C HA p T er 20 Aids to diagnosis | Gr AD u A l lOSS OF VISION 983 | 489"
+      }
+    ],
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "_newlyImported": 1775044682395,
+  "communityId": "sub_1773775007770_f2ryqabht1vtqm",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

@@ -1,0 +1,163 @@
+{
+  "id": 1775044682106,
+  "seqId": 356,
+  "title": "The Science of IOL Power Calculation",
+  "summary": "Achieving the 'Refractive Bullseye' in cataract surgery requires high-precision biometry and the application of sophisticated mathematical formulas. This guide explores the variables, equations, and clinical considerations essential for selecting the perfect intraocular lens.",
+  "date": "2026-04-01T11:58:02.106Z",
+  "data": {
+    "title": "The Science of IOL Power Calculation",
+    "summary": "Achieving the 'Refractive Bullseye' in cataract surgery requires high-precision biometry and the application of sophisticated mathematical formulas. This guide explores the variables, equations, and clinical considerations essential for selecting the perfect intraocular lens.",
+    "summary_illustration": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"45\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M20 50 Q50 5 80 50 Q50 95 20 50\" stroke=\"hsl(215, 90%, 45%)\" fill=\"none\"/><ellipse cx=\"50\" cy=\"50\" rx=\"10\" ry=\"20\" fill=\"hsl(215, 90%, 45%)\" fill-opacity=\"0.2\"/><line x1=\"5\" y1=\"50\" x2=\"95\" y2=\"50\" stroke=\"hsl(215, 90%, 45%)\" stroke-dasharray=\"2\"/><path d=\"M40 50 L50 35 L60 50\" fill=\"none\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"2\"/></svg>",
+    "sections": [
+      {
+        "title": "Core Biometry: The 5 Essential Variables",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Ocular Biometry",
+          "branches": [
+            "Axial Length (AL): The most critical distance from cornea to retina",
+            "Keratometry (K): Corneal curvature and refractive power",
+            "Anterior Chamber Depth (ACD): Distance from cornea to lens",
+            "Lens Thickness (LT): Required for 4th generation formulas",
+            "White-to-White (WTW): Horizontal corneal diameter"
+          ]
+        }
+      },
+      {
+        "title": "Evolution of IOL Formulas",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Generation",
+            "Primary Formulas",
+            "Key Characteristics"
+          ],
+          "rows": [
+            [
+              "1st Generation",
+              "SRK (Regression)",
+              "Based on statistical averages; less accurate for extremes."
+            ],
+            [
+              "2nd Generation",
+              "SRK II",
+              "Modified regression with AL-based adjustments."
+            ],
+            [
+              "3rd Generation",
+              "Hoffer Q, Holladay 1, SRK/T",
+              "Uses AL and K to predict ELP (Effective Lens Position)."
+            ],
+            [
+              "4th Generation",
+              "Haigis, Barrett Universal II",
+              "Incorporates ACD and LT for higher precision."
+            ],
+            [
+              "New Generation",
+              "Hill-RBF, Kane, AI-based",
+              "Uses pattern recognition and artificial intelligence."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Classic SRK Equation",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P = A - 2.5L - 0.9K",
+          "explanation": "P: IOL Power (D); A: Specific Lens Constant; L: Axial Length (mm); K: Average Keratometry (D)."
+        }
+      },
+      {
+        "title": "Sources of Refractive Error",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "AL Measurement",
+              "value": 54
+            },
+            {
+              "label": "ELP Prediction",
+              "value": 38
+            },
+            {
+              "label": "K Measurement",
+              "value": 8
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Risk of Refractive Surprise",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Post-Refractive Surgery (LASIK/PRK/RK) - standard formulas will fail.",
+          "Extreme Axial Lengths: High Myopia (>26.0 mm) or High Hyperopia (<22.0 mm).",
+          "History of Silicone Oil tamponade (requires AL correction).",
+          "Dense Brunescent Cataracts interfering with optical biometry.",
+          "Keratoconus or irregular corneal astigmatism."
+        ]
+      },
+      {
+        "title": "Formula Selection Guide",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Short Eyes (<22mm): Hoffer Q is traditionally favored.",
+          "Medium Eyes (22-26mm): Barrett Universal II or SRK/T.",
+          "Long Eyes (>26mm): Barrett Universal II or Wang-Koch adjusted SRK/T.",
+          "Universal Choice: Barrett Universal II performs well across all ranges."
+        ]
+      },
+      {
+        "title": "The Calculation Workflow",
+        "icon": "genetics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Perform Optical Biometry (Gold Standard).",
+          "2. Review K-values for regularity and astigmatism.",
+          "3. Select IOL Model (Monofocal, Toric, or Multifocal).",
+          "4. Choose formula based on AL and anterior segment data.",
+          "5. Optimize A-Constant based on surgeon personal outcomes."
+        ]
+      },
+      {
+        "title": "Verbatim Clinical Context",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "IOL power calculation is a critical step in cataract surgery that determines the postoperative refractive state. The accuracy of the calculation depends heavily on the precision of biometry (axial length and corneal power) and the mathematical formula used to predict the Effective Lens Position (ELP). Modern biometers use partial coherence interferometry or optical low-coherence reflectometry to provide measurements with micron-level precision, significantly reducing the errors associated with older ultrasound-based immersion or applanation techniques."
+      }
+    ],
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "_newlyImported": 1775044682106,
+  "communityId": "sub_1773775007770_2hhhraqlkje4yv",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true
+}

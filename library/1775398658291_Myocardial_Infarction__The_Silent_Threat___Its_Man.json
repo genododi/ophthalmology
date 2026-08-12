@@ -1,0 +1,409 @@
+{
+  "id": 1775398658291,
+  "seqId": 701,
+  "title": "Myocardial Infarction: The Silent Threat & Its Management",
+  "summary": "Myocardial Infarction (MI), commonly known as a heart attack, is a critical cardiovascular event resulting from prolonged myocardial ischemia and necrosis. This comprehensive guide, tailored for ophthalmology residents and fellows, provides an in-depth look into the pathophysiology, diagnosis, and evidence-based management of MI, emphasizing its systemic implications and the importance of ophthalmologists' understanding of this prevalent comorbidity.",
+  "date": "2026-04-05T14:17:38.291Z",
+  "data": {
+    "title": "Myocardial Infarction: The Silent Threat & Its Management",
+    "summary": "Myocardial Infarction (MI), commonly known as a heart attack, is a critical cardiovascular event resulting from prolonged myocardial ischemia and necrosis. This comprehensive guide, tailored for ophthalmology residents and fellows, provides an in-depth look into the pathophysiology, diagnosis, and evidence-based management of MI, emphasizing its systemic implications and the importance of ophthalmologists' understanding of this prevalent comorbidity.",
+    "summary_illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><linearGradient id=\"heartGradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:hsl(0, 90%, 65%);stop-opacity:1\" /><stop offset=\"100%\" style=\"stop-color:hsl(0, 70%, 55%);stop-opacity:1\" /></linearGradient></defs><path fill=\"url(#heartGradient)\" d=\"M50 89.3C-10 40 20 0 50 25c30-25 60 15 0 64.3z\"/><path fill=\"#FFF\" opacity=\"0.6\" d=\"M50 25c-5 10-10 20-15 30s-10 20-10 25c0 5 5 10 10 10s10-5 15-10c5 5 10 10 15 10s10-5 10-10c0-5-5-15-10-25s-10-20-15-30z\"/><circle cx=\"50\" cy=\"50\" r=\"15\" fill=\"none\" stroke=\"#FFF\" stroke-width=\"2\" opacity=\"0.8\" stroke-dasharray=\"4 4\"/><circle cx=\"50\" cy=\"50\" r=\"8\" fill=\"#FFF\" opacity=\"0.9\"/></svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Overview",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Myocardial Infarction (MI) is defined by myocardial cell death due to prolonged ischemia. It is diagnosed when there is evidence of myocardial necrosis in a clinical setting consistent with acute myocardial ischemia. This is typically indicated by a rise and/or fall of cardiac biomarker values (preferably troponin) with at least one value above the 99th percentile upper reference limit (URL), accompanied by evidence of ischemia such as symptoms, ECG changes (new ST-T changes or left bundle branch block), development of pathological Q waves, or imaging evidence of new loss of viable myocardium or new regional wall motion abnormality. MI is broadly categorized into STEMI (ST-Elevation MI) and NSTEMI (Non-ST-Elevation MI), reflecting the initial ECG presentation and influencing immediate management."
+      },
+      {
+        "title": "2. Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Atherosclerosis (>90%)",
+              "value": 90
+            },
+            {
+              "label": "Hypertension",
+              "value": 70
+            },
+            {
+              "label": "Dyslipidemia",
+              "value": 60
+            },
+            {
+              "label": "Smoking",
+              "value": 50
+            },
+            {
+              "label": "Diabetes Mellitus",
+              "value": 40
+            },
+            {
+              "label": "Obesity",
+              "value": 35
+            },
+            {
+              "label": "Family History",
+              "value": 25
+            },
+            {
+              "label": "Male Sex",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology - Key Data",
+        "icon": "key",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Incidence: Approximately 605,000 new MIs and 200,000 recurrent MIs occur annually in the US.",
+          "Prevalence: Affects millions globally, a leading cause of death worldwide.",
+          "Age: Risk increases significantly with age; men typically affected earlier than women.",
+          "Demographics: Higher incidence in certain ethnic groups (e.g., South Asians) due to genetic and lifestyle factors.",
+          "Comorbidities: Often coexists with other systemic diseases such as chronic kidney disease, peripheral artery disease, and cerebrovascular disease."
+        ]
+      },
+      {
+        "title": "3. Etiology & Pathophysiology",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Myocardial Infarction",
+          "branches": [
+            "Atherosclerosis (Primary Cause)",
+            {
+              "center": "Plaque Rupture",
+              "branches": [
+                "Endothelial Injury",
+                "Inflammatory Response",
+                "Fibrous Cap Thinning"
+              ]
+            },
+            {
+              "center": "Thrombus Formation",
+              "branches": [
+                "Platelet Aggregation (Glycoprotein IIb/IIIa)",
+                "Coagulation Cascade Activation",
+                "Fibrin Meshwork"
+              ]
+            },
+            {
+              "center": "Coronary Artery Occlusion",
+              "branches": [
+                "Complete (STEMI)",
+                "Partial/Transient (NSTEMI)"
+              ]
+            },
+            {
+              "center": "Ischemia & Necrosis",
+              "branches": [
+                "Oxygen-Demand/Supply Mismatch",
+                "Irreversible Cell Injury (>20-30 min)",
+                "Release of Cardiac Biomarkers"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "4. Classification / Subtypes (Universal Definition of MI)",
+        "icon": "menu",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Type",
+            "Description",
+            "Mechanism"
+          ],
+          "rows": [
+            [
+              "Type 1",
+              "Spontaneous MI related to ischemia due to a primary coronary event",
+              "Atherothrombotic plaque rupture or erosion with subsequent luminal thrombosis."
+            ],
+            [
+              "Type 2",
+              "MI secondary to an ischemic imbalance",
+              "Increased oxygen demand or decreased supply (e.g., arrhythmia, anemia, hypotension, coronary spasm, dissection) without primary coronary event."
+            ],
+            [
+              "Type 3",
+              "Sudden unexpected cardiac death",
+              "Suggestive of MI but cardiac biomarkers unavailable or not collected."
+            ],
+            [
+              "Type 4a",
+              "MI related to Percutaneous Coronary Intervention (PCI)",
+              "Typically within 48 hours of PCI."
+            ],
+            [
+              "Type 4b",
+              "MI related to stent thrombosis",
+              "Confirmed by angiography or autopsy."
+            ],
+            [
+              "Type 4c",
+              "MI related to in-stent restenosis",
+              "Recurrent ischemia with evidence of MI."
+            ],
+            [
+              "Type 5",
+              "MI related to Coronary Artery Bypass Grafting (CABG)",
+              "Typically within 48 hours of CABG."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "5. Clinical Features & Symptoms",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Chest Pain: Retrosternal, severe, crushing, squeezing, or heavy. Lasts >20 minutes.",
+          "Radiation: To left arm, shoulder, neck, jaw, back, or epigastrium.",
+          "Associated Symptoms: Dyspnea (shortness of breath), diaphoresis (sweating), nausea, vomiting, palpitations, syncope (fainting), profound weakness.",
+          "Atypical Presentation: More common in women, elderly, and diabetics. May present as fatigue, indigestion, breathlessness, or arm pain without chest discomfort.",
+          "Silent Ischemia: MI without any noticeable symptoms, especially in diabetic patients due to autonomic neuropathy."
+        ]
+      },
+      {
+        "title": "6. Ocular Examination Findings (Indirect Relevance)",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Myocardial Infarction itself does not cause direct ocular examination findings. However, ophthalmologists must be acutely aware of a patient's MI history and risk factors for several reasons:\n\n*   **Systemic Comorbidities:** Conditions that predispose to MI (e.g., uncontrolled hypertension, diabetes mellitus, hyperlipidemia) often have significant ocular manifestations (hypertensive retinopathy, diabetic retinopathy, retinal arterial/venous occlusions, ischemic optic neuropathy).\n*   **Pre-operative Assessment:** For ophthalmic surgeries, particularly those under general anesthesia, a recent MI or unstable cardiac status is a major contraindication or requires urgent cardiac clearance and optimization (e.g., perioperative beta-blockade, antiplatelet/anticoagulant management).\n*   **Medication Management:** Patients post-MI are often on multiple systemic medications (antiplatelets, anticoagulants, beta-blockers, ACE inhibitors, statins) that can affect ophthalmic care (e.g., bleeding risk with antiplatelets during intraocular surgery, interactions with ophthalmic drops).\n*   **Carotid Artery Disease:** A common shared risk factor for MI and amaurosis fugax or stroke. Ocular signs like Hollenhorst plaques (cholesterol emboli in retinal arteries) can indicate severe systemic atherosclerosis and MI risk.\n*   **Cardiac Arrest & Ocular Ischemia:** In rare cases of cardiac arrest secondary to MI, profound global cerebral and ocular ischemia can lead to cortical blindness or severe ischemic optic neuropathy if resuscitation is prolonged or unsuccessful, though this is a complication of arrest, not MI directly."
+      },
+      {
+        "title": "7. Investigations & Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**Step 1: Electrocardiogram (ECG)** - Initial, rapid assessment. Look for ST-elevation (STEMI: ≥2mm in ≥2 contiguous chest leads, ≥1mm in ≥2 contiguous limb leads), new LBBB, T-wave inversions, or Q waves (NSTEMI often has ST depression/T-wave inversion or normal ECG). Serial ECGs are crucial.",
+          "**Step 2: Cardiac Biomarkers (Troponins)** - High-sensitivity cardiac troponin I (hs-cTnI) or T (hs-cTnT) are preferred. Rise and/or fall pattern, with at least one value above 99th percentile URL. Serial measurements (e.g., at 0h and 3h or 0h and 1h for hs-cTn).",
+          "**Step 3: Echocardiography** - Assess left ventricular function (ejection fraction), regional wall motion abnormalities (hypokinesis, akinesis, dyskinesis), valvular function, and rule out complications like ventricular septal defect or free wall rupture. Transthoracic echo is standard.",
+          "**Step 4: Coronary Angiography** - Gold standard for diagnosing coronary artery disease. Performed emergently for STEMI (within 90 mins door-to-balloon) and urgent for high-risk NSTEMI/UA.",
+          "**Step 5: Other Labs** - CBC (anemia), electrolytes, renal function (creatinine for contrast safety), lipid panel (LDL, HDL, triglycerides), glucose (diabetes).",
+          "**Step 6: Imaging (Non-invasive)** - Stress testing (ECG, echo, nuclear) for NSTEMI risk stratification after stabilization. Cardiac MRI for myocardial viability, scar, and edema mapping (especially in unclear cases or for non-ischemic causes)."
+        ]
+      },
+      {
+        "title": "8. Differential Diagnosis of Chest Pain",
+        "icon": "lightbulb",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Cardiovascular",
+            "Pulmonary",
+            "Gastrointestinal",
+            "Musculoskeletal/Other"
+          ],
+          "rows": [
+            [
+              "Angina (stable/unstable)",
+              "Pulmonary Embolism",
+              "Gastroesophageal Reflux Disease (GERD)",
+              "Costochondritis"
+            ],
+            [
+              "Pericarditis/Myocarditis",
+              "Pneumothorax",
+              "Esophageal Spasm",
+              "Rib Fractures"
+            ],
+            [
+              "Aortic Dissection",
+              "Pneumonia/Pleurisy",
+              "Peptic Ulcer Disease",
+              "Herpes Zoster"
+            ],
+            [
+              "Heart Failure Exacerbation",
+              "Asthma/COPD Exacerbation",
+              "Cholecystitis/Pancreatitis",
+              "Anxiety/Panic Attack"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9. Staging / Grading Systems",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "System",
+            "Description",
+            "Parameters / Classes"
+          ],
+          "rows": [
+            [
+              "Killip Classification",
+              "Predicts mortality post-MI based on clinical signs of heart failure.",
+              "Class I: No signs of heart failure (Mortality ~5%)\nClass II: S3 gallop, rales (<50% lung fields), venous hypertension (Mortality ~15%)\nClass III: Acute pulmonary edema (>50% lung fields) (Mortality ~30-40%)\nClass IV: Cardiogenic shock (hypotension, peripheral vasoconstriction) (Mortality ~70-80%)"
+            ],
+            [
+              "TIMI Risk Score for STEMI",
+              "Estimates 30-day mortality in STEMI patients.",
+              "Age ≥75 (3 points), SBP <100 mmHg (3 points), HR >100 bpm (2 points), Killip Class II-IV (2 points), Diabetes/HTN/Angina (1 point), Weight <67 kg (1 point), Anterior MI/LBBB (1 point), Time to Tx >4h (1 point)"
+            ],
+            [
+              "TIMI Risk Score for NSTEMI/UA",
+              "Estimates 14-day risk of death, new MI, or urgent revascularization.",
+              "Age ≥65, ≥3 CAD risk factors, Known CAD (stenosis ≥50%), Aspirin use in last 7 days, Recent severe angina, Elevated cardiac biomarkers, ST-deviation ≥0.5mm (Each 1 point, total 0-7)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "10. Management & Treatment (Acute Phase)",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "**Step 1: Immediate Stabilization (MONA)**",
+          "**M**orphine: 2-4 mg IV, then 2-8 mg every 5-15 min for pain (contraindicated in hypotension/right ventricular MI).",
+          "**O**xygen: If SpO2 <90% or respiratory distress (2-4 L/min via nasal cannula).",
+          "**N**itroglycerin: 0.4 mg sublingually every 5 min (max 3 doses). IV drip for persistent pain/hypertension. Contraindicated in sildenafil/tadalafil use within 24-48h, hypotension, or RV MI.",
+          "**A**spirin: 162-325 mg chewable non-enteric coated loading dose (reduces mortality).",
+          "**Step 2: Antithrombotic Therapy**",
+          "Antiplatelets: P2Y12 inhibitors (Clopidogrel 300-600mg loading, Ticagrelor 180mg loading, Prasugrel 60mg loading) in addition to Aspirin for Dual Antiplatelet Therapy (DAPT).",
+          "Anticoagulants: Heparin (UFH or LMWH like Enoxaparin 1mg/kg SC BID) or Bivalirudin (especially during PCI).",
+          "**Step 3: Reperfusion Strategy (Time is Myocardium!)**",
+          "Primary PCI (Percutaneous Coronary Intervention): Gold standard for STEMI. Target door-to-balloon time <90 minutes. (Within 12 hours of symptom onset).",
+          "Fibrinolytic Therapy: For STEMI patients if PCI is not available within recommended timeframes (e.g., Alteplase, Tenecteplase, Reteplase). Door-to-needle time <30 minutes. Contraindicated in recent stroke, surgery, bleeding.",
+          "**Step 4: Adjunctive Therapies**",
+          "Beta-blockers: Oral (e.g., Metoprolol 25-50 mg BID) within 24 hours if no contraindications (hypotension, bradycardia, severe heart failure). IV beta-blockers typically avoided in acute setting.",
+          "Statins: High-intensity (e.g., Atorvastatin 40-80 mg, Rosuvastatin 20-40 mg) initiated early, regardless of baseline LDL-C.",
+          "ACE Inhibitors/ARBs: Initiated within 24 hours in patients with anterior MI, heart failure, or reduced LVEF (e.g., Lisinopril, Ramipril, Valsartan)."
+        ]
+      },
+      {
+        "title": "11. Surgical Techniques for Revascularization",
+        "icon": "local_hospital",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Percutaneous Coronary Intervention (PCI):** The primary reperfusion strategy for STEMI. Involves catheter-based techniques to open blocked coronary arteries. Steps: Femoral/radial artery access, guiding catheter advancement, guidewire across lesion, balloon angioplasty, stent placement (typically drug-eluting stents).",
+          "**Coronary Artery Bypass Grafting (CABG):** Open-heart surgery to bypass blocked coronary arteries using grafts (e.g., internal mammary artery, saphenous vein). Indicated for multi-vessel disease, left main coronary artery disease, or failed PCI. More complex procedure with longer recovery."
+        ]
+      },
+      {
+        "title": "12. Complications & Prognosis",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "**Arrhythmias:** Ventricular tachycardia/fibrillation, bradyarrhythmias, heart blocks (especially in inferior MI).",
+          "**Heart Failure:** Due to extensive myocardial damage, leading to reduced ejection fraction, pulmonary edema.",
+          "**Cardiogenic Shock:** Severe pump failure leading to hypotension and hypoperfusion.",
+          "**Mechanical Complications:** Myocardial free wall rupture (often fatal), ventricular septal defect, papillary muscle rupture (leading to severe mitral regurgitation).",
+          "**Pericarditis:** Early post-MI pericarditis (fibrinous), or later Dressler's Syndrome (autoimmune pericarditis-pleuritis).",
+          "**Left Ventricular Aneurysm:** Thinned, scarred ventricular wall that bulges, prone to thrombus formation and arrhythmias.",
+          "**Stroke/Systemic Embolism:** Due to mural thrombus formation in a dyskinetic ventricle.",
+          "**Prognosis:** Varies widely with extent of damage, time to reperfusion, and presence of complications. Overall 1-year mortality for MI is ~10-15%. Secondary prevention dramatically improves long-term outcomes."
+        ]
+      },
+      {
+        "title": "13. Red Flags / Emergency Signs",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset, severe, crushing chest pain unrelieved by rest or nitroglycerin.",
+          "Chest pain radiating to the jaw, neck, left arm, or back.",
+          "Associated symptoms: Dyspnea, diaphoresis, nausea, syncope.",
+          "New-onset palpitations or irregular heartbeats with chest pain.",
+          "Sudden unexplained shortness of breath, especially at rest.",
+          "Weakness, dizziness, or lightheadedness without clear cause.",
+          "Sustained hypotension or evidence of cardiogenic shock."
+        ]
+      },
+      {
+        "title": "14. Mnemonics & Memory Aids",
+        "icon": "remember",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "MONA (Immediate MI Management)",
+          "explanation": "M: Morphine (for pain) \nO: Oxygen (if hypoxic) \nN: Nitroglycerin (for vasodilation) \nA: Aspirin (antiplatelet)"
+        }
+      },
+      {
+        "title": "15. Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Time is Myocardium:** Early recognition and rapid reperfusion are paramount to minimize infarct size and improve prognosis.",
+          "**Troponins:** The most sensitive and specific cardiac biomarkers. A 'rise and fall' pattern is diagnostic, not just a single elevated value.",
+          "**ECG:** Even if initial ECG is non-diagnostic, serial ECGs (every 15-30 min) are crucial, especially if symptoms persist.",
+          "**Atypical Presentations:** Always consider MI in patients with unexplained fatigue, dyspnea, or epigastric pain, particularly in women, elderly, and diabetics.",
+          "**DAPT Duration:** For post-MI patients, dual antiplatelet therapy (aspirin + P2Y12 inhibitor) is typically recommended for 12 months, with individual risk-benefit assessment.",
+          "**Secondary Prevention:** Aggressive risk factor modification (smoking cessation, diet, exercise, BP/lipid/glucose control) is critical for preventing recurrent events."
+        ]
+      },
+      {
+        "title": "16. Recent Advances & Landmark Studies",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "**High-Sensitivity Troponins:** Enabled earlier and more precise MI diagnosis, allowing for faster rule-in/rule-out protocols (e.g., 0/1h or 0/3h algorithms).",
+          "**Novel P2Y12 Inhibitors:** Ticagrelor (PLATO trial) and Prasugrel (TRITON-TIMI 38 trial) demonstrated superior efficacy over clopidogrel in reducing MACE (Major Adverse Cardiovascular Events) post-MI, albeit with increased bleeding risk.",
+          "**PCSK9 Inhibitors:** (e.g., Evolocumab, Alirocumab) showed significant LDL-C reduction and MACE reduction in high-risk patients (FOURIER, ODYSSEY OUTCOMES trials) when added to maximal statin therapy.",
+          "**SGLT2 Inhibitors and GLP-1 Receptor Agonists:** Initially for diabetes, trials (EMPA-REG OUTCOME, CANVAS, DECLARE-TIMI 58 for SGLT2i; LEADER, SUSTAIN-6, REWIND for GLP-1 RA) demonstrated cardiovascular benefits, including reduced MACE in patients with or at high risk for ASCVD, regardless of diabetes status.",
+          "**Colchicine in ASCVD:** The LoDoCo2 trial showed low-dose colchicine reduces cardiovascular events in patients with chronic coronary disease, suggesting a role for anti-inflammatory therapy in secondary prevention."
+        ]
+      },
+      {
+        "title": "17. Pediatric / Special Population Considerations",
+        "icon": "group",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "**Pediatric MI:** Extremely rare. Causes include Kawasaki disease (coronary aneurysms), anomalous coronary arteries, cocaine abuse, severe hypercholesterolemia, vasculitis, or post-cardiac surgery.",
+          "**Women:** Often present with atypical symptoms (fatigue, dyspnea, nausea) and may experience delays in diagnosis and treatment. Higher incidence of type 2 MI.",
+          "**Elderly:** Higher incidence of MI, often present with atypical symptoms, higher prevalence of comorbidities, and increased risk of complications.",
+          "**Diabetics:** High risk of silent MI due to autonomic neuropathy. May present with dyspnea, fatigue, or hypotension rather than chest pain.",
+          "**Renal Disease:** Patients with chronic kidney disease have a significantly increased risk of MI and often present with atypical symptoms. Management can be complex due to fluid balance and drug excretion considerations."
+        ]
+      }
+    ],
+    "generationPrompt": "Myocardial infarction",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills"
+}

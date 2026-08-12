@@ -1,0 +1,319 @@
+{
+  "id": 1775044687120,
+  "seqId": 403,
+  "title": "Pulmonary Edema: Clinical Emergency & Systemic Management",
+  "summary": "A life-threatening accumulation of extravascular fluid in the lung parenchyma and alveoli, leading to impaired gas exchange and respiratory failure. This guide covers the critical pathophysiology, classification, and rapid-response protocols required for stabilization.",
+  "date": "2026-04-01T11:58:07.120Z",
+  "data": {
+    "title": "Pulmonary Edema: Clinical Emergency & Systemic Management",
+    "summary": "A life-threatening accumulation of extravascular fluid in the lung parenchyma and alveoli, leading to impaired gas exchange and respiratory failure. This guide covers the critical pathophysiology, classification, and rapid-response protocols required for stabilization.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M30,30 Q15,30 15,50 T30,70 L45,70 L45,30 Z M70,30 Q85,30 85,50 T70,70 L55,70 L55,30 Z' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M25,60 Q40,55 50,60 T75,60' fill='none' stroke='#42a5f5' stroke-width='2' stroke-dasharray='2 2'/><circle cx='50' cy='45' r='5' fill='hsl(215, 90%, 45%)' opacity='0.3'/><circle cx='40' cy='55' r='3' fill='hsl(215, 90%, 45%)' opacity='0.5'/><circle cx='60' cy='62' r='4' fill='hsl(215, 90%, 45%)' opacity='0.4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Pulmonary Edema is the pathological accumulation of fluid in the extravascular spaces of the lungs. It occurs when the rate of fluid filtration from the pulmonary capillaries into the interstitium exceeds the lymphatic drainage capacity. Broadly categorized into Cardiogenic (High Hydrostatic Pressure) and Non-Cardiogenic (Increased Permeability), it represents a medical emergency often encountered in patients with decompensated heart failure or acute systemic insults."
+      },
+      {
+        "title": "Epidemiology & Impact",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Heart Failure Prevalence",
+              "value": 85
+            },
+            {
+              "label": "Acute ARDS Incidence",
+              "value": 40
+            },
+            {
+              "label": "In-patient Mortality",
+              "value": 15
+            },
+            {
+              "label": "Post-Op Complication Risk",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Starling Equation: Pathophysiology",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Net Fluid Flux (Jv)",
+          "branches": [
+            "Hydrostatic Pressure Gradient (Pc - Pi)",
+            "Oncotic Pressure Gradient (πc - πi)",
+            "Permeability Coefficient (Lp)",
+            "Reflection Coefficient (σ)"
+          ]
+        }
+      },
+      {
+        "title": "Cardiogenic vs. Non-Cardiogenic Edema",
+        "icon": "table",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Cardiogenic (CPE)",
+            "Non-Cardiogenic (NCPE)"
+          ],
+          "rows": [
+            [
+              "Mechanism",
+              "Increased Capillary Hydrostatic Pressure",
+              "Increased Alveolar-Capillary Permeability"
+            ],
+            [
+              "PCWP (Wedge)",
+              "> 18 mmHg",
+              "< 18 mmHg (Normal)"
+            ],
+            [
+              "Heart Size",
+              "Enlarged (Cardiomegaly)",
+              "Normal"
+            ],
+            [
+              "S3 Gallop",
+              "Present",
+              "Absent"
+            ],
+            [
+              "Protein in Edema Fluid",
+              "Low (< 0.5 ratio)",
+              "High (> 0.7 ratio)"
+            ],
+            [
+              "CXR Distribution",
+              "Perihilar (Bat-wing)",
+              "Peripheral/Patchy"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation & Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Dyspnea: Sudden onset, progressive worsening at rest.",
+          "Orthopnea: Difficulty breathing while lying flat; relieved by sitting.",
+          "Paroxysmal Nocturnal Dyspnea (PND): Sudden awakening with air hunger.",
+          "Cough: Often productive of 'pink, frothy sputum'.",
+          "Diaphoresis: Excessive sweating due to sympathetic surge.",
+          "Agitation: Feeling of 'impending doom'."
+        ]
+      },
+      {
+        "title": "Physical Examination Findings",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Auscultation: Fine inspiratory crackles (rales), often bilateral.",
+          "Wheezing: 'Cardiac asthma' due to peribronchial edema.",
+          "Cardiac: S3/S4 gallop, jugular venous distention (JVD).",
+          "Periphery: Lower extremity pitting edema, cyanosis.",
+          "Vitals: Tachypnea, Tachycardia, Hypertension (initial) or Hypotension (shock)."
+        ]
+      },
+      {
+        "title": "Radiological Landmarks (CXR)",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Stage 1: Cephalization - Dilation of upper lobe pulmonary veins.",
+          "Stage 2: Interstitial Edema - Kerley B lines (short horizontal lines at lung periphery).",
+          "Stage 3: Alveolar Edema - 'Bat-wing' or butterfly perihilar opacities.",
+          "Stage 4: Pleural Effusions - Often bilateral with blunting of costophrenic angles."
+        ]
+      },
+      {
+        "title": "The MAD DOG Mnemonic: Immediate Tx",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "MAD DOG",
+          "explanation": "M: Morphine (decreases preload/anxiety); A: Aminophylline (bronchodilation); D: Digitalis/Diuretics (Furosemide); D: Dopamine/Dobutamine (inotropes); O: Oxygen (NIV/CPAP); G: Gases (Monitor ABGs)."
+        }
+      },
+      {
+        "title": "LMNP: Standard Pharmacological Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "L: Lasix (Furosemide) 40-80mg IV stat.",
+          "M: Morphine 2-5mg IV (Vasodilates, reduces work of breathing).",
+          "N: Nitrates (Nitroglycerin SL or IV) to reduce preload.",
+          "P: Position (Sit patient upright with legs hanging)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Respiratory Distress",
+          "branches": [
+            "Acute Pulmonary Embolism",
+            "Pneumonia (Consolidation)",
+            "Asthma / COPD Exacerbation",
+            "Pneumothorax",
+            "ARDS (Non-cardiogenic)",
+            "Severe Anemia"
+          ]
+        }
+      },
+      {
+        "title": "Ocular Considerations for the Ophthalmologist",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Hypertensive Emergency: Pulmonary edema often co-exists with Grade IV Hypertensive Retinopathy (Papilledema).",
+          "Pre-eclampsia: High risk of pulmonary edema; look for Elschnig spots and serous retinal detachments.",
+          "Surgical Risk: Patients with underlying CHF/Pulmonary Edema risk require cardiac clearance before elective ophthalmic surgery.",
+          "Medication Side Effects: High-dose systemic Carbonic Anhydrase Inhibitors (Acetazolamide) can exacerbate metabolic acidosis in respiratory failure."
+        ]
+      },
+      {
+        "title": "Critical Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Hypotension (SBP < 90 mmHg): Suggests cardiogenic shock.",
+          "Silent Chest: No air movement on auscultation (Impending failure).",
+          "Altered Mental Status: Signs of hypercapnia or cerebral hypoxia.",
+          "Asymmetrical Edema: Consider pulmonary embolism or focal infection.",
+          "Refractory Hypoxemia: Failure to improve with high-flow O2."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Lab Investigations",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Investigation",
+            "Expected Finding / Purpose",
+            "Clinical Value"
+          ],
+          "rows": [
+            [
+              "BNP / NT-proBNP",
+              "> 400 pg/mL (BNP)",
+              "High sensitivity for heart failure"
+            ],
+            [
+              "ABG",
+              "Hypoxemia (pO2 < 60), Respiratory Alkalosis",
+              "Assesses ventilation/perfusion status"
+            ],
+            [
+              "EKG",
+              "ST-changes, Arrhythmias, LVH signs",
+              "Identifies underlying cardiac trigger"
+            ],
+            [
+              "Echocardiogram",
+              "LVEF < 40%, Valvular dysfunction",
+              "Gold standard for cardiogenic etiology"
+            ],
+            [
+              "Troponin I/T",
+              "Elevated levels",
+              "Rule out Acute Myocardial Infarction"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Classification of Heart Failure (NYHA)",
+        "icon": "cardiology",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Class I (Asymptomatic)",
+              "value": 10
+            },
+            {
+              "label": "Class II (Mild)",
+              "value": 30
+            },
+            {
+              "label": "Class III (Severe Limitation)",
+              "value": 60
+            },
+            {
+              "label": "Class IV (Symptoms at Rest)",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Early NIV: BiPAP/CPAP reduces the need for intubation by 50% in CPE.",
+          "Preload vs Afterload: Nitroglycerin is more effective than Furosemide in the first 15 mins for preload reduction.",
+          "The 'Dry Lung': Non-cardiogenic edema (ARDS) requires low tidal volume ventilation (6 mL/kg).",
+          "Ophthalmic Exam: Fundoscopy can be a 'window' to the severity of systemic hypertensive damage."
+        ]
+      },
+      {
+        "title": "Recent Advances: Landmark Studies",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "Recent evidence from the DOSE trial suggests that high-dose bolus Furosemide is safe and more effective for symptom relief than low-dose continuous infusion in acute decompensation. Furthermore, the use of SGLT2 inhibitors (EMPEROR-Reduced study) has shown significant long-term reduction in re-hospitalization for patients prone to pulmonary edema episodes. In ophthalmology, the management of systemic fluid status remains critical for preventing postoperative complications like venous stasis or IOP spikes during prone-positioning surgeries."
+      }
+    ],
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "_newlyImported": 1775044687120,
+  "communityId": "sub_1773775007770_ig3xcmfudog3or",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

@@ -1,0 +1,321 @@
+{
+  "id": 1775679941111,
+  "seqId": 767,
+  "title": "Suprachoroidal Hemorrhage: The Ophthalmic Surgeon's Nightmare",
+  "summary": "Suprachoroidal Hemorrhage (SCH) is a devastating ocular emergency characterized by the accumulation of blood in the suprachoroidal space between the choroid and the sclera, often triggered by sudden hypotony during intraocular surgery.",
+  "date": "2026-04-08T20:25:41.111Z",
+  "data": {
+    "title": "Suprachoroidal Hemorrhage: The Ophthalmic Surgeon's Nightmare",
+    "summary": "Suprachoroidal Hemorrhage (SCH) is a devastating ocular emergency characterized by the accumulation of blood in the suprachoroidal space between the choroid and the sclera, often triggered by sudden hypotony during intraocular surgery.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 70 Q 50 40 80 70' fill='hsl(0, 80%, 40%)' opacity='0.8'/><path d='M25 75 Q 50 50 75 75' fill='hsl(0, 80%, 30%)' opacity='0.8'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)' opacity='0.2'/><line x1='10' y1='50' x2='90' y2='50' stroke='hsl(215, 90%, 45%)' stroke-dasharray='2 2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Suprachoroidal hemorrhage (SCH) involves the rupture of the long or short posterior ciliary arteries, leading to rapid blood accumulation in the potential space between the choroid and the sclera. It is categorized into 'limited' (localized) or 'expulsive' (massive hemorrhage with extrusion of intraocular contents). While rare (incidence <0.2% in modern phacoemulsification), it remains one of the most vision-threatening complications in ophthalmic surgery."
+      },
+      {
+        "title": "Risk Factor Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Hypertension",
+              "value": 85
+            },
+            {
+              "label": "High Myopia (>26mm)",
+              "value": 60
+            },
+            {
+              "label": "Glaucoma/Pre-op High IOP",
+              "value": 75
+            },
+            {
+              "label": "Anticoagulation",
+              "value": 65
+            },
+            {
+              "label": "Advanced Age",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Pathophysiological Cascade",
+        "icon": "process",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Sudden Hypotony: Opening the globe or rapid drop in IOP.",
+          "2. Vascular Dilation: Choroidal vessels expand due to pressure gradient.",
+          "3. Serous Effusion: Fluid moves into suprachoroidal space.",
+          "4. Vessel Rupture: Stretch on ciliary arteries leads to shearing and rupture.",
+          "5. Massive Hemorrhage: High-pressure arterial blood fills the space."
+        ]
+      },
+      {
+        "title": "Classification of SCH",
+        "icon": "table",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Classification",
+            "Features",
+            "Typical Timing"
+          ],
+          "rows": [
+            [
+              "Limited SCH",
+              "Localized, often in one or two quadrants; may resolve with medical therapy.",
+              "Post-operative"
+            ],
+            [
+              "Massive SCH",
+              "Involves 360 degrees; high IOP; 'kissing choroidals' on B-scan.",
+              "Intra-operative/Early Post-op"
+            ],
+            [
+              "Expulsive SCH",
+              "Ejection of vitreous, lens, or retina through surgical wound.",
+              "Intra-operative"
+            ],
+            [
+              "Delayed SCH",
+              "Occurs days after surgery, often associated with a cough or Valsalva.",
+              "24-72 hours post-op"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "INTRAOPERATIVE RED FLAGS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden shallowing of the anterior chamber (AC)",
+          "Rapid increase in Intraocular Pressure (IOP)",
+          "Loss of the Red Reflex (replaced by dark mass)",
+          "Hardening of the globe (stony-hard)",
+          "Prolapse of the iris, vitreous, or lens material",
+          "Severe, acute ocular pain (if patient is under local anesthesia)"
+        ]
+      },
+      {
+        "title": "Diagnostic Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Ocular Exam",
+          "branches": [
+            "B-Scan: Solid, dome-shaped elevation",
+            "Slit Lamp: Shallow AC, high IOP",
+            "Fundoscopy: Dark peripheral mounds",
+            "Transillumination: Decreased"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Entity",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Serous Detachment",
+              "Clear fluid, transilluminates well, low/normal IOP"
+            ],
+            [
+              "Rhegmatogenous RD",
+              "Undulating membrane, no dome shape, 'tobacco dust'"
+            ],
+            [
+              "Choroidal Melanoma",
+              "Intrinsic vascularity, sentinel vessels, slow onset"
+            ],
+            [
+              "Uveal Effusion",
+              "Associated with nanophthalmos, fluid shifts"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Immediate Intraoperative Management",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Immediate closure of all surgical incisions (Suture everything).",
+          "Step 2: Restore Intraocular Pressure using OVD (Viscoelastic) or saline.",
+          "Step 3: Administer IV Acetazolamide or Mannitol to lower IOP.",
+          "Step 4: Do NOT attempt to drain the blood immediately (arterial pressure will just refill it).",
+          "Step 5: Administer subconjunctival steroids and end the case."
+        ]
+      },
+      {
+        "title": "Remember the Symptoms: P.A.I.N.S.",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "P.A.I.N.S.",
+          "explanation": "P: Pain (Severe, boring), A: AC Shallowing, I: IOP Elevation, N: No Red Reflex, S: Sudden Vision Loss."
+        }
+      },
+      {
+        "title": "Postoperative Medical Therapy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Intensive topical steroids (e.g., Prednisolone Acetate 1% q1h)",
+          "Systemic steroids (Prednisone 60-80mg daily) to reduce inflammation",
+          "Aggressive IOP control (Topical Beta-blockers, CAIs, Alpha-agonists)",
+          "Cycloplegics (Atropine 1%) to stabilize blood-aqueous barrier",
+          "Pain management with systemic analgesics"
+        ]
+      },
+      {
+        "title": "Surgical Drainage Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Observation Period: Wait 7 to 14 days for clot liquefaction (Gold Standard).",
+          "2. Imaging Check: Repeat B-scan to confirm liquefaction (decreasing echogenicity).",
+          "3. Sclerotomies: Perform radial or circumferential sclerotomies in affected quadrants (usually 6-8mm from limbus).",
+          "4. AC/Vitreous Maintenance: Use an infusion cannula to maintain IOP during drainage.",
+          "5. Vitrectomy: Pars Plana Vitrectomy (PPV) often required to manage vitreous incarceration or associated RD.",
+          "6. Perfluorocarbon Liquid (PFCL): Use 'heavy water' to flatten the choroid and push blood out through sclerotomies."
+        ]
+      },
+      {
+        "title": "Landmark Study: AREDS and SCH",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "While AREDS is for ARMD, various retrospective series (e.g., the Beaver Dam Eye Study and smaller surgical cohorts) have established that the highest risk for SCH occurs in patients with axial lengths >26mm and those undergoing combined Glaucoma-Cataract procedures. The timing of drainage was significantly influenced by the 'liquefaction study' (Hoffman et al.), advocating for the 10-14 day delay."
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Phthisis Bulbi: Chronic hypotony and globe atrophy (high risk in expulsive SCH).",
+          "Tractional or Rhegmatogenous Retinal Detachment.",
+          "Corneal Decompensation: Due to prolonged high IOP or AC shallowing.",
+          "Chronic Secondary Glaucoma.",
+          "Prognosis: Poor if macula-involving or if expulsive; 50% achieve <20/200."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Resident",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Pre-op: Always ask about Aspirin, Warfarin, or Clopidogrel. Control BP before surgery.",
+          "Intra-op: If you suspect SCH, CLOSE THE WOUND IMMEDIATELY. A single suture can save the eye.",
+          "Imaging: B-scan is the most critical tool for monitoring; serial scans show when the clot is ready for drainage.",
+          "Management: Do not rush to the OR for drainage on Day 1. Patient outcomes are better when blood has liquefied.",
+          "Differential: If the IOP is low, think Serous Effusion. If the IOP is high, think Hemorrhage."
+        ]
+      }
+    ],
+    "generationPrompt": "Suprachoroidal hemorrhage",
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "kanskiMeta": [
+    {
+      "pageNum": 333,
+      "keywords": [
+        "suprachoroidal",
+        "iol",
+        "risk",
+        "factor",
+        "intraoperative"
+      ]
+    },
+    {
+      "pageNum": 321,
+      "keywords": [
+        "suprachoroidal",
+        "iol",
+        "lens",
+        "risk",
+        "immediate"
+      ]
+    },
+    {
+      "pageNum": 429,
+      "keywords": [
+        "suprachoroidal",
+        "iol",
+        "lens",
+        "risk",
+        "immediate"
+      ]
+    },
+    {
+      "pageNum": 40,
+      "keywords": [
+        "suprachoroidal",
+        "lens",
+        "medical",
+        "surgical",
+        "landmark"
+      ]
+    },
+    {
+      "pageNum": 420,
+      "keywords": [
+        "suprachoroidal",
+        "lens",
+        "risk",
+        "drainage",
+        "complications"
+      ]
+    },
+    {
+      "pageNum": 411,
+      "keywords": [
+        "suprachoroidal",
+        "lens",
+        "risk",
+        "medical",
+        "surgical"
+      ]
+    }
+  ]
+}

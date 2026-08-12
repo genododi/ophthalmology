@@ -1,0 +1,300 @@
+{
+  "id": 1775327044463,
+  "seqId": 643,
+  "title": "Pneumonia: Clinical Mastery & Emergency Management",
+  "summary": "A comprehensive clinical breakdown of pulmonary parenchymal infection, covering risk stratification, microbiological etiology, and evidence-based antibiotic protocols for the internist and emergency physician.",
+  "date": "2026-04-04T18:24:04.463Z",
+  "data": {
+    "title": "Pneumonia: Clinical Mastery & Emergency Management",
+    "summary": "A comprehensive clinical breakdown of pulmonary parenchymal infection, covering risk stratification, microbiological etiology, and evidence-based antibiotic protocols for the internist and emergency physician.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M30,20 Q15,20 15,45 Q15,75 35,85 Q45,90 50,75 Q55,90 65,85 Q85,75 85,45 Q85,20 70,20 Q60,20 50,35 Q40,20 30,20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='65' cy='60' r='8' fill='hsl(215, 90%, 45%)' opacity='0.6'/><circle cx='72' cy='52' r='5' fill='hsl(215, 90%, 45%)' opacity='0.4'/><path d='M50,35 L50,10' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Pneumonia is an acute infection of the lung parenchyma (alveoli and lower respiratory tract) leading to inflammatory exudate and consolidation. It is a leading cause of morbidity and mortality worldwide, often categorized by the environment of acquisition (CAP, HAP, VAP) to guide empiric antimicrobial therapy."
+      },
+      {
+        "title": "Epidemiology: The Global Burden",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Global Mortality Rank",
+              "value": 15
+            },
+            {
+              "label": "Incidence (Adults/1000)",
+              "value": 25
+            },
+            {
+              "label": "Inpatient Mortality CAP",
+              "value": 12
+            },
+            {
+              "label": "ICU Mortality CAP",
+              "value": 35
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathogen Prevalence (CAP)",
+        "icon": "biotech",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "S. pneumoniae",
+              "value": 60
+            },
+            {
+              "label": "H. influenzae",
+              "value": 15
+            },
+            {
+              "label": "Atypical (Myco/Leg)",
+              "value": 15
+            },
+            {
+              "label": "Viral (Flu/SARS)",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Classification Systems",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Definition",
+            "Key Pathogens"
+          ],
+          "rows": [
+            [
+              "CAP",
+              "Community-Acquired: Acquired outside healthcare settings.",
+              "S. pneumoniae, Mycoplasma, Chlamydia, Legionella"
+            ],
+            [
+              "HAP",
+              "Hospital-Acquired: Occurs ≥48h after admission.",
+              "P. aeruginosa, S. aureus (MRSA), Klebsiella, E. coli"
+            ],
+            [
+              "VAP",
+              "Ventilator-Associated: Occurs >48h after intubation.",
+              "MDR organisms, Acinetobacter, Pseudomonas"
+            ],
+            [
+              "Aspiration",
+              "Inhalation of oropharyngeal/gastric contents.",
+              "Anaerobes, Polymicrobial (Bacteroides, Fusobacterium)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CURB-65 Severity Score",
+        "icon": "analytics",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "CURB-65",
+          "explanation": "C: Confusion (new onset); U: Urea >7 mmol/L (20 mg/dL); R: RR ≥30/min; B: BP (SBP <90 or DBP ≤60); 65: Age ≥65 years. (0-1: Home; 2: Inpatient; 3+: ICU/Stepdown)"
+        }
+      },
+      {
+        "title": "Emergency Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Septic Shock requiring vasopressors",
+          "Acute Respiratory Failure (PaO2/FiO2 ratio <250)",
+          "Multilobar opacities on CXR",
+          "Leukopenia (WBC <4,000) or Thrombocytopenia (<100k)",
+          "Hypothermia (Core temp <36°C)",
+          "New onset uremia (BUN >20)"
+        ]
+      },
+      {
+        "title": "Clinical Presentation: Signs & Symptoms",
+        "icon": "school",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Pneumonia Findings",
+          "branches": [
+            "Symptoms: Productive cough (rusty/green sputum), Pleuritic chest pain, Rigors, Dyspnea",
+            "Physical Signs: Bronchial breath sounds, Dullness to percussion, Increased tactile fremitus",
+            "Auscultation: Crackles/Rales, Egophony ('E' to 'A'), Whispered pectoriloquy",
+            "Atypical: Dry cough, Diarrhea (Legionella), Ear pain (Mycoplasma/Bullous Myringitis)"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Pathway",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Imaging — PA/Lateral CXR (Gold Standard: look for air bronchograms/infiltrates). Consider CT for occult cases.",
+          "Step 2: Labs — CBC (Leukocytosis with left shift), BMP (Uremia, Hyponatremia in Legionella), Procalcitonin/CRP.",
+          "Step 3: Microbiology — Sputum Gram stain/Culture, Blood Cultures x2 (if severe), Legionella/S. pneumo Urinary Antigens.",
+          "Step 4: ABG/VBG — Assess for hypoxemia, hypercapnia, or acid-base derangements in distressed patients.",
+          "Step 5: Point-of-Care Ultrasound (POCUS) — Look for 'Shred Sign', B-lines, and pleural effusions."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Matrix",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Congestive Heart Failure",
+              "Bilateral opacities, Kerley B lines, Cardiomegaly, high BNP, responds to diuretics."
+            ],
+            [
+              "Pulmonary Embolism",
+              "Pleuritic pain, clear CXR (usually), Wedge-shaped infarct (Hampton's Hump), high D-Dimer/CTPA positive."
+            ],
+            [
+              "Acute Bronchitis",
+              "Cough without focal consolidation on CXR, usually viral."
+            ],
+            [
+              "Lung Malignancy",
+              "Chronic weight loss, non-resolving infiltrate, hilar lymphadenopathy."
+            ],
+            [
+              "Pulmonary Vasculitis",
+              "Hemoptysis, renal involvement (RPGN), positive ANCA."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Empiric Management: CAP (Outpatient)",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Healthy (No Comorbidities): Amoxicillin 1g TID OR Doxycycline 100mg BID.",
+          "With Comorbidities (DM, CKD, COPD): Augmentin + Macrolide (Azithromycin 500mg) OR Respiratory Fluoroquinolone (Levofloxacin 750mg).",
+          "Duration: 5-7 days based on clinical stability."
+        ]
+      },
+      {
+        "title": "Inpatient/ICU Management Protocols",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Standard Inpatient: Ceftriaxone 1-2g IV QD + Azithromycin 500mg IV/PO.",
+          "ICU Coverage: Ceftriaxone + Levofloxacin (Double coverage for Legionella/Pneumo).",
+          "MRSA Concern: Add Vancomycin (trough 15-20) or Linezolid 600mg BID.",
+          "Pseudomonas Concern: Piperacillin-Tazobactam 4.5g q6h or Cefepime 2g q8h."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Complications",
+          "branches": [
+            "Pulmonary: Parapneumonic effusion, Empyema (pH <7.2), Lung Abscess, Necrotizing pneumonia",
+            "Systemic: Sepsis/SIRS, Septic Shock, ARDS, Multi-organ failure",
+            "Cardiac: Increased risk of MACE (Major Adverse Cardiac Events) for 1 year post-infection",
+            "Ocular (Rare): Metastatic endophthalmitis (Streptococcus/Klebsiella bacteremia)"
+          ]
+        }
+      },
+      {
+        "title": "Landmark Studies & Recent Advances",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "CAPE COD Trial (2023): Hydrocortisone therapy reduced 28-day mortality in patients with severe CAP.",
+          "MRSA Nasal PCR: High negative predictive value (~98%); useful for de-escalating anti-MRSA therapy in HAP/VAP.",
+          "Procalcitonin-Guided Therapy: Useful for antibiotic cessation in clinically stable patients, but should not delay initiation in the ED.",
+          "Pneumococcal Vaccine (PCV20/Vaxneuvance): Shift toward higher-valent conjugate vaccines for adult prophylaxis."
+        ]
+      },
+      {
+        "title": "Clinical Pearls (The Resident's Guide)",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PEARLS",
+          "explanation": "P: Pleural effusion >1cm on lateral decubitus needs thoracentesis; E: Elderly patients may lack fever (present with falls/delirium); A: Aspiration risk is highest in posterior segments of upper lobes/superior segments of lower lobes; R: Repeat CXR in 6-8 weeks for smokers >40 to rule out underlying malignancy; L: Legionella often causes hyponatremia and high LFTs; S: S. aureus pneumonia often follows an influenza infection."
+        }
+      },
+      {
+        "title": "Surgical/Procedural Interventions",
+        "icon": "fingerprint",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Thoracentesis: Indicated for any significant parapneumonic effusion.",
+          "Chest Tube (Tube Thoracostomy): For empyema, loculated fluid, or pH < 7.2.",
+          "VATS (Video-Assisted Thoracoscopic Surgery): For decortication in complex/chronic empyema.",
+          "Bronchoscopy: Useful in non-resolving pneumonia or for BAL in the immunocompromised."
+        ]
+      },
+      {
+        "title": "Special Populations: Pediatrics",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Neonates (<3 weeks): Group B Strep, E. coli, Listeria. Rx: Amp/Gent.",
+          "Infants (3w-3m): C. trachomatis (staccato cough).",
+          "Children (Preschool): Viral (RSV) is most common.",
+          "Atypical Pathogens: Mycoplasma is more common in children >5 years."
+        ]
+      }
+    ],
+    "generationPrompt": "Pneumonia ( internal medicine & emergency )",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "read": true
+}

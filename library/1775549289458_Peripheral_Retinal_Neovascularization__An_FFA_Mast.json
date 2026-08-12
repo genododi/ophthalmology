@@ -1,0 +1,327 @@
+{
+  "id": 1775549289458,
+  "seqId": 752,
+  "title": "Peripheral Retinal Neovascularization: An FFA Masterclass",
+  "summary": "Peripheral retinal neovascularization (NVE) is a pathological response to chronic retinal ischemia, driven by the upregulation of VEGF. Fluorescein Fundus Angiography (FFA), particularly Ultra-Widefield (UWF), remains the gold standard for identifying capillary non-perfusion and the characteristic 'smoke-stack' or 'sea-fan' leakage of new vessels.",
+  "date": "2026-04-07T08:08:09.458Z",
+  "data": {
+    "title": "Peripheral Retinal Neovascularization: An FFA Masterclass",
+    "summary": "Peripheral retinal neovascularization (NVE) is a pathological response to chronic retinal ischemia, driven by the upregulation of VEGF. Fluorescein Fundus Angiography (FFA), particularly Ultra-Widefield (UWF), remains the gold standard for identifying capillary non-perfusion and the characteristic 'smoke-stack' or 'sea-fan' leakage of new vessels.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M100 100 L160 110 M100 100 L155 80 M100 100 L140 140' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/><path d='M160 110 Q170 100 180 115 M160 110 Q170 120 175 105 M155 80 Q165 70 175 85' fill='none' stroke='hsl(0, 80%, 60%)' stroke-width='2'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)' opacity='0.2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Peripheral Neovascularization (NVE) refers to the proliferation of new, fragile blood vessels arising from the retinal circulation, located at least 1 disc diameter away from the optic nerve head. These vessels lack a functional blood-retinal barrier, leading to the hallmark 'profuse leakage' seen on FFA. NVE is the hallmark of proliferative retinopathies and is a direct consequence of retinal capillary non-perfusion (CNP)."
+      },
+      {
+        "title": "Primary Etiological Drivers",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Diabetes (PDR)",
+              "value": 90
+            },
+            {
+              "label": "Venous Occlusion (BRVO)",
+              "value": 75
+            },
+            {
+              "label": "Sickle Cell",
+              "value": 65
+            },
+            {
+              "label": "ROP",
+              "value": 50
+            },
+            {
+              "label": "Eales Disease",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiological Cascade",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Chronic Retinal Capillary Non-Perfusion (Ischemia)",
+          "2. Upregulation of Hypoxia-Inducible Factor 1-alpha (HIF-1α)",
+          "3. Massive release of Vascular Endothelial Growth Factor (VEGF)",
+          "4. Endothelial cell proliferation and migration through the ILM",
+          "5. Formation of immature, leaky vascular tufts (NVE)",
+          "6. Fibrovascular scaffolding and vitreoretinal traction"
+        ]
+      },
+      {
+        "title": "FFA Characteristics: NV vs. IRMA",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Neovascularization (NVE)",
+            "Intraretinal Microvascular Abnormality (IRMA)"
+          ],
+          "rows": [
+            [
+              "Location",
+              "Pre-retinal / Vitreous interface",
+              "Intraretinal (deep)"
+            ],
+            [
+              "FFA Leakage",
+              "Early, profuse, 'fuzzy' borders",
+              "Minimal to no leakage; 'sharp' borders"
+            ],
+            [
+              "Vessel Course",
+              "Crosses over major retinal arteries/veins",
+              "Does not cross major vessels"
+            ],
+            [
+              "Traction",
+              "Highly associated with fibrous tissue/TRD",
+              "No associated tractional elements"
+            ],
+            [
+              "Significance",
+              "Indicates Proliferative disease",
+              "Indicates Severe NPDR"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Peripheral Ischemia",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Peripheral NVE Causes",
+          "branches": [
+            "Vascular: PDR, BRVO, CRVO (Hemicentral), Ocular Ischemic Syndrome",
+            "Hematologic: Sickle Cell (SC, S-Thal), Hyperviscosity Syndromes",
+            "Inflammatory: Sarcoidosis, Eales Disease, Pars Planitis, Behcet's",
+            "Congenital/Genetic: FEVR, Coats Disease, ROP, Norrie Disease",
+            "Traumatic: Radiation Retinopathy, Scleral Buckle-induced ischemia"
+          ]
+        }
+      },
+      {
+        "title": "FFA Imaging Protocol (Ultra-Widefield)",
+        "icon": "camera",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Baseline red-free and autofluorescence photos.",
+          "2. Bolus injection (5ml of 10% Sodium Fluorescein).",
+          "3. Early Phase (0-30s): Identify transit time and early NVE filling.",
+          "4. Mid Phase (1-3 min): Map areas of Capillary Non-Perfusion (CNP).",
+          "5. Late Phase (5-10 min): Evaluate NVE leakage intensity and disc staining."
+        ]
+      },
+      {
+        "title": "Specific Entity: Sickle Cell Retinopathy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Stage 1: Peripheral arteriolar silver-wiring.",
+          "Stage 2: Peripheral arteriolar-venular anastomoses.",
+          "Stage 3: 'Sea-fan' neovascularization (Goldberg Class III).",
+          "Stage 4: Vitreous hemorrhage.",
+          "Stage 5: Tractional Retinal Detachment.",
+          "FFA Hallmark: Circumferential peripheral ischemia with 'Sea-fan' NV at the border of perfused and non-perfused retina."
+        ]
+      },
+      {
+        "title": "Mnemonic: The Causes of Sea-Fans",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "S.O.S. D.E.F.",
+          "explanation": "S: Sickle Cell, O: Ocular Ischemic Syndrome, S: Sarcoidosis, D: Diabetes (PDR), E: Eales Disease, F: FEVR."
+        }
+      },
+      {
+        "title": "Critical FFA Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "NVD (Disc NV): High risk of rapid vision loss; requires immediate PRP.",
+          "Peripheral non-perfusion > 10 disc areas: High risk for neovascular glaucoma.",
+          "Enlarged Foveal Avascular Zone (FAZ): Signifies macular ischemia; poor visual prognosis.",
+          "Vitreous hemorrhage obscuring view: FFA may be limited; consider B-scan USG."
+        ]
+      },
+      {
+        "title": "Management & Treatment Protocols",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Modality",
+            "Indication",
+            "Mechanism / Protocol"
+          ],
+          "rows": [
+            [
+              "Anti-VEGF (Ranibizumab/Aflibercept)",
+              "Active NVE with Macular Edema",
+              "Intravitreal injection; rapid regression of NV; 1-month intervals initially"
+            ],
+            [
+              "Pan-Retinal Photocoagulation (PRP)",
+              "High-risk PDR / Extensive NVE",
+              "1200-1500 burns; 200-500um size; creates 'controlled atrophy' to reduce VEGF demand"
+            ],
+            [
+              "Sectoral Laser",
+              "BRVO with NVE",
+              "Laser only the ischemic segment identified on UWF-FFA"
+            ],
+            [
+              "Pars Plan Vitrectomy (PPV)",
+              "Non-clearing VH / TRD",
+              "Removal of vitreous scaffold; endolaser; membrane peeling"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Pearl: Laser Settings",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Laser Spot Size: 200–500 µm.",
+          "Duration: 0.1s (Standard) or 0.02s (Pattern/Pascal).",
+          "Power: Titrate to a 'creamy white' burn.",
+          "Spacing: One burn-width apart.",
+          "UWF-FFA Guidance: Use UWF images to ensure laser covers the extreme periphery and all CNP zones."
+        ]
+      },
+      {
+        "title": "Landmark Clinical Trials",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "DRS (Diabetic Retinopathy Study): Established PRP as standard for high-risk PDR.",
+          "ETDRS: Defined NVE and the benefit of early PRP in certain cases.",
+          "Protocol S (DRCR.net): Anti-VEGF (Ranibizumab) was non-inferior to PRP for PDR at 2 years.",
+          "PANORAMA: Aflibercept can prevent progression to PDR in severe NPDR cases."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Tractional Retinal Detachment (TRD): Due to contraction of the fibrovascular stalk.",
+          "Neovascular Glaucoma (NVG): Migration of VEGF to the anterior segment; 'Rubeosis Iridis'.",
+          "Ghost Cell Glaucoma: Secondary to long-standing Vitreous Hemorrhage.",
+          "Macular Epiretinal Membrane: Post-inflammatory or post-ischemic fibrocellular proliferation.",
+          "Prognosis: Excellent if treated early; poor if NVG or foveal-involving TRD develops."
+        ]
+      },
+      {
+        "title": "Pediatric Focus: FEVR vs. ROP",
+        "icon": "child_care",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Familial Exudative Vitreoretinopathy (FEVR)",
+            "Retinopathy of Prematurity (ROP)"
+          ],
+          "rows": [
+            [
+              "Birth History",
+              "Full-term usually",
+              "Premature / Low birth weight"
+            ],
+            [
+              "Genetics",
+              "NDP, FZD4, LRP5 mutations (AD/AR/X-linked)",
+              "Environmental (Oxygen/Prematurity)"
+            ],
+            [
+              "FFA Finding",
+              "Abrupt cessation of peripheral vessels",
+              "Demarcation line / Ridge in Zone I/II"
+            ],
+            [
+              "Family History",
+              "Often positive",
+              "Usually negative"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearl: The 'Smoke-Stack' Leakage",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Smoke & Mirrors",
+          "explanation": "NVE leaks into the vitreous like smoke (fluorescein plumes). If it doesn't leak, it's 'mirroring' a vessel (IRMA)."
+        }
+      },
+      {
+        "title": "Recent Advances: OCT-A",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "Optical Coherence Tomography Angiography (OCT-A) now allows for non-invasive visualization of NVE. While limited in the far periphery compared to UWF-FFA, OCT-A can visualize the 'medusa-head' morphology of NVE tufts without dye injection, though it lacks the ability to demonstrate active 'leakage'."
+      }
+    ],
+    "generationPrompt": "Peripheral neovascularisation on FFA",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "kanskiMeta": [
+    {
+      "pageNum": 5,
+      "keywords": [
+        "ffa",
+        "retinal",
+        "neovascularization",
+        "angiography",
+        "cell"
+      ]
+    }
+  ]
+}

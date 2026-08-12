@@ -1,0 +1,292 @@
+{
+  "id": 1775232997946,
+  "seqId": 617,
+  "title": "Sympathetic Ophthalmia: The Ocular Duel",
+  "summary": "A rare, sight-threatening bilateral granulomatous panuveitis occurring after penetrating ocular trauma or intraocular surgery. It represents a delayed T-cell mediated autoimmune response against uveoretinal self-antigens, leading to devastating inflammation in both the 'exciting' and 'sympathizing' eye.",
+  "date": "2026-04-03T16:16:37.946Z",
+  "data": {
+    "title": "Sympathetic Ophthalmia: The Ocular Duel",
+    "summary": "A rare, sight-threatening bilateral granulomatous panuveitis occurring after penetrating ocular trauma or intraocular surgery. It represents a delayed T-cell mediated autoimmune response against uveoretinal self-antigens, leading to devastating inflammation in both the 'exciting' and 'sympathizing' eye.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='60' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='140' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M80 30 Q100 10 120 30' fill='none' stroke='hsl(0, 80%, 50%)' stroke-width='3' stroke-dasharray='4'/><path d='M80 70 Q100 90 120 70' fill='none' stroke='hsl(0, 80%, 50%)' stroke-width='3' stroke-dasharray='4'/><circle cx='60' cy='50' r='5' fill='hsl(0, 80%, 50%)'/><circle cx='140' cy='50' r='5' fill='hsl(0, 80%, 50%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Sympathetic Ophthalmia (SO) is a rare, bilateral granulomatous panuveitis that follows accidental or surgical penetrating trauma to one eye (the 'exciting' eye). The non-injured eye (the 'sympathizing' eye) subsequently develops inflammation. Historically associated with battlefield trauma, modern cases are frequently associated with multiple intraocular surgeries, particularly vitreoretinal procedures."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Post-Accidental Trauma",
+              "value": 0.3
+            },
+            {
+              "label": "Post-Surgical Trauma",
+              "value": 0.015
+            },
+            {
+              "label": "Male Predominance (Trauma)",
+              "value": 65
+            },
+            {
+              "label": "Pediatric Risk Factor",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The Trigger Events",
+        "icon": "history",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Accidental Penetrating Trauma: Historically the most common cause (60-70%).",
+          "Intraocular Surgery: Now accounts for ~30% of cases; Vitrectomy is the leading surgical cause.",
+          "Cataract extraction, evisceration (rarely), and even Nd:YAG cyclophotocoagulation.",
+          "Interval: Usually occurs within 3 months of injury (80%), but can range from days to decades."
+        ]
+      },
+      {
+        "title": "Pathophysiology: T-Cell Mediated Attack",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Autoimmune Cascade",
+          "branches": [
+            "Sensitization: Uveoretinal antigens (S-antigen, Rhodopsin) released into lymphatics",
+            "Type IV Hypersensitivity: Delayed T-cell mediated response",
+            "MHC Class II Association: HLA-DR4, HLA-DRB1*04, and HLA-DQA1*03",
+            "Granulomatous Reaction: Non-necrotizing infiltration of uveal tract"
+          ]
+        }
+      },
+      {
+        "title": "Classic Histopathology",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Uveal Infiltration",
+              "Diffuse, 'non-necrotizing' granulomatous infiltration of choroid with lymphocytes & epithelioid cells."
+            ],
+            [
+              "Choriocapillaris Sparing",
+              "Relative sparing of the choriocapillaris (distinguishes from VKH)."
+            ],
+            [
+              "Dalen-Fuchs Nodules",
+              "Clusters of epithelioid cells, macrophages, and RPE cells located between RPE and Bruch's membrane."
+            ],
+            [
+              "Retinal Involvement",
+              "Usually spared except for perivascular cuffing and edema."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation: Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Sympathizing Eye: Earliest sign is often 'blurring at near' (loss of accommodation).",
+          "Photophobia and mild redness.",
+          "Floating spots and decreased visual acuity.",
+          "Exciting Eye: Sudden worsening of chronic low-grade inflammation."
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "layers",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Anterior Segment: 'Mutton-fat' Keratic Precipitates (KPs), Koeppe/Busacca nodules, and posterior synechiae.",
+          "Vitreous: Significant vitritis (cells and haze).",
+          "Posterior Segment: Diffuse choroidal thickening, exudative retinal detachment.",
+          "Dalen-Fuchs Nodules: Multiple yellow-white mid-peripheral lesions."
+        ]
+      },
+      {
+        "title": "The Diagnostic Workup",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Investigation",
+            "Classic Findings in SO"
+          ],
+          "rows": [
+            [
+              "FFA (Early)",
+              "Multiple fluorescent 'pinpoint' leaks at the RPE level (starry sky appearance)."
+            ],
+            [
+              "FFA (Late)",
+              "Late pooling of dye in areas of exudative RD; staining of the optic disc."
+            ],
+            [
+              "ICGA",
+              "Multiple hypofluorescent spots (more sensitive for choroidal involvement than FFA)."
+            ],
+            [
+              "EDI-OCT",
+              "Significant choroidal thickening; subretinal fluid; bacillary layer detachment."
+            ],
+            [
+              "B-Scan USG",
+              "Diffuse thickening of the choroid without extrascleral extension."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Vogt-Koyanagi-Harada (VKH)",
+              "No history of trauma; associated with exudative RD, hearing loss, and vitiligo; Choriocapillaris involved."
+            ],
+            [
+              "Sarcoidosis",
+              "Systemic involvement (lungs, hilar nodes); positive ACE/Lysozyme levels."
+            ],
+            [
+              "Vogt-Koyanagi-Harada",
+              "Bilateral, but has no traumatic trigger."
+            ],
+            [
+              "Endophthalmitis",
+              "Acute onset, intense pain, hypopyon, often bacterial/fungal markers present."
+            ],
+            [
+              "Multifocal Choroiditis",
+              "Smaller lesions, typically seen in myopic females."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Prevention & Timing",
+        "icon": "emergency",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Primary repair of the penetrating injury (maintain globe integrity).",
+          "Step 2: Assess visual potential. If the eye is blind (NPL), consider enucleation.",
+          "Step 3: The 'Golden Period' — Enucleation within 10-14 days of trauma is historically considered protective.",
+          "Step 4: Once inflammation starts in the sympathizing eye, enucleation of the exciting eye is controversial and may not help."
+        ]
+      },
+      {
+        "title": "Medical Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Initial Pulse: IV Methylprednisolone 1g/day for 3 days if severe.",
+          "High Dose Steroids: Oral Prednisolone 1.0–1.5 mg/kg/day, tapered slowly over 6-12 months.",
+          "Steroid Sparing: Early introduction of IMT (Immunomodulatory Therapy) if steroids fail or for long-term control.",
+          "Maintenance: Maintain on lowest effective dose to prevent relapse."
+        ]
+      },
+      {
+        "title": "Immunomodulatory Therapy (IMT)",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Antimetabolites: Azathioprine (2mg/kg) or Mycophenolate Mofetil (1g BD).",
+          "Calcineurin Inhibitors: Cyclosporine A or Tacrolimus.",
+          "Biologics: Infliximab or Adalimumab (Anti-TNF alpha) for refractory cases.",
+          "Alkylating Agents: Chlorambucil or Cyclophosphamide (reserved for severe, resistant cases)."
+        ]
+      },
+      {
+        "title": "URGENT RED FLAGS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden loss of accommodation in a patient with history of ocular trauma.",
+          "New onset 'floaters' in the healthy eye post-surgery.",
+          "Non-compliance with steroid taper (leading to rebound inflammation).",
+          "Signs of Enucleation Delay beyond the 2-week window in a non-salvageable eye."
+        ]
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Complications: Complicated Cataract, Secondary Glaucoma, Macular Edema, Choroidal Neovascularization (CNV).",
+          "Prognosis: Historically poor, but with modern IMT, >75% of patients achieve 20/40 or better vision.",
+          "Recurrence: Relapses are common if steroids are tapered too rapidly."
+        ]
+      },
+      {
+        "title": "The Enucleation vs. Evisceration Debate",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "Traditionally, enucleation was mandatory to prevent SO, as evisceration might leave residual uveal antigens. However, modern studies (including meta-analyses) suggest that the risk of SO after evisceration is extremely low (comparable to enucleation), leading many surgeons to prefer evisceration for better cosmetic outcomes in NPL eyes."
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "THE PEARLS",
+          "explanation": "P: Pinpoint leaks on FFA; E: Exciting eye was the injured one; A: Antigens (uveoretinal) are the cause; R: Rare since modern microsurgery; L: Long-term steroids/IMT required; S: Sparing of Choriocapillaris."
+        }
+      }
+    ],
+    "generationPrompt": "Sympathetic ophthalmia",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis"
+}

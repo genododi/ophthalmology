@@ -1,0 +1,349 @@
+{
+  "id": 1775384804323,
+  "seqId": 681,
+  "title": "Vitreous Hemorrhage: A Comprehensive Clinical Guide",
+  "summary": "Vitreous hemorrhage (VH) is the presence of blood within the vitreous cavity, a common cause of sudden, painless vision loss. This poster provides a detailed, evidence-based overview, covering its etiology, diagnosis, and management, essential for ophthalmology residents and fellows.",
+  "date": "2026-04-05T10:26:44.323Z",
+  "data": {
+    "title": "Vitreous Hemorrhage: A Comprehensive Clinical Guide",
+    "summary": "Vitreous hemorrhage (VH) is the presence of blood within the vitreous cavity, a common cause of sudden, painless vision loss. This poster provides a detailed, evidence-based overview, covering its etiology, diagnosis, and management, essential for ophthalmology residents and fellows.",
+    "summary_illustration": "<svg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <radialGradient id=\"irisGradient\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n      <stop offset=\"0%\" style=\"stop-color:hsl(215, 90%, 65%);\" />\n      <stop offset=\"100%\" style=\"stop-color:hsl(215, 90%, 45%);\" />\n    </radialGradient>\n  </defs>\n  <circle cx=\"50\" cy=\"50\" r=\"45\" fill=\"#FFFFFF\" stroke=\"hsl(0, 0%, 70%)\" stroke-width=\"2\"/>\n  <circle cx=\"50\" cy=\"50\" r=\"25\" fill=\"url(#irisGradient)\"/>\n  <circle cx=\"50\" cy=\"50\" r=\"12\" fill=\"#000000\"/>\n  <circle cx=\"60\" cy=\"40\" r=\"5\" fill=\"rgba(255, 0, 0, 0.6)\"/>\n  <circle cx=\"45\" cy=\"55\" r=\"4\" fill=\"rgba(255, 0, 0, 0.6)\"/>\n  <circle cx=\"55\" cy=\"65\" r=\"6\" fill=\"rgba(255, 0, 0, 0.6)\"/>\n  <circle cx=\"70\" cy=\"50\" r=\"3\" fill=\"rgba(255, 0, 0, 0.6)\"/>\n</svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Vitreous hemorrhage (VH) refers to the presence of blood within the vitreous cavity, anterior to the retina. It is a significant cause of sudden, painless decrease in visual acuity. The extent of vision loss depends on the density and location of the hemorrhage. Clearing can take weeks to months, and persistent hemorrhage can lead to complications such as ghost cell glaucoma or retinal detachment."
+      },
+      {
+        "title": "2. Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Proliferative Diabetic Retinopathy",
+              "value": 50
+            },
+            {
+              "label": "PVD w/ Retinal Tear",
+              "value": 20
+            },
+            {
+              "label": "Trauma",
+              "value": 15
+            },
+            {
+              "label": "Retinal Macroaneurysm",
+              "value": 5
+            },
+            {
+              "label": "Terson's Syndrome",
+              "value": 3
+            },
+            {
+              "label": "Other (ROP, Sickle Cell, AMD)",
+              "value": 7
+            }
+          ]
+        }
+      },
+      {
+        "title": "3. Etiology & Pathophysiology",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Vitreous Hemorrhage Causes",
+          "branches": [
+            "Proliferative Retinopathy (PDR, RVO, Sickle Cell)",
+            "Posterior Vitreous Detachment (PVD) ± Retinal Tear",
+            "Trauma (Blunt, Penetrating, Shaken Baby Syndrome)",
+            "Vascular Lesions (Retinal Macroaneurysm, AVM)",
+            "Terson's Syndrome (Subarachnoid/Subdural Hemorrhage)",
+            "Inflammatory/Infectious (Eales' Disease)",
+            "Tumors (Retinoblastoma, Choroidal Melanoma - rare)",
+            "Post-Surgical Complications (e.g., Anti-VEGF injection, YAG capsulotomy)"
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Blood enters the vitreous cavity due to rupture of retinal vessels or neovascular membranes (e.g., in PDR), or direct injury. The blood cells obstruct the light pathway, causing vision loss. Hemolysis and breakdown products can lead to complications like ghost cell glaucoma. Chronic iron deposition can cause hemosiderosis bulbi, damaging retinal cells."
+      },
+      {
+        "title": "4. Classification by Severity",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Severity",
+            "Description",
+            "Visual Acuity Impact"
+          ],
+          "rows": [
+            [
+              "Trace",
+              "Few red blood cells, subtle opacities.",
+              "Minimal to no impact, usually 20/25 or better."
+            ],
+            [
+              "Mild",
+              "Diffuse haze, partial obscuration of fine fundus details.",
+              "Mild reduction, e.g., 20/30 - 20/50."
+            ],
+            [
+              "Moderate",
+              "Significant obscuration of major retinal vessels and optic disc.",
+              "Moderate reduction, e.g., 20/60 - 20/200."
+            ],
+            [
+              "Dense",
+              "Complete obscuration of fundus details, absent red reflex.",
+              "Severe reduction, often Hand Motions (HM) or Light Perception (LP)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "5. Clinical Features & Symptoms",
+        "icon": "sick",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Sudden, painless decrease in visual acuity (most common).",
+          "New onset of floaters ('cobwebs', 'spiders', 'shower of black dots').",
+          "Perception of a 'red haze' or 'smoky vision'.",
+          "Photopsias (flashes of light) – less common, suggests associated PVD/tear.",
+          "Metamorphopsia (distorted vision) – rare, if macula involved or underlying cause.",
+          "Visual field defects (due to dense clots)."
+        ]
+      },
+      {
+        "title": "6. Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Visual Acuity: Ranging from 20/20 to no light perception (NLP).",
+          "Relative Afferent Pupillary Defect (RAPD): May be present if significant retinal pathology.",
+          "Slit-lamp biomicroscopy: Red blood cells in the anterior vitreous; obscured view of the fundus.",
+          "Indirect Ophthalmoscopy: Hazy or absent red reflex (dense VH); difficulty or inability to visualize fundus details.",
+          "Gonioscopy: May reveal red blood cells in the angle or associated neovascularization (NVA)."
+        ]
+      },
+      {
+        "title": "7. Investigations & Diagnostic Workup",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "**Step 1: History & Ocular Examination** (VA, IOP, anterior segment, dilated fundus exam if possible).",
+          "**Step 2: B-scan Ultrasonography** (MANDATORY if fundus view is obscured). Essential to rule out retinal detachment, posterior vitreous detachment, intraocular foreign body, or intraocular tumor. Can assess vitreous clarity and mobility.",
+          "**Step 3: Systemic Workup** (as indicated): Blood pressure, fasting blood glucose/HbA1c (for diabetes), complete blood count, coagulation profile (INR/PTT) if coagulopathy suspected.",
+          "**Step 4: Fluorescein Angiography (FFA) / Optical Coherence Tomography (OCT)**: Performed *after* significant clearing of the hemorrhage to identify and characterize the source of bleeding (e.g., neovascularization, macroaneurysm). Not useful in acute dense VH."
+        ]
+      },
+      {
+        "title": "8. Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features",
+            "Key Diagnostic Test"
+          ],
+          "rows": [
+            [
+              "Rhegmatogenous Retinal Detachment (RRD)",
+              "Usually accompanied by more photopsia/floaters before vision loss; often associated with PVD. VH can mask view of detachment.",
+              "B-scan ultrasonography (essential if VH obscures view)."
+            ],
+            [
+              "Posterior Vitreous Detachment (PVD) without Tear",
+              "Sudden floaters, but vision loss not as severe unless subtle hemorrhage. Weiss ring visible.",
+              "Dilated fundus exam; B-scan (if view hazy)."
+            ],
+            [
+              "Central Retinal Vein Occlusion (CRVO)",
+              "Extensive retinal hemorrhages, dilated tortuous veins, disc edema, cotton wool spots. VH can occur secondary to neovascularization.",
+              "FFA, OCT, fundus examination."
+            ],
+            [
+              "Endophthalmitis",
+              "Pain, red eye, hypopyon, severe inflammation, possibly purulent vitreous.",
+              "Vitreous tap for culture and sensitivity."
+            ],
+            [
+              "Severe Uveitis/Vitritis",
+              "Pain, photophobia, cells/flare in anterior chamber, inflammatory cells in vitreous but no frank blood.",
+              "Slit-lamp exam, rule out infectious causes."
+            ],
+            [
+              "Intraocular Tumor (e.g., Melanoma)",
+              "Progressive vision loss, specific lesion on fundus exam. VH can occur if tumor bleeds.",
+              "B-scan ultrasonography, clinical suspicion."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9. Staging / Grading",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "While there isn't a formal staging system like TNM, vitreous hemorrhage is typically graded by density and clinical impact (as described in Classification by Severity). The duration of hemorrhage (acute vs. chronic) is also clinically important, as chronic hemorrhages (e.g., >3 months) are less likely to clear spontaneously and carry a higher risk of complications like ghost cell glaucoma and epiretinal membrane formation, often warranting surgical intervention."
+      },
+      {
+        "title": "10. Management & Treatment",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**Step 1: Initial Conservative Management**",
+          "•  Head elevation (30-45 degrees to help blood settle inferiorly).",
+          "•  Bed rest and avoidance of strenuous activity (to prevent re-bleed).",
+          "•  Bilateral patching (controversial, aims to reduce eye movements).",
+          "•  Manage systemic conditions (e.g., blood pressure, glucose control, anti-coagulation review).",
+          "**Step 2: Observation & Monitoring**",
+          "•  Small hemorrhages due to PVD or trauma often clear spontaneously within weeks-months.",
+          "•  Regular follow-up (e.g., weekly to monthly B-scans for dense VH) to monitor clearing and rule out complications like RD.",
+          "**Step 3: Medical Treatment (for underlying cause)**",
+          "•  Anti-VEGF injections (e.g., Ranibizumab, Aflibercept, Bevacizumab) for proliferative diabetic retinopathy (PDR) to regress neovascularization and prevent further bleeding. May also hasten clearing.",
+          "**Step 4: Surgical Intervention (Pars Plana Vitrectomy - PPV)**",
+          "•  **Indications for Early PPV:** Retinal detachment, non-clearing VH (>3 months or 1-2 months in diabetics), ghost cell glaucoma, suspected penetrating trauma, significant epiretinal membrane.",
+          "•  **Urgent PPV:** Suspected giant retinal tear, endophthalmitis with VH, specific cases of Terson's syndrome, suspected intraocular foreign body."
+        ]
+      },
+      {
+        "title": "11. Surgical Techniques: Pars Plana Vitrectomy (PPV)",
+        "icon": "hand_bones",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Step 1: Anesthesia** (Local or general).",
+          "**Step 2: Sclerotomies** (23-gauge, 25-gauge, or 27-gauge for smaller incisions) made through the pars plana.",
+          "**Step 3: Infusion Cannula Placement** (maintains IOP).",
+          "**Step 4: Vitrectomy** (using a high-speed vitrector) to aspirate the hemorrhagic vitreous. Intraocular pressure is carefully controlled. Direct visualization through the microscope (or endoscope if view is completely obscured).",
+          "**Step 5: Identify & Treat Bleeding Source** After clearing blood, the retina is meticulously inspected for tears, detachments, or bleeding neovascularization. Endolaser photocoagulation or cryopexy is applied as needed.",
+          "**Step 6: Tamponade** Fluid-air exchange followed by gas (SF6, C2F6, C3F8) or silicone oil tamponade if retinal tears, detachment, or extensive neovascularization require prolonged internal support.",
+          "**Step 7: Sclerotomy Closure** (often sutureless with small gauge vitrectomy)."
+        ]
+      },
+      {
+        "title": "12. Complications & Prognosis",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Ghost Cell Glaucoma: Hemolyzed red blood cells block trabecular meshwork.",
+          "Hemosiderotic Glaucoma: Iron deposition damages trabecular meshwork.",
+          "Pigmentary Glaucoma: Pigment dispersion from vitreous.",
+          "Recurrent Vitreous Hemorrhage.",
+          "Retinal Detachment (especially if initial cause was a tear).",
+          "Epiretinal Membrane (ERM) and Macular Pucker.",
+          "Optic Atrophy.",
+          "Amblyopia (in children).",
+          "Cataract formation (especially after PPV).",
+          "Corneal blood staining (rare, with very high IOP and hyphema)."
+        ]
+      },
+      {
+        "title": "13. Red Flags / Emergency Signs",
+        "icon": "crisis_alert",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden, profound vision loss with LP/NLP: Rule out Retinal Detachment.",
+          "Severe ocular pain: Suggests associated conditions (e.g., acute angle-closure glaucoma, endophthalmitis, trauma).",
+          "Hyphema (blood in anterior chamber): Indicates possible trauma or underlying anterior segment pathology.",
+          "Increasing Intraocular Pressure (IOP): Risk of ghost cell glaucoma.",
+          "Signs of posterior segment infection (Endophthalmitis): Pain, redness, hypopyon, severe inflammation.",
+          "Suspected penetrating ocular trauma: Risk of intraocular foreign body, endophthalmitis."
+        ]
+      },
+      {
+        "title": "14. Mnemonics & Memory Aids",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "VIPER for Vitreous Hemorrhage Causes",
+          "explanation": "•  **V**ascular: Proliferative Diabetic Retinopathy, RVO, Sickle Cell Retinopathy.\n•  **I**njury: Ocular Trauma (blunt/penetrating), Shaken Baby Syndrome.\n•  **P**VD: Posterior Vitreous Detachment (especially with retinal tear).\n•  **E**tc: Retinal Macroaneurysm, Terson's Syndrome, ROP, AMD (rare).\n•  **R**etinal Detachment: Often occurs secondary to PVD/tear."
+        }
+      },
+      {
+        "title": "15. Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Always perform a B-scan ultrasonography if the fundus view is obscured by dense VH to rule out retinal detachment.",
+          "Proliferative Diabetic Retinopathy (PDR) is the most common cause of spontaneous VH in adults.",
+          "Consider non-accidental trauma (Shaken Baby Syndrome) in pediatric VH cases without clear etiology.",
+          "Non-clearing VH in a diabetic patient for 1-3 months typically warrants vitrectomy due to higher risk of complications and potential for occult retinal detachment.",
+          "The presence of an ochre membrane and ghost cells suggests chronic VH.",
+          "Systemic review is crucial, especially for diabetes, hypertension, and coagulopathies."
+        ]
+      },
+      {
+        "title": "16. Recent Advances & Landmark Studies",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "Recent advances include the widespread use of anti-VEGF agents (e.g., ranibizumab, aflibercept, bevacizumab) for treating underlying proliferative retinopathies like PDR. Studies from the DRCR.net (Diabetic Retinopathy Clinical Research Network) have informed optimal timing and protocols for anti-VEGF use, which has significantly reduced the incidence of severe VH and the need for vitrectomy in some cases. The ETDRS (Early Treatment Diabetic Retinopathy Study) criteria for PDR still guide management decisions for laser photocoagulation. Innovations in small-gauge vitrectomy (23, 25, 27 gauge) have made surgical intervention safer with faster recovery and less inflammation."
+      },
+      {
+        "title": "17. Pediatric / Special Population Considerations",
+        "icon": "child_friendly",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Pediatric Population:**",
+          "•  **Non-Accidental Trauma (NAT) / Shaken Baby Syndrome:** Always consider in infants with VH, especially if bilateral or associated with retinal hemorrhages, subdural hematoma, or other systemic injuries.",
+          "•  **Retinopathy of Prematurity (ROP):** Proliferative ROP can lead to VH.",
+          "•  **Juvenile X-linked Retinoschisis:** Can present with VH due to bleeding from retinal vessels in schisis cavities.",
+          "•  **Amblyopia Risk:** Dense, persistent VH in children can lead to severe amblyopia, necessitating prompt intervention.",
+          "**Special Populations:**",
+          "•  **Sickle Cell Disease:** Proliferative sickle cell retinopathy is a significant cause of recurrent VH.",
+          "•  **Coagulopathies:** Patients on anticoagulants (warfarin, NOACs) or with bleeding disorders (hemophilia) are at higher risk. Careful medication review is essential.",
+          "•  **Terson's Syndrome:** Associated with subarachnoid or subdural hemorrhage; can be bilateral and dense, usually clears spontaneously but may require vitrectomy."
+        ]
+      }
+    ],
+    "generationPrompt": "vitreous hemorrhage",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "_newlyImported": 1775384804323,
+  "communityId": "sub_1775384035715_l2nx9bpmoq6qn9",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-04-05T10:13:55.715Z"
+}

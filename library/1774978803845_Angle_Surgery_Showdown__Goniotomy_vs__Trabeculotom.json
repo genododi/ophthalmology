@@ -1,0 +1,172 @@
+{
+  "id": 1774978803845,
+  "seqId": 14,
+  "title": "Angle Surgery Showdown: Goniotomy vs. Trabeculotomy",
+  "summary": "A comprehensive clinical comparison of ab interno goniotomy and ab externo trabeculotomy for the surgical management of childhood glaucoma. These procedures aim to bypass the pathologically high resistance of the trabecular meshwork in primary congenital glaucoma (PCG).",
+  "date": "2026-03-31T17:40:03.845Z",
+  "data": {
+    "title": "Angle Surgery Showdown: Goniotomy vs. Trabeculotomy",
+    "summary": "A comprehensive clinical comparison of ab interno goniotomy and ab externo trabeculotomy for the surgical management of childhood glaucoma. These procedures aim to bypass the pathologically high resistance of the trabecular meshwork in primary congenital glaucoma (PCG).",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M50 100 Q 100 50 150 100' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='6'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Both procedures are angle surgeries aimed at relieving obstruction in the trabecular meshwork (TM) for primary congenital glaucoma (PCG). Goniotomy involves an 'ab interno' approach, cutting the meshwork under direct visualization. Trabeculotomy involves an 'ab externo' approach, cannulating Schlemm's canal to rupture the TM."
+      },
+      {
+        "title": "Comparative Success Rates",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Goniotomy Success",
+              "value": 75
+            },
+            {
+              "label": "Trabeculotomy Success",
+              "value": 82
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Abandon Angle Surgery",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Corneal opacification (Haab striae/edema) precluding visualization of the angle.",
+          "Uncontrolled IOP despite maximal angle intervention.",
+          "Evidence of secondary glaucoma (e.g., Axenfeld-Rieger syndrome or ICE).",
+          "Signs of angle closure or peripheral anterior synechiae (PAS)."
+        ]
+      },
+      {
+        "title": "Procedural Comparison Matrix",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Goniotomy",
+            "Trabeculotomy"
+          ],
+          "rows": [
+            [
+              "Approach",
+              "Ab interno",
+              "Ab externo"
+            ],
+            [
+              "Visualization",
+              "Requires clear cornea",
+              "Does not require clear cornea"
+            ],
+            [
+              "Primary Tool",
+              "Barkan goniotomy lens",
+              "Harms trabeculotome"
+            ],
+            [
+              "Schlemm's Canal",
+              "Incised indirectly",
+              "Cannulated directly"
+            ],
+            [
+              "Best For",
+              "Early PCG, clear cornea",
+              "Corneal clouding, re-operation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: Surgical Indications",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "CLOUDY",
+          "explanation": "If the cornea is CLOUDY, choose Trabeculotomy (Ab externo). If the cornea is clear, Goniotomy is the 'Gold' standard."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Success of goniotomy is highly dependent on corneal clarity; if corneal edema is severe, use an ab externo approach.",
+          "In trabeculotomy, ensure the trabeculotome is correctly placed in Schlemm’s canal by noting the resistance change.",
+          "Both surgeries carry a risk of transient hyphema; maintain the anterior chamber with viscoelastic (e.g., Healon).",
+          "Success is defined as normalized IOP without need for topical anti-glaucoma medication."
+        ]
+      },
+      {
+        "title": "Step-by-Step: Goniotomy Procedure",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Administer retrobulbar or general anesthesia; position patient head.",
+          "Step 2: Place Barkan goniotomy lens on the cornea to visualize the angle.",
+          "Step 3: Create a paracentesis; inject cohesive OVD (e.g., Provisc).",
+          "Step 4: Advance goniotomy knife across the AC to the nasal angle.",
+          "Step 5: Incise the TM in the anterior 1/3, sweeping 60-90 degrees."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Examination Under Anesthesia (EUA) is mandatory for infants.",
+          "Measure horizontal corneal diameter (norm < 11mm in neonates; >12mm suspicious for buphthalmos).",
+          "Measure IOP (Tono-Pen or Perkins tonometer) - must be done quickly post-anesthesia induction.",
+          "Perform gonioscopy (critical to evaluate the insertion of the iris and presence of TM).",
+          "Axial length measurement (A-scan/IOLMaster) - compare to fellow eye or growth curves."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Hierarchy",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "PCG Differential",
+          "branches": [
+            "Primary Congenital Glaucoma (PCG)",
+            "Juvenile Open-Angle Glaucoma (JOAG)",
+            "Secondary Glaucomas (Sturge-Weber, NF1, Peters anomaly)",
+            "Inflammatory Glaucoma",
+            "Traumatic Glaucoma"
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Goniotomy vs trabeculotomy",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true
+}

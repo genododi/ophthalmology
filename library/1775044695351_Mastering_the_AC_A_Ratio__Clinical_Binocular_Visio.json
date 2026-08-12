@@ -1,0 +1,299 @@
+{
+  "id": 1775044695351,
+  "seqId": 458,
+  "title": "Mastering the AC/A Ratio: Clinical Binocular Vision",
+  "summary": "A comprehensive clinical guide to the Accommodative Convergence/Accommodation ratio, exploring its measurement, classification of strabismus, and therapeutic implications for residents and fellows.",
+  "date": "2026-04-01T11:58:15.351Z",
+  "data": {
+    "title": "Mastering the AC/A Ratio: Clinical Binocular Vision",
+    "summary": "A comprehensive clinical guide to the Accommodative Convergence/Accommodation ratio, exploring its measurement, classification of strabismus, and therapeutic implications for residents and fellows.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 L70 50 M50 30 L50 70' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M35 35 Q50 20 65 35 M35 65 Q50 80 65 65' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1.5'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Core Concept",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The Accommodative Convergence/Accommodation (AC/A) ratio represents the amount of accommodative convergence (measured in prism diopters, Δ) that occurs for every unit of accommodation (measured in diopters, D) exerted. It is a critical metric for diagnosing and managing non-strabismic binocular vision anomalies and pediatric esotropia. A normal ratio typically ranges from 3:1 to 5:1."
+      },
+      {
+        "title": "Normal vs. Pathological Ratios",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Low AC/A (CI)",
+              "value": 20
+            },
+            {
+              "label": "Normal AC/A",
+              "value": 45
+            },
+            {
+              "label": "High AC/A (CE)",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Heterophoria Method",
+        "icon": "calculate",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Measure Interpupillary Distance (PD) in centimeters.",
+          "Step 2: Measure Near Deviation (Dn) and Distance Deviation (Df) in prism diopters.",
+          "Step 3: Note: Esophoria (+) and Exophoria (-).",
+          "Step 4: Use Formula: AC/A = PD + [(Dn - Df) / A], where A is the accommodative stimulus at near (usually 3.0D or 4.0D).",
+          "Note: This method includes the effect of proximal accommodation."
+        ]
+      },
+      {
+        "title": "The Gradient Method",
+        "icon": "straighten",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Measure baseline deviation at a fixed distance (usually 6m or 33cm).",
+          "Step 2: Place a lens (usually -2.00D or +3.00D) in front of the eyes.",
+          "Step 3: Re-measure the deviation with the lenses in place.",
+          "Step 4: Use Formula: AC/A = (Deviation with lens - Baseline deviation) / Lens Power.",
+          "Note: This method eliminates proximal accommodation and is often more clinically relevant for bifocal prescription."
+        ]
+      },
+      {
+        "title": "Comparison: Heterophoria vs. Gradient",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Heterophoria Method",
+            "Gradient Method"
+          ],
+          "rows": [
+            [
+              "Proximal Accommodation",
+              "Included",
+              "Excluded"
+            ],
+            [
+              "Typical Values",
+              "Usually higher (by ~1-2 units)",
+              "Lower, more pure measure"
+            ],
+            [
+              "Clinical Utility",
+              "Screening for total convergence response",
+              "Best for calculating lens/bifocal effect"
+            ],
+            [
+              "Complexity",
+              "Requires PD and math",
+              "Requires lens change and re-measurement"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Classification of High AC/A Esotropia",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "High AC/A (Convergence Excess)",
+          "branches": [
+            "Refractive Esotropia (High Hyperopia)",
+            "Non-refractive Esotropia (Normal Hyperopia + High AC/A)",
+            "Divergence Excess Exotropia (Simulated vs True)",
+            "Partially Accommodative Esotropia"
+          ]
+        }
+      },
+      {
+        "title": "Duane's Classification of AC/A Disorders",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Clinical Entity",
+            "AC/A Ratio",
+            "Deviation Pattern"
+          ],
+          "rows": [
+            [
+              "Convergence Insufficiency (CI)",
+              "Low",
+              "Near XT > Distance XT"
+            ],
+            [
+              "Divergence Insufficiency (DI)",
+              "Low",
+              "Distance ET > Near ET"
+            ],
+            [
+              "Convergence Excess (CE)",
+              "High",
+              "Near ET > Distance ET"
+            ],
+            [
+              "Divergence Excess (DE)",
+              "High",
+              "Distance XT > Near XT"
+            ],
+            [
+              "Basic Esotropia",
+              "Normal",
+              "Distance ET = Near ET"
+            ],
+            [
+              "Basic Exotropia",
+              "Normal",
+              "Distance XT = Near XT"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Strategy: High AC/A ET",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Full Cycloplegic Refraction: Mandatory in all cases.",
+          "2. Full Hyperopic Correction: Prescribe the maximum tolerated.",
+          "3. Bifocals: Executive or flat-top (line at lower pupillary margin) if residual ET at near.",
+          "4. Miotics: Echothiophate iodide 0.125% (if bifocals not tolerated).",
+          "5. Surgery: Indicated if non-accommodative component remains >15Δ."
+        ]
+      },
+      {
+        "title": "Management Strategy: Low AC/A CI",
+        "icon": "psychology",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Orthoptics/Vision Therapy: Pencil push-ups, Brock string, Computer-based orthoptics.",
+          "2. Prism: Base-in (BI) prisms for reading (Relieving prisms).",
+          "3. Minus Lenses: To stimulate accommodative convergence (rarely used).",
+          "4. CITT Study: Proven superiority of office-based therapy over home-based therapy."
+        ]
+      },
+      {
+        "title": "Pharmacological Modulation",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Miotics (Echothiophate Iodide / Phospholine Iodide) lower the AC/A ratio.",
+          "Mechanism: Induces 'peripheral' accommodation, requiring less central effort.",
+          "Risk: Iris cysts (prevented by 2.5% phenylephrine).",
+          "Atropine: Can indirectly increase AC/A by forcing more central effort."
+        ]
+      },
+      {
+        "title": "RED FLAGS: High AC/A Risks",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset esotropia in older children (Rule out CNS tumor).",
+          "Bifocal fit too low (Line must bisect pupil in children).",
+          "Iris cysts from Miotic use.",
+          "Post-surgical exotropia in high AC/A patients."
+        ]
+      },
+      {
+        "title": "Memory Aids & Mnemonics",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "CE-H / CI-L",
+          "explanation": "Convergence Excess = High AC/A | Convergence Insufficiency = Low AC/A."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "AC/A ratio remains stable throughout life until the onset of presbyopia.",
+          "Patients with High AC/A ET are more prone to consecutive exotropia after surgery.",
+          "Simulated Divergence Excess: High AC/A that masquerades as true DE; use +3.00D lenses or patch test to differentiate.",
+          "Bifocals should only be used if they restore binocularity/fusion at near."
+        ]
+      },
+      {
+        "title": "Diagnostic Differential: Near ET",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "AC/A Ratio",
+            "Defining Feature"
+          ],
+          "rows": [
+            [
+              "Refractive Accommodative ET",
+              "Normal",
+              "Fully corrected by full hyperopic correction at D & N"
+            ],
+            [
+              "Non-refractive Accommodative ET",
+              "High",
+              "Residual ET at near despite full D correction; relieved by bifocals"
+            ],
+            [
+              "Partial Accommodative ET",
+              "Any",
+              "Residual ET despite correction and/or bifocals"
+            ],
+            [
+              "Abducens Nerve Palsy",
+              "N/A",
+              "Limited abduction and incomitance"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances: The CITT Study",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "The Convergence Insufficiency Treatment Trial (CITT) provided landmark evidence that office-based vergence-accommodative therapy is significantly more effective than home-based therapy or pencil push-ups for symptomatic CI in children. For High AC/A, recent studies on Progressive Addition Lenses (PALs) show they are a viable alternative to traditional flat-top bifocals, though adherence and positioning are critical."
+      }
+    ],
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "_newlyImported": 1775044695351,
+  "communityId": "sub_1774117683318_q522m1zhg",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-21T18:28:03.318Z"
+}

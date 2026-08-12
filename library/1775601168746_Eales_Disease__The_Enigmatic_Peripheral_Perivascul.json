@@ -1,0 +1,324 @@
+{
+  "id": 1775601168746,
+  "seqId": 764,
+  "title": "Eales Disease: The Enigmatic Peripheral Perivasculitis",
+  "summary": "A primary idiopathic inflammatory venous occlusive disease of the peripheral retina, predominantly affecting young healthy males. It is characterized by three distinct stages: perivascular inflammation, peripheral ischemia, and retinal neovascularization.",
+  "date": "2026-04-07T22:32:48.746Z",
+  "data": {
+    "title": "Eales Disease: The Enigmatic Peripheral Perivasculitis",
+    "summary": "A primary idiopathic inflammatory venous occlusive disease of the peripheral retina, predominantly affecting young healthy males. It is characterized by three distinct stages: perivascular inflammation, peripheral ischemia, and retinal neovascularization.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M100 100 L160 60 M100 100 L170 100 M100 100 L160 140' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round'/><path d='M160 60 Q175 50 180 65 T190 60' fill='none' stroke='red' stroke-width='2'/><path d='M170 100 Q185 90 190 105 T195 100' fill='none' stroke='red' stroke-width='2'/><path d='M160 140 Q175 130 180 145 T190 140' fill='none' stroke='red' stroke-width='2'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M40 100 Q60 80 80 100 T120 100' fill='none' stroke='white' stroke-width='1' opacity='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Eales disease is an idiopathic, inflammatory, peripheral retinal venulitis characterized by stages of inflammation (sheathing), non-perfusion (ischemia), and neovascularization. It is a diagnosis of exclusion and primarily affects the peripheral retina, often leading to recurrent vitreous hemorrhages."
+      },
+      {
+        "title": "2. Epidemiology & Risk Profile",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Male Predominance",
+              "value": 90
+            },
+            {
+              "label": "Age 20-40 yrs",
+              "value": 85
+            },
+            {
+              "label": "Bilateral Involvement",
+              "value": 80
+            },
+            {
+              "label": "Indian Subcontinent",
+              "value": 75
+            }
+          ]
+        }
+      },
+      {
+        "title": "3. Etiology & Pathophysiology",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Etiological Drivers",
+          "branches": [
+            "Hypersensitivity to M. Tuberculosis (Type IV)",
+            "High prevalence of HLA-B5, DR1, DR4",
+            "Retinal Autoimmunity (S-Antigen)",
+            "Oxidative Stress & Free Radicals",
+            "Elevated VEGF in Vitreous"
+          ]
+        }
+      },
+      {
+        "title": "4. Classification & Staging (Saxena & Kumar)",
+        "icon": "table",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Clinical Features",
+            "Prognostic Significance"
+          ],
+          "rows": [
+            [
+              "Stage I",
+              "Peripheral perivasculitis (sheathing) with/without peripheral hemorrhages",
+              "Excellent; mild inflammation"
+            ],
+            [
+              "Stage IIa",
+              "Peripheral capillary non-perfusion (Ischemia)",
+              "Progressing toward neovascularization"
+            ],
+            [
+              "Stage IIb",
+              "Neovascularization elsewhere (NVE) or on the Disc (NVD)",
+              "High risk for Vitreous Hemorrhage"
+            ],
+            [
+              "Stage IIIa",
+              "Vitreous Hemorrhage (VH)",
+              "Significant vision drop; requires management"
+            ],
+            [
+              "Stage IIIb",
+              "Tractional Retinal Detachment (TRD)",
+              "Requires complex vitreoretinal surgery"
+            ],
+            [
+              "Stage IV",
+              "Complications: Rubeosis Iridis, NVG, Phthisis Bulbi",
+              "Poor visual prognosis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "5. Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Vascular Sheathing: Peripheral venous 'cuffing' (exudative white lines).",
+          "Venous Tortuosity: Dilated, beaded peripheral veins.",
+          "Peripheral Hemorrhages: Flame-shaped or dot-blot in the periphery.",
+          "Neovascularization: Classic 'Sea-fan' pattern at the junction of perfused/non-perfused retina.",
+          "Macular Edema: Cystoid changes due to chronic inflammation.",
+          "Vitreous: Cells (1+ to 3+), haze, or frank hemorrhage."
+        ]
+      },
+      {
+        "title": "6. Differential Diagnosis (Crucial Exclusion)",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Sarcoidosis",
+              "Granulomatous; ACE levels; CXR findings"
+            ],
+            [
+              "Behcet's Disease",
+              "Oral/Genital ulcers; panuveitis; hypopyon"
+            ],
+            [
+              "Sickle Cell Retinopathy",
+              "Peripheral 'Sea-fans'; Hemoglobin electrophoresis"
+            ],
+            [
+              "FEVR",
+              "Genetic history; straightened peripheral vessels"
+            ],
+            [
+              "Coats Disease",
+              "Massive exudation; Telangiectatic vessels; usually unilateral"
+            ],
+            [
+              "Branch Retinal Vein Occlusion",
+              "Sectoral; follows anatomy of vein crossing"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "7. Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Ultra-Widefield FFA — Identify peripheral capillary non-perfusion (CNP) and NVE.",
+          "Step 2: Mantoux Test / QuantiFERON-TB Gold — Screen for TB hypersensitivity/exposure.",
+          "Step 3: Chest X-Ray — Rule out active TB or Sarcoidosis.",
+          "Step 4: Blood Panel — CBC, ESR, ESR, ANA, ACE, VDRL/RPR to exclude other vasculitides.",
+          "Step 5: B-Scan Ultrasonography — Essential when Vitreous Hemorrhage obscures view to rule out TRD.",
+          "Step 6: Optical Coherence Tomography (OCT) — Assess for Macular Edema or VMT."
+        ]
+      },
+      {
+        "title": "8. Medical Management Protocols",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Corticosteroids: Mainstay for active perivasculitis (Oral Prednisolone 1mg/kg tapered).",
+          "Periocular Injections: Sub-Tenon's Triamcinolone for localized inflammation or CME.",
+          "Anti-TB Therapy (ATT): Considered if Mantoux is strongly positive (though controversial).",
+          "Anti-VEGF: Intravitreal Ranibizumab or Bevacizumab for NVE regression or pre-op.",
+          "Antioxidants: Vitamin C and E supplements often used based on oxidative stress theory."
+        ]
+      },
+      {
+        "title": "9. Laser & Surgical Intervention",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Sectoral PRP — Target areas of non-perfusion identified on FFA.",
+          "Step 2: 360-degree Peripheral Laser — If widespread ischemia is present.",
+          "Step 3: Pars Plana Vitrectomy (PPV) — Indicated for non-clearing VH (>1-3 months).",
+          "Step 4: Membrane Peeling — For TRD or epiretinal membranes.",
+          "Step 5: Endolaser — During PPV to ensure all ischemic areas are treated."
+        ]
+      },
+      {
+        "title": "10. Red Flags: Emergency Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden 'Shower of floaters' or 'black curtain' (Vitreous Hemorrhage).",
+          "Fixed shadow in vision (Tractional Retinal Detachment).",
+          "Severe eye pain and redness (Neovascular Glaucoma).",
+          "Rapid vision loss in a previously 'quiet' eye.",
+          "Strongly positive Mantoux (>20mm) or abnormal CXR (suggests active TB)."
+        ]
+      },
+      {
+        "title": "11. Remember the E.A.L.E.S. Mnemonic",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "E.A.L.E.S.",
+          "explanation": "E: Early adulthood (Young males); A: Areas of non-perfusion (Peripheral); L: Leukocytoclastic vasculitis/Inflammation; E: Exclude other causes; S: Sea-fan neovascularization."
+        }
+      },
+      {
+        "title": "12. Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "The hallmark of Eales is peripheral venous sheathing; arterial involvement is rare.",
+          "Always check the 'good' eye; Eales is often bilateral but asymmetric.",
+          "Ultra-widefield FFA is the gold standard for management decisions.",
+          "Wait at least 48 hours after Anti-VEGF before Vitrectomy to reduce 'crunch' syndrome (though less common in Eales than DM)."
+        ]
+      },
+      {
+        "title": "13. Complications & Prognosis",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Visual prognosis is generally good if treated before Stage IIIb. Complications include recurrent Vitreous Hemorrhage, Tractional Retinal Detachment (TRD), Macular ERM, and Neovascular Glaucoma (NVG). Chronic macular edema is the leading cause of persistent visual morbidity."
+      },
+      {
+        "title": "14. Recent Advances & Landmark Studies",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "PCR for M. Tuberculosis: Nested PCR on aqueous/vitreous samples shows TB DNA in many Eales patients.",
+          "Proteomics: Identification of unique inflammatory markers (IL-6, MCP-1) in vitreous.",
+          "UWF-Imaging: Ultra-widefield fundus photography has revolutionized staging and laser targeting."
+        ]
+      }
+    ],
+    "generationPrompt": "Eales disease",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 561,
+      "keywords": [
+        "eales disease",
+        "disease",
+        "peripheral",
+        "retina",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 509,
+      "keywords": [
+        "eales disease",
+        "disease",
+        "retina",
+        "risk",
+        "classification"
+      ]
+    },
+    {
+      "pageNum": 489,
+      "keywords": [
+        "eales disease",
+        "disease",
+        "retina",
+        "risk",
+        "staging"
+      ]
+    },
+    {
+      "pageNum": 560,
+      "keywords": [
+        "eales disease",
+        "disease",
+        "peripheral",
+        "retina",
+        "laser"
+      ]
+    },
+    {
+      "pageNum": 704,
+      "keywords": [
+        "eales disease",
+        "disease",
+        "peripheral",
+        "retina",
+        "ocular"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "id": 1775044671110,
+  "seqId": 244,
+  "title": "Cystoid Macular Edema (CME): The Clinician’s Masterclass",
+  "summary": "Cystoid Macular Edema (CME) represents the final common pathway for diverse retinal pathologies, characterized by fluid accumulation in the Henle layer. Mastering its diagnosis and multi-modal treatment is fundamental to preserving central visual acuity in the clinical setting.",
+  "date": "2026-04-01T11:57:51.110Z",
+  "data": {
+    "title": "Cystoid Macular Edema (CME): The Clinician’s Masterclass",
+    "summary": "Cystoid Macular Edema (CME) represents the final common pathway for diverse retinal pathologies, characterized by fluid accumulation in the Henle layer. Mastering its diagnosis and multi-modal treatment is fundamental to preserving central visual acuity in the clinical setting.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1a56db' stroke-width='4'/><path d='M30 50 Q 50 30 70 50 T 30 50' fill='#bfdbfe' opacity='0.6'/><circle cx='50' cy='50' r='5' fill='#1a56db'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "CME is a distinct retinal condition characterized by fluid accumulation within the outer plexiform layer (Henle's layer). Pathophysiologically, it results from the breakdown of the Inner Blood-Retinal Barrier (iBRB) at the level of the retinal vascular endothelium or the Outer Blood-Retinal Barrier (oBRB) at the RPE. This leads to increased permeability, secondary to inflammatory mediators (Prostaglandins, VEGF, IL-6), surgical trauma, or venous stasis."
+      },
+      {
+        "title": "Etiological Categories",
+        "icon": "hub",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "CME Etiology",
+          "branches": [
+            "Post-Surgical (Irvine-Gass)",
+            "Diabetic Retinopathy",
+            "Retinal Vein Occlusion (CRVO/BRVO)",
+            "Uveitis",
+            "Drug-induced (Niacin, Latanoprost)",
+            "Inherited Retinal Dystrophies"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Hierarchy",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Dilated Fundus Exam: Evaluate for foveal thickening and loss of foveal reflex.",
+          "Step 2: SD-OCT: Gold standard to quantify Central Subfield Thickness (CST) and map intraretinal cystic spaces.",
+          "Step 3: Fluorescein Angiography (FFA): Demonstrates late-phase 'petaloid' hyperfluorescence.",
+          "Step 4: Ancillary: Indocyanine Green (ICG) angiography for occult choroidal pathology if suspecting inflammatory etiology."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "rule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Differential",
+            "Key Differentiator"
+          ],
+          "rows": [
+            [
+              "Epiretinal Membrane",
+              "Tractional interface, macular distortion"
+            ],
+            [
+              "Vitreomacular Traction",
+              "Adherence of PVD to macula"
+            ],
+            [
+              "Central Serous Chorioretinopathy",
+              "Subretinal fluid vs Intraretinal cystoid fluid"
+            ],
+            [
+              "Myopic Foveoschisis",
+              "Foveal schisis without exudative component"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "First-line: Topical NSAIDs (e.g., Nepafenac 0.1%, Bromfenac 0.09%) for 4-8 weeks.",
+          "Second-line: Intravitreal Anti-VEGF (Ranibizumab, Aflibercept) for chronic cases.",
+          "Third-line: Intravitreal Steroids (Dexamethasone implant, Triamcinolone) for uveitic CME.",
+          "Surgical: Pars Plana Vitrectomy if vitreous traction or residual membrane is present."
+        ]
+      },
+      {
+        "title": "Red Flags: When to Refer/Escalate",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Significant decrease in VA (worse than 20/40)",
+          "Evidence of underlying infectious uveitis",
+          "Neovascularization present on FFA",
+          "Acute pain or signs of endophthalmitis post-op"
+        ]
+      },
+      {
+        "title": "Memory Aid",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.E.T.A.L.",
+          "explanation": "P: Post-surgical (Irvine-Gass); E: Edema (Diabetic); T: Thrombosis (RVO); A: Autoimmune/Uveitis; L: Latrogenic (Drugs)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Always perform a 360-degree scleral depression or fundus exam to rule out peripheral pathology in unexplained CME.",
+          "Irvine-Gass syndrome typically presents 4-6 weeks post-cataract surgery.",
+          "CST on OCT is more reliable than clinical exam for monitoring treatment response.",
+          "Topical steroids and NSAIDs exhibit synergy; consider combination therapy for refractory cases."
+        ]
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1775044671110,
+  "communityId": "sub_1774352254516_eb8oalxmmxmixf",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z",
+  "read": true
+}

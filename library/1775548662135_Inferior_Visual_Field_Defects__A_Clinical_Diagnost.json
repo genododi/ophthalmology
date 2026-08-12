@@ -1,0 +1,213 @@
+{
+  "id": 1775548662135,
+  "seqId": 751,
+  "title": "Inferior Visual Field Defects: A Clinical Diagnostic Atlas",
+  "summary": "Inferior visual field loss is a critical localizing sign in neuro-ophthalmology, often pointing to superior retinal or post-chiasmal pathway pathology. This guide navigates the topographic mapping of the visual system to localize lesions based on perimetric findings.",
+  "date": "2026-04-07T07:57:42.135Z",
+  "data": {
+    "title": "Inferior Visual Field Defects: A Clinical Diagnostic Atlas",
+    "summary": "Inferior visual field loss is a critical localizing sign in neuro-ophthalmology, often pointing to superior retinal or post-chiasmal pathway pathology. This guide navigates the topographic mapping of the visual system to localize lesions based on perimetric findings.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='#1e88e5' stroke-width='10'/><path d='M100 20 L100 100 L180 100 A80 80 0 0 0 100 20' fill='#bbdefb'/><text x='50' y='110' font-size='20' fill='#1e88e5'>Inferior</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Localization Logic",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Inferior Field Defect",
+          "branches": [
+            "Superior Retina (e.g., Retinal Detachment)",
+            "Superior Optic Nerve (e.g., AION/Glaucoma)",
+            "Temporal Chiasm (e.g., Pituitary Adenoma)",
+            "Parietal Lobe (e.g., Inferior Optic Radiation/Meyer's Loop sparing)"
+          ]
+        }
+      },
+      {
+        "title": "Anatomical Correlation Table",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Anatomical Site",
+            "Type of Defect",
+            "Key Pathologies"
+          ],
+          "rows": [
+            [
+              "Retina",
+              "Inferior localized/sectoral",
+              "RD, Branch Retinal Artery Occlusion"
+            ],
+            [
+              "Optic Nerve",
+              "Altitudinal",
+              "NAION, Glaucoma, Optic Neuritis"
+            ],
+            [
+              "Chiasm",
+              "Superior Bitemporal Hemianopia",
+              "Pituitary Adenoma, Craniopharyngioma"
+            ],
+            [
+              "Post-Chiasmal (Parietal)",
+              "Inferior Homonymous Quadrantanopia",
+              "Parietal lobe stroke/tumor"
+            ],
+            [
+              "Occipital Cortex",
+              "Inferior Congruous Quadrantanopia",
+              "PCA Infarct"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Emergent Causes",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset altitudinal defect: Rule out Arteritic AION (GCA) with ESR/CRP/PLT.",
+          "Transient loss: Rule out amaurosis fugax or impending central retinal artery occlusion.",
+          "Bilateral inferior defects: Evaluate for pituitary mass causing superior chiasmal compression.",
+          "Progressive defects with headache: Mandatory neuroimaging (MRI Brain/Orbits with contrast)."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Algorithm",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Confrontation field testing to confirm defect pattern.",
+          "Step 2: Automated Perimetry (Humphrey 24-2 or 30-2) to quantify density/scotoma depth.",
+          "Step 3: Slit-lamp exam with 90D/78D lens to inspect superior retina and optic nerve head.",
+          "Step 4: OCT (RNFL) to detect nerve fiber layer thinning corresponding to the defect.",
+          "Step 5: Neuroimaging (MRI) if post-chiasmal lesion is suspected (homonymous pattern)."
+        ]
+      },
+      {
+        "title": "Remember the Path",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PITS",
+          "explanation": "Parietal = Inferior (field defect); Temporal = Superior (field defect)."
+        }
+      },
+      {
+        "title": "Etiological Distribution (Data Estimate)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Glaucoma/ON",
+              "value": 60
+            },
+            {
+              "label": "Retinal/Vascular",
+              "value": 25
+            },
+            {
+              "label": "Chiasmal/Retro",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Altitudinal defects that respect the horizontal meridian are typically pre-chiasmal (optic nerve).",
+          "Homonymous defects that respect the vertical meridian are post-chiasmal (chiasm/tracts/radiation/cortex).",
+          "In a pituitary adenoma, the compression is from below, causing a SUPERIOR field defect first; however, anatomical variations can present as inferior.",
+          "Always perform gonioscopy in glaucoma patients with inferior defects to rule out angle-closure history."
+        ]
+      }
+    ],
+    "generationPrompt": "Inferior visual field defects",
+    "chapterId": "investigations"
+  },
+  "chapterId": "investigations",
+  "bookmarked": true,
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 807,
+      "keywords": [
+        "visual field",
+        "visual",
+        "defects",
+        "retinal",
+        "anatomical"
+      ]
+    },
+    {
+      "pageNum": 801,
+      "keywords": [
+        "visual field",
+        "visual",
+        "defects",
+        "anatomical",
+        "field"
+      ]
+    },
+    {
+      "pageNum": 906,
+      "keywords": [
+        "visual field",
+        "visual",
+        "defects",
+        "retinal",
+        "field"
+      ]
+    },
+    {
+      "pageNum": 765,
+      "keywords": [
+        "visual field",
+        "visual",
+        "defects",
+        "interpretation",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 806,
+      "keywords": [
+        "visual field",
+        "inferior",
+        "visual",
+        "defects",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 372,
+      "keywords": [
+        "visual field",
+        "inferior",
+        "visual",
+        "defects",
+        "diagnostic"
+      ]
+    }
+  ]
+}

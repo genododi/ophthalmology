@@ -1,0 +1,174 @@
+{
+  "id": 1774978293742,
+  "seqId": 13,
+  "title": "Glaucoma Surgical Hierarchy: MIGS, Trabeculectomy & Beyond",
+  "summary": "A comprehensive clinical breakdown comparing the evolution, efficacy, and safety profiles of modern glaucoma filtration surgeries. Navigating the spectrum from the ultra-minimally invasive to the gold-standard 'filtering' procedures.",
+  "date": "2026-03-31T17:31:33.742Z",
+  "data": {
+    "title": "Glaucoma Surgical Hierarchy: MIGS, Trabeculectomy & Beyond",
+    "summary": "A comprehensive clinical breakdown comparing the evolution, efficacy, and safety profiles of modern glaucoma filtration surgeries. Navigating the spectrum from the ultra-minimally invasive to the gold-standard 'filtering' procedures.",
+    "summary_illustration": "<svg viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e88e5' stroke-width='8'/><path d='M50 10 L50 90 M10 50 L90 50' stroke='#1565c0' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='#f44336'/></svg>",
+    "sections": [
+      {
+        "title": "Surgical Philosophy: The Resistance Spectrum",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Glaucoma Surgery Targets",
+          "branches": [
+            "Trabecular Meshwork (MIGS)",
+            "Schlemm's Canal (MIGS)",
+            "Suprachoroidal Space (MIGS)",
+            "Subconjunctival Space (Trab/XEN/Preserflo)",
+            "Ciliary Body (Cyclophotocoagulation)"
+          ]
+        }
+      },
+      {
+        "title": "Comparative Efficacy (IOP Reduction Potential)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Trabeculectomy",
+              "value": 95
+            },
+            {
+              "label": "Deep Sclerectomy",
+              "value": 75
+            },
+            {
+              "label": "iStent/Hydrus",
+              "value": 45
+            },
+            {
+              "label": "Omni/GATT",
+              "value": 50
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When MIGS is Contraindicated",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Advanced or end-stage visual field loss",
+          "High target IOP (needs < 10-12 mmHg)",
+          "Secondary glaucoma (neovascular/uveitic)",
+          "Closed-angle glaucoma (without synechiolysis)",
+          "Severe conjunctival scarring (precludes filtering)"
+        ]
+      },
+      {
+        "title": "Procedure Classification Table",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Example",
+            "Primary Mechanism",
+            "Conjunctival Incision?"
+          ],
+          "rows": [
+            [
+              "MIGS (Trabecular)",
+              "iStent, Hydrus",
+              "TM Bypass",
+              "No"
+            ],
+            [
+              "MIGS (Canal)",
+              "Omni, GATT",
+              "Canaloplasty/Viscodilation",
+              "No"
+            ],
+            [
+              "Non-Penetrating",
+              "Deep Sclerectomy",
+              "Filtration via Descemet's",
+              "Yes"
+            ],
+            [
+              "Filtering Surgery",
+              "Trabeculectomy",
+              "Subconjunctival Fistula",
+              "Yes"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Trabeculectomy Gold Standard",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Conjunctival peritomy (Fornix/Limbal base)",
+          "Step 2: Scleral flap creation (Partial thickness)",
+          "Step 3: MMC/5-FU application for antifibrosis",
+          "Step 4: Block excision (Trabeculectomy)",
+          "Step 5: Peripheral iridectomy (PI) to prevent iris incarceration",
+          "Step 6: Watertight closure of flap and conjunctiva"
+        ]
+      },
+      {
+        "title": "Non-Penetrating Surgery (Deep Sclerectomy)",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Preserves the integrity of the anterior chamber.",
+          "Avoids direct opening of the eyeball (no PI needed).",
+          "Decreased risk of shallow AC, hypotony, and endophthalmitis.",
+          "Requires highly skilled dissection of the juxtacanalicular tissue.",
+          "Often augmented with a collagen implant to maintain space."
+        ]
+      },
+      {
+        "title": "Clinical Pearls & Recent Evidence",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Landmark Study: The 'LiGHT' Trial (Lancet 2019) suggests SLT as first-line, but in surgery, trabeculectomy remains superior to MIGS for absolute IOP lowering in advanced cases.",
+          "MIGS is best reserved for mild-to-moderate glaucoma in phakic patients who wish to reduce medication burden.",
+          "Bleb-related complications (leaks, blebitis) are unique to subconjunctival procedures (Trab/XEN).",
+          "GATT (Gonioscopy-Assisted Transluminal Trabeculotomy) is effectively a '360-degree' MIGS with potential for higher efficacy than stent-based procedures."
+        ]
+      },
+      {
+        "title": "Remember the WATS Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "W.A.T.S.",
+          "explanation": "W - Watch for IOP spikes post-op; A - Antifibrotics (MMC) are critical for filtering success; T - Trabeculectomy is the gold standard for low targets; S - Stents (MIGS) are best for safety profiles."
+        }
+      }
+    ],
+    "generationPrompt": "MIGS vs trabeculectomy vs non penetrating surgeries",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true
+}

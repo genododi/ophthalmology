@@ -1,0 +1,160 @@
+{
+  "id": 1775157432379,
+  "seqId": 583,
+  "title": "Diabetic Retinopathy: From NPDR to PDR",
+  "summary": "A comprehensive clinical guide to the staging, progression, and evidence-based management of diabetic retinopathy, transition from non-proliferative to proliferative stages.",
+  "date": "2026-04-02T19:17:12.379Z",
+  "data": {
+    "title": "Diabetic Retinopathy: From NPDR to PDR",
+    "summary": "A comprehensive clinical guide to the staging, progression, and evidence-based management of diabetic retinopathy, transition from non-proliferative to proliferative stages.",
+    "summary_illustration": "<svg viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='5'/><path d='M30 50 Q50 20 70 50 T30 50' fill='hsl(215, 90%, 90%)' stroke='hsl(215, 90%, 45%)'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Diabetic Retinopathy (DR) is a highly prevalent microvascular complication of diabetes mellitus. It is characterized by progressive damage to retinal capillaries, categorized primarily into Non-Proliferative Diabetic Retinopathy (NPDR) and Proliferative Diabetic Retinopathy (PDR) based on the presence of neovascularization (NV) triggered by retinal ischemia."
+      },
+      {
+        "title": "Pathophysiology: The Ischemic Cascade",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Hyperglycemia leads to pericyte loss and basement membrane thickening.",
+          "Step 2: Microaneurysm formation and breakdown of the Blood-Retinal Barrier (BRB).",
+          "Step 3: Capillary closure and dropout resulting in retinal hypoxia.",
+          "Step 4: Upregulation of VEGF (Vascular Endothelial Growth Factor) due to hypoxia.",
+          "Step 5: Neovascularization (NV) at the disc (NVD) or elsewhere (NVE) defines the transition to PDR."
+        ]
+      },
+      {
+        "title": "Clinical Staging (ETDRS Criteria)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Stage",
+            "Key Diagnostic Features"
+          ],
+          "rows": [
+            [
+              "Mild NPDR",
+              "Microaneurysms only"
+            ],
+            [
+              "Moderate NPDR",
+              "More than MAs, but less than severe NPDR criteria"
+            ],
+            [
+              "Severe NPDR",
+              "4-2-1 Rule: Intraretinal hemorrhages in 4 quadrants, Venous beading in 2, IRMA in 1"
+            ],
+            [
+              "PDR",
+              "Presence of Neovascularization or Vitreous/Preretinal Hemorrhage"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags for PDR",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Neovascularization of the Disc (NVD)",
+          "Tractional Retinal Detachment (TRD)",
+          "Vitreous Hemorrhage (VH)",
+          "Neovascular Glaucoma (NVG)",
+          "Presence of ghost vessels or fibrous proliferation"
+        ]
+      },
+      {
+        "title": "Epidemiology: Prevalence Trends",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Type 1 DM (10 yr)",
+              "value": 60
+            },
+            {
+              "label": "Type 2 DM (Insulin)",
+              "value": 40
+            },
+            {
+              "label": "Type 2 DM (Non-Insulin)",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: The 4-2-1 Rule (Severe NPDR)",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "4-2-1",
+          "explanation": "4 quadrants of diffuse intraretinal hemorrhages/microaneurysms, 2 quadrants of venous beading, 1 quadrant of Intraretinal Microvascular Abnormalities (IRMA). Any one of these meets 'Severe', two meet 'Very Severe'."
+        }
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Slit-lamp biomicroscopy with 78D/90D lens.",
+          "Fundus Photography (7-field stereoscopic or ultra-widefield imaging).",
+          "Fluorescein Angiography (FFA) to identify non-perfusion areas and NV leakage.",
+          "OCT (Optical Coherence Tomography) to monitor for Diabetic Macular Edema (DME) and traction.",
+          "B-Scan Ultrasonography if media is opaque to rule out TRD."
+        ]
+      },
+      {
+        "title": "Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Metabolic Control (HbA1c optimization, BP control, lipid management).",
+          "Step 2: For DME: Anti-VEGF (Ranibizumab, Aflibercept) or intravitreal steroids (Dexamethasone implant).",
+          "Step 3: For PDR: Pan-Retinal Photocoagulation (PRP) is the gold standard.",
+          "Step 4: Surgical intervention (Pars Plana Vitrectomy) for non-clearing vitreous hemorrhage or TRD.",
+          "Step 5: Regular monitoring at 3-6 month intervals depending on severity."
+        ]
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Protocol S (DRCR.net): Found Anti-VEGF (Ranibizumab) non-inferior to PRP for visual acuity at 2 years.",
+          "Ultra-Widefield (UWF) Imaging: Identifies 'Peripheral Diabetic Retinopathy' not seen on standard 7-field imaging, correlating with higher progression risk.",
+          "Faricimab: Dual inhibition of Angiopoietin-2 and VEGF for longer durability."
+        ]
+      }
+    ],
+    "generationPrompt": "PDR vs NPDR",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "read": true
+}

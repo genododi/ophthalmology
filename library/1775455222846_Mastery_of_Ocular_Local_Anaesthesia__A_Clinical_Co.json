@@ -1,0 +1,167 @@
+{
+  "id": 1775455222846,
+  "seqId": 718,
+  "title": "Mastery of Ocular Local Anaesthesia: A Clinical Compendium",
+  "summary": "A comprehensive guide to the pharmacodynamics, delivery techniques, and safety protocols for regional anaesthesia in ophthalmic surgery. Essential for residents and fellows mastering peri-bulbar, retro-bulbar, and topical modalities.",
+  "date": "2026-04-06T06:00:22.846Z",
+  "data": {
+    "title": "Mastery of Ocular Local Anaesthesia: A Clinical Compendium",
+    "summary": "A comprehensive guide to the pharmacodynamics, delivery techniques, and safety protocols for regional anaesthesia in ophthalmic surgery. Essential for residents and fellows mastering peri-bulbar, retro-bulbar, and topical modalities.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q 50 30 70 50' stroke='hsl(215, 90%, 45%)' stroke-width='4' fill='none'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Pharmacological Agents",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Agent",
+            "Potency",
+            "Onset",
+            "Duration (without Epi)"
+          ],
+          "rows": [
+            [
+              "Lidocaine 2%",
+              "Moderate",
+              "Rapid (2-5m)",
+              "60-120 min"
+            ],
+            [
+              "Bupivacaine 0.5%",
+              "High",
+              "Slow (10-15m)",
+              "4-8 hours"
+            ],
+            [
+              "Ropivacaine 0.5%",
+              "High",
+              "Moderate",
+              "4-6 hours"
+            ],
+            [
+              "Tetracaine 0.5%",
+              "N/A (Topical)",
+              "Fast",
+              "20-30 min"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Anaesthesia Modalities",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Ocular Anaesthesia",
+          "branches": [
+            "Topical",
+            "Sub-Tenon's",
+            "Peribulbar",
+            "Retrobulbar"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Retrobulbar/Peribulbar Block",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Globe perforation (myopic eyes at highest risk)",
+          "Retrobulbar hemorrhage (symptoms: rapid proptosis, elevated IOP, pain)",
+          "Oculocardiac reflex (bradycardia, arrhythmia)",
+          "Brainstem anaesthesia (contralateral ophthalmoplegia, unconsciousness)",
+          "Optic nerve damage/atrophy"
+        ]
+      },
+      {
+        "title": "Mnemonic for Oculocardiac Reflex",
+        "icon": "remember",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "5-D's of Oculocardiac Reflex",
+          "explanation": "Depth of pressure (too much), Duration (sustained), Direct contact (nerve stimulation), Dose (too much anaesthetic), Diagnosis (hypoxia/hypercarbia exacerbation)."
+        }
+      },
+      {
+        "title": "Step-by-Step: Sub-Tenon's Injection",
+        "icon": "process",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Topical anaesthesia (e.g., Oxybuprocaine)",
+          "2. Conjunctival incision (inferonasal quadrant)",
+          "3. Blunt dissection of Tenon's capsule",
+          "4. Insertion of curved cannula",
+          "5. Injection of 2-3ml of lidocaine/bupivacaine mixture"
+        ]
+      },
+      {
+        "title": "Comparative Technique Efficacy",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Topical",
+              "value": 75
+            },
+            {
+              "label": "Sub-Tenon",
+              "value": 95
+            },
+            {
+              "label": "Retrobulbar",
+              "value": 98
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Always aspirate before injection to avoid intravascular delivery.",
+          "In patients on anticoagulation, consider topical or sub-tenon to avoid retrobulbar hemorrhage.",
+          "Hyaluronidase (15-50 IU/ml) is used to improve the diffusion of the anaesthetic.",
+          "Max dose of lidocaine is 3-5mg/kg (with epinephrine up to 7mg/kg).",
+          "Monitor pulse oximetry and ECG during regional blocks."
+        ]
+      },
+      {
+        "title": "Contraindications",
+        "icon": "block",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Patient refusal",
+          "Local infection at site of injection",
+          "Known allergy to amide or ester type anaesthetics",
+          "Uncooperative patient (relative contraindication)",
+          "Severe coagulopathy (contraindication for deep blocks)"
+        ]
+      }
+    ],
+    "generationPrompt": "Local anaesthesia in ocular surgery",
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "bookmarked": true,
+  "read": true
+}

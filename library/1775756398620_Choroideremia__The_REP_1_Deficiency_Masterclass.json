@@ -1,0 +1,338 @@
+{
+  "id": 1775756398620,
+  "seqId": 769,
+  "title": "Choroideremia: The REP-1 Deficiency Masterclass",
+  "summary": "A comprehensive guide to Choroideremia (CHM), a rare X-linked recessive chorioretinal dystrophy characterized by progressive degeneration of the choriocapillaris, RPE, and photoreceptors due to mutations in the CHM gene.",
+  "date": "2026-04-09T17:39:58.620Z",
+  "data": {
+    "title": "Choroideremia: The REP-1 Deficiency Masterclass",
+    "summary": "A comprehensive guide to Choroideremia (CHM), a rare X-linked recessive chorioretinal dystrophy characterized by progressive degeneration of the choriocapillaris, RPE, and photoreceptors due to mutations in the CHM gene.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M50 20 A30 30 0 1 1 49.9 20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='4 2'/><path d='M20 50 Q30 30 50 20 Q70 30 80 50 Q70 70 50 80 Q30 70 20 50' fill='hsl(215, 90%, 80%)' opacity='0.5'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M15 30 Q25 25 35 30 T55 25' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='1.5'/><path d='M65 75 Q75 70 85 75' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='1.5'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Choroideremia (CHM) is a relentless, progressive X-linked recessive disorder leading to the pan-retinal atrophy of the choroid, retinal pigment epithelium (RPE), and neurosensory retina. Unlike Retinitis Pigmentosa, the hallmark is the early and profound loss of the choriocapillaris, leaving the underlying white sclera visible in a characteristic scalloped pattern."
+      },
+      {
+        "title": "Genetic Etiology: The CHM Gene",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "CHM Gene (Xq21.2)",
+          "branches": [
+            "Encodes REP-1 Protein",
+            "15 Exons / 1900bp",
+            "Over 140 Mutations Identified",
+            "X-linked Recessive Inheritance",
+            "Loss of Function (Null) Mutations"
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Rab Prenylation Trap",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. CHM Mutation leads to deficient Rab Escort Protein-1 (REP-1).",
+          "2. Failed geranylgeranylation (prenylation) of Rab GTPases.",
+          "3. Rabs cannot anchor to intracellular organelle membranes.",
+          "4. Failure of vesicular transport and protein trafficking.",
+          "5. Progressive RPE cell death followed by Choriocapillaris and Photoreceptor loss."
+        ]
+      },
+      {
+        "title": "Epidemiological Snapshot",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence (1 in 50k)",
+              "value": 100
+            },
+            {
+              "label": "Male Cases (%)",
+              "value": 99
+            },
+            {
+              "label": "Carrier Symptomatic (%)",
+              "value": 15
+            },
+            {
+              "label": "Genetically Identified (%)",
+              "value": 95
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features: Progression Timeline",
+        "icon": "history",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Age",
+            "Symptoms / Signs"
+          ],
+          "rows": [
+            [
+              "1st Decade",
+              "Nyctalopia (Night Blindness) begins."
+            ],
+            [
+              "2nd-3rd Decade",
+              "Peripheral field constriction (Tunnel Vision)."
+            ],
+            [
+              "4th-5th Decade",
+              "Severe field loss; Central island of vision remains."
+            ],
+            [
+              "6th Decade+",
+              "Profound vision loss / Legal Blindness."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Early: Mid-peripheral pigmentary mottling resembling RP.",
+          "Mid-stage: Scalloped areas of chorioretinal atrophy expanding from periphery to center.",
+          "Late: Exposure of large choroidal vessels and white sclera; Macular sparing until the very end.",
+          "Optic Nerve: Generally preserved color (unlike the waxy pallor of RP).",
+          "Retinal Vessels: Minimal attenuation compared to Retinitis Pigmentosa.",
+          "Female Carriers: 'Moth-eaten' RPE appearance or peripheral pigmentary changes (Lyonization)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Distinguishing CHM",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Retinitis Pigmentosa",
+              "Bone-spicule pigmentation, waxy disc pallor, severe vessel attenuation, primary PR loss."
+            ],
+            [
+              "Gyrate Atrophy",
+              "Autosomal Recessive, associated with High Myopia, markedly HIGH serum Ornithine levels."
+            ],
+            [
+              "Bietti Crystalline Dystrophy",
+              "Refractile crystals in cornea/retina, different atrophy pattern (CYP4V2 mutation).",
+              ""
+            ],
+            [
+              "High Myopia",
+              "Tilted disc, peripapillary atrophy, posterior staphyloma, lack of X-linked history."
+            ],
+            [
+              "Usher Syndrome",
+              "Sensorineural hearing loss accompanying retinal degeneration."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Multimodal Imaging Gold Standards",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "FAF: Markedly hypoautofluorescent areas (atrophy) with hyperautofluorescent borders of active stress.",
+          "OCT: Loss of Outer Plexiform, Ellipsoid Zone, and RPE; Presence of Outer Retinal Tubulations (ORTs).",
+          "EDI-OCT: Shows extreme thinning of the choroid and choriocapillaris.",
+          "FFA: 'Swiss-cheese' appearance early; late visualization of large choroidal vessels and sclera.",
+          "Goldmann Perimetry: Concentric constriction with central island preservation."
+        ]
+      },
+      {
+        "title": "Electrophysiology Findings",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Scotopic ERG (Early)",
+              "value": 10
+            },
+            {
+              "label": "Photopic ERG (Mid-stage)",
+              "value": 40
+            },
+            {
+              "label": "EOG Arden Ratio",
+              "value": 20
+            },
+            {
+              "label": "Carrier ERG (Subnormal)",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "Staging: The Dimas FAF System",
+        "icon": "school",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Stage",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Stage 1",
+              "Focal areas of peripheral RPE loss; scalloped edges."
+            ],
+            [
+              "Stage 2",
+              "Confluent areas of atrophy; peripheral choriocapillaris loss."
+            ],
+            [
+              "Stage 3",
+              "Extensive atrophy sparing only the macula/fovea."
+            ],
+            [
+              "Stage 4",
+              "Total chorioretinal atrophy including the fovea."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags & Urgent Considerations",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden central vision drop: Rule out Choroidal Neovascularization (CNV), though rare in CHM.",
+          "Cystoid Macular Edema (CME): Can occur and significantly reduce quality of life.",
+          "Misdiagnosis: Always check Serum Ornithine to rule out Gyrate Atrophy (which is treatable via diet).",
+          "Pediatric Presentation: Early nyctalopia in boys requires immediate genetic screening."
+        ]
+      },
+      {
+        "title": "Mnemonic: The CHM Triplets",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "C.H.M.",
+          "explanation": "C: Chorioretinal scalloped atrophy; H: Hereditary X-linked; M: Mutations in REP-1/CHM gene."
+        }
+      },
+      {
+        "title": "Clinical Pearls for the Fellow",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Unlike RP, retinal vessels are often relatively spared until very late stages.",
+          "Outer Retinal Tubulations (ORTs) on OCT are a classic sign of slow RPE degeneration in CHM.",
+          "Female carriers may show peripheral pigmentary changes due to random X-inactivation.",
+          "Genetic testing is MANDATORY for clinical trial eligibility."
+        ]
+      },
+      {
+        "title": "Management & Future Frontiers",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Diagnosis Confirmation: Genetic testing (CHM gene) and Genetic Counseling for families.",
+          "2. Supportive Care: UV-protecting sunglasses and Low Vision Rehabilitation.",
+          "3. Complication Management: Topical/Oral Carbonic Anhydrase Inhibitors (CAIs) for CME.",
+          "4. Gene Therapy: AAV2-REP1 subretinal injections (Clinical trials like STAR/NIGHT studies).",
+          "5. Future Tech: Optogenetics and Retinal Prosthetics for end-stage disease."
+        ]
+      },
+      {
+        "title": "Recent Landmark Studies",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "The Phase 3 STAR trial investigated the efficacy of voretigene-like gene therapy for CHM. While some early trials (MacLaren et al.) showed significant gain in BCVA in a subset of patients, later larger trials faced challenges meeting primary endpoints, highlighting the complexity of timing intervention before irreversible choriocapillaris loss."
+      }
+    ],
+    "generationPrompt": "Choroidermia",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 655,
+      "keywords": [
+        "choroideremia",
+        "gene"
+      ]
+    },
+    {
+      "pageNum": 630,
+      "keywords": [
+        "choroideremia",
+        "retina",
+        "genetic",
+        "ocular",
+        "system"
+      ]
+    },
+    {
+      "pageNum": 580,
+      "keywords": [
+        "choroideremia",
+        "retina"
+      ]
+    },
+    {
+      "pageNum": 576,
+      "keywords": [
+        "choroideremia",
+        "system"
+      ]
+    },
+    {
+      "pageNum": 657,
+      "keywords": [
+        "choroideremia"
+      ]
+    }
+  ]
+}

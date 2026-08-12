@@ -1,0 +1,144 @@
+{
+  "id": 1775282976015,
+  "seqId": 633,
+  "title": "Choroidal Folds: Clinical Masterclass & Diagnostic Algorithmic Approach",
+  "summary": "Choroidal folds represent undulations of the RPE-Bruch membrane-choriocapillaris complex, often mimicking disc edema. This guide provides a comprehensive clinical framework for differentiating mechanical from infiltrative causes of choroidal buckling.",
+  "date": "2026-04-04T06:09:36.015Z",
+  "data": {
+    "title": "Choroidal Folds: Clinical Masterclass & Diagnostic Algorithmic Approach",
+    "summary": "Choroidal folds represent undulations of the RPE-Bruch membrane-choriocapillaris complex, often mimicking disc edema. This guide provides a comprehensive clinical framework for differentiating mechanical from infiltrative causes of choroidal buckling.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><path d='M20 50 Q 50 30 80 50 T 140 50' stroke='hsl(215, 90%, 45%)' stroke-width='4' fill='none'/><circle cx='100' cy='50' r='10' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Choroidal folds (striate choroidopathy) involve physical buckling of the inner choroid and RPE. Pathophysiology is usually mechanical (hypotony, posterior scleritis) or infiltrative (tumors, inflammation). The folds typically appear as alternating light and dark lines, often horizontal in the posterior pole."
+      },
+      {
+        "title": "Etiology: The 'H.I.S.T.O.R.Y.' Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "HISTORRY",
+          "explanation": "H: Hypotony (Post-surgical), I: Inflammation (Scleritis), S: Scleral buckling/masses, T: Tumors (Choroidal hemangioma/melanoma), O: Orbital processes (Pseudotumor), R: Retinochoroidal scarring, R: Retrobulbar mass, Y: Young patients (Idiopathic)."
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Entity",
+            "Key Differentiating Feature"
+          ],
+          "rows": [
+            [
+              "Hyperopic Folds",
+              "Scleral thickening, small globe"
+            ],
+            [
+              "Posterior Scleritis",
+              "Pain, T-sign on USG"
+            ],
+            [
+              "Orbital Tumor",
+              "Proptosis, globe displacement"
+            ],
+            [
+              "Choroidal Mass",
+              "Localized RPE elevation, B-scan findings"
+            ],
+            [
+              "Disc Edema (True)",
+              "Obscured vessels, venous dilation, RAPD"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Worry",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Pain on EOMs (suggests Scleritis)",
+          "Proptosis or eyelid fullness (suggests Orbital Mass)",
+          "Vision loss < 20/40 (suggests maculopathy)",
+          "Associated RAPD (suggests Optic Nerve pathology)"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Algorithm",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Slit-lamp biomicroscopy (+90D) to identify alternating striae.",
+          "2. B-Scan Ultrasonography (Look for T-sign/Scleral thickening).",
+          "3. OCT Macula (Cross-sections showing RPE undulation).",
+          "4. CT Orbit/MRI (If orbital mass is suspected).",
+          "5. FA/ICGA (To rule out choroidal neovascularization or inflammatory activity)."
+        ]
+      },
+      {
+        "title": "Epidemiological Trends",
+        "icon": "science",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Idiopathic",
+              "value": 30
+            },
+            {
+              "label": "Post-Surgical",
+              "value": 25
+            },
+            {
+              "label": "Inflammatory",
+              "value": 20
+            },
+            {
+              "label": "Tumor-related",
+              "value": 15
+            },
+            {
+              "label": "Other",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls for the Boards",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Choroidal folds usually preserve vision unless they involve the fovea.",
+          "They are commonly mistaken for papilledema; however, the vessel caliber in choroidal folds is usually normal.",
+          "Fluorescein Angiography reveals alternating hyper/hypofluorescent lines corresponding to the peaks and valleys of the folds.",
+          "If associated with disc edema, prioritize ruling out posterior scleritis and orbital masses first."
+        ]
+      }
+    ],
+    "generationPrompt": "Choroidal folds +/- disc edema",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "read": true
+}

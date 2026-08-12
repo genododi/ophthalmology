@@ -1,0 +1,373 @@
+{
+  "id": 1775825922649,
+  "seqId": 780,
+  "title": "VIP:::Retinoblastoma: Genetics, Inheritance & Histopathology",
+  "summary": "A comprehensive clinical guide to the most common intraocular malignancy in childhood, focusing on the RB1 gene molecular dynamics, complex inheritance risk counseling, and pathognomonic histopathological differentiation.",
+  "date": "2026-04-10T12:58:42.649Z",
+  "data": {
+    "title": "VIP:::Retinoblastoma: Genetics, Inheritance & Histopathology",
+    "summary": "A comprehensive clinical guide to the most common intraocular malignancy in childhood, focusing on the RB1 gene molecular dynamics, complex inheritance risk counseling, and pathognomonic histopathological differentiation.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M30 30 L70 70 M70 30 L30 70' stroke='white' stroke-width='2'/><circle cx='50' cy='25' r='5' fill='white'/><text x='50' y='85' font-family='Arial' font-size='6' text-anchor='middle' fill='hsl(215, 90%, 45%)'>RB1 GENE</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Retinoblastoma (RB) is a malignant tumor of the neurosensory retina arising from primitive multipotential photoreceptor precursors (retinoblasts). It is driven by the biallelic inactivation of the RB1 tumor suppressor gene on chromosome 13q14. It is the most common primary intraocular malignancy of childhood, with 95% of cases diagnosed before age 5."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Incidence (1 in births)",
+              "value": 15
+            },
+            {
+              "label": "Unilateral Cases (%)",
+              "value": 60
+            },
+            {
+              "label": "Bilateral Cases (%)",
+              "value": 40
+            },
+            {
+              "label": "Dx by age 2 (%)",
+              "value": 80
+            }
+          ]
+        }
+      },
+      {
+        "title": "Molecular Pathogenesis: Knudson's Two-Hit Hypothesis",
+        "icon": "genetics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Germline/First Hit: Inherited mutation in one allele of RB1 gene (all cells).",
+          "2. Somatic/Second Hit: Spontaneous mutation in the remaining allele within a retinal cell.",
+          "3. Loss of Heterozygosity (LOH): Complete loss of pRB protein function.",
+          "4. Unregulated Cell Cycle: E2F transcription factors remain active, driving S-phase entry.",
+          "5. Malignant Transformation: Formation of retinoblastoma tumor clones."
+        ]
+      },
+      {
+        "title": "The Genetic Risk Calculator (Empiric Risk)",
+        "icon": "calculate",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Clinical Scenario",
+            "Risk to Siblings",
+            "Risk to Offspring"
+          ],
+          "rows": [
+            [
+              "Healthy Parents, 1 Unilateral Child",
+              "1%",
+              "8%"
+            ],
+            [
+              "Healthy Parents, 1 Bilateral Child",
+              "2-5%",
+              "45%"
+            ],
+            [
+              "Healthy Parents, 2 Children Affected",
+              "50%",
+              "50%"
+            ],
+            [
+              "Affected Parent (Bilateral)",
+              "50%",
+              "50%"
+            ],
+            [
+              "Affected Parent (Unilateral)",
+              "5-10%",
+              "5-10%"
+            ],
+            [
+              "Parent Carrier (Asymptomatic)",
+              "50%",
+              "50%"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Histopathological Differentiation",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Description",
+            "Significance"
+          ],
+          "rows": [
+            [
+              "Flexner-Wintersteiner Rosettes",
+              "Lumen surrounded by columnar cells; nuclei at base.",
+              "Pathognomonic for RB; represents retinal differentiation."
+            ],
+            [
+              "Homer Wright Rosettes",
+              "Fibrillar material in center (no true lumen).",
+              "Less specific; also seen in neuroblastoma/medulloblastoma."
+            ],
+            [
+              "Fleurettes",
+              "Flower-like groupings of neoplastic cells with bulbous processes.",
+              "Represent advanced photoreceptor differentiation (benign retinoma)."
+            ],
+            [
+              "Basophilic Basal Staining",
+              "Azzopardi effect (DNA coating vessel walls).",
+              "High cellular turnover/necrosis."
+            ],
+            [
+              "Calcification",
+              "Dystrophic calcification of necrotic areas.",
+              "Key diagnostic sign on CT/USG."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Low Penetrance Retinoblastoma",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Phenotype where mutation carriers do not develop tumors or develop benign retinomas.",
+          "Often associated with specific RB1 mutations (e.g., promoter mutations or missense).",
+          "Risk to offspring remains high even if parent is clinically normal.",
+          "Requires careful molecular testing of 'unaffected' family members."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: The 'Pseudo-retinoblastomas'",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Leukocoria",
+          "branches": [
+            "Coats Disease (Exudative)",
+            "PHPV / PFV",
+            "Retinopathy of Prematurity (ROP)",
+            "Toxocariasis",
+            "Astrocytic Hamartoma",
+            "Familial Exudative Vitreoretinopathy (FEVR)"
+          ]
+        }
+      },
+      {
+        "title": "International Classification of Retinoblastoma (ICRB)",
+        "icon": "format_list_numbered",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Group",
+            "Clinical Findings",
+            "Salvage Prognosis"
+          ],
+          "rows": [
+            [
+              "A",
+              "Small tumors (≤ 3mm) away from fovea/disc",
+              "Very High (>95%)"
+            ],
+            [
+              "B",
+              "Tumors > 3mm, macular/peripapillary location, subretinal fluid",
+              "High"
+            ],
+            [
+              "C",
+              "Focal seeds (subretinal or vitreous) within 3mm of tumor",
+              "Moderate"
+            ],
+            [
+              "D",
+              "Diffuse seeds (> 3mm from tumor) or 'snowball' vitreous seeding",
+              "Guarded"
+            ],
+            [
+              "E",
+              "Neovascular glaucoma, phthisis, tumor touching lens, anterior segment involvement",
+              "Poor (Enucleation usually)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. EUA (Examination Under Anesthesia): Scleral depression and 360° fundus drawing.",
+          "2. B-Scan Ultrasonography: Detect high-reflectivity calcium peaks.",
+          "3. Wide-field Digital Imaging (RetCam): For documentation and staging.",
+          "4. MRI Orbits & Brain: Rule out trilateral RB (pineoblastoma) and optic nerve invasion.",
+          "5. Genetic Testing: Mandatory for both somatic (tumor) and germline (blood) DNA."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Indicators for Enucleation",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Neovascular Glaucoma (NVG)",
+          "Tumor invasion of the Anterior Chamber",
+          "Phthisis Bulbi or Pre-phthisical state",
+          "Opaque media preventing monitoring",
+          "Suspected Optic Nerve involvement on MRI"
+        ]
+      },
+      {
+        "title": "Modern Management Paradigms",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Intravenous Chemotherapy (IVC): Carboplatin, Vincristine, Etoposide (VEC).",
+          "Intra-arterial Chemotherapy (IAC): Melphalan/Topotecan via ophthalmic artery.",
+          "Intravitreal Chemotherapy: For recalcitrant vitreous seeds.",
+          "Local Therapy: Cryotherapy (anterior) or Laser Photocoagulation/TTP (posterior).",
+          "Plaque Brachytherapy: For localized salvage."
+        ]
+      },
+      {
+        "title": "Clinical Pearl: The 3 'C's of Ultrasound",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "CCC",
+          "explanation": "Calcification (High spike), Conical Shape (Solid mass), and shadowing (Choroidal excavation/attenuation)."
+        }
+      },
+      {
+        "title": "Trilateral Retinoblastoma",
+        "icon": "emergency",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": "A rare association of bilateral RB (germline) with a midline intracranial neuroectodermal tumor (usually in the pineal gland). Requires routine neuroimaging (MRI) every 6 months until age 5 in germline-positive patients."
+      },
+      {
+        "title": "Second Malignant Neoplasms",
+        "icon": "person_alert",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Lifetime risk for germline patients: ~30-50%.",
+          "Most common: Osteosarcoma, Soft tissue sarcoma, Melanoma.",
+          "Risk is significantly increased by external beam radiation therapy (EBRT).",
+          "Strict UV protection and lifelong surveillance are mandatory."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls for Boards",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "RB is the most common cause of leukocoria in children.",
+          "Avoid FNA/Biopsy: High risk of extraocular tumor seeding.",
+          "Endophytic Growth: Tumor grows into the vitreous (white seeds).",
+          "Exophytic Growth: Tumor grows toward subretinal space (serous detachment).",
+          "Regression Patterns: Type 1 (Cottage cheese/calcified), Type 2 (Fish-flesh/non-calcified), Type 3 (Mixed), Type 4 (Atrophic/Chorioretinal scar)."
+        ]
+      }
+    ],
+    "generationPrompt": "Retinoblastoma hereditary penetrance / siblings / offspring \nAnd Histopathology differentiation",
+    "chapterId": "paediatric"
+  },
+  "chapterId": "paediatric",
+  "bookmarked": true,
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 876,
+      "keywords": [
+        "retinoblastoma",
+        "genetics",
+        "hypothesis",
+        "genetic",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 878,
+      "keywords": [
+        "retinoblastoma",
+        "risk",
+        "penetrance",
+        "international",
+        "classification"
+      ]
+    },
+    {
+      "pageNum": 881,
+      "keywords": [
+        "retinoblastoma",
+        "paediatric",
+        "genetic",
+        "risk",
+        "differential"
+      ]
+    },
+    {
+      "pageNum": 882,
+      "keywords": [
+        "retinoblastoma",
+        "genetic",
+        "differentiation"
+      ]
+    },
+    {
+      "pageNum": 879,
+      "keywords": [
+        "retinoblastoma",
+        "genetic",
+        "risk",
+        "differentiation",
+        "second"
+      ]
+    },
+    {
+      "pageNum": 404,
+      "keywords": [
+        "retinoblastoma",
+        "second"
+      ]
+    }
+  ]
+}

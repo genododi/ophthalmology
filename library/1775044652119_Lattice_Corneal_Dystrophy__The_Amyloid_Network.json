@@ -1,0 +1,331 @@
+{
+  "id": 1775044652119,
+  "seqId": 42,
+  "title": "Lattice Corneal Dystrophy: The Amyloid Network",
+  "summary": "A comprehensive clinical guide to Lattice Corneal Dystrophy (LCD), an autosomal dominant TGFBI-linked amyloidosis. This poster details the classification, histopathology, and multi-modal management of one of the most common stromal dystrophies.",
+  "date": "2026-04-01T11:57:32.119Z",
+  "data": {
+    "title": "Lattice Corneal Dystrophy: The Amyloid Network",
+    "summary": "A comprehensive clinical guide to Lattice Corneal Dystrophy (LCD), an autosomal dominant TGFBI-linked amyloidosis. This poster details the classification, histopathology, and multi-modal management of one of the most common stromal dystrophies.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 60 L140 140 M140 60 L60 140 M100 40 L100 160 M40 100 L160 100 M70 45 L130 155 M130 45 L70 155' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-linecap='round' opacity='0.6'/><circle cx='80' cy='90' r='3' fill='hsl(215, 90%, 45%)'/><circle cx='120' cy='110' r='3' fill='hsl(215, 90%, 45%)'/><circle cx='100' cy='70' r='3' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Lattice Corneal Dystrophy (LCD) is the most common form of stromal corneal dystrophy characterized by the deposition of amyloid fibrils within the corneal stroma. It is primarily an autosomal dominant condition associated with mutations in the TGFBI gene (Transforming Growth Factor Beta Induced) on chromosome 5q31. Clinically, it presents with branching, refractile lattice lines, subepithelial white dots, and a progressive stromal haze, often leading to recurrent corneal erosions (RCE) and significant visual impairment by the fourth or fifth decade of life."
+      },
+      {
+        "title": "Epidemiology & Genetics",
+        "icon": "genetics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Autosomal Dominant Inheritance",
+              "value": 100
+            },
+            {
+              "label": "TGFBI Mutation Frequency (Stromal)",
+              "value": 85
+            },
+            {
+              "label": "Symptomatic by Age 20",
+              "value": 40
+            },
+            {
+              "label": "Progression to Surgery by Age 50",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology & Etiology",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "TGFBI Protein (Keratoepithelin)",
+          "branches": [
+            "Mutation at Chromosome 5q31",
+            "Misfolding of TGFBI protein",
+            "Amyloid Fibril Deposition",
+            "Disruption of Stromal Lamellae",
+            "Epithelial Basement Membrane instability"
+          ]
+        }
+      },
+      {
+        "title": "IC3D Classification of LCD Subtypes",
+        "icon": "list",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Genetic Mutation",
+            "Clinical Features",
+            "Systemic Association"
+          ],
+          "rows": [
+            [
+              "LCD Type I (Classic)",
+              "TGFBI (Arg124Cys)",
+              "Early onset (1st decade), fine lattice lines, severe RCE",
+              "None"
+            ],
+            [
+              "LCD Type II (Meretoja)",
+              "GSN (Gelsolin gene)",
+              "Lattice lines start peripherally, late onset",
+              "Systemic Amyloidosis (Cranial nerves, skin)"
+            ],
+            [
+              "LCD Type III",
+              "TGFBI (not Arg124Cys)",
+              "Thick lattice lines, late onset (7th decade)",
+              "None"
+            ],
+            [
+              "LCD Type IIIA",
+              "TGFBI (Arg555Trp)",
+              "Thick lines, late onset, RCE common",
+              "None"
+            ],
+            [
+              "LCD Type IV",
+              "TGFBI (Leu527Arg)",
+              "Deep stromal lattice lines, late onset",
+              "None"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features: The Slit-Lamp Exam",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Fine, branching, refractile lines in the anterior/mid stroma.",
+          "Small, white subepithelial dots (amyloid deposits).",
+          "Diffuse stromal haze (ground-glass appearance) in later stages.",
+          "Lattice lines usually clear the peripheral 1-2mm (limbal sparing).",
+          "Recurrent Corneal Erosions (RCE) often precede lattice lines.",
+          "Decreased corneal sensitivity due to nerve involvement/amyloid."
+        ]
+      },
+      {
+        "title": "Red Flags: Meretoja Syndrome (LCD Type II)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Progressive Cranial Nerve Palsies (esp. Facial Nerve VII)",
+          "Mask-like facies (due to facial nerve involvement)",
+          "Cutis Laxa (loose, redundant skin)",
+          "Peripheral Neuropathy",
+          "Cardiac Arrhythmias or Amyloid Cardiomyopathy",
+          "Autonomic dysfunction (Postural hypotension)"
+        ]
+      },
+      {
+        "title": "Histopathology: The Gold Standard",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Stain / Test",
+            "Observation"
+          ],
+          "rows": [
+            [
+              "Congo Red",
+              "Orange-Red staining"
+            ],
+            [
+              "Polarized Light",
+              "Apple-green birefringence"
+            ],
+            [
+              "Thioflavin T",
+              "Fluorescence under UV light"
+            ],
+            [
+              "Crystal Violet",
+              "Metachromatic staining (purple)"
+            ],
+            [
+              "Masson Trichrome",
+              "Stains red (different from Hyaline)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. High-Magnification Slit-Lamp: Retroillumination is key for refractile lines.",
+          "2. Anterior Segment OCT (AS-OCT): Visualizes hyperreflective stromal deposits and epithelial irregularities.",
+          "3. In Vivo Confocal Microscopy (IVCM): Shows highly reflective, branching linear structures in the stroma.",
+          "4. Genetic Testing: TGFBI gene sequencing for definitive typing.",
+          "5. Corneal Sensitivity (Cochet-Bonnet): Often reduced early on."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Deposit Type",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Granular Dystrophy Type 1",
+              "Hyaline (Masson Trichrome+)",
+              "Crumb-like opacities, clear stroma between"
+            ],
+            [
+              "Macular Dystrophy",
+              "Acid Mucopolysaccharide (Alcian Blue+)",
+              "Diffuse haze to limbus, thinning, Autosomal Recessive"
+            ],
+            [
+              "Schnyder Corneal Dystrophy",
+              "Cholesterol/Phospholipids",
+              "Central subepithelial crystals, arcus senilis early"
+            ],
+            [
+              "Reis-Bücklers Dystrophy",
+              "Bowman's layer / Subepithelial",
+              "Honeycomb pattern, no lattice lines"
+            ],
+            [
+              "Granular Dystrophy Type 2 (Avellino)",
+              "Hyaline + Amyloid",
+              "Combination of granular dots and lattice lines"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Conservative management of RCE (Lubricants, Hypertonic saline, Bandage Contact Lens).",
+          "Step 2: Phototherapeutic Keratectomy (PTK) for superficial deposits and RCE prevention.",
+          "Step 3: Deep Anterior Lamellar Keratoplasty (DALK) if deposits are deep but endothelium is healthy.",
+          "Step 4: Penetrating Keratoplasty (PKP) for full-thickness stromal haze.",
+          "Step 5: Post-operative monitoring for recurrence (Common in LCD)."
+        ]
+      },
+      {
+        "title": "Surgical Comparison",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Procedure",
+            "Indications",
+            "Pros/Cons"
+          ],
+          "rows": [
+            [
+              "PTK",
+              "Superficial lattice/RCE",
+              "Minimally invasive; causes hyperopic shift"
+            ],
+            [
+              "DALK",
+              "Deep stroma; healthy endo",
+              "No rejection risk; technically difficult"
+            ],
+            [
+              "PKP",
+              "Full thickness haze",
+              "High success; risk of graft rejection"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: Stromal Dystrophy Stains",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Marilyn Monroe Got Hers in Los Angeles",
+          "explanation": "Macular = Mucopolysaccharide; Granular = Hyaline; Lattice = Amyloid."
+        }
+      },
+      {
+        "title": "Prognosis & Recurrence",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Lattice has the highest recurrence rate among stromal dystrophies.",
+          "Recurrence in graft usually occurs within 3-10 years post-op.",
+          "Recurrent deposits often start as a peripheral subepithelial haze.",
+          "Secondary RCE can occur even after successful keratoplasty."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "LCD Type I is almost always TGFBI Arg124Cys.",
+          "In retroillumination, lattice lines look like 'glass threads'.",
+          "Vision loss is dual-mode: chronic haze + acute RCE episodes.",
+          "Decreased corneal sensation is a helpful diagnostic sign for LCD."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Data",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Recent research focuses on siRNA (small interfering RNA) to silence the mutant TGFBI allele and gene editing via CRISPR/Cas9. Studies have shown that DALK may offer better long-term outcomes than PKP for LCD because the amyloid deposits do not involve the host endothelium, and maintaining the host's own endothelium reduces the long-term risk of rejection. However, recurrence in the donor stroma remains a significant hurdle across all keratoplasty techniques."
+      }
+    ],
+    "generationPrompt": "lattice dystrophy",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044652119,
+  "communityId": "sub_1774681156092_6hmnsu4zo",
+  "communityAuthor": "geno",
+  "communityDate": "2026-03-28T06:59:16.093Z"
+}

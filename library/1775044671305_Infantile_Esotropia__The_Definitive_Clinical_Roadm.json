@@ -1,0 +1,289 @@
+{
+  "id": 1775044671305,
+  "seqId": 246,
+  "title": "Infantile Esotropia: The Definitive Clinical Roadmap",
+  "summary": "A comprehensive guide to the diagnosis, pathophysiology, and surgical management of essential infantile esotropia. Designed for residents and fellows to master the 'Congenital' Esotropia Syndrome.",
+  "date": "2026-04-01T11:57:51.305Z",
+  "data": {
+    "title": "Infantile Esotropia: The Definitive Clinical Roadmap",
+    "summary": "A comprehensive guide to the diagnosis, pathophysiology, and surgical management of essential infantile esotropia. Designed for residents and fellows to master the 'Congenital' Esotropia Syndrome.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='60' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='65' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><circle cx='140' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='125' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M80 80 Q100 90 120 80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Infantile Esotropia (IE), also known as Essential Infantile Esotropia, is a large-angle, constant convergent strabismus with onset within the first 6 months of life. It is distinct from accommodative types as it typically presents with minimal refractive error and is associated with a specific constellation of oculomotor findings including DVD and latent nystagmus."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "General Population Prevalence",
+              "value": 1
+            },
+            {
+              "label": "Prematurity Risk Inc.",
+              "value": 30
+            },
+            {
+              "label": "Cerebral Palsy Association",
+              "value": 45
+            },
+            {
+              "label": "Family History Positive",
+              "value": 25
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Classic Clinical Pentad",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Infantile Esotropia Syndrome",
+          "branches": [
+            "Large Angle ET (>30-40 PD)",
+            "Cross-Fixation in Side Gaze",
+            "Dissociated Vertical Deviation (DVD)",
+            "Inferior Oblique Overaction (IOOA)",
+            "Latent Nystagmus (LN)"
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology Theories",
+        "icon": "genetics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Theory",
+            "Proponent",
+            "Core Mechanism"
+          ],
+          "rows": [
+            [
+              "Worth's Theory",
+              "Claude Worth",
+              "Innate, irreversible defect in the fusion faculty of the brain."
+            ],
+            [
+              "Chavasse's Theory",
+              "Bernard Chavasse",
+              "Primary motor misalignment preventing development of normal binocular reflexes."
+            ],
+            [
+              "Ciancia's Syndrome",
+              "Ciancia",
+              "Esotropia associated with nystagmus in abduction and head turn."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "MANDATORY: Rule out Life-Threatening Etiology",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Retinoblastoma: MUST perform dilated fundus exam on ALL new ET cases.",
+          "CN VI Palsy: Suspect if abduction is limited beyond cross-fixation/doll's head.",
+          "Hydrocephalus: Increased ICP can present as sudden onset esotropia.",
+          "Sensory Esotropia: Corneal scarring, congenital cataract, or optic nerve hypoplasia."
+        ]
+      },
+      {
+        "title": "Comprehensive Ocular Examination Findings",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Motor: Constant, large-angle ET (usually 40-60 PD). Measured via Hirschberg/Krimsky or Prism Cover Test.",
+          "Fixation: Cross-fixation is common; the infant uses the ADducted eye to view the opposite field.",
+          "Pseudo-Abducens Palsy: Apparent abduction deficit due to cross-fixation. Resolved by Doll's Head Maneuver or Monocular Patching for 1 hour.",
+          "Refraction: Cycloplegic refraction usually shows low hyperopia (+1.00 to +2.00 D), which is normal for age.",
+          "Asymmetric OKN: Stronger response in the temporonasal direction than nasotemporal direction.",
+          "DVD: Upward drifting of the eye when covered or inattentive, without a corresponding downward movement of the other eye."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Differential",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Pseudo-esotropia",
+              "Wide nasal bridge, epicanthal folds; positive corneal light reflex.",
+              "Observation only."
+            ],
+            [
+              "Accommodative ET",
+              "Onset later (2-3 years), high hyperopia (>+3.00D), corrected by glasses.",
+              "Full cycloplegic correction."
+            ],
+            [
+              "Duane Type 1",
+              "Limited abduction, globe retraction, and palpebral fissure narrowing on adduction.",
+              "Observation or surgery if head turn."
+            ],
+            [
+              "Mobius Syndrome",
+              "Mask-like facies, inability to abduct, multiple cranial nerve palsies.",
+              "Multi-disciplinary support."
+            ],
+            [
+              "Nystagmus Blockage",
+              "Nystagmus decreases or stops when the eye is in adduction.",
+              "Bilateral Medial Rectus Recession."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Step-by-Step Diagnostic Workup",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. History: Confirm onset < 6 months and rule out neurological delays.",
+          "2. Visual Assessment: CSM (Central, Steady, Maintained) or Fix & Follow.",
+          "3. Motor Evaluation: Angle measurement at distance/near (Hirschberg/Krimsky).",
+          "4. Ductions/Versions: Check for abduction capability and IOOA.",
+          "5. Cycloplegic Refraction: Use 1% Cyclopentolate (or Atropine for dark irides).",
+          "6. Fundus Exam: Dilated indirect ophthalmoscopy to rule out posterior pole pathology."
+        ]
+      },
+      {
+        "title": "Surgical Dosing: Bilateral Medial Rectus (BMR) Recession",
+        "icon": "straighten",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Angle of ET (PD)",
+            "Recession of Each MR (mm)"
+          ],
+          "rows": [
+            [
+              "15 PD",
+              "3.0 mm"
+            ],
+            [
+              "20 PD",
+              "3.5 mm"
+            ],
+            [
+              "30 PD",
+              "4.0 - 4.5 mm"
+            ],
+            [
+              "40 PD",
+              "5.0 - 5.5 mm"
+            ],
+            [
+              "50 PD",
+              "6.0 mm"
+            ],
+            [
+              "60+ PD",
+              "6.5 - 7.0 mm (max 7.0)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Memory Aid: The 'C-L-A-S-S' of IE",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "C-L-A-S-S",
+          "explanation": "C: Cross-fixation / Constant large angle; L: Latent nystagmus; A: Asymmetric OKN; S: Small refractive error (Normal for age); S: Stereopsis is usually absent/poor."
+        }
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Treat Amblyopia First: Patching of the dominant eye if fixation is not alternating.",
+          "2. Correct Significant Refractive Error: If >+2.50D or significant astigmatism.",
+          "3. Timing: Goal is surgical alignment between 6 and 12 months of age.",
+          "4. Primary Surgery: Usually Bilateral Medial Rectus Recession (BMR).",
+          "5. Secondary Surgery: Address IOOA (Inferior Oblique Myectomy/Recession) or DVD if they emerge."
+        ]
+      },
+      {
+        "title": "Post-Operative Complications & Risks",
+        "icon": "report_problem",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Consecutive Exotropia: Over-correction (common in children with neurological issues).",
+          "Residual Esotropia: Under-correction requiring further recession or resection of lateral recti.",
+          "Scleral Perforation: Rare but serious surgical complication.",
+          "Lost Muscle: Surgical emergency requiring immediate retrieval.",
+          "Recurrent Amblyopia: Requires long-term follow-up and monitoring."
+        ]
+      },
+      {
+        "title": "Landmark Studies: ELIS (Early vs Late Infantile Strabismus)",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "The ELIS study and various multicenter trials have demonstrated that alignment achieved before age 2 (ideally by age 1) provides the best chance for 'subnormal' binocular vision (peripheral fusion) and gross stereopsis (200-400 arc sec). Fine stereopsis is rarely achieved in IE."
+      },
+      {
+        "title": "Key Clinical Pearls for the Boards",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Initial management is ALWAYS medical (patching/glasses) until vision is equalized.",
+          "BMR is the gold standard; however, in massive angles (>70PD), some surgeons combine BMR with Lateral Rectus resection (3-4 muscle surgery).",
+          "IOOA and DVD often don't appear until age 2 or 3, even if the primary ET is successfully corrected early.",
+          "Ciancia Syndrome features esotropia with head turn towards the side of the fixating eye to dampen nystagmus.",
+          "Botulinum Toxin: An alternative to surgery in select cases, though effect may be temporary or require multiple injections."
+        ]
+      }
+    ],
+    "generationPrompt": "infantile esotropia",
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "_newlyImported": 1775044671305,
+  "communityId": "sub_1774427943299_nbtjvh7xk",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-03-25T08:39:03.299Z"
+}

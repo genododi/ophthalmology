@@ -1,0 +1,290 @@
+{
+  "id": 1775378586622,
+  "seqId": 668,
+  "title": "Pigmentary Retinopathy: The Master Guide",
+  "summary": "A comprehensive clinical breakdown of pigmentary retinopathies, ranging from classic Retinitis Pigmentosa to its complex systemic phenocopies. Designed for ophthalmology residents and fellows to master diagnosis, genetics, and management.",
+  "date": "2026-04-05T08:43:06.622Z",
+  "data": {
+    "title": "Pigmentary Retinopathy: The Master Guide",
+    "summary": "A comprehensive clinical breakdown of pigmentary retinopathies, ranging from classic Retinitis Pigmentosa to its complex systemic phenocopies. Designed for ophthalmology residents and fellows to master diagnosis, genetics, and management.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M150 60 L155 55 M160 80 L168 82 M145 140 L152 145 M50 60 L45 55 M40 80 L32 82 M55 140 L48 145' stroke='black' stroke-width='3' stroke-linecap='round'/><path d='M152 57 L158 58 M165 81 L166 88 M48 57 L42 58' stroke='black' stroke-width='2' stroke-linecap='round'/><circle cx='100' cy='100' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Pigmentary retinopathy refers to a group of hereditary and acquired disorders characterized by the migration of retinal pigment epithelium (RPE) into the neurosensory retina. The most common form is Retinitis Pigmentosa (RP), a diffuse rod-cone dystrophy. While primarily an ocular disease, it frequently serves as a sentinel sign for systemic ciliopathies and metabolic disorders."
+      },
+      {
+        "title": "The Classic Clinical Triad",
+        "icon": "biotech",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "B-W-A (The RP Triad)",
+          "explanation": "B: Bone-Spicule Pigmentation (perivascular); W: Waxy Disc Pallor (secondary to gliosis); A: Arteriolar Attenuation (vascular remodeling)."
+        }
+      },
+      {
+        "title": "Epidemiology & Inheritance",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Autosomal Recessive (Most Common)",
+              "value": 65
+            },
+            {
+              "label": "Autosomal Dominant (Best Prognosis)",
+              "value": 20
+            },
+            {
+              "label": "X-Linked (Most Severe)",
+              "value": 10
+            },
+            {
+              "label": "Simplex/Isolated",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology Workflow",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Genetic mutation (e.g., RHO, USH2A, RPGR) leads to rod photoreceptor dysfunction.",
+          "Step 2: Progressive shortening of rod outer segments and eventual apoptosis.",
+          "Step 3: Loss of rods leads to secondary oxidative stress and loss of trophic factors (like RdCVF), causing cone death.",
+          "Step 4: RPE cells migrate into the retina, clustering around vessels in a 'bone-spicule' pattern.",
+          "Step 5: Optic nerve gliosis occurs, resulting in the characteristic waxy pallor appearance."
+        ]
+      },
+      {
+        "title": "Clinical Features & Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Nyctalopia (Night Blindness): Often the first symptom in childhood.",
+          "Peripheral Field Loss: Starting as a mid-peripheral ring scotoma, progressing to tunnel vision.",
+          "Photopsia: Tiny shimmering lights in the peripheral field.",
+          "Central Vision Loss: Occurs late due to CME, ERM, or foveal atrophy.",
+          "Dyschromatopsia: Late-stage loss of color discrimination."
+        ]
+      },
+      {
+        "title": "Multimodal Investigation Protocol",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Test Type",
+            "Characteristic Finding",
+            "Clinical Utility"
+          ],
+          "rows": [
+            [
+              "Full-field ERG",
+              "Marked reduction/extinction of scotopic responses",
+              "Gold Standard for diagnosis"
+            ],
+            [
+              "SD-OCT",
+              "Loss of Ellipsoid Zone (EZ) and External Limiting Membrane",
+              "Monitoring macular health/CME"
+            ],
+            [
+              "Fundus Autofluorescence",
+              "Hyperautofluorescent 'Ring of Robson-Holdtree'",
+              "Demarcates edge of functioning retina"
+            ],
+            [
+              "Visual Fields (HVF/Goldmann)",
+              "Mid-peripheral ring scotoma to 5-degree central island",
+              "Functional assessment/Legal blindness"
+            ],
+            [
+              "Genetic Testing",
+              "Identification of specific mutations (e.g., RPE65)",
+              "Eligibility for gene therapy (Luxturna)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: The Phenocopies",
+        "icon": "compare_arrows",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Pseudo-RP",
+          "branches": [
+            "Infectious: Syphilis, Rubella, Toxoplasmosis",
+            "Drug-Induced: Thioridazine, Chlorpromazine, Chloroquine",
+            "Traumatic: 'Commotio Retinae' sequelae",
+            "Inflammatory: Diffuse Unilateral Subacute Neuroretinitis (DUSN)",
+            "Metabolic: Vitamin A deficiency, Refsum Disease"
+          ]
+        }
+      },
+      {
+        "title": "Critical Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden vision drop: Suggestive of Cystoid Macular Edema (CME).",
+          "Unilateral presentation: Highly suspicious for Pseudo-RP (RP is bilateral).",
+          "History of high-dose Vitamin E: Can accelerate disease progression in some forms.",
+          "Presence of hearing loss: Must rule out Usher Syndrome immediately."
+        ]
+      },
+      {
+        "title": "Syndromic Associations",
+        "icon": "genetics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Syndrome",
+            "Key Non-Ocular Features",
+            "Inheritance"
+          ],
+          "rows": [
+            [
+              "Usher Syndrome",
+              "Sensorineural hearing loss, vestibular dysfunction",
+              "AR"
+            ],
+            [
+              "Bardet-Biedl",
+              "Polydactyly, Obesity, Renal dysfunction, Hypogonadism",
+              "AR"
+            ],
+            [
+              "Kearns-Sayre",
+              "CPEO, Heart block (Emergency!), Ptosis",
+              "Mitochondrial"
+            ],
+            [
+              "Refsum Disease",
+              "Anosmia, Ataxia, Ichthyosis (treatable with diet)",
+              "AR"
+            ],
+            [
+              "Alström Syndrome",
+              "Type 2 Diabetes, Cardiomyopathy, Deafness",
+              "AR"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management & Treatment",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Vitamin A Palmitate: 15,000 IU/day (controversial, monitor liver enzymes).",
+          "Omega-3 Fatty Acids: 1200mg/day may slow ERG decline.",
+          "CME Treatment: Topical or oral Carbonic Anhydrase Inhibitors (Acetazolamide/Dorzolamide).",
+          "UV Protection: Dark amber wrap-around sunglasses to reduce phototoxicity.",
+          "Low Vision Aids: Bioptics, magnifiers, and mobility training."
+        ]
+      },
+      {
+        "title": "Gene Therapy: Luxturna (Voretigene Neparvovec)",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Confirm Biallelic RPE65 mutation via genetic testing.",
+          "2. Pars Plana Vitrectomy (PPV) performed by vitreoretinal surgeon.",
+          "3. Subretinal injection of AAV2 vector carrying RPE65 cDNA.",
+          "4. Restoration of the visual cycle and rod function."
+        ]
+      },
+      {
+        "title": "Landmark Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "The 'Mizuo-Nakamura' phenomenon: Characteristic of Oguri disease, not classic RP.",
+          "Preserved peripapillary RPE: Often a sign of CRB1 mutations.",
+          "Bone spicules follow the vessels: Because the vessels provide the scaffold for RPE migration.",
+          "XL-RP: Check female carriers for a 'tapetal-like' retinal sheen."
+        ]
+      },
+      {
+        "title": "Surgical Complications",
+        "icon": "fluid_med",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Posterior Subcapsular Cataract (PSC): Extremely common; manage with surgery.",
+          "Zonular Weakness: Higher risk of lens subluxation during phacoemulsification.",
+          "Vitreous Syneresis: Increased risk of retinal tears and detachment.",
+          "Epiretinal Membrane: Can cause significant tractional macular distortion."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "The Berson Study (1993) established the role of Vitamin A Palmitate. Recent focus has shifted to Optogenetics (using viral vectors to make surviving cells light-sensitive) and Stem Cell therapy to replace the RPE layer. The ARGUS II Retinal Prosthesis, while now discontinued commercially, proved the feasibility of electronic retinal bypass in end-stage disease."
+      },
+      {
+        "title": "Pediatric Considerations",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Leber Congenital Amaurosis (LCA): The severe, infantile-onset form of pigmentary retinopathy.",
+          "Oculodigital Reflex: Frequent eye poking (Franceschetti's sign) to induce phosphenes.",
+          "Nystagmus: Develops early in severe pediatric cases due to poor fixation.",
+          "Genetic Counseling: Essential for families to understand recurrence risk."
+        ]
+      },
+      {
+        "title": "Mnemonic for Syndromes",
+        "icon": "menu_book",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "BARDET-BIEDL (B.A.R.D.E.T)",
+          "explanation": "B: Big (Obesity); A: Atrial/Heart (less common); R: Renal; D: Digits (Polydactyly); E: Eyes (RP); T: Testes (Hypogonadism)."
+        }
+      }
+    ],
+    "generationPrompt": "Pigmentary retinopathy",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "read": true
+}

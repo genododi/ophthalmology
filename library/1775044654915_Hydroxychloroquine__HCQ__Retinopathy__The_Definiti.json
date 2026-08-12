@@ -1,0 +1,267 @@
+{
+  "id": 1775044654915,
+  "seqId": 74,
+  "title": "Hydroxychloroquine (HCQ) Retinopathy: The Definitive Screening Guide",
+  "summary": "A comprehensive clinical roadmap for the prevention, screening, and management of Plaquenil-induced maculopathy based on the 2016 AAO Guidelines. Essential for ophthalmologists managing patients with RA and SLE.",
+  "date": "2026-04-01T11:57:34.915Z",
+  "data": {
+    "title": "Hydroxychloroquine (HCQ) Retinopathy: The Definitive Screening Guide",
+    "summary": "A comprehensive clinical roadmap for the prevention, screening, and management of Plaquenil-induced maculopathy based on the 2016 AAO Guidelines. Essential for ophthalmologists managing patients with RA and SLE.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='25' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M20 50 L80 50 M50 20 L50 80' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><circle cx='50' cy='50' r='15' fill='none' stroke='red' stroke-width='2' opacity='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Hydroxychloroquine (HCQ), commercially known as Plaquenil, is a 4-aminoquinoline derivative used for Rheumatoid Arthritis (RA) and Systemic Lupus Erythematosus (SLE). While safer than chloroquine, it carries a risk of irreversible, vision-threatening toxic maculopathy. The primary mechanism involves binding to melanin in the Retinal Pigment Epithelium (RPE), leading to metabolic disruption and subsequent loss of photoreceptors."
+      },
+      {
+        "title": "Primary Risk Factors for Toxicity",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Risk Factor",
+            "Criteria for High Risk",
+            "Clinical Rationale"
+          ],
+          "rows": [
+            [
+              "Daily Dose",
+              "> 5.0 mg/kg Actual Body Weight",
+              "The most important predictor; exceeds metabolic clearance."
+            ],
+            [
+              "Duration of Use",
+              "> 5 Years",
+              "Cumulative dose increases risk; risk is <1% before 5 years."
+            ],
+            [
+              "Renal Function",
+              "Subnormal GFR / Stage 3+ CKD",
+              "HCQ is cleared renally; reduced GFR doubles toxicity risk."
+            ],
+            [
+              "Concomitant Drugs",
+              "Tamoxifen Use",
+              "Synergistic toxicity; 5x increased risk of retinopathy."
+            ],
+            [
+              "Macular Disease",
+              "Pre-existing Maculopathy",
+              "Masks early toxicity signs and interferes with screening."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The AAO Screening Schedule",
+        "icon": "calendar_month",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Baseline Exam (Within 1st year of starting HCQ) to rule out pre-existing maculopathy.",
+          "Step 2: Annual Screening begins after 5 years of treatment for low-risk patients.",
+          "Step 3: Immediate Annual Screening if 'High Risk' factors (e.g., Tamoxifen, Renal failure) are present.",
+          "Step 4: Frequent Monitoring if 'Borderline' findings are detected on OCT or VF."
+        ]
+      },
+      {
+        "title": "Mnemonic for Toxicity Risk",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "D.D.R.T.M. (The 5 Pillars)",
+          "explanation": "D: Dose (>5mg/kg), D: Duration (>5yrs), R: Renal (Low GFR), T: Tamoxifen, M: Macular disease."
+        }
+      },
+      {
+        "title": "Diagnostic Gold Standards (Objective Tests)",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Objective Screening",
+          "branches": [
+            "SD-OCT: Look for 'Flying Saucer' sign (EZ loss)",
+            "FAF: Localized hyper/hypo-autofluorescence (RPE stress)",
+            "mfERG: Objective mapping of paracentral cone function",
+            "Wide-field Imaging: Mandatory for Asian patients"
+          ]
+        }
+      },
+      {
+        "title": "Subjective Screening: Visual Fields",
+        "icon": "grid_view",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Automated Perimetry is mandatory.",
+          "Standard: 10-2 SITA Standard/Fast protocol.",
+          "Look for 'Paracentral' or 'Ring' scotomas.",
+          "Pattern Deviation plot is more sensitive than Mean Deviation.",
+          "Asian Population Requirement: 30-2 or 24-2 (toxicity is often extramacular/peripheral)."
+        ]
+      },
+      {
+        "title": "Prevalence of Retinopathy",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "0-5 Years",
+              "value": 1
+            },
+            {
+              "label": "5-10 Years",
+              "value": 3
+            },
+            {
+              "label": "10-15 Years",
+              "value": 10
+            },
+            {
+              "label": "20+ Years",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathognomonic OCT Findings",
+        "icon": "potted_plant",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Loss of the Ellipsoid Zone (EZ) in the paracentral region.",
+          "Thinning of the Outer Nuclear Layer (ONL).",
+          "The 'Flying Saucer' Sign: Sparing of the foveal EZ creates a central 'island' appearance.",
+          "Late Stage: Total RPE and outer retinal atrophy."
+        ]
+      },
+      {
+        "title": "The Asian Phenotype Variation",
+        "icon": "public",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Toxicity in Asian patients typically presents OUTSIDE the macula.",
+          "10-2 Visual Fields will MISS 50% of toxicity in this population.",
+          "Must perform 30-2 Visual Fields and Wide-field OCT/FAF."
+        ]
+      },
+      {
+        "title": "Ineffective Screening Methods (Do NOT Use)",
+        "icon": "cancel",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Amsler Grid: Too insensitive for early detection.",
+          "Color Vision Testing: Non-specific and late-stage finding.",
+          "Fundus Photography: Misses early structural changes.",
+          "Full-field ERG: Only abnormal in end-stage disease."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features from HCQ Toxicity"
+          ],
+          "rows": [
+            [
+              "Stargardt Disease",
+              "Presents earlier, 'Pisciform' flecks on FAF, dark choroid on FFA."
+            ],
+            [
+              "Cone-Rod Dystrophy",
+              "Progressive decrease in VA, abnormal Full-field ERG early."
+            ],
+            [
+              "Age-Related Macular Degeneration",
+              "Presence of Drusen, Pigmentary changes not confined to ring."
+            ],
+            [
+              "Solar Maculopathy",
+              "History of sun gazing, small foveal 'hole' on OCT."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management & Cessation Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Confirm findings with at least two different modalities (e.g., OCT + VF).",
+          "Step 2: Documentation: Detail the severity and risk of continued use.",
+          "Step 3: Multi-disciplinary Communication: Formally write to the Rheumatologist to advise cessation.",
+          "Step 4: Transition: Rheumatologist must switch to an alternative agent (e.g., Methotrexate, biologics).",
+          "Step 5: Follow-up: Continue monitoring for 1-2 years after stopping due to 'coasting'."
+        ]
+      },
+      {
+        "title": "The 'Coasting' Phenomenon",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Retinopathy can continue to progress for 1-3 years AFTER drug cessation.",
+          "This is due to the extremely long half-life of HCQ in pigmented tissues.",
+          "Early detection is CRITICAL; if damage is foveal, it will likely worsen despite stopping."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Practice",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always use ACTUAL body weight for dosing (not Ideal weight).",
+          "Cumulative dose over 1000g is a major threshold for concern.",
+          "If the patient is on Tamoxifen, the risk is 'Extreme'.",
+          "Bull’s Eye Maculopathy is a LATE sign; the goal is to find sub-clinical change."
+        ]
+      },
+      {
+        "title": "Recent Landmark Studies",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The Melles & Marmor (2014) study in JAMA Ophthalmology revolutionized current dosing. It demonstrated that 5mg/kg actual weight was the most predictive safety threshold, significantly reducing the incidence of toxicity compared to previous dosing guidelines."
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1775044654915,
+  "communityId": "sub_1773743862147_c4a7o99d6",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T10:37:42.148Z"
+}

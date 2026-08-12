@@ -1,0 +1,351 @@
+{
+  "id": 1775414814437,
+  "seqId": 708,
+  "title": "Epiretinal Membrane: Comprehensive Clinical Guide",
+  "summary": "A deep dive into the pathophysiology, OCT-based staging, and surgical management of Epiretinal Membranes (ERM), ranging from subtle cellophane maculopathy to vision-threatening macular pucker. This guide integrates classic Gass classification with modern Govetto staging and surgical protocols.",
+  "date": "2026-04-05T18:46:54.437Z",
+  "data": {
+    "title": "Epiretinal Membrane: Comprehensive Clinical Guide",
+    "summary": "A deep dive into the pathophysiology, OCT-based staging, and surgical management of Epiretinal Membranes (ERM), ranging from subtle cellophane maculopathy to vision-threatening macular pucker. This guide integrates classic Gass classification with modern Govetto staging and surgical protocols.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M60 100 Q 100 80 140 100 T 180 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-dasharray='4,2'/><path d='M50 110 Q 100 90 150 110' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2' opacity='0.6'/><path d='M70 120 Q 100 105 130 120' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1.5' opacity='0.4'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)' opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Epiretinal Membrane (ERM) is a common vitreoretinal condition characterized by the proliferation of a fibrocellular tissue on the inner surface of the internal limiting membrane (ILM). Clinically, it ranges from an asymptomatic 'cellophane maculopathy' to a 'macular pucker' causing significant metamorphopsia and central vision loss."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence > 60y",
+              "value": 7
+            },
+            {
+              "label": "Prevalence > 80y",
+              "value": 15
+            },
+            {
+              "label": "Idiopathic (Primary)",
+              "value": 80
+            },
+            {
+              "label": "Bilateral (at 5 yrs)",
+              "value": 12
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: Primary vs. Secondary",
+        "icon": "genetics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Associated Conditions / Risk Factors"
+          ],
+          "rows": [
+            [
+              "Idiopathic (Primary)",
+              "Posterior Vitreous Detachment (PVD) - found in 75-90% of cases, Age (>50)."
+            ],
+            [
+              "Post-Surgical",
+              "Retinal Detachment repair (highest risk), Cryopexy, Laser Photocoagulation."
+            ],
+            [
+              "Vascular",
+              "Diabetic Retinopathy, Retinal Vein Occlusion (RVO), Macroaneurysms."
+            ],
+            [
+              "Inflammatory",
+              "Posterior Uveitis, Pars Planitis, Toxoplasmosis."
+            ],
+            [
+              "Traumatic",
+              "Blunt or penetrating ocular trauma."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Cellular Mechanism",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: PVD induces micro-breaks or dehiscence in the Internal Limiting Membrane (ILM).",
+          "Step 2: Migration of glial cells (astrocytes, Müller cells) and RPE cells (if retinal breaks present) through ILM holes.",
+          "Step 3: Proliferation of these cells on the retinal surface forming a collagenous membrane.",
+          "Step 4: Transdifferentiation of cells into myofibroblasts containing alpha-smooth muscle actin (α-SMA).",
+          "Step 5: Centripetal contraction of the membrane leading to retinal folding, vascular tortuosity, and edema."
+        ]
+      },
+      {
+        "title": "Gass Classification (Clinical)",
+        "icon": "school",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "ERM Grades",
+          "branches": [
+            "Stage 0: Cellophane Maculopathy (translucent, no distortion)",
+            "Stage 1: Crinkled Cellophane (striae, mild distortion)",
+            "Stage 2: Macular Pucker (opaque, severe distortion, edema/hemorrhage)"
+          ]
+        }
+      },
+      {
+        "title": "Govetto OCT Staging System",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "OCT Findings",
+            "Visual Prognosis"
+          ],
+          "rows": [
+            [
+              "Stage 1",
+              "Foveal depression present; well-defined retinal layers.",
+              "Excellent"
+            ],
+            [
+              "Stage 2",
+              "Loss of foveal depression; all retinal layers identifiable.",
+              "Good"
+            ],
+            [
+              "Stage 3",
+              "Ectopic Inner Retinal Layers (EIRL) present; all layers identifiable.",
+              "Guarded"
+            ],
+            [
+              "Stage 4",
+              "EIRL present; significant distortion/disorganization of retinal layers.",
+              "Poor"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Metamorphopsia (Amsler Grid distortion)",
+          "Micropsia (objects appear smaller) or Macropsia",
+          "Decreased Central Visual Acuity (gradual)",
+          "Monocular Diplopia (rare)",
+          "Difficulty reading despite updated refraction"
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Sliver/Cellophane sheen on the macula",
+          "Straightening or tortuosity of retinal vessels",
+          "Retinal striae (wrinkling)",
+          "Pseudohole (centripetal displacement of foveal edges)",
+          "Small retinal hemorrhages or exudates (severe cases)",
+          "Cotton wool spots (secondary to tractional ischemia)"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Full-Thickness Macular Hole",
+              "Watzke-Allen positive, complete neurosensory defect on OCT."
+            ],
+            [
+              "Lamellar Macular Hole",
+              "Schisis of outer/inner retina, 'anvil' or 'mustache' shape on OCT."
+            ],
+            [
+              "Macular Pseudohole",
+              "Normal central foveal thickness, steepened foveal pits, no tissue loss."
+            ],
+            [
+              "Vitreomacular Traction (VMT)",
+              "Vitreous attachment visible on OCT pulling the foveal contour."
+            ],
+            [
+              "Cystoid Macular Edema (CME)",
+              "Intraretinal cysts without a visible surface membrane."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. BCVA and Amsler Grid Testing",
+          "2. Dilated Fundus Exam (90D or Contact Lens)",
+          "3. SD-OCT or SS-OCT (Crucial for staging)",
+          "4. Fluorescein Angiography (if vascular leakage/CME suspected)",
+          "5. Microperimetry (to assess functional loss in Stage 3/4)"
+        ]
+      },
+      {
+        "title": "Surgical Steps: PPV + Membrane Peel",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. 23G, 25G, or 27G Pars Plana Vitrectomy",
+          "2. Induction of PVD (if not already present)",
+          "3. Chromovitrectomy (Staining with Brilliant Blue or ICG)",
+          "4. Initiation of ERM 'flap' using Tano scraper or end-gripping forceps",
+          "5. Centripetal peeling of ERM and ILM (Double peeling or En-bloc)",
+          "6. Peripheral retinal inspection for breaks"
+        ]
+      },
+      {
+        "title": "Chromovitrectomy Stains",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stain",
+            "Target",
+            "Pros/Cons"
+          ],
+          "rows": [
+            [
+              "Brilliant Blue G (BBG)",
+              "ILM (Internal Limiting Membrane)",
+              "Low toxicity, excellent contrast, no light sensitivity issues."
+            ],
+            [
+              "Indocyanine Green (ICG)",
+              "ILM",
+              "Excellent staining, potential RPE toxicity if high concentration/long dwell."
+            ],
+            [
+              "Triamcinolone Acetonide",
+              "Vitreous / ERM surface",
+              "Helps visualize vitreous and ERM edge; doesn't stain ILM."
+            ],
+            [
+              "Trypan Blue",
+              "ERM / Dead cells",
+              "Good for dense ERM, does not stain ILM well."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags & Contraindications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapid vision loss (suggests RD or CNV, not just ERM)",
+          "Uncontrolled Glaucoma (risk of IOP spikes post-op)",
+          "Active Intraocular Inflammation",
+          "Presence of significant Outer Retinal Atrophy (EZ loss indicates poor prognosis)",
+          "Patient unable to comply with post-op care/positioning"
+        ]
+      },
+      {
+        "title": "Mnemonic: ERM PUCKERS",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PUCKERS",
+          "explanation": "P: PVD (Primary cause); U: Uveitis (Secondary cause); C: Cellophane sheen; K: Keratometry/Refraction change; E: Ectopic Inner Retinal Layers (OCT); R: Retinal striae; S: Surgery (PPV + Peel)."
+        }
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Post-operative Cataract (nearly 100% within 2 years in phakic patients)",
+          "Retinal Detachment (1-2%)",
+          "Endophthalmitis (<0.1%)",
+          "Scotoma (secondary to ILM peeling or forceps trauma)",
+          "Dissociated Optic Nerve Fiber Layer (DONFL) - asymptomatic pits on OCT",
+          "Recurrence (rare, <5% with ILM peeling)"
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "ILM peeling significantly reduces the rate of ERM recurrence.",
+          "Ectopic Inner Retinal Layers (EIRL) thickness is the strongest predictor of final visual acuity.",
+          "Wait at least 6-12 months for maximal visual recovery post-peel.",
+          "Binocularity is often improved after surgery even if Snellen acuity gain is modest.",
+          "Always warn phakic patients that they WILL need cataract surgery."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Inverted ILM Flap Technique: Being explored for ERM associated with large lamellar holes.",
+          "Robot-Assisted Peeling: Emerging technology to reduce tremor and increase precision.",
+          "Intraoperative OCT (iOCT): Real-time visualization of the peeling plane and residual traction.",
+          "Govetto et al. (2017): Established the importance of EIRL in ERM prognosis.",
+          "ERM with Foveoschisis: Surgery should be considered earlier as outcomes are worse once outer retinal damage occurs."
+        ]
+      }
+    ],
+    "generationPrompt": "Epiretinal membrane",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "read": true
+}

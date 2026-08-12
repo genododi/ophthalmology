@@ -1,0 +1,169 @@
+{
+  "id": 1775044682204,
+  "seqId": 357,
+  "title": "Disc Edema: Clinical Diagnostics & Management",
+  "summary": "Disc edema is the clinical swelling of the optic nerve head, signaling potential vision-threatening or life-threatening conditions. Precise identification and differentiation between unilateral and bilateral presentations are critical for urgent care.",
+  "date": "2026-04-01T11:58:02.204Z",
+  "data": {
+    "title": "Disc Edema: Clinical Diagnostics & Management",
+    "summary": "Disc edema is the clinical swelling of the optic nerve head, signaling potential vision-threatening or life-threatening conditions. Precise identification and differentiation between unilateral and bilateral presentations are critical for urgent care.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='35' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)' opacity='0.3'/><g stroke='hsl(215, 90%, 45%)' stroke-width='1.5' stroke-linecap='round'><line x1='50' y1='20' x2='50' y2='30'/><line x1='50' y1='70' x2='50' y2='80'/><line x1='20' y1='50' x2='30' y2='50'/><line x1='70' y1='50' x2='80' y2='50'/><line x1='28' y1='28' x2='35' y2='35'/><line x1='65' y1='65' x2='72' y2='72'/><line x1='28' y1='72' x2='35' y2='65'/><line x1='65' y1='35' x2='72' y2='28'/></g><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)' opacity='0.6'/></svg>",
+    "sections": [
+      {
+        "title": "Core Ophthalmoscopic Signs",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Blurred or indistinct disc margins",
+          "Elevation of the optic nerve head",
+          "Hyperemia of the disc tissue",
+          "Obscuration of peripapillary retinal vessels",
+          "Absence of Spontaneous Venous Pulsation (SVP)",
+          "Paton’s Lines (circumferential retinal folds)",
+          "Splinter (Drance) or flame-shaped hemorrhages"
+        ]
+      },
+      {
+        "title": "Emergency Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "New-onset, severe, or 'thunderclap' headache",
+          "Nausea and projectile vomiting",
+          "Pulsatile tinnitus (whooshing sound in ears)",
+          "Sudden, painless vision loss",
+          "Diplopia (suggestive of 6th Nerve Palsy)",
+          "Transient Visual Obscurations (TVOs) triggered by posture"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis by Laterality",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Disc Edema",
+          "branches": [
+            "Unilateral: NAION, Optic Neuritis, CRVO, Orbital Mass",
+            "Bilateral: Papilledema (↑ ICP), Malignant HTN, Diabetic Papillopathy",
+            "Pseudo-edema: Optic Disc Drusen, Tilted Discs, High Hyperopia"
+          ]
+        }
+      },
+      {
+        "title": "Papilledema vs. Pseudopapilledema",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "True Edema (Papilledema)",
+            "Pseudopapilledema (Drusen)"
+          ],
+          "rows": [
+            [
+              "Disc Margins",
+              "Indistinct/Blurred",
+              "Irregular/Lumpy"
+            ],
+            [
+              "Surface Vessels",
+              "Obscured by edema",
+              "Clearly visible"
+            ],
+            [
+              "Nerve Fiber Layer",
+              "Opaque/Hazy",
+              "Clear"
+            ],
+            [
+              "Cup-to-Disc Ratio",
+              "Often obliterated",
+              "Small or absent cup"
+            ],
+            [
+              "Autofluorescence",
+              "Negative",
+              "Positive (Hyper-autofluorescent)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workflow",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Perform comprehensive Dilated Fundus Exam",
+          "Step 2: Immediate Blood Pressure Measurement (Rule out HTN Crisis)",
+          "Step 3: Optical Coherence Tomography (OCT) to quantify RNFL thickness",
+          "Step 4: Neuroimaging (MRI Brain/Orbits with Gadolinium + MRV)",
+          "Step 5: Lumbar Puncture (LP) to assess Opening Pressure (if imaging clear)"
+        ]
+      },
+      {
+        "title": "Common Etiological Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Ischemic (NAION)",
+              "value": 45
+            },
+            {
+              "label": "Inflammatory (Neuritis)",
+              "value": 30
+            },
+            {
+              "label": "Increased ICP",
+              "value": 15
+            },
+            {
+              "label": "Other/Toxic",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Remember the 'VITAMIN' Causes",
+        "icon": "school",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "VITAMIN",
+          "explanation": "V: Vascular (AION, CRVO); I: Inflammation (Neuritis); T: Tumor (Orbital/Brain); A: Autoimmune (Sarcoid); M: Metabolic (Diabetic); I: Infection (Syphilis, Cat-scratch); N: Nutrition/Toxic (B12 deficiency, Methanol)."
+        }
+      },
+      {
+        "title": "Strategic Pathophysiology Note",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Disc edema occurs when axoplasmic flow is interrupted within the optic nerve. This stasis leads to cellular swelling and secondary extracellular fluid accumulation. Whether caused by mechanical compression (mass), vascular insufficiency (ischemia), or increased subarachnoid pressure (papilledema), the end result is a visible expansion of the optic disc that requires immediate localization of the blockage point to prevent permanent axonal loss."
+      }
+    ],
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044682204,
+  "communityId": "sub_1773775007770_4kwrcxi7laqpeb",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true
+}

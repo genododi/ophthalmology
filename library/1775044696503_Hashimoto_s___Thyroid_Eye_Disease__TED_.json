@@ -1,0 +1,290 @@
+{
+  "id": 1775044696503,
+  "seqId": 469,
+  "title": "Hashimoto’s & Thyroid Eye Disease (TED)",
+  "summary": "A comprehensive clinical guide to Hashimoto's Thyroiditis and its ophthalmic manifestation. While typically associated with hypothyroidism, Hashimoto's accounts for up to 10% of Thyroid Eye Disease (TED) cases, requiring vigilant monitoring for orbitopathy.",
+  "date": "2026-04-01T11:58:16.503Z",
+  "data": {
+    "title": "Hashimoto’s & Thyroid Eye Disease (TED)",
+    "summary": "A comprehensive clinical guide to Hashimoto's Thyroiditis and its ophthalmic manifestation. While typically associated with hypothyroidism, Hashimoto's accounts for up to 10% of Thyroid Eye Disease (TED) cases, requiring vigilant monitoring for orbitopathy.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M30,40 Q50,20 70,40 Q50,60 30,40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='50' cy='40' r='8' fill='hsl(215, 90%, 45%)'/><path d='M40,70 Q50,65 60,70 Q60,85 50,90 Q40,85 40,70' fill='hsl(0, 70%, 60%)' opacity='0.7'/><path d='M35,75 L45,75 M55,75 L65,75' stroke='white' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Hashimoto’s Thyroiditis (Chronic Lymphocytic Thyroiditis) is an autoimmune disorder characterized by the destruction of the thyroid gland by cell- and antibody-mediated immune processes. In ophthalmology, it is the second most common cause of Thyroid Eye Disease (TED) after Graves' disease. TED in Hashimoto's often presents in euthyroid or hypothyroid states and may have a more subtle but equally progressive course."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Female Predilection (Ratio 10:1)",
+              "value": 90
+            },
+            {
+              "label": "TED Prevalence in Hashimoto's",
+              "value": 10
+            },
+            {
+              "label": "Smoking Increase in TED Risk",
+              "value": 75
+            },
+            {
+              "label": "Radioactive Iodine Risk",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Autoimmune Cascade",
+          "branches": [
+            "Antibodies: TPO-Ab, Tg-Ab, and TSH-R Ab (Blocking/Stimulating)",
+            "Orbital Fibroblasts: Expression of TSH-R and IGF-1R",
+            "Glycosaminoglycan (GAG): Hyaluronic acid accumulation leads to osmotic edema",
+            "Adipogenesis: Expansion of orbital fat volume",
+            "Myocyte Inflammation: T-cell infiltration (CD4+ and CD8+) into EOMs"
+          ]
+        }
+      },
+      {
+        "title": "NOSPECS Classification System",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Grade",
+            "Mnemonic",
+            "Clinical Description"
+          ],
+          "rows": [
+            [
+              "0",
+              "N",
+              "No signs or symptoms"
+            ],
+            [
+              "1",
+              "O",
+              "Only signs (Lid retraction, Dalrymple sign)"
+            ],
+            [
+              "2",
+              "S",
+              "Soft tissue involvement (Chemosis, lid edema)"
+            ],
+            [
+              "3",
+              "P",
+              "Proptosis (Measured by Hertel exophthalmometry)"
+            ],
+            [
+              "4",
+              "E",
+              "Extraocular muscle involvement (Diplopia)"
+            ],
+            [
+              "5",
+              "C",
+              "Corneal involvement (Exposure keratopathy)"
+            ],
+            [
+              "6",
+              "S",
+              "Sight loss (Optic nerve compression)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Activity Score (CAS)",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Spontaneous retrobulbar pain",
+          "Pain on attempted upgaze or sidegaze",
+          "Eyelid erythema",
+          "Eyelid edema/swelling",
+          "Conjunctival injection",
+          "Chemosis (conjunctival edema)",
+          "Inflammation of the caruncle or plica",
+          "Score ≥ 3/7 indicates active disease."
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Von Graefe’s Sign: Lid lag on downgaze",
+          "Dalrymple Sign: Widened palpebral fissures",
+          "Kocher Sign: Staring/frightened appearance",
+          "Stellwag Sign: Infrequent or incomplete blinking",
+          "Hertel measurement: Typically >20mm or >2mm asymmetry",
+          "IOP: May increase >2mmHg on upgaze (EOM restriction)"
+        ]
+      },
+      {
+        "title": "Order of Muscle Involvement",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "I M S L O",
+          "explanation": "Inferior Rectus (most common) → Medial Rectus → Superior Rectus → Lateral Rectus → Obliques (least common)."
+        }
+      },
+      {
+        "title": "Red Flags: Sight-Threatening TED",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Dysthyroid Optic Neuropathy (DON): Decreased VA, RAPD (+)",
+          "Dyschromatopsia: Faded colors (red desaturation)",
+          "Corneal Ulceration: From severe lagophthalmos",
+          "Significant Choroidal Folds: Suggesting high orbital pressure"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Serology (TSH, Free T4, T3, TPO antibodies, TR-Ab/TSI)",
+          "Step 2: Formal Visual Fields (Humphrey 24-2 or 30-2) to check for DON",
+          "Step 3: Color Vision testing (Ishihara plates)",
+          "Step 4: CT Orbit (Non-contrast): Look for 'Coca-Cola Bottle' sign (tendon sparing muscle enlargement)",
+          "Step 5: MRI Orbit: T2-weighted sequences to assess active inflammation/edema"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Orbital Myositis",
+              "Painful; involves muscle tendons (unlike TED)"
+            ],
+            [
+              "Idiopathic Orbital Inflammation",
+              "Acute onset; unilateral; prompt response to steroids"
+            ],
+            [
+              "Orbital Cellulitis",
+              "Fever, leukocytosis, proptosis, history of sinusitis"
+            ],
+            [
+              "Carotid-Cavernous Fistula",
+              "Pulsatile proptosis, bruit, corkscrew episcleral vessels"
+            ],
+            [
+              "Lymphoma",
+              "Painless, 'salmon-patch' subconjunctival lesion, molded to globe"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management of Active Phase",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Smoking Cessation (Mandatory)",
+          "2. Selenium Supplementation (100mcg BID) for mild cases",
+          "3. IV Methylprednisolone (EUGOGO protocol: 500mg weekly x 6, then 250mg x 6)",
+          "4. Teprotumumab (IGF-1R inhibitor): 8 infusions every 3 weeks",
+          "5. Orbital Radiotherapy (20 Gray over 10 fractions)"
+        ]
+      },
+      {
+        "title": "Surgical Intervention Sequence",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Orbital Decompression (Fat or Bone) - Perform ONLY when stable (except for emergency DON)",
+          "Step 2: Strabismus Surgery (Recessions, adjustable sutures preferred)",
+          "Step 3: Eyelid Recession (To address lid retraction)",
+          "Step 4: Blepharoplasty (Removal of prolapsed orbital fat)"
+        ]
+      },
+      {
+        "title": "Landmark Study: OPTIC Trial",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Intervention: Teprotumumab vs Placebo",
+          "Result: 83% of patients had ≥2mm reduction in proptosis",
+          "Significant improvement in diplopia and CAS scores",
+          "Adverse Effects: Muscle cramps, hyperglycemia, hearing loss (ototoxicity)"
+        ]
+      },
+      {
+        "title": "Clinical Pearls & Exam Tips",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Always check IOP in upgaze; a rise >2mmHg suggests IR restriction.",
+          "TED can occur in hypothyroidism; check antibodies even if TSH is high.",
+          "Eyelid retraction is the most common sign of TED (90% of cases).",
+          "Smoking is the single most important modifiable risk factor for progression."
+        ]
+      },
+      {
+        "title": "Prognosis & Rundle's Curve",
+        "icon": "show_chart",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Rundle's Curve describes the natural history of TED: an initial 'Active Phase' of worsening inflammation (6–18 months) followed by a 'Plateau' and a slow 'Fibrotic Phase' of improvement. Surgery for cosmesis and function (except in emergencies) should be delayed until the patient has reached the stable, inactive phase for at least 6 months."
+      }
+    ],
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "_newlyImported": 1775044696503,
+  "communityId": "sub_1774352254516_xi5im0nxr8agjp",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

@@ -1,0 +1,312 @@
+{
+  "id": 1775044655270,
+  "seqId": 78,
+  "title": "Post-Operative Pulmonary Embolism: A Clinical Deep Dive",
+  "summary": "Pulmonary Embolism (PE) is a life-threatening post-surgical complication characterized by the occlusion of the pulmonary arterial tree. This guide provides an evidence-based framework for the rapid diagnosis, risk stratification, and management of PE in the post-operative setting.",
+  "date": "2026-04-01T11:57:35.270Z",
+  "data": {
+    "title": "Post-Operative Pulmonary Embolism: A Clinical Deep Dive",
+    "summary": "Pulmonary Embolism (PE) is a life-threatening post-surgical complication characterized by the occlusion of the pulmonary arterial tree. This guide provides an evidence-based framework for the rapid diagnosis, risk stratification, and management of PE in the post-operative setting.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M30,20 Q50,10 70,20 Q85,40 70,70 Q50,85 30,70 Q15,40 30,20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M50,30 L50,80 M35,45 L65,45 M35,60 L65,60' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='60' cy='45' r='5' fill='red' opacity='0.8'/><path d='M60,45 L75,35' stroke='red' stroke-width='2' stroke-dasharray='2,1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Pulmonary Embolism (PE) is the obstruction of one or more pulmonary arteries by solid, liquid, or gaseous masses. In the post-operative ophthalmic patient, the most common etiology is a dislodged Deep Vein Thrombosis (DVT) from the lower extremities. While ophthalmic procedures are often perceived as 'low risk,' prolonged immobility, general anesthesia, and underlying patient comorbidities (e.g., malignancy, Factor V Leiden) can precipitate a fatal embolic event within 48–72 hours post-surgery."
+      },
+      {
+        "title": "Virchow’s Triad: The Pathophysiology",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Virchow's Triad",
+          "branches": [
+            "Endothelial Injury (Surgery, Trauma, IV catheters)",
+            "Stasis (Immobility, Bed rest, Obesity, Varicose veins)",
+            "Hypercoagulability (Malignancy, Pregnancy, HRT, Thrombophilia)"
+          ]
+        }
+      },
+      {
+        "title": "Wells Criteria for PE Probability",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Clinical Feature",
+            "Points"
+          ],
+          "rows": [
+            [
+              "Clinical signs/symptoms of DVT",
+              "3.0"
+            ],
+            [
+              "PE is #1 diagnosis or equally likely",
+              "3.0"
+            ],
+            [
+              "Heart rate > 100 bpm",
+              "1.5"
+            ],
+            [
+              "Immobilization (>3 days) or surgery (within 4 weeks)",
+              "1.5"
+            ],
+            [
+              "Previous DVT or PE",
+              "1.5"
+            ],
+            [
+              "Hemoptysis",
+              "1.0"
+            ],
+            [
+              "Malignancy (on treatment or palliation)",
+              "1.0"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Interpreting Wells Scores",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Low Probability (0-1 pts)",
+              "value": 15
+            },
+            {
+              "label": "Moderate Prob (2-6 pts)",
+              "value": 45
+            },
+            {
+              "label": "High Prob (>6 pts)",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation: The Classic Signs",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Dyspnea (73%): Sudden onset shortness of breath.",
+          "Pleuritic Chest Pain (66%): Sharp pain on inspiration.",
+          "Cough (37%) and Hemoptysis (13%).",
+          "Tachypnea (RR > 20/min) and Tachycardia (HR > 100 bpm).",
+          "Signs of DVT: Unilateral leg swelling, calf tenderness, erythema.",
+          "Syncope: Suggests a massive PE with right heart strain.",
+          "Accentuated P2: Sign of pulmonary hypertension."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Pleuritic Pain",
+        "icon": "rule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features",
+            "Post-Op Likelihood"
+          ],
+          "rows": [
+            [
+              "Myocardial Infarction",
+              "Crushing pressure, radiation to jaw/arm, ST changes on ECG.",
+              "High (Stress of surgery)"
+            ],
+            [
+              "Pneumothorax",
+              "Sudden onset, hyper-resonance, diminished breath sounds.",
+              "Moderate (Post-intubation/CV line)"
+            ],
+            [
+              "Pneumonia",
+              "Productive cough, fever, localized rales/crepitations.",
+              "High (Aspiration/Atelactasis)"
+            ],
+            [
+              "Pleurisy/Pleuritis",
+              "Sharp pain, pleural rub, often viral or post-inflammatory.",
+              "Moderate"
+            ],
+            [
+              "Pericarditis",
+              "Pain relieved by sitting forward, diffuse ST elevation.",
+              "Low"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Algorithm",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Clinical Pre-test Probability (Wells Score or Geneva Score).",
+          "Step 2: D-Dimer (High sensitivity, low specificity). Only useful to rule out PE in low/moderate risk patients.",
+          "Step 3: Imaging - CT Pulmonary Angiogram (CTPA) is the GOLD STANDARD for diagnosis.",
+          "Step 4: V/Q Scan - Alternative if CTPA is contraindicated (e.g., Renal failure, severe contrast allergy).",
+          "Step 5: Lower Extremity Doppler US - To confirm DVT if PE imaging is inconclusive.",
+          "Step 6: Bedside Echocardiography - Check for McConnell's sign (RV free wall akinesia) in unstable patients."
+        ]
+      },
+      {
+        "title": "ECG Patterns to Remember",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "S1Q3T3",
+          "explanation": "S-wave in Lead I, Q-wave in Lead III, and T-wave inversion in Lead III. Note: Most common ECG finding is actually Sinus Tachycardia."
+        }
+      },
+      {
+        "title": "ABG & Lab Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Arterial Blood Gas (ABG): Respiratory Alkalosis (due to hyperventilation) and Hypoxemia.",
+          "A-a Gradient: Usually widened.",
+          "Troponin & BNP: Elevated in submassive/massive PE (indicates Right Ventricular strain).",
+          "D-Dimer: > 500 ng/mL (using age-adjusted cutoffs if >50 yrs)."
+        ]
+      },
+      {
+        "title": "PE Classification & Severity",
+        "icon": "grading",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Category",
+            "Definition",
+            "Management Strategy"
+          ],
+          "rows": [
+            [
+              "Massive (High Risk)",
+              "Systolic BP < 90 mmHg or 40 mmHg drop from baseline.",
+              "Thrombolysis or Thrombectomy"
+            ],
+            [
+              "Submassive (Intermediate)",
+              "Stable BP but evidence of RV dysfunction or Troponin rise.",
+              "Anticoagulation + Close Monitoring"
+            ],
+            [
+              "Low Risk",
+              "Hemodynamically stable; no RV strain markers.",
+              "Anticoagulation (Outpatient/Inpatient)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Acute Management: Anticoagulation",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "LMWH (Enoxaparin): 1 mg/kg SC BID (standard therapeutic dose). Preferred in cancer patients.",
+          "Unfractionated Heparin (UFH): IV bolus 80 units/kg, then infusion 18 units/kg/hr. Preferred if thrombolysis or surgery is imminent (reversible).",
+          "Fondaparinux: Factor Xa inhibitor, SC daily.",
+          "DOACs (Apixaban/Rivaroxaban): Now first-line for stable patients. No bridge needed for Apixaban/Rivaroxaban.",
+          "Warfarin: Requires bridging with Heparin for at least 5 days until INR is 2.0-3.0."
+        ]
+      },
+      {
+        "title": "Emergency Interventions",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Supplemental Oxygen (Maintain Sat >90%).",
+          "Step 2: Fluid Resuscitation (Cautious: avoid overloading Right Ventricle).",
+          "Step 3: Vasopressors (Norepinephrine) if shock persists.",
+          "Step 4: Systemic Thrombolysis (Alteplase 100mg over 2h) for Massive PE.",
+          "Step 5: Surgical Embolectomy if thrombolysis is contraindicated or failed."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Immediate Crisis",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset Cardiovascular Collapse/Syncope.",
+          "Systolic Blood Pressure < 90 mmHg (Obstructive Shock).",
+          "New-onset Right Bundle Branch Block (RBBB) on ECG.",
+          "Refractory Hypoxemia despite 100% FiO2.",
+          "Cyanosis of the upper body/neck."
+        ]
+      },
+      {
+        "title": "Pulmonary Embolism Rule-out Criteria (PERC)",
+        "icon": "verified",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PERC RULE",
+          "explanation": "If all 8 are 'NO', PE risk <1%. 1. Age <50, 2. HR <100, 3. O2 Sat >94%, 4. No unilateral leg swelling, 5. No Hemoptysis, 6. No recent surgery/trauma, 7. No prior PE/DVT, 8. No hormone use."
+        }
+      },
+      {
+        "title": "Clinical Pearls for the Surgeon",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Prevention: Early ambulation is the most effective post-op strategy.",
+          "Chest X-Ray: Often normal in PE! Look for Westermark Sign (focal oligemia) or Hampton's Hump (wedge-shaped opacity).",
+          "PESI Score: Use the Pulmonary Embolism Severity Index to decide if a patient can be managed at home.",
+          "IVC Filters: Indicated ONLY if there is an absolute contraindication to anticoagulation or recurrent PE despite therapy."
+        ]
+      },
+      {
+        "title": "Prognosis & Follow-up",
+        "icon": "history",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Untreated PE has a mortality rate of up to 30%. With proper anticoagulation, this drops to <8%. Patients with provoked PE (e.g., post-ophthalmic surgery) generally require 3 months of anticoagulation. Long-term complications include Chronic Thromboembolic Pulmonary Hypertension (CTEPH), occurring in 2-4% of survivors; follow-up echocardiography is recommended if dyspnea persists at 3-6 months."
+      }
+    ],
+    "chapterId": "surgery_care"
+  },
+  "chapterId": "surgery_care",
+  "_newlyImported": 1775044655270,
+  "communityId": "sub_1773749287133_kyy8ecg0w",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T12:08:07.134Z",
+  "read": true
+}

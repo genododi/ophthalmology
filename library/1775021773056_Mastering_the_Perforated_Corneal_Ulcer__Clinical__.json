@@ -1,0 +1,183 @@
+{
+  "id": 1775021773056,
+  "seqId": 20,
+  "title": "Mastering the Perforated Corneal Ulcer: Clinical & Surgical Mastery",
+  "summary": "A perforated corneal ulcer represents an ophthalmologic emergency characterized by full-thickness stromal loss, necessitating immediate intervention to prevent endophthalmitis, phthisis bulbi, and permanent visual loss. This guide provides a fellowship-level roadmap for diagnosis, medical stabilization, and tectonic reconstruction.",
+  "date": "2026-04-01T05:36:13.056Z",
+  "data": {
+    "title": "Mastering the Perforated Corneal Ulcer: Clinical & Surgical Mastery",
+    "summary": "A perforated corneal ulcer represents an ophthalmologic emergency characterized by full-thickness stromal loss, necessitating immediate intervention to prevent endophthalmitis, phthisis bulbi, and permanent visual loss. This guide provides a fellowship-level roadmap for diagnosis, medical stabilization, and tectonic reconstruction.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M100 40 A 60 60 0 0 1 160 100' fill='none' stroke='red' stroke-width='12' stroke-linecap='round'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A perforated corneal ulcer is defined as a full-thickness breach of the cornea. Pathophysiology involves the release of collagenases (MMPs) and proteolytic enzymes by infiltrated neutrophils and pathogens, exceeding the rate of stromal collagen synthesis. This leads to descemetocele formation, followed by rupture (Seidel positive) as intraocular pressure exceeds the resistance of the exposed Descemet’s membrane."
+      },
+      {
+        "title": "Differential Diagnosis: The 'Perforation Mimics'",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Infectious Keratitis",
+              "Hypopyon, purulent discharge, infiltrate"
+            ],
+            [
+              "Mooren's Ulcer",
+              "Painful, peripheral, undermining edge, crescentic"
+            ],
+            [
+              "RA/Connective Tissue",
+              "Associated scleritis, peripheral thinning"
+            ],
+            [
+              "Neurotrophic Keratitis",
+              "Painless, inferonasal location, decreased sensation"
+            ],
+            [
+              "Chemical Injury",
+              "History of alkali/acid exposure, limbal ischemia"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Immediate Action Required",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Positive Seidel test (aqueous leakage)",
+          "Flat or shallow anterior chamber (AC)",
+          "Iris incarceration or prolapse (leukoma adherens)",
+          "Secondary endophthalmitis signs (vitritis, pain)",
+          "Intraocular foreign body presence"
+        ]
+      },
+      {
+        "title": "Classification of Corneal Thinning",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Ulcer Depth",
+          "branches": [
+            "Superficial (Epithelial)",
+            "Stromal (Infiltrative)",
+            "Descemetocele (Pre-perforation)",
+            "Perforated (Full-thickness)"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Examination Checklist",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Slit-lamp: Assess ulcer size, depth, and edge morphology.",
+          "Seidel test: Fluorescein strip on the suspected area + cobalt blue light.",
+          "Gonioscopy: Assess for peripheral anterior synechiae or angle closure.",
+          "Tonometry: Contraindicated if frank perforation is suspected.",
+          "Fundoscopy: B-scan USG is mandatory if media is opaque to rule out endophthalmitis."
+        ]
+      },
+      {
+        "title": "Management Algorithm: 'Seal and Heal'",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Immediate stabilization (Eye shield, topical broad-spectrum antibiotics).",
+          "Step 2: Microbiological workup (Corneal scrapings for Gram stain, culture, and sensitivity).",
+          "Step 3: Small perforation (<2mm) -> Cyanoacrylate glue + bandage contact lens.",
+          "Step 4: Medium/Large perforation -> Patch graft (corneal or scleral) or tectonic PKP.",
+          "Step 5: Control inflammation (Topical/Systemic immunosuppressants if autoimmune)."
+        ]
+      },
+      {
+        "title": "Etiological Distribution (Incidence)",
+        "icon": "science",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Bacterial",
+              "value": 60
+            },
+            {
+              "label": "Fungal",
+              "value": 15
+            },
+            {
+              "label": "Autoimmune",
+              "value": 15
+            },
+            {
+              "label": "Neurotrophic",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Remember the Protocol: THE S.H.I.E.L.D. Mnemonic",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "S.H.I.E.L.D.",
+          "explanation": "S-Scrape (cultures); H-Hydrate/Shield; I-Intensive antibiotics; E-Evaluate depth; L-Lysis inhibition (e.g., Doxycycline); D-Definitive tectonic surgery."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Doxycycline (50-100mg BID) is critical as a non-antibiotic MMP inhibitor to prevent collagenolysis.",
+          "Topical steroids are ABSOLUTELY CONTRAINDICATED in active infectious ulcers until the infection is under control.",
+          "Cyanoacrylate glue should be applied only to a dry stromal bed to ensure adequate adhesion.",
+          "In cases of peripheral perforation, consider tectonic lamellar grafts to spare the visual axis and lower rejection risks."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Recent research emphasizes the use of Amniotic Membrane Transplantation (AMT) as a 'patch' for small/medium defects to promote epithelization and decrease inflammation. Clinical studies (e.g., The SCUT Trial for bacterial keratitis) continue to guide current evidence-based topical antibiotic regimens, favoring fourth-generation fluoroquinolones (Gatifloxacin/Moxifloxacin) for initial empiric therapy."
+      }
+    ],
+    "generationPrompt": "Perforated corneal ulcer",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

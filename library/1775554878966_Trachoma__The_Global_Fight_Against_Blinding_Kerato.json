@@ -1,0 +1,373 @@
+{
+  "id": 1775554878966,
+  "seqId": 757,
+  "title": "Trachoma: The Global Fight Against Blinding Keratoconjunctivitis",
+  "summary": "Trachoma is the leading infectious cause of blindness worldwide, caused by recurrent infection with Chlamydia trachomatis. It progresses from childhood follicular conjunctivitis to adult cicatricial entropion and corneal opacification, managed via the WHO-endorsed SAFE strategy.",
+  "date": "2026-04-07T09:41:18.966Z",
+  "data": {
+    "title": "Trachoma: The Global Fight Against Blinding Keratoconjunctivitis",
+    "summary": "Trachoma is the leading infectious cause of blindness worldwide, caused by recurrent infection with Chlamydia trachomatis. It progresses from childhood follicular conjunctivitis to adult cicatricial entropion and corneal opacification, managed via the WHO-endorsed SAFE strategy.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M25 50 Q50 20 75 50 Q50 80 25 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='12' fill='hsl(215, 90%, 45%)' opacity='0.3'/><circle cx='35' cy='38' r='2' fill='hsl(215, 90%, 45%)'/><circle cx='42' cy='35' r='2' fill='hsl(215, 90%, 45%)'/><circle cx='50' cy='34' r='2' fill='hsl(215, 90%, 45%)'/><circle cx='58' cy='35' r='2' fill='hsl(215, 90%, 45%)'/><circle cx='65' cy='38' r='2' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Microbiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Trachoma is a chronic keratoconjunctivitis caused by Chlamydia trachomatis, an obligate intracellular bacterium. Specifically, it is caused by serotypes A, B, Ba, and C. It is characterized by recurrent episodes of infection leading to progressive conjunctival scarring."
+      },
+      {
+        "title": "Epidemiological Impact (WHO Data)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Global Population at Risk (Millions)",
+              "value": 100
+            },
+            {
+              "label": "Prevalence in Children (Endemic Areas)",
+              "value": 60
+            },
+            {
+              "label": "Visual Impairment from Trachoma (%)",
+              "value": 1.4
+            },
+            {
+              "label": "Proportion of Global Blindness",
+              "value": 3
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Risk Factors",
+        "icon": "group",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Trachoma Transmission",
+          "branches": [
+            "Vector: Musca sorbens (Eye-seeking fly)",
+            "Direct Contact: Eye-to-eye via fingers/fomites",
+            "Crowding: High household density",
+            "Sanitation: Lack of water & latrines",
+            "Age: Children (Ages 1-9) are the primary reservoir",
+            "Serotypes: A, B, Ba, C (Non-genital)"
+          ]
+        }
+      },
+      {
+        "title": "WHO Simplified Grading System",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Grade",
+            "Description",
+            "Clinical Significance"
+          ],
+          "rows": [
+            [
+              "TF (Trachomatous Inflammation—Follicular)",
+              "5 or more follicles (>0.5mm) on the upper tarsal conjunctiva",
+              "Active infection; common in children"
+            ],
+            [
+              "TI (Trachomatous Inflammation—Intense)",
+              "Inflammatory thickening obscuring >50% of deep tarsal vessels",
+              "High risk of future scarring"
+            ],
+            [
+              "TS (Trachomatous Conjunctival Scarring)",
+              "Visible white bands/sheets of fibrosis in the tarsal conjunctiva",
+              "Evidence of past/chronic disease"
+            ],
+            [
+              "TT (Trachomatous Trichiasis)",
+              "At least one eyelash rubbing on the eyeball",
+              "Requires surgical intervention"
+            ],
+            [
+              "CO (Corneal Opacity)",
+              "Easily visible corneal opacity over the pupil",
+              "Causes irreversible blindness"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "MacCallan Classification (Historical/Academic)",
+        "icon": "school",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Stage",
+            "Feature"
+          ],
+          "rows": [
+            [
+              "Stage I",
+              "Incipient: Immature follicles on upper tarsus"
+            ],
+            [
+              "Stage IIa",
+              "Follicular: Mature follicles, limbal follicles"
+            ],
+            [
+              "Stage IIb",
+              "Papillary: Intense papillary hypertrophy masking follicles"
+            ],
+            [
+              "Stage III",
+              "Cicatrizing: Early scarring (Arlt's Line)"
+            ],
+            [
+              "Stage IV",
+              "Healed: Inactive disease with scarring"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology Cascade",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Repeated C. trachomatis infection triggers cell-mediated immune response.",
+          "2. Chronic follicular & papillary conjunctivitis (T-cell mediated).",
+          "3. Secondary scarring (Cicatrization) due to cytokine release (TGF-β).",
+          "4. Tarsal plate shortening and conjunctival shrinkage.",
+          "5. Entropion and Trichiasis development.",
+          "6. Mechanical trauma from lashes + Dry Eye → Corneal ulceration → Blindness."
+        ]
+      },
+      {
+        "title": "Classic Ocular Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Upper Tarsal Follicles: Pale, round, 0.5-2.0mm elevated lesions.",
+          "Arlt's Line: Horizontal linear scar in the upper tarsal conjunctiva near the lid margin.",
+          "Herbert’s Pits: Excavated scars at the limbus (pathognomonic) after resolution of limbal follicles.",
+          "Trachomatous Pannus: Vascularization at the superior limbus, usually <2mm.",
+          "Symblepharon & Fornix Shortening: Due to severe cicatrization.",
+          "Xerophthalmia: Secondary to destruction of goblet cells and accessory lacrimal glands."
+        ]
+      },
+      {
+        "title": "Diagnosis & Laboratory Workup",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Clinical Diagnosis: Standard in endemic areas (WHO Grading).",
+          "NAAT (Nucleic Acid Amplification Test): Gold standard for detecting C. trachomatis DNA (PCR).",
+          "Giemsa Stain: Shows Halberstaedter-Prowazek (HP) inclusion bodies (low sensitivity).",
+          "DFA (Direct Fluorescent Antibody): Detects elementary bodies.",
+          "Enzyme Immunoassay (EIA): Detects chlamydial antigens.",
+          "Culture: Difficult; McCoy or HeLa cell lines."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Follicular Conjunctivitis",
+          "branches": [
+            "Vernal Keratoconjunctivitis (VKC) - Papillae vs Follicles",
+            "Adenoviral Conjunctivitis (EKC)",
+            "Inclusion Conjunctivitis (Serotypes D-K)",
+            "Molluscum Contagiosum",
+            "Toxic Conjunctivitis (e.g., Brimonidine)",
+            "Parinaud Oculoglandular Syndrome"
+          ]
+        }
+      },
+      {
+        "title": "The SAFE Strategy (WHO)",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "S - Surgery: Correcting trichiasis (TT) to prevent corneal blindness.",
+          "A - Antibiotics: Mass Drug Administration (MDA) to clear the community reservoir.",
+          "F - Facial Cleanliness: Hygiene education to reduce transmission via flies and fingers.",
+          "E - Environmental Improvement: Better access to water, sanitation, and waste management."
+        ]
+      },
+      {
+        "title": "Medical Management (Antibiotics)",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Azithromycin: Single oral dose (20 mg/kg, max 1g). Preferred for MDA.",
+          "Tetracycline Ointment (1%): Twice daily for 6 weeks (used if Azithromycin contraindicated).",
+          "MDA Threshold: If TF prevalence >5% in children aged 1-9 years, treat the entire district.",
+          "Contraindications: Azithromycin avoided in infants <6 months (use Tetracycline eye ointment)."
+        ]
+      },
+      {
+        "title": "Surgical Techniques for Trichiasis",
+        "icon": "architecture",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Goal: Evert the lid margin and eyelashes away from the cornea.",
+          "2. Bilamellar Tarsal Rotation (BTRP): Full-thickness incision through tarsus, 3mm from margin.",
+          "3. Posterior Tarsal Rotation (Trabut Procedure): Preferred for severe scarring.",
+          "4. Suture Placement: Everting sutures (usually 4-0 or 5-0 silk/vicryl) to rotate the distal fragment.",
+          "5. Post-op: Tetracycline ointment and follow-up at 1 week."
+        ]
+      },
+      {
+        "title": "Red Flags & Urgent Referral",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Corneal Ulceration (Central or Paracentral)",
+          "Sudden Drop in Visual Acuity",
+          "Severe Ocular Pain (suggests secondary bacterial keratitis)",
+          "Hypopyon in a patient with CO/TT",
+          "Lid margin infection (Cellulitis risk)"
+        ]
+      },
+      {
+        "title": "Mnemonics for Recall",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "SAFE & Arlt's ABCs",
+          "explanation": "SAFE: Surgery, Antibiotics, Face, Environment. Arlt's line: ALWAYS on the Apex (upper tarsus). Serotypes A, B, C: Causes Blindness (Trachoma)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Trachoma is primarily an upper lid disease; follicles on the lower lid are rarely trachomatous.",
+          "The presence of Herbert’s Pits is pathognomonic for past trachomatous inflammation.",
+          "Post-surgical trichiasis recurrence is high; long-term follow-up is mandatory.",
+          "Active infection (TF/TI) is common in children; scarring (TT/CO) is common in adults."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Secondary Bacterial Keratitis (Staph aureus, Strep pneumo).",
+          "Dacryocystitis (Nasolacrimal duct scarring).",
+          "Severe Keratoconjunctivitis Sicca (Dry Eye Syndrome).",
+          "Ankyloblepharon (severe cases).",
+          "Prognosis: Excellent with early SAFE intervention; poor once CO occurs without access to keratoplasty."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "GET2020: WHO initiative for the Global Elimination of Trachoma by the year 2020 (transitioning to 2030 targets).",
+          "Azithromycin vs. Tetracycline: Studies (like the GAT study) showed single-dose Azithromycin is non-inferior and has better compliance.",
+          "Smartphone-based Grading: AI and tele-ophthalmology are being used to grade TF in remote areas.",
+          "Vaccine Research: Currently in early phases; targeting the Major Outer Membrane Protein (MOMP)."
+        ]
+      }
+    ],
+    "generationPrompt": "Trachoma",
+    "chapterId": "conjunctiva"
+  },
+  "chapterId": "conjunctiva",
+  "kanskiMeta": [
+    {
+      "pageNum": 184,
+      "keywords": [
+        "trachoma",
+        "against",
+        "trichiasis",
+        "conjunctiva",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 181,
+      "keywords": [
+        "trachoma",
+        "conjunctiva",
+        "risk",
+        "system",
+        "classification"
+      ]
+    },
+    {
+      "pageNum": 202,
+      "keywords": [
+        "keratoconjunctivitis",
+        "conjunctiva",
+        "system",
+        "ocular",
+        "dry eye"
+      ]
+    },
+    {
+      "pageNum": 182,
+      "keywords": [
+        "trachoma",
+        "grading",
+        "system"
+      ]
+    },
+    {
+      "pageNum": 190,
+      "keywords": [
+        "keratoconjunctivitis",
+        "conjunctiva",
+        "urgent",
+        "keratitis"
+      ]
+    },
+    {
+      "pageNum": 175,
+      "keywords": [
+        "trachoma",
+        "keratoconjunctivitis",
+        "conjunctiva"
+      ]
+    }
+  ],
+  "read": true
+}

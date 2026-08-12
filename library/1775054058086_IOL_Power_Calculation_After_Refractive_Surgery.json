@@ -1,0 +1,290 @@
+{
+  "id": 1775054058086,
+  "seqId": 528,
+  "title": "IOL Power Calculation After Refractive Surgery",
+  "summary": "Navigating the 'Double Error' of keratometry and ELP prediction to achieve emmetropia in the post-LASIK, PRK, and RK era. A comprehensive guide for high-precision surgical planning.",
+  "date": "2026-04-01T14:34:18.086Z",
+  "data": {
+    "title": "IOL Power Calculation After Refractive Surgery",
+    "summary": "Navigating the 'Double Error' of keratometry and ELP prediction to achieve emmetropia in the post-LASIK, PRK, and RK era. A comprehensive guide for high-precision surgical planning.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 80 Q100 40 140 80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='6'/><path d='M60 80 Q100 120 140 80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/><rect x='85' y='110' width='30' height='10' rx='2' fill='hsl(215, 90%, 45%)'/><line x1='75' y1='115' x2='85' y2='115' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><line x1='115' y1='115' x2='125' y2='115' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "The Fundamental Challenge: The 'Double Error'",
+        "icon": "warning",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": "Standard IOL calculation formulas fail post-refractive surgery due to two primary errors: 1. Keratometric Error (Incorrectly assuming the ratio of anterior-to-posterior corneal curvature is 1.21 after the anterior surface is altered) and 2. ELP Error (Standard formulas use K-values to predict the Effective Lens Position; flattened corneas lead the formula to predict a more shallow ACD, resulting in an underpowered IOL and a hyperopic surprise)."
+      },
+      {
+        "title": "Pathophysiology of Calculation Errors",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Error Type",
+            "Mechanism",
+            "Clinical Result"
+          ],
+          "rows": [
+            [
+              "Radius of Curvature",
+              "Standard keratometers measure 3.2mm zone, missing the central effective power.",
+              "Overestimation of K (Myopic LASIK)"
+            ],
+            [
+              "Refractive Index Error",
+              "Keratometers use n=1.3375 based on virgin corneas; surgery changes the n-ratio.",
+              "Inaccurate net corneal power"
+            ],
+            [
+              "ELP Prediction",
+              "Formula assumes flat cornea = shallow AC; erroneously places IOL too far anterior.",
+              "Hyperopic Surprise (Post-Myopic)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pre-Operative Diagnostic Workup",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Obtain prior surgical records (Pre-op K, Manifest Refraction, Surgically Induced Refractive Change).",
+          "Perform Scheimpflug Tomography (Pentacam) or OCT-based Pachymetry.",
+          "Measure 'True Net Power' or 'Total Corneal Refractive Power' (TCRP).",
+          "Axial Length (AL) measurement via Optical Biometry (Lenstar/IOLMaster 700).",
+          "Assess for corneal ectasia or irregular astigmatism.",
+          "Dry eye management (aggressive treatment before measurements)."
+        ]
+      },
+      {
+        "title": "Comparative Accuracy of Modern Formulas",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Barrett True-K",
+              "value": 90
+            },
+            {
+              "label": "Haigis-L",
+              "value": 82
+            },
+            {
+              "label": "Shammas-PL",
+              "value": 78
+            },
+            {
+              "label": "Masket",
+              "value": 75
+            },
+            {
+              "label": "Standard SRK/T",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Classification of Calculation Methods",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "IOL Calculation Post-Refractive",
+          "branches": [
+            "Methods based on Clinical History (e.g., Clinical History Method)",
+            "Methods based on Adjusted K (e.g., Masket, Modified Masket)",
+            "Methods based on No Prior Data (e.g., Barrett True-K, Haigis-L, Shammas)",
+            "Direct Measurement (e.g., OCT-based, Ray Tracing, Pentacam TNP)",
+            "Intraoperative Methods (e.g., ORA/Aberrometry)"
+          ]
+        }
+      },
+      {
+        "title": "The Gold Standard: Barrett True-K",
+        "icon": "star",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "The Barrett True-K formula is a universal formula that accommodates both myopic and hyperopic LASIK/PRK, as well as Radial Keratotomy (RK). It uses a modified Universal II formula and incorporates a predicted posterior corneal curvature and a proprietary ELP adjustment to correct the double-error phenomenon. It is currently the most validated method in literature."
+      },
+      {
+        "title": "Red Flags: Critical Errors to Avoid",
+        "icon": "report",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "NEVER use standard formulas (SRK/T, Hoffer Q, Holladay 1) without specific adjustments.",
+          "Do not rely on a single calculation method; use the ASCRS online calculator for consensus.",
+          "Avoid multifocal IOLs in patients with significant corneal higher-order aberrations (>0.4 μm).",
+          "Watch for RK patients with fluctuating vision (diurnal variation)."
+        ]
+      },
+      {
+        "title": "Radial Keratotomy (RK) Considerations",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "RK corneas are extremely unstable and often hyperfocal centrally.",
+          "Target a myopic outcome (-0.75D to -1.25D) to account for potential hyperopic shifts.",
+          "Calculate using the Barrett True-K (RK) or the Double-K modified formulas.",
+          "Avoid large incisions that intersect RK scars.",
+          "Incisions should be placed between RK scars to prevent 'fish-mouthing'."
+        ]
+      },
+      {
+        "title": "Mnemonic for ELP Error",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "F.L.A.T.",
+          "explanation": "Flat corneas Lead to Anterior Targeting (formula thinks IOL is too far forward), resulting in Low-power IOL selection and a Troublesome hyperopic surprise."
+        }
+      },
+      {
+        "title": "Management Workflow (The ASCRS Algorithm)",
+        "icon": "rebase_edit",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Determine the type of prior surgery (Myopic LASIK, Hyperopic LASIK, or RK).",
+          "Step 2: Collect data (Historical records, Biometry, Tomography).",
+          "Step 3: Enter data into the ASCRS Online Post-Refractive Calculator.",
+          "Step 4: Compare results from Barrett True-K, Haigis-L, and Shammas-PL.",
+          "Step 5: Select the IOL power based on the 'Average' or 'Min' value depending on surgeon preference.",
+          "Step 6: Adjust target to -0.50D for LASIK/PRK and -1.00D for RK."
+        ]
+      },
+      {
+        "title": "Differential: Myopic vs. Hyperopic Ablation",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Post-Myopic LASIK",
+            "Post-Hyperopic LASIK"
+          ],
+          "rows": [
+            [
+              "Central Cornea",
+              "Flattened",
+              "Steepened"
+            ],
+            [
+              "K-Value Error",
+              "Overestimates corneal power",
+              "Underestimates corneal power"
+            ],
+            [
+              "Formula Error",
+              "Hyperopic surprise risk",
+              "Myopic surprise risk"
+            ],
+            [
+              "Preferred Formulas",
+              "Barrett True-K, Haigis-L",
+              "Barrett True-K, Shammas-PL"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "IOL Selection Pearls",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Use aspheric Monofocal IOLs with negative spherical aberration (e.g., Tecnis, AcrySof IQ) to counteract positive corneal aberration in post-myopic LASIK.",
+          "Use neutral aspheric IOLs (e.g., enVista, SofPort LI61AO) for post-hyperopic LASIK.",
+          "Small-aperture IOLs (IC-8) are excellent for irregular corneas/RK.",
+          "Toric IOLs should be used with extreme caution (ensure axis stability and regularity)."
+        ]
+      },
+      {
+        "title": "Intraoperative Aberrometry (ORA)",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "Intraoperative wavefront aberrometry (e.g., Alcon ORA) provides real-time refractive data after the cataract is removed (aphakic state). It is a powerful adjunct that bypasses corneal measurement errors by measuring the whole eye's refractive power, though it can be influenced by speculum pressure and corneal hydration."
+      },
+      {
+        "title": "Landmark Concept: The Maloney Method",
+        "icon": "menu_book",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "Maloney K",
+          "explanation": "Calculates central power from topography: (Central Power x 1.114) - 6.1. Useful when no prior history is available but topography is accessible."
+        }
+      },
+      {
+        "title": "Summary of Aim Targets",
+        "icon": "track_changes",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Surgery Type",
+            "Target Refraction"
+          ],
+          "rows": [
+            [
+              "Post-Myopic LASIK",
+              "-0.50 D"
+            ],
+            [
+              "Post-Hyperopic LASIK",
+              "-0.25 D"
+            ],
+            [
+              "Post-RK (8+ incisions)",
+              "-1.00 to -1.50 D"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls for the Fellow",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Always warn the patient about the high possibility of a 'refractive surprise' and potential for IOL exchange.",
+          "Check the 'Corneal Sphericity' — if highly irregular, avoid complex optics.",
+          "If using ORA, ensure the eye is at physiologic IOP before the measurement.",
+          "The 'Clinical History Method' is now considered less reliable than modern formula-based approaches."
+        ]
+      }
+    ],
+    "generationPrompt": "Iol calculation after refractive surgery",
+    "chapterId": "refractive"
+  },
+  "chapterId": "refractive",
+  "read": true
+}

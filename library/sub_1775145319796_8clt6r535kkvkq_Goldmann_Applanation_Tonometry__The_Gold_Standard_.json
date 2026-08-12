@@ -1,0 +1,418 @@
+{
+  "id": "sub_1775145319796_8clt6r535kkvkq",
+  "title": "Goldmann Applanation Tonometry: The Gold Standard in IOP Measurement",
+  "summary": "Goldmann Applanation Tonometry (GAT) is the gold standard for measuring intraocular pressure (IOP), crucial for glaucoma diagnosis and management. Based on the Imbert-Fick law, it precisely quantifies IOP by measuring the force required to flatten a specific corneal area, offering unparalleled accuracy when performed correctly.",
+  "date": "2026-04-02T17:06:15.302Z",
+  "data": {
+    "title": "Goldmann Applanation Tonometry: The Gold Standard in IOP Measurement",
+    "summary": "Goldmann Applanation Tonometry (GAT) is the gold standard for measuring intraocular pressure (IOP), crucial for glaucoma diagnosis and management. Based on the Imbert-Fick law, it precisely quantifies IOP by measuring the force required to flatten a specific corneal area, offering unparalleled accuracy when performed correctly.",
+    "summary_illustration": "<svg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"eyeGradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" style=\"stop-color:hsl(215, 90%, 45%);stop-opacity:1\" />\n      <stop offset=\"100%\" style=\"stop-color:hsl(215, 70%, 55%);stop-opacity:1\" />\n    </linearGradient>\n  </defs>\n  <!-- Eye -->\n  <circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"white\" stroke=\"hsl(215, 50%, 70%)\" stroke-width=\"2\"/>\n  <circle cx=\"50\" cy=\"50\" r=\"20\" fill=\"url(#eyeGradient)\"/>\n  <circle cx=\"50\" cy=\"50\" r=\"10\" fill=\"black\"/>\n  \n  <!-- Applanation Prism - stylized as a rectangle pressing on the cornea -->\n  <rect x=\"35\" y=\"0\" width=\"30\" height=\"20\" rx=\"5\" ry=\"5\" fill=\"hsl(215, 30%, 80%)\" stroke=\"hsl(215, 20%, 60%)\" stroke-width=\"1\"/>\n  <path d=\"M 40 18 L 60 18 L 60 25 C 60 25 50 35 40 25 L 40 18 Z\" fill=\"hsl(215, 50%, 40%)\" />\n  \n  <!-- Fluorescein Mires - semicircles -->\n  <path d=\"M 45 40 A 10 10 0 0 1 55 40 L 55 50 A 10 10 0 0 1 45 50 Z\" fill=\"yellow\" opacity=\"0.8\"/>\n  <path d=\"M 45 60 A 10 10 0 0 1 55 60 L 55 70 A 10 10 0 0 1 45 70 Z\" fill=\"yellow\" opacity=\"0.8\"/>\n</svg>\n",
+    "sections": [
+      {
+        "title": "1. Definition & Overview",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Goldmann Applanation Tonometry (GAT) is the most widely accepted and clinically utilized method for measuring intraocular pressure (IOP). Developed by Hans Goldmann in the 1950s, it is considered the 'gold standard' due to its precision and accuracy. The technique is based on the Imbert-Fick law, which posits that for a perfectly dry, thin-walled, elastic sphere, the pressure (P) inside is equal to the force (F) required to flatten a small planar area (A) of its surface (P = F/A). GAT is designed to flatten a corneal area of 3.06 mm in diameter, at which point the outward force exerted by corneal rigidity and the inward capillary attraction of the tear film largely cancel each other out, making the Imbert-Fick law most applicable."
+      },
+      {
+        "title": "2. Principles & Physics: The Imbert-Fick Law",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**Imbert-Fick Law:** P = F/A (Pressure = Force / Area). This law forms the theoretical basis for applanation tonometry.",
+          "**Ideal Assumptions:** Applies to an ideal sphere that is perfectly dry, thin-walled, and elastic, with no external resistance.",
+          "**Corneal Adaptations:** The human cornea is not an ideal sphere. GAT addresses this by flattening a specific area (3.06 mm diameter) to balance two counteracting forces:",
+          "  - **Capillary Attraction:** Inward pull of the tear film, tending to overestimate IOP.",
+          "  - **Corneal Rigidity/Elasticity:** Outward push of the cornea, tending to underestimate IOP.",
+          "**Optimal Diameter:** At 3.06 mm, these forces are largely neutralized, allowing for a direct measurement of IOP via the applied force."
+        ]
+      },
+      {
+        "title": "3. Equipment & Setup",
+        "icon": "handyman",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "**Slit Lamp Biomicroscope:** Provides stable platform, illumination, and magnification.",
+          "**Goldmann Tonometer Head:** Mounted on the slit lamp, includes a movable arm and force-measuring dial.",
+          "**Applanation Prism (Bi-prism):** Disposable or reusable plastic/quartz prism, sterilizable, held by the tonometer head. It splits the flattened area image into two semicircles.",
+          "**Topical Anesthetic:** E.g., Proparacaine HCl 0.5% or Tetracaine HCl 0.5%, instilled prior to measurement.",
+          "**Fluorescein Sodium:** Available as a sterile strip (Fluorets®) or liquid drop, stains the tear film for clear visualization of mires.",
+          "**Cobalt Blue Filter:** Essential on the slit lamp to excite fluorescein and visualize the mires."
+        ]
+      },
+      {
+        "title": "4. Indications for Goldmann Applanation Tonometry",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "**Routine Ophthalmic Examination:** Part of a comprehensive eye exam for all adults.",
+          "**Glaucoma Screening:** Particularly for individuals with risk factors.",
+          "**Glaucoma Monitoring:** Essential for tracking disease progression and efficacy of treatment.",
+          "**Ocular Hypertension (OHT) Management:** Monitoring IOP in patients with elevated pressure but no optic nerve damage.",
+          "**Acute Red Eye Evaluation:** To rule out conditions like acute angle closure glaucoma.",
+          "**Post-Surgical Monitoring:** After glaucoma surgery (e.g., trabeculectomy, MIGS) or other intraocular procedures.",
+          "**Neuro-Ophthalmic Workup:** In cases of optic neuropathy or papilledema where IOP may be a factor."
+        ]
+      },
+      {
+        "title": "5. Contraindications & Precautions",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "**Contraindications:**",
+          "  - **Corneal Epithelial Defects/Abrasions:** Risk of infection, pain.",
+          "  - **Active Corneal Infection (e.g., Herpes Simplex Keratitis):** Risk of spread.",
+          "  - **Ruptured Globe/Penetrating Ocular Injury:** Avoid any pressure on the eye.",
+          "  - **Severe Ocular Inflammation/Uveitis:** Can exacerbate inflammation, risk of infection.",
+          "  - **Allergy to Topical Anesthetic or Fluorescein:** Use alternative tonometry method.",
+          "  - **Contact Lens Wearers:** Lenses must be removed prior to measurement.",
+          "**Precautions:**",
+          "  - **Uncooperative Patients (e.g., young children, severe nystagmus):** May require alternative methods or examination under anesthesia (EUA).",
+          "  - **Irregular Astigmatism/Severe Corneal Irregularity:** Can make mire interpretation difficult.",
+          "  - **High Myopia:** May be associated with thinner corneas and lower rigidity."
+        ]
+      },
+      {
+        "title": "6. Procedure Steps: A Step-by-Step Guide",
+        "icon": "play_circle",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**Step 1: Patient Preparation & Anesthesia**\n  - Explain the procedure to the patient. Instruct them to look straight ahead during measurement.\n  - Instill 1-2 drops of topical anesthetic (e.g., Proparacaine 0.5%) in each eye.\n  - Apply a moistened fluorescein strip to the inferior palpebral conjunctiva, or use a liquid fluorescein drop. Ask the patient to blink several times to distribute the dye.",
+          "**Step 2: Slit Lamp Setup**\n  - Position the patient comfortably at the slit lamp, ensuring chin in chin rest and forehead against headrest.\n  - Swing the tonometer head into position directly in front of the patient's eye.\n  - Set the magnification to low (10-16x) and illumination to moderate.\n  - Engage the cobalt blue filter on the slit lamp.",
+          "**Step 3: Initial Tonometer Setting**\n  - Rotate the measurement dial on the tonometer head to approximately 10 mmHg (the starting point).",
+          "**Step 4: Applanation & Mire Visualization**\n  - Instruct the patient to open their eyes wide and look straight ahead.\n  - Slowly advance the slit lamp forward until the tip of the applanation prism gently touches the corneal apex. The prism will slightly indent the cornea.",
+          "**Step 5: Mire Adjustment**\n  - Through the slit lamp oculars, you should see two bright green fluorescein semicircles (mires).\n  - Rotate the measurement dial until the inner edges of the upper and lower semicircles just touch, forming an 'S' shape. The outer edges should not overlap.\n  - Minor vertical adjustments with the joystick may be needed to keep the mires centered and equally sized.",
+          "**Step 6: Reading & Repetition**\n  - Read the IOP directly from the scale on the measurement dial. Each major mark represents 2 mmHg.\n  - Gently withdraw the prism.\n  - Repeat the measurement 2-3 times for consistency, taking the average. Avoid multiple measurements if patient comfort is an issue.",
+          "**Step 7: Prism Disinfection**\n  - After completing measurements on both eyes, remove the applanation prism.\n  - Disinfect the prism immediately (see Section 13)."
+        ]
+      },
+      {
+        "title": "7. Interpretation of Mires",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Goldmann Mire Interpretation",
+          "branches": [
+            "**Correct Alignment:** Inner edges of semicircles touch, forming an 'S' curve (optimal reading).",
+            "**Over-Applanation:** Mires are too wide/overlapping; IOP reading will be falsely HIGH (reduce pressure).",
+            "**Under-Applanation:** Mires are too narrow/not touching; IOP reading will be falsely LOW (increase pressure).",
+            "**Excess Fluorescein:** Mires appear too thick/wide, leads to falsely HIGH reading (blot excess tear film).",
+            "**Insufficient Fluorescein:** Mires are faint or absent, difficult to visualize (apply more fluorescein).",
+            "**High Corneal Astigmatism (>3D):** Mires appear elliptical. Rotate tonometer prism to align the red mark with the steepest corneal meridian (minus cylinder axis) to minimize error, typically 45 or 135 degrees."
+          ]
+        }
+      },
+      {
+        "title": "8. Factors Affecting GAT Accuracy",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Factor",
+            "Effect on IOP Reading",
+            "Clinical Significance"
+          ],
+          "rows": [
+            [
+              "Central Corneal Thickness (CCT) > 555µm",
+              "Falsely High",
+              "May lead to over-treatment or misdiagnosis of OHT/glaucoma. Consider Pachymetry."
+            ],
+            [
+              "Central Corneal Thickness (CCT) < 555µm",
+              "Falsely Low",
+              "May mask ocular hypertension or glaucoma, leading to under-treatment. Consider Pachymetry."
+            ],
+            [
+              "Corneal Edema",
+              "Variable (often lower)",
+              "Alters corneal biomechanics, making readings unreliable."
+            ],
+            [
+              "Corneal Scarring/Irregularity",
+              "Variable/Unreliable",
+              "Distorts mires, making accurate applanation difficult."
+            ],
+            [
+              "High Corneal Astigmatism (>3D)",
+              "Variable error",
+              "Requires careful prism orientation to minimize error."
+            ],
+            [
+              "Tight Eyelid Squeezing/Valsalva Maneuver",
+              "Falsely High",
+              "Increases episcleral venous pressure; instruct patient to relax."
+            ],
+            [
+              "Operator Error (Improper Calibration/Technique)",
+              "Systematic Error",
+              "Leads to consistently inaccurate readings; emphasizes proper training and daily calibration."
+            ],
+            [
+              "Dirty Tonometer Prism",
+              "Falsely Low",
+              "Prevents proper adhesion and applanation; always disinfect and clean."
+            ],
+            [
+              "Diurnal Variation",
+              "Variable (peaks often AM)",
+              "A single reading is a snapshot; serial measurements or diurnal curve may be needed."
+            ],
+            [
+              "Head/Neck Position",
+              "Variable",
+              "Can affect episcleral venous pressure; ensure patient is upright and comfortable."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9. Alternative Tonometry Methods (Comparison)",
+        "icon": "compare",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Method",
+            "Principle",
+            "Pros",
+            "Cons",
+            "Primary Use"
+          ],
+          "rows": [
+            [
+              "Goldmann Applanation (GAT)",
+              "Imbert-Fick law, flattens 3.06mm corneal area",
+              "Gold standard, accurate, repeatable",
+              "Contact, requires anesthetic/fluorescein, slit lamp, affected by CCT",
+              "Diagnostic & Monitoring"
+            ],
+            [
+              "Perkins Handheld Applanation",
+              "Portable GAT",
+              "Portable, good for bedridden/children",
+              "Operator dependent, requires anesthetic/fluorescein, challenging with nystagmus",
+              "Portable/Screening"
+            ],
+            [
+              "Icare Rebound Tonometer",
+              "Rebound principle: tiny probe bounces off cornea",
+              "No anesthetic, portable, good for children/uncooperative patients",
+              "Less accurate than GAT, multiple readings needed, affected by probe velocity",
+              "Screening/Pediatric"
+            ],
+            [
+              "Tono-Pen Applanation",
+              "Electronic applanation, microstrain gauges",
+              "Portable, no slit lamp, good for irregular corneas",
+              "Requires calibration, anesthetic, cost of tips, less accurate than GAT",
+              "Portable/Screening"
+            ],
+            [
+              "Non-Contact Tonometry (NCT)",
+              "Air puff flattens cornea, measures time",
+              "No contact, no anesthetic, quick, good for mass screening",
+              "Less accurate, often overestimates high IOP, 'air puff phobia', affected by CCT",
+              "Screening"
+            ],
+            [
+              "Dynamic Contour Tonometry (DCT)",
+              "Pascal tonometer, contours cornea rather than flattening",
+              "Less affected by CCT, measures ocular pulse amplitude",
+              "Contact, anesthetic, expensive, steep learning curve",
+              "Special cases/Research"
+            ],
+            [
+              "Ocular Response Analyzer (ORA)",
+              "Air puff, measures Corneal Hysteresis (CH) & Corneal Resistance Factor (CRF)",
+              "Measures biomechanical properties, less affected by CCT than GAT for true IOP",
+              "Expensive, complex interpretation, not a direct IOP measure but 'cornea-compensated IOP'",
+              "Research/Special cases"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "10. Red Flags / Emergency Signs Related to IOP",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "**Sudden, Markedly High IOP (>30 mmHg):** Especially with symptoms like severe ocular pain, headache, nausea, vomiting, blurred vision (suggests Acute Angle Closure Glaucoma). Requires immediate intervention.",
+          "**Persistent Low IOP (<5 mmHg):** Can indicate hypotony maculopathy, choroidal detachment, or wound leak (post-surgery). Requires urgent investigation.",
+          "**Significant IOP Asymmetry (>4-5 mmHg) between Eyes:** Suggests a unilateral process like inflammation, trauma, or neovascular glaucoma.",
+          "**IOP Not Responding to Maximum Medical Therapy:** Indicates need for surgical intervention to prevent further optic nerve damage.",
+          "**IOP Spikes Post-Ocular Surgery:** Could indicate inflammation, pupillary block, steroid response, or retained viscoelastic."
+        ]
+      },
+      {
+        "title": "11. Key Clinical Pearls for GAT",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "**Calibrate Daily:** Always check the tonometer calibration using the test weights (0, 20, 60 mmHg) at the start of each clinic day. Readings should be within ±0.5 mmHg.",
+          "**Optimal Fluorescein:** Use just enough fluorescein to outline the mires clearly. Too much leads to thick, wide mires and falsely high readings; too little makes them difficult to see.",
+          "**Patient Instruction:** Reassure the patient, instruct them to breathe normally, avoid squeezing eyelids, and to look straight ahead (e.g., at their own ear in the mirror).",
+          "**Astigmatism Rule:** For significant corneal astigmatism (>3 Diopters), rotate the tonometer prism so the red mark aligns with the axis of the patient's minus cylinder (steepest corneal meridian) to minimize measurement error.",
+          "**Diurnal Variation:** Remember that IOP fluctuates throughout the day. A single reading is a snapshot. Consider diurnal curves (multiple readings over 24 hours) for challenging cases.",
+          "**Corneal Thickness:** While CCT influences GAT readings, routine correction formulas are not universally recommended for individual patients. Always record CCT, as it's an independent glaucoma risk factor.",
+          "**Prism Disinfection:** Crucial to prevent cross-contamination (e.g., adenoviral conjunctivitis, Herpes Simplex Virus). Clean thoroughly after every patient.",
+          "**Gentle Touch:** Apply the prism gently to the cornea. Excessive pressure can falsely elevate IOP and cause discomfort."
+        ]
+      },
+      {
+        "title": "12. Mnemonics for GAT Mires",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "Inner-Inner = Correct",
+          "explanation": "To achieve a correct Goldmann Applanation Tonometry reading, ensure the **inner edges** of the two fluorescein semicircles just **touch** (forming an 'S' shape). If they are too wide (overlapping), the reading is falsely high. If too narrow (not touching), the reading is falsely low."
+        }
+      },
+      {
+        "title": "13. Disinfection & Maintenance",
+        "icon": "cleaning_services",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**Routine Disinfection (Between Patients):**",
+          "  - **Alcohol Wipes:** Wipe the applanation prism tip thoroughly with a 70% isopropyl alcohol or ethanol wipe (e.g., Sani-Cloth®).",
+          "  - **Air Dry:** Allow the prism to air dry completely for at least 1 minute before reuse. This is critical for effective disinfection and to prevent alcohol residue from irritating the eye.",
+          "**High-Level Disinfection (for specific infectious risks, e.g., Adenovirus):**",
+          "  - **Sodium Hypochlorite:** 1:10 dilution of 5.25% sodium hypochlorite (bleach) for 5 minutes, followed by thorough rinsing with sterile water.",
+          "  - **Hydrogen Peroxide:** 3% hydrogen peroxide for 10 minutes, followed by thorough rinsing with sterile water.",
+          "  - **Glutaraldehyde:** 2% glutaraldehyde solution for 5 minutes, followed by thorough rinsing with sterile water (less common due to toxicity).",
+          "**Calibration Check (Monthly/Before Use):**",
+          "  - Use the manufacturer-provided calibration weights (typically 0, 20, 60 mmHg) to ensure the tonometer head is within ±0.5 mmHg of the expected values.",
+          "  - If calibration is off, consult a service technician."
+        ]
+      },
+      {
+        "title": "14. Pediatric & Special Population Considerations",
+        "icon": "child_friendly",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Pediatric Patients:**",
+          "  - **Difficulty:** GAT is often challenging due to lack of cooperation, nystagmus, and small palpebral fissures.",
+          "  - **Alternatives:** Rebound tonometry (Icare) or Tono-Pen are preferred for screening. Examination Under Anesthesia (EUA) is the gold standard for definitive IOP measurement in suspected congenital glaucoma.",
+          "  - **Scleral Rigidity:** Children's sclera is more elastic, potentially affecting IOP readings.",
+          "**Post-Refractive Surgery (LASIK/PRK):**",
+          "  - **Underestimation:** Corneas become thinner and softer, leading GAT to consistently underestimate true IOP.",
+          "  - **Alternatives:** Consider Ocular Response Analyzer (ORA) for Corneal Hysteresis or Dynamic Contour Tonometry (DCT) for potentially more accurate readings.",
+          "  - **Documentation:** Always note the history of refractive surgery.",
+          "**Corneal Scars/Edema/Irregularity:**",
+          "  - **Mire Distortion:** Makes GAT unreliable due to irregular corneal surface. Tono-Pen can be useful as it applanates a smaller area and is less affected.",
+          "**Contact Lens Wearers:**",
+          "  - **Removal:** Contact lenses MUST be removed before GAT to prevent damage to the lens, irritation, and inaccurate readings."
+        ]
+      },
+      {
+        "title": "15. Recent Advances & Landmark Studies",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "Goldmann Applanation Tonometry remains fundamental in ophthalmology, with continuous validation and contextualization through landmark studies:\n\n**Ocular Hypertension Treatment Study (OHTS, 2002):** A pivotal multicenter randomized clinical trial that demonstrated a significant reduction in the development of primary open-angle glaucoma (POAG) in patients with ocular hypertension (OHT) who received topical IOP-lowering medication compared to observation. GAT was the primary method for IOP measurement, highlighting its critical role in identifying at-risk individuals and guiding treatment.\n\n**European Glaucoma Prevention Study (EGPS, 2003):** Confirmed the findings of OHTS in a European population, further solidifying the benefit of IOP reduction in OHT.\n\n**Advanced Glaucoma Intervention Study (AGIS, 2000s) & Collaborative Initial Glaucoma Treatment Study (CIGTS, 2000s):** These studies emphasized the importance of maintaining low IOP to slow glaucoma progression and demonstrated the efficacy of different treatment modalities (medical vs. surgical), with GAT being integral to IOP assessment.\n\n**Focus on Corneal Biomechanics:** Recent advances emphasize that central corneal thickness (CCT) and corneal hysteresis (CH) are independent risk factors for glaucoma progression and significantly influence GAT readings. While GAT doesn't directly measure these, the awareness has led to the development and increased use of devices like the Ocular Response Analyzer (ORA) to provide more comprehensive information on ocular biomechanics alongside GAT."
+      },
+      {
+        "title": "16. IOP Diurnal Curve",
+        "icon": "chart_data",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "6 AM",
+              "value": 80
+            },
+            {
+              "label": "9 AM",
+              "value": 60
+            },
+            {
+              "label": "12 PM",
+              "value": 47
+            },
+            {
+              "label": "3 PM",
+              "value": 53
+            },
+            {
+              "label": "6 PM",
+              "value": 67
+            },
+            {
+              "label": "9 PM",
+              "value": 73
+            },
+            {
+              "label": "12 AM",
+              "value": 67
+            },
+            {
+              "label": "3 AM",
+              "value": 73
+            }
+          ]
+        }
+      },
+      {
+        "title": "17. Glaucoma Risk Factors (Epidemiology)",
+        "icon": "fingerprint",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Glaucoma Risk Factors",
+          "branches": [
+            "**Elevated IOP:** Most significant modifiable risk factor (often >21 mmHg).",
+            "**Family History:** First-degree relative with glaucoma increases risk 4-9x.",
+            "**Age:** Prevalence increases significantly after age 60.",
+            "**Ethnicity:** African descent (higher prevalence, earlier onset, more severe POAG), Hispanic/Latino descent (increased risk).",
+            "**Central Corneal Thickness (CCT):** Thin CCT (<555µm) is an independent risk factor for progression.",
+            "**Severe Myopia:** Association with open-angle glaucoma.",
+            "**Diabetes Mellitus:** May increase risk, especially for neovascular glaucoma.",
+            "**Corticosteroid Use:** Topical, oral, inhaled, or periocular steroids can induce IOP elevation.",
+            "**Ocular Trauma:** Can lead to secondary glaucoma (e.g., angle recession glaucoma)."
+          ]
+        }
+      }
+    ],
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "communitySource": true,
+  "author": "nemo",
+  "citation": "Author: nemo",
+  "serverId": "sub_1775145319796_8clt6r535kkvkq",
+  "_newlyImported": 1775377888136,
+  "seqId": 569,
+  "_serverSynced": true
+}

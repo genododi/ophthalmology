@@ -1,0 +1,234 @@
+{
+  "id": 1775044665742,
+  "seqId": 190,
+  "title": "Neuro-Ophthalmic Headaches: Clinical Scenarios & Management Masterclass",
+  "summary": "An exhaustive clinical guide for identifying, triaging, and managing headaches in ophthalmic practice. From benign primary syndromes to life-threatening neuro-surgical emergencies, this poster covers 15 critical scenarios, workup protocols, and clinical pearls.",
+  "date": "2026-04-01T11:57:45.742Z",
+  "data": {
+    "title": "Neuro-Ophthalmic Headaches: Clinical Scenarios & Management Masterclass",
+    "summary": "An exhaustive clinical guide for identifying, triaging, and managing headaches in ophthalmic practice. From benign primary syndromes to life-threatening neuro-surgical emergencies, this poster covers 15 critical scenarios, workup protocols, and clinical pearls.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M50 10 L50 25 M50 75 L50 90 M10 50 L25 50 M75 50 L90 50' stroke='red' stroke-width='2' stroke-linecap='round'/><path d='M20 20 L30 30 M70 70 L80 80 M20 80 L30 70 M70 20 L80 30' stroke='red' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "The Neuro-Ophthalmic Headache Landscape",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Headache is one of the most common complaints in ophthalmic practice [32, 785]. While many cases are benign primary syndromes, the ophthalmologist must identify secondary causes that are life- or vision-threatening, such as Giant Cell Arteritis (GCA), intracranial mass lesions, and aneurysms [30, 567]."
+      },
+      {
+        "title": "Differential Diagnosis: Primary vs. Secondary",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Primary (Migraine/Cluster/Tension)",
+            "Secondary (GCA/IIH/Aneurysm)"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Often chronic/recurrent [40]",
+              "Can be sudden/new [31, 566]"
+            ],
+            [
+              "Systemic Symptoms",
+              "Rare (except nausea) [41, 792]",
+              "Fever, weight loss, jaw pain [36, 85]"
+            ],
+            [
+              "Neurological Signs",
+              "Transient aura only [42, 008]",
+              "Persistent palsies, disc edema [37, 182]"
+            ],
+            [
+              "Urgency",
+              "Non-urgent treatment [54]",
+              "Immediate medical/surgical referral [30, 199]"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Scenario 1: The Ophthalmic Emergency (GCA)",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Scenario: 75-year-old female, 3-day history of severe right-sided temporal headache, malaise, and a 'shade' coming down over her vision for several minutes.",
+          "Diagnosis: Suspected Giant Cell Arteritis (GCA) with amaurosis fugax [85, 760].",
+          "Red Flags: Scalp tenderness (pain when combing hair), jaw claudication (pain while chewing), and sudden visual loss [36, 85, 754].",
+          "Investigations: Immediate ESR, CRP, and Platelet count (Platelets are a strong predictor) [36, 757].",
+          "Gold standard: Temporal Artery Biopsy (TAB) (specimen >2 cm to avoid skip lesions) [5, 586, 762].",
+          "Management: Do not wait for biopsy results. Immediate IV Methylprednisolone (g/day for 3 days) followed by oral Prednisone ( mg/kg/day) [5, 89, 762]."
+        ]
+      },
+      {
+        "title": "Scenario 2: The Obese Young Patient (IIH)",
+        "icon": "psychology",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Identify: 28-year-old obese female, constant global headache (worse in morning/coughing), 'greying out' (TVOs) when standing.",
+          "2. Clinical Picture: Papilledema (bilateral disc swelling), transient visual obscurations (TVOs), pulsatile tinnitus, and possible CN VI palsy [38, 40, 182].",
+          "3. Workup: Blood pressure check (exclude malignant HTN) [183]. Emergent MRI and MRV (rule out mass/venous thrombosis) [39, 183, 769].",
+          "4. LP: Lumbar puncture (LP) showing opening pressure ≥ 250 mm H2O with normal CSF composition [4, 184, 770].",
+          "5. Management: Weight loss primary [185, 554]. Acetazolamide (250 mg QID to g BID). Surgery: Optic nerve sheath fenestration (vision) or CSF shunting (headache) [44, 45, 554]."
+        ]
+      },
+      {
+        "title": "Scenario 3: 'Worst Headache of My Life'",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Scenario: 50-year-old male, sudden explosive headache, 'droopy' eyelid, double vision, large non-reactive pupil.",
+          "Diagnosis: Ruptured intracranial aneurysm (typically PCoA) causing Subarachnoid Hemorrhage (SAH) [38, 199, 343].",
+          "Key Finding: Pupil-involving Third Nerve Palsy (fixed, dilated pupil) [0, 174, 198].",
+          "Action: Neurosurgical emergency. Urgent CTA preferred over MRA [202, 200, 346].",
+          "Treatment: Referral for endovascular coiling or surgical clipping [016, 346]."
+        ]
+      },
+      {
+        "title": "Scenario 4: The 'Suicide' Headache (Cluster)",
+        "icon": "bedtime",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "CLUSTER",
+          "explanation": "C: Conjunctival injection; L: Lacrimation; U: Unilateral (stabbing pain); S: Smoking history (35y male); T: Time-locked (2:00 AM); E: Eye/Ear autonomic signs (Rhinorrhea/Horner); R: Relief with 100% Oxygen (10–15 L/min) or Sumatriptan (6 mg SC). Prophylaxis: Verapamil or Lithium [157, 801, 1195]."
+        }
+      },
+      {
+        "title": "Scenario 5 & 6: Migraine & ICA Dissection",
+        "icon": "bolt",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Scenario 5 (Migraine): 24-year-old female, 20-min shimmering zig-zag aura, followed by unilateral throbbing headache/nausea. Aura: 5–60 mins. Mgmt: Aspirin, Ibuprofen, Triptans. Avoid triggers [41, 795, 791].",
+          "Scenario 6 (ICA Dissection): 45-year-old male, acute temple/neck pain after car accident, small right pupil, 1 mm ptosis. Diagnosis: Internal Carotid Artery (ICA) Dissection [24, 180, 783].",
+          "Red Flag: A painful Horner syndrome is an ICA dissection until proven otherwise; high stroke risk. Mgmt: Urgent MRA/CTA head and neck; antiplatelet/anticoagulation [515, 784]."
+        ]
+      },
+      {
+        "title": "Scenario 7 & 8: Pituitary & Trigeminal Pain",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Scenario 7 (Pituitary Apoplexy): 40-year-old female, sudden severe headache, bilateral vision loss, total ophthalmoplegia. Red Flags: Bitemporal hemianopia, multiple CN palsies (III, IV, VI). Mgmt: Urgent MRI, immediate steroids to prevent Addisonian crisis [138, 802, 1532].",
+          "Scenario 8 (Trigeminal Neuralgia): 60-year-old male, 'electric shock-like' stabs in cheek triggered by shaving. Mgmt: Carbamazepine (100 mg BID up to 1200 mg/day) or Baclofen. Image to rule out MS or vascular compression [362, 805, 1197]."
+        ]
+      },
+      {
+        "title": "Scenario 9: Acute Angle-Closure Glaucoma",
+        "icon": "brightness_high",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Presentation: 65-year-old hyperope, sudden severe headache, eye pain, vomiting, hazy cornea.",
+          "2. Exam: IOP 50–80 mmHg, rock-hard eye, fixed mid-dilated vertically oval pupil, shallow anterior chamber [487, 681, 1235].",
+          "3. Acute Mgmt: Lie supine. Systemic Acetazolamide (500 mg IV) + topical suppressants.",
+          "4. Definitive: Laser Peripheral Iridotomy (PI) in BOTH eyes [488, 686, 1236]."
+        ]
+      },
+      {
+        "title": "Scenario 10, 11, & 12: Inflammation, Meds, & Ischemia",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Scenario 10 (Tolosa-Hunt): 50-year-old, intense boring orbital pain, CN III, IV, VI palsies. MRI shows apex enhancement. DX of exclusion (rule out lymphoma/aneurysm). Rx: Systemic steroids [962, 1800].",
+          "Scenario 11 (Medication Overuse): Chronic migraineur, headache ≥15 days/month, daily paracetamol/triptans. Mgmt: Abruptly stop offending drug (withdrawal lasts ~3 weeks) [838, 1012].",
+          "Scenario 12 (Ocular Ischemic Syndrome): 70-year-old, carotid disease, dull aching 'ocular angina', vision improves in dark. Mid-peripheral dot-blot hemorrhages, iris neovascularization. Mgmt: Carotid endarterectomy; manage IOP/PRP [81, 1597]."
+        ]
+      },
+      {
+        "title": "Scenario 13, 14, & 15: Tension, Meningitis, & Raeder",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Scenario 13 (Tension): 30-year-old student, 'viselike' band, worse end of day. Bilateral, pressing, no physical aggravation. Rx: NSAIDs, Amitriptyline [153, 798].",
+          "Scenario 14 (Meningitis): 20-year-old, severe headache, neck stiffness, photophobia. Pearl: Pain on eye movement is common; normal ocular exam. Mgmt: LP (after CT if focal) + IV antibiotics [139, 1568].",
+          "Scenario 15 (Raeder Paratrigeminal): Middle-aged man, Horner syndrome + daily unilateral periorbital headaches (V1). Mgmt: Exclude parasellar/cavernous sinus pathology with MRI [126, 807]."
+        ]
+      },
+      {
+        "title": "The Neuro-Ophthalmic Triage & Workup",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Headache Evaluation",
+          "branches": [
+            "Life-Threatening Screening: Sudden (Aneurysm), Fever (Meningitis), Age >55 (GCA), High BP (Crisis)",
+            "Detailed History: Timing (Morning=ICP, Night=Cluster), Triggers (Touch=CN V, Food=Migraine)",
+            "Imaging: MRI/MRV (Soft tissue/Sinus) vs CT/CTA (Bone/Blood/Vessels)",
+            "Special Tests: Hertel (Proptosis), Corneal Sensation (CN V), LP (if imaging normal)",
+            "Labs: ESR/CRP/FBC for all patients >50 years"
+          ]
+        }
+      },
+      {
+        "title": "Comprehensive Ocular Examination",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Pupils: Check for RAPD (Optic nerve) and Anisocoria (Horner/CN III).",
+          "Fundus: Look for Disc edema (Papilledema/GCA) and Hemorrhages (HTN/CRVO).",
+          "IOP/Gonio: Crucial to exclude Acute Glaucoma.",
+          "Motility: Identify CN III, IV, or VI palsies indicating compressive lesions."
+        ]
+      },
+      {
+        "title": "Management Highlights: Pearls & Pitfalls",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "CLINICAL GEMS",
+          "explanation": "Pearl: SVP absence is common in papilledema, but presence strongly suggests normal ICP [1572]. Pitfall: Never LP before neuroimaging if mass suspected (herniation risk). Examiner's Pick: Headache + Adie-like pupil? Check for CN III aberrant regeneration. Precaution: Beta-blockers for glaucoma can mask migraine/systemic signs. High Yield: Pregnant + Headache + Vision Loss? Consider Preeclampsia/Eclampsia & PRES."
+        }
+      },
+      {
+        "title": "Differential Diagnosis: The SNOOP Mnemonic",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "S: Systemic signs/symptoms (Fever, Weight Loss, Pregnancy)",
+          "N: Neurologic signs (Palsies, Papilledema, RAPD)",
+          "O: Onset (Sudden, Thunderbolt, Explosive)",
+          "O: Older age of onset (>50 years, GCA risk)",
+          "P: Progression or Pattern change (New type of headache)"
+        ]
+      }
+    ],
+    "generationPrompt": "Headache in Neuro-Ophthalmology: Clinical Scenarios & Management\nHeadache is one of the most common complaints in ophthalmic practice [32, 785]. While many cases are benign primary syndromes, the ophthalmologist must identify secondary causes that are life- or vision-threatening, such as Giant Cell Arteritis (GCA), intracranial mass lesions, and aneurysms [30, 567].\n--------------------------------------------------------------------------------\nOSCE & VIVA Clinical Scenarios\nScenario 1: The Ophthalmic Emergency (GCA)\nScenario: A 75-year-old female presents with a 3-day history of severe right-sided temporal headache, malaise, and a \"shade\" coming down over her vision for several minutes.\nDiagnosis: Suspected Giant Cell Arteritis (GCA) with amaurosis fugax [85, 760].\nRed Flags: Scalp tenderness (pain when combing hair), jaw claudication (pain while chewing), and sudden visual loss [36, 85, 754].\nInvestigations: Immediate ESR, CRP, and Platelet count (Platelets are a strong predictor) [36, 757]. Gold standard: Temporal Artery Biopsy (TAB) (specimen >2 cm to avoid skip lesions) [5, 586, 762].\nManagement: Do not wait for biopsy results. Immediate IV Methylprednisolone (g/day for 3 days) followed by oral Prednisone ( mg/kg/day) [5, 89, 762].\nScenario 2: The Obese Young Patient (IIH)\nScenario: A 28-year-old obese female reports a constant global headache that is worse in the morning and intensified by coughing. She describes brief \"greying out\" of vision when standing up.\nDiagnosis: Idiopathic Intracranial Hypertension (IIH) [37, 83, 768].\nClinical Picture: Papilledema (bilateral disc swelling), transient visual obscurations (TVOs), pulsatile tinnitus, and possible CN VI palsy [38, 40, 82].\nWorkup: Blood pressure check (exclude malignant HTN) [83]. Emergent MRI and MRV to rule out mass lesions or venous sinus thrombosis [39, 83, 769]. Lumbar puncture (LP) showing opening pressure ≥ 250 mm H \n2\n​\t\n O with normal CSF composition [4, 84, 770].\nManagement: Weight loss is primary [85, 554]. Acetazolamide (250 mg QID building to g BID) [554]. Surgical options: Optic nerve sheath fenestration (vision threat) or CSF shunting (headache threat) [44, 45, 554].\nScenario 3: \"Worst Headache of My Life\" (Aneurysm/SAH)\nScenario: A 50-year-old male presents with a sudden, explosive headache and a \"droopy\" right eyelid. On lifting the lid, he has double vision and the right pupil is large and non-reactive.\nDiagnosis: Ruptured intracranial aneurysm (typically Posterior Communicating Artery [PCoA]) causing Subarachnoid Hemorrhage (SAH) [38, 99, 343].\nKey Finding: Pupil-involving Third Nerve Palsy (fixed, dilated pupil) [0, 74, 98].\nThreat: Neurosurgical emergency [38, 99].\nManagement: Urgent CTA or MRA (CTA is preferred for acuity) [202, 200, 346]. Referral to neurosurgery for endovascular coiling or surgical clipping [06, 346].\nScenario 4: The \"Suicide\" Headache (Cluster Headache)\nScenario: A 35-year-old male smoker reports excruciating, stabbing pain behind his left eye occurring every night at 2:00 AM for the last two weeks. The eye is red and tearing.\nDiagnosis: Cluster Headache [57, 80, 95].\nSigns: Ipsilateral conjunctival injection, lacrimation, rhinorrhea, and miosis/ptosis (Horner syndrome) [58, 803, 95].\nManagement: Acute: 00% Oxygen (0–5 L/min for 5 mins) and Sumatriptan (6 mg SC) [803, 582]. Prophylaxis: Verapamil or Lithium [583].\nScenario 5: Classic Migraine with Aura\nScenario: A 24-year-old female experiences shimmering zig-zag lights in her vision for 20 minutes, followed by a throbbing unilateral headache with nausea.\nDiagnosis: Migraine with typical aura [4, 795, 79].\nKey Points: Aura usually lasts 5–60 minutes and is followed by headache within 60 minutes [42, 796, 79].\nManagement: Acute: Aspirin, Ibuprofen, or Triptans (e.g., Sumatriptan 50–00 mg PO) [55, 797, 582]. Avoid triggers like caffeine withdrawal, stress, and specific foods [54, 797, 576].\nScenario 6: Painful Horner Syndrome (ICA Dissection)\nScenario: A 45-year-old male has acute pain in the right temple and neck after a minor car accident. He is noted to have a small right pupil and  mm of ptosis.\nDiagnosis: Internal Carotid Artery (ICA) Dissection [24, 80, 783].\nHighlight: A painful Horner syndrome is an ICA dissection until proven otherwise; it carries a high risk of stroke [24, 202, 783].\nManagement: Urgent MRA or CTA of the head and neck [20, 80, 54]. Antiplatelet or anticoagulation therapy [55, 784].\nScenario 7: Pituitary Apoplexy\nScenario: A 40-year-old female presents with a sudden severe headache, bilateral vision loss, and total ophthalmoplegia.\nDiagnosis: Pituitary Apoplexy [38, 802, 532].\nMechanism: Infarction or hemorrhage of a pituitary adenoma [38, 532].\nRed Flags: Bitemporal hemianopia or blindness, sudden multiple CN palsies (III, IV, VI) [38, 802, 8].\nManagement: Urgent MRI. Immediate corticosteroid replacement to prevent life-threatening Addisonian crisis [802, 754].\nScenario 8: Trigeminal Neuralgia\nScenario: A 60-year-old male describes \"electric shock-like\" stabs of pain in his right cheek triggered by shaving or light touch.\nDiagnosis: Trigeminal Neuralgia (Tic Douloureux) [362, 805, 97].\nManagement: Carbamazepine (00 mg BID, increasing up to 200 mg/day) or Baclofen [03, 96, 97]. Neuroimaging to exclude vascular compression or MS [3, 76].\nScenario 9: Acute Angle-Closure Glaucoma\nScenario: A 65-year-old hyperopic female presents with sudden severe headache, eye pain, and vomiting. The eye is rock-hard and the cornea is hazy.\nDiagnosis: Acute Primary Angle Closure (APAC) [487, 68, 235].\nExamination Pick: High IOP (50–80 mmHg), fixed mid-dilated vertically oval pupil, and shallow anterior chamber [487, 68, 235].\nManagement: Lie supine. Systemic Acetazolamide (500 mg IV) and topical suppressants [685, 899, 478]. Definitive: Laser Peripheral Iridotomy (PI) in both eyes [488, 686, 236].\nScenario 10: Tolosa-Hunt Syndrome\nScenario: A 50-year-old presents with intense boring orbital pain and multiple ocular motor nerve palsies (III, IV, VI). MRI shows enhancement at the orbital apex.\nDiagnosis: Tolosa-Hunt Syndrome (idiopathic granulomatous inflammation) [249, 96, 533, 800].\nExaminer's Pick: Diagnosis of exclusion; must rule out lymphoma, metastasis, and aneurysm [, 96, 458].\nManagement: Highly responsive to systemic steroids (Prednisone  mg/kg/day) [962, 458, 800].\nScenario 11: Medication Overuse Headache\nScenario: A chronic migraineur reports a headache on ≥ 5 days per month for the last four months. She is taking paracetamol and triptans daily.\nDiagnosis: Medication Overuse Headache [838, 02].\nManagement: Counsel patient to abruptly stop the offending drug (withdrawal may last 3 weeks) [800, 02].\nScenario 12: Ocular Ischemic Syndrome (OIS)\nScenario: A 70-year-old male with known carotid disease presents with a dull, aching periorbital headache (\"ocular angina\") and blurred vision that improves in the dark.\nDiagnosis: Ocular Ischemic Syndrome [8, 293, 597].\nClinical Picture: Mid-peripheral dot-and-blot hemorrhages, dilated (nontortuous) veins, and iris neovascularization [8, 708].\nManagement: Carotid endarterectomy; manage IOP and retinal ischemia (PRP) [82, 600].\nScenario 13: Tension-Type Headache\nScenario: A 30-year-old law student describes a \"viselike\" band of pain around her head, typically worse at the end of a long day of studying.\nDiagnosis: Tension-type headache [53, 798].\nKey Points: Bilateral, pressing quality, not aggravated by physical activity.\nManagement: Simple analgesics (NSAIDs); prophylactic tricyclic antidepressants (Amitriptyline) [55, 799].\nScenario 14: Meningitis masquerading as Ocular Pain\nScenario: A 20-year-old presents with a severe headache, neck stiffness, and photophobia.\nDiagnosis: Meningitis [39, 350, 568].\nClinical Pearl: Pain on eye movement and photophobia are common; normal ocular exam [39, 568].\nManagement: Immediate LP (after CT if focal signs present) and IV antibiotics [64, 55].\nScenario 15: Raeder Paratrigeminal Syndrome\nScenario: A middle-aged man presents with Horner syndrome and daily unilateral periorbital headaches in the V1 distribution.\nDiagnosis: Raeder Syndrome [26, 807, 80].\nManagement: Must exclude intracranial pathology in the parasellar or cavernous sinus regions with MRI [26, 807, 80].\n--------------------------------------------------------------------------------\nComparisons: Primary vs. Secondary Headaches\nFeature\nPrimary (Migraine/Cluster/Tension)\nSecondary (GCA/IIH/Aneurysm)\nOnset\nOften chronic/recurrent [40]\nCan be sudden/new [3, 566]\nSystemic Symptoms\nRare (except nausea) [4, 792]\nFever, weight loss, jaw pain [36, 85]\nNeurological Signs\nTransient aura only [42, 008]\nPersistent palsies, disc edema [37, 82]\nUrgency\nNon-urgent treatment [54]\nImmediate medical/surgical referral [30, 99]\n--------------------------------------------------------------------------------\nWorkup & Approach Mind Map\nLife-Threatening Screening (Triage):\nSudden \"Worst\" headache? → Aneurysm/SAH [38].\nFever + Stiff neck? → Meningitis [39].\nAge >55 + Scalp tenderness? → GCA [36].\nMalignant BP? → Hypertensive Crisis [568].\nDetailed History:\nTiming: Morning (High ICP), Evening (Tension), Night (Cluster) [37, 53, 58].\nTriggers: Touch (Trigeminal Neuralgia), Alcohol (Cluster), Foods (Migraine) [58, 03, 576].\nComprehensive Ocular Exam:\nPupils: RAPD (Optic nerve lesion), Anisocoria (Horner/CN III) [8, 22, 98].\nFundus: Disc edema (Papilledema/GCA), Hemorrhages (HTN/CRVO) [82, 548, 585].\nIOP/Gonio: Exclude Acute Glaucoma [235, 475].\nSpecial Tests:\nHertel Exophthalmometry (Proptosis) [429, 439].\nCorneal Sensation (Exclude CN V involvement) [, 300].\nImaging & Labs:\nESR/CRP/FBC for all >50 years [79, 762].\nMRI/MRV (Soft tissue/Sinuses) vs. CT/CTA (Bone/Blood/Vessels).\nLumbar Puncture (If imaging normal and ICP suspected) [37, 83].\n--------------------------------------------------------------------------------\nManagement Highlights: Pearls & Pitfalls\nPearl: The absence of Spontaneous Venous Pulsations (SVPs) is common in papilledema, but its presence strongly suggests normal ICP [572].\nPitfall: Do not perform an LP before neuroimaging if a mass lesion is suspected, as this can lead to brainstem herniation [64, 83].\nExaminer's Pick: In a patient with headache and an \"Adie-like\" pupil, always check for aberrant regeneration of CN III, which could indicate an old compressive lesion [9, 74].\nPrecaution: Topical Beta-blockers for glaucoma can worsen migraine management or mask systemic signs [892, 53].\nHigh Yield: In pregnant women with headaches and visual loss, always consider Preeclampsia/Eclampsia and Posterior Reversible Encephalopathy Syndrome (PRES) [403, 779, 9].",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044665742,
+  "communityId": "sub_1774462874051_7xjpsqfta",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-03-25T18:21:14.051Z"
+}

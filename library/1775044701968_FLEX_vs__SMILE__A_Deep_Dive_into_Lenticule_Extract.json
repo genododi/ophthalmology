@@ -1,0 +1,476 @@
+{
+  "id": 1775044701968,
+  "seqId": 522,
+  "title": "FLEX vs. SMILE: A Deep Dive into Lenticule Extraction Refractive Surgery",
+  "summary": "Explore Femtosecond Lenticule Extraction (FLEX) and Small Incision Lenticule Extraction (SMILE), two advanced femtosecond laser-based refractive procedures. This comprehensive guide dissects their mechanisms, patient selection, surgical techniques, and outcomes, highlighting key differences and clinical implications for ophthalmology residents and fellows.",
+  "date": "2026-04-01T11:58:21.968Z",
+  "data": {
+    "title": "FLEX vs. SMILE: A Deep Dive into Lenticule Extraction Refractive Surgery",
+    "summary": "Explore Femtosecond Lenticule Extraction (FLEX) and Small Incision Lenticule Extraction (SMILE), two advanced femtosecond laser-based refractive procedures. This comprehensive guide dissects their mechanisms, patient selection, surgical techniques, and outcomes, highlighting key differences and clinical implications for ophthalmology residents and fellows.",
+    "summary_illustration": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:hsl(215, 90%, 65%);stop-opacity:1' /><stop offset='100%' style='stop-color:hsl(215, 90%, 45%);stop-opacity:1' /></linearGradient></defs><circle cx='50' cy='50' r='45' fill='url(#grad)'/><circle cx='50' cy='50' r='30' fill='#fff'/><path d='M 50 20 L 65 35 A 10 10 0 0 1 65 65 L 50 80 A 10 10 0 0 1 35 65 L 35 35 A 10 10 0 0 1 50 20 Z' fill='hsl(215, 90%, 45%)'/><path d='M 40 40 Q 50 30 60 40 Q 50 50 40 40 Z' fill='#fff'/><path d='M 45 45 C 48 42 52 42 55 45 C 52 48 48 48 45 45 Z' fill='hsl(215, 90%, 45%)'/><path d='M 50 60 C 55 55 55 65 50 70 C 45 65 45 55 50 60 Z' fill='#fff'/></svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Overview",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Femtosecond Lenticule Extraction (FLEX) and Small Incision Lenticule Extraction (SMILE) are keratorefractive procedures utilizing a femtosecond laser to create an intrastromal lenticule, which is then removed to correct refractive errors. FLEX, a precursor to SMILE, involved creating a corneal flap similar to LASIK. SMILE refined this by eliminating the need for a full flap, instead creating a small incision for lenticule extraction, aiming for enhanced corneal biomechanical stability and reduced dry eye symptoms."
+      },
+      {
+        "title": "2. Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**Prevalence:** Myopia affects 30-40% of adults in developed countries, driving demand for refractive surgery.",
+          "**SMILE Growth:** Rapidly gaining popularity globally, especially in Asia, due to flapless nature.",
+          "**Ideal Candidates:** Typically adults 18-45 years old with stable myopia (-0.5 to -10.0 D) or myopic astigmatism (up to -5.0 D).",
+          "**Global Reach:** Over 10 million SMILE procedures performed worldwide since its introduction."
+        ]
+      },
+      {
+        "title": "Risk Factors / Contraindications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Unstable Refraction: Change >0.5 D/year.",
+          "Keratoconus/Pellucid Marginal Degeneration (PMD): Any corneal ectasia.",
+          "Thin Cornea: Residual stromal bed <250 µm after ablation.",
+          "Severe Dry Eye Syndrome: Pre-existing ocular surface disease.",
+          "Collagen Vascular Disease: Rheumatoid arthritis, SLE (impaired healing).",
+          "Immunosuppression: Increased risk of infection/poor healing.",
+          "Pregnancy/Lactation: Hormonal fluctuations affect corneal hydration and refraction.",
+          "Glaucoma/Ocular Hypertension: IOP spikes during suction.",
+          "Severe Blepharitis/Meibomian Gland Dysfunction: Increased infection risk.",
+          "Monocular Patients: Relative contraindication."
+        ]
+      },
+      {
+        "title": "3. Etiology & Pathophysiology",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Both FLEX and SMILE correct refractive error by precisely removing an intrastromal lenticule of corneal tissue. The femtosecond laser (e.g., Carl Zeiss VisuMax) creates micro-cavitation bubbles through photodisruption, separating corneal tissue layers. The shape and thickness of the lenticule are customized based on the patient's refractive error, determined by pre-operative topography and wavefront analysis. Removing this lenticule alters the anterior corneal curvature, thus changing its refractive power. SMILE's key advantage lies in preserving the anterior corneal lamellae and Bowman's layer integrity outside the small incision, leading to superior biomechanical stability compared to flap-based procedures like LASIK and FLEX. This preservation minimizes nerve severance, potentially reducing post-operative dry eye."
+      },
+      {
+        "title": "4. Classification of Refractive Lenticule Extraction",
+        "icon": "mindmap",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Refractive Lenticule Extraction",
+          "branches": [
+            "**FLEX (Femtosecond Lenticule Extraction)**: Flap-based removal of intrastromal lenticule.",
+            "**SMILE (Small Incision Lenticule Extraction)**: Flapless, cap-based removal via small incision.",
+            "**ReLEX (Refractive Lenticule Extraction)**: Term encompasses both FLEX and SMILE, though often used synonymously with SMILE due to its prevalence.",
+            "**Contoura Vision SMILE (Next-gen)**: Combines topography-guided ablation with SMILE for enhanced precision."
+          ]
+        }
+      },
+      {
+        "title": "5. Clinical Features & Symptoms (Post-Op)",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "**Visual Recovery**: Good functional vision by day 1, stabilizes over weeks.",
+          "**Mild Discomfort**: Foreign body sensation, tearing, photophobia (12-24 hrs post-SMILE, similar to LASIK post-FLEX).",
+          "**Halo/Glare**: Transient, especially at night, improving over months.",
+          "**Dry Eye Symptoms**: Less severe and shorter duration with SMILE vs. FLEX/LASIK.",
+          "**Fluctuating Vision**: Common in early post-op period due to corneal hydration/healing.",
+          "**Subconjunctival Hemorrhage**: Due to suction, resolves in 1-2 weeks."
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings (Pre- & Post-Op)",
+        "icon": "healing",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Examination",
+            "Pre-operative (Key for Eligibility)",
+            "Post-operative (Key for Assessment)"
+          ],
+          "rows": [
+            [
+              "Visual Acuity",
+              "UCVA, BCVA, Manifest/Cycloplegic Refraction",
+              "UCVA, BCVA (monitored for stability)"
+            ],
+            [
+              "Slit-lamp Biomicroscopy",
+              "Anterior segment health, tear film assessment",
+              "Corneal clarity, interface (FLEX: flap edge, SMILE: cap & incision), lenticule residue, IOP"
+            ],
+            [
+              "Corneal Topography/Tomography (Pentacam/Orbscan)",
+              "Rule out keratoconus/ectasia, central corneal thickness (CCT), pachymetry maps",
+              "Corneal curvature changes, assess for decentration, induced astigmatism"
+            ],
+            [
+              "Corneal Pachymetry (OCT/Ultrasound)",
+              "CCT, minimal stromal bed calculation",
+              "Residual stromal thickness"
+            ],
+            [
+              "Ocular Surface Analysis (OSDI, Schirmer, TBUT)",
+              "Dry eye assessment",
+              "Assess post-op dry eye severity"
+            ],
+            [
+              "Fundoscopy",
+              "Rule out retinal pathology (e.g., lattice degeneration)",
+              "Routine follow-up"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "6. Investigations & Diagnostic Workup",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**Step 1: Comprehensive Ophthalmic History & Examination** - Refractive stability, systemic health, ocular history, current medications.",
+          "**Step 2: Manifest & Cycloplegic Refraction** - Accurate measure of refractive error, particularly for hyperopes and young patients.",
+          "**Step 3: Best Corrected Visual Acuity (BCVA) Assessment** - Rule out underlying ocular pathology.",
+          "**Step 4: Slit-lamp Biomicroscopy** - Anterior segment health, tear film evaluation (Schirmer test, TBUT, OSDI questionnaire).",
+          "**Step 5: Intraocular Pressure (IOP) Measurement** - Baseline check for glaucoma.",
+          "**Step 6: Dilated Fundus Examination** - Rule out peripheral retinal pathology (e.g., tears, lattice degeneration).",
+          "**Step 7: Corneal Topography & Tomography (e.g., Pentacam HR, Orbscan IIz, Sirius)** - Essential for ruling out ectatic disorders (keratoconus, PMD), assessing CCT, anterior/posterior corneal elevation, pachymetry progression maps, epithelial maps (for subtle ectasia).",
+          "**Step 8: Optical Coherence Tomography (OCT)** - Anterior segment OCT (AS-OCT) for detailed corneal layer assessment, epithelial thickness mapping, residual stromal bed estimation.",
+          "**Step 9: Wavefront Aberrometry** - Measures higher-order aberrations (HOAs) to predict potential night vision issues (less critical for SMILE/FLEX vs. wavefront-guided LASIK).",
+          "**Step 10: Specular Microscopy (Endothelial Cell Count)** - Important for patients with previous ocular surgery or suspected endothelial compromise."
+        ]
+      },
+      {
+        "title": "7. Differential Diagnosis (Pre- & Post-op Considerations)",
+        "icon": "difference",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Scenario",
+            "Conditions to Differentiate From",
+            "Key Differentiating Factors"
+          ],
+          "rows": [
+            [
+              "Refractive Error Correction (Primary)",
+              "LASIK (Laser-Assisted In Situ Keratomileusis)",
+              "FLEX/SMILE are flapless (SMILE) or have smaller flap issues (FLEX) vs. LASIK's microkeratome/femtosecond flap. LASIK has broader treatment range."
+            ],
+            [
+              "Refractive Error Correction (Primary)",
+              "PRK (Photorefractive Keratectomy)",
+              "Surface ablation vs. intrastromal. PRK: longer recovery, more pain, risk of haze; no flap complications."
+            ],
+            [
+              "Refractive Error Correction (Primary)",
+              "Implantable Collamer Lens (ICL)/Phakic IOL",
+              "Used for higher refractive errors, thin corneas, or dry eyes where corneal surgery is contraindicated. Intraocular vs. corneal procedure."
+            ],
+            [
+              "Post-op Vision Fluctuation/Regression",
+              "Undercorrection/Overcorrection",
+              "Refractive error measurement vs. original target."
+            ],
+            [
+              "Post-op Vision Fluctuation/Regression",
+              "Corneal Ectasia (Progressive Thinning)",
+              "Progressive steepening on topography, decreasing pachymetry, especially in post-op setting."
+            ],
+            [
+              "Post-op Haze/Inflammation",
+              "Diffuse Lamellar Keratitis (DLK)",
+              "Steroid-responsive, typically non-infectious interface inflammation. Graded I-IV (see Staging section)."
+            ],
+            [
+              "Post-op Haze/Inflammation",
+              "Infectious Keratitis",
+              "Pain, photophobia, rapidly worsening vision, epithelial defect, dense stromal infiltrate. Requires urgent culture & aggressive antibiotics."
+            ],
+            [
+              "Post-op Dry Eye",
+              "Neurotrophic Keratopathy",
+              "Severe, persistent dry eye with decreased corneal sensitivity, persistent epithelial defects. Less common with SMILE."
+            ],
+            [
+              "Post-op Visual Disturbances",
+              "Higher-Order Aberrations (HOAs)",
+              "Symptoms like glare, halos, starbursts. Assessed via wavefront analysis. Can be induced by decentration or irregular ablation."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "8. Staging & Grading (Complications)",
+        "icon": "menu",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Complication",
+            "Grading/Staging System",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Diffuse Lamellar Keratitis (DLK)",
+              "DLK Grading (Pillai et al., 2003)",
+              "Grade 0: None; Grade 1: Peripheral interface cells (no vision loss); Grade 2: Central interface cells (mild vision loss); Grade 3: Moderate vision loss, corneal striae; Grade 4: Severe vision loss, melting. (Treat with topical steroids, +/- interface irrigation for Gr 3/4)."
+            ],
+            [
+              "Corneal Haze (Post-PRK/SMILE)",
+              "Fantes Grading Scale",
+              "Grade 0: Clear; Grade 0.5: Trace; Grade 1: Mild (iris/pupil visible); Grade 2: Moderate (iris/pupil partially visible); Grade 3: Marked (iris/pupil obscured); Grade 4: Opaque. (Less common in SMILE vs. PRK)."
+            ],
+            [
+              "Epithelial Ingrowth",
+              "Severity-based",
+              "Grade 1: Peripheral, non-progressive; Grade 2: Progressive, approaching visual axis; Grade 3: Dense, visually significant, risk of flap melt. (More common in FLEX/LASIK)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9. Management & Treatment (Post-operative)",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Immediate Post-op (Day 0-7):**",
+          "   **Topical Steroids:** e.g., Prednisolone Acetate 1% QID for 1-2 weeks (e.g., FML 0.1% for 3-4 weeks for SMILE) to reduce inflammation and prevent haze.",
+          "   **Topical Antibiotics:** e.g., Moxifloxacin 0.5% QID for 1 week to prevent infection.",
+          "   **Artificial Tears (Preservative-free):** QID to hourly as needed for dry eye relief.",
+          "   **NSAID Drops:** (Optional) for pain relief, e.g., Ketorolac 0.4% BID-TID for a few days.",
+          "   **Protective Eyewear:** Eye shields at night, sunglasses outdoors for 1 week.",
+          "**Subsequent Weeks/Months:**",
+          "   **Steroid Taper:** Gradually taper steroids based on inflammation.",
+          "   **Continued Lubrication:** As needed, may continue for several months post-SMILE.",
+          "   **Refractive Enhancement:** If significant residual refractive error after 3-6 months, consider PRK (most common for SMILE/FLEX) or relift (FLEX/LASIK).",
+          "**Management of Complications:**",
+          "   **DLK:** Aggressive topical steroids (e.g., Prednisolone Acetate 1% q1h), consider oral steroids. Interface irrigation for Grade 3/4.",
+          "   **Infection:** Immediate culture, broad-spectrum fortified antibiotics (e.g., Vancomycin + Ceftazidime), potentially corneal scrape/biopsy.",
+          "   **Epithelial Ingrowth:** Observation for Grade 1. Surgical debridement with flap lift, scraping, polishing, +/- fibrin glue, +/- alcohol for Grade 2/3 (FLEX/LASIK).",
+          "   **Corneal Ectasia:** Cross-linking (CXL) to stabilize the cornea."
+        ]
+      },
+      {
+        "title": "10. Surgical Techniques: FLEX vs. SMILE (Carl Zeiss VisuMax)",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "FLEX (Femtosecond Lenticule Extraction)",
+            "SMILE (Small Incision Lenticule Extraction)"
+          ],
+          "rows": [
+            [
+              "**Lenticule Creation**",
+              "Femtosecond laser creates intrastromal lenticule.",
+              "Femtosecond laser creates intrastromal lenticule."
+            ],
+            [
+              "**Flap/Cap Creation**",
+              "**Creates a full corneal flap** (diameter ~8.5-9.5 mm, thickness ~100-120 µm).",
+              "**Creates a small cap** (diameter ~7.0-7.5 mm, thickness ~100-120 µm) with a small incision (2-4 mm)."
+            ],
+            [
+              "**Lenticule Extraction**",
+              "Flap is lifted (similar to LASIK), lenticule is manually removed from the stromal bed, flap is repositioned.",
+              "Lenticule is manually separated from the cap and stromal bed using a spatula, then extracted through the small incision."
+            ],
+            [
+              "**Laser System**",
+              "Carl Zeiss VisuMax Femtosecond Laser (or similar platforms for older versions).",
+              "Carl Zeiss VisuMax Femtosecond Laser (most common, 500 kHz)."
+            ],
+            [
+              "**Advantage**",
+              "Precise lenticule, potential for flap-lift enhancement (though less common now).",
+              "Flapless, superior biomechanical stability, less nerve severance, reduced dry eye potential, faster visual recovery (subjective)."
+            ],
+            [
+              "**Disadvantage**",
+              "Flap complications (dislocation, striae), more dry eye potential.",
+              "Steeper learning curve, potential for suction loss, cap perforations, higher initial rate of transient visual haze."
+            ],
+            [
+              "**Current Status**",
+              "Largely superseded by SMILE due to flap-related issues.",
+              "Widely adopted and considered a gold standard for specific refractive errors."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "11. Complications & Prognosis",
+        "icon": "warning",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Complication",
+            "FLEX (Specifics)",
+            "SMILE (Specifics)",
+            "Prognosis"
+          ],
+          "rows": [
+            [
+              "**Suction Loss**",
+              "Can occur during flap/lenticule creation, may require procedure abortion or reschedule.",
+              "Can occur during lenticule creation, may require procedure abortion or conversion to PRK.",
+              "Requires re-docking or rescheduling, may prolong procedure or affect outcome."
+            ],
+            [
+              "**Cap/Flap Perforation**",
+              "Flap buttonhole (if too thin).",
+              "Cap perforation or tear, especially with inexperienced surgeons or difficult cases.",
+              "Can lead to irregular astigmatism, visual impairment. May require PRK for enhancement."
+            ],
+            [
+              "**Lenticule Remnant/Tear**",
+              "Incomplete removal or tear during extraction.",
+              "Incomplete removal or tear, leading to residual refractive error or irregular astigmatism.",
+              "May require re-treatment (PRK) or manual removal of remnants (challenging)."
+            ],
+            [
+              "**Interface Haze/DLK**",
+              "Interface inflammation, treated with steroids.",
+              "Less common than FLEX, but still possible. Treated with steroids.",
+              "Usually resolves with steroids. Grade 3/4 DLK can lead to permanent vision loss."
+            ],
+            [
+              "**Infection**",
+              "Rare (0.001-0.01%), but severe.",
+              "Rare (0.001-0.01%), typically bacterial keratitis.",
+              "Potentially devastating; requires immediate, aggressive treatment. Can lead to vision loss."
+            ],
+            [
+              "**Decentration**",
+              "If eye movement occurs during laser application or flap repositioning.",
+              "If eye movement occurs during laser application (minimal eye tracking in early SMILE, improved now).",
+              "Induced astigmatism, glare, halos. May require enhancement or ICL."
+            ],
+            [
+              "**Dry Eye Syndrome**",
+              "More pronounced due to larger nerve transection in flap.",
+              "Significantly less severe and shorter duration due to minimal nerve damage.",
+              "Improves over 6-12 months. May require long-term artificial tears, punctal plugs."
+            ],
+            [
+              "**Corneal Ectasia**",
+              "Rare (0.01-0.06%), if underlying keratoconus or too much tissue removed.",
+              "Similar risk to LASIK if pre-existing risk factors are missed. Low incidence.",
+              "Progressive vision loss, requires CXL, potentially corneal transplant."
+            ],
+            [
+              "**Prognosis (Overall)**",
+              "Excellent for eligible candidates (95%+ achieve 20/40 or better).",
+              "Excellent for eligible candidates (95%+ achieve 20/40 or better), high patient satisfaction.",
+              "Generally very good, with high safety and efficacy profiles for both procedures when proper patient selection and surgical technique are employed."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "12. Red Flags / Emergency Signs (Post-Op)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden, severe decrease in vision.",
+          "Intense or worsening eye pain not relieved by OTC analgesics.",
+          "Redness of the eye that rapidly worsens or is accompanied by discharge.",
+          "New onset or worsening photophobia (light sensitivity).",
+          "Progressive white or opaque area on the cornea.",
+          "Swelling of the eyelids.",
+          "Any signs of flap dislocation (in FLEX/LASIK) - significant blurring, foreign body sensation, wrinkling visible."
+        ]
+      },
+      {
+        "title": "13. Mnemonics & Memory Aids",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "**SMILE** for **S**tronger **M**echanics, **I**ncreased **L**enticule **E**xtraction",
+          "explanation": "Helps remember SMILE's key benefits: superior biomechanical stability due to flapless nature (stronger mechanics) and its core principle (lenticule extraction)."
+        }
+      },
+      {
+        "title": "14. Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "**SMILE's Biomechanical Advantage:** Preserves more anterior stromal lamellae and Bowman's layer integrity compared to LASIK/FLEX, leading to better corneal biomechanical strength.",
+          "**Dry Eye Mitigation:** SMILE severs fewer corneal nerves, resulting in a significantly lower incidence and severity of post-operative dry eye symptoms compared to LASIK/FLEX.",
+          "**Learning Curve:** SMILE has a steeper learning curve for surgeons, particularly in lenticule dissection and extraction.",
+          "**Visual Recovery:** While SMILE patients often report feeling better sooner, initial visual acuity may be slightly slower to achieve optimal levels compared to LASIK/FLEX in some studies, but rapidly catches up.",
+          "**Enhancements:** For residual refractive error post-SMILE, surface ablation (PRK) is the preferred enhancement method, as creating a secondary lenticule or converting to LASIK is more complex.",
+          "**Myopia Range:** SMILE is currently FDA approved for myopia up to -10.0 D and astigmatism up to -3.0 D (varies by region/device).",
+          "**Hyperopia:** SMILE for hyperopia is still in clinical trials and not yet widely available or approved.",
+          "**Suction Loss:** A critical intraoperative event, requiring immediate re-docking or conversion to PRK. Prevention through proper patient selection and docking technique is paramount."
+        ]
+      },
+      {
+        "title": "15. Recent Advances & Landmark Studies",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "**Carl Zeiss Meditec VisuMax Laser:** The pioneering femtosecond laser platform for SMILE technology.",
+          "**ReLEx SMILE (Refractive Lenticule Extraction, Small Incision Lenticule Extraction):** Introduced in 2011, it revolutionized flapless refractive surgery.",
+          "**FDA Approval:** SMILE received FDA approval in the U.S. in 2016 for myopia and in 2018 for myopic astigmatism, expanding its global adoption.",
+          "**VisuMax 800:** Next-generation VisuMax laser with faster repetition rates (2 MHz) for reduced suction time and potential for even faster visual recovery.",
+          "**SMILE Pro:** Latest advancement, further optimizing the procedure with faster laser pulse, reducing treatment time to ~10 seconds.",
+          "**Topography-guided SMILE (e.g., Contoura Vision SMILE):** Emerging technology aiming to integrate topography data for personalized, even more precise lenticule creation."
+        ]
+      },
+      {
+        "title": "16. Pediatric / Special Population Considerations",
+        "icon": "family_restroom",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**Age Limit:** Refractive surgery is generally not recommended for individuals under 18-21 years due to unstable refraction.",
+          "**Pregnancy/Lactation:** Contraindicated due to hormonal shifts affecting corneal hydration and refraction, and potential medication effects.",
+          "**Diabetics:** Well-controlled diabetes is generally acceptable, but uncontrolled diabetes is a contraindication due to impaired healing and increased infection risk.",
+          "**Immuno-compromised:** Systemic immunosuppression (e.g., HIV, organ transplant patients on high-dose steroids) is a contraindication due to increased infection risk and poor wound healing.",
+          "**Mental Health:** Patients with unrealistic expectations or psychiatric disorders (e.g., Body Dysmorphic Disorder) are poor candidates.",
+          "**Occupational Considerations:** Specific visual requirements for pilots, military personnel may influence procedure choice."
+        ]
+      }
+    ],
+    "chapterId": "refractive"
+  },
+  "chapterId": "refractive",
+  "_newlyImported": 1775044701968,
+  "communityId": "sub_1774352254515_hzwpa7pv341ldf",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.515Z"
+}

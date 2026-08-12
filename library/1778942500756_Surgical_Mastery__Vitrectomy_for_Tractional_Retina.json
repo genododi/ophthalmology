@@ -1,0 +1,362 @@
+{
+  "id": 1778942500756,
+  "seqId": 829,
+  "title": "Surgical Mastery: Vitrectomy for Tractional Retinal Detachment (TRD)",
+  "summary": "A comprehensive clinical and surgical guide to managing Tractional Retinal Detachment, primarily in the context of Proliferative Diabetic Retinopathy (PDR). This poster covers pathophysiology, advanced dissection techniques, and evidence-based management protocols.",
+  "date": "2026-05-16T14:41:40.756Z",
+  "data": {
+    "title": "Surgical Mastery: Vitrectomy for Tractional Retinal Detachment (TRD)",
+    "summary": "A comprehensive clinical and surgical guide to managing Tractional Retinal Detachment, primarily in the context of Proliferative Diabetic Retinopathy (PDR). This poster covers pathophysiology, advanced dissection techniques, and evidence-based management protocols.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M25 75 Q 50 40 75 75' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M30 65 L 45 45 M 55 45 L 70 65' stroke='red' stroke-width='1.5' stroke-linecap='round'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)' opacity='0.2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Pathophysiology",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Tractional Retinal Detachment (TRD) is the separation of the neurosensory retina from the retinal pigment epithelium (RPE) due to the pulling force of vitreoretinal membranes. In PDR, chronic ischemia leads to VEGF-mediated neovascularization. These vessels grow along the posterior hyaloid, forming fibrovascular proliferation (FVP). Over time, the fibrous component contracts, leading to tangential or anteroposterior traction and subsequent detachment without a primary break."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "PDR Patients developing TRD",
+              "value": 5
+            },
+            {
+              "label": "History of Poor Glycemic Control",
+              "value": 85
+            },
+            {
+              "label": "Associated Nephropathy",
+              "value": 60
+            },
+            {
+              "label": "Incomplete PRP Status",
+              "value": 75
+            }
+          ]
+        }
+      },
+      {
+        "title": "Surgical Indications for TRD",
+        "icon": "priority_high",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Macula-involving TRD (most common indication).",
+          "Progressive TRD threatening the fovea.",
+          "Combined Tractional-Rhegmatogenous RD (TRRD).",
+          "Dense vitreous hemorrhage masking an underlying TRD.",
+          "Tight vitreoretinal traction causing macular edema unresponsive to anti-VEGF."
+        ]
+      },
+      {
+        "title": "Pre-operative Workup & Optimization",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Investigation",
+            "Clinical Utility"
+          ],
+          "rows": [
+            [
+              "B-Scan Ultrasonography",
+              "Essential if media is opaque; identifies 'Table-top' configurations or tented retina."
+            ],
+            [
+              "SD-OCT",
+              "Evaluates macular status, schisis vs. detachment, and vitreoretinal interface."
+            ],
+            [
+              "Systemic Status",
+              "HbA1c optimization, Blood Pressure control, and Renal function (creatinine/GFR)."
+            ],
+            [
+              "Pre-op Anti-VEGF",
+              "Injection of Bevacizumab (1.25mg) 2–7 days pre-op to regress FVP and reduce intraop bleeding."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Step-by-Step Protocol",
+        "icon": "reorder",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Trocar placement (23G, 25G, or 27G) 3.5mm-4.0mm from limbus.",
+          "Step 2: Core Vitrectomy to clear hemorrhage and create space.",
+          "Step 3: Induction of Posterior Vitreous Detachment (PVD) using suction or a scraper (often difficult in TRD).",
+          "Step 4: Membrane Dissection (Segmentation and/or Delamination).",
+          "Step 5: Hemostasis using endodiathermy for bleeding fronds.",
+          "Step 6: Peripheral Shaving using depressed vitrectomy.",
+          "Step 7: Fluid-Air Exchange (FAX) and Endophotocoagulation (PRP completion).",
+          "Step 8: Tamponade selection (Air, Gas, or Silicone Oil)."
+        ]
+      },
+      {
+        "title": "The Big Three: Dissection Techniques",
+        "icon": "content_cut",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Technique",
+            "Mechanism",
+            "Best For..."
+          ],
+          "rows": [
+            [
+              "Segmentation",
+              "Vertical cutting of membranes into small islands to relieve tangential traction.",
+              "Large sheets of FVP."
+            ],
+            [
+              "Delamination",
+              "Horizontal dissection between the FVP and the internal limiting membrane.",
+              "Focal adhesions and vascular stalks."
+            ],
+            [
+              "En-bloc Dissection",
+              "Lifting the entire posterior hyaloid/membrane complex as a single unit.",
+              "Widespread adhesions (requires chandelier lighting)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Instrument Arsenal",
+        "icon": "architecture",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "TRD Tools",
+          "branches": [
+            "Valved Trocars",
+            "Curved Scissors",
+            "Pointed Forceps",
+            "Chandelier Light",
+            "Viscodissection (Provisc)",
+            "Endodiathermy"
+          ]
+        }
+      },
+      {
+        "title": "Intraoperative Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Iatrogenic Retinal Break (Peripheral or Posterior).",
+          "Massive Subretinal Hemorrhage (T-PA may be needed).",
+          "Inadvertent lens touch (Cataractogenesis).",
+          "Sudden Rise in IOP (Suprachoroidal Hemorrhage)."
+        ]
+      },
+      {
+        "title": "Classification of TRD Severity",
+        "icon": "sort",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "TRD Types",
+          "branches": [
+            "Extramacular (Observation)",
+            "Macula-off (Urgent Surgery)",
+            "Combined TRD/RRD (Emergency)",
+            "Vitreopapillary Traction"
+          ]
+        }
+      },
+      {
+        "title": "Post-operative Management",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Positioning: Face-down if gas/oil used.",
+          "IOP Monitoring: High risk of early post-op spikes (Neovascular Glaucoma).",
+          "Inflammation: Pred Forte 1% q1h to q4h; NSAIDs.",
+          "Fibrin Control: Consider subconjunctival steroids or intracameral TPA if fibrin is severe."
+        ]
+      },
+      {
+        "title": "Remember the 5 S's of TRD",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STASS",
+          "explanation": "S: Segmentation, T: Traction removal, A: Anti-VEGF (Pre-op), S: Scissors (Delamination), S: Silicone Oil (Tamponade selection)."
+        }
+      },
+      {
+        "title": "Differential Diagnosis of Traction",
+        "icon": "schema",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Rhegmatogenous RD",
+              "Presence of a break, convex surface, rapid progression, moves with eye."
+            ],
+            [
+              "Exudative RD",
+              "Shifting fluid, smooth surface, no tractional bands, inflammatory signs."
+            ],
+            [
+              "Retinoschisis",
+              "Inner layer elevation, non-mobile, asymptomatic unless extensive."
+            ],
+            [
+              "Choroidal Detachment",
+              "Brown/Orange hue, 360-degree 'kissing' choroidals, hypotony."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Anatomic Success: >90% with modern instrumentation.",
+          "Visual Recovery: Limited by macular ischemia and chronicity of detachment.",
+          "NVI/NVG: Risk remains if ischemia is not treated with adequate laser.",
+          "Recurrent Hemorrhage: High in diabetic patients; consider 'oil under air' technique."
+        ]
+      },
+      {
+        "title": "Landmark Clinical Pearl",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Avoid aggressive PVD induction over the macula if membranes are tight; instead, use 'Inside-Out' dissection starting from the optic nerve where the hyaloid is often already detached."
+        ]
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Digitalized 3D visualization systems (NGENUITY/ARTEVO) allow for higher magnification and better depth of field during delicate delamination. High-speed vitrectomy (20,000 CPM) reduces vitreous turbulence, minimizing iatrogenic breaks during peripheral shaving."
+      }
+    ],
+    "generationPrompt": "vitrectomy detailed steps in TRD",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "kanskiMeta": [
+    {
+      "pageNum": 660,
+      "keywords": [
+        "retinal detachment",
+        "vitrectomy",
+        "retinal",
+        "detachment",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 698,
+      "keywords": [
+        "retinal detachment",
+        "vitrectomy",
+        "surgical",
+        "tractional",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 693,
+      "keywords": [
+        "retinal detachment",
+        "vitrectomy",
+        "surgical",
+        "tractional",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 561,
+      "keywords": [
+        "retinal detachment",
+        "vitrectomy",
+        "tractional",
+        "retinal",
+        "detachment"
+      ]
+    },
+    {
+      "pageNum": 687,
+      "keywords": [
+        "retinal detachment",
+        "vitrectomy",
+        "tractional",
+        "retinal",
+        "detachment"
+      ]
+    },
+    {
+      "pageNum": 700,
+      "keywords": [
+        "retinal detachment",
+        "vitrectomy",
+        "surgical",
+        "tractional",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 689,
+      "keywords": [
+        "retinal detachment",
+        "vitrectomy",
+        "surgical",
+        "retinal",
+        "detachment"
+      ]
+    },
+    {
+      "pageNum": 614,
+      "keywords": [
+        "retinal detachment",
+        "vitrectomy",
+        "surgical",
+        "tractional",
+        "retinal"
+      ]
+    }
+  ],
+  "read": true
+}

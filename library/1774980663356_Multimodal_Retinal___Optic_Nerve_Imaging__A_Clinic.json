@@ -1,0 +1,156 @@
+{
+  "id": 1774980663356,
+  "seqId": 17,
+  "title": "Multimodal Retinal & Optic Nerve Imaging: A Clinical Guide",
+  "summary": "A comprehensive comparative analysis of retinal and optic nerve imaging modalities, focusing on the diagnostic utility of Fluorescein Angiography (FFA), Fundus Autofluorescence (FAF), and Optical Coherence Tomography (OCT).",
+  "date": "2026-03-31T18:11:03.356Z",
+  "data": {
+    "title": "Multimodal Retinal & Optic Nerve Imaging: A Clinical Guide",
+    "summary": "A comprehensive comparative analysis of retinal and optic nerve imaging modalities, focusing on the diagnostic utility of Fluorescein Angiography (FFA), Fundus Autofluorescence (FAF), and Optical Coherence Tomography (OCT).",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e56a0' stroke-width='4'/><path d='M50 20 L50 80 M20 50 L80 50' stroke='#1e56a0' stroke-width='2'/><circle cx='50' cy='50' r='10' fill='#1e56a0'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Imaging Principles",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Modality",
+            "Physiological Basis",
+            "Primary Clinical Utility"
+          ],
+          "rows": [
+            [
+              "FFA",
+              "Fluorescence of Na-Fluorescein dye",
+              "Vascular perfusion, leakage, neovascularization"
+            ],
+            [
+              "FAF",
+              "Endogenous lipofuscin excitation (488nm)",
+              "RPE metabolic health, geographic atrophy"
+            ],
+            [
+              "OCT Macula",
+              "Low-coherence interferometry",
+              "Micro-structural retinal layers, fluid mapping"
+            ],
+            [
+              "OCT ONH",
+              "RNFL thickness measurement",
+              "Glaucomatous damage, disc edema monitoring"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Indicators for Diagnostic Workup",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Imaging Selection",
+          "branches": [
+            "FFA: Vascular Occlusions / CNV",
+            "FAF: AMD / Dystrophies",
+            "OCT Macula: DME / ERM / VMT",
+            "OCT ONH: Glaucoma / Papilledema"
+          ]
+        }
+      },
+      {
+        "title": "FFA: The Gold Standard for Vascularity",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Phase 1: Pre-arterial (choroidal flush)",
+          "Phase 2: Arterial filling (approx 1-2s later)",
+          "Phase 3: Arteriovenous phase (laminar venous flow)",
+          "Phase 4: Venous phase (full filling)",
+          "Phase 5: Late phase (dye recirculation & staining)"
+        ]
+      },
+      {
+        "title": "Red Flags: When to Immediate Action",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "FFA: History of anaphylaxis to fluorescein (Requires premedication/crash cart)",
+          "OCT: Sudden drop in RNFL thickness (Rule out acute compressive neuropathy)",
+          "FAF: 'Target' sign in hydroxychloroquine toxicity (Immediate cessation)",
+          "OCT Macula: Subfoveal fluid in wet AMD (Urgent Anti-VEGF)"
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Interpretation",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "FFA: Hyperfluorescence is caused by staining, pooling, or leakage; hypofluorescence by block or filling defect.",
+          "FAF: Hyper-AF implies metabolic stress (e.g., active atrophy border); Hypo-AF implies RPE cell death.",
+          "OCT: Always correlate the 'red' and 'green' maps in ONH analysis with the actual B-scan to rule out artifacts (segmentation errors).",
+          "OCT: EDI-OCT (Enhanced Depth Imaging) is mandatory for evaluating choroidal thickness."
+        ]
+      },
+      {
+        "title": "Comparative Diagnostic Sensitivity",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Vascular Leak",
+              "value": 95
+            },
+            {
+              "label": "RPE Health",
+              "value": 85
+            },
+            {
+              "label": "Microstructure",
+              "value": 98
+            },
+            {
+              "label": "Glaucoma Early",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: OCT ONH Analysis",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "ISNT Rule",
+          "explanation": "Inferior > Superior > Nasal > Temporal (The normal order of RNFL thickness thickness in a healthy eye)."
+        }
+      },
+      {
+        "title": "Evidence-Based Landmark Studies",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "For macular edema, the DRCR.net protocols highlight OCT as the primary guide for anti-VEGF injection frequency. For ONH analysis, the OHTS (Ocular Hypertension Treatment Study) established the diagnostic baseline for early glaucoma detection using early versions of OCT/HRT."
+      }
+    ],
+    "generationPrompt": "FFA vs FAF vs OCT ONH vs OCT macula",
+    "chapterId": "investigations"
+  },
+  "chapterId": "investigations"
+}

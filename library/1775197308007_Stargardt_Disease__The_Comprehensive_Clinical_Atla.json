@@ -1,0 +1,179 @@
+{
+  "id": 1775197308007,
+  "seqId": 599,
+  "title": "Stargardt Disease: The Comprehensive Clinical Atlas",
+  "summary": "Stargardt Disease (STGD1) is the most common hereditary juvenile macular dystrophy, characterized by progressive central vision loss driven by ABCA4-mediated toxic lipofuscin accumulation. This guide serves as a high-yield reference for the diagnosis, monitoring, and emerging therapeutic landscape of ABCA4-retinopathy.",
+  "date": "2026-04-03T06:21:48.007Z",
+  "data": {
+    "title": "Stargardt Disease: The Comprehensive Clinical Atlas",
+    "summary": "Stargardt Disease (STGD1) is the most common hereditary juvenile macular dystrophy, characterized by progressive central vision loss driven by ABCA4-mediated toxic lipofuscin accumulation. This guide serves as a high-yield reference for the diagnosis, monitoring, and emerging therapeutic landscape of ABCA4-retinopathy.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='60' fill='none' stroke='#1e40af' stroke-width='8'/><circle cx='100' cy='100' r='20' fill='#1e40af'/><path d='M80 80 Q100 60 120 80' stroke='#1e40af' stroke-width='4' fill='none'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Molecular Pathogenesis",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Stargardt Disease (STGD1) is an autosomal recessive retinal dystrophy caused by mutations in the ABCA4 gene. The ABCA4 protein is an ATP-binding cassette transporter located on the disc membranes of rod and cone outer segments. Failure of this transporter leads to the accumulation of N-retinylidene-phosphatidylethanolamine (N-retinylidene-PE), which spontaneously condenses into toxic A2E (a major component of lipofuscin) within the Retinal Pigment Epithelium (RPE), leading to secondary photoreceptor death."
+      },
+      {
+        "title": "Epidemiology & Genetics",
+        "icon": "genetics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence",
+              "value": 10
+            },
+            {
+              "label": "Onset Age (yrs)",
+              "value": 15
+            },
+            {
+              "label": "Genetic Basis",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Phenotypes (Classification)",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "STGD1 Phenotypes",
+          "branches": [
+            "Early Onset (<10yrs, aggressive)",
+            "Classic (10-20yrs, foveal atrophy)",
+            "Late Onset (>40yrs, mimicking AMD)"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Examination Findings",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Sign",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Pisciform Flecks",
+              "Yellow-white sub-RPE deposits at the posterior pole"
+            ],
+            [
+              "Bull's Eye Maculopathy",
+              "RPE atrophy centered at the fovea"
+            ],
+            [
+              "Dark Choroid",
+              "A hallmark of FFA showing choroidal masking by RPE lipofuscin"
+            ],
+            [
+              "Foveal Sparing",
+              "Preservation of central vision in some advanced cases"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to refer/suspect",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Rapid vision loss in a teenager",
+          "Bilateral symmetric macular atrophy",
+          "Presence of pisciform yellow flecks beyond the arcades",
+          "Family history of childhood blindness"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Sequence",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: BCVA and Color Vision (Ishihara/HRR) testing.",
+          "Step 2: Fundus Autofluorescence (FAF) - essential for visualizing hypo/hyper-autofluorescent flecks.",
+          "Step 3: Fundus Fluorescein Angiography (FFA) - Classic 'Dark Choroid' sign.",
+          "Step 4: SD-OCT - Quantifying ellipsoid zone (EZ) loss and outer retinal atrophy.",
+          "Step 5: ERG/EOG - To assess global rod/cone function.",
+          "Step 6: Molecular genetic testing (ABCA4 gene panel)."
+        ]
+      },
+      {
+        "title": "Remember the Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STGD",
+          "explanation": "S: Symmetric atrophy; T: Toxic lipofuscin accumulation; G: Genetic (ABCA4); D: Dark choroid on FFA."
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Cone-Rod Dystrophy",
+              "Earlier color vision loss"
+            ],
+            [
+              "Pattern Dystrophy",
+              "Adult onset, less fleck density"
+            ],
+            [
+              "AMD",
+              "Age of onset usually >50"
+            ],
+            [
+              "Batten Disease",
+              "Systemic neurological signs"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "The 'Dark Choroid' occurs because lipofuscin in the RPE absorbs the background choroidal fluorescence.",
+          "Avoid high-dose Vitamin A supplementation, which may accelerate lipofuscin accumulation.",
+          "Recent advances focus on gene therapy (AAV-mediated) and sub-retinal transplantation.",
+          "Prognosis is generally favorable for central vision until the atrophy involves the foveal center."
+        ]
+      }
+    ],
+    "generationPrompt": "Stargardt",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "read": false
+}

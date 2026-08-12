@@ -1,0 +1,379 @@
+{
+  "id": 1775044694780,
+  "seqId": 452,
+  "title": "Nystagmus Mastery: Clinical Classification, Diagnostics & Management Strategies",
+  "summary": "An exhaustive, visual compendium for the diagnosis and management of nystagmus. This poster covers everything from infantile syndromes to complex neuro-ophthalmological scenarios, drug dosages, and surgical protocols.",
+  "date": "2026-04-01T11:58:14.780Z",
+  "data": {
+    "title": "Nystagmus Mastery: Clinical Classification, Diagnostics & Management Strategies",
+    "summary": "An exhaustive, visual compendium for the diagnosis and management of nystagmus. This poster covers everything from infantile syndromes to complex neuro-ophthalmological scenarios, drug dosages, and surgical protocols.",
+    "summary_illustration": "<svg viewBox='0 0 200 120' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='60' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='100' cy='60' r='15' fill='hsl(215, 90%, 45%)'/><path d='M40 60 Q 70 20 100 20 T 160 60 Q 130 100 100 100 T 40 60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M70 60 L90 60 M110 60 L130 60' stroke='hsl(0, 70%, 50%)' stroke-width='4' stroke-linecap='round'><animate attributeName='d' values='M70 60 L90 60 M110 60 L130 60; M80 60 L100 60 M120 60 L140 60; M70 60 L90 60 M110 60 L130 60' dur='0.5s' repeatCount='indefinite' /></path></svg>",
+    "sections": [
+      {
+        "title": "Fundamental Definitions & Waveforms",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Definition: An involuntary, rhythmic, biphasic oscillation of the eyes. A sign of ocular motor instability, not a diagnosis.",
+          "Jerk Nystagmus: Slow-phase drift from visual target followed by a fast-phase corrective saccade. Named after the fast phase.",
+          "Pendular Nystagmus: Back-and-forth slow-phase movements of equal velocity in each direction; no fast phase.",
+          "Pathological nystagmus: Involuntary defoveating movement followed by refixating saccade. The slow phase indicates the pathology."
+        ]
+      },
+      {
+        "title": "The DWARF Mnemonic: Clinical Features Assessment",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "DWARF",
+          "explanation": "D: Direction (Horizontal, vertical, torsional, mixed). W: Waveform (Jerk vs. Pendular). A: Amplitude/Frequency (Fine/coarse, High/Low). R: Rest/Gaze (Primary position vs. eccentric gaze). F: Fixation (Dampens in peripheral vestibular; increases in congenital)."
+        }
+      },
+      {
+        "title": "Workup Mind Map: The Diagnostic Approach",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Nystagmus Workup",
+          "branches": [
+            "Initial History: Onset (Early vs. Acquired), Oscillopsia (absent in congenital), Associated Symptoms (Vertigo, ataxia, motor weakness)",
+            "Physical Exam: Null Point (minimal intensity position), Convergence effect, Monocular occlusion (latent component), OKN testing (paradoxical reversal)",
+            "Investigations: Neuroimaging (MRI mandatory for See-saw, Downbeat, Gaze-evoked), Electrophysiology (ERG/VEP for sensory causes like LCA/Achromatopsia)",
+            "Systemic Review: Check for Wernicke risk, drug/toxin screens (Alcohol, Phenytoin, Lithium)",
+            "Cerebellar Testing: Gait (ataxia), Rapid alternating movements (dysdiadochokinesia), Tremors"
+          ]
+        }
+      },
+      {
+        "title": "DIFFERENTIAL DIAGNOSIS: Jerky vs. Pendular Nystagmus",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Jerk Nystagmus",
+            "Pendular Nystagmus"
+          ],
+          "rows": [
+            [
+              "Velocity Profile",
+              "Biphasic (Slow drift / Fast jump)",
+              "Sinusoidal (Equal speed both ways)"
+            ],
+            [
+              "Waveform Name",
+              "Right, Left, Up, Down beating",
+              "Horizontal, Vertical, Torsional, Elliptical"
+            ],
+            [
+              "Common Causes",
+              "Latent (FMNS), PAN, Gaze-evoked, Vestibular",
+              "Sensory deprivation, INS (early), MS, Albinism"
+            ],
+            [
+              "Primary/Gaze",
+              "Often gaze-evoked",
+              "Often primary position"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Etiological Classification Table",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Category",
+            "Examples",
+            "Key Mechanism"
+          ],
+          "rows": [
+            [
+              "Physiological",
+              "End-point, OKN, Caloric/Vestibular",
+              "Normal response to extremes or stimuli."
+            ],
+            [
+              "Congenital/Early",
+              "Infantile Nystagmus Syndrome (INS), Latent (FMNS)",
+              "Motor imbalance or poor fusion."
+            ],
+            [
+              "Vestibular",
+              "Peripheral (Labyrinthitis), Central (Brainstem)",
+              "Imbalance in vestibular nuclei input."
+            ],
+            [
+              "Toxic/Metabolic",
+              "Anticonvulsants, Alcohol, Lithium",
+              "Disruption of the neural integrator."
+            ],
+            [
+              "Neurological",
+              "Cerebellar disease, CPA tumors, MS",
+              "Structural damage to integration centers."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "High-Yield Clinical Scenarios (1-5)",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Scenario 1: Paradoxical OKN Reversal (eyes move in opposite direction of stripes). Pathognomonic for INS; seen in 60-66% of patients. Uniplanar, dampens with convergence, abolished during sleep.",
+          "Scenario 2: Latent Nystagmus (FMNS). Right eye covered = left-beating jerk (beats toward fixing eye). Associated with infantile esotropia. Measurement pitfall: Use fogging (plus lenses), not total occlusion.",
+          "Scenario 3: Physiological End-point. Fine jerk at >45° gaze. Pathologic ONLY if persistent, large-amplitude, or asymmetric.",
+          "Scenario 4: Asymmetric Gaze-evoked. Large amplitude to right, absent to left. Suggests ipsilateral brainstem/cerebellum lesion (stroke, tumor, MS). MRI mandatory.",
+          "Scenario 5: Bruns Nystagmus (CPA Tumor/Acoustic Neuroma). Ipsilateral gaze: Large amplitude, low frequency (brainstem compression). Contralesional gaze: Small amplitude, high frequency (vestibular nerve damage)."
+        ]
+      },
+      {
+        "title": "High-Yield Clinical Scenarios (6-10)",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Scenario 6: Alexander's Law (Peripheral Vestibular). Intensity increases as eyes move toward fast-beating component. Dampened by visual fixation; improves over weeks.",
+          "Scenario 7: Spasmus Nutans Syndrome. Triad: Shimmering nystagmus + Head nodding + Torticollis. Mimics chiasmal/suprasellar gliomas. MRI mandatory.",
+          "Scenario 8: Periodic Alternating Nystagmus (PAN). Horizontal jerk beats right for 90s, pause 10s, beats left 90s. Treatment: Baclofen (5–10 mg TID).",
+          "Scenario 9: Rebound Nystagmus. Brief nystagmus in opposite direction after returning to center from eccentric gaze. Manifestation of cerebellar disease.",
+          "Scenario 10: Caloric Testing (COWS). Cold water = Opposite beating; Warm water = Same beating. In comatose patient: Cold causes slow phase deviation TOWARD irrigated side only."
+        ]
+      },
+      {
+        "title": "High-Yield Clinical Scenarios (11-15)",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Scenario 11: Oscillopsia. Illusion of environmental movement. DDx: Acquired jerk (Up/Downbeat), INO, Myasthenia, SOM. Notably absent in congenital cases due to neural damping.",
+          "Scenario 12: Sensory Deprivation. Bilateral cataracts = searching, roving eye movements. If vision poor under 2 years, nystagmus becomes irreversible. Often pendular in primary.",
+          "Scenario 13: Toxic Integrator Leak (Drug-induced). Phenytoin, barbiturates, alcohol. Toxic effect on neural integration structures (brainstem/cerebellum).",
+          "Scenario 14: Acquired Pendular (MS). Asymmetric, high-frequency sinusoidal movements. Treatment: Gabapentin (300–600 mg TID) or Memantine (10–20 mg QD).",
+          "Scenario 15: Nystagmus Blockage Syndrome. Child uses active convergence/adduction to damp nystagmus, causing manifest esotropia. Intensity inversely proportional to ET angle."
+        ]
+      },
+      {
+        "title": "Management Summary: Drugs & Procedures",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Strategy",
+            "Details / Dosage"
+          ],
+          "rows": [
+            [
+              "Medical: Baclofen",
+              "5–10 mg TID (PAN, Seesaw nystagmus)"
+            ],
+            [
+              "Medical: Gabapentin",
+              "300–600 mg TID (Acquired Pendular/MS)"
+            ],
+            [
+              "Medical: Memantine",
+              "10–20 mg QD (Acquired Pendular)"
+            ],
+            [
+              "Medical: Clonazepam",
+              "0.5 mg BID (Central Vestibular)"
+            ],
+            [
+              "Surgical: Kestenbaum",
+              "Repositions muscles to shift null point to primary position."
+            ],
+            [
+              "Surgical: 4 Recti Recession",
+              "Occasionally used for PAN or severe nystagmus."
+            ],
+            [
+              "Surgical: Botulinum Toxin",
+              "Retrobulbar injection; temporary dampening; risk of ptosis/diplopia."
+            ],
+            [
+              "Optical: Prisms",
+              "Base-out prisms force convergence to damp nystagmus."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "SEESAW NYSTAGMUS: Deep Dive",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Seesaw Nystagmus",
+          "branches": [
+            "Definition: Elevation/Intorsion in one eye, simultaneous Depression/Extorsion in the fellow eye.",
+            "Localization: Rostral midbrain, Diencephalon, or Suprasellar region (Craniopharyngioma).",
+            "Clinical Association: Bitemporal Hemianopia (Chiasmal compression).",
+            "Acquired vs. Pseudo: Acquired (stroke/trauma); Pseudo (Jerk-like, localized to medulla).",
+            "Management: Surgical treatment of tumor; Baclofen for oscillopsia.",
+            "DDx: Spasmus Nutans (benign shimmer) vs. Chiasmal Tumor (Seesaw).",
+            "Sign comparison vs. OTR: Seesaw is rhythmic; Ocular Tilt Reaction (OTR) is a static deviation."
+          ]
+        }
+      },
+      {
+        "title": "Red Flag Clinical Associations",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Seesaw + Bitemporal hemianopia = Suprasellar Tumor until proven otherwise.",
+          "Sudden Seesaw + Severe Headache = Pituitary Apoplexy.",
+          "Vertical Nystagmus (Up/Downbeat) = Mandatory MRI Brain/Orbits.",
+          "Monocular shimmering nystagmus = Rule out Optic Pathway Glioma.",
+          "Child with nystagmus + small eye + cataract = Check for ON Hypoplasia/Foveal Hypoplasia.",
+          "Nystagmus not suppressed by fixation = Central Vestibular Disorder."
+        ]
+      },
+      {
+        "title": "Localization of Vertical Nystagmus",
+        "icon": "location_on",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Key Features",
+            "Localization / Cause"
+          ],
+          "rows": [
+            [
+              "Downbeat",
+              "Fast phase beats down. Accentuated in downgaze.",
+              "Cervicomedullary junction/Vestibulocerebellum (Chiari Type I)."
+            ],
+            [
+              "Upbeat",
+              "Fast phase beats up.",
+              "Medulla or anterior cerebellar vermis (MS, Stroke, Wernicke, Smoking)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Internuclear Ophthalmoplegia (INO) & Ataxic Nystagmus",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Description: Limitation of adduction in ipsilateral eye.",
+          "Nystagmus: Horizontal jerk nystagmus of the contralateral abducting eye.",
+          "Term: Ataxic Nystagmus.",
+          "Mechanism: Increased neural pulsing to overcome adduction weakness.",
+          "Localization: Lesion of the Medial Longitudinal Fasciculus (MLF)."
+        ]
+      },
+      {
+        "title": "Saccadic Oscillations vs. True Nystagmus",
+        "icon": "sync_alt",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Disorder",
+            "Characteristics"
+          ],
+          "rows": [
+            [
+              "True Nystagmus",
+              "Incorporates a slow phase."
+            ],
+            [
+              "Ocular Flutter",
+              "Intermittent, purely horizontal saccades; no intersaccadic interval."
+            ],
+            [
+              "Opsoclonus",
+              "Rapid, chaotic, multi-directional (saccadomania). Paraneoplastic risk."
+            ],
+            [
+              "Voluntary Nystagmus",
+              "Rapid horizontal saccades; unsustainable (>30s)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pediatric Case: Cataract, Nystagmus & Microcornea",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Assessment: Check for ON Hypoplasia, Foveal Hypoplasia, Iris Coloboma (incomplete fetal fissure closure).",
+          "Visual Prognosis: Presence of nystagmus suggests poorer prognosis. VA often <6/60 in Albinism due to foveal hypoplasia.",
+          "Surgical Risks: Zonular Dialysis (capsular tension ring needed). Weak zonules increase PCR risk.",
+          "Small Eye Challenges: Microcornea complicates IOL power calculation; AC crowding requires high-viscosity viscoelastics.",
+          "Timing: Bilateral dense cataracts need surgery within first 10 weeks of life.",
+          "Genetic Testing: Consider FRMD7-associated INS."
+        ]
+      },
+      {
+        "title": "Special Signs: Convergence & Caloric (COWS)",
+        "icon": "thermostat",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "COWS",
+          "explanation": "Cold water = Nystagmus fast phase to Opposite side. Warm water = Nystagmus fast phase to Same side. Note: Convergence-Retraction nystagmus is NOT true nystagmus (Dorsal Midbrain Syndrome)."
+        }
+      },
+      {
+        "title": "Albinism-Associated Nystagmus",
+        "icon": "palette",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Waveform: Pendular and horizontal.",
+          "Light Effect: Nystagmus increases in bright illumination.",
+          "VA: Typically 6/36–6/60 (stationary, not progressive).",
+          "Cause: Foveal hypoplasia."
+        ]
+      },
+      {
+        "title": "Additional Neuro-Oph VIVA Facts",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Foster Kennedy Syndrome (Anosmia scenario): Triad of ipsilateral optic atrophy, contralateral papilledema, and anosmia; typically frontal lobe mass. Heimann-Bielschowsky Phenomenon: Monocular vertical pendular oscillations in an eye with long-standing poor vision. Superior Oblique Myokymia (SOM): Monocular, high-frequency SO contraction bursts; treated with Carbamazepine. Syringobulbia: Extension of syrinx into brainstem; can cause acquired seesaw nystagmus."
+      }
+    ],
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044694780,
+  "communityId": "sub_1773974752871_f4euvddzx",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-20T02:45:52.871Z"
+}

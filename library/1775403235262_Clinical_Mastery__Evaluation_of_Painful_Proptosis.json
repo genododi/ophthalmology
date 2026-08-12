@@ -1,0 +1,169 @@
+{
+  "id": 1775403235262,
+  "seqId": 704,
+  "title": "Clinical Mastery: Evaluation of Painful Proptosis",
+  "summary": "Painful proptosis is a clinical alarm bell requiring rapid differentiation between inflammatory, infectious, and neoplastic etiologies. This guide provides a systematic diagnostic and management framework for the ophthalmologist to avoid vision- and life-threatening outcomes.",
+  "date": "2026-04-05T15:33:55.262Z",
+  "data": {
+    "title": "Clinical Mastery: Evaluation of Painful Proptosis",
+    "summary": "Painful proptosis is a clinical alarm bell requiring rapid differentiation between inflammatory, infectious, and neoplastic etiologies. This guide provides a systematic diagnostic and management framework for the ophthalmologist to avoid vision- and life-threatening outcomes.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e40af' stroke-width='4'/><path d='M30 50 Q50 20 70 50' stroke='#ef4444' stroke-width='6' fill='none'/><circle cx='50' cy='50' r='10' fill='#1e40af'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Significance",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Proptosis (exophthalmos) refers to the forward displacement of the globe. When accompanied by pain, it indicates active orbital disease, typically related to rapid volume expansion, inflammation, or infiltration of orbital tissues, necessitating urgent exclusion of orbital cellulitis, carotid-cavernous fistula, or malignancy."
+      },
+      {
+        "title": "Red Flags: Immediate Referral Criteria",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "RAPD (Relative Afferent Pupillary Defect) - signifies optic nerve compression.",
+          "Decreased best-corrected visual acuity.",
+          "Dyschromatopsia (Color vision loss on Ishihara plates).",
+          "Restrictive strabismus / Diplopia in primary gaze.",
+          "Systemic signs: Fever, meningismus, tachycardia.",
+          "Pulsatile proptosis (suggests vascular malformation)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: The 'I' Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Painful Proptosis",
+          "branches": [
+            "Infectious (Cellulitis, Abscess)",
+            "Inflammatory (TED, IgG4-ROD, Sarcoid)",
+            "Vascular (CCF, Thrombosis)",
+            "Neoplastic (Lymphoma, Metastatic)",
+            "Traumatic (Orbital Hemorrhage)"
+          ]
+        }
+      },
+      {
+        "title": "Etiological Classification",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Etiology",
+            "Classic Presentation",
+            "Key Imaging Finding"
+          ],
+          "rows": [
+            [
+              "Orbital Cellulitis",
+              "Fever, restricted motility",
+              "Sinusitis with orbital fat stranding"
+            ],
+            [
+              "Thyroid Eye Disease",
+              "Exposure keratopathy, lid retraction",
+              "Fusiform enlargement of EOMs (sparing tendons)"
+            ],
+            [
+              "Carotid-Cavernous Fistula",
+              "Bruit, pulsatile, tortuous epibulbar veins",
+              "Enlarged superior ophthalmic vein"
+            ],
+            [
+              "Orbital Pseudotumor",
+              "Acute onset pain, painful EOMs",
+              "Enhancing muscle/tendon inflammation"
+            ],
+            [
+              "Metastatic Disease",
+              "Rapid onset, constitutional symptoms",
+              "Bone destruction or infiltrative mass"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Complete ophthalmic exam (VAs, pupils, slit-lamp, fundus, motility).",
+          "Step 2: Exophthalmometry (Hertel) to quantify displacement.",
+          "Step 3: Imaging: Contrast-enhanced CT (for bones/sinuses) or MRI/MRA (for soft tissue/vascular).",
+          "Step 4: Labs: CBC, ESR, CRP, Thyroid panel (TSH, T3, T4, TRAb).",
+          "Step 5: Biopsy: If inflammatory/neoplastic process is suspected after imaging."
+        ]
+      },
+      {
+        "title": "Mnemonic for Orbital Mass Features",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "MR CAT",
+          "explanation": "Mass: M-Moveability, R-Rate of growth, C-Consistency, A-Attachment/Adhesion, T-Tenderness."
+        }
+      },
+      {
+        "title": "Epidemiology Trends (Relative)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "TED",
+              "value": 70
+            },
+            {
+              "label": "Infectious",
+              "value": 50
+            },
+            {
+              "label": "Pseudotumor",
+              "value": 35
+            },
+            {
+              "label": "Vascular",
+              "value": 20
+            },
+            {
+              "label": "Neoplastic",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "In Thyroid Eye Disease, the enlargement of EOMs classically SPARS the tendons, which helps differentiate it from myositis.",
+          "Always listen for a bruit in cases of proptosis; a subjective bruit is pathognomonic for CCF.",
+          "If an elderly patient presents with a painful orbital mass, assume lymphoma or metastatic disease until proven otherwise.",
+          "Management of orbital cellulitis requires aggressive IV antibiotic therapy (e.g., Vancomycin + Ceftriaxone) and surgical drainage if abscess is present.",
+          "Consider IgG4-related ophthalmic disease (IgG4-ROD) in patients with scleritis or dacryoadenitis."
+        ]
+      }
+    ],
+    "generationPrompt": "Proptosis with pain",
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit"
+}

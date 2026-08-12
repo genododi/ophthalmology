@@ -1,0 +1,373 @@
+{
+  "id": 1775381673208,
+  "seqId": 672,
+  "title": "Branch Retinal Vein Occlusion (BRVO): The Ultimate Clinical Guide",
+  "summary": "BRVO is the second most common retinal vascular disease after diabetic retinopathy, typically occurring at arteriovenous crossings. This guide covers the pathophysiology, evidence-based management (Anti-VEGF/Laser), and landmark clinical trials like BRAVO and VIBRANT.",
+  "date": "2026-04-05T09:34:33.208Z",
+  "data": {
+    "title": "Branch Retinal Vein Occlusion (BRVO): The Ultimate Clinical Guide",
+    "summary": "BRVO is the second most common retinal vascular disease after diabetic retinopathy, typically occurring at arteriovenous crossings. This guide covers the pathophysiology, evidence-based management (Anti-VEGF/Laser), and landmark clinical trials like BRAVO and VIBRANT.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 Q 50 30 80 50' fill='none' stroke='hsl(0, 80%, 50%)' stroke-width='3'/><path d='M20 50 Q 50 70 80 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='55' cy='42' r='4' fill='hsl(0, 100%, 40%)'/><path d='M55 42 L65 35 M55 42 L65 45 M55 42 L50 35' stroke='hsl(0, 100%, 40%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "BRVO",
+          "branches": [
+            "Sectoral retinal venous obstruction",
+            "Usually occurs at Arteriovenous (AV) crossing",
+            "Second most common retinal vascular disease",
+            "Primary cause of vision loss: Macular Edema (ME)",
+            "Secondary cause: Neovascularization (NV)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Global Prevalence",
+              "value": 0.5
+            },
+            {
+              "label": "Age >60 (High Risk)",
+              "value": 85
+            },
+            {
+              "label": "HTN Association",
+              "value": 70
+            },
+            {
+              "label": "Male/Female Ratio",
+              "value": 50
+            }
+          ]
+        }
+      },
+      {
+        "title": "Systemic & Ocular Risk Factors",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Age (most significant factor)",
+          "Systemic Hypertension (present in 60-70% of cases)",
+          "Hyperlipidemia and Obesity",
+          "Diabetes Mellitus (though more linked to DR)",
+          "Cigarette Smoking",
+          "Glaucoma or elevated Intraocular Pressure (IOP)",
+          "Hypercoagulable states (Protein C/S deficiency, Factor V Leiden) - especially in patients <50"
+        ]
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Artery and vein share a common adventitial sheath at crossing points.",
+          "Step 2: Thickened arterial wall (atherosclerosis) compresses the vein.",
+          "Step 3: Turbulence and endothelial damage lead to thrombus formation.",
+          "Step 4: Venous pressure rises, leading to fluid leakage (Edema) and hemorrhage.",
+          "Step 5: Capillary non-perfusion leads to ischemia and VEGF release.",
+          "Step 6: High VEGF levels drive Macular Edema and Neovascularization."
+        ]
+      },
+      {
+        "title": "Anatomic Classification",
+        "icon": "category",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Location",
+            "Visual Impact"
+          ],
+          "rows": [
+            [
+              "Major BRVO",
+              "One of the 4 main trunks",
+              "Significant; often macular involvement"
+            ],
+            [
+              "Macular BRVO",
+              "Small branch within the macula",
+              "Localized edema; scotoma"
+            ],
+            [
+              "Peripheral BRVO",
+              "Distal to the macula",
+              "Often asymptomatic unless VH occurs"
+            ],
+            [
+              "Hemi-Retinal (HRVO)",
+              "Involvement of superior or inferior half",
+              "Similar to CRVO clinical course"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation Checklist",
+        "icon": "assignment_turned_in",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Sudden, painless unilateral vision loss",
+          "Metamorphopsia (due to macular edema)",
+          "Relative visual field defect (scotoma)",
+          "Sectoral flame-shaped hemorrhages",
+          "Dilated, tortuous venous system distal to crossing",
+          "Cotton wool spots in ischemic zones",
+          "Macular thickening and hard exudates"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Modality",
+            "Findings in BRVO",
+            "Clinical Utility"
+          ],
+          "rows": [
+            [
+              "OCT (SD-OCT)",
+              "Intraretinal fluid, SRF, CME, Hyperreflective foci",
+              "Monitor treatment response/Macular Edema"
+            ],
+            [
+              "FFA",
+              "Delayed filling, capillary dropout, late leakage",
+              "Assess perfusion; define Ischemic vs Non-Ischemic"
+            ],
+            [
+              "OCT-A",
+              "Capillary non-perfusion, FAZ remodeling",
+              "Non-invasive vascular assessment"
+            ],
+            [
+              "Fundus Photo",
+              "Hemorrhages, CWS, venous tortuosity",
+              "Documentation and screening for NVE/NVD"
+            ],
+            [
+              "Systemic Labs",
+              "BP, CBC, Gluc, Lipids, PT/PTT, (Thrombophilia screen in young)",
+              "Identify underlying cardiovascular risk"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ischemic vs. Non-Ischemic BRVO",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Non-Ischemic (<5 DD non-perfusion)",
+              "value": 75
+            },
+            {
+              "label": "Ischemic (>5 DD non-perfusion)",
+              "value": 25
+            },
+            {
+              "label": "Risk of NV in Ischemic BRVO",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Diabetic Retinopathy",
+              "Bilateral, diffuse hemorrhages, microaneurysms"
+            ],
+            [
+              "Hypertensive Retinopathy",
+              "Bilateral, generalized narrowing, Grade IV = Papilledema"
+            ],
+            [
+              "Ocular Ischemic Syndrome",
+              "Mid-peripheral blot hemorrhages, dilated/straight veins"
+            ],
+            [
+              "Radiation Retinopathy",
+              "History of radiation, similar to DR appearance"
+            ],
+            [
+              "CRVO",
+              "Hemorrhages in all 4 quadrants, optic disc swelling"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Baseline Evaluation: VA, OCT, and systemic BP check.",
+          "2. Treat Macular Edema: First-line Anti-VEGF (Ranibizumab, Aflibercept, or Bevacizumab).",
+          "3. Re-evaluate monthly: Follow 'Pro Re Nata' (PRN) or 'Treat and Extend' protocols.",
+          "4. Second-line for ME: Intravitreal Dexamethasone implant (Ozurdex) - monitor IOP.",
+          "5. Manage Ischemia: If >5 disc areas of non-perfusion, monitor closely for NV.",
+          "6. Sectoral PRP: Perform if NVE or NVD develops (based on BVOS guidelines).",
+          "7. Vitrectomy: For non-clearing Vitreous Hemorrhage or TRD."
+        ]
+      },
+      {
+        "title": "Medical Therapies & Dosages",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Agent",
+            "Dose",
+            "Trial Evidence"
+          ],
+          "rows": [
+            [
+              "Ranibizumab (Lucentis)",
+              "0.5 mg Intravitreal",
+              "BRAVO Trial (significant VA gain)"
+            ],
+            [
+              "Aflibercept (Eylea)",
+              "2.0 mg Intravitreal",
+              "VIBRANT Trial (superior to laser)"
+            ],
+            [
+              "Bevacizumab (Avastin)",
+              "1.25 mg Intravitreal",
+              "Off-label; widely used, MARVEL study"
+            ],
+            [
+              "Dexamethasone (Ozurdex)",
+              "0.7 mg Implant",
+              "GENEVA Trial (effective but higher IOP risk)"
+            ],
+            [
+              "Triamcinolone",
+              "1-4 mg Intravitreal",
+              "SCORE Trial (useful in pseudophakic eyes)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Landmark Clinical Trials (High Yield)",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "BVOS (1984): Established Grid Laser for ME (VA 20/40 or worse) and Scatter Laser for NV.",
+          "BRAVO (2010): Ranibizumab 0.5mg is highly effective for BRVO-ME.",
+          "VIBRANT (2014): Aflibercept 2mg monthly showed 53% gained 15+ letters vs 27% with laser.",
+          "GENEVA: Ozurdex implant provides rapid improvement, though duration is 3-4 months.",
+          "SCORE: Triamcinolone was not superior to laser for BRVO, but effective for CRVO."
+        ]
+      },
+      {
+        "title": "Remember: The BVOS Criteria",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "BVOS Laser Rules",
+          "explanation": "Grid Laser: Wait 3-6 months for hemorrhage to clear; VA < 20/40. Scatter Laser: Only after NV develops, NOT prophylactically."
+        }
+      },
+      {
+        "title": "Red Flags: When to Worry",
+        "icon": "report_problem",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden 'spider-web' floaters (Vitreous Hemorrhage)",
+          "Neovascularization of the Iris (NVI) - rare in BRVO but possible in HRVO",
+          "Rising IOP after Steroid Implant (Steroid Response)",
+          "Endophthalmitis signs: Pain, worsening redness, hypopyon post-injection"
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "timeline",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Long-term Risks",
+          "branches": [
+            "Vitreous Hemorrhage (VH)",
+            "Tractional Retinal Detachment (TRD)",
+            "Epiretinal Membrane (ERM)",
+            "Subretinal Fibrosis",
+            "Permanent Macular Ischemia"
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "BRVO at the disc margin is usually HRVO (Hemi-Retinal Vein Occlusion).",
+          "Always check for a 'cherry red spot' if vision loss is hand-motions or worse (suspect combined occlusion).",
+          "Collateral vessels (large, loopy vessels crossing the horizontal raphe) are a sign of chronicity and should NOT be lasered.",
+          "Young patients (<50 years) with BRVO need a thorough workup for thrombophilia and inflammatory vasculitis (Sarcoid, Lupus).",
+          "Anti-VEGF is now first-line; Grid laser is reserved for cases resistant to medical therapy or where injections are contraindicated."
+        ]
+      }
+    ],
+    "generationPrompt": "BRVO",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "read": true,
+  "bookmarked": true
+}

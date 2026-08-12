@@ -1,0 +1,221 @@
+{
+  "id": 1777212946824,
+  "seqId": 823,
+  "title": "Mastering the Excimer Laser: Refractive Surgery Precision",
+  "summary": "The Excimer laser (Excited Dimer) is the gold standard for corneal refractive surgery, utilizing 193nm ultraviolet-C light to perform precise photoablation of the corneal stroma. This platform revolutionizes visual rehabilitation by reshaping the anterior curvature with sub-micron accuracy.",
+  "date": "2026-04-26T14:15:46.824Z",
+  "data": {
+    "title": "Mastering the Excimer Laser: Refractive Surgery Precision",
+    "summary": "The Excimer laser (Excited Dimer) is the gold standard for corneal refractive surgery, utilizing 193nm ultraviolet-C light to perform precise photoablation of the corneal stroma. This platform revolutionizes visual rehabilitation by reshaping the anterior curvature with sub-micron accuracy.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q 50 30 70 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M40 50 L 60 50' stroke='red' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Biophysics of Photoablation",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The excimer laser (ArF - Argon Fluoride) produces photons at 193nm. Unlike thermal lasers, this is 'cold ablation'. Each pulse breaks molecular bonds (photo-decomposition) without generating significant heat, preventing thermal damage to the adjacent stroma. The process is governed by the Munnerlyn Formula: Ablation Depth = (Diameter² × Diopters) / 3."
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "193nm wavelength is absorbed by the cornea, preventing intraocular penetration.",
+          "Ablation rate is approx 0.25 microns per pulse.",
+          "Always maintain a strict corneal bed thickness (residual stromal thickness > 250-300 microns).",
+          "Active eye-tracking systems (>250Hz) are essential to compensate for saccadic movements."
+        ]
+      },
+      {
+        "title": "Red Flags in Excimer Screening",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Forme fruste keratoconus (Badder's criteria).",
+          "Epithelial basement membrane dystrophy (EBMD).",
+          "Uncontrolled dry eye (OSDI > 30).",
+          "Corneal pachymetry < 480 microns (varies by nomogram).",
+          "Inadequate residual stromal bed risk."
+        ]
+      },
+      {
+        "title": "Excimer Platforms & Techniques",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Technique",
+            "Mechanism",
+            "Pros"
+          ],
+          "rows": [
+            [
+              "PRK",
+              "Epithelium removed",
+              "No flap complications"
+            ],
+            [
+              "LASIK",
+              "Stroma ablated under flap",
+              "Rapid visual recovery"
+            ],
+            [
+              "LASEK",
+              "Alcohol-assisted flap",
+              "Less haze than PRK"
+            ],
+            [
+              "PTK",
+              "Ablation of surface opacities",
+              "Treats dystrophies"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Refractive Mnemonics",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STAB",
+          "explanation": "S: Stromal bed (>250µm), T: Topography (Check for keratoconus), A: Age (>18 and stable), B: Best Corrected Visual Acuity (Exclude amblyopia)."
+        }
+      },
+      {
+        "title": "Ablation Mechanism Process",
+        "icon": "process_check",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Argon gas excitation by high voltage.",
+          "Step 2: Creation of excited dimer state.",
+          "Step 3: Pulse emission at 193nm.",
+          "Step 4: Molecular bond cleavage in corneal stroma.",
+          "Step 5: Ejection of molecular fragments (Plume)."
+        ]
+      },
+      {
+        "title": "Excimer Incidence/Usage Data",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "LASIK",
+              "value": 75
+            },
+            {
+              "label": "PRK",
+              "value": 15
+            },
+            {
+              "label": "PTK",
+              "value": 5
+            },
+            {
+              "label": "LASEK",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis of Post-op Pain",
+        "icon": "medication",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Post-Op Pain Causes",
+          "branches": [
+            "Infectious Keratitis",
+            "DLK (Diffuse Lamellar Keratitis)",
+            "Epithelial Defect",
+            "Severe Dry Eye",
+            "IOP Spike (Steroid Response)"
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "excimer laser",
+    "chapterId": "refractive"
+  },
+  "chapterId": "refractive",
+  "kanskiMeta": [
+    {
+      "pageNum": 342,
+      "keywords": [
+        "refractive surgery",
+        "laser",
+        "refractive",
+        "surgery",
+        "corneal"
+      ]
+    },
+    {
+      "pageNum": 289,
+      "keywords": [
+        "refractive surgery",
+        "laser",
+        "refractive",
+        "surgery",
+        "corneal"
+      ]
+    },
+    {
+      "pageNum": 322,
+      "keywords": [
+        "refractive surgery",
+        "refractive",
+        "surgery",
+        "corneal",
+        "process"
+      ]
+    },
+    {
+      "pageNum": 329,
+      "keywords": [
+        "refractive surgery",
+        "laser",
+        "refractive",
+        "surgery",
+        "precision"
+      ]
+    },
+    {
+      "pageNum": 282,
+      "keywords": [
+        "refractive surgery",
+        "laser",
+        "refractive",
+        "surgery",
+        "corneal"
+      ]
+    },
+    {
+      "pageNum": 38,
+      "keywords": [
+        "refractive surgery",
+        "laser",
+        "refractive",
+        "surgery",
+        "corneal"
+      ]
+    }
+  ],
+  "read": true
+}

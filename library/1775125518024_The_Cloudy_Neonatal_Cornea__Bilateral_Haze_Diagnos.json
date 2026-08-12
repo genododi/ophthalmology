@@ -1,0 +1,299 @@
+{
+  "id": 1775125518024,
+  "seqId": 552,
+  "title": "The Cloudy Neonatal Cornea: Bilateral Haze Diagnosis & Management",
+  "summary": "Bilateral corneal haze in an infant is an ophthalmic emergency requiring rapid differentiation between sight-threatening conditions like Primary Congenital Glaucoma, CHED, and metabolic disorders. Early intervention is critical to prevent irreversible deprivational amblyopia.",
+  "date": "2026-04-02T10:25:18.024Z",
+  "data": {
+    "title": "The Cloudy Neonatal Cornea: Bilateral Haze Diagnosis & Management",
+    "summary": "Bilateral corneal haze in an infant is an ophthalmic emergency requiring rapid differentiation between sight-threatening conditions like Primary Congenital Glaucoma, CHED, and metabolic disorders. Early intervention is critical to prevent irreversible deprivational amblyopia.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='#e0f2fe' stroke='#0284c7' stroke-width='2'/><circle cx='50' cy='50' r='25' fill='url(#haze)'/><defs><radialGradient id='haze'><stop offset='0%' stop-color='#ffffff' stop-opacity='0.9'/><stop offset='100%' stop-color='#cbd5e1' stop-opacity='0.4'/></radialGradient></defs><path d='M30 50 Q50 45 70 50' stroke='#0284c7' fill='none' stroke-width='1' stroke-dasharray='2 2'/><path d='M35 55 Q50 50 65 55' stroke='#0284c7' fill='none' stroke-width='1' stroke-dasharray='2 2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Urgency",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Bilateral corneal haze (congenital corneal opacity) refers to a loss of corneal transparency present at birth or within the first few months of life. It acts as a physical barrier to the visual axis, often leading to stimulus-deprivation amblyopia. Immediate referral for an Examination Under Anesthesia (EUA) is mandatory."
+      },
+      {
+        "title": "The 'STUMPED' Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STUMPED",
+          "explanation": "S: Sclerocornea; T: Tears in Descemet’s (Trauma/Glaucoma); U: Ulcers; M: Metabolic (MPS); P: Peters Anomaly; E: Edema (CHED); D: Dermoid."
+        }
+      },
+      {
+        "title": "Differential Diagnosis Matrix",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Laterality",
+            "IOP",
+            "Corneal Diameter",
+            "Key Clinical Sign"
+          ],
+          "rows": [
+            [
+              "Congenital Glaucoma",
+              "80% Bilateral",
+              "Elevated (>21 mmHg)",
+              "Enlarged (>12mm)",
+              "Haab Striae (Horizontal/Concentric)"
+            ],
+            [
+              "CHED (Type 2)",
+              "Bilateral",
+              "Normal",
+              "Normal",
+              "Ground-glass haze, thick cornea (2-3x)"
+            ],
+            [
+              "Peters Anomaly",
+              "60-80% Bilateral",
+              "Can be high",
+              "Variable",
+              "Central opacity with iridocorneal adhesions"
+            ],
+            [
+              "Sclerocornea",
+              "90% Bilateral",
+              "Normal",
+              "Small (Microcornea)",
+              "Peripheral vascularized 'limbalization'"
+            ],
+            [
+              "Birth Trauma",
+              "Usually Unilateral",
+              "Normal",
+              "Normal",
+              "Vertical/Oblique Descemet's tears"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Primary Congenital Glaucoma (PCG)",
+        "icon": "monitoring",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Epidemiology: 1 in 10,000 live births; 65% male.",
+          "Classic Triad: Epiphora, Photophobia, Blepharospasm.",
+          "Pathophysiology: Maldevelopment of the trabecular meshwork (Barkan's Membrane).",
+          "Signs: Buphthalmos (large eye), Haab striae, increased C:D ratio (>0.3)."
+        ]
+      },
+      {
+        "title": "Congenital Hereditary Endothelial Dystrophy (CHED)",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "CHED Type 1: Autosomal Dominant (Rare). Progresses after 1-2 years.",
+          "CHED Type 2: Autosomal Recessive (Common). Present at birth.",
+          "Genetics: SLC4A11 gene mutations (sodium borate cotransporter).",
+          "Features: Significant corneal thickening (up to 1000+ microns) without inflammation."
+        ]
+      },
+      {
+        "title": "Metabolic Causes (Storage Diseases)",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Disease",
+            "Haze Characteristic",
+            "Systemic Associations",
+            "Inheritance"
+          ],
+          "rows": [
+            [
+              "Hurler (MPS IH)",
+              "Diffuse fine stromal haze",
+              "Gargoylism, Cardiac, Skeletal",
+              "AR"
+            ],
+            [
+              "Scheie (MPS IS)",
+              "Peripheral to Central haze",
+              "Stiff joints, normal IQ",
+              "AR"
+            ],
+            [
+              "Cystinosis",
+              "Crystalline deposits",
+              "Renal failure (Fanconi), Rickets",
+              "AR"
+            ],
+            [
+              "Hunter (MPS II)",
+              "NO CORNEAL HAZE",
+              "Clear cornea differentiation",
+              "X-linked"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Urgent Ocular Examination (EUA)",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Intraocular Pressure (IOP) measurement using Tonopen or Perkins tonometer (before general anesthesia deepens).",
+          "Step 2: Corneal Diameter (Horizontal/Vertical) using calipers. >11mm in newborn is suspicious.",
+          "Step 3: Pachymetry to measure central corneal thickness (CCT).",
+          "Step 4: Gonioscopy using a Koeppe lens to visualize angle structures.",
+          "Step 5: Fundoscopy (if view permits) or B-Scan Ultrasound to assess C:D ratio and axial length."
+        ]
+      },
+      {
+        "title": "Diagnostic Investigation Workup",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Infantile Haze Workup",
+          "branches": [
+            "Imaging: UBM (for iridocorneal adhesions), B-Scan (Axial length)",
+            "Labs: Urinary Mucopolysaccharides, Serum Cystine levels",
+            "Genetics: SLC4A11 (CHED), PITX2/FOXC1 (Axenfeld-Rieger/Peters)",
+            "Microbiology: Corneal scrapings if ulcer is suspected (TORCH titers)"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: The 'Big Eye' Danger",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Corneal diameter >12 mm before age 1",
+          "Asymmetric corneal diameters (>0.5mm difference)",
+          "New onset of clouding with irritability",
+          "Rapidly increasing axial length",
+          "Vague red reflex on Bruckner test"
+        ]
+      },
+      {
+        "title": "Management of PCG",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Medical: Topical CAIs (Dorzolamide) or Beta-blockers (Caution: Timolol can cause apnea in neonates).",
+          "2. Surgical: Primary treatment is always surgical. Goniotomy (if cornea is clear enough).",
+          "3. Surgical: Trabeculotomy (if cornea is too hazy for goniotomy).",
+          "4. Refractory: Glaucoma Drainage Devices (GDD) or Diode Laser Cyclophotocoagulation."
+        ]
+      },
+      {
+        "title": "Surgical Techniques for Opacity",
+        "icon": "handyman",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Procedure",
+            "Indication",
+            "Prognosis"
+          ],
+          "rows": [
+            [
+              "Penetrating Keratoplasty (PK)",
+              "Full thickness haze (Peters, CHED)",
+              "High risk of rejection in infants"
+            ],
+            [
+              "DSAEK / DMEK",
+              "Endothelial dysfunction (CHED)",
+              "Technically difficult but better survival than PK"
+            ],
+            [
+              "Optical Iridectomy",
+              "Stable central opacity with clear periphery",
+              "Avoids graft complications; provides 'visual keyhole'"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "CIGTS/AGIS principles: Aggressive early IOP control prevents 10-year blindness.",
+          "Endo-illuminated Trabeculotomy: Uses a micro-catheter (iTrack) to ensure 360-degree cannulation.",
+          "AAV Gene Therapy: Emerging research for SLC4A11 (CHED) correction.",
+          "Anterior Segment OCT: Now used intraoperatively to guide Peters anomaly dissection."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Normal newborn corneal diameter is 9.5-10.5 mm.",
+          "Horizontal Descemet's tears = Glaucoma; Vertical = Birth Trauma (Forceps).",
+          "CHED is often mistaken for glaucoma, but IOP and corneal diameter are usually normal.",
+          "Amblyopia management (patching) is as important as the surgery itself."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "report_problem",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Graft Rejection Risk (Infant PK)",
+              "value": 85
+            },
+            {
+              "label": "Success Rate of Initial Trabeculotomy",
+              "value": 90
+            },
+            {
+              "label": "Incidence of Amblyopia in CCO",
+              "value": 95
+            }
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Bilateral corneal haze in infant",
+    "chapterId": "paediatric"
+  },
+  "chapterId": "paediatric",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

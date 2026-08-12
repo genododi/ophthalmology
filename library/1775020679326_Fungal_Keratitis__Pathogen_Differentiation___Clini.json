@@ -1,0 +1,145 @@
+{
+  "id": 1775020679326,
+  "seqId": 19,
+  "title": "Fungal Keratitis: Pathogen Differentiation & Clinical Management",
+  "summary": "A comprehensive guide to distinguishing between filamentous, non-filamentous, and yeast-like fungal pathogens in microbial keratitis, essential for selecting targeted anti-fungal pharmacotherapy.",
+  "date": "2026-04-01T05:17:59.326Z",
+  "data": {
+    "title": "Fungal Keratitis: Pathogen Differentiation & Clinical Management",
+    "summary": "A comprehensive guide to distinguishing between filamentous, non-filamentous, and yeast-like fungal pathogens in microbial keratitis, essential for selecting targeted anti-fungal pharmacotherapy.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q 50 30 70 50 T 50 70' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Fungal keratitis (FK) is a sight-threatening infection of the corneal stroma. Prevalence is highest in tropical climates and agricultural settings. Filamentous fungi (e.g., Fusarium, Aspergillus) account for ~70% of cases, while yeasts (e.g., Candida) are more common in temperate climates or compromised ocular surfaces."
+      },
+      {
+        "title": "Pathogen Classification",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Fungal Pathogens",
+          "branches": [
+            "Filamentous (Hyphae): Aspergillus, Fusarium, Curvularia",
+            "Yeast: Candida albicans, Candida parapsilosis",
+            "Non-Filamentous/Dimorphic: Blastomyces, Histoplasma (Rare)"
+          ]
+        }
+      },
+      {
+        "title": "Comparison of Morphological Features",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Filamentous Fungi",
+            "Yeast"
+          ],
+          "rows": [
+            [
+              "Primary Morphology",
+              "Septate/Aseptate Hyphae",
+              "Budding Cells/Pseudohyphae"
+            ],
+            [
+              "Typical Clinical Presentation",
+              "Feathery edges, satellite lesions",
+              "Ulcerative, white/creamy, dense infiltrate"
+            ],
+            [
+              "Common Association",
+              "Vegetative trauma",
+              "Chronic surface disease/contact lens"
+            ],
+            [
+              "Diagnostic Sensitivity (Smear)",
+              "High (KOH)",
+              "Moderate (Giemsa)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Suspect Fungal Etiology",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Infiltrate with feathery/indistinct borders",
+          "Satellite stromal lesions",
+          "Immune ring formation",
+          "Slow progression (indolent course)",
+          "Resistance to standard bacterial antibiotics",
+          "History of vegetative trauma or topical steroid use"
+        ]
+      },
+      {
+        "title": "Investigation Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Corneal scraping from ulcer base and edge",
+          "Step 2: Immediate Gram stain (for bacteria) and KOH/Calcofluor White prep",
+          "Step 3: Inoculation onto Sabouraud Dextrose Agar (SDA) and Blood Agar",
+          "Step 4: Confocal Microscopy (In-vivo) if culture negative but suspicious",
+          "Step 5: PCR for fungal DNA if available (high sensitivity)"
+        ]
+      },
+      {
+        "title": "Treatment Algorithm",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Filamentous Fungi: Topical Natamycin 5% (First-line) or Voriconazole 1%",
+          "Yeast (Candida): Topical Amphotericin B 0.15% or Voriconazole 1%",
+          "Adjunctive Therapy: Oral Fluconazole 200mg BID or Voriconazole 200mg BID",
+          "Management Note: Avoid topical corticosteroids initially; taper only when fungal load is significantly reduced and re-epithelialization is observed."
+        ]
+      },
+      {
+        "title": "The 'Fungal Mnemonic'",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "FEATHERS",
+          "explanation": "F - Filamentous, E - Edge (Feathery), A - Agricultural trauma, T - Topical steroids, H - Hypopyon, E - Epithelial defect, R - Resistant to drops, S - Satellite lesions."
+        }
+      },
+      {
+        "title": "Landmark Clinical Study: Mycotic Ulcer Treatment Trial (MUTT)",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "MUTT-I: Natamycin 5% demonstrated superior efficacy over Voriconazole 1% for filamentous keratitis (Fusarium).",
+          "MUTT-II: Oral Voriconazole did not improve outcomes compared to placebo in cases already receiving topical Natamycin."
+        ]
+      }
+    ],
+    "generationPrompt": "Filamentous vs non filamentous vs yeast fungi",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

@@ -1,0 +1,135 @@
+{
+  "id": 1777306870636,
+  "seqId": 800,
+  "title": "Mastering Refractive Surgery: Clinical Pearls, Pitfalls, & Decision Making",
+  "summary": "A comprehensive clinical guide for the refractive surgeon, covering preoperative screening, surgical nuance, and the management of challenging postoperative complications. Designed for residents and fellows to master the art and science of laser vision correction.",
+  "date": "2026-04-27T16:21:10.636Z",
+  "data": {
+    "title": "Mastering Refractive Surgery: Clinical Pearls, Pitfalls, & Decision Making",
+    "summary": "A comprehensive clinical guide for the refractive surgeon, covering preoperative screening, surgical nuance, and the management of challenging postoperative complications. Designed for residents and fellows to master the art and science of laser vision correction.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M20 50 Q 50 20 80 50 T 20 50' fill='hsl(215, 90%, 85%)'/><ellipse cx='50' cy='50' rx='10' ry='20' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Pre-Operative Screening Hierarchy",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Patient Selection",
+          "branches": [
+            "Refractive Stability (1 yr)",
+            "Corneal Topography (Pentacam/Orbscan)",
+            "Epithelial Mapping",
+            "Dry Eye Assessment (OSDI/TBUT)",
+            "Psychological Expectations"
+          ]
+        }
+      },
+      {
+        "title": "The Refractive 'Red Flags'",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Forme fruste keratoconus or topographic asymmetry",
+          "Residual stromal bed < 250-300 microns",
+          "Pellucid Marginal Degeneration (PMD) patterns",
+          "Uncontrolled autoimmune or connective tissue disease",
+          "Severe ocular surface disease (MGD/Blepharitis)"
+        ]
+      },
+      {
+        "title": "LASIK vs. PRK: Decision Matrix",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "LASIK",
+            "PRK"
+          ],
+          "rows": [
+            [
+              "Visual Recovery",
+              "Immediate (hrs)",
+              "Delayed (days/wks)"
+            ],
+            [
+              "Post-op Pain",
+              "Minimal",
+              "Significant (2-3 days)"
+            ],
+            [
+              "Corneal Haze Risk",
+              "Very Low",
+              "Moderate (if no MMC)"
+            ],
+            [
+              "Thin Cornea Suitability",
+              "Poor",
+              "Excellent"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: The LASIK Pre-op Checklist",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STABLER",
+          "explanation": "S: Surface (Dry eye/Lid), T: Topography (Map), A: Age/Expectations, B: Bed (Residual thickness), L: Lens (Crystalline), E: Epithelium (Thickness/Map), R: Retina (Periphery check)"
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Always calculate 'Percent Tissue Altered' (PTA) > 40% risk factor for ectasia.",
+          "Use 0.02% Mitomycin-C for high-myopia PRK (> -6.00D) to prevent haze.",
+          "Warn patients with hyperopic shifts about 'night vision' issues (halos).",
+          "Never ignore 'asymmetric' bow-tie patterns on topography.",
+          "Monitor for DLK (Diffuse Lamellar Keratitis) on Day 1."
+        ]
+      },
+      {
+        "title": "Management of Post-op Complications",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "DLK (Sands of Sahara): Increase topical steroids (Pred Acetate 1% q1h) immediately.",
+          "Epithelial Ingrowth: Monitor; if encroaching visual axis or melting, lift flap and scrape.",
+          "Ectasia: Cross-linking (CXL) is the definitive treatment; do not re-laser.",
+          "Overcorrection: Wait 3-6 months; if stable, consider enhancement."
+        ]
+      },
+      {
+        "title": "Current Advances",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "SMILE (Small Incision Lenticule Extraction): Improved biomechanical stability over LASIK.",
+          "Topography-Guided Ablation: Optimized for irregular astigmatism.",
+          "Combined CXL + PRK (Athens Protocol) for keratoconus management.",
+          "AI-driven nomogram adjustments improving outcome predictability to within 0.25D."
+        ]
+      }
+    ],
+    "generationPrompt": "Refractive surgery tips , tricks, pitfalls",
+    "chapterId": "refractive"
+  },
+  "chapterId": "refractive"
+}

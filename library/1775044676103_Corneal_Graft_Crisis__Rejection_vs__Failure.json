@@ -1,0 +1,309 @@
+{
+  "id": 1775044676103,
+  "seqId": 294,
+  "title": "Corneal Graft Crisis: Rejection vs. Failure",
+  "summary": "A comprehensive guide to distinguishing between the immune-mediated assault of graft rejection and the structural/functional collapse of graft failure. Understanding the timeline and clinical signs is vital for sight salvage.",
+  "date": "2026-04-01T11:57:56.103Z",
+  "data": {
+    "title": "Corneal Graft Crisis: Rejection vs. Failure",
+    "summary": "A comprehensive guide to distinguishing between the immune-mediated assault of graft rejection and the structural/functional collapse of graft failure. Understanding the timeline and clinical signs is vital for sight salvage.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 20 70 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 85%)' opacity='0.6'/><path d='M20 20 L35 35 M80 20 L65 35' stroke='red' stroke-width='3' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definitions",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Graft Rejection is an immunological response of the host against the donor corneal tissue, most commonly a Type IV cell-mediated hypersensitivity reaction. It is potentially reversible if treated promptly. Graft Failure is a permanent loss of graft clarity due to endothelial pump dysfunction, which can be 'Primary' (failure to clear from day 1) or 'Late' (gradual exhaustion of endothelial cells over years). Failure is generally irreversible without repeat keratoplasty."
+      },
+      {
+        "title": "Pathophysiology: The Immune Cascade",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Allograft Rejection",
+          "branches": [
+            "Afferent Loop: Host APCs (Langerhans) recognize donor HLA",
+            "Sensitization: T-cells in regional lymph nodes",
+            "Efferent Loop: Cytotoxic T-cells travel to graft",
+            "Destruction: Endothelial cell lysis via perforins/granzymes"
+          ]
+        }
+      },
+      {
+        "title": "Risk Factors for Rejection",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Stromal Vascularization",
+              "value": 90
+            },
+            {
+              "label": "Previous Graft Rejection",
+              "value": 85
+            },
+            {
+              "label": "Large Graft (>8.5mm)",
+              "value": 70
+            },
+            {
+              "label": "Active Ocular Surface Disease",
+              "value": 60
+            },
+            {
+              "label": "Eccentric/Peripheral Graft",
+              "value": 55
+            }
+          ]
+        }
+      },
+      {
+        "title": "Timeline of Graft Insult",
+        "icon": "history",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Entity",
+            "Onset Timing",
+            "Primary Cause",
+            "Reversibility"
+          ],
+          "rows": [
+            [
+              "Primary Donor Failure",
+              "Day 1 to Week 2",
+              "Poor donor quality / Cold chain issues",
+              "Zero"
+            ],
+            [
+              "Surgical Trauma failure",
+              "Day 1 to Week 2",
+              "Intraoperative endothelial damage",
+              "Minimal"
+            ],
+            [
+              "Acute Rejection",
+              "2 Weeks to Years (Peak 6-12m)",
+              "Type IV Hypersensitivity",
+              "High (if caught early)"
+            ],
+            [
+              "Late Endothelial Failure",
+              "2 Years to Decades",
+              "Gradual cell loss / Chronic glaucoma",
+              "Zero"
+            ],
+            [
+              "Recurrent Disease",
+              "Variable",
+              "Original pathology (e.g., HSK, Dystrophy)",
+              "Variable"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Classification of Rejection Types",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Epithelial Rejection: Elevated epithelial line (fluorescein stains edge). Often asymptomatic or mild irritation.",
+          "Subepithelial Rejection: 'Krachmer Spots' (resemble EKC nummular infiltrates). Indicates stromal involvement.",
+          "Stromal Rejection: Peripheral localized haze/edema with deep vascularization.",
+          "Endothelial Rejection: The most severe. Characterized by Khodadoust line, KPs, and diffuse corneal edema."
+        ]
+      },
+      {
+        "title": "The Endothelial Hallmarks",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Khodadoust Line: A linear 'front' of Keratic Precipitates (KPs) moving across the endothelium.",
+          "Ciliary Flush: Perilimbal injection.",
+          "Anterior Chamber Reaction: Cells and flare (Tyndall effect).",
+          "Graft Edema: Sudden onset localized or diffuse thickening (pachymetry > 650μm)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features",
+            "Management Focus"
+          ],
+          "rows": [
+            [
+              "Infectious Keratitis",
+              "Infiltrate, discharge, pain, epithelial defect",
+              "Antibiotics/Antifungals"
+            ],
+            [
+              "Acute Glaucoma Spike",
+              "Elevated IOP, hazy cornea but no KPs",
+              "IOP lowering agents"
+            ],
+            [
+              "Suture-Related Irritation",
+              "Localized injection, mucus at suture site",
+              "Suture removal/Antiseptic"
+            ],
+            [
+              "Endophthalmitis",
+              "Hypopyon, vitritis, severe pain, decreased vision",
+              "Intravitreal antibiotics"
+            ],
+            [
+              "Recurrent Dystrophy",
+              "Patterned opacities (e.g., Lattice/Granular)",
+              "Observation/Re-graft"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Emergency Warning Signs (RSVP)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "REDNESS: Sudden increase in circumcorneal injection.",
+          "SWELLING: Visible cloudiness or 'steamy' appearance of the cornea.",
+          "VISION LOSS: Sudden drop in acuity or increased glare/halos.",
+          "PAIN: New onset ache, grittiness, or photophobia."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Slit Lamp: Assess KPs, Khodadoust line, and AC reaction.",
+          "2. Pachymetry: Measure corneal thickness (compare to baseline).",
+          "3. IOP Check: Rule out steroid-induced or inflammatory glaucoma.",
+          "4. Specular Microscopy: Assess endothelial cell count and morphology.",
+          "5. Anterior Segment OCT: Quantify edema and visualize Descemet's attachment."
+        ]
+      },
+      {
+        "title": "Acute Rejection Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Topical: Prednisolone Acetate 1% or Dexamethasone 0.1% every hour (day and night).",
+          "2. Subconjunctival: Dexamethasone 2-4mg injection for severe cases.",
+          "3. Systemic: Oral Prednisolone (1mg/kg/day) or IV Methylprednisolone pulse for multi-vessel vascularized high-risk grafts.",
+          "4. Taper: Very slow taper over months; never stop abruptly.",
+          "5. Long-term: Consider Cyclosporine A or Tacrolimus drops."
+        ]
+      },
+      {
+        "title": "Primary Failure vs. Rejection",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Failure: Onset <14 days",
+              "value": 95
+            },
+            {
+              "label": "Rejection: Onset >14 days",
+              "value": 98
+            },
+            {
+              "label": "Failure: Pain Level",
+              "value": 20
+            },
+            {
+              "label": "Rejection: Pain Level",
+              "value": 80
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "DMEK/DSAEK Rejection: Often presents as isolated 'spots' or sudden localized edema without a classic Khodadoust line.",
+          "The 'Window of Opportunity': Treatment started within 24-48 hours has a significantly higher salvage rate.",
+          "Steroid Responders: Always monitor IOP; high IOP can mimic graft failure (pseudofailure).",
+          "Epithelial rejection is a warning shot; it doesn't cause failure but signals an immune system 'awakening'."
+        ]
+      },
+      {
+        "title": "Mnemonic: PEDAL",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.E.D.A.L.",
+          "explanation": "P for Pain, E for Epithelial rejection line, D for Diffuse/Deep Stromal Edema, A for AC Reaction/Cells, L for Line of Khodadoust."
+        }
+      },
+      {
+        "title": "Landmark Evidence: CCTS & HEDS",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Collaborative Corneal Transplantation Study (CCTS): HLA matching does not significantly improve outcomes in high-risk grafts, but ABO compatibility might.",
+          "HEDS (Herpetic Eye Disease Study): Prophylactic Acyclovir (400mg BID) significantly reduces the risk of recurrent HSK-induced graft failure.",
+          "Corneal Donor Study (CDS): Donor age (up to 75) does not affect 10-year success rates for most routine cases."
+        ]
+      },
+      {
+        "title": "Surgical Nuances for Success",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Suture Management: Remove loose or vascularized sutures immediately as they act as a 'highway' for vessels/APC influx.",
+          "Graft Size: Stay between 7.0mm and 8.0mm if possible to avoid the limbal 'immune ring'.",
+          "DALK vs. PKP: Deep Anterior Lamellar Keratoplasty (DALK) eliminates endothelial rejection risk entirely."
+        ]
+      }
+    ],
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044676103,
+  "communityId": "sub_1774352254516_sveahjer3wbqrq",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z",
+  "read": true,
+  "bookmarked": true
+}

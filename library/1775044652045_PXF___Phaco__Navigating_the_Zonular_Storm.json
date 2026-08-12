@@ -1,0 +1,245 @@
+{
+  "id": 1775044652045,
+  "seqId": 41,
+  "title": "PXF & Phaco: Navigating the Zonular Storm",
+  "summary": "A comprehensive guide to managing Pseudoexfoliation Syndrome during cataract surgery, focusing on zonular instability, intraoperative devices like CTRs, and long-term IOL stability strategies.",
+  "date": "2026-04-01T11:57:32.045Z",
+  "data": {
+    "title": "PXF & Phaco: Navigating the Zonular Storm",
+    "summary": "A comprehensive guide to managing Pseudoexfoliation Syndrome during cataract surgery, focusing on zonular instability, intraoperative devices like CTRs, and long-term IOL stability strategies.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='#2563eb' stroke-width='2'/><circle cx='100' cy='100' r='40' fill='none' stroke='#2563eb' stroke-width='4' stroke-dasharray='5,5'/><path d='M60,100 Q100,60 140,100 Q100,140 60,100' fill='#93c5fd' opacity='0.5'/><circle cx='100' cy='100' r='15' fill='#2563eb'/><line x1='100' y1='20' x2='100' y2='40' stroke='#ef4444' stroke-width='2'/><line x1='100' y1='160' x2='100' y2='180' stroke='#ef4444' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Pseudoexfoliation (PXF) is a systemic microfibrillopathy characterized by the production and progressive accumulation of an abnormal fibrillar material in ocular tissues and visceral organs. It involves a mutation in the LOXL1 gene. In the eye, this proteinaceous material deposits on the lens capsule, iris, and zonules, leading to zonular fragility and basement membrane dysfunction."
+      },
+      {
+        "title": "Epidemiological Impact",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "LOXL1 Association",
+              "value": 95
+            },
+            {
+              "label": "Risk of Glaucoma",
+              "value": 50
+            },
+            {
+              "label": "Zonular Instability",
+              "value": 35
+            },
+            {
+              "label": "Poor Pupillary Dilation",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "title": "The PXF Ocular Examination",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Classic Three-Zone Lens Pattern: Central disc, peripheral granular zone, and clear intermediate zone.",
+          "Sampaolesi Line: Pigment deposition anterior to Schwalbe's line on gonioscopy.",
+          "Pupillary 'Moth-eaten' Atrophy: Transillumination defects at the sphincter.",
+          "Phacodonesis: Visible wobbling of the lens during rapid eye movements (indicates severe zonular loss).",
+          "Iridodonesis: Shaking of the iris upon eye movement due to lack of lens support.",
+          "Asymmetric Anterior Chamber Depth: May suggest subluxation or zonular laxity."
+        ]
+      },
+      {
+        "title": "Preoperative Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Frank Phacodonesis or Subluxation",
+          "History of ocular trauma (compounds PXF fragility)",
+          "Poor pupillary response to maximum mydriatics (< 4mm)",
+          "Angle closure or Very Shallow AC depth",
+          "Vitreous in the anterior chamber (spontaneous vitreous prolapse)"
+        ]
+      },
+      {
+        "title": "Zonular Status Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "SAFE-LENS",
+          "explanation": "S: Sampaolesi Line; A: Asymmetric AC depth; F: Fibrillar material; E: Edge of lens visible on dilation; L: LOXL1 Genetics; E: Excessive Pigment; N: Narrow Angle; S: Shaking (Donesis)."
+        }
+      },
+      {
+        "title": "Intraoperative Hardware: Rings & Supports",
+        "icon": "build",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Device Type",
+            "Indication",
+            "Mechanism of Action"
+          ],
+          "rows": [
+            [
+              "Standard CTR",
+              "Zonular dehiscence < 120 degrees",
+              "Expands capsular bag, redistributes tension to healthy zonules."
+            ],
+            [
+              "Cionni Modified CTR",
+              "Zonular loss > 120 degrees / Progressive",
+              "Allows for scleral suturing of the ring without violating the bag."
+            ],
+            [
+              "Ahmed Capsular Tension Segment (CTS)",
+              "Localized large loss / Discontinuous zonules",
+              "Segmental support; can be used in cases where a full ring cannot be threaded."
+            ],
+            [
+              "Malyugin Ring / Iris Hooks",
+              "Intraoperative miosis / IFIS",
+              "Mechanical expansion of the pupil to allow visualization."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Strategy: Step-by-Step",
+        "icon": "architecture",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Maximizing Mydriasis - Use intracameral phenylephrine/lidocaine or mechanical dilators.",
+          "Step 2: Capsulorhexis (CCC) - Larger CCC (5.5mm-6.0mm) is safer to reduce later capsular phimosis.",
+          "Step 3: Hydrodissection - Perform 'Cortical Cleaving' hydrodissection to minimize zonular stress during rotation.",
+          "Step 4: Phacoemulsification - Use 'Slow Motion' settings; keep the nucleus central; avoid 'Push-Pull' maneuvers.",
+          "Step 5: CTR Insertion - Insert as LATE as possible (after cortex removal) unless necessary for stability during phaco.",
+          "Step 6: Cortex Removal - Use tangential stripping rather than radial pulling to protect remaining zonules."
+        ]
+      },
+      {
+        "title": "Zonular Instability Grading",
+        "icon": "format_list_numbered",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Zonular Stability",
+          "branches": [
+            "Grade 1: Stable (No Donesis)",
+            "Grade 2: Mild (Iridodonesis only)",
+            "Grade 3: Moderate (Visible Phacodonesis)",
+            "Grade 4: Severe (Lenticular Subluxation)",
+            "Grade 5: Total (Dislocated Lens)"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "find_in_page",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "True Exfoliation",
+              "Glass-blower's cataract; capsule delamination."
+            ],
+            [
+              "Pigment Dispersion",
+              "Krukenberg spindle, mid-peripheral TIDs."
+            ],
+            [
+              "Traumatic Subluxation",
+              "Unilateral, history of blunt force."
+            ],
+            [
+              "Marfan Syndrome",
+              "Superior subluxation, systemic features."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Postoperative Counseling & Warnings",
+        "icon": "record_voice_over",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Risk of Early IOP Spikes: PXF patients have compromised trabecular meshwork; monitor pressure 2-4 hours post-op.",
+          "Late IOL Dislocation: Explain that the entire 'bag' can dislocate years later, even if the surgery was perfect.",
+          "Chronic Inflammation: Higher risk of postoperative uveitis and fibrinous reactions.",
+          "Capsular Phimosis: The capsulorhexis opening may shrink over time; YAG laser capsulotomy may be needed.",
+          "Corneal Endothelial Fragility: PXF is associated with lower cell counts; recovery may be slower."
+        ]
+      },
+      {
+        "title": "Surgical Complication Management",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden deepening of AC: Suspect Posterior Capsule Rupture (PCR).",
+          "Lens Tilt during Phaco: Indicates focal zonular dialysis.",
+          "Vitreous Prolapse: Perform early bimanual anterior vitrectomy; do NOT use sponge and scissors.",
+          "Dropped Nucleus: Do not chase! Level the eye and refer to a vitreoretinal surgeon."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Success",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Use highly dispersive OVD (e.g., Viscoat) to protect the endothelium.",
+          "Try to avoid IOLs with high-angulation haptics if zonules are weak.",
+          "Always check for a Sampaolesi line in any 'glaucoma suspect'.",
+          "If the bag is extremely loose, consider 3-piece IOL in the sulcus with optic capture."
+        ]
+      },
+      {
+        "title": "Landmark Evidence",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "The SCORPIO Study and various Nordic registries have highlighted that PXF is the leading identifiable cause of open-angle glaucoma and spontaneous IOL-capsular bag dislocation. Recent data suggests that early cataract intervention might be safer than waiting for the cataract to become 'hypermature' and zonules to further degrade."
+      }
+    ],
+    "generationPrompt": "pxf complications in phaco - phacodonesis / iridodonesis - zonular dialysis; preoperative assessment - rings types / CTR - postop counselling -",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "_newlyImported": 1775044652045,
+  "communityId": "sub_1774871495727_qdddnbaoc",
+  "communityAuthor": "kemo",
+  "communityDate": "2026-03-30T11:51:35.727Z",
+  "read": true
+}

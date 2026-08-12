@@ -1,0 +1,314 @@
+{
+  "id": 1775044684264,
+  "seqId": 377,
+  "title": "Emergency Medicine & Acute Chest Pain for FRCS",
+  "summary": "A comprehensive clinical guide covering the differential diagnosis, workup, and management of acute chest pain, coronary syndromes, pulmonary edema, and tachycardias as required for the FRCS (Glasg) Exam.",
+  "date": "2026-04-01T11:58:04.264Z",
+  "data": {
+    "title": "Emergency Medicine & Acute Chest Pain for FRCS",
+    "summary": "A comprehensive clinical guide covering the differential diagnosis, workup, and management of acute chest pain, coronary syndromes, pulmonary edema, and tachycardias as required for the FRCS (Glasg) Exam.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='#0047AB' stroke-width='2'/><path d='M20 50 L35 50 L40 30 L50 70 L55 50 L80 50' fill='none' stroke='#E31837' stroke-width='3'/><path d='M45 40 Q50 35 55 40' fill='none' stroke='#E31837' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Differential Diagnosis of Chest Pain",
+        "icon": "warning",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Causes of Chest Pain",
+          "branches": [
+            "Life-threatening: ACS (unstable angina & Acute MI)",
+            "Life-threatening: Pulmonary embolism",
+            "Life-threatening: Aortic dissection",
+            "Life-threatening: Tension pneumothorax",
+            "Life-threatening: Esophageal rupture",
+            "Others: Pericarditis",
+            "Others: Pneumonia, empyema & pleurisy",
+            "Others: Gastro-oesophageal reflux, oesophageal spasm",
+            "Others: Musculoskeletal (muscular, rib fractures, bony metastasis, costochondritis)",
+            "Others: Cholecystitis, peptic ulceration & pancreatitis",
+            "Others: Cervical spondylosis",
+            "Others: Sickle-cell crises"
+          ]
+        }
+      },
+      {
+        "title": "Immediate Management Protocol",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Call for help",
+          "2. ABC (Airway, Breathing, Circulation)",
+          "3. Assess Level of consciousness",
+          "4. Vital sign monitoring"
+        ]
+      },
+      {
+        "title": "Workup of Chest Pain: Comparison Table",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Site",
+            "Radiation",
+            "Character",
+            "Precipitated by",
+            "Relieved by",
+            "Associated symptoms & signs"
+          ],
+          "rows": [
+            [
+              "Ischaemic cardiac",
+              "Central, diffuse",
+              "Jaw/neck/shoulder/arm/occasionally back",
+              "Dull, constricting, choking, squeezing, crushing or pressure",
+              "Exercise, emotion, cold, after a large meal",
+              "Rest, nitrates",
+              "Autonomic disturbance e.g. sweating, nausea & vomiting; Breathlessness"
+            ],
+            [
+              "Aortic dissection",
+              "Between shoulder blades",
+              "N/A",
+              "Sharp tearing",
+              "N/A",
+              "N/A",
+              "N/A"
+            ],
+            [
+              "Pericarditis/ Pleurisy",
+              "Retrosternal",
+              "N/A",
+              "Sharp",
+              "Breathing, coughing, lying flat",
+              "Leaning forwards",
+              "N/A"
+            ],
+            [
+              "Oesophageal",
+              "Back",
+              "N/A",
+              "Can mimic anginal pain i.e. constricting",
+              "Food, lying flat, hot drinks, alcohol",
+              "Nitrates, antacids",
+              "N/A"
+            ],
+            [
+              "Musculoskeletal",
+              "N/A",
+              "N/A",
+              "N/A",
+              "Movement (bending, stretching, turning)",
+              "N/A",
+              "Local tenderness over a rib or costal cartilage"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Acute Coronary Syndrome (ACS) Definitions",
+        "icon": "category",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Unstable angina",
+          "Non ST elevation MI (NSTEMI) = non Q wave or subendocardial MI",
+          "ST elevation MI (STEMI) = acute MI"
+        ]
+      },
+      {
+        "title": "STEMI (Acute MI): Risk & Clinical Picture",
+        "icon": "person_alert",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Risk factors: DM, HTN, atherosclerosis & smoking.",
+          "Clinical picture: Heavy chest pain > 15min, radiating to the arm, neck and shoulder.",
+          "Dyspnea, sweating, palpitations, nausea, dizziness, collapse and shock.",
+          "Epigastric pain & vomiting (inferior MI).",
+          "Silent MI: May present without chest pain in elderly or diabetics."
+        ]
+      },
+      {
+        "title": "STEMI Investigations & Cardiac Enzymes",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Bloods: FBC, U&Es, glucose, lipids and cardiac enzymes.",
+          "CK (Creatine Kinase): ↑ 8 – 12 h till 72 h.",
+          "Lactate dehydrogenase (mentioned in text as 'Lactate dehy')."
+        ]
+      },
+      {
+        "title": "STEMI: Reperfusion Strategies",
+        "icon": "rebase_edit",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "B-blocker: e.g. atenolol 5 mg IV (unless asthma or Lt. ventricular failure).",
+          "Primary PCI (Angioplasty): Treatment of choice if ongoing ischaemia & presentation < 12h. More effective than thrombolysis in reducing death, recurrence, or stroke.",
+          "Thrombolysis: Greatest benefit if given < 12 h of onset, up to 24 h. Contraindicated beyond 24h."
+        ]
+      },
+      {
+        "title": "Thrombolysis: Indications & ECG Criteria",
+        "icon": "ecg_heart",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "ECG CRITERIA",
+          "explanation": "1. ST elevation > 1 mm in 2+ limb leads OR > 2 mm in 2+ chest leads. 2. LBBB (unless known previously). 3. Posterior changes: deep ST depression & tall R waves in V1 to V3. NB: Don't thrombolyze ST depression alone, T-wave inversion alone or normal ECG."
+        }
+      },
+      {
+        "title": "Thrombolysis: Contraindications & Agents",
+        "icon": "block",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "CONTRAINDICATIONS: Internal bleeding, suspected aortic dissection, esophageal varices, active peptic ulcer, recent surgery, trauma or hemorrhagic stroke, severe hypertension, pregnancy.",
+          "Streptokinase (SK): 1.5 million units in 100 mL 0.9 % saline IVI over 1h.",
+          "Allergy to SK: Tissue plasminogen activator (Alteplase, Tenecteplase, Reteplase).",
+          "COMPLICATIONS: Recurrent ischaemia, Failure to reperfuse (consider re-thrombolysis/rescue angioplasty), Stroke, Pericarditis, cardiogenic shock & heart failure."
+        ]
+      },
+      {
+        "title": "NSTEMI Management",
+        "icon": "history_edu",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Admit to CCU and monitor closely.",
+          "High flow O2.",
+          "Analgesia: Morphine (5 – 10 mg IV) + metoclopramide (10 mg IV).",
+          "Nitrates: GTN spray or sublingual tablets as required; IV GTN 50 mg in 50mL saline if pain continues.",
+          "Aspirin 300 mg PO followed by 75mg/d.",
+          "B–Blockers: e.g. metoprolol 50-100 mg/8h (If contraindicated, give verapamil 80-120 mg/8h).",
+          "Low molecular weight (LMW) heparin SC with monitoring APTT.",
+          "Failure to improve: Urgent angiography ± angioplasty or CABG.",
+          "If improving: Treat medically, address risk factors (DM, HTN, smoking), mobilize, arrange stress test/angiogram."
+        ]
+      },
+      {
+        "title": "NSTEMI: Assessment & Investigations",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Assessment: History (previous attack, relief with rest/nitrates, IHD risk factors), Examination (vitals, signs of HF).",
+          "Investigations: ECG (ST depression, flat/inverted T or normal), cardiac enzymes, CXR, glucose, lipids, U&E, FBC.",
+          "Troponin (T and I): Measurement helps predict risk and discharge timing."
+        ]
+      },
+      {
+        "title": "Severe Pulmonary Edema",
+        "icon": "air",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Causes: Cardiovascular (LV failure, MI, IHD, MS, arrhythmias, malignant HTN), ARDS (trauma, post-op, sepsis), Fluid overload, Neurogenic (head trauma).",
+          "Symptoms: Dyspnea, orthopnea, pink frothy sputum.",
+          "Signs: Distressed, pale, sweaty, ↑pulse, tachypnea, fine lung basal crackles & wheeze (usually sitting up/leaning forward).",
+          "DD: Asthma/COPD, Pneumonia (often co-exist in elderly; treat all three simultaneously).",
+          "Investigations: CXR (cardiomegaly, bilateral shadowing, small effusions, Kerley B lines), ECG, U&E, enzymes, ABG, Echo."
+        ]
+      },
+      {
+        "title": "Pulmonary Edema Treatment",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Sit the patient upright.",
+          "Oxygen 100%.",
+          "IV access, monitor ECG, treat arrhythmias (AF).",
+          "Diamorphine (2.5 – 5 mg IV slowly).",
+          "Diuretics: frusemide 40-80 mg IV slowly.",
+          "GTN spray/SL or nitrate infusion (Isosorbide dinitrate 2-10 mg/h) if SBP ≥ 100 mmHg.",
+          "If worsening: repeat frusemide, consider ventilation or venesection.",
+          "If SBP < 100 mmHg: treat as cardiogenic shock with inotropes."
+        ]
+      },
+      {
+        "title": "Broad Complex Tachycardia",
+        "icon": "monitor_heart",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "ECG: Rate > 100bpm, QRS > 120 ms (> 3 small squares).",
+          "Management: If in doubt, treat as Ventricular Tachycardia (VT).",
+          "No pulse: Treat as arrest.",
+          "VT Treatment: Oxygen, IV, correct hypokalaemia/hypomagnesaemia. Unstable: Sedation, DC shock, amiodarone/lidocaine. Stable: Drugs, then DC shock.",
+          "Ventricular Fibrillation (VF): Use non-synchronized DC shock.",
+          "Ventricular extrasystoles (ectopics): common post-MI, usually no treatment needed."
+        ]
+      },
+      {
+        "title": "Narrow Complex Tachycardia & AF",
+        "icon": "speed",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "ECG: Rate > 100 bpm, QRS < 120 ms.",
+          "DD: Sinus tachycardia (normal P), AF (absent P, irregular QRS), Atrial flutter (300bpm, sawtooth, 150bpm vent rate), Multifocal Atrial tachycardia, Junctional tachycardia.",
+          "AF Symptoms: Asymptomatic, chest pain, palpitations, dyspnea.",
+          "AF Signs: Irregularly irregular pulse (apical > radial rate), variable 1st heart sound intensity.",
+          "AF Complications: Embolic stroke, CRAO."
+        ]
+      },
+      {
+        "title": "Atrial Fibrillation (AF) Causes & Tests",
+        "icon": "search",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Cardiac: CAD, MI, Valvular disease (Mitral), Hypertension.",
+          "Non-cardiac: Pneumonia, PE, Hyperthyroidism.",
+          "Idiopathic: Lone AF.",
+          "Investigations: U&E, enzymes, TFTs, D-dimer, ECG, ECHO (LA size, mitral disease, LV function)."
+        ]
+      },
+      {
+        "title": "Treatment of Acute AF (< 72h)",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Hemodynamic stabilization & Rate Control.",
+          "2. Rate Control: B-blocker (Esmolol) or Digoxin (PO loading 0.5mg 6-hourly x2 then 0.125-0.25mg/d; IV 0.75-1mg over 1h).",
+          "3. Cardioversion: Amiodarone IVI (5 mg/kg over 1h) OR DC cardioversion (200J, 360J, 360J - Do Echo first).",
+          "4. Prevention of embolics: Aspirin 300mg (recent onset/normal echo) OR Warfarin (3 wks before and 4 wks after DC cardioversion)."
+        ]
+      }
+    ],
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "_newlyImported": 1775044684264,
+  "communityId": "sub_1773775007770_jhjzljc0hqe0fd",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true,
+  "bookmarked": true
+}

@@ -1,0 +1,193 @@
+{
+  "id": 1775487218861,
+  "seqId": 738,
+  "title": "Anisocoria: Clinical Masterclass in Diagnostic Reasoning",
+  "summary": "Anisocoria represents a critical junction in neuro-ophthalmology where physiological variants meet life-threatening pathologies. Mastery requires systematic differentiation between sympathetic and parasympathetic dysregulation.",
+  "date": "2026-04-06T14:53:38.861Z",
+  "data": {
+    "title": "Anisocoria: Clinical Masterclass in Diagnostic Reasoning",
+    "summary": "Anisocoria represents a critical junction in neuro-ophthalmology where physiological variants meet life-threatening pathologies. Mastery requires systematic differentiation between sympathetic and parasympathetic dysregulation.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='70' cy='50' r='15' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='130' cy='50' r='25' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><line x1='90' y1='50' x2='110' y2='50' stroke='black' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiologic Framework",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Anisocoria is a pupillary size inequality >0.4mm. Clinically, it is categorized by the pupil that is 'abnormal' in light vs. dark conditions. A pupil that fails to constrict implies a parasympathetic (sphincter) defect (abnormal in light), while a pupil that fails to dilate implies a sympathetic (dilator) defect (abnormal in dark)."
+      },
+      {
+        "title": "The Anisocoria Diagnostic Algorithm",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Check pupillary reactions in bright and dim light.",
+          "Step 2: If anisocoria is greater in dim light, the smaller pupil is abnormal (Sympathetic/Horner's).",
+          "Step 3: If anisocoria is greater in bright light, the larger pupil is abnormal (Parasympathetic/CN III/Adie's).",
+          "Step 4: If equal in all lights, consider physiological anisocoria (up to 20% of population)."
+        ]
+      },
+      {
+        "title": "Life-Threatening Horner's Syndrome Etiology",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Carotid Artery Dissection (Painful Horner's + Neck/Head pain)",
+          "Pancoast Tumor (Apical lung mass compressing sympathetic chain)",
+          "Aortic Aneurysm (Disruption of thoracic sympathetic chain)",
+          "Brainstem Stroke (Wallenberg Syndrome - Lateral Medullary Infarction)",
+          "Cavernous Sinus Pathology (Mass effect or carotid-cavernous fistula)"
+        ]
+      },
+      {
+        "title": "Pharmacological Testing Protocol",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Test",
+            "Mechanism",
+            "Horner's Result",
+            "Normal Result"
+          ],
+          "rows": [
+            [
+              "Apraclonidine 0.5-1%",
+              "Weak alpha-1 agonist",
+              "Reversal of anisocoria",
+              "No effect"
+            ],
+            [
+              "Cocaine 10%",
+              "Blocks NE reuptake",
+              "Less dilation (No change)",
+              "Pupil dilates"
+            ],
+            [
+              "Hydroxyamphetamine 1%",
+              "Releases stored NE",
+              "Dilation in 1st/2nd order",
+              "No dilation in 3rd order"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: Horner's Syndrome",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PAM",
+          "explanation": "P for Ptosis (Muller's muscle weakness), A for Anhidrosis (facial sweating loss), M for Miosis (sympathetic failure)."
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Large Pupil (Mydriasis)",
+        "icon": "list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Adie's Tonic Pupil (light-near dissociation)",
+          "Pharmacological Mydriasis (Anticholinergics/Sympathomimetics)",
+          "Third Nerve Palsy (Look for EOM involvement/Ptosis)",
+          "Traumatic Iridoplegia (Sphincter tear)",
+          "Iris Sphincter Ischemia"
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Always compare old photographs to rule out physiological anisocoria.",
+          "Painful Horner's syndrome is a medical emergency until carotid dissection is ruled out by CTA or MRA.",
+          "Light-near dissociation is pathognomonic for tonic pupil or Parinaud's syndrome.",
+          "Pharmacological miosis from pilocarpine can be identified by the 'pilocarpine test'—if the pupil doesn't constrict, it's likely fixed by iris synechiae or structural damage."
+        ]
+      },
+      {
+        "title": "Anatomy of the Sympathetic Pathway",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Sympathetic Pathway",
+          "branches": [
+            "1st Order: Hypothalamus to C8-T2",
+            "2nd Order: Lung Apex/Pleura to Superior Cervical Ganglion",
+            "3rd Order: Internal Carotid Plexus to Iris Dilator"
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "DD unequal pupils + life threatening causes of horner",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "bookmarked": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 796,
+      "keywords": [
+        "anisocoria",
+        "diagnostic",
+        "neuro-ophthalmology",
+        "definition",
+        "syndrome"
+      ]
+    },
+    {
+      "pageNum": 794,
+      "keywords": [
+        "anisocoria",
+        "neuro-ophthalmology",
+        "syndrome",
+        "pharmacological",
+        "pupil"
+      ]
+    },
+    {
+      "pageNum": 798,
+      "keywords": [
+        "anisocoria",
+        "neuro-ophthalmology",
+        "pharmacological",
+        "differential",
+        "large"
+      ]
+    },
+    {
+      "pageNum": 793,
+      "keywords": [
+        "anisocoria",
+        "syndrome",
+        "pupil",
+        "anatomy",
+        "sympathetic"
+      ]
+    },
+    {
+      "pageNum": 797,
+      "keywords": [
+        "anisocoria",
+        "syndrome",
+        "pharmacological",
+        "testing",
+        "large"
+      ]
+    }
+  ]
+}

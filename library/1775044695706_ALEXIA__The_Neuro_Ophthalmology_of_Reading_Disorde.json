@@ -1,0 +1,290 @@
+{
+  "id": 1775044695706,
+  "seqId": 462,
+  "title": "ALEXIA: The Neuro-Ophthalmology of Reading Disorders",
+  "summary": "Alexia is an acquired impairment of reading ability resulting from brain damage, distinct from developmental dyslexia. This poster explores the neuro-anatomical disconnections, clinical classifications, and diagnostic pathways for residents and fellows.",
+  "date": "2026-04-01T11:58:15.706Z",
+  "data": {
+    "title": "ALEXIA: The Neuro-Ophthalmology of Reading Disorders",
+    "summary": "Alexia is an acquired impairment of reading ability resulting from brain damage, distinct from developmental dyslexia. This poster explores the neuro-anatomical disconnections, clinical classifications, and diagnostic pathways for residents and fellows.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 70h80M60 100h80M60 130h40' stroke='hsl(215, 90%, 45%)' stroke-width='8' stroke-linecap='round'/><path d='M140 130l20 20m0-20l-20 20' stroke='red' stroke-width='8' stroke-linecap='round'/><path d='M40 50c10-10 30-10 40 0s10 30 0 40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2' opacity='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Alexia (acquired dyslexia) is the loss of the ability to read in a previously literate person. Unlike developmental dyslexia, alexia results from focal brain lesions, most commonly in the dominant (usually left) hemisphere. It represents a 'disconnection syndrome' where visual information cannot reach the language processing centers, specifically the Visual Word Form Area (VWFA)."
+      },
+      {
+        "title": "Etiological Distribution",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Ischemic Stroke (PCA)",
+              "value": 75
+            },
+            {
+              "label": "Intracranial Tumors",
+              "value": 15
+            },
+            {
+              "label": "Neurodegenerative (PCA/AD)",
+              "value": 8
+            },
+            {
+              "label": "Trauma/Infection",
+              "value": 2
+            }
+          ]
+        }
+      },
+      {
+        "title": "Neuro-Anatomical Localization",
+        "icon": "neurology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Alexia Hubs",
+          "branches": [
+            "Visual Word Form Area (Left Fusiform Gyrus)",
+            "Splenium of Corpus Callosum (Transmits RH info to LH)",
+            "Primary Visual Cortex (V1 - Calcarine Sulcus)",
+            "Angular Gyrus (Grapheme-to-Phoneme conversion)",
+            "Broca's Area (Frontal Alexia components)"
+          ]
+        }
+      },
+      {
+        "title": "The Three Classic Types of Alexia",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Alexia without Agraphia",
+            "Alexia with Agraphia",
+            "Frontal (Third) Alexia"
+          ],
+          "rows": [
+            [
+              "Synonym",
+              "Pure Alexia / Posterior Alexia",
+              "Central / Parietotemporal Alexia",
+              "Anterior Alexia"
+            ],
+            [
+              "Lesion Site",
+              "L. Occipital Lobe + Splenium",
+              "L. Angular Gyrus",
+              "L. Inferior Frontal Lobe"
+            ],
+            [
+              "Writing Ability",
+              "Intact (can write but not read own words)",
+              "Impaired (Agraphia)",
+              "Severely Impaired"
+            ],
+            [
+              "Visual Field",
+              "Right Homonymous Hemianopia (common)",
+              "Usually Normal",
+              "Possible Superior Quadrantanopia"
+            ],
+            [
+              "Associated Signs",
+              "Color Anomia",
+              "Gerstmann Syndrome (elements)",
+              "Non-fluent Aphasia"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Disconnection Logic",
+        "icon": "lan",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Right Visual Field (RVF) info sent to Left Occipital Lobe: Blocked by L-Occipital Lesion.",
+          "2. Left Visual Field (LVF) info sent to Right Occipital Lobe: Functionally intact.",
+          "3. LVF info attempts to cross via Splenium of Corpus Callosum: Blocked by Splenial Lesion.",
+          "4. Result: No visual data reaches the Left Angular Gyrus / VWFA.",
+          "5. Outcome: Patient can see letters as shapes but cannot decode them as language."
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Visual Acuity: Often 20/20 (Alexia is a higher-order cortical deficit).",
+          "Visual Fields: Goldmann or Humphrey Perimetry usually reveals a dense Right Homonymous Hemianopia (in pure alexia).",
+          "Saccades: Patients may show 'staircase' saccades during reading attempts.",
+          "Color Vision: Test for Color Anomia (can see color but cannot name it).",
+          "Pupils: Typically normal (the lesion is retro-geniculate)."
+        ]
+      },
+      {
+        "title": "Mnemonic for Pure Alexia (Dejerine's)",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-U-R-E",
+          "explanation": "P: Posterior Cerebral Artery infarct; U: Understands spoken language; R: Right Hemianopia; E: Every letter read individually (Letter-by-letter reading)."
+        }
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Visual Agnosia",
+              "Cannot recognize objects, not just words"
+            ],
+            [
+              "Simultanagnosia",
+              "Cannot perceive more than one object at a time"
+            ],
+            [
+              "Neglect Dyslexia",
+              "Omits the left side of words (R-parietal lesion)"
+            ],
+            [
+              "Hemianopic Dyslexia",
+              "Reading slow due to field cut, but decoding intact"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Neuro-Ophthalmic Exam: Formal Visual Fields (HVF 24-2 or 30-2) and Color Vision.",
+          "2. Cognitive Screen: MMSE or MoCA; specifically assess writing and naming.",
+          "3. Structural Imaging: MRI Brain with/without contrast (Focus: Left PCA territory and Splenium).",
+          "4. Vascular Imaging: MRA/CTA of Head and Neck to identify PCA occlusion or stenosis.",
+          "5. Functional Imaging (Optional): fMRI or PET to locate the Visual Word Form Area (VWFA) activity."
+        ]
+      },
+      {
+        "title": "Surgical & Medical Management",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Acute Stroke: Thrombolysis (tPA) or Thrombectomy if within the window.",
+          "Secondary Prevention: Antiplatelets (Aspirin 81mg, Clopidogrel 75mg) and Statins.",
+          "Tumor: Neurosurgical resection, Radiation, or Chemotherapy (if applicable).",
+          "Rehabilitation: Multiple Oral Re-reading (MOR) therapy to increase speed.",
+          "Assistive Tech: Text-to-speech software (OCR) and audiobooks."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Acute Neurological Change",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset reading difficulty (assume PCA stroke until proven otherwise).",
+          "Associated hemiparesis or sensory loss (suggests larger MCA involvement).",
+          "Acute confusion or memory loss (Top-of-the-Basilar syndrome).",
+          "New onset thunderclap headache (Subarachnoid hemorrhage)."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Fellow",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Letter-by-Letter (LBL) reading: The hallmark of Pure Alexia. Reading time is proportional to word length.",
+          "Tactile Kinesthetic Reading: Some patients can 'read' by tracing letters on their palm (bypasses the visual system).",
+          "Preserved Recognition: Patients can often recognize words spelled aloud to them, proving the lexical store is intact.",
+          "Angular Gyrus Lesions: Often present as 'Alexia with Agraphia' + Gerstmann Syndrome (acalculia, agraphia, finger agnosia, L/R disorientation)."
+        ]
+      },
+      {
+        "title": "Landmark Studies: The History of Alexia",
+        "icon": "history",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Dejerine (1892) described the first case of alexia without agraphia in a patient who had a left PCA infarct. He correctly hypothesized the 'disconnection' between the right hemisphere's visual processing and the left hemisphere's language center. Later, Norman Geschwind (1965) formalized the concept of 'Disconnection Syndromes,' placing alexia as a primary example of white-matter pathway disruption."
+      },
+      {
+        "title": "Prognosis & Outcomes",
+        "icon": "trending_up",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Partial Recovery (Stroke)",
+              "value": 60
+            },
+            {
+              "label": "Significant Permanent Deficit",
+              "value": 30
+            },
+            {
+              "label": "Full Recovery (Rare)",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Special Population: Posterior Cortical Atrophy (PCA)",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Often called the 'Visual Variant of Alzheimer’s Disease'.",
+          "Presents with progressive Alexia, Simultanagnosia, and Optic Ataxia.",
+          "Early MRI may show disproportionate atrophy of the parietal and occipital lobes.",
+          "Ophthalmic exam is normal, but the 'brain is blind' (Cortical Visual Impairment).",
+          "Treatment involves Cholinesterase inhibitors (Donepezil) though efficacy is limited."
+        ]
+      }
+    ],
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044695706,
+  "communityId": "sub_1774123095835_k50ggnmh5",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-21T19:58:15.835Z"
+}

@@ -1,0 +1,164 @@
+{
+  "id": 1775151455022,
+  "seqId": 572,
+  "title": "Choroidal Melanoma: Clinical Mastery & The COMS Legacy",
+  "summary": "Choroidal melanoma remains the most common primary intraocular malignancy in adults, requiring a nuanced, evidence-based approach to globe-sparing treatment and systemic monitoring. This infographic synthesizes decades of oncology data, primarily from the landmark Collaborative Ocular Melanoma Study (COMS).",
+  "date": "2026-04-02T17:37:35.022Z",
+  "data": {
+    "title": "Choroidal Melanoma: Clinical Mastery & The COMS Legacy",
+    "summary": "Choroidal melanoma remains the most common primary intraocular malignancy in adults, requiring a nuanced, evidence-based approach to globe-sparing treatment and systemic monitoring. This infographic synthesizes decades of oncology data, primarily from the landmark Collaborative Ocular Melanoma Study (COMS).",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><ellipse cx='50' cy='50' rx='20' ry='35' fill='hsl(215, 90%, 45%)' opacity='0.3'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Choroidal melanoma arises from uveal melanocytes. It is a highly aggressive tumor with a high propensity for hepatic metastasis. The diagnosis is clinical, often relying on the 'TFSOM-UHHD' criteria. Mortality is primarily determined by hematogenous spread, despite successful local globe-sparing therapy."
+      },
+      {
+        "title": "COMS Study: The Gold Standard",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "COMS Category",
+            "Criteria",
+            "Treatment Arm"
+          ],
+          "rows": [
+            [
+              "Small",
+              "<3mm thickness; <10mm diameter",
+              "Observation vs. Brachytherapy"
+            ],
+            [
+              "Medium",
+              "3-10mm thickness; <16mm diameter",
+              "I-125 Brachytherapy vs. Enucleation"
+            ],
+            [
+              "Large",
+              ">10mm thickness OR >16mm diameter",
+              "Enucleation (+/- Pre-op External Beam)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Risk Factors (TFSOM-UHHD)",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Thickness > 2mm",
+          "Fluid (Subretinal)",
+          "Symptoms (Blurred vision, photopsia)",
+          "Orange pigment (Lipofuscin)",
+          "Margin (Touching optic disc)",
+          "Ultrasonographic Hollowness",
+          "Halo absence",
+          "Diameter > 5mm"
+        ]
+      },
+      {
+        "title": "Red Flags: Metastatic Risk",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Monosomy 3 (High mortality risk)",
+          "BAP1 mutation (Class 2 gene expression profile)",
+          "Large basal diameter >15mm",
+          "Ciliary body involvement",
+          "Extra-scleral extension"
+        ]
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Multimodal imaging (Fundus photo, B-scan, UBM, OCT, FFA/ICGA).",
+          "Step 2: Systemic staging (Liver function tests, abdominal MRI/USG).",
+          "Step 3: Choice of local control: Plaque Brachytherapy (I-125, Ru-106, Pd-103) vs. Proton Beam Radiotherapy.",
+          "Step 4: Surgical excision for iris/ciliary body involvement if feasible.",
+          "Step 5: Regular monitoring for local recurrence and systemic hepatic metastasis."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Choroidal Melanoma Mimics",
+          "branches": [
+            "Choroidal Nevus",
+            "Choroidal Metastasis",
+            "Choroidal Hemangioma",
+            "Posterior Scleritis",
+            "CHRPE",
+            "Disciform Maculopathy"
+          ]
+        }
+      },
+      {
+        "title": "Mnemonics for Differentiation",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "To Find Small Ocular Melanoma",
+          "explanation": "T-F-S-O-M: Thickness, Fluid, Symptoms, Orange pigment, Margin near disc."
+        }
+      },
+      {
+        "title": "Prognostic Indicators",
+        "icon": "science",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Genetic Class 1",
+              "value": 90
+            },
+            {
+              "label": "Genetic Class 2",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances & Landmark Evidence",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Gene Expression Profiling (GEP): Class 1 (Low risk) vs. Class 2 (High metastatic risk).",
+          "PRAME expression as a secondary prognostic marker.",
+          "Tezepelumab/Tebentafusp: The first FDA-approved treatment for metastatic uveal melanoma (HLA-A*02:01 positive).",
+          "The shift towards personalized medicine using biopsy-driven prognostic testing."
+        ]
+      }
+    ],
+    "generationPrompt": "Choroidal melanoma treatment & COMS study",
+    "chapterId": "tumours"
+  },
+  "chapterId": "tumours",
+  "read": true
+}

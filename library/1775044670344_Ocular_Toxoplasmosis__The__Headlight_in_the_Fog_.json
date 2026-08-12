@@ -1,0 +1,301 @@
+{
+  "id": 1775044670344,
+  "seqId": 238,
+  "title": "Ocular Toxoplasmosis: The 'Headlight in the Fog'",
+  "summary": "Ocular toxoplasmosis is the leading cause of posterior uveitis globally, caused by the obligate intracellular protozoan Toxoplasma gondii. This comprehensive guide covers the lifecycle, clinical manifestations, and the 'Triple Therapy' gold standard for management.",
+  "date": "2026-04-01T11:57:50.344Z",
+  "data": {
+    "title": "Ocular Toxoplasmosis: The 'Headlight in the Fog'",
+    "summary": "Ocular toxoplasmosis is the leading cause of posterior uveitis globally, caused by the obligate intracellular protozoan Toxoplasma gondii. This comprehensive guide covers the lifecycle, clinical manifestations, and the 'Triple Therapy' gold standard for management.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M130 110 Q 145 100 160 115' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='3'/><circle cx='140' cy='105' r='8' fill='hsl(215, 90%, 45%)' opacity='0.6'/><path d='M135 100 L 145 110 M 145 100 L 135 110' stroke='white' stroke-width='2'/><circle cx='100' cy='100' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Etiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Ocular toxoplasmosis is a retinochoroiditis caused by Toxoplasma gondii. Humans are accidental intermediate hosts. The parasite exists in three forms: Oocysts (excreted by cats), Tachyzoites (active, proliferative form causing tissue damage), and Bradyzoites (inactive, encysted form in chronic infection)."
+      },
+      {
+        "title": "Transmission Pathways",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "T. gondii Infection",
+          "branches": [
+            "Congenital (Transplacental)",
+            "Acquired (Oocysts in soil/water)",
+            "Acquired (Bradyzoites in raw meat)",
+            "Organ Transplant / Blood"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Global Seroprevalence",
+              "value": 30
+            },
+            {
+              "label": "Prevalence in Brazil",
+              "value": 80
+            },
+            {
+              "label": "Posterior Uveitis cases (Toxo)",
+              "value": 50
+            },
+            {
+              "label": "Congenital Transmission Risk (3rd Trim)",
+              "value": 65
+            }
+          ]
+        }
+      },
+      {
+        "title": "Sabin’s Classic Triad (Congenital)",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "The 3 C's",
+          "explanation": "Chorioretinitis (often bilateral/macular), Convulsions (CNS involvement), and Cerebral Calcifications."
+        }
+      },
+      {
+        "title": "Comparison of Parasite Stages",
+        "icon": "microbiology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Stage",
+            "Description",
+            "Clinical Relevance"
+          ],
+          "rows": [
+            [
+              "Tachyzoite",
+              "Rapidly dividing form",
+              "Responsible for acute inflammation and tissue destruction."
+            ],
+            [
+              "Bradyzoite",
+              "Slow-growing form in tissue cysts",
+              "Latent stage; rupture causes recurrent retinochoroiditis."
+            ],
+            [
+              "Oocyst",
+              "Product of sexual cycle in cat gut",
+              "Environmental contaminant; highly resistant to disinfection."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Primary Ocular Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Focus of fluffy white retinitis (satellite lesion) adjacent to a pigmented scar.",
+          "Moderate to severe vitritis ('Headlight in the Fog').",
+          "Kyrieleis Arteritis (periarterial immune deposits).",
+          "Anterior uveitis (Granulomatous or non-granulomatous).",
+          "Elevated Intraocular Pressure (secondary inflammatory glaucoma)."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "fact_check",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Clinical Examination: Dilated fundoscopy to identify active vs scarred lesions.",
+          "2. Serology: Serum IgG (exposure) and IgM (acute infection).",
+          "3. Multimodal Imaging: OCT (identifies focal thickening), FFA (early hypofluorescence, late leakage).",
+          "4. Anterior Chamber Tap: PCR for T. gondii DNA or Goldmann-Witmer Coefficient (GWC) for local antibody production.",
+          "5. Systemic Screening: Evaluate for immunosuppression (HIV/AIDS)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "difference",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Cytomegalovirus (CMV)",
+              "Minimal vitritis, 'pizza-pie' appearance, usually CD4 < 50."
+            ],
+            [
+              "Ocular Toxocariasis",
+              "Typically unilateral, peripheral/macular granuloma with tractional bands."
+            ],
+            [
+              "Syphilis",
+              "Variable presentation, 'great imitator', positive RPR/FTA-ABS."
+            ],
+            [
+              "Acute Retinal Necrosis (ARN)",
+              "Rapidly progressing peripheral necrosis, significant vitritis, viral etiology (HSV/VZV)."
+            ],
+            [
+              "Sarcoidosis",
+              "Candle-wax drippings (periphlebitis), granulomatous AC reaction."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Indications for Systemic Treatment",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Lesion within 1 disc diameter of Fovea or Optic Nerve.",
+          "Lesion threatening a major retinal vessel.",
+          "Significant vitritis causing 2+ drop in visual acuity.",
+          "Immunocompromised patients (MANDATORY treatment).",
+          "Congenital toxoplasmosis in the first year of life.",
+          "Only seeing eye or bilateral involvement."
+        ]
+      },
+      {
+        "title": "Classic 'Triple Therapy' Regimen",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Pyrimethamine: 50-100mg loading dose, then 25-50mg daily.",
+          "2. Sulfadiazine: 1g four times daily.",
+          "3. Folinic Acid (Leucovorin): 5-15mg 3x weekly (prevents bone marrow suppression).",
+          "4. Systemic Prednisone: 0.5-1.0mg/kg daily (start 48h AFTER antibiotics)."
+        ]
+      },
+      {
+        "title": "Alternative Treatment Options",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Bactrim DS (Trimethoprim/Sulfamethoxazole): 160/800mg BID. Increasingly popular due to cost and safety.",
+          "Clindamycin: 300mg QID (Risk of Pseudomembranous colitis).",
+          "Azithromycin: 500mg daily (Used in pregnancy or sulfa allergy).",
+          "Intravitreal Injection: Clindamycin (1mg/0.1ml) + Dexamethasone (400µg/0.1ml)."
+        ]
+      },
+      {
+        "title": "Pyrimethamine Monitoring",
+        "icon": "monitoring",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PYR-BLOOD",
+          "explanation": "Pyrimethamine can cause thrombocytopenia and leukopenia. Check Weekly Complete Blood Count (CBC)!"
+        }
+      },
+      {
+        "title": "Vitreous Haze Grading (Nussenblatt)",
+        "icon": "reorder",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Grade 0 (Clear)",
+              "value": 0
+            },
+            {
+              "label": "Grade 1 (Clear details)",
+              "value": 25
+            },
+            {
+              "label": "Grade 2 (Obscured details)",
+              "value": 50
+            },
+            {
+              "label": "Grade 3 (Optic Nerve visible)",
+              "value": 75
+            },
+            {
+              "label": "Grade 4 (Optic Nerve obscured)",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "potted_plant",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Long-term Risks",
+          "branches": [
+            "Choroidal Neovascularization (CNV)",
+            "Epiretinal Membrane (ERM)",
+            "Retinal Detachment (Rhegmatogenous/Tractional)",
+            "Optic Atrophy",
+            "Cystoid Macular Edema (CME)"
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "NEVER give systemic steroids without antibiotic coverage (risk of fulminant retinal necrosis).",
+          "The 'satellite lesion' is the most characteristic finding.",
+          "Toxoplasmosis is the most common cause of posterior uveitis in immunocompetent patients.",
+          "Recurrence risk is highest in the first year after an active episode.",
+          "In HIV patients, lesions may be large, multifocal, and lack pigmentary scarring."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "A landmark study by Silveira et al. demonstrated that prophylactic treatment with Trimethoprim/Sulfamethoxazole (one tablet every other day) significantly reduced the rate of recurrent retinochoroiditis in high-risk patients. Recent trends show a shift toward intravitreal therapy to minimize systemic side effects, especially in pregnant patients or those with contraindications to systemic sulfa drugs."
+      }
+    ],
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "_newlyImported": 1775044670344,
+  "communityId": "sub_1774255684151_vi40wyl8l",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-23T08:48:04.151Z",
+  "read": true
+}

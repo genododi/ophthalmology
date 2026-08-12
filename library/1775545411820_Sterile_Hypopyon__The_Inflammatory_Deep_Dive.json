@@ -1,0 +1,374 @@
+{
+  "id": 1775545411820,
+  "seqId": 748,
+  "title": "Sterile Hypopyon: The Inflammatory Deep Dive",
+  "summary": "A comprehensive clinical guide to the sterile accumulation of leukocytes in the anterior chamber. Differentiating non-infectious inflammatory responses from infectious endophthalmitis is critical for vision-saving management.",
+  "date": "2026-04-07T07:03:31.820Z",
+  "data": {
+    "title": "Sterile Hypopyon: The Inflammatory Deep Dive",
+    "summary": "A comprehensive clinical guide to the sterile accumulation of leukocytes in the anterior chamber. Differentiating non-infectious inflammatory responses from infectious endophthalmitis is critical for vision-saving management.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M15 65 Q 50 55 85 65 L 80 80 Q 50 85 20 80 Z' fill='hsl(215, 90%, 45%)' opacity='0.6'/><path d='M20 50 A 30 30 0 0 1 80 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><circle cx='50' cy='45' r='12' fill='hsl(215, 90%, 45%)' opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "A sterile hypopyon is the gravitational settling of inflammatory cells (predominantly polymorphonuclear leukocytes) in the inferior angle of the anterior chamber in the absence of an active microbial infection. It represents a severe breakdown of the blood-aqueous barrier and is a hallmark of intense intraocular inflammation, often associated with specific systemic HLA-B27 syndromes or toxic insults."
+      },
+      {
+        "title": "Epidemiological Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "HLA-B27+ Uveitis",
+              "value": 85
+            },
+            {
+              "label": "Behçet Disease",
+              "value": 30
+            },
+            {
+              "label": "Sarcoidosis",
+              "value": 10
+            },
+            {
+              "label": "Post-Anti-VEGF",
+              "value": 0.1
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The Sterile Spectrum",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Sterile Hypopyon",
+          "branches": [
+            "HLA-B27 Associated (AS, Reiters, IBD, Psoriatic)",
+            "Behçet Disease (Transient/Shifting)",
+            "Toxic Anterior Segment Syndrome (TASS)",
+            "Drug-Induced (Rifabutin, Cidofovir, Brolucizumab)",
+            "Lens-Induced (Phacolytic, Phacoantigenic)",
+            "Masquerade (Retinoblastoma, Lymphoma)",
+            "Post-Surgical/Trauma (Non-infectious)"
+          ]
+        }
+      },
+      {
+        "title": "The Great Divide: Sterile vs. Infectious",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Sterile (TASS/Uveitic)",
+            "Infectious (Endophthalmitis)"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Early (12-24h for TASS) or Chronic",
+              "Delayed (3-7 days post-op)"
+            ],
+            [
+              "Pain",
+              "Mild to Moderate",
+              "Severe / Deep Boring"
+            ],
+            [
+              "Hypopyon",
+              "White, well-defined, 'mobile'",
+              "Creamy, fibrinous, 'sticky'"
+            ],
+            [
+              "Lid Edema",
+              "Absent/Minimal",
+              "Significant/Chemosis"
+            ],
+            [
+              "Vitreous Involvement",
+              "Minimal (Anterior only)",
+              "Dense vitritis (Spreads quickly)"
+            ],
+            [
+              "Response to Steroids",
+              "Rapid Improvement",
+              "Worsening or No Change"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "microscope",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Inferior layering of white cells (level measured in mm)",
+          "Ciliary flush / Circumcorneal injection",
+          "Fibrinous exudate in the pupil area",
+          "Posterior synechiae (PS) formation (Common in HLA-B27)",
+          "Corneal edema (Limbus-to-limbus in TASS)",
+          "Variable IOP (Low due to ciliary body shutdown or High due to trabeculitis)",
+          "Shifting hypopyon (Classic for Behçet's Disease)"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Rule out infection via Vitreous/AC tap if post-op or post-injection.",
+          "Step 2: HLA-B27 genetic testing for systemic association.",
+          "Step 3: Chest X-ray or CT for Sarcoidosis (Bilateral hilar adenopathy).",
+          "Step 4: Syphilis serology (RPR/VDRL) and FTA-ABS.",
+          "Step 5: B-Scan ultrasound to assess posterior segment/vitritis.",
+          "Step 6: Serum ACE levels and Lysozyme."
+        ]
+      },
+      {
+        "title": "Toxic Anterior Segment Syndrome (TASS)",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Acute sterile inflammation following intraocular surgery.",
+          "Causes: Denatured OVDs, detergents on instruments, contaminated solutions.",
+          "Onset: Characteristically 12–24 hours post-surgery.",
+          "Sign: Diffuse limbus-to-limbus corneal edema.",
+          "Treatment: Intensive topical steroids (Prednisolone Acetate 1% q1h)."
+        ]
+      },
+      {
+        "title": "Red Flags: When to Suspect Infection",
+        "icon": "report",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Pain out of proportion to clinical signs.",
+          "Rapidly progressive vitritis / loss of red reflex.",
+          "Hypopyon appearing >48 hours post-cataract surgery.",
+          "History of recent trauma with organic matter.",
+          "Lack of response to hourly topical steroids within 24 hours."
+        ]
+      },
+      {
+        "title": "Management & Treatment Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Aggressive Topical Steroids: Prednisolone Acetate 1% or Dexamethasone 0.1% every 1-2 hours initially.",
+          "2. Cycloplegia: Atropine 1% BID or Homatropine 5% TID to prevent posterior synechiae and reduce pain.",
+          "3. Subconjunctival Injections: Dexamethasone 4mg/1ml for severe cases.",
+          "4. Systemic Therapy: Oral Prednisone (1mg/kg/day) for bilateral or refractory cases.",
+          "5. Immunomodulators: Anti-TNF-alpha (Infliximab) specifically for Behçet disease.",
+          "6. Tapering: Slow taper over 4-6 weeks to prevent rebound inflammation."
+        ]
+      },
+      {
+        "title": "Common Mnemonics",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "BASH HLA",
+          "explanation": "B: Behçet's; A: Ankylosing Spondylitis; S: Sarcoidosis; H: HLA-B27 Associated (Psoriatic arthritis, IBD, Reactive arthritis)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "The hypopyon of Behçet is 'cold' and 'mobile' (shifts with head tilt).",
+          "Always check for a hidden IOL haptic or lens fragment in chronic hypopyon.",
+          "Pseudo-hypopyon from Retinoblastoma is composed of tumor cells, not WBCs.",
+          "Intravitreal Triamcinolone can mimic a hypopyon (pseudohypopyon)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Mindmap",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Hypopyon Mimics",
+          "branches": [
+            "Endophthalmitis (Bacterial/Fungal)",
+            "Masquerade (Lymphoma/Leukemia)",
+            "Retinoblastoma (Pediatric)",
+            "Uveitis-Glaucoma-Hyphema (UGH) Syndrome",
+            "Emulsified Silicone Oil",
+            "Ghost Cell Glaucoma"
+          ]
+        }
+      },
+      {
+        "title": "Drug-Induced Sterile Hypopyon",
+        "icon": "pill",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Medication",
+            "Mechanism/Note"
+          ],
+          "rows": [
+            [
+              "Rifabutin",
+              "Used in MAC treatment; dose-dependent."
+            ],
+            [
+              "Cidofovir",
+              "CMV Retinitis treatment; often needs Probenecid."
+            ],
+            [
+              "Brolucizumab",
+              "Anti-VEGF; associated with occlusive vasculitis."
+            ],
+            [
+              "Checkpoint Inhibitors",
+              "Immune-related adverse events (irAEs)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The HAWK & HARRIER Studies (Clinical context)",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "Recent landmark studies identified an increased incidence of sterile intraocular inflammation (4.6%) and retinal vasculitis following Brolucizumab (Beovu) injections for nAMD. Clinicians must distinguish this from endophthalmitis to avoid unnecessary intravitreal antibiotics and focus on steroid therapy."
+      },
+      {
+        "title": "Surgical Complications & TASS grading",
+        "icon": "healing",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Mild (Cells only)",
+              "value": 100
+            },
+            {
+              "label": "Moderate (Hypopyon <2mm)",
+              "value": 45
+            },
+            {
+              "label": "Severe (Fibrin/Full AC)",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "troubleshoot",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Cystoid Macular Edema (CME) - most common cause of vision loss.",
+          "Secondary Glaucoma due to peripheral anterior synechiae (PAS).",
+          "Complicated Cataract (Posterior subcapsular).",
+          "Phthisis Bulbi (in chronic/recurrent Behçet's)."
+        ]
+      }
+    ],
+    "generationPrompt": "Sterile hypopyon",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "read": true,
+  "bookmarked": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 436,
+      "keywords": [
+        "hypopyon",
+        "inflammatory",
+        "uveitis",
+        "great",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 304,
+      "keywords": [
+        "inflammatory",
+        "uveitis",
+        "spectrum",
+        "ocular",
+        "anterior"
+      ]
+    },
+    {
+      "pageNum": 442,
+      "keywords": [
+        "inflammatory",
+        "uveitis",
+        "infectious",
+        "ocular",
+        "diagnostic"
+      ]
+    },
+    {
+      "pageNum": 604,
+      "keywords": [
+        "sterile",
+        "inflammatory",
+        "ocular",
+        "examination",
+        "anterior"
+      ]
+    },
+    {
+      "pageNum": 133,
+      "keywords": [
+        "inflammatory",
+        "ocular",
+        "investigations",
+        "suspect",
+        "infection"
+      ]
+    },
+    {
+      "pageNum": 455,
+      "keywords": [
+        "inflammatory",
+        "endophthalmitis",
+        "uveitis",
+        "examination",
+        "findings"
+      ]
+    }
+  ]
+}

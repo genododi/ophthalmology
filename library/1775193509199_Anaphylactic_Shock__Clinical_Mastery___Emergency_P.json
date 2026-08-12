@@ -1,0 +1,185 @@
+{
+  "id": 1775193509199,
+  "seqId": 596,
+  "title": "Anaphylactic Shock: Clinical Mastery & Emergency Protocol",
+  "summary": "Anaphylaxis is a severe, life-threatening systemic hypersensitivity reaction characterized by rapid onset and multisystem involvement. Immediate recognition and administration of intramuscular epinephrine are the cornerstones of survival.",
+  "date": "2026-04-03T05:18:29.199Z",
+  "data": {
+    "title": "Anaphylactic Shock: Clinical Mastery & Emergency Protocol",
+    "summary": "Anaphylaxis is a severe, life-threatening systemic hypersensitivity reaction characterized by rapid onset and multisystem involvement. Immediate recognition and administration of intramuscular epinephrine are the cornerstones of survival.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='hsl(215, 90%, 45%)' opacity='0.1'/><path d='M100 40 L100 160 M40 100 L160 100' stroke='hsl(215, 90%, 45%)' stroke-width='8' stroke-linecap='round'/><path d='M100 60 L140 100 L100 140 L60 100 Z' fill='none' stroke='white' stroke-width='4'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Anaphylaxis is an acute, systemic IgE-mediated (or non-IgE-mediated) reaction involving mast cell and basophil activation. Pathophysiology involves the rapid release of mediators: Histamine, Tryptase, Prostaglandin D2, and Leukotrienes, leading to vasodilation, increased capillary permeability, and bronchoconstriction."
+      },
+      {
+        "title": "Diagnostic Criteria (NIAID/FAAN)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Criterion",
+            "Clinical Presentation"
+          ],
+          "rows": [
+            [
+              "Criterion 1",
+              "Acute onset (min to hrs) with skin/mucosal involvement PLUS respiratory or CV compromise."
+            ],
+            [
+              "Criterion 2",
+              "2+ of: skin, respiratory, CV, or GI involvement after exposure to likely allergen."
+            ],
+            [
+              "Criterion 3",
+              "Reduced BP after exposure to known allergen (e.g., <90mmHg systolic or 30% drop)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Immediate Actions",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Airway obstruction (stridor, laryngeal edema)",
+          "Hypotension/Shock (end-organ hypoperfusion)",
+          "Cardiac arrest/Arrhythmia",
+          "Refractory bronchospasm",
+          "Loss of consciousness"
+        ]
+      },
+      {
+        "title": "Clinical Features",
+        "icon": "medication",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Organ Systems",
+          "branches": [
+            "Skin: Urticaria, angioedema",
+            "Resp: Wheeze, stridor",
+            "CV: Tachycardia, hypotension",
+            "GI: Cramps, vomiting"
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: ABCs of Management",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "E-P-I-N-E-P-H-R-I-N-E",
+          "explanation": "E: Epinephrine (First line!) | P: Position (Supine) | I: IV Fluids | N: Nebulizers | E: Electrolytes | P: Pressors | H: H1/H2 Blockers | R: Refractory checks | I: Intubation if needed | N: Notify team | E: Evaluate vitals"
+        }
+      },
+      {
+        "title": "Emergency Treatment Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Remove inciting agent immediately.",
+          "2. Administer IM Epinephrine (1mg/mL): 0.01 mg/kg (Max 0.5mg in adults) into mid-outer thigh.",
+          "3. Position patient supine with legs elevated.",
+          "4. High-flow Oxygen (10-15 L/min).",
+          "5. Volume expansion with Crystalloids (1-2L isotonic saline).",
+          "6. Adjuncts: Albuterol, H1-antagonists (Diphenhydramine 50mg), H2-antagonists (Famotidine), Corticosteroids (Methylprednisolone 125mg)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Key Differentiator"
+          ],
+          "rows": [
+            [
+              "Vasovagal",
+              "Bradycardia, pallor, no skin rash"
+            ],
+            [
+              "Carcinoid",
+              "Chronic flushing, diarrhea"
+            ],
+            [
+              "Scombroid",
+              "History of spoiled fish ingestion"
+            ],
+            [
+              "Panic attack",
+              "Normal BP, hyperventilation"
+            ],
+            [
+              "Pheochromocytoma",
+              "Hypertension (not hypo)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Incidence of Triggers",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Food (Peanuts/Shellfish)",
+              "value": 40
+            },
+            {
+              "label": "Medications (Antibiotics)",
+              "value": 30
+            },
+            {
+              "label": "Stings (Hymenoptera)",
+              "value": 20
+            },
+            {
+              "label": "Idiopathic/Other",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Do not wait for cutaneous signs (skin symptoms absent in 20% of anaphylaxis).",
+          "IM injection in the thigh is superior to SC or subcutaneous injection for rapid absorption.",
+          "Biphasic reactions occur in 1-20% of cases; keep patients observed for 4-6 hours.",
+          "Beta-blockers can render epinephrine ineffective; consider Glucagon (1-5mg IV) in such patients.",
+          "Serum tryptase levels (peak at 60-90 min post-onset) can confirm the diagnosis retrospectively."
+        ]
+      }
+    ],
+    "generationPrompt": "Anaphylactic shock (Medicine & emergency)",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills"
+}

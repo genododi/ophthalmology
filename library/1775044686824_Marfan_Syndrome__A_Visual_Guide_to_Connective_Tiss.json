@@ -1,0 +1,190 @@
+{
+  "id": 1775044686824,
+  "seqId": 400,
+  "title": "Marfan Syndrome: A Visual Guide to Connective Tissue Pathology",
+  "summary": "Marfan syndrome is a systemic, autosomal dominant disorder of connective tissue caused by mutations in the FBN1 gene. It is characterized by specific ocular, cardiovascular, and skeletal manifestations that require lifelong monitoring.",
+  "date": "2026-04-01T11:58:06.824Z",
+  "data": {
+    "title": "Marfan Syndrome: A Visual Guide to Connective Tissue Pathology",
+    "summary": "Marfan syndrome is a systemic, autosomal dominant disorder of connective tissue caused by mutations in the FBN1 gene. It is characterized by specific ocular, cardiovascular, and skeletal manifestations that require lifelong monitoring.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='35' r='15' fill='hsl(215, 90%, 45%)' opacity='0.6'/><line x1='30' y1='50' x2='70' y2='50' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='2,2'/><path d='M20 50 Q50 20 80 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 Q50 80 80 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Genetic Foundations",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Marfan Syndrome (MFS)",
+          "branches": [
+            "Autosomal Dominant Inheritance",
+            "FBN1 Gene Mutation",
+            "Chromosome 15q21.1",
+            "Fibrillin-1 Protein Defect",
+            "TGF-beta Signaling Dysregulation"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Prevalence of Manifestations",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Ectopia Lentis",
+              "value": 80
+            },
+            {
+              "label": "Aortic Root Dilation",
+              "value": 75
+            },
+            {
+              "label": "Skeletal Overgrowth",
+              "value": 90
+            },
+            {
+              "label": "Myopia",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "title": "Ocular Hallmarks",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Ectopia Lentis: Classic Upward and Superotemporal subluxation of the crystalline lens.",
+          "Zonular Integrity: Stretched or broken zonules (fibrillin-rich fibers).",
+          "Cornea Plana: Characteristically flat corneal curvature.",
+          "Increased Axial Length: Leading to high axial myopia.",
+          "Iris Hypoplasia: Resulting in transillumination defects and poor pupillary dilation.",
+          "Ciliary Body Hypoplasia: Often observed on ultrasound biomicroscopy.",
+          "Vitreous Liquefaction: Premature vitreous syneresis."
+        ]
+      },
+      {
+        "title": "Critical Differential Diagnosis",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Marfan Syndrome",
+            "Homocystinuria",
+            "Weill-Marchesani"
+          ],
+          "rows": [
+            [
+              "Lens Direction",
+              "Upward / Superotemporal",
+              "Downward / Inferonasal",
+              "Microspherophakia (Anterior/Down)"
+            ],
+            [
+              "Genetics",
+              "Autosomal Dominant (FBN1)",
+              "Autosomal Recessive (CBS)",
+              "AD (FBN1) or AR (ADAMTS10)"
+            ],
+            [
+              "Stature",
+              "Tall / Dolichostenomelia",
+              "Tall",
+              "Short / Brachydactyly"
+            ],
+            [
+              "Intellectual Ability",
+              "Normal",
+              "Often Impaired",
+              "Normal"
+            ],
+            [
+              "Vascular Risk",
+              "Aortic Aneurysm",
+              "Thrombosis / Stroke",
+              "None specified"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Major Systemic Involvement",
+        "icon": "cardiology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Cardiovascular: Aortic root aneurysm, Aortic dissection, Mitral valve prolapse (MVP).",
+          "Skeletal: Arachnodactyly (spider fingers), Pectus excavatum or carinatum, Scoliosis.",
+          "Integumentary: Striae atrophicae (stretch marks) without weight change.",
+          "Pulmonary: Spontaneous pneumothorax, apical blebs.",
+          "Dural Ectasia: Widening of the dural sac in the lumbosacral spine."
+        ]
+      },
+      {
+        "title": "Red Flag Complications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rhegmatogenous Retinal Detachment (High Risk due to axial length and vitreous changes)",
+          "Aortic Dissection (Life-threatening emergency)",
+          "Secondary Glaucoma (Angle-closure due to lens subluxation or pupillary block)",
+          "Presenile Cataracts (Nuclear sclerosis)",
+          "Endophthalmitis (Increased risk if lens surgery is required)"
+        ]
+      },
+      {
+        "title": "The Mnemonic for Clinical Signs",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "MARFANS",
+          "explanation": "M: Mitral valve prolapse; A: Aortic Aneurysm; R: Retinal detachment; F: Fibrillin-1 mutation; A: Arachnodactyly; N: Near-sightedness (Myopia); S: Subluxated lens."
+        }
+      },
+      {
+        "title": "Diagnostic Pathway: Ghent Criteria",
+        "icon": "school",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Clinical Evaluation of Systemic Score (>7 points).",
+          "Step 2: Slit-lamp exam to confirm Ectopia Lentis.",
+          "Step 3: Echocardiography to measure Aortic Root Z-score.",
+          "Step 4: Molecular Genetic Testing for FBN1 mutation.",
+          "Step 5: Review Family History of Marfan Syndrome."
+        ]
+      },
+      {
+        "title": "Exhaustive Overview of Marfan",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Marfan syndrome (MFS) is a pervasive multi-system genetic disorder. In the eye, the classic finding of ectopia lentis occurs because the zonular fibers, composed of fibrillin-1, are weak or absent. This leads to the lens being pulled toward the strongest remaining zonules, typically in a superior-temporal direction. Beyond the eye, the cardiovascular implications are the most life-threatening, particularly aortic root dilation which can lead to rupture. Skeletal features like a high-arched palate and joint hypermobility are common. Management requires a multidisciplinary team including ophthalmologists, cardiologists, and geneticists. Regular dilated fundus exams are mandatory to monitor for retinal tears and detachments, which occur at a higher frequency in this population due to increased axial length and collagen defects."
+      }
+    ],
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "_newlyImported": 1775044686824,
+  "communityId": "sub_1773775007770_kkbgdzu7ncj46f",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true
+}

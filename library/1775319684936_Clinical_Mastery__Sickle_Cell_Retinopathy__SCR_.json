@@ -1,0 +1,159 @@
+{
+  "id": 1775319684936,
+  "seqId": 641,
+  "title": "Clinical Mastery: Sickle Cell Retinopathy (SCR)",
+  "summary": "Sickle cell retinopathy represents a spectrum of vaso-occlusive ocular manifestations stemming from hemoglobinopathies. Understanding the transition from non-proliferative to proliferative stages is critical for preventing irreversible vision loss through timely peripheral retinal ischemia management.",
+  "date": "2026-04-04T16:21:24.936Z",
+  "data": {
+    "title": "Clinical Mastery: Sickle Cell Retinopathy (SCR)",
+    "summary": "Sickle cell retinopathy represents a spectrum of vaso-occlusive ocular manifestations stemming from hemoglobinopathies. Understanding the transition from non-proliferative to proliferative stages is critical for preventing irreversible vision loss through timely peripheral retinal ischemia management.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M20 50 Q 50 20 80 50 T 20 50' fill='none' stroke='#1e40af' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='#dc2626'/><path d='M40 50 L 60 50 M 50 40 L 50 60' stroke='#fff' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Sickle cell retinopathy (SCR) comprises ocular changes associated with HbSS (Sickle Cell Anemia), HbSC, and HbS-thalassemia. Pathophysiology is driven by the polymerization of deoxygenated HbS, leading to erythrocyte rigidity, vascular stasis, and microvascular occlusion. Chronic ischemia triggers an upregulation of VEGF, promoting neovascularization."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "HbSC (Highest risk)",
+              "value": 90
+            },
+            {
+              "label": "HbS-Thal",
+              "value": 60
+            },
+            {
+              "label": "HbSS (Anemia)",
+              "value": 25
+            }
+          ]
+        }
+      },
+      {
+        "title": "Goldberg's Classification (Proliferative SCR)",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Goldberg Stages",
+          "branches": [
+            "I: Peripheral arteriolar occlusion",
+            "II: Peripheral arteriolar-venular anastomoses",
+            "III: Neovascularization (Sea Fans)",
+            "IV: Vitreous hemorrhage",
+            "V: Tractional retinal detachment"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags for Intervention",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Presence of Goldberg Stage III Neovascularization (Sea Fans)",
+          "Any evidence of fresh vitreous hemorrhage",
+          "Symptoms of flashes or floaters indicating retinal traction",
+          "Peripheral retinal edema indicating active ischemia",
+          "History of hyphema in the context of sickle trait/disease"
+        ]
+      },
+      {
+        "title": "Clinical Features & Exam Findings",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Sign Type",
+            "Clinical Description"
+          ],
+          "rows": [
+            [
+              "Non-Proliferative",
+              "Salmon patch hemorrhages, Black sunbursts, Silver wire vessels"
+            ],
+            [
+              "Proliferative",
+              "Sea fan neovascularization at the junction of perfused/non-perfused retina"
+            ],
+            [
+              "Anterior Segment",
+              "Iris atrophy, hyphema (often associated with increased IOP)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Dilated fundus examination with indirect ophthalmoscopy and scleral depression (Gold Standard).",
+          "Step 2: Fluorescein Angiography (FFA) to identify peripheral non-perfusion and early sea fans.",
+          "Step 3: OCT Macula to rule out ischemia and epiretinal membranes.",
+          "Step 4: B-Scan Ultrasonography if media is opaque (e.g., dense vitreal hemorrhage) to rule out RD."
+        ]
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Observation: Routine monitoring for quiescent sea fans (auto-infarction is possible).",
+          "Laser Photocoagulation: Feeder vessel treatment or scatter photocoagulation of ischemic areas for active sea fans.",
+          "Anti-VEGF: Off-label use for pre-vitrectomy to reduce intraoperative bleeding.",
+          "Pars Plana Vitrectomy (PPV): Indicated for non-clearing vitreous hemorrhage or tractional RD.",
+          "Anterior Chamber Irrigation: Immediate washout for traumatic hyphema with elevated IOP."
+        ]
+      },
+      {
+        "title": "Mnemonic: Retinal Signs",
+        "icon": "remember",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "B.A.S.S.",
+          "explanation": "B: Black sunbursts (RPE hyperplasia), A: Arteriolar occlusion, S: Sea fans (neovasc), S: Salmon patch (intraretinal hemorrhage)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "HbSC genotype has the highest risk of PDR due to higher blood viscosity.",
+          "Always perform systemic screening; patients with PDR should have their hemoglobin status confirmed.",
+          "Avoid carbonic anhydrase inhibitors in acute hyphema/increased IOP (can shift pH and induce sickling).",
+          "Sea fans are usually located in the temporal periphery."
+        ]
+      }
+    ],
+    "generationPrompt": "Sickle cell retinopathy",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "read": false
+}

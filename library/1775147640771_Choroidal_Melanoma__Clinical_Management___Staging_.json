@@ -1,0 +1,170 @@
+{
+  "id": 1775147640771,
+  "seqId": 564,
+  "title": "Choroidal Melanoma: Clinical Management & Staging Mastery",
+  "summary": "The most common primary intraocular malignancy in adults, requiring a multidisciplinary approach balancing ocular retention with systemic life-saving measures. This guide integrates COMS protocol standards with modern radiation and surgical paradigms.",
+  "date": "2026-04-02T16:34:00.771Z",
+  "data": {
+    "title": "Choroidal Melanoma: Clinical Management & Staging Mastery",
+    "summary": "The most common primary intraocular malignancy in adults, requiring a multidisciplinary approach balancing ocular retention with systemic life-saving measures. This guide integrates COMS protocol standards with modern radiation and surgical paradigms.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='10'/><ellipse cx='100' cy='100' rx='30' ry='60' fill='hsl(215, 90%, 45%)' opacity='0.3'/><circle cx='100' cy='100' r='20' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Choroidal melanoma arises from uveal melanocytes. It is the most common primary intraocular malignancy in adults (incidence ~6 per million). Risk factors include fair skin, light iris color, BAP1 mutation (hereditary), and ocular/oculodermal melanocytosis. Peak incidence is in the 6th decade of life."
+      },
+      {
+        "title": "TNM Classification (AJCC 8th Ed)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Definition Features"
+          ],
+          "rows": [
+            [
+              "T1",
+              "Thickness < 2.5mm, basal diameter < 10mm"
+            ],
+            [
+              "T2",
+              "Thickness 2.5-5.0mm, basal diameter < 15mm"
+            ],
+            [
+              "T3",
+              "Thickness 5.1-10.0mm, basal diameter < 20mm"
+            ],
+            [
+              "T4",
+              "Thickness > 10.0mm or diameter > 20mm"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Hierarchy",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Detailed Dilated Fundus Exam & Indirect Ophthalmoscopy",
+          "2. B-Scan Ultrasonography (Internal reflectivity, collar-stud sign)",
+          "3. OCT (Presence of SRF, shaggy photoreceptors)",
+          "4. Fundus Autofluorescence (Lipofuscin orange pigment)",
+          "5. Systemic staging: Liver LFTs, Abdominal Ultrasound/CT/MRI"
+        ]
+      },
+      {
+        "title": "Risk of Metastasis (LUMEN Criteria)",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Large tumor basal diameter (>15mm)",
+          "Ultrasound documentation of extrascleral extension",
+          "Microvascular loops on diagnostic imaging",
+          "Episcleral sentinel vessels",
+          "No halo (depigmentation) around the tumor"
+        ]
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Choroidal Melanoma Treatment",
+          "branches": [
+            "Brachytherapy (I-125, Ru-106)",
+            "Enucleation (Large T4)",
+            "Transpupillary Thermotherapy (TTT)",
+            "Local Resection (Iridocyclectomy)",
+            "Systemic Checkpoint Inhibitors (Metastatic)"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: High Risk Features",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Subretinal fluid accumulation",
+          "Orange pigment (lipofuscin) accumulation",
+          "Tumor thickness > 2mm",
+          "Symptoms: Photopsia, visual field defects, or blurry vision",
+          "Margins within 3mm of the optic disc or fovea"
+        ]
+      },
+      {
+        "title": "Remember the 'TFSOM-UHHD' Rule",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "TFSOM-UHHD",
+          "explanation": "To Find Small Ocular Melanoma: Thickness > 2mm, Fluid (subretinal), Symptoms, Orange pigment, Margin < 3mm to disc, Ultrasonographic hollowness, Halo absence, Drusen absence."
+        }
+      },
+      {
+        "title": "Recent Landmark Studies",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "COMS (Collaborative Ocular Melanoma Study): No mortality difference between I-125 plaque and enucleation for medium tumors.",
+          "LAG-3 inhibitors (Relatlimab/Nivolumab): Emerging standard for metastatic disease.",
+          "Gene Expression Profiling (GEP): Class 1 (Low risk) vs Class 2 (High risk for mets)."
+        ]
+      },
+      {
+        "title": "Ocular Complications of Treatment",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Complication",
+            "Mechanism"
+          ],
+          "rows": [
+            [
+              "Radiation Retinopathy",
+              "Direct vascular damage to retinal capillaries"
+            ],
+            [
+              "Radiation Optic Neuropathy",
+              "Ischemic damage to the optic nerve head"
+            ],
+            [
+              "Neovascular Glaucoma",
+              "VEGF release from ischemic retina/tumor"
+            ],
+            [
+              "Cataract",
+              "Cumulative scatter radiation to the lens"
+            ]
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Choroidal melanoma management",
+    "chapterId": "tumours"
+  },
+  "chapterId": "tumours",
+  "read": true
+}

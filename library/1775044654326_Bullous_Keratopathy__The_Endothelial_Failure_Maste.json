@@ -1,0 +1,335 @@
+{
+  "id": 1775044654326,
+  "seqId": 67,
+  "title": "Bullous Keratopathy: The Endothelial Failure Masterclass",
+  "summary": "A comprehensive clinical breakdown of corneal endothelial decompensation, ranging from Pseudophakic Bullous Keratopathy (PBK) to Fuchs' Dystrophy. This guide covers pathophysiology, advanced imaging, and the evolution of lamellar keratoplasty.",
+  "date": "2026-04-01T11:57:34.326Z",
+  "data": {
+    "title": "Bullous Keratopathy: The Endothelial Failure Masterclass",
+    "summary": "A comprehensive clinical breakdown of corneal endothelial decompensation, ranging from Pseudophakic Bullous Keratopathy (PBK) to Fuchs' Dystrophy. This guide covers pathophysiology, advanced imaging, and the evolution of lamellar keratoplasty.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 Q50 20 80 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round'/><circle cx='35' cy='38' r='4' fill='hsl(215, 90%, 70%)'/><circle cx='50' cy='32' r='5' fill='hsl(215, 90%, 75%)'/><circle cx='65' cy='38' r='4' fill='hsl(215, 90%, 80%)'/><path d='M30 70 Q50 80 70 70' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1' opacity='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Bullous Keratopathy (BK) is a pathological condition characterized by the formation of epithelial bullae (blisters) resulting from chronic corneal edema. This occurs when the corneal endothelial cell density falls below a critical threshold (typically <500 cells/mm²), failing to maintain the cornea's relative state of dehydration (deturgescence). It is most commonly seen following cataract surgery (PBK) or as the end-stage of Fuchs' Endothelial Corneal Dystrophy (FECD)."
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Post-Cataract (PBK)",
+              "value": 45
+            },
+            {
+              "label": "Fuchs' Dystrophy",
+              "value": 35
+            },
+            {
+              "label": "Trauma/Other",
+              "value": 15
+            },
+            {
+              "label": "ICE Syndrome",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Pump vs. Leak Mechanism",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Endothelial cell loss due to surgical trauma, genetic dystrophy, or high IOP.",
+          "Step 2: Failure of the Na+/K+ ATPase 'pump' mechanism and breakdown of 'leaky' tight junctions.",
+          "Step 3: Aqueous humor enters the corneal stroma, causing significant swelling (Stromal Edema).",
+          "Step 4: Fluid migrates anteriorly through Bowman’s layer into the epithelium.",
+          "Step 5: Formation of subepithelial and intraepithelial bullae (blisters).",
+          "Step 6: Bullae rupture, exposing corneal nerves and causing intense pain and photophobia."
+        ]
+      },
+      {
+        "title": "Etiology & Risk Factors",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Etiology",
+          "branches": [
+            "Surgical: Phacoemulsification power, TASS, Vitrectomy",
+            "Dystrophies: Fuchs' (FECD), PPD",
+            "Trauma: Direct endothelial contact (AC-IOL)",
+            "Glaucoma: Acute high IOP, ICE Syndrome",
+            "Graft Rejection: Following previous PKP/DSAEK"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Acute Glaucoma",
+              "Very high IOP, mid-dilated pupil, shallow AC"
+            ],
+            [
+              "HSV Keratitis",
+              "Disciform edema, decreased sensation, keratic precipitates"
+            ],
+            [
+              "Fuchs' (Early)",
+              "Guttae present, no bullae yet, morning blurring"
+            ],
+            [
+              "TASS",
+              "Post-op day 1, sterile hypopyon, diffuse limbus-to-limbus edema"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features: Symptoms & Signs",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Symptoms: Reduced visual acuity (worse in the morning), foreign body sensation.",
+          "Symptoms: Excruciating pain and tearing upon bullae rupture.",
+          "Signs: Epithelial microcystic edema and frank bullae.",
+          "Signs: Stromal thickening and Descemet’s folds (striate keratopathy).",
+          "Signs: Subepithelial haze/fibrosis in chronic cases.",
+          "Signs: Presence of AC-IOL or vitreous in the anterior chamber (in PBK)."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Test",
+            "Key Finding"
+          ],
+          "rows": [
+            [
+              "Pachymetry",
+              "Central corneal thickness >640 µm"
+            ],
+            [
+              "Specular Microscopy",
+              "ECD <500-800 cells/mm², Pleomorphism, Polymegathism"
+            ],
+            [
+              "AS-OCT",
+              "Epithelial separation, mapping of corneal thickness"
+            ],
+            [
+              "Slit-lamp Exam",
+              "Sclerotic scatter to view subtle microcystic edema"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic for Endothelial Health",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "PUMP",
+          "explanation": "P: Pleomorphism (Shape change), U: Ultra-low cell count (<500), M: Morning blurring (classic sign), P: Pachymetry (>640 um)."
+        }
+      },
+      {
+        "title": "Medical Management Protocol",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Hypertonic Saline: 5% NaCl (Muro 128) drops 4-6x daily and ointment at bedtime.",
+          "IOP Control: Beta-blockers or CAIs (Avoid Prostaglandins to minimize inflammation).",
+          "Bandage Contact Lens (BCL): For pain relief in cases of ruptured bullae.",
+          "Lubrication: Preservative-free artificial tears.",
+          "Hair Dryer Technique: Warm air (arm's length) to evaporate surface moisture in the morning."
+        ]
+      },
+      {
+        "title": "Surgical Intervention: The Evolution",
+        "icon": "healing",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Surgical Options",
+          "branches": [
+            "DMEK: Descemet Membrane Endothelial Keratoplasty (Gold Standard)",
+            "DSAEK: Descemet Stripping Automated Endothelial Keratoplasty (Thicker tissue)",
+            "PKP: Penetrating Keratoplasty (If significant stromal scarring is present)",
+            "Gundersen Flap: For pain relief in eyes with no visual potential",
+            "DSO: Descemet Stripping Only (For central Fuchs' with good peripheral cells)"
+          ]
+        }
+      },
+      {
+        "title": "DMEK Surgical Steps",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Donor membrane preparation (8-9mm DM/Endothelium strip).",
+          "Step 2: Recipient Descemetorhexis under air or viscoelastic.",
+          "Step 3: Insertion of donor roll using a glass injector (e.g., Geuder).",
+          "Step 4: Centering and unrolling using 'tapping' techniques (Melles or Dirisamer).",
+          "Step 5: Air or SF6 gas tamponade to adhere the graft.",
+          "Step 6: Post-operative supine positioning for 24-72 hours."
+        ]
+      },
+      {
+        "title": "Red Flags & Urgent Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden vision loss and redness (Endophthalmitis or Graft Rejection)",
+          "Severe eye pain after BCL insertion (Possible infectious crystalline keratopathy)",
+          "IOP 'Spike' post-op (Pupillary block from air bubble)",
+          "Primary Graft Failure (Cornea remains thick and hazy after 2 weeks)"
+        ]
+      },
+      {
+        "title": "DMEK vs. DSAEK Comparison",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "DSAEK",
+            "DMEK"
+          ],
+          "rows": [
+            [
+              "Tissue Layer",
+              "DM + Endothelium + Stroma",
+              "DM + Endothelium Only"
+            ],
+            [
+              "Visual Recovery",
+              "Good (20/30 - 20/40)",
+              "Excellent (20/20 - 20/25)"
+            ],
+            [
+              "Rejection Rate",
+              "Approximately 7-10%",
+              "Lowest rate (~1%)"
+            ],
+            [
+              "Difficulty",
+              "Moderate",
+              "High (Steep learning curve)"
+            ],
+            [
+              "Re-bubble Rate",
+              "Low (1-5%)",
+              "Higher (10-25%)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances: ROCK Inhibitors",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Rho-kinase (ROCK) Inhibitors: Ripasudil/Netarsudil drops used to promote endothelial cell migration.",
+          "Endothelial Cell Injections: Cultured endothelial cells injected into the AC with the patient face-down (Kinoshita et al).",
+          "Descemet Stripping Only (DSO): Stripping central 4mm to allow peripheral cells to migrate inwards (no graft needed).",
+          "Synthetic Corneas: Evolution of keratoprosthesis (K-Pro) for multiple graft failures."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always rule out high IOP as a cause of corneal edema before diagnosing primary BK.",
+          "Specular microscopy is unreliable when the cornea is too thick (>650um) due to light scatter.",
+          "Avoid Prostaglandin Analogs (PGAs) in Fuchs' patients post-op as they may increase CME risk.",
+          "In PBK with a stable ACIOL, DSAEK is often preferred over DMEK due to easier graft manipulation."
+        ]
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Complication",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Graft Detachment",
+              "Re-bubbling (Air or SF6)"
+            ],
+            [
+              "Graft Rejection",
+              "Frequent topical steroids (Pred Forte q1h)"
+            ],
+            [
+              "Inverted Graft",
+              "Requires surgical re-orientation immediately"
+            ],
+            [
+              "Cystoid Macular Edema",
+              "Topical NSAIDs + Steroids"
+            ]
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Bullous keratopathy",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044654326,
+  "communityId": "sub_1774685488577_1b0p1hlvy",
+  "communityAuthor": "nemo",
+  "communityDate": "2026-03-28T08:11:28.577Z",
+  "read": true
+}

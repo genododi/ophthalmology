@@ -1,0 +1,357 @@
+{
+  "id": 1776504561494,
+  "seqId": 782,
+  "title": "Carotid-Cavernous Fistula (CCF): The Hemodynamic Storm",
+  "summary": "An abnormal communication between the carotid arterial system and the cavernous sinus, resulting in high-pressure arterial blood entering the low-pressure venous system. This Ophthalmic emergency requires rapid diagnosis to prevent permanent vision loss from glaucoma or optic neuropathy.",
+  "date": "2026-04-18T09:29:21.494Z",
+  "data": {
+    "title": "Carotid-Cavernous Fistula (CCF): The Hemodynamic Storm",
+    "summary": "An abnormal communication between the carotid arterial system and the cavernous sinus, resulting in high-pressure arterial blood entering the low-pressure venous system. This Ophthalmic emergency requires rapid diagnosis to prevent permanent vision loss from glaucoma or optic neuropathy.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M60,100 Q100,20 140,100 T100,180' fill='none' stroke='red' stroke-width='8' stroke-linecap='round'/><path d='M40,100 L160,100' stroke='blue' stroke-width='12' opacity='0.5'/><path d='M90,90 L110,110 M110,90 L90,110' stroke='white' stroke-width='4'/><circle cx='100' cy='100' r='15' fill='red' opacity='0.7'><animate attributeName='r' values='10;20;10' dur='1.5s' repeatCount='indefinite'/></circle></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Hemodynamics",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Carotid-cavernous fistulae (CCF) represent an arteriovenous shunt where blood flows directly or indirectly from the internal or external carotid arteries into the cavernous sinus. This reverses the normal pressure gradient, leading to venous hypertension in the ophthalmic veins, causing 'arterialization' of the conjunctival vessels and orbital congestion."
+      },
+      {
+        "title": "Epidemiological Trends",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Traumatic (Direct)",
+              "value": 75
+            },
+            {
+              "label": "Spontaneous (Indirect)",
+              "value": 25
+            },
+            {
+              "label": "Male Predominance (Trauma)",
+              "value": 80
+            },
+            {
+              "label": "Female Predominance (Dural)",
+              "value": 65
+            }
+          ]
+        }
+      },
+      {
+        "title": "Barrow Classification: The Gold Standard",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Hemodynamics",
+            "Arterial Supply",
+            "Clinical Presentation"
+          ],
+          "rows": [
+            [
+              "Type A",
+              "Direct / High-Flow",
+              "Internal Carotid Artery (ICA) trunk",
+              "Acute, dramatic, post-traumatic, audible bruit."
+            ],
+            [
+              "Type B",
+              "Indirect / Low-Flow",
+              "Meningeal branches of ICA only",
+              "Mild features, often spontaneous in post-menopausal women."
+            ],
+            [
+              "Type C",
+              "Indirect / Low-Flow",
+              "Meningeal branches of External Carotid (ECA)",
+              "Slow onset, localized to orbital congestion."
+            ],
+            [
+              "Type D",
+              "Indirect / Low-Flow",
+              "Meningeal branches of both ICA and ECA",
+              "Most common 'indirect' type; can mimic chronic conjunctivitis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Dandy's Triad of Direct CCF",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Classic Triad",
+          "branches": [
+            "Pulsatile Proptosis",
+            "Chemosis (Conjunctival Edema)",
+            "Orbital Bruit (Audible to patient)"
+          ]
+        }
+      },
+      {
+        "title": "EMERGENCY: Vision-Threatening Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapidly declining Visual Acuity (Compressive Optic Neuropathy)",
+          "IOP > 40 mmHg (Secondary Glaucoma risk)",
+          "Pulsatile Exophthalmos with Cornea Exposure",
+          "Severe Intracranial Hemorrhage signs",
+          "Abrupt worsening of Proptosis (Venous Thrombosis risk)"
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Corkscrew epibulbar vessels: Dilated, tortuous vessels reaching the limbus.",
+          "Ophthalmoplegia: CN VI is most common (intracavernous), followed by III and IV.",
+          "Raised IOP: Due to increased episcleral venous pressure and choroidal effusions.",
+          "Fundus: Dilated retinal veins, intraretinal hemorrhages, disc edema (Venous Stasis Retinopathy).",
+          "RAPD: Positive if there is significant optic nerve compression or ischemic neuropathy."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Sequence",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Bedside Auscultation: Listen for bruit over the globe or temple.",
+          "2. Non-Invasive Imaging: CTA or MRA to look for 'flow voids' and SOV enlargement.",
+          "3. B-Scan Ultrasound: Identify dilated Superior Ophthalmic Vein (SOV).",
+          "4. Formal Gold Standard: Digital Subtraction Angiography (DSA) for definitive mapping.",
+          "5. Tonometry/Gonioscopy: Assess IOP and angle neovascularization."
+        ]
+      },
+      {
+        "title": "Radiological Landmarks",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Imaging Modality",
+            "Key Finding",
+            "Significance"
+          ],
+          "rows": [
+            [
+              "Orbital Ultrasound",
+              "Dilated SOV (>2mm)",
+              "Pathognomonic for venous congestion."
+            ],
+            [
+              "CT / MRI",
+              "Prominent Cavernous Sinus",
+              "Indicates high pressure and congestion."
+            ],
+            [
+              "MRI (T1/T2)",
+              "Flow Voids in Cavernous Sinus",
+              "Indicates high-velocity arterial blood."
+            ],
+            [
+              "Angiography (DSA)",
+              "Rapid Venous Filling",
+              "Confirms the exact site of the fistula."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: The Mimics",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Masqueraders",
+          "branches": [
+            "Thyroid Eye Disease (TED)",
+            "Orbital Pseudotumor / IOIS",
+            "Cavernous Sinus Thrombosis",
+            "Orbital Cellulitis",
+            "Scleritis"
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: Barrow Classification",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "ABCD",
+          "explanation": "A: Artery (ICA direct), B: Branches of ICA, C: Carotid (External) branches, D: Dual (Both ICA/ECA branches)."
+        }
+      },
+      {
+        "title": "Management Hierarchy",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Observation - Indicated for low-flow (Type B,C,D) as 50-70% may spontaneously thrombose.",
+          "Step 2: Carotid Massage - Digital compression of the carotid artery to induce thrombosis (only for low-flow).",
+          "Step 3: Endovascular Intervention - First-line for Direct CCF. Transarterial or transvenous coiling.",
+          "Step 4: Embolic Agents - Use of detachable coils, Onyx, or N-butyl cyanoacrylate (NBCA).",
+          "Step 5: Surgical Ligation - Historically significant, but rarely used in the modern endovascular era."
+        ]
+      },
+      {
+        "title": "Surgical & Endovascular Techniques",
+        "icon": "handyman",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Transvenous route: Often accessed via the Inferior Petrosal Sinus.",
+          "SOV Cutdown: Surgical exposure of the Superior Ophthalmic Vein for coil delivery if other routes fail.",
+          "Flow-Diverting Stents: Emerging technology for complex ICA wall defects.",
+          "Balloon Occlusion: Detachable balloons (though less common now than coils)."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "The 'White-Eyed CCF': Indirect fistulae can present very subtly, mimicking chronic conjunctivitis that doesn't respond to drops.",
+          "Trauma + Bruit: Post-head injury patient with a pulse-synchronous sound is Type A until proven otherwise.",
+          "Paradoxical Worsening: Symptoms may worsen immediately after successful treatment due to temporary thrombosis-related inflammation.",
+          "The 6th Nerve: CN VI is the most vulnerable as it sits freely within the cavernous sinus."
+        ]
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Complication",
+            "Mechanism"
+          ],
+          "rows": [
+            [
+              "Secondary Glaucoma",
+              "Increased EVP or Neovascularization."
+            ],
+            [
+              "Corneal Ulcer",
+              "Exposure due to severe proptosis."
+            ],
+            [
+              "Ischemic Retinopathy",
+              "Venous stasis and arterial hypoperfusion."
+            ],
+            [
+              "Intracerebral Hemorrhage",
+              "Cortical venous reflux from the shunt."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Landmark Study: Barrow et al. (1985)",
+        "icon": "history_edu",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "The seminal paper 'Vascular malformations of the cavernous sinus' established the A-D classification system. It remains the clinical foundation for determining whether a fistula requires urgent endovascular intervention (High-flow Type A) or can be managed conservatively (Low-flow Types B-D)."
+      }
+    ],
+    "generationPrompt": "CCF",
+    "chapterId": "trauma"
+  },
+  "chapterId": "trauma",
+  "kanskiMeta": [
+    {
+      "pageNum": 137,
+      "keywords": [
+        "carotid",
+        "cavernous",
+        "fistula",
+        "glaucoma",
+        "trauma"
+      ]
+    },
+    {
+      "pageNum": 138,
+      "keywords": [
+        "carotid",
+        "cavernous",
+        "fistula",
+        "trauma",
+        "direct"
+      ]
+    },
+    {
+      "pageNum": 545,
+      "keywords": [
+        "carotid",
+        "glaucoma",
+        "vision",
+        "ocular",
+        "surgical"
+      ]
+    },
+    {
+      "pageNum": 809,
+      "keywords": [
+        "carotid",
+        "cavernous",
+        "fistula",
+        "trauma",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 795,
+      "keywords": [
+        "carotid",
+        "cavernous",
+        "trauma",
+        "neuropathy",
+        "emergency"
+      ]
+    },
+    {
+      "pageNum": 132,
+      "keywords": [
+        "carotid",
+        "cavernous",
+        "fistula",
+        "optic neuropathy",
+        "trauma"
+      ]
+    }
+  ],
+  "read": true
+}

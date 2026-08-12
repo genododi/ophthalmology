@@ -1,0 +1,159 @@
+{
+  "id": 1775420926962,
+  "seqId": 710,
+  "title": "Xerophthalmia: The Clinical Spectrum of Vitamin A Deficiency",
+  "summary": "Vitamin A deficiency (VAD) remains a leading cause of preventable childhood blindness worldwide. This guide covers the pathophysiology, staged ocular manifestations, and the WHO-mandated treatment protocols for managing this systemic nutritional crisis.",
+  "date": "2026-04-05T20:28:46.962Z",
+  "data": {
+    "title": "Xerophthalmia: The Clinical Spectrum of Vitamin A Deficiency",
+    "summary": "Vitamin A deficiency (VAD) remains a leading cause of preventable childhood blindness worldwide. This guide covers the pathophysiology, staged ocular manifestations, and the WHO-mandated treatment protocols for managing this systemic nutritional crisis.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q 50 30 70 50 T 50 70' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Vitamin A (Retinol) is critical for the synthesis of rhodopsin in rod photoreceptors and the maintenance of corneal and conjunctival epithelial integrity. Deficiency results in squamous metaplasia and keratinization of ocular surface epithelia, eventually leading to stromal necrosis (keratomalacia)."
+      },
+      {
+        "title": "Global Burden (Epidemiology)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Pre-school kids",
+              "value": 90
+            },
+            {
+              "label": "Pregnant women",
+              "value": 65
+            },
+            {
+              "label": "Malnourished/GI malabsorption",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Xerophthalmia Classification (WHO)",
+        "icon": "list",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Stage",
+            "Clinical Sign"
+          ],
+          "rows": [
+            [
+              "X1A",
+              "Conjunctival Xerosis"
+            ],
+            [
+              "X1B",
+              "Bitot's Spots"
+            ],
+            [
+              "X2",
+              "Corneal Xerosis"
+            ],
+            [
+              "X3A",
+              "Corneal Ulceration < 1/3 area"
+            ],
+            [
+              "X3B",
+              "Keratomalacia"
+            ],
+            [
+              "XS",
+              "Xerophthalmic Fundus"
+            ],
+            [
+              "XN",
+              "Night Blindness"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Ocular Surface Pathology",
+          "branches": [
+            "Limbal Stem Cell Deficiency",
+            "Trachoma",
+            "Stevens-Johnson Syndrome",
+            "Mucous Membrane Pemphigoid",
+            "Severe Dry Eye (Sjogren's)"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Emergency Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Presence of Keratomalacia (Corneal liquefactive necrosis) - Ocular Emergency!",
+          "Corneal perforation risk is imminent.",
+          "Systemic association with protein-energy malnutrition (Kwashiorkor).",
+          "Measles infection (often precipitates rapid corneal decompensation in VAD)."
+        ]
+      },
+      {
+        "title": "WHO Treatment Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Day 1: 200,000 IU Vitamin A orally (100,000 IU for 6-12 mo infants, 50,000 IU for <6 mo).",
+          "Day 2: Repeat the same dose.",
+          "Day 14: Repeat the same dose (if active eye disease or severe malnutrition present).",
+          "For vomiting or malabsorption: Inject 100,000 IU IM Vitamin A."
+        ]
+      },
+      {
+        "title": "Mnemonic: Signs of VAD",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "B-C-K-K",
+          "explanation": "Bitot's spots, Conjunctival xerosis, Keratomalacia, Keratinization."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Bitot's spots are triangular, foamy deposits of keratinized epithelium, typically temporal to the limbus.",
+          "Night blindness (Nyctalopia) is usually the earliest functional symptom.",
+          "Impression cytology is the gold standard diagnostic for subclinical disease.",
+          "Always screen for systemic Vitamin A deficiency in children with chronic diarrhea or measles."
+        ]
+      }
+    ],
+    "generationPrompt": "Vit A deficiency",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea"
+}

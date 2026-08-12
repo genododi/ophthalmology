@@ -1,0 +1,228 @@
+{
+  "id": 1775044664133,
+  "seqId": 173,
+  "title": "AKI & ARF: The Renal-Ocular Masterclass",
+  "summary": "An exhaustive clinical guide to Acute Kidney Injury (AKI) and Acute Renal Failure (ARF), bridging systemic emergency management with critical ophthalmic manifestations like TINU, GPA, and medication hazards.",
+  "date": "2026-04-01T11:57:44.133Z",
+  "data": {
+    "title": "AKI & ARF: The Renal-Ocular Masterclass",
+    "summary": "An exhaustive clinical guide to Acute Kidney Injury (AKI) and Acute Renal Failure (ARF), bridging systemic emergency management with critical ophthalmic manifestations like TINU, GPA, and medication hazards.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M30 40C30 25 45 20 50 35C55 20 70 25 70 40C70 65 50 80 50 80C50 80 30 65 30 40Z' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='45' r='12' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='45' r='5' fill='hsl(215, 90%, 45%)'/><path d='M20 50 L10 50 M90 50 L80 50 M50 10 L50 20 M50 90 L50 80' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Initial Clinical Triage",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "AKI (formerly Acute Renal Failure/ARF): An abrupt deterioration in renal function occurring over hours or days.",
+          "Characterized by: Rising levels of serum creatinine and urea.",
+          "Clinical Signs: Often accompanied by oliguria (low urine output) or anuria (absence of urine output).",
+          "Initial Approach: Catheterize to assess hourly urine output and establish fluid charts.",
+          "Assessment: Check Intravascular Volume (BP, JVP, skin turgor, and weight).",
+          "Baseline Labs: U&E, PO₄⁻³, FBC, ESR, CRP, INR, and LFT.",
+          "Key Metric: Estimated glomerular filtration rate (eGFR) is more reliable than serum creatinine alone in assessing renal function."
+        ]
+      },
+      {
+        "title": "The Hyperkalaemia Emergency",
+        "icon": "cardiology",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1. Identify: Potassium > 6.5 mmol/L or ECG changes (Tall, peaked T-waves).",
+          "2. Cardioprotection: Calcium Gluconate (10%) 10 mL IV over 2 minutes (Protects heart, does NOT lower K+).",
+          "3. Intracellular Shift (Primary): 50 mL of 50% glucose + 10 U fast-acting insulin IV over 30 minutes.",
+          "4. Intracellular Shift (Adjunct): Nebulized Salbutamol 2.5 mg.",
+          "Critical Pitfall: Calcium gluconate is for stabilization; insulin/glucose is mandatory to actually lower serum potassium."
+        ]
+      },
+      {
+        "title": "Ocular-Renal Syndromes: TINU & GPA",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Ocular Findings",
+            "Renal/Systemic Findings",
+            "Management"
+          ],
+          "rows": [
+            [
+              "TINU Syndrome",
+              "Bilateral nongranulomatous anterior uveitis; can linger/recur post-nephritis.",
+              "Adolescent girls, malaise, proteinuria, elevated β2-microglobulin, abnormal creatinine, WBC casts.",
+              "Co-management with nephrologist; High-dose oral corticosteroids."
+            ],
+            [
+              "GPA (Wegener's)",
+              "Necrotizing scleritis.",
+              "Chronic rhinitis, focal/segmental glomerulonephritis (80% of cases), renal failure.",
+              "Systemic steroids and immunosuppressants (typically Cyclophosphamide)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Shock-Induced AKI (Pre-renal)",
+        "icon": "speed",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Diagnosis: Pre-renal ARF due to Hypovolaemic Shock (e.g., Severe upper GI bleeding/haematemesis).",
+          "Signs: Cold, clammy skin, thready pulse, BP 90/60.",
+          "Action: Secure airway and high-flow O₂.",
+          "Access: Insert two wide-bore (14–16G) cannulae.",
+          "Resuscitation: Start rapid IV crystalloid (Saline 0.9%).",
+          "CRITICAL: If BP remains unrecordable, call the cardiac arrest team."
+        ]
+      },
+      {
+        "title": "Imaging Hazards & Contrast Safety",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "CT Contrast Pre-check: Must check renal function prior to IV contrast.",
+          "Severe Impairment: eGFR <30 mL/min/1.73m² carries high risk for contrast-induced nephropathy.",
+          "MRI Gadolinium Precaution: In patients >65 with diabetes, check renal function to avoid Nephrogenic Systemic Fibrosis.",
+          "Clinical Pearl: eGFR is the superior marker for deciding on contrast-enhanced imaging."
+        ]
+      },
+      {
+        "title": "Indications for Urgent Dialysis",
+        "icon": "water_drop",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "AEIOU (Clinical Criteria)",
+          "explanation": "A: Acidosis (Severe, pH <7.2); E: Electrolytes (Persistent Hyperkalaemia >6 mmol/L); I: Ingestions/Intoxications; O: Overload (Pulmonary edema with no diuresis); U: Uraemia (Uraemic pericarditis or Hypercatabolic renal failure)."
+        }
+      },
+      {
+        "title": "Differential Diagnosis of AKI",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Category",
+            "Causes",
+            "Key Features"
+          ],
+          "rows": [
+            [
+              "Pre-renal",
+              "Hypovolaemia (bleeding, burns), Low COP (heart failure)",
+              "Reduced perfusion; often reversible with fluids."
+            ],
+            [
+              "Renal (Intrinsic)",
+              "Glomerulonephritis, drugs, vasculitis (GPA, SLE), sepsis",
+              "Direct damage to kidney tissue or vasculature."
+            ],
+            [
+              "Post-renal",
+              "Obstruction (calculi, tumors, prostate)",
+              "Blockage of urine outflow; diagnosed by USS."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Hypertension, Encephalopathy & SLE",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Malignant Hypertension: BP 220/120 + Papilloedema. Fibrinoid necrosis of arterioles. Requires cautious/gradual BP lowering.",
+          "Uraemic Encephalopathy: Confusion, flapping tremor (asterixis), pink palms. Workup: BG, electrolytes, ABG.",
+          "Lupus Nephritis (SLE): Malar rash, retinal cotton wool spots, proteinuria. Type 3 hypersensitivity (immune complex) in glomerular basement membrane.",
+          "SLE Management: Coordination with rheumatologist; systemic steroids and immunosuppressants (e.g., azathioprine)."
+        ]
+      },
+      {
+        "title": "Glaucoma Meds & Perioperative Hazards",
+        "icon": "medication",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Acetazolamide (Diamox): Relatively contraindicated in renal failure. Causes Metabolic Acidosis, Hypokalaemia, and Renal Stones.",
+          "Precaution: Check baseline creatinine before starting Acetazolamide in the elderly.",
+          "Perioperative (Cataract Surgery): If Creatinine is high (e.g., 180 µmol/L), normal regime continues for LA.",
+          "Major Surgery: Monitor electrolytes; AVOID nephrotoxic drugs like NSAIDs and Aminoglycosides."
+        ]
+      },
+      {
+        "title": "Post-renal, Sepsis & Acidosis",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Post-renal Obstruction: Sudden anuria + lower abdominal pain. Investigate via USS (look for hydronephrosis). Manage with Catheter or Nephrostomy.",
+          "Septic Shock: Bounding pulse, warm skin, low urine output. Rx: Blood cultures -> IV broad-spectrum antibiotics (Cefuroxime 1.5g) -> Fluid resuscitation.",
+          "Metabolic Acidosis: pH 7.2 + low bicarb. Rx: Ventilation first. Use NaHCO₃ (8.4%) only in severe cases (may worsen intracellular acidosis)."
+        ]
+      },
+      {
+        "title": "The ARF Algorithm: Workup & Approach",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "ARF Management",
+          "branches": [
+            "Immediate Assessment: Consciousness (AVPU/GCS), Vital Signs (Tachycardia/Hypotension)",
+            "Stabilization: Catheterize (Aim >30 mL/h), Treat Hyperkalaemia (Ca Gluconate/Insulin)",
+            "Diagnostic: Urinalysis (Protein, Glucose, RBC/WBC Casts), Imaging (USS/CXR), Blood Profile (U&E, FBC, CRP, ANA, ANCA)",
+            "Specialist Referral: Nephrology (biopsy), Urology/Neurosurgery (obstruction)"
+          ]
+        }
+      },
+      {
+        "title": "Management Pearls & High Yields",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "TINU Pearl: Suspect in any adolescent girl with bilateral anterior uveitis and systemic malaise.",
+          "Nephrotoxic Pitfall: Avoid NSAIDs and Aminoglycosides in established renal failure.",
+          "GPA High Yield: Renal failure is a major mortality cause (80% 1-year mortality if untreated).",
+          "Red Flag: Cushing’s response (low pulse, high BP) with renal signs suggests increased intracranial pressure.",
+          "Investigation: c-ANCA is highly sensitive and specific for GPA.",
+          "Serum Creatinine Hazard: Contrast media risk is significant in preexisting severe renal impairment.",
+          "Investigation: c-ANCA and urinalysis are essential for suspected GPA."
+        ]
+      },
+      {
+        "title": "Full Content Verification - Verbatim Text",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Acute Kidney Injury (AKI) and Acute Renal Failure (ARF): In clinical medicine and emergency settings, Acute Kidney Injury (AKI)—formerly referred to as Acute Renal Failure (ARF)—represents an abrupt deterioration in renal function occurring over hours or days. It is characterized by rising levels of serum creatinine and urea, often accompanied by oliguria (low urine output) or anuria (absence of urine output). Scenario 1: Definition: An acute deterioration in renal function (hours/days) marked by increased serum creatinine/urea and often oliguria or anuria. Initial Approach: Catheterize; Assess Intravascular Volume (BP, JVP, skin turgor, weight); Baseline Labs: U&E, PO4, FBC, ESR, CRP, INR, LFT. eGFR is more reliable than creatinine. Scenario 2: Hyperkalaemia 6.5 mmol/L, peaked T-waves. Rx: Calcium Gluconate (10%) 10 mL IV over 2 min; Insulin 10U + Glucose 50% 50mL over 30 min; Nebulized Salbutamol 2.5mg. Scenario 3: 15yo girl, bilateral nongranulomatous anterior uveitis, malaise, proteinuria, elevated beta2-microglobulin. TINU Syndrome. Rx: Nephrologist, high-dose oral steroids. Scenario 4: GPA/Wegener's: Necrotizing scleritis, chronic rhinitis, renal impairment. Focal/segmental glomerulonephritis (80%). Serum c-ANCA, Urinalysis. Rx: Systemic steroids, cyclophosphamide. Scenario 5: Pre-renal/Hypovolaemic shock. GI bleed, cold clammy skin, thready pulse, BP 90/60. Rx: Airway, O2, 14-16G cannulae, Saline 0.9%. Red Flag: BP unrecordable = cardiac arrest team. Scenario 6: CT Contrast/Gadolinium. eGFR <30 is severe impairment. Gadolinium risk: Nephrogenic systemic fibrosis in >65 with diabetes. Scenario 7: Urgent Dialysis: K >6, pH <7.2, Pulm edema, Uraemic pericarditis, Hypercatabolic. Scenario 8: Post-renal/Obstruction: Prostate, USS (hydronephrosis), catheter/nephrostomy. Scenario 9: Metabolic Acidosis: pH 7.2, low bicarb. Rx: Ventilation, NaHCO3 8.4% (only in severe cases). Scenario 10: Malignant HTN: 220/120, papilloedema, fibrinoid necrosis. Scenario 11: Acetazolamide: Relatively contraindicated. Causes acidosis, hypokalaemia, stones. Scenario 12: Uraemic Encephalopathy: Confusion, flapping tremor (asterixis), pink palms. Scenario 13: SLE/Lupus Nephritis: Malar rash, CWS, proteinuria, Type 3 hypersensitivity. Scenario 14: Perioperative: Creatinine 180, cataract surgery, avoid NSAIDs/aminoglycosides. Scenario 15: Septic Shock: Bounding pulse, warm skin, low urine. Rx: Antibiotics (Cefuroxime 1.5g), fluids."
+      }
+    ],
+    "generationPrompt": "Acute Kidney Injury (AKI) and Acute Renal Failure (ARF)\nIn clinical medicine and emergency settings, Acute Kidney Injury (AKI)—formerly referred to as Acute Renal Failure (ARF)—represents an abrupt deterioration in renal function occurring over hours or days. It is characterized by rising levels of serum creatinine and urea, often accompanied by oliguria (low urine output) or anuria (absence of urine output).\n--------------------------------------------------------------------------------\nOSCE & VIVA Clinical Scenarios\nScenario 1: Definition and Initial Triage\nScenario: An examiner asks: \"How do you define Acute Renal Failure (ARF) and how do you initiate its management?\"\nDefinition: An acute deterioration in renal function (hours/days) marked by increased serum creatinine/urea and often oliguria or anuria.\nInitial Approach:\nCatheterize: To assess hourly urine output and establish fluid charts.\nAssess Intravascular Volume: Check BP, JVP, skin turgor, and weight.\nBaseline Labs: U&E, PO₄⁻³, FBC, ESR, CRP, INR, and LFT.\nKey Point: Estimated glomerular filtration rate (eGFR) is more reliable than serum creatinine alone in assessing renal function.\nScenario 2: The Hyperkalaemia Emergency\nScenario: A patient with ARF has a potassium level of 6.5 mmol/L. ECG shows tall, peaked T-waves.\nDiagnosis: Life-threatening Hyperkalaemia.\nEmergency Management (Drug Doses):\nCalcium Gluconate (10%): 10 mL IV over 2 minutes (provides cardioprotection).\nInsulin + Glucose: 50 mL of 50% glucose + 10 U fast-acting insulin IV over 30 minutes (shifts K+ into cells).\nNebulized Salbutamol: 2.5 mg to assist K+ shift into cells.\nPitfall: Calcium gluconate protects the heart but does not lower serum potassium levels; insulin/glucose is needed for that.\nScenario 3: Adolescent Uveitis and Renal Signs (TINU)\nScenario: A 15-year-old girl presents with bilateral nongranulomatous anterior uveitis and reported malaise. Urinalysis shows proteinuria and elevated β2-microglobulin.\nDiagnosis: Tubulointerstitial Nephritis and Uveitis (TINU) Syndrome.\nKey Findings: Abnormal serum creatinine, decreased creatinine clearance, and white cell casts.\nManagement: Co-management with a nephrologist. Highly responsive to high-dose oral corticosteroids.\nExaminer's Pick: Ocular disease can linger or recur long after the resolution of the nephritis.\nScenario 4: GPA and the Kidneys\nScenario: A middle-aged male with necrotizing scleritis and chronic rhinitis is found to have renal impairment.\nDiagnosis: Granulomatosis with Polyangiitis (GPA/Wegener's).\nRenal Involvement: Focal and segmental glomerulonephritis, present in 80% of cases, leading to renal failure.\nInvestigations: Serum c-ANCA (sensitive and specific for GPA) and urinalysis.\nTreatment: Systemic steroids and immunosuppressants (typically cyclophosphamide).\nScenario 5: Pre-renal AKI (Hypovolaemic Shock)\nScenario: A patient with severe upper GI bleeding (haematemesis) presents with cold, clammy skin, thready pulse, and a BP of 90/60.\nDiagnosis: Pre-renal ARF due to Hypovolaemic Shock.\nManagement: Secure airway and high-flow O₂. Insert two wide-bore (14–16G) cannulae and start rapid IV crystalloid (Saline 0.9%).\nRed Flag: If BP remains unrecordable, call the cardiac arrest team.\nScenario 6: Interpretations - Creatinine vs. eGFR\nScenario: A 76-year-old patient is scheduled for CT with IV contrast.\nCritical Action: Check renal function prior to contrast. eGFR <30 mL/min/1.73m² indicates severe renal impairment.\nHazard: IV contrast media carries a risk in patients with preexisting severe renal impairment.\nPrecaution: In patients >65 with diabetes, renal function must be checked before Gadolinium-enhanced MRI to avoid nephrogenic systemic fibrosis.\nScenario 7: Indications for Urgent Dialysis\nScenario: You are managing a patient with ARF. The examiner asks: \"When is dialysis mandatory?\"\nCriteria for Urgent Dialysis:\nPersistent hyperkalaemia (>6 mmol/L).\nSevere acidosis (pH <7.2).\nPulmonary edema with no diuresis.\nUraemic pericarditis.\nHypercatabolic renal failure.\nScenario 8: Post-renal AKI (Obstruction)\nScenario: An elderly male with a history of prostate issues presents with sudden cessation of urine and lower abdominal pain.\nDiagnosis: Post-renal ARF due to Obstruction.\nInvestigation: Ultrasound scan (USS) of the renal tract to identify obstruction (e.g., hydronephrosis).\nManagement: Immediate catheterization or nephrostomy.\nScenario 9: Metabolic Acidosis in ARF\nScenario: A patient in a coma has an ABG showing a pH of 7.2 and low bicarbonate.\nDiagnosis: Metabolic Acidosis secondary to Renal Failure.\nManagement: Good ventilation to treat acidosis; use sodium bicarbonate (8.4%) only in severe cases after prolonged resuscitation as it can worsen intracellular acidosis.\nScenario 10: Hypertensive Urgency and the Kidneys\nScenario: A patient presents with a BP of 220/120 and papilloedema.\nDiagnosis: Malignant/Accelerated Hypertension.\nRenal Complication: End-organ damage due to fibrinoid necrosis of arterioles.\nManagement: Immediate medical referral for cautious and gradual BP lowering to avoid precipitating renal or cerebral ischaemia.\nScenario 11: Side Effects of Glaucoma Meds (Acetazolamide)\nScenario: An elderly patient with moderate renal impairment is given oral Acetazolamide for high IOP.\nHazard: Acetazolamide is relatively contraindicated in renal failure.\nSide Effects: Metabolic acidosis, hypokalaemia, and renal stones.\nPrecaution: Check baseline creatinine before initiation.\nScenario 12: Uraemic Encephalopathy\nScenario: A patient with known renal failure presents with confusion, flapping tremor (asterixis), and pink palms.\nDiagnosis: Uraemic encephalopathy leading to coma.\nWorkup: Blood glucose (rule out hypoglycemia), electrolytes, and ABG.\nScenario 13: AKI in SLE (Lupus Nephritis)\nScenario: A young woman with a malar rash and retinal cotton wool spots has proteinuria.\nDiagnosis: Systemic Lupus Erythematosus (SLE) with renal involvement.\nKey Points: Type 3 hypersensitivity (immune complex deposition) in the glomerular basement membrane.\nManagement: Requires coordination with a rheumatologist for systemic steroids and immunosuppressants (e.g., azathioprine).\nScenario 14: Perioperative Care for the Renal Patient\nScenario: A patient with a creatinine of 180 µmol/L is scheduled for cataract surgery.\nPerioperative Management: Normal or near-normal regime can continue for local anesthesia. For major surgery, monitor electrolytes closely and avoid nephrotoxic drugs like NSAIDs and aminoglycosides.\nScenario 15: Septic Shock and AKI\nScenario: A patient presents with a bounding pulse, warm skin, and low urine output.\nDiagnosis: Septic Shock causing AKI.\nManagement: IV broad-spectrum antibiotics (e.g., Cefuroxime 1.5g) after blood cultures. Fluid resuscitation with colloids or crystalloids.\n--------------------------------------------------------------------------------\nClassifications of Acute Renal Failure\nCategory\nCauses\nKey Features\nPre-renal\nHypovolaemia (bleeding, burns), Low COP (heart failure)\nReduced perfusion to kidneys; often reversible with fluids.\nRenal (Intrinsic)\nGlomerulonephritis, drugs, vasculitis (GPA, SLE), sepsis\nDirect damage to kidney tissue or vasculature.\nPost-renal\nObstruction (calculi, tumors, prostate)\nBlockage of urine outflow; diagnosed by USS.\n--------------------------------------------------------------------------------\nWorkup & Approach Mind Map: The ARF Algorithm\nImmediate Assessment (ABC & Safety):\nAssess consciousness (AVPU/GCS).\nCheck Vital Signs (Tachycardia/Hypotension).\nStabilization Phase:\nCatheterize: Monitor hourly urine (Aim >30 mL/h).\nTreat Hyperkalaemia: Calcium gluconate → Insulin/Glucose.\nDiagnostic Phase:\nUrinalysis: Check for protein (nephritis), glucose (DM), or WBC/RBC casts.\nImaging: USS for obstruction; CXR for lung-renal syndromes (GPA/Sarcoid).\nBlood Profile: U&E, FBC, ESR/CRP, Autoantibodies (ANA, ANCA).\nSpecialist Referral:\nRefer to Nephrology/Neurosurgery if obstruction or biopsy needed.\n--------------------------------------------------------------------------------\nManagement Pearls, Pitfalls & High Yields\nPearl: TINU should be considered in any adolescent girl with bilateral anterior uveitis and systemic malaise.\nPitfall: Avoid NSAIDs and Aminoglycosides in patients with established renal failure as they are nephrotoxic.\nExaminer's Pick: eGFR is a superior marker for renal function over creatinine, especially when deciding on contrast-enhanced imaging.\nHigh Yield: In GPA, renal failure is a major cause of mortality if untreated (80% 1-year mortality).\nRed Flag: Cushing’s response (low pulse, high BP) in a patient with renal signs suggests increased intracranial pressure.\nPrecaution: Acetazolamide should be used with extreme caution in patients with renal insufficiency due to the high risk of metabolic acidosis.",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "_newlyImported": 1775044664133,
+  "communityId": "sub_1774463118628_shieklvhs",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-03-25T18:25:18.628Z"
+}

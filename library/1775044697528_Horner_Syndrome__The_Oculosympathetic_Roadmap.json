@@ -1,0 +1,253 @@
+{
+  "id": 1775044697528,
+  "seqId": 479,
+  "title": "Horner Syndrome: The Oculosympathetic Roadmap",
+  "summary": "A comprehensive clinical guide to diagnosing and managing oculosympathetic paresis, with a critical focus on identifying the 'Painful Horner' as a life-threatening neuro-ophthalmic emergency.",
+  "date": "2026-04-01T11:58:17.528Z",
+  "data": {
+    "title": "Horner Syndrome: The Oculosympathetic Roadmap",
+    "summary": "A comprehensive clinical guide to diagnosing and managing oculosympathetic paresis, with a critical focus on identifying the 'Painful Horner' as a life-threatening neuro-ophthalmic emergency.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='60' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='60' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M40 35 Q60 25 80 35' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M140 20 L130 50 L150 40 L140 80' fill='none' stroke='red' stroke-width='4' stroke-linecap='round'/><path d='M100 80 Q110 50 120 80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Horner Syndrome (oculosympathetic paresis) results from an interruption of the sympathetic nerve supply to the eye and adnexa. It is classically defined by the triad of miosis, ptosis, and anhidrosis. While often benign, its sudden onset—especially when accompanied by pain—can signal life-threatening conditions such as internal carotid artery dissection (ICAD) or Pancoast tumor."
+      },
+      {
+        "title": "The Three-Order Neuron Pathway",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1st Order (Central): Hypothalamus → Ciliospinal Center of Budge (C8-T2). Passes through the brainstem.",
+          "2nd Order (Pre-ganglionic): Ciliospinal Center → Over the Lung Apex → Superior Cervical Ganglion (Level of Mandible/C2).",
+          "3rd Order (Post-ganglionic): Superior Cervical Ganglion → Carotid Plexus → Through Cavernous Sinus → Long Ciliary Nerves → Iris Dilator & Müller's Muscle."
+        ]
+      },
+      {
+        "title": "Etiology by Localization",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Neuron Level",
+            "Common Etiologies",
+            "Associated Findings"
+          ],
+          "rows": [
+            [
+              "1st Order (Central)",
+              "Stroke (Lateral Medullary/Wallenberg), MS, Trauma, Syringomyelia",
+              "Contralateral hemiparesis, vertigo, ataxia"
+            ],
+            [
+              "2nd Order (Pre-ganglionic)",
+              "Pancoast Tumor (Lung), Thoracic Aneurysm, Birth Trauma (Klumpke), Iatrogenic (Surgery)",
+              "Arm pain, hand muscle wasting (T1 involvement)"
+            ],
+            [
+              "3rd Order (Post-ganglionic)",
+              "Carotid Dissection, Cluster Headache, Cavernous Sinus Thrombosis, Raeder Syndrome",
+              "Ophthalmoplegia (if cavernous sinus), Periorbital Pain"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Painful Horner: RED ALERTS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Internal Carotid Artery Dissection (ICAD) until proven otherwise.",
+          "Acute onset of facial, neck, or periorbital pain.",
+          "Amaurosis Fugax or TIA-like symptoms.",
+          "History of minor neck trauma (e.g., yoga, chiropractic, coughing).",
+          "Associated CN XII palsy (suggests extracranial CAD)."
+        ]
+      },
+      {
+        "title": "Clinical Signs & Ocular Findings",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Miosis: Anisocoria is greater in the dark (dilation lag).",
+          "Ptosis: Mild (1-2mm) due to Müller's muscle weakness.",
+          "Upside-down Ptosis: Elevation of the lower eyelid.",
+          "Anhidrosis: Loss of sweating (Total face: 1st order; Forehead only: 3rd order).",
+          "Iris Heterochromia: If congenital (affected eye is lighter).",
+          "Apparent Enophthalmos: Due to narrow palpebral fissure."
+        ]
+      },
+      {
+        "title": "Pharmacological Testing Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Apraclonidine 0.5% or 1% (Diagnosis). Horner pupil dilates; normal pupil does not (reversal of anisocoria).",
+          "Step 2: Cocaine 4% or 10% (Gold Standard Diagnosis). Horner pupil fails to dilate; normal pupil dilates.",
+          "Step 3: Hydroxyamphetamine 1% (Localization). Dilates 1st/2nd order; fails to dilate 3rd order.",
+          "Step 4: Phenylephrine 1% (3rd order check). Significant dilation suggests 3rd order due to denervation supersensitivity."
+        ]
+      },
+      {
+        "title": "Anisocoria Differential Diagnosis",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Anisocoria",
+          "branches": [
+            "Dark > Light (Sympathetic): Horner, Physiological Anisocoria, Long-standing Argyll Robertson",
+            "Light > Dark (Parasympathetic): Adie Tonic Pupil, CN III Palsy, Pharmacological Mydriasis, Trauma/Sphincter Damage",
+            "Normal Reactivity: Physiological Anisocoria (usually <1mm difference)"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Strategy",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Confirm Diagnosis (Apraclonidine/Cocaine test).",
+          "2. Determine Urgency: If PAINFUL → Immediate ER referral for MRA Head/Neck.",
+          "3. Localize: Check for associated CN palsies or 'long-tract' signs.",
+          "4. Imaging: MRI Brain, MRA/CTA Head & Neck, CT/X-ray Chest (Apex)."
+        ]
+      },
+      {
+        "title": "Prevalence of Etiologies",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Idiopathic",
+              "value": 40
+            },
+            {
+              "label": "Surgical/Trauma",
+              "value": 25
+            },
+            {
+              "label": "Neoplasia",
+              "value": 15
+            },
+            {
+              "label": "Carotid Dissection",
+              "value": 10
+            },
+            {
+              "label": "Vascular/Other",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Remember the Triad",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PAM is Horny",
+          "explanation": "Ptosis, Anhidrosis, and Miosis = Horner Syndrome."
+        }
+      },
+      {
+        "title": "Imaging Specifics for CAD",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Axial T1 with FAT SATURATION is the gold standard for detecting intramural hematoma.",
+          "MRA or CTA of the neck must include the 'carotid string sign'.",
+          "Scan from the Arch of the Aorta to the Circle of Willis."
+        ]
+      },
+      {
+        "title": "Pediatric Considerations",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Most common cause: Birth trauma (brachial plexus injury).",
+          "Crucial Red Flag: Neuroblastoma (must check urinary catecholamines/VMA).",
+          "Characteristic Sign: Iris heterochromia (hypochromia on the affected side)."
+        ]
+      },
+      {
+        "title": "Surgical Management",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Müller Muscle Conjunctival Resection (MMCR): For correcting the mild ptosis.",
+          "Fasanella-Servat Procedure: A variation of MMCR often used.",
+          "Levator Aponeurosis Advancement: Reserved for larger ptosis components."
+        ]
+      },
+      {
+        "title": "Clinical Pearls (High Yield)",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Dilation Lag: The anisocoria is most prominent 5 seconds after lights out.",
+          "Wallenberg Syndrome: Expect ipsilateral Horner + contralateral loss of pain/temp.",
+          "Apraclonidine False Negative: May occur in very acute cases (<48 hours) due to lack of receptor upregulation."
+        ]
+      },
+      {
+        "title": "Landmark Studies: The 'Pain' Evidence",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A landmark study by Biousse et al. noted that Horner syndrome occurs in approximately 25% to 58% of internal carotid artery dissections. In many cases, it is the *only* presenting sign before a major stroke occurs. Immediate anticoagulation or antiplatelet therapy is often required once the dissection is confirmed by imaging."
+      },
+      {
+        "title": "Summary of Complications",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Ischemic Stroke (if CAD is missed).",
+          "Metastatic spread of occult malignancy (Pancoast tumor).",
+          "Permanent ocular cosmetic defects (ptosis).",
+          "Progression of underlying neurological disease (MS/Tumor)."
+        ]
+      }
+    ],
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044697528,
+  "communityId": "sub_1774352254516_etr1w8ipv5ljmf",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

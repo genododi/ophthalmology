@@ -1,0 +1,320 @@
+{
+  "id": 1775479862546,
+  "seqId": 731,
+  "title": "Cerebellar Syndrome: Navigating Ataxia and Jerky Nystagmus",
+  "summary": "A comprehensive clinical breakdown of the 'Wide-Based Gait and Jerky Nystagmus' triad, localizing lesions to the vestibulocerebellum and midline vermis. This guide bridges neuro-ophthalmology with core cerebellar pathophysiology for residents and fellows.",
+  "date": "2026-04-06T12:51:02.546Z",
+  "data": {
+    "title": "Cerebellar Syndrome: Navigating Ataxia and Jerky Nystagmus",
+    "summary": "A comprehensive clinical breakdown of the 'Wide-Based Gait and Jerky Nystagmus' triad, localizing lesions to the vestibulocerebellum and midline vermis. This guide bridges neuro-ophthalmology with core cerebellar pathophysiology for residents and fellows.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M60 100 Q 80 70, 100 100 T 140 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4' stroke-linecap='round'><animate attributeName='d' values='M60 100 Q 80 70, 100 100 T 140 100;M60 100 Q 80 130, 100 100 T 140 100;M60 100 Q 80 70, 100 100 T 140 100' dur='0.5s' repeatCount='indefinite' /></path><rect x='85' y='140' width='30' height='10' rx='2' fill='hsl(215, 90%, 45%)'/><path d='M70 160 H 130' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-dasharray='5,5'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Localization",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The combination of a wide-based (ataxic) gait and jerky nystagmus primarily localizes to the Midline Cerebellum (Vermis) and the Vestibulocerebellum (Flocculonodular lobe). While the hemispheres control appendicular coordination, the midline structures regulate axial stability and ocular motor control via connections with the vestibular nuclei and the paramedian pontine reticular formation (PPRF)."
+      },
+      {
+        "title": "Anatomic Localization of the Lesion",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Cerebellar Lesion",
+          "branches": [
+            "Vermis (Midline): Truncal ataxia, Wide-based gait, Titubation (head tremor)",
+            "Flocculonodular Lobe: Downbeat Nystagmus, Impaired VOR suppression",
+            "Hemispheres: Ipsilateral limb dysmetria, Dysdiadochokinesia",
+            "Dorsal Vermis: Saccadic dysmetria (Ocular dysmetria)",
+            "Fastigial Nucleus: Opsoclonus, Saccadic intrusions"
+          ]
+        }
+      },
+      {
+        "title": "Neuro-Ophthalmic Signs",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Jerky Nystagmus: Typically gaze-evoked or primary position (Downbeat/Upbeat).",
+          "Saccadic Dysmetria: Overshooting (hypermetria) or undershooting (hypometria) of targets.",
+          "Impaired Smooth Pursuit: Pursuit becomes 'saccadic' or broken.",
+          "Dysfunctional VOR Suppression: Patient cannot maintain fixation while the head is rotated.",
+          "Square Wave Jerks: Small, involuntary saccades that take the eye away from and back to the target."
+        ]
+      },
+      {
+        "title": "Gait Characteristics (Ataxia)",
+        "icon": "directions_walk",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Broad Base: Feet placed wide apart to compensate for instability.",
+          "Irregular Step Length: Inconsistent distance between steps.",
+          "Truncal Instability: Swaying of the torso even when seated (if vermis is heavily involved).",
+          "Tandem Gait Failure: Inability to walk heel-to-toe (most sensitive early test).",
+          "Veering: Tendency to deviate toward the side of the lesion (if hemispheric)."
+        ]
+      },
+      {
+        "title": "Etiology: Acquired vs. Hereditary",
+        "icon": "genetics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Category",
+            "Examples & Pathophysiology"
+          ],
+          "rows": [
+            [
+              "Vascular",
+              "PICA/SCA/AICA Territory Infarcts; Cerebellar Hemorrhage."
+            ],
+            [
+              "Demyelinating",
+              "Multiple Sclerosis (Charcot's Triad: Nystagmus, Intention Tremor, Scanning Speech)."
+            ],
+            [
+              "Toxic/Metabolic",
+              "Chronic Alcoholism (Vermis atrophy), Phenytoin toxicity, Vitamin B1/B12 deficiency."
+            ],
+            [
+              "Hereditary",
+              "Friedreich’s Ataxia (FXN gene), Spinocerebellar Ataxias (SCA 1-48), Episodic Ataxia (EA2)."
+            ],
+            [
+              "Paraneoplastic",
+              "Anti-Yo (Ovarian/Breast), Anti-Hu (SCLC) antibodies causing Purkinje cell loss."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Specific Nystagmus Patterns",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Gaze-Evoked",
+              "value": 90
+            },
+            {
+              "label": "Downbeat",
+              "value": 65
+            },
+            {
+              "label": "Upbeat",
+              "value": 40
+            },
+            {
+              "label": "Rebound",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Downbeat Nystagmus (DBN) Localization",
+        "icon": "warning",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": "DBN is a classic localization sign for the Craniocervical Junction (e.g., Arnold-Chiari Malformation Type 1) or the Flocculus. It is characterized by a slow upward drift followed by a fast downward corrective phase. It typically worsens on down-and-out gaze."
+      },
+      {
+        "title": "Red Flags: Acute Cerebellar Syndrome",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset 'Thunderclap' headache with ataxia (Cerebellar Hemorrhage).",
+          "Progressive obtundation or coma (Obstructive Hydrocephalus due to 4th ventricle compression).",
+          "Papilledema (Raised Intracranial Pressure).",
+          "New-onset vertigo with 'Skew Deviation' (HINTS exam positive for stroke).",
+          "Rapidly progressive symptoms over weeks (Paraneoplastic Cerebellar Degeneration)."
+        ]
+      },
+      {
+        "title": "The 'DANISH' Mnemonic",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "DANISH",
+          "explanation": "D: Dysmetria, A: Ataxia (Gait/Truncal), N: Nystagmus (Jerky), I: Intention Tremor, S: Slurred Speech (Scanning), H: Hypotonia."
+        }
+      },
+      {
+        "title": "Ocular Examination Protocol",
+        "icon": "menu_book",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Assess primary position for nystagmus (DBN/UBN).",
+          "Step 2: Check 9 cardinal positions for Gaze-Evoked Nystagmus.",
+          "Step 3: Test Smooth Pursuit with a slow-moving target (look for 'cogwheeling').",
+          "Step 4: Test Saccades (check for overshooting/hypermetria).",
+          "Step 5: Test VOR Suppression (rotate patient on a chair while they fixate on their own thumb)."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Neuroimaging: MRI Brain with thin cuts through the Posterior Fossa (Gold Standard).",
+          "Laboratory: Vitamin B1, B12, Vitamin E levels, Thyroid function (TPO antibodies).",
+          "Serology: Paraneoplastic panel (Anti-Yo, Hu, Ri, Tr, CV2, PCA-2).",
+          "Genetic Testing: SCA panel (CAG repeat expansions) or Friedreich Ataxia testing (GAA repeats).",
+          "Cerebrospinal Fluid (CSF): Oligoclonal bands (if MS suspected) or cytology (if neoplastic)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Ataxic Gait",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Cerebellar Ataxia",
+            "Sensory Ataxia",
+            "Vestibular Ataxia"
+          ],
+          "rows": [
+            [
+              "Romberg Sign",
+              "Negative/Minimal effect",
+              "Strongly Positive (Worse with eyes closed)",
+              "Positive (Leans to side of lesion)"
+            ],
+            [
+              "Gait Style",
+              "Wide-based, 'Drunk' walk",
+              "High-stepping, 'Stamping' gait",
+              "Veering, Tilt, Vertigo"
+            ],
+            [
+              "Nystagmus",
+              "Gaze-evoked / Central",
+              "Usually Absent",
+              "Peripheral (Horizontal-torsional)"
+            ],
+            [
+              "Coordination",
+              "Dysmetria present",
+              "Pseudoathetosis",
+              "Normal limb coordination"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Lesions in the cerebellar hemispheres cause IPSILATERAL signs.",
+          "Episodic Ataxia Type 2 (EA2) is associated with CACNA1A mutations and responds to Acetazolamide.",
+          "The 'Gaze-Holding' mechanism (Neural Integrator) involves the Flocculus and NPH; failure leads to jerky nystagmus.",
+          "In children, consider Medulloblastoma or Ependymoma if gait/nystagmus is new and progressive."
+        ]
+      },
+      {
+        "title": "Management Strategies",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Pharmacology: 4-Aminopyridine (4-AP) for Downbeat Nystagmus.",
+          "Hereditary: Idebenone (limited evidence) for Friedreich's Ataxia cardiomyopathy.",
+          "Surgical: Posterior fossa decompression for Chiari Malformations.",
+          "Rehabilitation: Physical therapy focused on core stability and vestibular habituation.",
+          "Prisms: Base-out prisms can sometimes dampen certain types of nystagmus."
+        ]
+      }
+    ],
+    "generationPrompt": "Wide based gait with jerky nystagmus (+localise the lesion)",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "kanskiMeta": [
+    {
+      "pageNum": 828,
+      "keywords": [
+        "nystagmus",
+        "cerebellar",
+        "syndrome",
+        "ataxia",
+        "neuro-ophthalmology"
+      ]
+    },
+    {
+      "pageNum": 825,
+      "keywords": [
+        "nystagmus",
+        "cerebellar",
+        "differential"
+      ]
+    },
+    {
+      "pageNum": 741,
+      "keywords": [
+        "nystagmus",
+        "syndrome",
+        "differential"
+      ]
+    },
+    {
+      "pageNum": 758,
+      "keywords": [
+        "nystagmus",
+        "syndrome",
+        "neuro",
+        "signs",
+        "acquired"
+      ]
+    },
+    {
+      "pageNum": 822,
+      "keywords": [
+        "nystagmus",
+        "syndrome",
+        "neuro-ophthalmology",
+        "lesion",
+        "neuro"
+      ]
+    },
+    {
+      "pageNum": 6,
+      "keywords": [
+        "nystagmus",
+        "syndrome",
+        "neuro",
+        "acquired",
+        "ocular"
+      ]
+    }
+  ]
+}

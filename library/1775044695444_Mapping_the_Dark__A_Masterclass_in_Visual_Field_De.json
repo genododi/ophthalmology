@@ -1,0 +1,258 @@
+{
+  "id": 1775044695444,
+  "seqId": 459,
+  "title": "Mapping the Dark: A Masterclass in Visual Field Defects",
+  "summary": "Visual field testing is the topographical map of the visual pathway. From the retinal nerve fiber layer to the primary visual cortex, understanding patterns of loss is essential for localizing pathology and managing progressive diseases like glaucoma.",
+  "date": "2026-04-01T11:58:15.444Z",
+  "data": {
+    "title": "Mapping the Dark: A Masterclass in Visual Field Defects",
+    "summary": "Visual field testing is the topographical map of the visual pathway. From the retinal nerve fiber layer to the primary visual cortex, understanding patterns of loss is essential for localizing pathology and managing progressive diseases like glaucoma.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 30 Q 50 10 80 30 T 50 90' fill='hsl(215, 90%, 85%)' opacity='0.5'/><circle cx='50' cy='50' r='1' fill='red'/><line x1='50' y1='5' x2='50' y2='95' stroke='hsl(215, 90%, 45%)' stroke-dasharray='2'/><line x1='5' y1='50' x2='95' y2='50' stroke='hsl(215, 90%, 45%)' stroke-dasharray='2'/><path d='M60 60 L 90 60 L 90 90 L 60 90 Z' fill='black' opacity='0.7'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "A visual field defect (VFD) is a loss of part of the usual field of vision. The normal human monocular field extends approximately 60° nasally, 100° temporally, 60° superiorly, and 75° inferiorly. Deficiencies are categorized as scotomas (areas of reduced sensitivity surrounded by better vision) or depressions (generalized reduction in sensitivity)."
+      },
+      {
+        "title": "Anatomical Correlation: The Visual Pathway",
+        "icon": "architecture",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Lesion Site",
+          "branches": [
+            "Retina: Arcuate, Cecocentral, or Localized scotomas",
+            "Optic Nerve: Altitudinal, Central, or Arcuate defects",
+            "Chiasm: Bitemporal hemianopia (Classically superior quadrant first)",
+            "Optic Tract: Incongruous homonymous hemianopia",
+            "LGB: Rare; Sectoranopia patterns",
+            "Optic Radiations: Quadrantanopias (Temporal = 'Pie in sky', Parietal = 'Pie on floor')",
+            "Occipital Cortex: Congruous homonymous hemianopia with macular sparing"
+          ]
+        }
+      },
+      {
+        "title": "HFA Interpretation: Step-by-Step Protocol",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Patient Demographics & Test Type (Confirm 24-2, 30-2, or 10-2 SITA-Standard/Fast).",
+          "Step 2: Reliability Indices: Check Fixation Losses (<20%), False Positives (<15-33%), and False Negatives.",
+          "Step 3: Global Indices: Review Mean Deviation (MD) and Pattern Standard Deviation (PSD).",
+          "Step 4: Glaucoma Hemifield Test (GHT): Check for 'Outside Normal Limits'.",
+          "Step 5: Total Deviation Plot: Identifies generalized and focal depression.",
+          "Step 6: Pattern Deviation Plot: Crucial; filters out generalized depression (like cataracts) to reveal focal defects.",
+          "Step 7: Clinical Correlation: Match the plot with the clinical exam and RNFL/GCL imaging."
+        ]
+      },
+      {
+        "title": "Global Indices Explained",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Mean Deviation (MD)",
+              "value": 85
+            },
+            {
+              "label": "Pattern SD (PSD)",
+              "value": 95
+            },
+            {
+              "label": "Visual Field Index (VFI)",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Reliability Rule of Thumb",
+        "icon": "verified",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Reliability Thresholds",
+          "explanation": "Fixation Losses >20% (Patient looking around), False Positives >15% (Happy trigger finger - high MD), False Negatives (Fatigue or severe glaucoma)."
+        }
+      },
+      {
+        "title": "Glaucomatous Field Defects",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Isolate Nasal Step: Earliest sign; crosses horizontal midline in nasal field.",
+          "Paracentral Scotoma: Small focal loss within 10-20 degrees of fixation.",
+          "Arcuate (Bjerrum) Scotoma: Arises from blind spot, arches over fixation to nasal horizontal line.",
+          "Seidel Scotoma: Sickle-shaped extension of the blind spot.",
+          "Ring Scotoma: Merging of superior and inferior arcuate defects.",
+          "Temporal Wedge: Rare; damage to nasal fibers."
+        ]
+      },
+      {
+        "title": "Neuro-Ophthalmic Patterns",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Lesion Site",
+            "Visual Field Defect Pattern",
+            "Key Clinical Feature"
+          ],
+          "rows": [
+            [
+              "Optic Chiasm (Central)",
+              "Bitemporal Hemianopia",
+              "Pituitary Adenoma; junctional scotoma if posterior"
+            ],
+            [
+              "Temporal Lobe (Meyer's Loop)",
+              "Pie in the Sky (Superior Quad)",
+              "Incongruous; associated with seizures/aphasia"
+            ],
+            [
+              "Parietal Lobe (Baum's Loop)",
+              "Pie on the Floor (Inferior Quad)",
+              "Incongruous; associated with hemiparesis/neglect"
+            ],
+            [
+              "Occipital Lobe (Tip)",
+              "Congruous Homonymous Hemianopia",
+              "Macular Sparing (dual blood supply: PCA & MCA)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Non-Glaucomatous Loss",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden Onset Altitudinal Loss (ION/GCA)",
+          "Bitemporal Defects (Chiasmal Compression)",
+          "Rapidly Progressing Defects (Inflammatory/Neoplastic)",
+          "Defects Respecting Vertical Midline (Neurological)",
+          "Cloverleaf Pattern (Malingering/Severe Inattention)"
+        ]
+      },
+      {
+        "title": "Post-Chiasmal Mnemonic",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "PITS",
+          "explanation": "Parietal = Inferior defect; Temporal = Superior defect. This refers to the quadrantanopias caused by lesions in the optic radiations."
+        }
+      },
+      {
+        "title": "Altitudinal Defects: Differential Diagnosis",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Vascular (AION)",
+            "Glaucoma"
+          ],
+          "rows": [
+            [
+              "Sudden onset",
+              "Chronic/Silent"
+            ],
+            [
+              "Respects Horizontal Midline",
+              "May cross slightly initially"
+            ],
+            [
+              "Pale/Swollen Disc",
+              "Cupped Disc"
+            ],
+            [
+              "Stable after event",
+              "Progressive"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Confirm defect repeatability (re-test if unsure).",
+          "2. Dilated fundus exam focusing on Disc and Macula.",
+          "3. OCT RNFL / GCC to look for structural correlation.",
+          "4. If respects vertical midline: Urgent MRI Brain/Orbits.",
+          "5. If altitudinal + older: Check ESR/CRP/Platelets for GCA."
+        ]
+      },
+      {
+        "title": "Common Artifacts & Pitfalls",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Trial Lens Rim Artifact: Sharp circular peripheral depression.",
+          "Cataract: Generalized depression (low MD, normal-ish PSD).",
+          "Miosis: Can mimic generalized depression; pupils < 3mm.",
+          "Learning Effect: First test often unreliable; improvement on second.",
+          "Ptosis/Brow Ptosis: Superior field constriction."
+        ]
+      },
+      {
+        "title": "Staging Glaucoma (Hodapp-Parrish-Anderson)",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Early: MD < -6dB; <25% of points depressed <5%.",
+          "Moderate: MD -6 to -12dB; 25-50% of points depressed <5%.",
+          "Severe: MD > -12dB; >50% of points depressed; or <5 deg from fixation."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Board Exam",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Congruity Rule: The more posterior the lesion (Occipital), the more congruous (symmetric) the defect between the two eyes.",
+          "Macular Sparing: Characteristic of PCA infarcts due to MCA collateral supply to the occipital pole.",
+          "Foster-Kennedy Syndrome: Optic atrophy in one eye (compression) and papilledema in the other (raised ICP); often due to frontal lobe tumor.",
+          "Wilbrand's Knee: A small loop of inferior nasal fibers that cross the chiasm and loop into the contralateral optic nerve; its existence is debated but board-tested."
+        ]
+      }
+    ],
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044695444,
+  "communityId": "sub_1774120900002_parxpthxi",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-21T19:21:40.002Z"
+}

@@ -1,0 +1,190 @@
+{
+  "id": 1774979034315,
+  "seqId": 15,
+  "title": "Blebitis and Infectious Endophthalmitis: A Comprehensive Clinical Management Protocol",
+  "summary": "Blebitis represents an ocular emergency characterized by infection of the filtering bleb following trabeculectomy. Without immediate, aggressive intervention, it rapidly progresses to sight-threatening endophthalmitis.",
+  "date": "2026-03-31T17:43:54.315Z",
+  "data": {
+    "title": "Blebitis and Infectious Endophthalmitis: A Comprehensive Clinical Management Protocol",
+    "summary": "Blebitis represents an ocular emergency characterized by infection of the filtering bleb following trabeculectomy. Without immediate, aggressive intervention, it rapidly progresses to sight-threatening endophthalmitis.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 20 70 50 T30 50' fill='hsl(215, 90%, 90%)' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Blebitis is a focal infection involving the filtering bleb post-trabeculectomy. It occurs when pathogens gain entry to the anterior chamber via a compromised bleb wall. Pathogenesis: 1. Bleb avascularity/thinning (leaky bleb). 2. Bacterial colonization (Staphylococcus epidermidis, Streptococcus spp.). 3. Penetration into the bleb and subsequently the vitreous cavity leading to endophthalmitis."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Inf. Bleb/Trab",
+              "value": 15
+            },
+            {
+              "label": "Bleb Leak Rate",
+              "value": 35
+            },
+            {
+              "label": "Post-Trab Risk",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Risk Factors",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Inferior limbal site of trabeculectomy",
+          "Use of Mitomycin-C (MMC)",
+          "Thin, cystic, avascular blebs",
+          "Long-term topical antibiotic use",
+          "Contact lens wear",
+          "Blepharitis or ocular surface disease"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Sterile Blebitis",
+              "Minimal cells, less pain, usually self-limiting"
+            ],
+            [
+              "Infectious Endophthalmitis",
+              "Vitreous involvement, vision loss, severe pain"
+            ],
+            [
+              "Bleb Leak",
+              "Seidel (+) but no inflammation"
+            ],
+            [
+              "Hypopyon Uveitis",
+              "Anterior chamber cells but no bleb involvement"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Suspect Endophthalmitis",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Presence of a hypopyon",
+          "Vitreous cells or haze on B-scan ultrasound",
+          "Significant visual acuity loss (worse than 20/200)",
+          "Severe, unrelenting ocular pain",
+          "Eyelid edema and chemosis"
+        ]
+      },
+      {
+        "title": "Classification of Disease Severity",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Blebitis Spectrum",
+          "branches": [
+            "Stage I: Blebitis (No vitritis)",
+            "Stage II: Early Endophthalmitis (Mild vitritis)",
+            "Stage III: Overt Endophthalmitis (Heavy vitreous debris)"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "fingerprint",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Perform Seidel test to confirm leak site.",
+          "Step 2: Slit-lamp examination: Assess bleb density, infiltration, and AC activity.",
+          "Step 3: B-scan Ultrasonography to evaluate for vitritis.",
+          "Step 4: Aqueous/Vitreous tap (if endophthalmitis is suspected) for culture and sensitivity.",
+          "Step 5: Cultures of the conjunctiva and the bleb area (swab)."
+        ]
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Hospitalization: Mandatory for blebitis/endophthalmitis.",
+          "2. Topical Antibiotics: Fortified Vancomycin (50mg/mL) & Fortified Ceftazidime (50mg/mL) every hour.",
+          "3. Systemic Coverage: Consider IV Fluoroquinolones (e.g., Moxifloxacin).",
+          "4. Cycloplegics: Atropine 1% BID for comfort and synechiae prevention.",
+          "5. Intravitreal Injection: If vitritis is present (Vancomycin 1mg/0.1ml + Ceftazidime 2.25mg/0.1ml).",
+          "6. Surgical Intervention: Pars Plana Vitrectomy (PPV) for dense vitritis."
+        ]
+      },
+      {
+        "title": "Clinical Pearl: The Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "B-L-E-B",
+          "explanation": "B: Bacterial culture priority; L: Local antibiotic (fortified); E: Evaluate vitritis; B: Be aggressive with surgery."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Never perform a bleb revision until the active infection is resolved.",
+          "Streptococcus species (esp. S. pneumoniae) carry the worst prognosis.",
+          "A clear view of the fundus is critical; if lost, treat as endophthalmitis.",
+          "Prophylactic antibiotic use post-trabeculectomy is highly controversial."
+        ]
+      },
+      {
+        "title": "Landmark Considerations",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Reference the 'Endophthalmitis Vitrectomy Study' (EVS) for surgical decision-making, acknowledging that bleb-associated endophthalmitis often requires earlier surgical intervention compared to post-cataract cases due to more virulent organisms."
+      }
+    ],
+    "generationPrompt": "Blebitis & related endophthalmitis",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

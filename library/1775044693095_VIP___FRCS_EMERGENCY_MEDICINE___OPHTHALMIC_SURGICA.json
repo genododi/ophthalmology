@@ -1,0 +1,242 @@
+{
+  "id": 1775044693095,
+  "seqId": 434,
+  "title": "VIP:::FRCS:EMERGENCY MEDICINE & OPHTHALMIC SURGICAL PROTOCOLS",
+  "summary": "A comprehensive visual guide for ophthalmology residents covering acute systemic management (DKA, STEMI, GI Bleeding), ophthalmic anesthesia complications, and the assessment of functional visual loss. This poster integrates critical medical stabilization with specialized clinical pearls.",
+  "date": "2026-04-01T11:58:13.095Z",
+  "data": {
+    "title": "VIP:::FRCS:EMERGENCY MEDICINE & OPHTHALMIC SURGICAL PROTOCOLS",
+    "summary": "A comprehensive visual guide for ophthalmology residents covering acute systemic management (DKA, STEMI, GI Bleeding), ophthalmic anesthesia complications, and the assessment of functional visual loss. This poster integrates critical medical stabilization with specialized clinical pearls.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><rect x='48' y='25' width='4' height='15' fill='red'/><rect x='42.5' y='30.5' width='15' height='4' fill='red'/><path d='M20 80 L80 80' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Acute GI Bleeding Management",
+        "icon": "emergency",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "1. INITIAL ACTIONS: Protect airway, Nothing Per Oral (NPO), insert two large bore cannulae.",
+          "2. URGENT BLOODS: FBC, U&E, LFT, glucose, clotting screen, cross match 4-6 units.",
+          "3. RESUSCITATION: Rapid IV crystalloid infusion up to 1L.",
+          "4. SHOCK PROTOCOL: If signs of shock, give group specific or group O Rh -ve until crossmatch is done.",
+          "5. TRANSFUSION: Continue IV fluids to maintain BP; transfuse if HB < 7.",
+          "6. COAGULOPATHY: Correct clotting abnormalities using Vit K, FFP, and platelet concentration.",
+          "7. VARICEAL RISK: Give Terlipressin IV 1-2mg/6h and broad-spectrum IV antibiotics.",
+          "8. ICU & MONITORING: ICU referral, CVP insertion to guide fluid replacement (aim >5cm H2O).",
+          "9. RENAL/OUTPUT: Catheterize and monitor output (aim >30ml/h).",
+          "10. VITALS: Monitor every 15min until stable, then hourly. Notify surgeons of all severe bleeds.",
+          "11. DEFINITIVE CARE: Urgent endoscopy for diagnosis +/- control of bleeding at earliest point after resuscitation."
+        ]
+      },
+      {
+        "title": "Atrial Fibrillation & Acute STEMI",
+        "icon": "cardiology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Immediate Management & Medications",
+            "Monitoring / Specialized Care"
+          ],
+          "rows": [
+            [
+              "Atrial Fibrillation",
+              "Rate Control: Metoprolol (1-10mg IV), Verapamil (5-10mg IV), Digoxin (HF: 500mcg PO, then 500mcg/8h, then 250mcg/8h). Rhythm: Amiodarone.",
+              "Anticoagulation: Warfarin or NOAC. Cardioversion: DC under sedation if onset <48h or anticoagulated >3wks."
+            ],
+            [
+              "Acute STEMI",
+              "Aspirin 300mg or Ticagrelor 180mg. Morphine 5-10mg IV + Metoclopramide 10mg IV. PCI or Fibrinolysis.",
+              "12-lead ECG, bloods (FBC, U&E, Glu, Lipid, Troponin). Check pulse (both arms), JVP, murmurs, CHF signs, CXR."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Ophthalmic Regional Anesthesia Complications",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Block Type",
+            "Specific Ocular Complications",
+            "Systemic & Vision-Threatening Risks"
+          ],
+          "rows": [
+            [
+              "Sub-Tenon Block",
+              "Conjunctival chemosis, subconjunctival hemorrhage, vortex vein injury, raised IOP, globe trauma, EOM damage.",
+              "Retrobulbar hemorrhage, Suprachoroidal block, block failure."
+            ],
+            [
+              "Peribulbar / Retrobulbar",
+              "Globe perforation, oculocardiac reflex (OCR), expulsive retrobulbar hemorrhage, globe explosion.",
+              "Anaphylaxis, cardiorespiratory complications, neurological complications, Optic nerve injuries (AION), Amaurosis fugax."
+            ],
+            [
+              "Clinical Pearl",
+              "Retrobulbar Intraconal Block",
+              "Higher risk of optic nerve sheath penetration and brainstem anesthesia compared to Sub-tenon."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CHARGE Syndrome Mnemonic",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "C-H-A-R-G-E",
+          "explanation": "C: Coloboma; H: Heart defect; A: Atresia choanae; R: Retarded growth; G: Genital anomalies; E: Ear abnormality syndrome."
+        }
+      },
+      {
+        "title": "Miller Fisher Syndrome (MFS)",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Variant of Guillain-Barré Syndrome triggered by viral/bacterial infection.",
+          "TRIAD: Ophthalmoplegia, Ataxia, Areflexia.",
+          "Diagnostic Marker: Anti-GQ1b antibody.",
+          "Treatment: Intravenous Immunoglobulin (IVIG).",
+          "Prognosis: Self-limited; usually resolves within weeks to months."
+        ]
+      },
+      {
+        "title": "Management of Diabetic Ketoacidosis (DKA)",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: ABCs and 2 large bore cannulae.",
+          "Step 2: FLUIDS: 0.9% Saline over 1h. If Systolic BP <90, give 500ml bolus over 15min. If no improvement, ICU admission.",
+          "Step 3: INVESTIGATIONS: VBG (pH, Bicarb), Glucose (bedside/lab), U&E, FBC, CRP, CXR, ECG.",
+          "Step 4: INSULIN: 50 units Soluble Insulin in 50ml 0.9% Saline at 0.1 unit/kg/h. Continue long-acting insulin.",
+          "Step 5: TARGETS: Fall in ketones (0.5 mmol/L/h), raise bicarb (3 mmol/L/h), fall in glucose (3 mmol/L/h). Increase insulin by 1U/h if targets not met.",
+          "Step 6: MONITORING: Ketones hourly. VBG (pH, HCO3, K+) at 2, 4, 8, 12, 24 hours.",
+          "Step 7: POTASSIUM: Continue fluids and assess K+. Catheterize if no urine by 1h (aim 0.5ml/kg/h).",
+          "Step 8: COMPLICATIONS: NG tube if vomiting/drowsy. Start LMWH for all patients.",
+          "Step 9: HYPO PREVENTION: When glucose <14 mmol/L, start 10% Glucose at 125ml/h alongside Saline.",
+          "Step 10: DISCONTINUATION: Continue fixed-rate insulin until Ketones <0.6, pH >7.3, and Bicarb >15. Treat underlying infection."
+        ]
+      },
+      {
+        "title": "Hyperglycemic Emergencies & Symptoms",
+        "icon": "warning",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Metabolic Derangements",
+          "branches": [
+            "DKA Symptoms: Fruity breath, Nausea, Vomiting, Confusion",
+            "Hypoglycemia Symptoms: Shaking, Sweating, Tachycardia, Confusion, Irritability",
+            "HHS Management: LMWH, Slow rehydration (0.9% saline over 48h), Replace K+ when urine flows",
+            "HHS Targets: Glucose 10-15 mmol/L (first 24h) to avoid Cerebral Edema",
+            "HHS Insulin: Only if glucose not falling by 5mmol/L with hydration or if ketonaemia exists"
+          ]
+        }
+      },
+      {
+        "title": "Hypoglycemia Management Protocol",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "CONSCIOUS/ORIENTED: 15-20g quick acting carbohydrate snack (200ml orange juice). Recheck glucose after 15m (repeat up to 3 times).",
+          "CONSCIOUS/UNCOOPERATIVE: Squirt glucose gel between teeth and gums.",
+          "UNCONSCIOUS/NON-RESPONDING: IV Glucose 10% at 200ml/15min OR Glucagon 1mg IV/IM.",
+          "STABILIZATION: Give long-acting carbohydrate when glucose > 4.0 mmol/L."
+        ]
+      },
+      {
+        "title": "Seizure Management Steps",
+        "icon": "psychology",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Secure airway, remove false teeth, 100% Oxygen + suction.",
+          "2. IV access: U&E, LFT, FBC, Glucose, Ca+2, Toxicology.",
+          "3. Lorazepam 4mg IV (2nd dose if no response in 10-20 min).",
+          "4. Thiamine 250mg IV (if alcohol/malnourishment) + Glucose 50ml (50%).",
+          "5. Correct Acidosis and Hypotension (fluids).",
+          "6. Phenytoin 15-18mg/kg (rate 50mg/min) with ECG/BP monitoring. Maint: 100mg 6-8 hourly.",
+          "7. Refractory: GA (Propofol) and Ventilation with continuous EEG in ICU."
+        ]
+      },
+      {
+        "title": "Functional Visual Loss: Diagnosis & Management",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Functional Visual Loss",
+          "branches": [
+            "Goldmann Perimetry: Spiralling isopters (regress toward fixation)",
+            "VA Tests: Normal Stereoacuity = Normal VA; Reading vision normal despite poor Snellen",
+            "Color Vision: Normal Ishihara plate response = VA at least 6/24",
+            "Cross Cylinder: +6D fog in trial frame, rotate +3D/-3D cylinders to negate and encourage reading",
+            "Management: Reassurance, counseling, follow-up, Clinical Psychologist referral",
+            "Diagnostics: Normal VEP, MRI (contrast) of visual pathway, PET in exceptional cases"
+          ]
+        }
+      },
+      {
+        "title": "Systemic Manifestations of Thyrotoxicosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "1. Increased Temperature",
+          "2. Agitation / Psychosis / Panic",
+          "3. Confusion / Coma",
+          "4. Tachycardia / Palpitations",
+          "5. Atrial Fibrillation",
+          "6. Goitre / Thyroid Bruit",
+          "7. Acute Abdomen / Diarrhoea",
+          "8. Heart Failure",
+          "9. Weight Loss with Increased Appetite",
+          "10. Sweating / Heat Intolerance",
+          "11. Oligomenorrhoea / Infertility",
+          "12. Chorea / Itch / Urticaria"
+        ]
+      },
+      {
+        "title": "Clinical Red Flags & Reminders",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "GI BLEEDING: Maintain CVP > 5cm H2O and Urine Output > 30ml/h.",
+          "DKA: Avoid hypoglycemia when glucose < 14 mmol/L; start 10% glucose.",
+          "HHS: Rehydrate slowly over 48 hours to prevent cerebral edema.",
+          "ANESTHESIA: Monitor for Oculocardiac Reflex (Bradycardia) during blocks.",
+          "THYROID: Be alert for 'Thyroid Storm' in patients with acute abdomen and tachycardia."
+        ]
+      }
+    ],
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "_newlyImported": 1775044693095,
+  "communityId": "sub_1773838666503_25syiehv7",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-18T12:57:46.503Z",
+  "read": true,
+  "bookmarked": true
+}

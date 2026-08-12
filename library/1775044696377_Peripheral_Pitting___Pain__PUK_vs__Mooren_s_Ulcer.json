@@ -1,0 +1,294 @@
+{
+  "id": 1775044696377,
+  "seqId": 468,
+  "title": "Peripheral Pitting & Pain: PUK vs. Mooren’s Ulcer",
+  "summary": "A comprehensive clinical breakdown of peripheral corneal melting syndromes. This poster distinguishes between Peripheral Ulcerative Keratitis (PUK)—a manifestation of systemic vasculitis—and Mooren’s Ulcer—a rare, idiopathic, sight-threatening autoimmune keratitis.",
+  "date": "2026-04-01T11:58:16.377Z",
+  "data": {
+    "title": "Peripheral Pitting & Pain: PUK vs. Mooren’s Ulcer",
+    "summary": "A comprehensive clinical breakdown of peripheral corneal melting syndromes. This poster distinguishes between Peripheral Ulcerative Keratitis (PUK)—a manifestation of systemic vasculitis—and Mooren’s Ulcer—a rare, idiopathic, sight-threatening autoimmune keratitis.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M40 100 A60 60 0 0 1 100 40' fill='none' stroke='#e11d48' stroke-width='8' stroke-linecap='round'/><path d='M160 100 A60 60 0 0 1 100 160' fill='none' stroke='#e11d48' stroke-width='3' stroke-dasharray='5,5'/><circle cx='100' cy='100' r='30' fill='hsl(215, 90%, 85%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definitions",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Peripheral Ulcerative Keratitis (PUK) is a crescent-shaped destructive inflammation of the juxtalimbal corneal stroma associated with an epithelial defect, stromal thinning, and inflammatory cell infiltration. Mooren's Ulcer is a specific, idiopathic form of PUK that occurs in the absence of any detectable systemic autoimmune or infectious disease, characterized by an overhanging leading edge of deep stromal melting."
+      },
+      {
+        "title": "The Great Comparison: PUK vs. Mooren’s",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "PUK (Systemic)",
+            "Mooren's Ulcer"
+          ],
+          "rows": [
+            [
+              "Systemic Association",
+              "Present (RA, GPA, SLE, PAN)",
+              "Absent (Diagnosis of Exclusion)"
+            ],
+            [
+              "Scleritis",
+              "Frequently Associated (60%+)",
+              "Characteristically Absent"
+            ],
+            [
+              "Ulcer Morphology",
+              "Crescentic, rapid progression",
+              "Overhanging/Undermined leading edge"
+            ],
+            [
+              "Limbal Involvement",
+              "Involves limbus & episcleral vessels",
+              "Spares the limbus (usually starts near it)"
+            ],
+            [
+              "Vascularization",
+              "Stops at the ulcer base",
+              "Vessels grow into the ulcer base"
+            ],
+            [
+              "Response to Topicals",
+              "Poor; requires systemic Rx",
+              "Variable; requires aggressive immunosuppression"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "groups",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "RA Assoc. in PUK",
+              "value": 34
+            },
+            {
+              "label": "GPA Assoc. in PUK",
+              "value": 15
+            },
+            {
+              "label": "Mooren's Type 1 (Elderly)",
+              "value": 75
+            },
+            {
+              "label": "Mooren's Type 2 (Younger)",
+              "value": 25
+            }
+          ]
+        }
+      },
+      {
+        "title": "Mooren's Ulcer Classification (Wood & Fife)",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Type",
+            "Characteristics"
+          ],
+          "rows": [
+            [
+              "Type 1 (Limited)",
+              "Unilateral, older patients, slow progression, responds well to surgery/medical Rx."
+            ],
+            [
+              "Type 2 (Aggressive)",
+              "Bilateral, younger patients (often African/Asian), rapid progression, poor prognosis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Cascade of Melt",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Immune complex deposition (Type III Hypersensitivity) in the limbal vascular network.",
+          "Step 2: Recruitment of neutrophils and macrophages to the limbus.",
+          "Step 3: Release of Matrix Metalloproteinases (MMP-1, MMP-2, MMP-9) and Collagenases.",
+          "Step 4: Destruction of corneal stromal lamellae and epithelial basement membrane.",
+          "Step 5: Stromal melting proceeds circumferentially and then centrally."
+        ]
+      },
+      {
+        "title": "Systemic Etiologies of PUK",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "PUK Causes",
+          "branches": [
+            "Rheumatoid Arthritis (Most Common)",
+            "Granulomatosis with Polyangiitis (GPA)",
+            "Systemic Lupus Erythematosus (SLE)",
+            "Polyarteritis Nodosa (PAN)",
+            "Relapsing Polychondritis",
+            "Infectious (Hepatitis C, TB, Syphilis)"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup: Mandatory Labs",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Complete Blood Count (CBC) with differential",
+          "ESR and C-Reactive Protein (CRP)",
+          "Rheumatoid Factor (RF) & Anti-CCP",
+          "ANCA (c-ANCA for GPA, p-ANCA for PAN/MPA)",
+          "ANA (Antinuclear Antibody) profile",
+          "BUN/Creatinine & Urinalysis (check for renal involvement)",
+          "Chest X-Ray or CT (rule out GPA/Sarcoid)",
+          "Syphilis Serology (RPR/FTA-ABS)"
+        ]
+      },
+      {
+        "title": "The 'Red Flag' Symptoms",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Extreme pain disproportionate to clinical findings (suggests Scleritis/GPA)",
+          "Sudden decrease in vision (threatened perforation)",
+          "Positive Seidel test over the area of thinning",
+          "Hematuria or hemoptysis (indicates systemic vasculitis emergency)",
+          "Scleral involvement (Sclerokeratitis indicates high systemic mortality risk)"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Peripheral Thinning",
+        "icon": "troubleshoot",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Peripheral Thinning",
+          "branches": [
+            "Terrien Marginal Degeneration (Painless, no defect)",
+            "Senile Furrow Degeneration (Benign, elderly)",
+            "Pellucid Marginal Degeneration (Non-inflammatory, inferior)",
+            "Staphylococcal Marginal Keratitis (Infiltrate then melt)",
+            "Dellen (Secondary to elevation/drying)"
+          ]
+        }
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Lubrication: Preservative-free tears and ointments.",
+          "2. Systemic Steroids: Oral Prednisolone (1mg/kg/day) for acute control.",
+          "3. Immunomodulators: Methotrexate, Azathioprine, or Mycophenolate.",
+          "4. Biologics: Rituximab (highly effective for GPA/refractory RA) or Infliximab.",
+          "5. Collagenase Inhibitors: Oral Doxycycline (100mg BID) and topical Medroxyprogesterone."
+        ]
+      },
+      {
+        "title": "Surgical Intervention Techniques",
+        "icon": "architecture",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Conjunctival Resection: Removes the source of collagenases and antibodies (Primary for Mooren's).",
+          "Cyanoacrylate Tissue Adhesive: For small perforations (<1mm) or extreme thinning.",
+          "Amniotic Membrane Transplantation (AMT): Multilayered to promote epithelialization.",
+          "Tectonic Lamellar Keratoplasty: Crescentic grafts to restore globe integrity.",
+          "Gundersen Flap: If visual potential is poor but globe needs stabilization."
+        ]
+      },
+      {
+        "title": "Remember: MOOREN Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "MOOREN",
+          "explanation": "M: Marginal melt, O: Overhanging edge, O: Orphan (Idiopathic), R: Relentless progression, E: Exclude systemic disease, N: No scleritis."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "PUK may be the presenting sign of a lethal systemic vasculitis (e.g., GPA).",
+          "A patient with RA who develops PUK has a 50% mortality rate at 10 years if not treated systemically.",
+          "Mooren's ulcer is a diagnosis of EXCLUSION. Always run the full vasculitis panel first.",
+          "Topical steroids can sometimes ACCELERATE melting in PUK by inhibiting collagen synthesis."
+        ]
+      },
+      {
+        "title": "Recent Advances: The Rituximab Revolution",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Landmark studies have shown that B-cell depletion therapy with Rituximab is superior to traditional cyclophosphamide for induction of remission in ANCA-associated vasculitis (RAVE and RITUXVAS trials). In PUK associated with Wegener's (GPA), Rituximab has become a first-line agent, showing rapid stabilization of the corneal stroma and better safety profiles than older alkylating agents."
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Perforation Risk",
+              "value": 30
+            },
+            {
+              "label": "Secondary Infection",
+              "value": 15
+            },
+            {
+              "label": "Glaucoma (Secondary)",
+              "value": 25
+            },
+            {
+              "label": "Recurrence Post-Graft",
+              "value": 40
+            }
+          ]
+        }
+      }
+    ],
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044696377,
+  "communityId": "sub_1774352254516_0v6zf8br8l4yhi",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z",
+  "read": true
+}

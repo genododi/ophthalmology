@@ -1,0 +1,178 @@
+{
+  "id": 1775044670734,
+  "seqId": 240,
+  "title": "Comprehensive Ophthalmic Clinical Compendium: Surgical, Diagnostic & Pathological Insights",
+  "summary": "An exhaustive clinical reference guide covering procedural protocols, systemic associations, and diagnostic benchmarks for the modern ophthalmologist. This resource serves as a structured synthesis of surgical steps, diagnostic criteria, and differential pathways.",
+  "date": "2026-04-01T11:57:50.734Z",
+  "data": {
+    "title": "Comprehensive Ophthalmic Clinical Compendium: Surgical, Diagnostic & Pathological Insights",
+    "summary": "An exhaustive clinical reference guide covering procedural protocols, systemic associations, and diagnostic benchmarks for the modern ophthalmologist. This resource serves as a structured synthesis of surgical steps, diagnostic criteria, and differential pathways.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><path d='M10 50 Q 50 10 90 50 T 170 50' stroke='hsl(215, 90%, 45%)' stroke-width='4' fill='none'/><circle cx='90' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><text x='10' y='90' font-size='10' font-family='sans-serif' fill='hsl(215, 90%, 45%)'>Clinical Pathways & Diagnostics</text></svg>",
+    "sections": [
+      {
+        "title": "Dacryocystorhinostomy (DCR) Procedural Steps",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Anesthesia",
+          "2. Disinfection and drapping",
+          "3. Curvilinear skin incision 1cm from medial canthus 10-12mm in length",
+          "4. Dissection down to expose anterior lamellar crest",
+          "5. Periosteal incision and elevated to expose lacrimal sac fossa",
+          "6. Frontal process of maxila or lacrimal bone removal",
+          "7. Creat a bony window to expose nasal mucosa",
+          "8. Open lacrimal sac and nasal mucosa",
+          "9. Flap fashioning, suture anterior flap",
+          "10. Suture posterior flap or skip this step",
+          "11. Bicanalicular silicon intubation",
+          "12. Periosteum and orbicularis clossed",
+          "13. Skin closed"
+        ]
+      },
+      {
+        "title": "Wegener Granulomatosis: Systemic & Ocular Manifestations",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": "Systemic manifestation: Respiratory tract (sinusitis, nasal ulcer, otitis media, airway obstruction, pulmonary infiltrate, nodule, cavitation, alveolar hge), Kidney (glomerulonephritis), Fever, fatigue, weight loss, muscle and joint pain, Skin (purpura, painful skin lesion, ulcer), CNS (meningeal inflammation, cranial palsy, stroke-like symptoms), Heart (pericarditis and other cvs issue). Ocular manifestation: orbital inflammation, scleritis, keratitis, retinal vasculitis, optic neuritis. Drug of choice: glucocorticoids + cyclophosphamide or retuximab."
+      },
+      {
+        "title": "Pentacam Normal Values & Keratoconus Findings",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Metric",
+            "Normal Range/Value",
+            "Keratoconus/Abnormal Interpretation"
+          ],
+          "rows": [
+            [
+              "Kmax",
+              "<|=47.2D",
+              "> 47.2 (Central corneal power)"
+            ],
+            [
+              "Thinnest location",
+              ">=470 micrometer",
+              "-"
+            ],
+            [
+              "Topographic vs manifest astigmatism",
+              "<=1D & <=15 degree axis",
+              "-"
+            ],
+            [
+              "Skewed radial axis",
+              "<= 21 degree",
+              "> 21"
+            ],
+            [
+              "IS value",
+              "-",
+              "> 1.2"
+            ],
+            [
+              "Sim K",
+              "-",
+              "> 1.5"
+            ],
+            [
+              "Front BFS (myopes/hyperopes)",
+              "<=8 / <=7",
+              "-"
+            ],
+            [
+              "Back BFS (myopes/hyperopes)",
+              "<=18 / <=28",
+              "-"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis Tables",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Differential Diagnoses"
+          ],
+          "rows": [
+            [
+              "Schnider’s crystalline dystrophy",
+              "Cystinosis, Dysproteinaemia, Multiple myeloma, Waldenstrom’s macroglobulinaemia, Hodgkin disease, Leukaemia, Benign monoclonal gamopathy, Cryoglobinaemia, Gold, Bietti peripheral crystalline dystrophy"
+            ],
+            [
+              "Fuchs endothelial dystrophy",
+              "Pseudophakic bullous keratopathy, Chandler’s syndrome, Posterior polymorphous dystrophy, Central herpetic disciform keratitis, Macular dystrophy, CHED2, Corneal pseudoguttatae (post trauma/inflammation)"
+            ],
+            [
+              "Salzmann nodular degeneration",
+              "Corneal keloids, Spheroidal degeneration"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "ERG Abnormalities (Clinical Pearls)",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Negative ERG (reduced scotopic b-wave, normal a-wave): CRAO, X-linked retinoschisis, Congenital stationary night blindness, Myotonic dystrophy, Melanoma-associated retinopathy, Quinine toxicity, Birdshot chorioretinopathy. Reduced A and B waves: Rod cone dystrophy, Drug toxicity (phenothiazide), Total RD, Cancer-associated retinopathy. Abnormal photopic/normal scotopic: Achromatopsia, Cone dystrophy. Reduced oscillatory potential: Vigabatrin toxicity."
+      },
+      {
+        "title": "Complications of Panretinal Photocoagulation",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Retinal hge",
+          "Choroidal neovascularization",
+          "Vitreous preretinal, subhyaloid hge",
+          "Inadvertent optic disc or foveal damage",
+          "Loss of peripheral visual field",
+          "Diminished colour vision and contrast sensitivity",
+          "Reduced or loss of dark adaptation",
+          "Pain during/after treatment",
+          "Corneal epithelial defects",
+          "Mydriasis",
+          "Iris burns",
+          "Lenticular opacification",
+          "Progressive tractional RD",
+          "Exudative RD/choroidal effusion",
+          "Macular oedema"
+        ]
+      },
+      {
+        "title": "Key Clinical Concepts (Rapid Fire)",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Indications for repeating biometry: AL <21.2 or >26, AL difference >0.7, Mean K <41 or >47D, Mean K difference >0.9, Delta K >2.5.",
+          "Ischaemic CRVO features: Poor VA, RAPD, Dark deep intraretinal hge, Multiple cotton wool spots, FFA (>10 disc area of capillary non-perfusion), ERG (reduced b-wave).",
+          "Aqueous Misdirection: Posterior misdirection of aqueous into vitreous. Risk: Short AL, Nanophthalmos, Uveal effusion, prior AC closure surgery. Treatment: Atropine, IOP lowering, YAG laser, PPV.",
+          "Blue Sclera Causes: Scleritis, Osteogenesis imperfecta, Ehlers-Danlos, Marfan, Pseudoxanthoma elasticum, Keratoconus, Keratoglobus, Hyperoxaluria, Nevus of Ota."
+        ]
+      }
+    ],
+    "chapterId": "surgery_care"
+  },
+  "chapterId": "surgery_care",
+  "_newlyImported": 1775044670734,
+  "communityId": "sub_1774352254516_nc56j38pdzw18i",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

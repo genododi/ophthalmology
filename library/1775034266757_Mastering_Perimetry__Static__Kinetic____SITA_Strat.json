@@ -1,0 +1,165 @@
+{
+  "id": 1775034266757,
+  "seqId": 23,
+  "title": "Mastering Perimetry: Static, Kinetic, & SITA Strategies",
+  "summary": "An essential clinical guide to visual field assessment, covering the physics of threshold perimetry, kinetic mapping, and the evolution of modern SITA testing algorithms.",
+  "date": "2026-04-01T09:04:26.757Z",
+  "data": {
+    "title": "Mastering Perimetry: Static, Kinetic, & SITA Strategies",
+    "summary": "An essential clinical guide to visual field assessment, covering the physics of threshold perimetry, kinetic mapping, and the evolution of modern SITA testing algorithms.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='4'/><path d='M50 10 L50 90 M10 50 L90 50' stroke='hsl(215, 90%, 45%)' stroke-width='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Purpose",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Perimetry measures the sensitivity of the retina to light stimuli across the visual field. It maps the 'island of vision in a sea of darkness'. Static perimetry (automated) assesses threshold at fixed locations, while kinetic perimetry moves stimuli from non-seeing to seeing areas."
+      },
+      {
+        "title": "Kinetic vs. Static Comparison",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Static Perimetry",
+            "Kinetic Perimetry"
+          ],
+          "rows": [
+            [
+              "Stimulus",
+              "Stationary, intensity varies",
+              "Moving, intensity constant"
+            ],
+            [
+              "Mapping",
+              "Thresholds (dB)",
+              "Isopters (Goldmann)"
+            ],
+            [
+              "Best For",
+              "Glaucoma, maculopathy",
+              "Peripheral field defects, neuro-ophthalmology"
+            ],
+            [
+              "Output",
+              "Numerical plot",
+              "Isopter boundaries"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The SITA Revolution",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "SITA (Swedish Interactive Thresholding Algorithm): Uses mathematical models to predict thresholds.",
+          "SITA Standard: Traditional 24-2 or 30-2 protocols.",
+          "SITA Fast: Reduces testing time by ~50% with minimal loss in sensitivity.",
+          "SITA Faster: Further reduces time, removes blind spot monitoring to optimize fixation.",
+          "SITA Faster 24-2C: Adds 10 peripheral points specifically to detect glaucomatous damage in the central 10 degrees."
+        ]
+      },
+      {
+        "title": "Red Flags in Reliability",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "False Positives > 15%: Suggests 'trigger happy' patient (invalid).",
+          "False Negatives > 20%: Suggests fatigue or inattention.",
+          "Fixation Losses > 20%: Unreliable gaze tracking.",
+          "Gaze Tracking Graph: Look for spikes, indicating frequent ocular movements."
+        ]
+      },
+      {
+        "title": "Clinical Workflow: The Perimetry Process",
+        "icon": "psychology",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Proper refraction for age and testing distance (add +3.25D for near for 30cm).",
+          "Step 2: Trial frame or bowl-mounted lens correction (prevent rim artifacts).",
+          "Step 3: Patient instruction and practice 'dummy' run.",
+          "Step 4: Real-time gaze monitoring during testing.",
+          "Step 5: Analysis of Global Indices (MD, PSD, VFI)."
+        ]
+      },
+      {
+        "title": "Remember the Indices",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "G.L.A.D.",
+          "explanation": "G (Global Indices: MD/PSD), L (Losses/Fixation), A (Artifacts: Rim/Ptosis), D (Defect morphology: Arcuate/Nasal Step)."
+        }
+      },
+      {
+        "title": "Differential Diagnosis by Pattern",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Defect Type",
+            "Common Etiology"
+          ],
+          "rows": [
+            [
+              "Bitemporal Hemianopia",
+              "Chiasmal compression (Pituitary adenoma)"
+            ],
+            [
+              "Homonymous Hemianopia",
+              "Post-chiasmal (CVA/Tumor)"
+            ],
+            [
+              "Arcuate Scotoma",
+              "Glaucomatous optic neuropathy"
+            ],
+            [
+              "Central Scotoma",
+              "Macular disease, toxic optic neuropathy"
+            ],
+            [
+              "Altitudinal",
+              "AION, Branch Retinal Artery Occlusion"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Landmark Studies",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "OHTS (Ocular Hypertension Treatment Study): Utilized SAP (Standard Automated Perimetry) to define conversion to glaucoma.",
+          "EMGT (Early Manifest Glaucoma Trial): Established the 'Mean Deviation' (MD) as a primary metric for progression.",
+          "Comparison Studies: Confirmed that SITA-Faster provides comparable clinical utility to SITA-Standard while increasing patient satisfaction."
+        ]
+      }
+    ],
+    "generationPrompt": "Visual field, static vs kinetic, SITA",
+    "chapterId": "investigations"
+  },
+  "chapterId": "investigations",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

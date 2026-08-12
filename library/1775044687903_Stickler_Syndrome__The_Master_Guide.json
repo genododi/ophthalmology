@@ -1,0 +1,348 @@
+{
+  "id": 1775044687903,
+  "seqId": 411,
+  "title": "Stickler Syndrome: The Master Guide",
+  "summary": "Stickler Syndrome (Hereditary Progressive Arthro-ophthalmopathy) is a multisystem collagenopathy and the leading cause of inherited and pediatric rhegmatogenous retinal detachment. This guide provides a deep dive into its genetic heterogeneity, ocular phenotypes, and the life-saving Cambridge Prophylaxis protocol.",
+  "date": "2026-04-01T11:58:07.903Z",
+  "data": {
+    "title": "Stickler Syndrome: The Master Guide",
+    "summary": "Stickler Syndrome (Hereditary Progressive Arthro-ophthalmopathy) is a multisystem collagenopathy and the leading cause of inherited and pediatric rhegmatogenous retinal detachment. This guide provides a deep dive into its genetic heterogeneity, ocular phenotypes, and the life-saving Cambridge Prophylaxis protocol.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M25 50 Q50 30 75 50 Q50 70 25 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M30 30 L40 40 M70 30 L60 40 M30 70 L40 60 M70 70 L60 60' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='2,2'/><text x='35' y='85' font-family='Arial' font-size='6' fill='hsl(215, 90%, 45%)'>COLLAGEN II/XI</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Stickler Syndrome is a group of genetic disorders affecting connective tissue, specifically collagen types II, IX, and XI. It is characterized by a distinctive 'optically empty' vitreous, high myopia, and a high risk of giant retinal tears (GRT). Systemically, it manifests as orofacial abnormalities (Pierre Robin sequence), sensorineural/conductive hearing loss, and premature osteoarthritis."
+      },
+      {
+        "title": "Epidemiology & Impact",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Incidence (1 in X live births)",
+              "value": 75
+            },
+            {
+              "label": "Risk of RD in Type 1",
+              "value": 65
+            },
+            {
+              "label": "Bilateral RD Risk",
+              "value": 50
+            },
+            {
+              "label": "Family History (+) ",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "Genetic Classification (The Collagenopathies)",
+        "icon": "genetics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Gene",
+            "Inheritance",
+            "Vitreous Phenotype",
+            "Systemic Features"
+          ],
+          "rows": [
+            [
+              "Type 1",
+              "COL2A1 (75%)",
+              "Autosomal Dominant",
+              "Membranous (Vestigial gel)",
+              "Full syndrome + Severe Ocular"
+            ],
+            [
+              "Type 2",
+              "COL11A1",
+              "Autosomal Dominant",
+              "Beaded (Sparse fibers)",
+              "Full syndrome + Severe Ocular"
+            ],
+            [
+              "Type 3",
+              "COL11A2",
+              "Autosomal Dominant",
+              "Normal Ocular exam",
+              "Non-Ocular (Systemic only)"
+            ],
+            [
+              "Type 4",
+              "COL9A1",
+              "Autosomal Recessive",
+              "Moderate Myopia",
+              "Severe hearing loss"
+            ],
+            [
+              "Type 5",
+              "COL9A2",
+              "Autosomal Recessive",
+              "Moderate Myopia",
+              "Severe hearing loss"
+            ],
+            [
+              "Type 6",
+              "COL9A3",
+              "Autosomal Recessive",
+              "Moderate Myopia",
+              "Severe hearing loss"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Vitreous Phenotypes: A Pathognomonic Clue",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Stickler Vitreous",
+          "branches": [
+            "Type 1: Membranous (Plicated membranes in retrolental space)",
+            "Type 2: Beaded (Irregularly thickened bundles/beads)",
+            "Optically Empty: Syneretic central cavity",
+            "Early PVD: Spontaneous and often complete"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Red Flags (Emergency Signs)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden shower of floaters or flashes in a myopic child",
+          "Giant Retinal Tear (GRT) > 90 degrees",
+          "Stridor or feeding difficulties in neonates (Pierre Robin)",
+          "Acute onset of high IOP (Secondary Glaucoma)",
+          "Rapidly progressing nuclear sclerotic cataract (presenile)"
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Refraction: High Myopia (usually > -6.00D), non-progressive",
+          "Slit Lamp: Retrolental membranes or beads; cortical/nuclear cataracts",
+          "Gonioscopy: Prominent iris processes and angle anomalies in 10%",
+          "Fundoscopy: Radial perivascular pigmentary degeneration (RPPD)",
+          "Lattice-like degeneration: Often circumferential or atypical",
+          "Vitreous: Syneresis and liquefaction"
+        ]
+      },
+      {
+        "title": "Systemic Manifestations",
+        "icon": "accessibility",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Systemic Stickler",
+          "branches": [
+            "Craniofacial: Flat midface, saddle nose, micrognathia",
+            "Palate: Cleft palate, Bifid uvula, Pierre Robin Sequence",
+            "Auditory: Progressive sensorineural hearing loss (SNHL)",
+            "Musculoskeletal: Joint hypermobility (early), Osteoarthritis (late)",
+            "Spine: Scoliosis, Kyphosis, Scheuermann-like changes"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Comprehensive dilated fundus exam with scleral depression",
+          "Step 2: Expert Slit Lamp biomicroscopy of the vitreous (Goldmann lens)",
+          "Step 3: Audiometry (high-frequency SNHL) and Speech/Language evaluation",
+          "Step 4: Skeletal surveys (X-rays of hips, spine, and knees)",
+          "Step 5: Genetic testing (Multigene panels for COL2A1, COL11A1, COL11A2)",
+          "Step 6: Echocardiogram (minor association with MVP)"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Overlapping Syndromes",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Syndrome",
+            "Key Differentiators from Stickler"
+          ],
+          "rows": [
+            [
+              "Marshall Syndrome",
+              "More severe hearing loss, short stature, thickened skull bones, more pronounced facial features."
+            ],
+            [
+              "Wagner Syndrome",
+              "Isolated Ocular findings; VCAN gene; NO systemic features; Low risk of RD."
+            ],
+            [
+              "Knobloch Syndrome",
+              "COL18A1; Encephalocele, severe high myopia, vitreoretinal degeneration."
+            ],
+            [
+              "Kniest Dysplasia",
+              "COL2A1; Severe dwarfism, 'dumbbell' shaped long bones, prominent joints."
+            ],
+            [
+              "Spondyloepiphyseal Dysplasia (SED)",
+              "Severe short-trunk dwarfism, coxa vara, possible RD."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Roseman Diagnostic Criteria (2005)",
+        "icon": "fact_check",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Category",
+            "Points (Need 5 Total)"
+          ],
+          "rows": [
+            [
+              "Ocular (Vitreous/RD)",
+              "2 Points"
+            ],
+            [
+              "Orofacial (Cleft/Robin)",
+              "2 Points"
+            ],
+            [
+              "Auditory (SNHL)",
+              "2 Points"
+            ],
+            [
+              "Musculoskeletal",
+              "1 Point"
+            ],
+            [
+              "Family History/Genetics",
+              "1 Point"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Management: Retinal Detachment",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Pre-operative stabilization and marking of all breaks",
+          "2. Scleral Buckling: Primary choice for simple RRD in kids",
+          "3. Pars Plana Vitrectomy (PPV): Often required for Giant Retinal Tears (GRT)",
+          "4. Heavy Liquid (PFCL): Crucial for stabilizing the retina during GRT repair",
+          "5. Long-acting Tamponade: Silicone oil is frequently preferred due to PVR risk"
+        ]
+      },
+      {
+        "title": "The Cambridge Prophylaxis Protocol",
+        "icon": "verified",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "The Cambridge Protocol involves 360-degree cryotherapy (or laser) to the ora serrata and vitreous base. Landmark studies by Fincham et al. demonstrated a massive reduction in RD risk: from 73% in untreated eyes to 8% in treated eyes. This is now considered the standard of care for Stickler Type 1 patients."
+      },
+      {
+        "title": "Mnemonic: The STICKLER acronym",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STICKLER",
+          "explanation": "S: Skeletal (Arthritis/Hypermobility), T: Tongue (Pierre Robin), I: Inherited (AD), C: Cataracts/Cleft Palate, K: Knee/Joint pain, L: Liquefied Vitreous, E: Empty Vitreous, R: Retinal Detachment."
+        }
+      },
+      {
+        "title": "Surgical Complications & Challenges",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Proliferative Vitreoretinopathy (PVR) is highly prevalent (over 50% in some series)",
+          "Post-operative glaucoma (steroid-induced or angle-related)",
+          "Multiple breaks and posterior extension of lattice",
+          "Poor surgical visibility due to early cataracts",
+          "Choroidal effusions post-cryotherapy"
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Cambridge Prophylaxis Trial: Confirmed 360° cryotherapy reduces RD risk by 10-fold in Type 1 Stickler.",
+          "AI Vitreous Analysis: Utilizing deep learning on OCT to differentiate Type 1 vs Type 2 vitreous phenotypes.",
+          "Gene Therapy: Early-stage research into COL2A1 mRNA modulation to prevent collagen cross-linking failure.",
+          "Ultra-widefield Imaging: Essential for early detection of radial perivascular pigmentary changes in the periphery."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Resident",
+        "icon": "tips_and_updates",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "The 'Empty' Eye",
+          "explanation": "If a child has high myopia and you see NO vitreous structure on slit lamp, it's not a 'good view'—it's Stickler until proven otherwise. Check the palate and ask about joint pain!"
+        }
+      },
+      {
+        "title": "Prognosis and Follow-up",
+        "icon": "event",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Lifelong 6-12 month follow-up with widefield imaging",
+          "Genetic counseling is mandatory (50% risk to offspring)",
+          "Visual prognosis is good if RD is prevented/treated early",
+          "Hearing aids significantly improve quality of life",
+          "Avoid contact sports to minimize trauma-induced RD risk"
+        ]
+      }
+    ],
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "_newlyImported": 1775044687903,
+  "communityId": "sub_1773775007770_kovll9kd65eyti",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

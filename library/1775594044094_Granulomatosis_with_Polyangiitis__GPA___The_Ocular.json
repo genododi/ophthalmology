@@ -1,0 +1,215 @@
+{
+  "id": 1775594044094,
+  "seqId": 763,
+  "title": "Granulomatosis with Polyangiitis (GPA): The Ocular Perspective",
+  "summary": "Granulomatosis with Polyangiitis (formerly Wegener’s) is a systemic necrotizing granulomatous vasculitis primarily affecting small-to-medium vessels. Ocular involvement occurs in up to 50% of patients and is often the presenting sign, necessitating a multidisciplinary approach.",
+  "date": "2026-04-07T20:34:04.094Z",
+  "data": {
+    "title": "Granulomatosis with Polyangiitis (GPA): The Ocular Perspective",
+    "summary": "Granulomatosis with Polyangiitis (formerly Wegener’s) is a systemic necrotizing granulomatous vasculitis primarily affecting small-to-medium vessels. Ocular involvement occurs in up to 50% of patients and is often the presenting sign, necessitating a multidisciplinary approach.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e88e5' stroke-width='4'/><path d='M30 50 Q 50 30 70 50' stroke='#d32f2f' stroke-width='3' fill='none'/><circle cx='50' cy='50' r='10' fill='#d32f2f'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "GPA is a systemic pauci-immune vasculitis associated with anti-neutrophil cytoplasmic antibodies (ANCA). It manifests as necrotizing granulomatous inflammation, typically involving the upper and lower respiratory tracts and kidneys. Ocular pathology stems from direct vasculitis or contiguous spread from orbital granulomatous tissue."
+      },
+      {
+        "title": "Ocular Manifestations by Frequency",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Conjunctivitis",
+              "value": 60
+            },
+            {
+              "label": "Episcleritis/Scleritis",
+              "value": 50
+            },
+            {
+              "label": "Peripheral Ulcerative Keratitis",
+              "value": 40
+            },
+            {
+              "label": "Orbital Pseudotumor",
+              "value": 35
+            },
+            {
+              "label": "Uveitis/Retinal Vasculitis",
+              "value": 15
+            },
+            {
+              "label": "Nasolacrimal Obstruction",
+              "value": 25
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Ocular Emergencies",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Peripheral Ulcerative Keratitis (PUK) - high risk of globe perforation",
+          "Rapidly progressive orbital mass causing compressive optic neuropathy",
+          "Sudden vision loss from retinal artery or vein occlusion",
+          "Acute scleritis unresponsive to topical steroids"
+        ]
+      },
+      {
+        "title": "Clinical Staging (Kanski/AAO Criteria)",
+        "icon": "list",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Stage",
+            "Clinical Characteristics"
+          ],
+          "rows": [
+            [
+              "Localized",
+              "Upper/lower respiratory tract, eye involvement, no systemic signs"
+            ],
+            [
+              "Early Systemic",
+              "Constitutional symptoms, non-organ threatening"
+            ],
+            [
+              "Generalized",
+              "Renal or other organ-threatening disease"
+            ],
+            [
+              "Severe",
+              "Renal failure (Cr > 5.6 mg/dL) or other end-organ failure"
+            ],
+            [
+              "Refractory",
+              "Persistent disease despite standard immunosuppression"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Serology (c-ANCA / PR3-ANCA)",
+          "Step 2: Biopsy (Gold Standard: Tissue biopsy from lung/sinus/sclera)",
+          "Step 3: Imaging (CT Orbit/Sinus for bony erosion; MRI for soft tissue)",
+          "Step 4: Chest X-ray/CT Chest to assess pulmonary nodules",
+          "Step 5: Urinalysis & Creatinine to assess renal involvement"
+        ]
+      },
+      {
+        "title": "Remember the PR3/c-ANCA",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "W-E-G-E-N-E-R (Old Name)",
+          "explanation": "W: Wegener's (GPA), E: Eyes/Ears, G: Granulomas, E: Entrapment (nasal/sinus), N: Necrotizing, E: Elevated PR3, R: Renal"
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Scleritis/PUK DDx",
+          "branches": [
+            "Microscopic Polyangiitis (p-ANCA)",
+            "Eosinophilic Granulomatosis with Polyangiitis (EGPA)",
+            "Rheumatoid Arthritis",
+            "Relapsing Polychondritis",
+            "Infectious Scleritis (HSV/VZV/Syphilis)"
+          ]
+        }
+      },
+      {
+        "title": "Treatment Protocol",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Induction: Cyclophosphamide (oral or IV pulse) + High dose IV Methylprednisolone (1g/day x 3 days) followed by tapered oral Prednisone.",
+          "Biologics: Rituximab is non-inferior to Cyclophosphamide for induction, especially in relapsing disease.",
+          "Maintenance: Methotrexate or Azathioprine.",
+          "Ocular Surgery: Defer surgery if possible; perform only once inflammation is controlled due to poor wound healing (scleral patch grafts for PUK).",
+          "Recent Advances: Landmark RAVE (Rituximab in ANCA-Associated Vasculitis) trial established Rituximab as the preferred agent for induction in severe cases."
+        ]
+      }
+    ],
+    "generationPrompt": "Granulomatosis polyangiitis",
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 304,
+      "keywords": [
+        "granulomatosis",
+        "polyangiitis",
+        "ocular",
+        "manifestations",
+        "keratitis"
+      ]
+    },
+    {
+      "pageNum": 454,
+      "keywords": [
+        "ocular",
+        "manifestations",
+        "differential",
+        "keratitis",
+        "scleritis"
+      ]
+    },
+    {
+      "pageNum": 186,
+      "keywords": [
+        "ocular",
+        "keratitis"
+      ]
+    },
+    {
+      "pageNum": 830,
+      "keywords": [
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 164,
+      "keywords": [
+        "ocular",
+        "definition"
+      ]
+    },
+    {
+      "pageNum": 831,
+      "keywords": [
+        "ocular",
+        "differential"
+      ]
+    }
+  ]
+}

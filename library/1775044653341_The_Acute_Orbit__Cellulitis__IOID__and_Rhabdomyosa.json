@@ -1,0 +1,334 @@
+{
+  "id": 1775044653341,
+  "seqId": 58,
+  "title": "The Acute Orbit: Cellulitis, IOID, and Rhabdomyosarcoma",
+  "summary": "A comprehensive clinical comparison of the three most critical 'acute orbit' presentations. Master the differentiation between infectious, idiopathic inflammatory, and neoplastic etiologies to prevent vision loss and systemic morbidity.",
+  "date": "2026-04-01T11:57:33.341Z",
+  "data": {
+    "title": "The Acute Orbit: Cellulitis, IOID, and Rhabdomyosarcoma",
+    "summary": "A comprehensive clinical comparison of the three most critical 'acute orbit' presentations. Master the differentiation between infectious, idiopathic inflammatory, and neoplastic etiologies to prevent vision loss and systemic morbidity.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M75 25 L85 15 M75 75 L85 85 M25 75 L15 85 M25 25 L15 15' stroke='red' stroke-width='2' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Overview & Definitions",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Distinguishing between Orbital Cellulitis, Idiopathic Orbital Inflammatory Disease (IOID), and Rhabdomyosarcoma is a hallmark of ophthalmic emergency medicine. Orbital Cellulitis is a life-threatening infection posterior to the orbital septum. IOID (formerly Pseudotumor) is a non-specific, non-granulomatous inflammatory process. Rhabdomyosarcoma is the most common primary pediatric orbital malignancy, characterized by aggressive, rapid growth."
+      },
+      {
+        "title": "Comparative Epidemiology",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Cellulitis (Pediatric Peak)",
+              "value": 90
+            },
+            {
+              "label": "IOID (Middle Age Peak)",
+              "value": 55
+            },
+            {
+              "label": "Rhabdomyosarcoma (Mean Age 7-8)",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "The 'Big Three' Differential Matrix",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Orbital Cellulitis",
+            "IOID (NSOI)",
+            "Rhabdomyosarcoma"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Acute (Hours/Days)",
+              "Acute to Subacute",
+              "Hyperacute (Days/Weeks)"
+            ],
+            [
+              "Pain",
+              "Severe, worse on motility",
+              "Severe, constant deep ache",
+              "Usually painless (unless necrotic)"
+            ],
+            [
+              "Systemic Signs",
+              "Fever, Leukocytosis",
+              "Usually absent",
+              "Usually absent"
+            ],
+            [
+              "Sinusitis",
+              "Present in >90% of cases",
+              "Absent",
+              "Absent"
+            ],
+            [
+              "Response to Steroids",
+              "May worsen infection",
+              "Dramatic (24-48 hours)",
+              "Initial minimal response"
+            ],
+            [
+              "Imaging Pathognomonic",
+              "Sinus opacification, subperiosteal abscess",
+              "T-sign (posterior scleritis), muscle tendon involvement",
+              "Bone destruction, poorly defined mass"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Chandler Classification of Orbital Infection",
+        "icon": "format_list_numbered",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Stage I: Preseptal Cellulitis (Eyelid edema only)",
+          "Stage II: Orbital Cellulitis (Proptosis, chemosis, motility loss)",
+          "Stage III: Subperiosteal Abscess (Displacement of globe)",
+          "Stage IV: Orbital Abscess (Intra-conal pus collection)",
+          "Stage V: Cavernous Sinus Thrombosis (Bilateral signs, CN palsies)"
+        ]
+      },
+      {
+        "title": "IOID (NSOI) Anatomical Subtypes",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "IOID Locations",
+          "branches": [
+            "Myositis (EOMs)",
+            "Dacryoadenitis (Lacrimal)",
+            "Perineuritis (Optic Nerve)",
+            "Scleritis (Posterior)",
+            "Orbital Apex Syndrome"
+          ]
+        }
+      },
+      {
+        "title": "Rhabdomyosarcoma Pathological Variants",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Type",
+            "Frequency",
+            "Prognosis"
+          ],
+          "rows": [
+            [
+              "Embryonal",
+              "80% (Most common)",
+              "Good (94% survival)"
+            ],
+            [
+              "Alveolar",
+              "Frequent in Inferior Orbit",
+              "Poor (Chemo-resistant)"
+            ],
+            [
+              "Pleomorphic",
+              "Rare (Adults)",
+              "Best prognosis"
+            ],
+            [
+              "Botryoid",
+              "Extremely Rare in Orbit",
+              "Good"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CRITICAL RED FLAGS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Relative Afferent Pupillary Defect (RAPD) — Indicates Compressive Optic Neuropathy",
+          "Frozen Orbit (Total Ophthalmoplegia) — Suggests Cavernous Sinus involvement or Apex Syndrome",
+          "Rapidly Progressive Proptosis in a Child — Must rule out Rhabdomyosarcoma immediately",
+          "Bilateral Orbital Involvement — Consider Systemic Vasculitis, Lymphoma, or Metastasis",
+          "Meningismus or Altered Mental Status — Indicates intracranial extension of infection"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "flaky",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Urgent Contrast-Enhanced CT (Orbit/Brain/Sinuses)",
+          "2. CBC with Diff, ESR, CRP, Blood Cultures",
+          "3. Targeted Biopsy (Mandatory for suspected Rhabdo or non-responsive IOID)",
+          "4. Thyroid Function Tests (To rule out TED)",
+          "5. c-ANCA / p-ANCA / ACE levels (For GPA or Sarcoidosis)"
+        ]
+      },
+      {
+        "title": "Management: Orbital Cellulitis",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Admission for IV Antibiotics: Vancomycin (15-20mg/kg) + Ceftriaxone (2g QD)",
+          "Add Metronidazole if anaerobic infection suspected (dental origin)",
+          "Surgical Drainage if: Vision decreases, APD develops, or no improvement in 48h",
+          "Otolaryngology (ENT) consult for sinus debridement",
+          "Avoid steroids until 24-48h of antibiotic coverage (and only if improving)"
+        ]
+      },
+      {
+        "title": "Management: IOID (NSOI)",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "High-dose Oral Prednisone: 1mg/kg/day with slow taper",
+          "IV Pulse Methylprednisolone for sight-threatening apex cases",
+          "Radiation Therapy (1000-3000 cGy) if steroid-resistant or contraindicated",
+          "Immunomodulatory Therapy (Steroid-sparing): Methotrexate, Ciclosporin, or Infliximab",
+          "Biopsy if atypical or recurrent to rule out Lymphoma"
+        ]
+      },
+      {
+        "title": "Rhabdomyosarcoma Treatment (IRSG)",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1. Complete Surgical Excision (only if possible without mutilation)",
+          "2. Multi-agent Chemotherapy (VAC: Vincristine, Adriamycin/Actinomycin, Cyclophosphamide)",
+          "3. External Beam Radiotherapy (for residual disease)",
+          "4. Long-term surveillance for secondary malignancies"
+        ]
+      },
+      {
+        "title": "Mnemonic: Rhabdomyosarcoma Locations",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "BE AM",
+          "explanation": "B-otryoid (Best), E-mbryonal (Excellent/Common), A-lveolar (Awful/Inferior orbit), M-etastatic (Most concerning)"
+        }
+      },
+      {
+        "title": "Radiological Pearls (CT/MRI)",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Entity",
+            "Muscle Involvement",
+            "Bony Changes",
+            "Other Features"
+          ],
+          "rows": [
+            [
+              "Cellulitis",
+              "Reactive swelling (rarely primary)",
+              "Sinus wall thinning/erosion",
+              "Subperiosteal 'rim-enhancing' collection"
+            ],
+            [
+              "IOID",
+              "Tendon-involved enlargement (differs from TED)",
+              "Bone destruction is RARE",
+              "Enhancement of the sclera/tenon's space"
+            ],
+            [
+              "Rhabdo",
+              "Displacement or direct invasion",
+              "Aggressive bone destruction common",
+              "Heterogeneous enhancement on gadolinium"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls for the Fellow",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "In IOID, 'The pain is out of proportion to the clinical signs' initially.",
+          "In Cellulitis, always check for 'Pain on eye movement' – it's the most sensitive sign to differentiate from preseptal.",
+          "Rhabdomyosarcoma is a 'Great Mimicker' and may present with bruising that looks like trauma.",
+          "Wait 24 hours after starting steroids in IOID; if no response, RE-THINK the diagnosis and biopsy.",
+          "Orbital Apex Syndrome = CN II, III, IV, V1, VI involvement; localized IOID or aggressive infection."
+        ]
+      },
+      {
+        "title": "Prognosis & Outcomes",
+        "icon": "assessment",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Rhabdo 5-yr Survival (Orbital)",
+              "value": 94
+            },
+            {
+              "label": "Cellulitis Vision Recovery",
+              "value": 85
+            },
+            {
+              "label": "IOID Steroid Response Rate",
+              "value": 80
+            }
+          ]
+        }
+      },
+      {
+        "title": "Landmark Studies: IRSG",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "The Intergroup Rhabdomyosarcoma Study Group (IRSG) trials established that orbital rhabdomyosarcoma has a significantly better prognosis than other sites. Modern protocols emphasize globe-sparing treatment with combined chemotherapy and radiation rather than primary exenteration."
+      }
+    ],
+    "generationPrompt": "orbital cellulitis vs IOID vs rhabdomyosarcoma",
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "_newlyImported": 1775044653341,
+  "communityId": "sub_1774724458706_7qxjfoyr1",
+  "communityAuthor": "nemo",
+  "communityDate": "2026-03-28T19:00:58.706Z"
+}

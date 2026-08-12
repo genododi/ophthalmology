@@ -1,0 +1,301 @@
+{
+  "id": 1775482845701,
+  "seqId": 734,
+  "title": "Corneal Graft Rejection: The Comprehensive Clinical Guide",
+  "summary": "An in-depth guide to the immune-mediated rejection of corneal donor tissue, covering the pathophysiological mechanisms, clinical classifications, and evidence-based management protocols for the ophthalmic surgeon and resident.",
+  "date": "2026-04-06T13:40:45.701Z",
+  "data": {
+    "title": "Corneal Graft Rejection: The Comprehensive Clinical Guide",
+    "summary": "An in-depth guide to the immune-mediated rejection of corneal donor tissue, covering the pathophysiological mechanisms, clinical classifications, and evidence-based management protocols for the ophthalmic surgeon and resident.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M25 50 Q50 20 75 50 Q50 80 25 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='50' cy='50' r='12' fill='hsl(215, 90%, 45%)' fill-opacity='0.2'/><path d='M40 40 L60 60 M60 40 L40 60' stroke='red' stroke-width='2' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Corneal graft rejection is an immunological response of the host against the donor corneal tissue. It is a Type IV (delayed-type) hypersensitivity reaction and remains the most common cause of corneal graft failure. Unlike 'Primary Graft Failure' (which occurs within 24-48h due to poor donor quality), rejection requires a prior sensitization period of at least 2 weeks."
+      },
+      {
+        "title": "Risk of Rejection by Indication",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Keratoconus",
+              "value": 5
+            },
+            {
+              "label": "Fuchs Dystrophy",
+              "value": 10
+            },
+            {
+              "label": "PBK/ABK",
+              "value": 20
+            },
+            {
+              "label": "Viral Keratitis",
+              "value": 45
+            },
+            {
+              "label": "Chemical Burn",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiological Mechanisms",
+        "icon": "genetics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Afferent Path - Host APCs (dendritic cells) recognize donor MHC Class I and II antigens.",
+          "Step 2: Sensitization - APCs migrate to regional lymph nodes to activate T-helper (CD4+) and Cytotoxic T-cells (CD8+).",
+          "Step 3: Effector Path - Activated T-cells return to the graft via the limbal vasculature.",
+          "Step 4: Target Destruction - T-cells release cytokines (IFN-gamma, IL-2) and directly attack donor endothelium/epithelium/stroma.",
+          "Step 5: Angiogenic Switch - Pre-existing corneal vascularization breaks the 'immune privilege' by providing a direct route for T-cell infiltration."
+        ]
+      },
+      {
+        "title": "Classification of Rejection Types",
+        "icon": "school",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Clinical Features",
+            "Significance"
+          ],
+          "rows": [
+            [
+              "Epithelial",
+              "Elevated line of irregular epithelium (rejection line).",
+              "Often asymptomatic; may precede more severe forms."
+            ],
+            [
+              "Subepithelial",
+              "Multiple discrete nummular infiltrates (Krachmer spots).",
+              "Indicates stromal involvement; resembles EKC infiltrates."
+            ],
+            [
+              "Stromal",
+              "Localized peripheral haze/edema starting at the graft-host junction.",
+              "Usually associated with vascularization."
+            ],
+            [
+              "Endothelial",
+              "Khodadoust line (keratic precipitates in a line), diffuse AC cells, corneal edema.",
+              "MOST CRITICAL. Causes irreversible loss of donor cells."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The 'S.T.O.P.' Warning Signs",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "S.T.O.P.",
+          "explanation": "S: Sudden Redness; T: Terrible Pain (or aching); O: Obstruction of Vision (Blurring); P: Photophobia."
+        }
+      },
+      {
+        "title": "Emergency 'Red Flags'",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden drop in BCVA in a previously clear graft",
+          "New onset limbal injection/ciliary flush",
+          "The presence of a Khodadoust line (linear KPs)",
+          "New onset of stromal thickening (>10% increase)",
+          "Broken or loose sutures with associated infiltration"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Slit Lamp Exam: Essential for KPs, Khodadoust line, and AC cell/flare grading.",
+          "AS-OCT: To quantify corneal thickness (pachymetry) and detect retrocorneal membranes.",
+          "Specular Microscopy: To monitor donor endothelial cell density (ECD) loss.",
+          "In Vivo Confocal Microscopy (IVCM): Visualizes activated keratocytes and inflammatory cell infiltration at the cellular level.",
+          "Intraocular Pressure (IOP): Crucial as steroid-response glaucoma is a common confounder."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Primary Graft Failure",
+              "Occurs within 24h; graft never clears."
+            ],
+            [
+              "Infectious Keratitis",
+              "Suppurative infiltrate, hypopyon, positive cultures."
+            ],
+            [
+              "Uveitis (Primary)",
+              "Usually bilateral, no specific graft-host junction focus."
+            ],
+            [
+              "Steroid-Induced Glaucoma",
+              "High IOP, corneal edema but NO KPs/rejection line."
+            ],
+            [
+              "Recurrence of Dystrophy",
+              "Slow progression (years), typical patterns (e.g., lattice)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Corneal Dystrophies & Graft Risk",
+        "icon": "fingerprint",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Dystrophies Requiring Graft",
+          "branches": [
+            "Anterior: Reis-Bucklers, Meesmann (Rarely need PKP)",
+            "Stromal: Lattice (High recurrence), Granular, Macular (Least risk)",
+            "Posterior: Fuchs (Low rejection in DMEK), PPCD",
+            "Ectatic: Keratoconus (Lowest rejection risk - 'Low Risk' eyes)"
+          ]
+        }
+      },
+      {
+        "title": "Standard Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Intensive Topical Steroids: Prednisolone Acetate 1% or Dexamethasone 0.1% every hour (day and night).",
+          "2. Pulse Therapy: If severe, consider Methylprednisolone 500mg - 1g IV daily for 3 days.",
+          "3. Sub-conjunctival Injection: Betamethasone or Dexamethasone 4mg/1ml for sustained local levels.",
+          "4. Systemic Immunosuppression: Cyclosporine A (3-5mg/kg/day), Tacrolimus (0.05-0.1mg/kg/day), or Mycophenolate Mofetil (1g BID) for high-risk grafts.",
+          "5. Cycloplegia: Homatropine 5% or Atropine 1% for comfort and stabilization of blood-aqueous barrier."
+        ]
+      },
+      {
+        "title": "Surgical Nuances: PKP vs. EK",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "PKP: Highest risk due to full-thickness antigen load and sutures.",
+          "DSAEK: Moderate risk; rejection often presents as localized swelling without classic line.",
+          "DMEK: Lowest rejection risk (approx. 1%) due to minimal stromal/antigenic tissue transfer.",
+          "DALK: Avoids endothelial rejection entirely; only epithelial/stromal rejection possible."
+        ]
+      },
+      {
+        "title": "Clinical Pearls & Landmark Studies",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "CCTS Study: HLA matching did NOT significantly reduce rejection in high-risk grafts, but ABO compatibility might.",
+          "Steroid Taper: Never taper steroids faster than 1 drop/month once the rejection has resolved.",
+          "High Risk Factors: >2 quadrants of neovascularization, previous graft failure, active inflammation.",
+          "Epithelial rejection is a 'warning shot'—intensify topical steroids immediately."
+        ]
+      }
+    ],
+    "generationPrompt": "Corneal graft rejection (+causes, types, dystrophies)",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "bookmarked": true,
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 284,
+      "keywords": [
+        "corneal graft",
+        "graft rejection",
+        "corneal",
+        "graft",
+        "rejection"
+      ]
+    },
+    {
+      "pageNum": 287,
+      "keywords": [
+        "graft rejection",
+        "corneal",
+        "graft",
+        "rejection",
+        "cornea"
+      ]
+    },
+    {
+      "pageNum": 282,
+      "keywords": [
+        "corneal graft",
+        "graft rejection",
+        "corneal",
+        "graft",
+        "rejection"
+      ]
+    },
+    {
+      "pageNum": 274,
+      "keywords": [
+        "corneal graft",
+        "corneal",
+        "graft",
+        "cornea",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 223,
+      "keywords": [
+        "corneal graft",
+        "corneal",
+        "graft",
+        "rejection",
+        "cornea"
+      ]
+    },
+    {
+      "pageNum": 201,
+      "keywords": [
+        "corneal graft",
+        "corneal",
+        "graft",
+        "cornea",
+        "risk"
+      ]
+    }
+  ]
+}

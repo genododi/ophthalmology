@@ -1,0 +1,289 @@
+{
+  "id": 1775044688446,
+  "seqId": 417,
+  "title": "Horizontal Gaze Palsy: Clinical Mapping & Neuro-Ophthalmic Mastery",
+  "summary": "Horizontal gaze palsy (HGP) is the inability to move both eyes conjugately in a single horizontal direction, signaling a lesion in the complex circuitry of the frontal eye fields or the pontine gaze centers. This guide provides a deep-dive into the neuroanatomy, etiology, and diagnostic nuances required for resident-level proficiency.",
+  "date": "2026-04-01T11:58:08.446Z",
+  "data": {
+    "title": "Horizontal Gaze Palsy: Clinical Mapping & Neuro-Ophthalmic Mastery",
+    "summary": "Horizontal gaze palsy (HGP) is the inability to move both eyes conjugately in a single horizontal direction, signaling a lesion in the complex circuitry of the frontal eye fields or the pontine gaze centers. This guide provides a deep-dive into the neuroanatomy, etiology, and diagnostic nuances required for resident-level proficiency.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='60' cy='50' r='25' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='60' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><circle cx='140' cy='50' r='25' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='140' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M40 50 L20 50 M120 50 L100 50' stroke='red' stroke-width='3' stroke-linecap='round'/><path d='M100 10 Q100 90 100 90' stroke='#ccc' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Core Concepts",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Horizontal Gaze Palsy is a conjugate ocular motility deficit where both eyes fail to move past the midline toward a specific side. Unlike a simple nerve palsy (e.g., VI nerve), HGP involves the 'yoking' mechanism. It results from damage to the supranuclear or nuclear pathways that coordinate the lateral rectus of one eye with the medial rectus of the fellow eye. It is classically divided into Cortical (Frontal Eye Fields) and Brainstem (PPRF/Abducens Nucleus) etiologies."
+      },
+      {
+        "title": "The Neuroanatomical Circuitry",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Horizontal Gaze Control",
+          "branches": [
+            "Frontal Eye Fields (FEF): Generates contralateral saccades",
+            "Paramedian Pontine Reticular Formation (PPRF): The 'Gaze Center' for ipsilateral movement",
+            "Abducens Nucleus: Contains motor neurons (to LR) and interneurons (to contralateral MR via MLF)",
+            "Medial Longitudinal Fasciculus (MLF): Cross-brainstem connector to the III nerve nucleus",
+            "Superior Colliculus: Integration of visual and motor signals for reflexive saccades"
+          ]
+        }
+      },
+      {
+        "title": "Etiological Distribution by Age",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Vascular (Adults)",
+              "value": 85
+            },
+            {
+              "label": "Demyelination (MS)",
+              "value": 60
+            },
+            {
+              "label": "Pontine Glioma (Pediatric)",
+              "value": 75
+            },
+            {
+              "label": "Trauma",
+              "value": 30
+            },
+            {
+              "label": "Congenital (ROBO3)",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Cortical vs. Brainstem Palsy",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Cortical Lesion (FEF)",
+            "Brainstem Lesion (PPRF/VI Nucleus)"
+          ],
+          "rows": [
+            [
+              "Direction of Gaze Deviation",
+              "Eyes look TOWARD the lesion ('Wrong' side)",
+              "Eyes look AWAY from the lesion ('Right' side)"
+            ],
+            [
+              "Vestibulo-Ocular Reflex (VOR)",
+              "Intact (Eyes can be driven past midline by Doll's Head)",
+              "Absent (Eyes fixed, cannot be driven by Doll's Head)"
+            ],
+            [
+              "Associated Hemiplegia",
+              "Contralateral to gaze palsy",
+              "Ipsilateral to gaze palsy"
+            ],
+            [
+              "Saccades vs. Pursuit",
+              "Saccades primarily affected",
+              "Both Saccades and Pursuit affected"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Essential Ocular Examination",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Observe Primary Position: Note any forced tonic deviation.",
+          "2. Assess Saccades: Rapidly move target between horizontal points.",
+          "3. Assess Smooth Pursuit: Slow target tracking.",
+          "4. Doll's Head Maneuver (VOR): Passive head rotation to differentiate supranuclear from nuclear lesions.",
+          "5. Caloric Stimulation: For comatose patients (COWS - Cold Opposite, Warm Same).",
+          "6. Bell's Phenomenon: Checking for vertical integrity."
+        ]
+      },
+      {
+        "title": "Red Flags: Urgent Neurological Threats",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Acute onset with 'Worst Headache of Life' (Hemorrhage)",
+          "Ipsilateral facial nerve (VII) palsy (Pontine lesion)",
+          "Altered mental status or GCS drop",
+          "Papilledema (Increased intracranial pressure)",
+          "Contralateral hemiparesis in an elderly patient (Stroke)"
+        ]
+      },
+      {
+        "title": "One-and-a-Half Syndrome",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "1.5 Syndrome",
+          "branches": [
+            "Lesion Site: Dorsal Pontine Tegmentum",
+            "Structures: PPRF (or VI Nucleus) + Ipsilateral MLF",
+            "Clinical: Ipsilateral HGP + Ipsilateral INO",
+            "Movement: Only movement remaining is ABduction of contralateral eye",
+            "Common Cause: MS (young) or Infarction (elderly)"
+          ]
+        }
+      },
+      {
+        "title": "HGP with Progressive Scoliosis (HGPPS)",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Genetics: Autosomal Recessive mutation in ROBO3 (8q12).",
+          "Pathophysiology: Failure of crossing of somatosensory and corticospinal tracts.",
+          "Radiology: Deep midline pontine cleft (Butterfly sign).",
+          "Clinical: Complete absence of horizontal gaze + severe progressive scoliosis in childhood.",
+          "Note: Vertical gaze and convergence are typically spared."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "rule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Feature",
+            "Workup"
+          ],
+          "rows": [
+            [
+              "Myasthenia Gravis",
+              "Variability, ptosis, and Cogan's lid twitch",
+              "Ice test, Tensilon, AChR Antibodies"
+            ],
+            [
+              "Duane Syndrome Type II",
+              "Congenital, globe retraction, narrowing of palpebral fissure",
+              "Clinical exam"
+            ],
+            [
+              "Moebius Syndrome",
+              "Congenital VI and VII nerve palsies, limb defects",
+              "Clinical exam"
+            ],
+            [
+              "Miller-Fisher Syndrome",
+              "Ataxia, areflexia, and ophthalmoplegia",
+              "GQ1b antibodies, LP for albuminocytologic dissociation"
+            ],
+            [
+              "Parinaud Syndrome",
+              "Vertical gaze palsy, mid-dilated pupils, retraction nystagmus",
+              "MRI Pineal Region"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Imaging & Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. MRI Brain/Orbit: With and without Gadolinium. High-resolution T2/FLAIR for MS; DWI for acute stroke.",
+          "2. MRA/CTA: If vascular etiology (infarct/dissection) is suspected.",
+          "3. Lumbar Puncture: If MS (Oligoclonal bands) or Miller-Fisher/Meningitis is suspected.",
+          "4. Bloods: ESR/CRP (GCA in elderly), HbA1c, Lipids, RPR (Syphilis).",
+          "5. EMG/Jitter: If Myasthenia Gravis is high on the differential."
+        ]
+      },
+      {
+        "title": "Management Protocols",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Treat Primary Cause: Thrombolysis for stroke, Corticosteroids for MS or Vasculitis.",
+          "2. Prism Therapy: Fresnel or ground-in prisms to shift field if gaze is paretic but not totally absent.",
+          "3. Surgical Intervention: Large recession/resection or Transposition (e.g., Nishida) if stable and chronic.",
+          "4. Supportive Care: Patching for diplopia, Lubrication if VII nerve involvement (exposure keratopathy).",
+          "5. Physical Therapy: Especially for HGPPS patients with scoliosis."
+        ]
+      },
+      {
+        "title": "Remember the Gaze Rules",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PPRF vs FEF",
+          "explanation": "PPRF (Pontine) = 'P' for 'Pushes' eyes AWAY from lesion. FEF (Frontal) = 'F' for 'Friend', eyes look AT their cortical friend (the lesion)."
+        }
+      },
+      {
+        "title": "High-Yield Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Foville Syndrome: Inferior pontine tegmental stroke causing HGP, ipsilateral VII palsy, and contralateral hemiparesis.",
+          "Saccadic Dysmetria: Often a precursor or subtle sign of cerebellar/brainstem involvement.",
+          "Skew Deviation: Frequently co-exists with brainstem HGP; look for vertical misalignment that does not follow a nerve pattern.",
+          "Thalamic Esotropia: Gaze palsy mimicking esotropia ('wrong-way eyes') can occur in thalamic hemorrhages."
+        ]
+      },
+      {
+        "title": "Foville Syndrome Breakdown",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Lesion: Dorsolateral Pontine Tegmentum",
+          "VI Nerve Nucleus: Ipsilateral HGP",
+          "VII Nerve Fibers: Ipsilateral facial weakness",
+          "Verve Nerve (V): Ipsilateral facial anesthesia",
+          "VIII Nerve: Ipsilateral deafness/vertigo",
+          "Corticospinal Tract: Contralateral hemiparesis"
+        ]
+      },
+      {
+        "title": "Recent Landmark Insights",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Recent studies in 'Nature Genetics' have elucidated the role of ROBO3 as a 'guidance receptor' specifically required for the crossing of axons in the hindbrain. In HGPPS, the failure of the superior cerebellar peduncles to decussate is now a hallmark radiographic finding on DTI (Diffusion Tensor Imaging). Furthermore, the use of Botulinum Toxin in the acute phase of stroke-related deviation is showing promise in preventing contracture of the antagonist muscles while waiting for neuro-recovery."
+      }
+    ],
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044688446,
+  "communityId": "sub_1773775007769_43mf9s7wk4hpcc",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.769Z"
+}

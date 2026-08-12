@@ -1,0 +1,217 @@
+{
+  "id": 1775827102502,
+  "seqId": 781,
+  "title": "Retinoblastoma: Comprehensive Management Protocol",
+  "summary": "Retinoblastoma is the most common primary intraocular malignancy of childhood. This roadmap details the multi-modal approach to ocular salvage and life preservation, adhering to the latest International Classification for Retinoblastoma (ICRB) standards.",
+  "date": "2026-04-10T13:18:22.502Z",
+  "data": {
+    "title": "Retinoblastoma: Comprehensive Management Protocol",
+    "summary": "Retinoblastoma is the most common primary intraocular malignancy of childhood. This roadmap details the multi-modal approach to ocular salvage and life preservation, adhering to the latest International Classification for Retinoblastoma (ICRB) standards.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M30 30 L70 70 M70 30 L30 70' stroke='red' stroke-width='3'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Retinoblastoma (Rb) arises from the malignant transformation of primitive retinal neuroectodermal cells. It is caused by biallelic inactivation of the RB1 tumor suppressor gene (13q14). Hereditary cases (40%) involve germline mutations, predisposing to bilateral/multifocal disease and secondary cancers (e.g., osteosarcoma). Sporadic cases (60%) are typically unilateral and unifocal."
+      },
+      {
+        "title": "International Classification (ICRB)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Group",
+            "Clinical Features"
+          ],
+          "rows": [
+            [
+              "Group A",
+              "Small tumors <3mm confined to retina"
+            ],
+            [
+              "Group B",
+              "Tumors >3mm, subretinal fluid <3mm from base"
+            ],
+            [
+              "Group C",
+              "Local subretinal fluid or isolated seeds"
+            ],
+            [
+              "Group D",
+              "Diffuse subretinal fluid or massive/diffuse seeds"
+            ],
+            [
+              "Group E",
+              "Neovascular glaucoma, hemorrhage, or tumor at lens"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Leukocoria (most common: 60%)",
+          "Strabismus (secondary to macular involvement)",
+          "Hyphema / Vitreous hemorrhage",
+          "Pseudohypopyon",
+          "Buphthalmos (advanced cases)",
+          "Orbital cellulitis-like presentation (necrosis)"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Exam under anesthesia (EUA) with wide-field fundus imaging.",
+          "Step 2: B-scan ultrasonography (to assess calcification and extent).",
+          "Step 3: MRI Orbit/Brain (with/without contrast) to rule out trilateral Rb.",
+          "Step 4: Systemic staging (Bone marrow/CSF) for high-risk extraocular features.",
+          "Step 5: Genetic counseling and RB1 mutation analysis."
+        ]
+      },
+      {
+        "title": "Emergency Warning Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Rubeosis iridis (neovascularization) indicating ischemia/advanced tumor.",
+          "Rapid onset proptosis or orbital mass.",
+          "Any pupil asymmetry or fixed dilated pupil.",
+          "Family history of Rb (immediate screening required)."
+        ]
+      },
+      {
+        "title": "Treatment Modalities",
+        "icon": "healing",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Rb Management",
+          "branches": [
+            "Systemic Chemotherapy (VEC)",
+            "Intra-Arterial Chemotherapy (IAC)",
+            "Intravitreal Chemotherapy",
+            "Local Control (Laser/Cryo)",
+            "Enucleation (Group E)"
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: The 4 'C's of Management",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "CCCP",
+          "explanation": "C: Chemotherapy (Systemic/IAC), C: Cryotherapy, C: Chemoreduction-Laser (TTT), P: Plaque radiotherapy."
+        }
+      },
+      {
+        "title": "Chemotherapy Protocols",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Regimen",
+            "Agents Used"
+          ],
+          "rows": [
+            [
+              "VEC",
+              "Vincristine, Etoposide, Carboplatin"
+            ],
+            [
+              "IAC",
+              "Melphalan, Topotecan, Carboplatin"
+            ],
+            [
+              "Intravitreal",
+              "Melphalan (typically 20-30mcg)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Calcification is the hallmark of Rb on imaging (CT/USG).",
+          "Always screen the fellow eye; unilateral Rb in a child under 1 is highly suspicious for germline mutation.",
+          "Trilateral Rb: Bilateral ocular Rb + midline intracranial primitive neuroectodermal tumor (PNET).",
+          "Intra-arterial chemotherapy (IAC) is now the standard for eye salvage in groups B-D."
+        ]
+      }
+    ],
+    "generationPrompt": "Retinoblastoma treatment protocol",
+    "chapterId": "paediatric"
+  },
+  "chapterId": "paediatric",
+  "bookmarked": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 878,
+      "keywords": [
+        "retinoblastoma",
+        "international",
+        "classification"
+      ]
+    },
+    {
+      "pageNum": 876,
+      "keywords": [
+        "retinoblastoma",
+        "chemotherapy"
+      ]
+    },
+    {
+      "pageNum": 881,
+      "keywords": [
+        "retinoblastoma",
+        "paediatric",
+        "modalities",
+        "chemotherapy"
+      ]
+    },
+    {
+      "pageNum": 882,
+      "keywords": [
+        "retinoblastoma",
+        "signs"
+      ]
+    },
+    {
+      "pageNum": 879,
+      "keywords": [
+        "retinoblastoma",
+        "signs"
+      ]
+    },
+    {
+      "pageNum": 157,
+      "keywords": [
+        "retinoblastoma"
+      ]
+    }
+  ]
+}

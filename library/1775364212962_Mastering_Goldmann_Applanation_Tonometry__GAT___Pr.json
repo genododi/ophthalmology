@@ -1,0 +1,187 @@
+{
+  "id": 1775364212962,
+  "seqId": 654,
+  "title": "Mastering Goldmann Applanation Tonometry (GAT): Precision & Correction",
+  "summary": "Goldmann Applanation Tonometry remains the 'gold standard' for IOP measurement, yet it is fraught with systematic errors. This guide details how to identify, troubleshoot, and correct for biomechanical variables, specifically Central Corneal Thickness (CCT).",
+  "date": "2026-04-05T04:43:32.962Z",
+  "data": {
+    "title": "Mastering Goldmann Applanation Tonometry (GAT): Precision & Correction",
+    "summary": "Goldmann Applanation Tonometry remains the 'gold standard' for IOP measurement, yet it is fraught with systematic errors. This guide details how to identify, troubleshoot, and correct for biomechanical variables, specifically Central Corneal Thickness (CCT).",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M70 100 A30 30 0 0 1 130 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Principle",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "GAT is based on the Imbert-Fick Law: P = F / A (Pressure = Force / Area). It assumes the cornea is an ideal, thin, dry, elastic sphere with a 3.06mm applanation diameter. At this diameter, the force of surface tension of the tear film and the resistance of the cornea to bending cancel each other out."
+      },
+      {
+        "title": "Clinical Error Sources (The 'Why')",
+        "icon": "error",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Error Factor",
+            "Effect on IOP Reading",
+            "Physiological Cause"
+          ],
+          "rows": [
+            [
+              "Excessive Fluorescein",
+              "False High",
+              "Capillary attraction increases force"
+            ],
+            [
+              "Too little Fluorescein",
+              "False Low",
+              "Difficult to see endpoint, leads to under-applanation"
+            ],
+            [
+              "Broad Miire separation",
+              "False High",
+              "Excessive contact area"
+            ],
+            [
+              "Narrow Miire separation",
+              "False Low",
+              "Insufficient contact area"
+            ],
+            [
+              "Patient Valsalva",
+              "False High",
+              "Increased episcleral venous pressure"
+            ],
+            [
+              "CCT > 550μm",
+              "False High",
+              "Stiffer cornea resists deformation"
+            ],
+            [
+              "CCT < 500μm",
+              "False Low",
+              "Thinner cornea is more compliant"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ehlers-Hansen Correction (CCT)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "CCT (μm)",
+            "Correction (mmHg)"
+          ],
+          "rows": [
+            [
+              "< 450",
+              "-4 to -6"
+            ],
+            [
+              "500",
+              "-2 to -3"
+            ],
+            [
+              "550",
+              "0 (Baseline)"
+            ],
+            [
+              "600",
+              "+2 to +3"
+            ],
+            [
+              "> 650",
+              "+4 to +6"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Troubleshooting Checklist",
+        "icon": "checklist",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Check calibration of the tonometer head (0, 2, 6 markings).",
+          "2. Ensure patient is not holding their breath (Valsalva).",
+          "3. Ensure the patient is not squeezing their lids (avoid pressure on the globe).",
+          "4. Check for proper fluorescein concentration (avoid 'flooding').",
+          "5. Verify the mires are centered and symmetrical before reading."
+        ]
+      },
+      {
+        "title": "Red Flags in Tonometry",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Inaccurate mires in patients with irregular astigmatism (>3.00D).",
+          "Readings obtained over an epithelial defect or corneal edema.",
+          "Measurements taken immediately post-LASIK/PRK (corneal biomechanics altered).",
+          "High IOP readings that do not correlate with optic nerve appearance (C/D ratio)."
+        ]
+      },
+      {
+        "title": "Mnemonics for Success",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STIFF",
+          "explanation": "S - Squeeze (avoid lids), T - Thickness (CCT check), I - Intensity (Fluorescein dose), F - Force (Imbert-Fick), F - Fixed (Check calibration)."
+        }
+      },
+      {
+        "title": "Impact of CCT on Glaucoma Risk",
+        "icon": "science",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Thin Cornea (Risk)",
+              "value": 85
+            },
+            {
+              "label": "Normal Cornea",
+              "value": 30
+            },
+            {
+              "label": "Thick Cornea (Risk)",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "OHTS Study: Patients with thinner CCT were at higher risk of progressing from Ocular Hypertension to Primary Open-Angle Glaucoma.",
+          "Always interpret IOP in the context of CCT; do not rely on GAT as the sole diagnostic factor.",
+          "For irregular corneas, consider alternative methods like the Perkins Tonometer or Pascal Dynamic Contour Tonometer.",
+          "The mires should represent two concentric circles of equal width."
+        ]
+      }
+    ],
+    "generationPrompt": "GAT errors , what to check, correction with CCT",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "read": true
+}

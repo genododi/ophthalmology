@@ -1,0 +1,462 @@
+{
+  "id": 1775044665269,
+  "seqId": 185,
+  "title": "THE UVEITIS & SYSTEMIC DISEASE ATLAS",
+  "summary": "A comprehensive visual guide for Ophthalmic Residents and Fellows covering the complex diagnostic criteria, investigations, and multi-system manifestations of Sarcoidosis, VKH, Behcet's disease, and Ocular-Renal syndromes.",
+  "date": "2026-04-01T11:57:45.269Z",
+  "data": {
+    "title": "THE UVEITIS & SYSTEMIC DISEASE ATLAS",
+    "summary": "A comprehensive visual guide for Ophthalmic Residents and Fellows covering the complex diagnostic criteria, investigations, and multi-system manifestations of Sarcoidosis, VKH, Behcet's disease, and Ocular-Renal syndromes.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M30 50 Q 50 20 70 50 Q 50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M45 70 L 55 70 M 50 70 L 50 85' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Differential Diagnosis: Ocular & Renal Inflammation",
+        "icon": "kidneys",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Clinical Association",
+            "Additional Clinical Pearl (Strategist Add)"
+          ],
+          "rows": [
+            [
+              "1. Sarcoidosis",
+              "Granulomatous uveitis + Renal granulomas",
+              "Hypercalcemia and elevated ACE are common markers."
+            ],
+            [
+              "2. Tuberculosis",
+              "Infectious uveitis + Renal TB",
+              "Always consider in endemic areas or immunosuppression."
+            ],
+            [
+              "3. SLE",
+              "Vasculitis + Lupus Nephritis",
+              "Classic 'butterfly rash' and positive ANA/anti-dsDNA."
+            ],
+            [
+              "4. Tubulointerstitial Nephritis",
+              "TINU Syndrome (Uveitis association)",
+              "Typically bilateral anterior uveitis in young females."
+            ],
+            [
+              "5. IgA Nephropathy (Berger Disease)",
+              "Ocular inflammation + Hematuria",
+              "Most common primary glomerulonephritis worldwide."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Investigations for Intermediate Uveitis",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. ESR (Erythrocyte Sedimentation Rate)",
+          "2. CRP (C-Reactive Protein)",
+          "3. CBC (Complete Blood Count) to exclude inflammatory process",
+          "4. Investigation according to the cause of suspension (Specific workups follow)"
+        ]
+      },
+      {
+        "title": "Targeted Investigations by Clinical Suspicion",
+        "icon": "microscope",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Suspicion",
+            "Diagnostic Test/Investigation"
+          ],
+          "rows": [
+            [
+              "A. Multiple Sclerosis (MS)",
+              "Cranial MRI"
+            ],
+            [
+              "B. Sarcoidosis",
+              "Serum ACE, Chest X-ray"
+            ],
+            [
+              "C. Lyme Disease",
+              "Serology in individuals from an endemic area"
+            ],
+            [
+              "D. Syphilis",
+              "Serology: Treponemal, Cardiolipin antibody tests"
+            ],
+            [
+              "E. Tuberculosis (T.B)",
+              "Chest X-ray, Tuberculin test, Quatiferon test"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Other Causes of Intermediate Uveitis",
+        "icon": "list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "FUS (Fuchs Uveitis Syndrome)",
+          "Intraocular Lymphoma",
+          "Toxocara Granuloma",
+          "Whipple Disease",
+          "Endogenous Candida",
+          "Toxoplasmosis",
+          "5- Ocular investigation: OCT, FA"
+        ]
+      },
+      {
+        "title": "Vogt-Koyanagi-Harada (VKH) Syndrome Definitions",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "VKH Syndrome Split",
+          "branches": [
+            "Vogt-Koyanagi: Skin changes + Anterior Uveitis",
+            "Harada Disease: Neurological + Exudative Retinal Detachments predominate"
+          ]
+        }
+      },
+      {
+        "title": "Phases of VKH Syndrome",
+        "icon": "history",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Prodromal Phase: Neurological & Auditory manifestations, Cranial nerve palsies, Optic neuritis.",
+          "2. Acute Uveitic Phase: Bilateral granulomatous AU, Multifocal posterior uveitis, Diffuse choroidal infiltrate, Dalen-Fuchs nodules, Vitritis, Papillitis, Exudative retinal detachments, Ciliary effusion, Iris lens diaphragm rotation.",
+          "3. Convalescent Phase: Development of integumentary signs (Alopecia, Poliosis, Vitiligo, Sunset glow fundus).",
+          "4. Chronic Recurrent Phase: Smouldering anterior uveitis with exacerbations, recurrent posterior uveitis."
+        ]
+      },
+      {
+        "title": "VKH Diagnostic Criteria",
+        "icon": "rule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Category",
+            "Criteria Requirements"
+          ],
+          "rows": [
+            [
+              "Complete VKH",
+              "Meets Criteria 1-5"
+            ],
+            [
+              "Incomplete VKH",
+              "Meets 1-3 AND either 4 or 5"
+            ],
+            [
+              "Probable VKH",
+              "Isolated ocular disease (Criteria 1-3)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Modified Diagnostic Criteria for VKH",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Absence of history of penetrating ocular trauma",
+          "2. Absence of other ocular diseases and entities",
+          "3. Bilateral uveitis",
+          "4. Neurological, auditory manifestations",
+          "5. Integumentary: Localized alopecia, poliosis, vitiligo, depigmented fundus (sunset glow), depigmented limbal lesions (Sugiura sign) in pigmented Japanese patients"
+        ]
+      },
+      {
+        "title": "Advanced VKH Investigations",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "LP (Lumbar Puncture): Lymphocytic pleocytosis, melanin-containing macrophages",
+          "FAF: Hyperautofluorescence in areas of serous detachment",
+          "U/S: Diffuse choroidal thickness; use to exclude posterior scleritis",
+          "FA: Multifocal hyperfluorescent dots (RPE level); Chronic phase shows RPE window defect",
+          "OCT: Used to quantify subretinal fluid",
+          "ICGA: Monitoring acute phase; regularly distributed hypofluorescent spots (most remain hypo in late phase); diffuse hyperfluorescence over posterior pole"
+        ]
+      },
+      {
+        "title": "7 Key Signs of Ocular Sarcoidosis (IWOS)",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "IWOS Ocular Signs",
+          "branches": [
+            "1. Mutton fat KPs / Small granulomatous KPs",
+            "2. Trabecular meshwork nodules / Tent-shaped PAS",
+            "3. Vitreous opacities (Snowball, String of pearls)",
+            "4. Multiple chorioretinal peripheral lesions",
+            "5. Nodular/Segmental periphlebitis +/- Candle wax drippings +/- Retinal macroaneurysm",
+            "6. Optic disc nodules / Granuloma / Solitary choroidal nodule",
+            "7. Other: Conjunctival nodules, Lacrimal gland infiltrate, Dry eye, Eyelid nodules, Scleral lesions"
+          ]
+        }
+      },
+      {
+        "title": "Investigations for Sarcoidosis",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Negative tuberculin skin test",
+          "2. Elevated ACE levels +/- elevated serum lysozyme",
+          "3. Chest X-ray: Bilateral hilar lymphadenopathy (BHL)",
+          "4. Chest High Resolution CT (HRCT) scan",
+          "5. Fiberoptic bronchoscopy with biopsy",
+          "6. Thoracic endosonography",
+          "7. Biopsy sites: Lymph node, skin lesion, conjunctival nodules, lacrimal gland, vitreous biopsy (CD4/CD8 ratio)",
+          "8. MRI cardiac and CNS imaging, PET scan, whole body Gallium scan",
+          "9. Calcium, Vit D levels",
+          "10. Hypercalciuria",
+          "11. Bronchoalveolar lavage (BAL): CD4/CD8 T-cell ratio is key indicator",
+          "12. Induced sputum analysis"
+        ]
+      },
+      {
+        "title": "IWOS Diagnostic Levels for Ocular Sarcoidosis",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Level",
+            "Diagnostic Criteria"
+          ],
+          "rows": [
+            [
+              "Definite Ocular Sarcoidosis",
+              "Biopsy + compatible uveitis"
+            ],
+            [
+              "Presumed Ocular Sarcoidosis",
+              "Chest X-ray shows bihilar lymphadenopathy + compatible uveitis"
+            ],
+            [
+              "Probable Ocular Sarcoidosis",
+              "> 3/7 of intraocular signs + > 2/5 positive lab tests"
+            ],
+            [
+              "Possible Ocular Sarcoidosis",
+              "> 4/7 signs + > 2/5 positive lab tests"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Behcet Disease Diagnostic Criteria",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Recurrent oral ulceration (3 times in 12m) - MANDATORY",
+          "PLUS 2 OF THE FOLLOWING:",
+          "Genital ulceration",
+          "Ocular inflammation",
+          "Skin lesions (Erythema nodosum, pseudofolliculitis, acneform nodules, papulopustular lesions)",
+          "Positive Pathergy reaction (Pustule 24-48h after sterile needle prick) - >95% specific"
+        ]
+      },
+      {
+        "title": "Systemic Manifestations of Behcet's",
+        "icon": "home_health",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Vascular: Aneurysm (pulmonary, coronary), venous thrombosis, thrombophlebitis",
+          "Arthritis: 30% arthralgia",
+          "Neurological: 5% meningoencephalocele of brainstem, dural sinus thrombosis, cerebral aneurysm",
+          "GIT: Ileocecal involvement",
+          "Hepatic & Renal: Relatively uncommon"
+        ]
+      },
+      {
+        "title": "Ocular Behcet: Clinical Presentation",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Acute Anterior Uveitis: 'White eye', shifting hypopyon, non-granulomatous uveitis",
+          "2. Vitritis",
+          "3. Retinitis: Transient superficial white infiltrates (heal without scarring), deeper diffuse retinitis, exudative detachment, inflammatory deposits (KP-like) on inferior peripheral retina",
+          "4. Retinal Vasculitis: Artery and vein sheathing, perivascular hemorrhage, occlusion, CMO, diffuse retinal edema",
+          "5. Optic Disc: Hyperemia and edema (due to increased ICP), leading to optic atrophy",
+          "6. Other: Conjunctival ulcers, episcleritis, scleritis, ophthalmoplegia (from neuro involvement)"
+        ]
+      },
+      {
+        "title": "End Stage Disease in Behcet",
+        "icon": "potted_plant",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Optic atrophy",
+          "Retinal atrophy",
+          "Gliosis and sheathing",
+          "Attenuation and ghosting of affected vessels",
+          "Posterior synechia, Cataract, Glaucoma",
+          "Retinal detachment",
+          "Phthisis bulbi"
+        ]
+      },
+      {
+        "title": "Behcet's: Investigations",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "HLA-B51 Association",
+          "Pathergy Test",
+          "ESR, CRP, WBC, Complement levels",
+          "Thrombophilia screening",
+          "Fluorescein Angiography (FA): Delineate ischemia, detect inflammation, monitor activity",
+          "Laser Flare Photometry: Correlate AC activity with inflammation levels",
+          "Biopsy: Superficial lesions, synovial fluid aspiration, lumbar puncture",
+          "Imaging: MRI, MRA, CT, CTA (identify ischemia)"
+        ]
+      },
+      {
+        "title": "Behcet Disease Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Immunomodulatory therapy: The mainstay of treatment",
+          "2. Topical Steroids: Alone effective only if NO posterior segment involvement",
+          "3. Initial Management: Systemic steroids + Azathioprine (2.5mg/kg)",
+          "4. Severe Disease: Cyclosporine (2-5mg/kg) OR Infliximab + Azathioprine + Steroids",
+          "5. Posterior Uveitis: Single Infliximab infusion as initial treatment",
+          "6. TB Precaution: Infliximab may activate T.B; must give with Isoniazid if risk present",
+          "7. Vision Threatening: Infliximab or Adalimumab for early vision-threatening BD",
+          "8. Intravitreal Administration: Infliximab as an option",
+          "9. Interferon Alfa: 6 million IU per day subcutaneously"
+        ]
+      },
+      {
+        "title": "Systemic Associations: The Ocular Exam",
+        "icon": "clinical_notes",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Anatomical Site",
+            "Finding (Verbatim from Input)"
+          ],
+          "rows": [
+            [
+              "Eyelid",
+              "Xanthelasma (cholestasis, primary biliary cirrhosis), Epicanthic fold (Zellweger syndrome)"
+            ],
+            [
+              "Conjunctiva",
+              "Yellowish discoloration (hyperbilirubinaemia), subconjunctival hge, keratoconjunctival sicca, pinguicula (Gaucher's)"
+            ],
+            [
+              "Cornea",
+              "Kayser-Fleischer ring (Wilson), posterior embryotoxon, central corneal clouding (Mucopolysaccharidosis)"
+            ],
+            [
+              "Lens",
+              "Sunflower cataract (Wilson, Zellweger)"
+            ],
+            [
+              "Iris",
+              "Heterochromia, corectopia"
+            ],
+            [
+              "IOP",
+              "Open angle glaucoma"
+            ],
+            [
+              "Retina",
+              "Pigmentary retinopathy, Vit A deficiency, immunosuppressant induced opportunistic retinal/choroidal infection, cherry red spot (Niemann-Pick)"
+            ],
+            [
+              "Neuro-ophthalmic",
+              "Secondary optic atrophy, Wernicke's encephalopathy, upbeat nystagmus, nutritional deficiency optic neuritis, Dorsal midbrain syndrome, horizontal gaze palsy (Wilson), INO (Korsakoff psychosis in hepatic coma)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis Quick-Table",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Behcet's",
+            "Sarcoidosis",
+            "VKH",
+            "TB"
+          ],
+          "rows": [
+            [
+              "Uveitis Type",
+              "Non-granulomatous",
+              "Granulomatous",
+              "Granulomatous",
+              "Granulomatous"
+            ],
+            [
+              "Key Finding",
+              "Shifting Hypopyon",
+              "Mutton Fat KPs",
+              "Sunset Glow Fundus",
+              "Choroidal Tubercles"
+            ],
+            [
+              "Investigation",
+              "Pathergy / HLA-B51",
+              "ACE / HRCT",
+              "FA / ICGA / LP",
+              "TST / QuantiFERON"
+            ]
+          ]
+        }
+      }
+    ],
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "_newlyImported": 1775044665269,
+  "communityId": "sub_1774352254516_re3jwnbc6rr2p0",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z",
+  "read": true,
+  "bookmarked": true
+}

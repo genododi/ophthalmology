@@ -1,0 +1,200 @@
+{
+  "id": 1775192720543,
+  "seqId": 595,
+  "title": "Pulmonary Embolism: The Silent Architect of Hemodynamic Collapse",
+  "summary": "Pulmonary Embolism (PE) represents a critical medical emergency involving the occlusion of the pulmonary arterial system, typically by a thrombus originating from the deep venous system. Rapid recognition and risk-stratification are the cornerstones of preventing fatal outcomes.",
+  "date": "2026-04-03T05:05:20.543Z",
+  "data": {
+    "title": "Pulmonary Embolism: The Silent Architect of Hemodynamic Collapse",
+    "summary": "Pulmonary Embolism (PE) represents a critical medical emergency involving the occlusion of the pulmonary arterial system, typically by a thrombus originating from the deep venous system. Rapid recognition and risk-stratification are the cornerstones of preventing fatal outcomes.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M20 20 L50 80 L80 20 Z' fill='hsl(215, 90%, 45%)' opacity='0.7'/><circle cx='50' cy='40' r='10' fill='white'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "PE is a mechanical obstruction of the pulmonary vasculature. Epidemiology: Incidence is approx. 60–120 per 100,000 population. It is the third most common cause of cardiovascular death after myocardial infarction and stroke. Mortality rate of untreated PE is up to 30%."
+      },
+      {
+        "title": "Virchow’s Triad (Etiology)",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Virchow's Triad",
+          "branches": [
+            "Endothelial Injury",
+            "Hypercoagulability",
+            "Venous Stasis"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation: The Classic Triad",
+        "icon": "health_and_safety",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Dyspnea (Sudden onset)",
+          "Pleuritic chest pain",
+          "Tachypnea (>20 breaths/min)",
+          "Tachycardia (>100 bpm)",
+          "Hemoptysis (suggests pulmonary infarction)",
+          "Signs of DVT (unilateral leg swelling)"
+        ]
+      },
+      {
+        "title": "RED FLAGS: Immediate Intervention",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Hypotension (Systolic BP <90 mmHg)",
+          "Syncope (Hemodynamic instability)",
+          "Obstructive shock signs (pallor, sweating)",
+          "Hypoxemia refractory to oxygen",
+          "Right heart strain on ECG/Echo"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup: Wells Criteria",
+        "icon": "checklist",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Variable",
+            "Points"
+          ],
+          "rows": [
+            [
+              "Clinical signs of DVT",
+              "3.0"
+            ],
+            [
+              "PE #1 diagnosis or equally likely",
+              "3.0"
+            ],
+            [
+              "Heart rate > 100",
+              "1.5"
+            ],
+            [
+              "Immobilization/Surgery in last 4 weeks",
+              "1.5"
+            ],
+            [
+              "Previous DVT/PE",
+              "1.5"
+            ],
+            [
+              "Hemoptysis",
+              "1.0"
+            ],
+            [
+              "Malignancy",
+              "1.0"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Investigations: The Gold Standard",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: D-dimer assay (High negative predictive value if low probability).",
+          "Step 2: CT Pulmonary Angiography (CTPA) — Test of choice.",
+          "Step 3: V/Q Scan (If renal failure or contrast allergy exists).",
+          "Step 4: Bedside Echocardiography (Assess RV function).",
+          "Step 5: Venous Compression Ultrasound (If DVT suspected)."
+        ]
+      },
+      {
+        "title": "Remember the Mnemonic",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "CHEST",
+          "explanation": "C: Chest pain, H: Hemoptysis, E: ECG changes (S1Q3T3), S: SOB (Dyspnea), T: Tachycardia."
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Myocardial Infarction",
+              "ST-segment elevation"
+            ],
+            [
+              "Pneumothorax",
+              "Absent breath sounds"
+            ],
+            [
+              "Pneumonia",
+              "Fever and infiltrates on CXR"
+            ],
+            [
+              "Aortic Dissection",
+              "Widened mediastinum"
+            ],
+            [
+              "Pericarditis",
+              "Positional chest pain"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Stabilize: Supplemental O2, IV fluids, vasopressors (Norepinephrine).",
+          "2. Anticoagulation: LMWH (Enoxaparin 1mg/kg) or UFH (if renal failure).",
+          "3. Thrombolysis: rTPA (Alteplase) in massive PE (hemodynamic instability).",
+          "4. Embolectomy: Surgical or catheter-directed for absolute contraindications to lysis.",
+          "5. Long-term: DOACs (Apixaban/Rivaroxaban) for 3-6 months minimum."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "The S1Q3T3 sign on ECG is classic but only present in ~20% of patients.",
+          "D-dimer increases with age; use age-adjusted cut-offs (Age x 10 for >50 yrs).",
+          "RV dilation (McConnell's sign) on Echo is a hallmark of severe PE.",
+          "Early mobilization reduces the risk of post-thrombotic syndrome."
+        ]
+      }
+    ],
+    "generationPrompt": "Pulmonary embolism (Medicine & emergency)",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "read": true
+}

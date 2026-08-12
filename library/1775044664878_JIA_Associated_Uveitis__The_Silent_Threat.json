@@ -1,0 +1,300 @@
+{
+  "id": 1775044664878,
+  "seqId": 181,
+  "title": "JIA-Associated Uveitis: The Silent Threat",
+  "summary": "Juvenile Idiopathic Arthritis (JIA) is the most common systemic association with pediatric chronic anterior uveitis. Often asymptomatic and 'white,' it requires rigorous screening to prevent irreversible vision loss from band keratopathy, cataracts, and glaucoma.",
+  "date": "2026-04-01T11:57:44.878Z",
+  "data": {
+    "title": "JIA-Associated Uveitis: The Silent Threat",
+    "summary": "Juvenile Idiopathic Arthritis (JIA) is the most common systemic association with pediatric chronic anterior uveitis. Often asymptomatic and 'white,' it requires rigorous screening to prevent irreversible vision loss from band keratopathy, cataracts, and glaucoma.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M30 30 L40 40 M70 30 L60 40 M30 70 L40 60 M70 70 L60 60' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 Q50 20 80 50 Q50 80 20 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><circle cx='35' cy='50' r='2' fill='white' opacity='0.6'/><circle cx='45' cy='45' r='1.5' fill='white' opacity='0.6'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Juvenile Idiopathic Arthritis (JIA) describes a heterogenous group of arthritis of unknown etiology lasting ≥6 weeks in a child <16 years old. In ophthalmology, it is the leading cause of chronic non-granulomatous anterior uveitis in children. Characteristically, the eye is 'white and quiet' despite significant intraocular inflammation (The Silent Uveitis)."
+      },
+      {
+        "title": "ILAR Classification of JIA",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "JIA Subtypes",
+          "branches": [
+            "Oligoarticular: <5 joints (Highest Uveitis Risk)",
+            "Polyarticular: ≥5 joints (RF negative/positive)",
+            "Systemic (Still's Disease): Fever, Rash, Hepatosplenomegaly",
+            "Psoriatic Arthritis: Arthritis + Psoriasis/Dactylitis",
+            "Enthesitis-Related (ERA): HLA-B27 associated",
+            "Undifferentiated: Fits >1 or no category"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Uveitis Risk",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Oligoarticular Uveitis Risk",
+              "value": 30
+            },
+            {
+              "label": "Polyarticular (RF-) Risk",
+              "value": 10
+            },
+            {
+              "label": "Systemic (Still's) Risk",
+              "value": 1
+            },
+            {
+              "label": "ANA Positive Risk (OR)",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "Uveitis Risk Factors Checklist",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "ANA Positivity: Strongest predictor (Odds Ratio ~8.6)",
+          "Age at Onset: Early onset (<4 years old) increases risk",
+          "Gender: Females are at significantly higher risk (4:1)",
+          "JIA Subtype: Oligoarticular (Persistent or Extended) is high risk",
+          "RF Negativity: Uveitis is rare in RF+ polyarticular JIA",
+          "Duration: Most uveitis occurs within 4-7 years of joint onset"
+        ]
+      },
+      {
+        "title": "AAO/AAP Screening Guidelines",
+        "icon": "calendar_month",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "JIA Subtype",
+            "ANA Status",
+            "Age of Onset",
+            "Screening Frequency"
+          ],
+          "rows": [
+            [
+              "Oligo/Poly",
+              "Positive (+)",
+              "<7 years",
+              "Every 3 months for 4 years"
+            ],
+            [
+              "Oligo/Poly",
+              "Positive (+)",
+              "≥7 years",
+              "Every 6 months for 4 years"
+            ],
+            [
+              "Oligo/Poly",
+              "Negative (-)",
+              "<7 years",
+              "Every 6 months for 4 years"
+            ],
+            [
+              "Oligo/Poly",
+              "Negative (-)",
+              "≥7 years",
+              "Every 12 months"
+            ],
+            [
+              "Systemic",
+              "Any",
+              "Any",
+              "Every 12 months"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Anterior Chamber: Chronic cells and flare (SUN grading)",
+          "Keratic Precipitates: Small to medium, non-granulomatous",
+          "Band Keratopathy: Calcium deposition in Bowman's layer (3 & 9 o'clock)",
+          "Posterior Synechiae: Leading to 'cloverleaf' pupil",
+          "Cataract: Posterior subcapsular (PSC) due to inflammation/steroids",
+          "Glaucoma: Secondary to trabeculitis or peripheral anterior synechiae",
+          "Hypotony: Sign of ciliary body membrane or exhaustion"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "flaky",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "TINU",
+              "Renal dysfunction, Systemic symptoms"
+            ],
+            [
+              "Sarcoidosis",
+              "Granulomatous KPs, Mutton-fat, ACE high"
+            ],
+            [
+              "Masquerade",
+              "Leukemia/Retinoblastoma (Rule out!)"
+            ],
+            [
+              "Infectious",
+              "Syphilis, TB, Toxocariasis"
+            ],
+            [
+              "Idiopathic",
+              "No joint involvement"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Medical Management Algorithm",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Topical Steroids (Pred Forte 1%) - Titrate to control inflammation. Goal: <0.5+ cells.",
+          "Step 2: Mydriatics (Atropine/Cyclopentolate) - Prevent/break posterior synechiae.",
+          "Step 3: Conventional DMARDs - Methotrexate (MTX) 10-15 mg/m²/week (Standard of care).",
+          "Step 4: Biologic DMARDs (Anti-TNFα) - Adalimumab (Humira) or Infliximab (Remicade).",
+          "Step 5: Alternative Biologics - Abatacept or Tocilizumab if Anti-TNFα fails."
+        ]
+      },
+      {
+        "title": "Surgical Intervention Pearls",
+        "icon": "handyman",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Pre-op Requirement: Eye MUST be quiet (0 cells) for at least 3 months.",
+          "Cataract: Lensectomy + Vitrectomy preferred in very young; IOL in older children with well-controlled disease.",
+          "Band Keratopathy: Chelation with EDTA 1.5% - 3.0%.",
+          "Glaucoma: Often refractory; Ahmed or Baerveldt Glaucoma Drainage Devices (GDD) preferred over trabeculectomy."
+        ]
+      },
+      {
+        "title": "Critical Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Hypotony (IOP < 5 mmHg): Risk of phthisis bulbi.",
+          "Rapidly advancing Band Keratopathy: Sign of chronic poor control.",
+          "Secondary Glaucoma: Major cause of irreversible blindness.",
+          "Cystoid Macular Edema (CME): Though less common than in adults, can occur.",
+          "Steroid Response: Monitoring for steroid-induced ocular hypertension."
+        ]
+      },
+      {
+        "title": "Mnemonics for JIA Uveitis",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "A-N-A (Risk profile)",
+          "explanation": "A: Asymptomatic (White eye), N: Negative RF (Usually), A: Antinuclear Antibody Positive."
+        }
+      },
+      {
+        "title": "Landmark Clinical Trials",
+        "icon": "history_edu",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Trial",
+            "Key Finding"
+          ],
+          "rows": [
+            [
+              "SYCAMORE",
+              "Adalimumab + MTX is superior to MTX alone for JIA-uveitis control."
+            ],
+            [
+              "ADJUVITE",
+              "Adalimumab effective in early-onset refractory JIA-uveitis."
+            ],
+            [
+              "APTITUDE",
+              "Tocilizumab (Anti-IL6) showed limited efficacy in anti-TNF refractory cases."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Complications Mindmap",
+        "icon": "error",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Vision Loss in JIA",
+          "branches": [
+            "Cataract (Posterior Subcapsular)",
+            "Band Keratopathy (Visual Axis Obscuration)",
+            "Secondary Glaucoma (Pupillary Block or PAS)",
+            "Amblyopia (Due to Opacity in Developmental Window)",
+            "Cystoid Macular Edema / Epiretinal Membrane",
+            "Phthisis Bulbi (End-stage hypotony)"
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Flare is not Cells: In chronic JIA, persistent flare (protein leak) is common even when 'quiet.' Treat based on cells, not flare.",
+          "The 'White' Eye Trap: Never assume a quiet exterior means a quiet interior; children rarely complain of symptoms.",
+          "Methotrexate Dosing: Always supplement with Folic acid (1mg/day) to reduce GI side effects.",
+          "Growth Monitoring: Chronic systemic or even intensive topical steroids can stunt growth and cause Cushingoid features.",
+          "Multidisciplinary Care: Coordination between Pediatric Ophthalmology and Rheumatology is MANDATORY."
+        ]
+      }
+    ],
+    "generationPrompt": "JIA; oligo - poly - stills disease - ANA - RF",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "_newlyImported": 1775044664878,
+  "communityId": "sub_1774533956494_6euex7zw8",
+  "communityAuthor": "geno",
+  "communityDate": "2026-03-26T14:05:56.495Z",
+  "read": true
+}

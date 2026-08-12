@@ -1,0 +1,224 @@
+{
+  "id": 1775107641910,
+  "seqId": 538,
+  "title": "Mastering Scleritis: The Anterior vs. Posterior Paradigm",
+  "summary": "An inflammatory, potentially vision-threatening condition affecting the scleral tissue, characterized by severe pain and complex systemic associations. Differential diagnosis remains paramount to distinguish scleritis from episcleritis and orbital pseudotumor.",
+  "date": "2026-04-02T05:27:21.910Z",
+  "data": {
+    "title": "Mastering Scleritis: The Anterior vs. Posterior Paradigm",
+    "summary": "An inflammatory, potentially vision-threatening condition affecting the scleral tissue, characterized by severe pain and complex systemic associations. Differential diagnosis remains paramount to distinguish scleritis from episcleritis and orbital pseudotumor.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 20 70 50 T50 80' fill='hsl(0, 80%, 60%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Scleritis is a chronic, painful, inflammatory disorder of the sclera. It is characterized by edema and cellular infiltration of the collagenous scleral framework. Unlike episcleritis, it is frequently associated with life-threatening systemic autoimmune diseases, notably rheumatoid arthritis (RA) and granulomatosis with polyangiitis (GPA)."
+      },
+      {
+        "title": "Classification Mindmap",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Scleritis Classification",
+          "branches": [
+            "Anterior Scleritis (Diffuse, Nodular, Necrotizing)",
+            "Posterior Scleritis",
+            "Infectious vs. Non-Infectious",
+            "Surgically Induced Scleritis"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiological Data",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Diffuse Anterior",
+              "value": 45
+            },
+            {
+              "label": "Nodular Anterior",
+              "value": 30
+            },
+            {
+              "label": "Necrotizing",
+              "value": 15
+            },
+            {
+              "label": "Posterior",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Panic",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Severe 'boring' pain radiating to the temple or jaw.",
+          "Avascular areas in necrotizing scleritis (high risk of perforation).",
+          "Decreased visual acuity (posterior involvement).",
+          "Presence of systemic vasculitis symptoms (hematuria, dyspnea).",
+          "Poor response to topical NSAIDs."
+        ]
+      },
+      {
+        "title": "Anterior vs. Posterior Clinical Features",
+        "icon": "table",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Anterior Scleritis",
+            "Posterior Scleritis"
+          ],
+          "rows": [
+            [
+              "Pain",
+              "Boring, constant, nocturnal",
+              "Variable, often deep/pressure-like"
+            ],
+            [
+              "Vision",
+              "Usually preserved unless corneal/uveal",
+              "Often reduced"
+            ],
+            [
+              "External Signs",
+              "Scleral injection, nodules",
+              "None (may be 'white eye')"
+            ],
+            [
+              "Fundoscopy",
+              "Not diagnostic",
+              "Disc edema, choroidal folds, exudative RD"
+            ],
+            [
+              "Diagnostic Key",
+              "Phenylephrine 2.5% blanching test (-)",
+              "B-Scan Ultrasonography (T-sign)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology & Etiology",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Type III/IV Hypersensitivity reactions causing collagen degradation.",
+          "Immune-complex deposition in scleral vessels.",
+          "Systemic Associations: Rheumatoid Arthritis (most common), GPA (Wegener's), Relapsing Polychondritis, Polyarteritis Nodosa (PAN).",
+          "Infectious etiology: Herpes Zoster, Pseudomonas, Syphilis, Mycobacterium tuberculosis."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Process",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Thorough history (rheumatologic/infectious review).",
+          "Step 2: Slit-lamp exam (diffuse light vs. red-free light).",
+          "Step 3: Phenylephrine 2.5% test to distinguish from episcleritis.",
+          "Step 4: B-Scan Ultrasound (looking for retrobulbar edema).",
+          "Step 5: Systemic blood work (CBC, ESR, CRP, RF, ANCA, ACE, QuantiFERON)."
+        ]
+      },
+      {
+        "title": "The 'T-Sign' Remember",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "T-Sign",
+          "explanation": "T for 'Tenon's Capsule' fluid. In Posterior Scleritis, the T-sign on B-scan represents fluid in the sub-Tenon space creating a perpendicular appearance to the optic nerve."
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "medical_services",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Episcleritis",
+              "Vessels blanch with 2.5% Phenylephrine."
+            ],
+            [
+              "Orbital Pseudotumor",
+              "Involvement of extraocular muscles, usually unilateral pain."
+            ],
+            [
+              "Peripheral Ulcerative Keratitis (PUK)",
+              "Corneal thinning at the limbus."
+            ],
+            [
+              "Infectious Scleritis",
+              "Usually localized, history of trauma/surgery."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Treatment Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "1st Line: Oral NSAIDs (Indomethacin 25mg TID or Naproxen 500mg BID).",
+          "2nd Line: Systemic Corticosteroids (Prednisone 1mg/kg/day).",
+          "3rd Line: Immunomodulatory therapy (Methotrexate, Mycophenolate Mofetil, or Rituximab for refractory GPA).",
+          "Surgical: Scleral patch graft for impending perforation (tectonic support)."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Always perform a fundus examination to rule out subclinical posterior involvement.",
+          "Necrotizing scleritis without inflammation ('scleromalacia perforans') is highly characteristic of RA.",
+          "Always investigate the underlying systemic cause; the eye may be the 'window' to a life-threatening systemic vasculitis.",
+          "Avoid subconjunctival steroid injections in scleritis; they increase the risk of scleral melting."
+        ]
+      }
+    ],
+    "generationPrompt": "Anterior vs posterior Scleritis",
+    "chapterId": "sclera"
+  },
+  "chapterId": "sclera",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

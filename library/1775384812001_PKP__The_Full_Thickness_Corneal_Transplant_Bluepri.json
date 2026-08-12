@@ -1,0 +1,516 @@
+{
+  "id": 1775384812001,
+  "seqId": 694,
+  "title": "PKP: The Full-Thickness Corneal Transplant Blueprint",
+  "summary": "Penetrating Keratoplasty (PKP) is a full-thickness corneal transplantation, replacing diseased host tissue with healthy donor cornea. While lamellar techniques are gaining traction, PKP remains crucial for conditions affecting the entire corneal thickness, offering visual rehabilitation and structural integrity.",
+  "date": "2026-04-05T10:26:52.001Z",
+  "data": {
+    "title": "PKP: The Full-Thickness Corneal Transplant Blueprint",
+    "summary": "Penetrating Keratoplasty (PKP) is a full-thickness corneal transplantation, replacing diseased host tissue with healthy donor cornea. While lamellar techniques are gaining traction, PKP remains crucial for conditions affecting the entire corneal thickness, offering visual rehabilitation and structural integrity.",
+    "summary_illustration": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:hsl(215, 90%, 65%);stop-opacity:1' /><stop offset='100%' style='stop-color:hsl(215, 90%, 45%);stop-opacity:1' /></linearGradient></defs><circle cx='50' cy='50' r='45' fill='url(#grad)' stroke='hsl(215, 90%, 35%)' stroke-width='2'/><path d='M 50 5 C 70 5 95 25 95 50 C 95 75 70 95 50 95 C 30 95 5 75 5 50 C 5 25 30 5 50 5 Z M 50 15 C 65 15 85 30 85 50 C 85 70 65 85 50 85 C 35 85 15 70 15 50 C 15 30 35 15 50 15 Z' fill='#fff' opacity='0.2'/><circle cx='50' cy='50' r='20' fill='#fff'/><path d='M 40 50 L 60 50 M 50 40 L 50 60 M 35 50 C 35 50 38 45 40 45 L 60 45 C 62 45 65 50 65 50 M 35 50 C 35 50 38 55 40 55 L 60 55 C 62 55 65 50 65 50' stroke='hsl(215, 90%, 35%)' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/><path d='M 50 50 L 50 70 M 60 60 L 75 65 M 40 60 L 25 65' stroke='#fff' stroke-width='2' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Overview: The Full-Thickness Solution",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Penetrating Keratoplasty (PKP), also known as full-thickness corneal transplant, involves replacing the entire thickness of a diseased or scarred host cornea with a healthy donor cornea. It is one of the oldest and most successful organ transplants in medicine, offering restoration of vision and structural integrity for a variety of corneal pathologies. While lamellar techniques (DALK, DSEK, DMEK) have reduced its frequency for certain indications, PKP remains the gold standard for full-thickness stromal scarring, perforation, and in cases where lamellar surgery is not feasible or has failed."
+      },
+      {
+        "title": "2. Epidemiology: Who Needs a PKP?",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Keratoconus",
+              "value": 30
+            },
+            {
+              "label": "Bullous Keratopathy (Fuchs/PBK)",
+              "value": 25
+            },
+            {
+              "label": "Corneal Scarring (Post-infectious/Trauma)",
+              "value": 20
+            },
+            {
+              "label": "Corneal Dystrophies",
+              "value": 10
+            },
+            {
+              "label": "Repeat Grafts",
+              "value": 8
+            },
+            {
+              "label": "Other",
+              "value": 7
+            }
+          ]
+        }
+      },
+      {
+        "title": "3. Indications for PKP: Why it's Chosen",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "PKP Indications",
+          "branches": [
+            "Optical (Vision Improvement):",
+            "Tectonic (Structural Restoration):",
+            "Therapeutic (Disease Eradication):",
+            "Cosmetic (Appearance Improvement):"
+          ],
+          "sub_branches": {
+            "Optical (Vision Improvement):": [
+              "Keratoconus (advanced, hydrops)",
+              "Bullous Keratopathy (Fuchs, Pseudophakic)",
+              "Corneal Dystrophies (e.g., Macular, Granular type II)",
+              "Corneal Scars (post-herpetic, trauma, chemical burn)",
+              "Aphakic/Pseudophakic Bullous Keratopathy"
+            ],
+            "Tectonic (Structural Restoration):": [
+              "Corneal Perforations",
+              "Descemetoceles",
+              "Severe Corneal Thinning (e.g., Terrien's, Pellucid)"
+            ],
+            "Therapeutic (Disease Eradication):": [
+              "Intractable Infectious Keratitis (fungal, bacterial, acanthamoeba)",
+              "Corneal Ulcers unresponsive to medical therapy"
+            ],
+            "Cosmetic (Appearance Improvement):": [
+              "Severe corneal opacification causing disfigurement, especially in non-seeing eyes"
+            ]
+          }
+        }
+      },
+      {
+        "title": "4. Classification: PKP vs. Lamellar Keratoplasty",
+        "icon": "view_in_ar",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "PKP (Penetrating)",
+            "DALK (Deep Anterior Lamellar)",
+            "DSEK/DMEK (Endothelial)"
+          ],
+          "rows": [
+            [
+              "Tissue Replaced",
+              "Full-thickness cornea",
+              "Anterior stroma & epithelium",
+              "Descemet's membrane & endothelium"
+            ],
+            [
+              "Indications",
+              "Full-thickness scars, perforations, severe ectasia",
+              "Stromal dystrophies, keratoconus with healthy endothelium",
+              "Fuchs' dystrophy, PBK"
+            ],
+            [
+              "Endothelium",
+              "Donor endothelium",
+              "Host endothelium preserved",
+              "Donor endothelium"
+            ],
+            [
+              "Immunologic Risk",
+              "Highest",
+              "Low (no donor endothelium)",
+              "Moderate (donor endothelium)"
+            ],
+            [
+              "Sutures",
+              "Required (many, long-term)",
+              "Often required (fewer, shorter-term)",
+              "No sutures (air/gas bubble)"
+            ],
+            [
+              "Visual Recovery",
+              "Slow (months to years)",
+              "Moderate (weeks to months)",
+              "Fast (days to weeks)"
+            ],
+            [
+              "Complications",
+              "High astigmatism, rejection, open-sky risks",
+              "Descemet's perforation, interface haze",
+              "Graft detachment, primary non-function"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "5. Clinical Features & Symptoms (Pre-op)",
+        "icon": "sick",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Progressive decrease in visual acuity (blurring, distortion)",
+          "Glare and halos, particularly in low light",
+          "Photophobia (light sensitivity)",
+          "Ocular pain or discomfort (e.g., bullous keratopathy, recurrent erosions)",
+          "Foreign body sensation",
+          "Tearing and discharge (especially with active infection or inflammation)"
+        ]
+      },
+      {
+        "title": "6. Ocular Examination Findings (Pre-op)",
+        "icon": "manage_search",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Corneal opacification (scarring, edema, dystrophy deposits)",
+          "Stromal thinning or ectasia (e.g., keratoconus, pellucid marginal degeneration)",
+          "Corneal vascularization (indicates high risk of rejection)",
+          "Descemet's folds or guttata (Fuchs' dystrophy)",
+          "Epithelial bullae or erosions (bullous keratopathy)",
+          "Anterior chamber depth assessment (risk of peripheral anterior synechiae)",
+          "Iris findings (e.g., iris atrophy, posterior synechiae)",
+          "Lens status (cataract, aphakia, pseudophakia)",
+          "IOP measurement (pre-existing glaucoma)"
+        ]
+      },
+      {
+        "title": "7. Investigations & Diagnostic Workup",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**1. Ocular Imaging & Biometry:**",
+          "   - **Corneal Topography/Tomography:** Assess corneal shape, curvature, pachymetry (essential for keratoconus).",
+          "   - **Anterior Segment OCT (AS-OCT):** Detailed visualization of corneal layers, scar depth, anterior chamber structures, limbus. Post-op for wound integrity, interface issues.",
+          "   - **Specular Microscopy:** Endothelial cell count (ECC) and morphology (essential for endothelial health assessment). Important for both recipient and donor tissue.",
+          "   - **A-scan Biometry:** Measure axial length, calculate IOL power if concurrent cataract surgery or aphakia.",
+          "   - **B-scan Ultrasonography:** If media opacity (dense cataract, vitreous hemorrhage) precludes fundus view, to rule out posterior segment pathology.",
+          "**2. Infectious Workup (if applicable):**",
+          "   - **Corneal Scrapes/Cultures:** For active keratitis, prior to therapeutic PKP. Fungal, bacterial, acanthamoeba cultures.",
+          "   - **PCR:** For viral keratitis (HSV, VZV).",
+          "**3. Systemic Workup (Donor & Recipient):**",
+          "   - **Donor Serologies:** Mandatory screening for HIV, Hepatitis B/C, Syphilis, HTLV I/II, West Nile Virus. Cross-matching not routinely done.",
+          "   - **Recipient Blood Tests:** General health status, coagulation profile if on anticoagulants.",
+          "**4. Pre-operative Optimization:**",
+          "   - Control of ocular inflammation or infection (topical antibiotics, antivirals, steroids).",
+          "   - Management of glaucoma (topical hypotensives, filtration surgery).",
+          "   - Optimization of ocular surface (lubricants, punctual plugs, lid hygiene)."
+        ]
+      },
+      {
+        "title": "8. Differential Diagnosis: Alternatives to PKP",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition/Indication",
+            "PKP",
+            "Alternative Treatment(s)"
+          ],
+          "rows": [
+            [
+              "Fuchs' Endothelial Dystrophy",
+              "Yes",
+              "DSEK, DMEK (preferred)"
+            ],
+            [
+              "Advanced Keratoconus (stromal scarring)",
+              "Yes",
+              "DALK (if endothelium healthy), Intacs, CXL + PRK, RGP lenses"
+            ],
+            [
+              "Superficial Corneal Scarring",
+              "Yes (if deep)",
+              "PTK, Superficial Keratectomy, Excimer laser PRK"
+            ],
+            [
+              "Corneal Perforation",
+              "Yes (tectonic)",
+              "Conjunctival flap, Cyanoacrylate glue + BCL"
+            ],
+            [
+              "Recurrent Graft Failure",
+              "Yes (repeat PKP)",
+              "Keratoprosthesis (KPro)"
+            ],
+            [
+              "Stromal Dystrophy (e.g., Macular)",
+              "Yes",
+              "DALK (some types)"
+            ],
+            [
+              "Intractable Infectious Keratitis",
+              "Yes (therapeutic)",
+              "Intensive topical/systemic antimicrobials"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9. Factors Influencing PKP Prognosis",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "PKP Prognostic Factors",
+          "branches": [
+            "Low-Risk Grafts (Excellent Prognosis)",
+            "High-Risk Grafts (Guarded Prognosis)"
+          ],
+          "sub_branches": {
+            "Low-Risk Grafts (Excellent Prognosis)": [
+              "Keratoconus",
+              "Fuchs' Dystrophy (primary, non-vascularized)",
+              "Lattice Dystrophy",
+              "Non-vascularized corneal scars",
+              "Good ocular surface, no glaucoma, no prior rejection"
+            ],
+            "High-Risk Grafts (Guarded Prognosis)": [
+              "Corneal neovascularization (2+ quadrants)",
+              "Previous graft failure",
+              "Aphakia/Pseudophakic Bullous Keratopathy (often with glaucoma)",
+              "Chemical/Thermal burns",
+              "Aniridia-related keratopathy",
+              "Severe dry eye, active inflammation",
+              "Glaucoma (especially uncontrolled)",
+              "Young age of recipient (<2 years or <10 years for some criteria)"
+            ]
+          }
+        }
+      },
+      {
+        "title": "10. Management & Treatment: The PKP Journey",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**1. Pre-operative Phase:**",
+          "   - **Patient Selection & Education:** Discuss risks, benefits, alternatives, long-term commitment.",
+          "   - **Donor Tissue Procurement:** Coordinated through eye banks (e.g., EBAA). Donor criteria: Age (usually <75), serologies (HIV, Hep B/C, Syphilis, WNV), clear cornea, good endothelial cell count (>2000-2500 cells/mm²). Preservation in Optisol-GS or similar media.",
+          "   - **Ocular Surface Optimization:** Treat dry eye, blepharitis, active infection.",
+          "   - **Medical Management:** Discontinue anticoagulants (if safe), manage glaucoma.",
+          "**2. Intra-operative Phase (Open-Sky Technique):**",
+          "   - **Anesthesia:** Peribulbar/Retrobulbar block (Lidocaine, Bupivacaine) with IV sedation or General Anesthesia. Honan balloon for globe decompression.",
+          "   - **Recipient Trephination:** Measure recipient cornea (7.0-8.5 mm). Use a vacuum trephine (e.g., Hanna, Hessburg-Barron) or manual trephine. Femtosecond laser trephination offers precise, customized wound architecture (e.g., zigzag, mushroom profiles). Aim for slightly smaller diameter than donor to avoid flat AC.",
+          "   - **Excision of Host Cornea:** Carefully excise the host button, avoiding lens, iris, or ciliary body damage. Maintain anterior chamber depth with air/viscoelastic if needed.",
+          "   - **Donor Preparation:** Donor scleral rim secured, then donor button punched from endothelial side up (e.g., Barron Punch, Hessburg-Barron) at slightly larger diameter (0.25-0.5 mm larger than recipient opening) to induce slight corneal steepening and reduce risk of post-op astigmatism and hyperopia.",
+          "   - **Suturing:** Donor button placed. Initial 4 cardinal sutures (10-0 nylon) at 12, 3, 6, 9 o'clock. Then, choice of technique:",
+          "     - **Interrupted (16-24 sutures):** Provides excellent control, adjustable for astigmatism post-op. More sutures to remove.",
+          "     - **Continuous (Single or Double, 12-bite):** Faster, less suture material, but harder to adjust astigmatism. Can be combined with cardinal interrupted.",
+          "   - **Air/Fluid Fill:** Reform AC with BSS/Air/Viscoelastic. Check for leaks, ensure proper tension.",
+          "**3. Post-operative Phase:**",
+          "   - **Topical Steroids:** E.g., Prednisolone acetate 1% QID-Q1H initially, then tapered slowly over months to years (often indefinitely) to prevent rejection.",
+          "   - **Topical Antibiotics:** E.g., Moxifloxacin/Gatifloxacin QID for 1-2 weeks to prevent infection.",
+          "   - **Cycloplegics:** E.g., Atropine 1% BID or Cyclopentolate 1% TID for 1-2 weeks to prevent synechiae and reduce pain.",
+          "   - **Glaucoma Management:** Monitor IOP closely. Topical anti-glaucoma drops (e.g., Timolol, Brimonidine, Latanoprost) if elevated. Oral Acetazolamide for acute spikes.",
+          "   - **Suture Management:** Selective suture removal (SSR) for high astigmatism or loose sutures, usually starting 3-6 months post-op. Complete removal 12-18 months (or longer for high-risk grafts).",
+          "   - **Visual Rehabilitation:** Glasses, contact lenses (especially RGP for irregular astigmatism), sometimes astigmatic keratotomy or excimer laser touch-up.",
+          "   - **Rejection Monitoring:** Patient education on 'RSVP' signs of rejection."
+        ]
+      },
+      {
+        "title": "11. Surgical Techniques: Key Steps & Tools",
+        "icon": "hand_bones",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**Anesthesia:** Peribulbar block (2% Lidocaine with 0.75% Bupivacaine + Hyaluronidase), General Anesthesia.",
+          "**Lid Speculum:** Castroviejo, Barraquer.",
+          "**Honan Balloon/Super Pinky:** Applied pre-op to soften the eye.",
+          "**Recipient Trephination:**",
+          "    **Manual Trephine:** Barron, Hessburg-Barron (disposable, fixed-size).",
+          "    **Vacuum Trephine:** Hanna (allows centering and secure placement).",
+          "    **Femtosecond Laser:** For precise, customized, non-linear incisions (e.g., zig-zag, mushroom, top-hat profiles) - 'Femto-PKP' or FLAK. Enhances wound apposition.",
+          "**Host Cornea Excision:** Vannas Scissors, Castroviejo corneal scissors.",
+          "**Donor Cornea Preparation:**",
+          "    **Donor Punch:** Barron punch, Hessburg-Barron punch (used from endothelial side up to prevent endothelial damage).",
+          "    **Scleral Rim:** Donor cornea supplied with 1-2mm scleral rim for easier handling.",
+          "**Suturing:**",
+          "    **Suture Material:** 10-0 Nylon (most common, non-absorbable). Occasionally 11-0 Nylon for pediatric cases.",
+          "    **Needle:** Spatulated (S-14, S-12).",
+          "    **Suture Types:**",
+          "        **Interrupted:** 8-16 individual sutures, allows selective removal, flexible astigmatism management.",
+          "        **Continuous:** One or two running sutures (e.g., 12-bite), faster, requires more skill for even tension.",
+          "        **Combined:** 4 cardinal interrupted sutures followed by a continuous suture.",
+          "**Anterior Chamber Reformation:** BSS (Balanced Salt Solution), air bubble (for hypotony or to visualize Descemet's detachment), viscoelastic (e.g., Healon, Viscoat)."
+        ]
+      },
+      {
+        "title": "12. Complications & Prognosis",
+        "icon": "warning",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Type of Complication",
+            "Description",
+            "Timing",
+            "Management / Impact"
+          ],
+          "rows": [
+            [
+              "Primary Graft Failure",
+              "Failure of donor endothelium to function immediately",
+              "Early (within days)",
+              "Re-grafting; poor donor tissue"
+            ],
+            [
+              "Graft Rejection",
+              "Immune-mediated attack on donor tissue (endothelial, stromal, epithelial)",
+              "Anytime (common 3 months-2 years)",
+              "Intensive topical/systemic steroids. Leading cause of late graft failure."
+            ],
+            [
+              "High Astigmatism",
+              "Irregular or regular astigmatism due to wound healing/suture tension",
+              "Late (months to years)",
+              "Suture removal, relaxing incisions, excimer laser ablation, toric IOLs, RGP lenses."
+            ],
+            [
+              "Secondary Glaucoma",
+              "Increased IOP due to steroid use, inflammation, synechiae, outflow obstruction",
+              "Early or Late",
+              "Topical/oral hypotensives, filtration surgery (trabeculectomy, tube shunt). Can lead to vision loss."
+            ],
+            [
+              "Infection",
+              "Bacterial, fungal, viral keratitis; Endophthalmitis",
+              "Early or Late",
+              "Aggressive antimicrobial therapy, vitrectomy for endophthalmitis. Vision-threatening."
+            ],
+            [
+              "Wound Dehiscence",
+              "Partial or complete separation of the graft-host junction",
+              "Early (trauma) or Late (suture removal, rejection)",
+              "Surgical repair, resuturing. Risk of endophthalmitis."
+            ],
+            [
+              "Recurrence of Original Disease",
+              "E.g., Herpetic keratitis, granular dystrophy, pterygium",
+              "Late (months to years)",
+              "Antiviral prophylaxis, re-grafting. Guarded prognosis."
+            ],
+            [
+              "Cataract",
+              "Development or progression of lens opacity (steroid-induced, surgery-related)",
+              "Late",
+              "Cataract extraction (often combined with IOL placement)."
+            ],
+            [
+              "Retinal Detachment",
+              "Rare, but possible, especially in high myopia or aphakia",
+              "Late",
+              "Vitrectomy with retinal repair."
+            ],
+            [
+              "Choroidal Detachment",
+              "Fluid accumulation in choroid space, often with hypotony",
+              "Early",
+              "Medical management, drainage if Kissing Choroidals."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "13. Red Flags / Emergency Signs Post-PKP",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "**Sudden, severe decrease in visual acuity**",
+          "**Significant ocular pain (unresponsive to analgesics)**",
+          "**Progressive increase in ocular redness**",
+          "**New onset purulent discharge**",
+          "**White infiltrates on the graft (suspect infection)**",
+          "**Hypopyon (pus in the anterior chamber)**",
+          "**New onset photophobia/light sensitivity**",
+          "**Lid swelling, chemosis**",
+          "**Shallow or flat anterior chamber**"
+        ]
+      },
+      {
+        "title": "14. Mnemonics & Memory Aids",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "RSVP for Graft Rejection",
+          "explanation": "**R**edness (Conjunctival injection)\n**S**ensitivity (Photophobia)\n**V**ision decrease (Blurring)\n**P**ain (Ocular discomfort)"
+        }
+      },
+      {
+        "title": "15. Key Clinical Pearls for PKP",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Astigmatism is the norm:** PKP grafts almost universally induce some level of astigmatism. Surgical skill, precise suturing, and post-operative selective suture removal are crucial for managing it.",
+          "**Long-term steroid dependence:** Most PKP recipients require topical corticosteroids for many years, often life-long, to prevent graft rejection. This increases the risk of steroid-induced glaucoma and cataract.",
+          "**Endothelial cell count is paramount:** For both donor tissue (ideally >2500 cells/mm²) and post-op monitoring, as endothelial rejection is the leading cause of graft failure.",
+          "**Visual rehabilitation is a marathon:** Unlike lamellar procedures, full visual recovery after PKP can take 12-24 months due to wound healing, suture management, and refractive correction.",
+          "**High-risk grafts require aggressive management:** Grafts with significant pre-existing vascularization or inflammation need closer follow-up and often more aggressive immunosuppression.",
+          "**Donor-recipient sizing:** Typically, the donor button is 0.25-0.5 mm larger than the recipient bed to induce slight corneal steepening and minimize hyperopic shift and astigmatism.",
+          "**Suture-related complications:** Loose or broken sutures can lead to infection, vascularization, or severe astigmatism. Prompt removal is necessary."
+        ]
+      },
+      {
+        "title": "16. Recent Advances & Landmark Studies",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**Femtosecond Laser-Assisted Keratoplasty (FLAK):** Allows creation of custom, geometrically interlocking wound configurations (e.g., zig-zag, mushroom) for improved wound stability, faster healing, and potentially less astigmatism. The ZIGZAG study has shown promising results.",
+          "**Improved Eye Banking & Preservation:** Use of advanced media like Optisol-GS has extended tissue viability and improved endothelial cell survival.",
+          "**Immunosuppression Strategies:** Topical cyclosporine A (e.g., Restasis, Ikervis) and tacrolimus are used off-label as adjuncts or for rejection prophylaxis/treatment, especially in high-risk cases.",
+          "**OCT-guided PKP:** Anterior Segment OCT is increasingly used intraoperatively to guide trephination depth and suture placement, particularly in complex cases.",
+          "**Genetic Markers:** Research into genetic markers and immunological profiles that predict graft rejection susceptibility is ongoing, aiming for personalized immunosuppression."
+        ]
+      },
+      {
+        "title": "17. Pediatric & Special Population Considerations",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "**Pediatric PKP:**",
+          "    **Higher Rejection Rates:** Due to a more robust immune system.",
+          "    **Amblyopia Risk:** Critical to achieve early visual rehabilitation to prevent irreversible vision loss.",
+          "    **Anesthesia Challenges:** Longer general anesthesia times.",
+          "    **Suture Management:** Often require longer suture retention or special techniques due to healing differences and non-compliance.",
+          "    **Increased Glaucoma Incidence:** Post-op glaucoma is more common and harder to manage.",
+          "    **Indications:** Often for congenital anomalies like Peters anomaly, congenital hereditary endothelial dystrophy (CHED).",
+          "**Aphakic/Pseudophakic Bullous Keratopathy:** Requires careful consideration of IOL status. Often combined with IOL exchange or explantation.",
+          "**Aniridia-Associated Keratopathy:** Very high risk of rejection and limbal stem cell deficiency. Often requires adjunctive limbal stem cell transplantation or Keratoprosthesis.",
+          "**Stevens-Johnson Syndrome/Ocular Cicatricial Pemphigoid:** Severely compromised ocular surface makes PKP prognosis poor; often requires KPro or limbal stem cell transfer first."
+        ]
+      }
+    ],
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775384812001,
+  "communityId": "sub_1775145319798_zuzhky5kw8zzcp",
+  "communityAuthor": "nemo",
+  "communityDate": "2026-04-02T15:55:19.798Z"
+}

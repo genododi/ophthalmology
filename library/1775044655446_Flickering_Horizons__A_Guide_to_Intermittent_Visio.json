@@ -1,0 +1,421 @@
+{
+  "id": 1775044655446,
+  "seqId": 80,
+  "title": "Flickering Horizons: A Guide to Intermittent Vision Loss & Atrial Fibrillation",
+  "summary": "Intermittent vision loss, often a transient yet alarming symptom, can herald serious underlying systemic conditions. This comprehensive guide explores its diverse etiologies, focusing deeply on Atrial Fibrillation (AF) as a critical embolic source, providing in-depth diagnostic and management strategies for ophthalmologists and healthcare professionals.",
+  "date": "2026-04-01T11:57:35.446Z",
+  "data": {
+    "title": "Flickering Horizons: A Guide to Intermittent Vision Loss & Atrial Fibrillation",
+    "summary": "Intermittent vision loss, often a transient yet alarming symptom, can herald serious underlying systemic conditions. This comprehensive guide explores its diverse etiologies, focusing deeply on Atrial Fibrillation (AF) as a critical embolic source, providing in-depth diagnostic and management strategies for ophthalmologists and healthcare professionals.",
+    "summary_illustration": "<svg width=\"200\" height=\"150\" viewBox=\"0 0 200 150\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0\" y=\"0\" width=\"200\" height=\"150\" fill=\"#E0F2F7\"/><path d=\"M100 40 C130 40 160 65 160 85 C160 105 130 130 100 130 C70 130 40 105 40 85 C40 65 70 40 100 40 Z\" fill=\"#64B5F6\"/><circle cx=\"100\" cy=\"85\" r=\"25\" fill=\"#1976D2\"/><circle cx=\"100\" cy=\"85\" r=\"10\" fill=\"#FFFFFF\"/><path d=\"M100 40 L100 130 M40 85 L160 85\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-opacity=\"0.3\"/><path d=\"M120 75 L135 60 L140 70 L150 55 M80 95 L65 110 L60 100 L50 115\" stroke=\"#FFD700\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-dasharray=\"5 5\"/><path d=\"M20 20 C25 15 35 15 40 20 C45 25 45 35 40 40 C35 45 25 45 20 40 C15 35 15 25 20 20 Z\" fill=\"#F44336\"/><path d=\"M20 20 L25 15 L35 15 L40 20 L40 40 L35 45 L25 45 L20 40 Z M27 27 L33 33 M27 33 L33 27\" stroke=\"#FFFFFF\" stroke-width=\"2\"/></svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Overview: Intermittent Vision Loss",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Intermittent vision loss refers to transient episodes of diminished or absent vision, ranging from seconds to minutes, with full recovery between episodes. It can be monocular (affecting one eye, e.g., Amaurosis Fugax) or binocular (affecting both eyes). These episodes are critical red flags for underlying systemic conditions, particularly vascular or neurological, that may lead to permanent vision loss or stroke. Amaurosis Fugax (AF) specifically describes transient monocular vision loss due to retinal ischemia. Understanding the character, duration, and associated symptoms is key to differential diagnosis."
+      },
+      {
+        "title": "2. Epidemiology of TMVL & TBVL",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Stroke Risk within 90 days (post-TMVL)",
+              "value": 10
+            },
+            {
+              "label": "TIA Risk (post-TMVL)",
+              "value": 15
+            },
+            {
+              "label": "Prevalence of Carotid Stenosis in TMVL",
+              "value": 30
+            },
+            {
+              "label": "AF Prevalence in Ischemic Stroke",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "3. Etiology & Pathophysiology: Embolic & Non-Embolic Causes",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Intermittent Vision Loss",
+          "branches": [
+            "Monocular (TMVL)",
+            "Binocular (TBVL)",
+            "Atrial Fibrillation (AF) as a Key Source"
+          ]
+        }
+      },
+      {
+        "title": "3.1 Pathophysiology - Atrial Fibrillation (AF)",
+        "icon": "heart_plus",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": "Atrial fibrillation is a common cardiac arrhythmia characterized by disorganized electrical activity in the atria, leading to ineffective atrial contraction. This stasis of blood within the atria, particularly the left atrial appendage (LAA), promotes thrombus formation. These thrombi can dislodge and embolize to systemic circulation, including the ophthalmic artery (causing TMVL/Amaurosis Fugax) or cerebral arteries (causing TIA/stroke). AF is responsible for approximately 15-20% of all ischemic strokes, often causing more severe and disabling strokes than other etiologies. Early detection and anticoagulation are paramount."
+      },
+      {
+        "title": "4. Classification / Subtypes of Intermittent Vision Loss",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Key Etiologies",
+            "Characteristic Features"
+          ],
+          "rows": [
+            [
+              "Transient Monocular Vision Loss (TMVL)",
+              "Amaurosis Fugax (Carotid/Cardiac Emboli, Vasculitis), Ocular Ischemic Syndrome, Optic Disc Drusen",
+              "Curtain-like, 'graying out', altitudinal, minutes duration"
+            ],
+            [
+              "Transient Binocular Vision Loss (TBVL)",
+              "Migraine Aura, Vertebrobasilar Insufficiency (VBI), Papilledema (obscurations), Posterior Reversible Encephalopathy Syndrome (PRES)",
+              "Scintillating scotomas, tunnel vision, grayouts, associated neurological symptoms (VBI)"
+            ],
+            [
+              "Psychogenic Vision Loss",
+              "Functional, conversion disorder",
+              "Inconsistent, tunnel vision not related to organic causes, often situational"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "5. Clinical Features & Symptoms",
+        "icon": "search",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**Monocular:** 'Curtain-like' descent/ascent, 'graying out', altitudinal field defect, central scotoma. Duration typically 5-30 minutes (Amaurosis Fugax).",
+          "**Binocular:** Scintillating scotomas (migraine), tunnel vision, generalized dimming, diplopia, vertigo, dysphagia, ataxia (vertebrobasilar insufficiency).",
+          "**Associated Symptoms:** Headache (migraine, GCA), jaw claudication, scalp tenderness (GCA), dysarthria, hemiparesis, numbness (TIA), chest pain, palpitations (cardiac arrhythmia).",
+          "**Precipitating Factors:** Postural changes, bright light, exercise, stress (ocular ischemic syndrome, papilledema).",
+          "**AF-Related:** Often asymptomatic heart rhythm, but may present with palpitations, dyspnea, fatigue. Embolic events (TMVL, TIA, stroke) may be the first manifestation."
+        ]
+      },
+      {
+        "title": "6. Ocular Examination Findings",
+        "icon": "visibility_off",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "**Visual Acuity/Fields:** Normal between episodes. Subtle defects if permanent damage.",
+          "**Pupils:** Afferent pupillary defect (APD) if significant optic nerve or retinal ischemia.",
+          "**Slit Lamp:** Anterior segment usually normal. Rarely, signs of carotid artery disease (e.g., neovascularization of iris in OIS).",
+          "**Fundoscopy:** Retinal emboli (Hollenhorst plaques – cholesterol, calcific emboli – cardiac, fibrin-platelet – carotid), attenuated retinal arteries, retinal hemorrhages, cherry-red spot (if central retinal artery occlusion occurred), optic disc edema/pallor. Signs of Ocular Ischemic Syndrome (mid-peripheral retinal hemorrhages, dilated veins).",
+          "**Gonioscopy:** May show iris neovascularization extending into angle in OIS (neovascular glaucoma risk).",
+          "**Optic Nerve:** Optic disc edema (papilledema), optic atrophy (post-ischemic event)."
+        ]
+      },
+      {
+        "title": "7. Investigations & Diagnostic Workup",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "**Step 1: Immediate Ophthalmic Evaluation & Visual Field Testing (if indicated):** Rule out acute ocular pathology. Humphrey Visual Field (HVF) for subtle defects.",
+          "**Step 2: Cardiovascular Assessment:** ECG (to detect AF, arrhythmias), 24-48hr Holter monitor (for paroxysmal AF), Transthoracic Echocardiogram (TTE) for valvular disease, PFO, wall motion abnormalities, left atrial appendage thrombus (if TEE not possible). Transesophageal Echocardiogram (TEE) is superior for LAA thrombus detection.",
+          "**Step 3: Carotid Artery Evaluation:** Carotid Doppler ultrasound (for stenosis), CTA/MRA of head and neck (for intracranial/extracranial vascular anatomy, dissections, vasculitis).",
+          "**Step 4: Neurological Imaging:** MRI Brain with DWI (diffusion-weighted imaging) to detect acute ischemic lesions (TIA/stroke). MRA Circle of Willis for intracranial vascular lesions.",
+          "**Step 5: Blood Tests:** CBC, ESR, CRP (inflammatory/vasculitic causes like GCA), Glucose, Lipid profile, Syphilis serology, Thrombophilia screen (Protein C/S, Factor V Leiden, Antiphospholipid antibodies) in young patients.",
+          "**Step 6: Specialized Tests (if indicated):** Temporal artery biopsy (GCA), Fluorescein Angiography (FFA) for retinal circulation, OCT-A for microvascular assessment."
+        ]
+      },
+      {
+        "title": "8. Differential Diagnosis of Intermittent Vision Loss",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Vision Loss Type",
+            "Associated Features",
+            "Key Investigation"
+          ],
+          "rows": [
+            [
+              "Amaurosis Fugax (Carotid Embolus)",
+              "Monocular",
+              "Curtain, risk factors (HTN, DM, hyperlipidemia, smoking)",
+              "Carotid Doppler, CTA/MRA neck"
+            ],
+            [
+              "Amaurosis Fugax (Cardiac Embolus)",
+              "Monocular",
+              "AF, valvular disease, PFO",
+              "ECG, Holter, TTE/TEE"
+            ],
+            [
+              "Giant Cell Arteritis (GCA)",
+              "Monocular (can be bilateral)",
+              "Older age (>50), headache, jaw claudication, scalp tenderness, malaise, elevated ESR/CRP",
+              "ESR, CRP, Temporal Artery Biopsy"
+            ],
+            [
+              "Migraine with Aura",
+              "Binocular",
+              "Scintillating scotomas, fortification spectra, headache (may be absent), young patient",
+              "Clinical diagnosis, MRI brain (rule out other causes)"
+            ],
+            [
+              "Vertebrobasilar Insufficiency (VBI)",
+              "Binocular",
+              "Diplopia, vertigo, ataxia, dysarthria, 'drop attacks'",
+              "MRA/CTA brain/vertebral arteries"
+            ],
+            [
+              "Ocular Ischemic Syndrome (OIS)",
+              "Monocular (can be bilateral)",
+              "Dimming, post-exertion, iris neovascularization, mid-peripheral hemorrhages",
+              "Carotid Doppler, FFA"
+            ],
+            [
+              "Optic Disc Drusen",
+              "Monocular/Binocular",
+              "Visual field defects (enlarged blind spot), no symptoms or transient obscurations",
+              "B-scan ultrasound, OCT"
+            ],
+            [
+              "Papilledema",
+              "Binocular (transient obscurations)",
+              "Headache, nausea, pulsatile tinnitus, enlarged blind spot",
+              "MRI brain (rule out mass/hydrocephalus), Lumbar Puncture"
+            ],
+            [
+              "Retinal Vein Occlusion (CRVO/BRVO)",
+              "Monocular",
+              "Acute onset, but may have transient episodes before full occlusion",
+              "Fundoscopy, FFA, OCT"
+            ],
+            [
+              "Retinal Artery Occlusion (CRAO/BRAO)",
+              "Monocular",
+              "Acute, sudden, severe, but partial/branch may have transient symptoms before full occlusion",
+              "Fundoscopy, FFA, Carotid/Cardiac workup"
+            ],
+            [
+              "Epileptic Aura",
+              "Binocular",
+              "Visual hallucinations (complex patterns, colors), associated with seizure activity",
+              "EEG, MRI brain"
+            ],
+            [
+              "Drug-induced (e.g., sildenafil, amiodarone)",
+              "Monocular/Binocular",
+              "Hx of medication use, specific visual disturbances",
+              "Medication review"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9. Staging / Grading",
+        "icon": "score",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Staging System",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Carotid Stenosis",
+              "NASCET Criteria",
+              ">70% symptomatic stenosis (surgical intervention), 50-69% moderate, <50% mild."
+            ],
+            [
+              "Atrial Fibrillation",
+              "CHA2DS2-VASc Score",
+              "Calculates stroke risk for non-valvular AF to guide anticoagulation strategy."
+            ],
+            [
+              "Atrial Fibrillation",
+              "HAS-BLED Score",
+              "Calculates bleeding risk on anticoagulation."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9.1 CHA2DS2-VASc Score for AF-Related Stroke Risk",
+        "icon": "calculate",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "**C**ongestive Heart Failure (1)",
+          "**H**ypertension (1)",
+          "**A**ge ≥75 years (2)",
+          "**D**iabetes Mellitus (1)",
+          "**S**troke/TIA/Thromboembolism (2)",
+          "**V**ascular Disease (MI, PAD, aortic plaque) (1)",
+          "**A**ge 65-74 years (1)",
+          "**S**ex category (Female) (1)",
+          "**Interpretation:** Score 0: Low risk (no anticoagulation); Score 1: Intermediate risk (consider anticoagulation based on clinical judgment); Score ≥2: High risk (anticoagulation recommended)."
+        ]
+      },
+      {
+        "title": "10. Management & Treatment: General Principles",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "**Identify & Treat Underlying Cause:** Crucial for preventing permanent vision loss and stroke.",
+          "**Risk Factor Modification:** Aggressive management of hypertension (<130/80 mmHg), diabetes (HbA1c <7%), hyperlipidemia (LDL <70 mg/dL or <1.8 mmol/L), smoking cessation.",
+          "**Antiplatelet Therapy:** Aspirin 81 mg or Clopidogrel 75 mg daily, if stroke risk factors present and anticoagulation is contraindicated or not indicated.",
+          "**Emergency Referral:** Any new onset TMVL/TBVL should be evaluated urgently to rule out TIA/stroke."
+        ]
+      },
+      {
+        "title": "10.1 Management & Treatment: Atrial Fibrillation (AF)",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "**Step 1: Confirm Diagnosis of AF:** ECG, Holter monitoring, event recorder. Distinguish paroxysmal, persistent, long-standing persistent, and permanent AF.",
+          "**Step 2: Stroke Risk Stratification:** Calculate CHA2DS2-VASc score.",
+          "**Step 3: Bleeding Risk Assessment:** Calculate HAS-BLED score to inform anticoagulation choice.",
+          "**Step 4: Anticoagulation (CHA2DS2-VASc ≥2, or 1 with clinical judgment):**",
+          "  - **NOACs (DOACs):** Apixaban (5 mg BID, 2.5 mg BID for specific criteria), Rivaroxaban (20 mg QD, 15 mg QD for specific criteria), Edoxaban (60 mg QD, 30 mg QD for specific criteria), Dabigatran (150 mg BID, 75 mg BID for specific criteria). Preferred over Warfarin in most non-valvular AF.",
+          "  - **Warfarin:** Target INR 2.0-3.0. Requires regular monitoring. Used in mechanical heart valves, moderate-severe mitral stenosis, or if NOACs contraindicated/unavailable.",
+          "**Step 5: Rate Control (for symptomatic AF or prevention of tachycardia-induced cardiomyopathy):**",
+          "  - **Beta-blockers:** Metoprolol, Carvedilol, Bisoprolol. First-line.",
+          "  - **Non-dihydropyridine Calcium Channel Blockers:** Diltiazem, Verapamil. Contraindicated in heart failure with reduced ejection fraction.",
+          "  - **Digoxin:** For sedentary patients with heart failure.",
+          "**Step 6: Rhythm Control (for symptomatic AF despite rate control, or to maintain sinus rhythm):**",
+          "  - **Antiarrhythmic Drugs:** Amiodarone (loading dose 800-1600 mg/day for 1-3 weeks, maintenance 100-400 mg/day - significant ocular/systemic side effects), Flecainide, Propafenone, Sotalol, Dofetilide. Requires careful monitoring.",
+          "  - **Electrical Cardioversion:** For acute rhythm restoration.",
+          "  - **Catheter Ablation:** For symptomatic, recurrent AF refractory to antiarrhythmic drugs.",
+          "**Step 7: Left Atrial Appendage Occlusion (LAAO):** For patients at high stroke risk with contraindications to long-term anticoagulation (e.g., Watchman, Amulet devices)."
+        ]
+      },
+      {
+        "title": "11. Surgical Techniques (Relevant to Embolic Causes)",
+        "icon": "surgery",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "**Carotid Endarterectomy (CEA):** Indicated for symptomatic carotid artery stenosis >70%, or 50-69% in selected patients, to prevent stroke. Removes atherosclerotic plaque.",
+          "**Carotid Artery Stenting (CAS):** Alternative to CEA for selected patients, especially those at high surgical risk, though higher periprocedural stroke risk.",
+          "**Patent Foramen Ovale (PFO) Closure:** For cryptogenic stroke/TIA, especially in younger patients with large right-to-left shunts, after thorough workup for other causes. Reduces risk of recurrent embolic events."
+        ]
+      },
+      {
+        "title": "12. Complications & Prognosis",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "**Stroke:** The most feared complication of TMVL/TBVL, especially if embolic origin. High risk immediately after first episode.",
+          "**Permanent Vision Loss:** Can occur if an episode of ischemia is prolonged or severe, leading to retinal artery/vein occlusion or optic neuropathy.",
+          "**Recurrence:** High risk of recurrence if underlying cause (e.g., AF, carotid stenosis) is not adequately managed.",
+          "**Prognosis:** Varies widely based on etiology. Excellent for migraine aura. Poor if underlying vascular disease progresses untreated. AF significantly increases stroke risk."
+        ]
+      },
+      {
+        "title": "13. Red Flags / Emergency Signs",
+        "icon": "gpp_bad",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden, painless, severe vision loss (consider CRAO, GCA, stroke)",
+          "Associated neurological deficits (hemiparesis, dysarthria, sensory loss) – HIGH SUSPICION FOR TIA/STROKE",
+          "Persistent vision loss > 20-30 minutes",
+          "Painful vision loss (GCA, acute glaucoma, optic neuritis)",
+          "Vision loss in older patients (>50 years) with headache, jaw claudication, scalp tenderness (GCA – ophthalmic emergency)",
+          "Recurrent episodes of TMVL, especially with cardiovascular risk factors",
+          "New onset AF discovered during workup for vision loss"
+        ]
+      },
+      {
+        "title": "14. Mnemonics & Memory Aids",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "FAST (Stroke Signs)",
+          "explanation": "F: Face drooping, A: Arm weakness, S: Speech difficulty, T: Time to call emergency services. Applies to TIA/stroke, which can manifest with vision loss."
+        }
+      },
+      {
+        "title": "15. Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Any transient monocular vision loss (Amaurosis Fugax) is a TIA of the eye until proven otherwise; mandates urgent workup.",
+          "Hollenhorst plaques are pathognomonic for atherosclerotic emboli, usually from the carotid artery.",
+          "GCA is an ophthalmic emergency; treatment with high-dose steroids (e.g., IV methylprednisolone 1g daily for 3 days, then oral prednisone) should be started immediately if suspected, even before temporal artery biopsy.",
+          "AF is often asymptomatic; an embolic event (e.g., TMVL) may be the first clinical manifestation, prompting its diagnosis.",
+          "Always investigate the heart and carotids for any embolic source in TMVL; don't just focus on the eye."
+        ]
+      },
+      {
+        "title": "16. Recent Advances & Landmark Studies",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**NOACs (Non-vitamin K antagonist Oral Anticoagulants):** Multiple trials (RE-LY, ROCKET AF, ARISTOTLE, ENGAGE AF-TIMI 48) have shown NOACs to be superior or non-inferior to Warfarin for stroke prevention in non-valvular AF, with lower intracranial bleeding rates. They are now first-line.",
+          "**Extended Cardiac Monitoring:** Newer implantable loop recorders (ILRs) and wearable devices allow for prolonged rhythm monitoring, increasing detection rates of paroxysmal AF in cryptogenic stroke/TIA patients (e.g., CRYSTAL-AF trial).",
+          "**LAA Occlusion Devices:** WATCHMAN (PROTECT AF, PREVAIL trials) and Amulet (Amulet IDE trial) devices offer alternatives for AF patients unable to tolerate long-term anticoagulation, showing non-inferiority to Warfarin for stroke prevention.",
+          "**PFO Closure:** REDUCE and CLOSE trials demonstrated benefit of PFO closure in selected patients with cryptogenic stroke and PFO, showing reduction in recurrent stroke rates compared to antiplatelet therapy alone."
+        ]
+      },
+      {
+        "title": "17. Pediatric / Special Population Considerations",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "**Pediatric:** Intermittent vision loss is rare. Causes include migraine, optic disc drusen, papilledema, optic neuritis, epilepsy, cerebral vasculitis. Thorough neurological workup is crucial. AF is rare but can occur in congenital heart disease, myocarditis, or channelopathies.",
+          "**Pregnancy:** Management of AF and anticoagulation in pregnancy requires careful consideration. Low molecular weight heparin (LMWH) is often preferred over Warfarin (teratogenic in 1st trimester) and NOACs (insufficient data). Risk of eclampsia-related vision changes (PRES) or migraine.",
+          "**Elderly:** Higher prevalence of AF, carotid artery disease, GCA. Requires aggressive risk factor management and careful consideration of polypharmacy and bleeding risk with anticoagulants."
+        ]
+      }
+    ],
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "_newlyImported": 1775044655446,
+  "communityId": "sub_1773750344578_3ysoc92l9",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T12:25:44.578Z",
+  "read": false
+}

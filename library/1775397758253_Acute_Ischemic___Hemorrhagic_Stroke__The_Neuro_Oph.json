@@ -1,0 +1,157 @@
+{
+  "id": 1775397758253,
+  "seqId": 700,
+  "title": "Acute Ischemic & Hemorrhagic Stroke: The Neuro-Ophthalmologist's Guide",
+  "summary": "Stroke remains a leading cause of long-term disability, necessitating rapid identification of neuro-ophthalmic manifestations like visual field deficits and cranial nerve palsies. This guide integrates emergency triage with the high-yield clinical pearls essential for every ophthalmologist.",
+  "date": "2026-04-05T14:02:38.253Z",
+  "data": {
+    "title": "Acute Ischemic & Hemorrhagic Stroke: The Neuro-Ophthalmologist's Guide",
+    "summary": "Stroke remains a leading cause of long-term disability, necessitating rapid identification of neuro-ophthalmic manifestations like visual field deficits and cranial nerve palsies. This guide integrates emergency triage with the high-yield clinical pearls essential for every ophthalmologist.",
+    "summary_illustration": "<svg viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e40af' stroke-width='4'/><path d='M50 20 L50 80 M20 50 L80 50' stroke='#1e40af' stroke-width='4'/><path d='M30 30 L70 70' stroke='#ef4444' stroke-width='3'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Ischemic (87%)",
+              "value": 87
+            },
+            {
+              "label": "Intracerebral Hemorrhage (10%)",
+              "value": 10
+            },
+            {
+              "label": "Subarachnoid Hemorrhage (3%)",
+              "value": 3
+            }
+          ]
+        }
+      },
+      {
+        "title": "Emergency Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset monocular or binocular vision loss",
+          "Homonymous hemianopia or quadrantanopia",
+          "Ipsilateral Horner Syndrome (Carotid Dissection)",
+          "Diplopia with cranial nerve palsies (III, IV, VI)",
+          "Altered mental status / Hemiparesis",
+          "Thunderclap headache (Subarachnoid hemorrhage)"
+        ]
+      },
+      {
+        "title": "Stroke Classification (TOAST Criteria)",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Stroke Etiology",
+          "branches": [
+            "Large Artery Atherosclerosis",
+            "Cardioembolism (e.g., A-Fib)",
+            "Small Vessel Occlusion (Lacunar)",
+            "Stroke of Other Determined Etiology",
+            "Stroke of Undetermined Etiology"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Visual Signs",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Vascular Territory",
+            "Visual/Ocular Manifestation"
+          ],
+          "rows": [
+            [
+              "Middle Cerebral Artery (MCA)",
+              "Contralateral homonymous hemianopia"
+            ],
+            [
+              "Posterior Cerebral Artery (PCA)",
+              "Macula-sparing homonymous hemianopia"
+            ],
+            [
+              "Basilar Artery",
+              "Cortical blindness, gaze palsies, nystagmus"
+            ],
+            [
+              "Ophthalmic Artery",
+              "Amaurosis fugax / CRAO"
+            ],
+            [
+              "Internal Carotid Artery (ICA)",
+              "Ocular Ischemic Syndrome (OIS)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "FAST Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "FAST-EYE",
+          "explanation": "Face (droop), Arm (drift), Speech (slurred), Time (to ER). EYE: Check for sudden visual field cuts or diplopia."
+        }
+      },
+      {
+        "title": "Diagnostic Workup Pathway",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Non-contrast CT Head (Rule out hemorrhage)",
+          "Step 2: CTA or MRA (Evaluate vessel patency)",
+          "Step 3: MRI DWI/ADC (Gold standard for acute ischemia)",
+          "Step 4: Cardiac Workup (EKG, Echocardiogram)",
+          "Step 5: Carotid Doppler / Blood pressure management"
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls for Ophthalmologists",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Homonymous hemianopia: Respects the vertical meridian; implies retro-chiasmal lesion (look for stroke).",
+          "Ipsilateral Horner + Pain = Dissection until proven otherwise (Get CT Angio Neck).",
+          "Ocular Ischemic Syndrome: Presents with venous stasis retinopathy and mid-peripheral dot-blot hemorrhages; indicates severe carotid stenosis.",
+          "CRAO: Always check for underlying giant cell arteritis (ESR/CRP) or embolic source.",
+          "Treatment window for tPA (Alteplase) is generally < 4.5 hours from symptom onset."
+        ]
+      },
+      {
+        "title": "Management Principles",
+        "icon": "healing",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "For ischemic stroke: Intravenous thrombolysis (Alteplase 0.9 mg/kg) if within window. Mechanical thrombectomy for large vessel occlusions (LVO) of the anterior circulation. Secondary prevention involves antiplatelet therapy (Aspirin, Clopidogrel) or anticoagulation for cardioembolic sources. Strict blood pressure control and lipid-lowering therapy (statins) are non-negotiable for long-term prognosis."
+      }
+    ],
+    "generationPrompt": "Stroke ( internal medicine & emergency)",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "bookmarked": false,
+  "read": false
+}

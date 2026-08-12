@@ -1,0 +1,307 @@
+{
+  "id": 1775387365154,
+  "seqId": 696,
+  "title": "Mastering the Angle: Shaffer vs. Spaeth Grading Systems",
+  "summary": "The definitive clinical guide to gonioscopic angle assessment. From the intuitive Shaffer scale to the anatomically precise Spaeth nomenclature, this poster details the grading systems essential for glaucoma diagnosis and management.",
+  "date": "2026-04-05T11:09:25.154Z",
+  "data": {
+    "title": "Mastering the Angle: Shaffer vs. Spaeth Grading Systems",
+    "summary": "The definitive clinical guide to gonioscopic angle assessment. From the intuitive Shaffer scale to the anatomically precise Spaeth nomenclature, this poster details the grading systems essential for glaucoma diagnosis and management.",
+    "summary_illustration": "<svg viewBox='0 0 200 120' xmlns='http://www.w3.org/1992/svg'><path d='M20,100 Q60,100 80,60 Q100,20 180,20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M20,100 Q100,100 120,80' fill='none' stroke='hsl(140, 70%, 45%)' stroke-width='4'/><circle cx='100' cy='60' r='5' fill='hsl(30, 90%, 50%)'/><text x='110' y='65' font-family='Arial' font-size='10' fill='black'>Anterior Chamber Angle</text></svg>",
+    "sections": [
+      {
+        "title": "Introduction to Angle Grading",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Gonioscopy remains the clinical gold standard for evaluating the iridocorneal angle. Accurate grading is crucial for differentiating between open-angle and angle-closure glaucomas, identifying risk factors for primary angle closure (PAC), and determining the necessity of laser peripheral iridotomy (LPI). While Shaffer's system is widely used for its simplicity, Spaeth's system provides a more granular anatomical description."
+      },
+      {
+        "title": "The Shaffer Classification System",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Grade",
+            "Angle Width",
+            "Anatomical Structures Visible",
+            "Risk of Closure"
+          ],
+          "rows": [
+            [
+              "Grade 4",
+              "35° - 45°",
+              "Ciliary Body Band clearly visible",
+              "Impossible"
+            ],
+            [
+              "Grade 3",
+              "20° - 35°",
+              "Scleral Spur visible",
+              "Impossible"
+            ],
+            [
+              "Grade 2",
+              "20°",
+              "Trabecular Meshwork visible",
+              "Possible"
+            ],
+            [
+              "Grade 1",
+              "10°",
+              "Only Schwalbe's Line (+/- top of TM)",
+              "High Risk"
+            ],
+            [
+              "Grade 0",
+              "0°",
+              "No structures visible (Iridocorneal contact)",
+              "Closed"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Closure Risk by Shaffer Grade",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Grade 4 (Wide)",
+              "value": 0
+            },
+            {
+              "label": "Grade 3",
+              "value": 5
+            },
+            {
+              "label": "Grade 2",
+              "value": 25
+            },
+            {
+              "label": "Grade 1 (Narrow)",
+              "value": 75
+            },
+            {
+              "label": "Grade 0 (Closed)",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Spaeth System: (A) Iris Insertion",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "A (Anterior): Iris inserts anterior to Schwalbe's line.",
+          "B (Behind): Iris inserts posterior to Schwalbe's line but anterior to the Scleral Spur.",
+          "C (Scleral Spur): Iris inserts at the Scleral Spur.",
+          "D (Deep): Iris inserts into the Ciliary Body Band.",
+          "E (Extremely Deep): Iris inserts into the Scleral Wall/deep Ciliary Body.",
+          "Note: Parentheses (e.g., (D)) indicate the insertion seen upon indentation gonioscopy."
+        ]
+      },
+      {
+        "title": "The Spaeth System: (B) Angular Width",
+        "icon": "architecture",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "This is the angle formed by a line tangential to the inner surface of the trabecular meshwork and a line tangential to the iris surface about one-third of the way from the periphery. It is recorded in degrees (e.g., 10°, 20°, 30°, 40°)."
+      },
+      {
+        "title": "The Spaeth System: (C) Iris Configuration",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Type",
+            "Description",
+            "Clinical Association"
+          ],
+          "rows": [
+            [
+              "b (bowed)",
+              "Anterior bowing of the iris (convex)",
+              "Pupillary block; typical in Hyperopes"
+            ],
+            [
+              "s (steep)",
+              "Steep rise from insertion (often in high insertions)",
+              "Plateau Iris Configuration"
+            ],
+            [
+              "f (flat)",
+              "Iris follows a straight plane from insertion",
+              "Normal anatomy in many eyes"
+            ],
+            [
+              "c (concave)",
+              "Posterior bowing of the iris (cupped)",
+              "Pigment Dispersion Syndrome / Myopes"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Angle Structures Mnemonic",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "I Can't See This Stuff",
+          "explanation": "From Posterior to Anterior (Deep to Superficial): I (Iris), C (Ciliary Body Band), S (Scleral Spur), T (Trabecular Meshwork), S (Schwalbe's Line)."
+        }
+      },
+      {
+        "title": "Gonioscopy Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Peripheral Anterior Synechiae (PAS) bridging the angle",
+          "Neovascularization of the Angle (NVA) crossing Scleral Spur",
+          "Sampaolesi Line (pigment on or anterior to Schwalbe's Line)",
+          "Double Hump Sign on indentation (Plateau Iris)",
+          "Blood in Schlemm's Canal (Elevated EVP/Sturge-Weber)"
+        ]
+      },
+      {
+        "title": "The Dynamic Gonioscopy Process",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Patient Selection - Ensure topical anesthesia and no recent surgery/trauma.",
+          "Step 2: Lens Choice - Use a Zeiss/Sussman four-mirror lens for indentation (no coupling gel) or Goldmann lens for stability.",
+          "Step 3: Dim the Lights - Minimize miosis; use a short, narrow slit beam avoiding the pupil to prevent false opening.",
+          "Step 4: Primary View - Identify the most posterior structure visible without manipulation.",
+          "Step 5: Indentation - Apply gentle pressure to the cornea to force aqueous into the angle, distinguishing appositional from synechial closure.",
+          "Step 6: Documentation - Record Grade (Shaffer or Spaeth), Pigment (0-4+), and abnormalities (NVA/PAS)."
+        ]
+      },
+      {
+        "title": "Angle Anatomy Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Iridocorneal Angle",
+          "branches": [
+            "Schwalbe's Line: Termination of Descemet's",
+            "Trabecular Meshwork: Pigmented & Non-pigmented",
+            "Scleral Spur: Attachment for Ciliary Muscle",
+            "Ciliary Body Band: Dull gray/brown band",
+            "Iris Processes: Fine extensions from iris to TM"
+          ]
+        }
+      },
+      {
+        "title": "Scheie Pigment Grading",
+        "icon": "format_list_numbered",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Grade",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Grade 0",
+              "No pigment in the angle"
+            ],
+            [
+              "Grade 1+",
+              "Faint pigment in posterior TM"
+            ],
+            [
+              "Grade 2+",
+              "Moderate pigment in TM"
+            ],
+            [
+              "Grade 3+",
+              "Heavy pigment across TM"
+            ],
+            [
+              "Grade 4+",
+              "Intense, dark pigment (Chocolate-like)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Narrow Angle",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Mechanisms of Closure",
+          "branches": [
+            "Pupillary Block: Most common; aqueous trapped behind iris",
+            "Plateau Iris: Anteriorly positioned ciliary processes",
+            "Lens-Induced: Phacomorphic (large lens) or Ectopia Lentis",
+            "Posterior Pushing: Suprachoroidal hemorrhage or Effusion",
+            "Anterior Pulling: PAS from inflammation or NVA"
+          ]
+        }
+      },
+      {
+        "title": "Surgical/Laser Decision Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Perform Gonioscopy: Identify Grade 0-2 or ITC (Iridotrabecular Contact).",
+          "2. Dynamic Gonioscopy: Is it appositional? (Opens with pressure).",
+          "3. Assess Risk: High IOP, PAS, or symptomatic?",
+          "4. Intervention: Laser Peripheral Iridotomy (LPI) for pupillary block.",
+          "5. Post-LPI Gonioscopy: If angle remains narrow, consider Plateau Iris or Phacomorphic components."
+        ]
+      },
+      {
+        "title": "Clinical Pearls & Exam Tips",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always check the 'worst' quadrant (usually superior) as it is typically the narrowest.",
+          "Use the '10 o'clock/2 o'clock' rule for PAS: they are usually broader and higher than iris processes.",
+          "In Spaeth's system, 'D40f' describes a wide, deep, flat angle—the 'ideal' open angle.",
+          "Plateau iris is suggested when the angle is narrow but the central AC is deep."
+        ]
+      },
+      {
+        "title": "Recent Advances: AS-OCT vs. Gonioscopy",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "While Anterior Segment OCT (AS-OCT) provides objective, reproducible measurements of the Angle Opening Distance (AOD) and Trabecular Iris Space Area (TISA), it cannot distinguish between appositional and synechial closure as effectively as dynamic gonioscopy. AS-OCT is an excellent screening tool but does not replace the expert clinical assessment of the Spaeth system."
+      }
+    ],
+    "generationPrompt": "Shaeffer vs spaeth grading",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills"
+}

@@ -1,0 +1,284 @@
+{
+  "id": 1775044668807,
+  "seqId": 222,
+  "title": "Mastering Pediatric Cataract Surgery: From Crib to Clinic",
+  "summary": "Managing pediatric cataracts is a race against amblyopia. This guide covers the surgical nuances, specialized IOL calculations, and lifelong follow-up required for the developing visual system, based on AAO BCSC and Kanski guidelines.",
+  "date": "2026-04-01T11:57:48.807Z",
+  "data": {
+    "title": "Mastering Pediatric Cataract Surgery: From Crib to Clinic",
+    "summary": "Managing pediatric cataracts is a race against amblyopia. This guide covers the surgical nuances, specialized IOL calculations, and lifelong follow-up required for the developing visual system, based on AAO BCSC and Kanski guidelines.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><circle cx='100' cy='100' r='35' fill='white' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M70 100 Q100 60 130 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M80 85 L120 85 M100 65 L100 105' stroke='hsl(215, 90%, 45%)' stroke-width='2' opacity='0.5'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)' opacity='0.3'/><text x='100' y='160' text-anchor='middle' font-family='Arial' font-size='14' font-weight='bold' fill='hsl(215, 90%, 45%)'>PEDIATRIC LENS</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Scope",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Pediatric cataracts are any lens opacities present at birth or developing within the first decade of life. Unlike adult cataracts, they pose an immediate threat to the development of the visual cortex (amblyopia) and require urgent intervention during the 'critical period' of visual development (birth to 7 years)."
+      },
+      {
+        "title": "Epidemiological Landscape",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Idiopathic (%)",
+              "value": 60
+            },
+            {
+              "label": "Genetic/Hereditary (%)",
+              "value": 30
+            },
+            {
+              "label": "Metabolic/Systemic (%)",
+              "value": 10
+            },
+            {
+              "label": "Bilateral Cases (%)",
+              "value": 75
+            }
+          ]
+        }
+      },
+      {
+        "title": "Comprehensive Etiology Mindmap",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Etiology",
+          "branches": [
+            "Hereditary: AD (most common), AR, X-linked",
+            "Infectious: TORCH (Rubella is classic)",
+            "Metabolic: Galactosemia, Lowe Syndrome, Hypocalcemia",
+            "Chromosomal: Down (Trisomy 21), Edwards (18), Patau (13)",
+            "Ocular: PFV, Aniridia, Peter's Anomaly, Trauma"
+          ]
+        }
+      },
+      {
+        "title": "Morphological Classification",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Clinical Appearance",
+            "Visual Significance"
+          ],
+          "rows": [
+            [
+              "Nuclear",
+              "Central opacity in the embryonic/fetal nucleus",
+              "High; usually requires early surgery"
+            ],
+            [
+              "Lamellar",
+              "Shell-like opacity surrounding a clear nucleus",
+              "Variable; depends on density"
+            ],
+            [
+              "Posterior Polar",
+              "Located at the posterior capsule; risk of rupture",
+              "High; associated with Mittendorf dot"
+            ],
+            [
+              "Anterior Polar",
+              "Small, white, central opacity on ant. capsule",
+              "Low; usually non-progressive"
+            ],
+            [
+              "Cerulean",
+              "Small bluish 'blue-dot' opacities",
+              "Low; rarely requires surgery"
+            ],
+            [
+              "Oil Droplet",
+              "Seen in Galactosemia (classic)",
+              "High; reversible if diet changes early"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis of Leukocoria",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Feature",
+            "Urgency"
+          ],
+          "rows": [
+            [
+              "Retinoblastoma",
+              "Calcified mass on B-scan; LIFE THREATENING",
+              "Emergent"
+            ],
+            [
+              "PFV (PHPV)",
+              "Microphthalmos; elongated ciliary processes",
+              "Urgent"
+            ],
+            [
+              "Coats Disease",
+              "Massive subretinal exudation; telangiectatic vessels",
+              "High"
+            ],
+            [
+              "ROP",
+              "History of prematurity; peripheral traction/detachment",
+              "High"
+            ],
+            [
+              "Medulloepithelioma",
+              "Ciliary body mass; 'string of pearls' in vitreous",
+              "High"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Surgical Protocol: Step-by-Step",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Two-port incision (Clear cornea or Limbal) using 20G or 23G MVR blades.",
+          "Step 2: Capsulorhexis (FCCC or Vitrectorhexis) - Children's capsules are highly elastic.",
+          "Step 3: Hydrodissection (Gentle! Avoid in posterior polar) and Aspiration of soft cortex.",
+          "Step 4: Primary Posterior Capsulotomy (PPC) - Essential in children <6 years to prevent VAO.",
+          "Step 5: Limited Anterior Vitrectomy - Prevents scaffold for LEC migration.",
+          "Step 6: IOL Implantation in the Bag (usually 3-piece or hydrophobic acrylic).",
+          "Step 7: Stromal Hydration and/or 10-0 Vicryl sutures (Mandatory in kids).",
+          "Step 8: Intracameral or Subconjunctival Antibiotics/Steroids."
+        ]
+      },
+      {
+        "title": "IOL Power Calculation: The 'Rule of Under-Correction'",
+        "icon": "analytics",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "The 'Shift' Strategy",
+          "explanation": "To account for the 'myopic shift' as the child grows: \n• <1 yr: Stay Aphakic (usually)\n• 1-2 yrs: Undercorrect by 20%\n• 2-3 yrs: Undercorrect by 10%\n• >8 yrs: Target Emmetropia"
+        }
+      },
+      {
+        "title": "Mnemonic for TORCH Screen",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "TORCH-S",
+          "explanation": "T: Toxoplasmosis\nO: Other (Syphilis, Varicella)\nR: Rubella\nC: CMV\nH: Herpes Simplex\nS: Screen for all in bilateral cases!"
+        }
+      },
+      {
+        "title": "Critical Timing Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Monocular Cataract: Must operate by 4-6 weeks of age to avoid irreversible amblyopia.",
+          "Binocular Cataract: Operate by 6-10 weeks of age.",
+          "Nystagmus: Develops by 3 months if surgery is delayed; sign of poor visual prognosis.",
+          "Signs of Endophthalmitis: Hypopyon is often late; look for sudden change in behavior/redness."
+        ]
+      },
+      {
+        "title": "Essential Pre-operative Workup",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "B-scan Ultrasonography: To rule out RD/RB if there is no view of the fundus.",
+          "A-scan Biometry: Axial length measurement (usually under GA).",
+          "Keratometry: Challenging; manual Javal-Schiotz or handheld auto-K.",
+          "Urine for Reducing Substances: Screen for Galactosemia.",
+          "Pediatric Clearance: Rule out cardiac/systemic issues for GA."
+        ]
+      },
+      {
+        "title": "Post-operative Complications",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Complications",
+          "branches": [
+            "Visual Axis Opacification (VAO) - #1 most common",
+            "Secondary Glaucoma (AFG - Aphakic/Pseudophakic Glaucoma)",
+            "Severe Post-op Uveitis (Increased in children)",
+            "Visual Deprivation Amblyopia",
+            "Corectopia/Iris Capture"
+          ]
+        }
+      },
+      {
+        "title": "Landmark Study: IATS",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Infant Aphakia Treatment Study (IATS).",
+          "Conclusion: No difference in VA at age 1 and 5 between IOL and CL for unilateral infants <7 months.",
+          "IOL group: Had significantly higher rates of adverse events and re-operations.",
+          "Result: Aphakia with contact lens is often preferred for infants <6 months."
+        ]
+      },
+      {
+        "title": "Amblyopia Management",
+        "icon": "visibility",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Refraction: Perform 1 week post-op and every 3 months thereafter.",
+          "Patching: Critical for monocular cases; usually 50% of waking hours.",
+          "Over-correction: Target +2.00D or +3.00D for near vision in young infants."
+        ]
+      },
+      {
+        "title": "High-Yield Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Sclerocorneal tunnels are preferred by some to avoid limbal bleeding and suture irritation.",
+          "Healon GV or Provisc are excellent for maintaining the anterior chamber against high posterior pressure.",
+          "Always perform a 'water-tight' closure; children rub their eyes, increasing the risk of wound dehiscence.",
+          "Lifelong glaucoma screening is mandatory; risk remains even 20 years post-op.",
+          "Bilateral surgery is often performed 1 week apart or during the same GA in specific settings."
+        ]
+      }
+    ],
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "_newlyImported": 1775044668807,
+  "communityId": "sub_1774428039215_2mt8njttu",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-03-25T08:40:39.215Z",
+  "read": true,
+  "bookmarked": true
+}

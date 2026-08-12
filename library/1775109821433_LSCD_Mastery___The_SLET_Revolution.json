@@ -1,0 +1,337 @@
+{
+  "id": 1775109821433,
+  "seqId": 540,
+  "title": "LSCD Mastery & The SLET Revolution",
+  "summary": "A comprehensive clinical guide to Limbal Stem Cell Deficiency (LSCD) and the Simple Limbal Epithelial Transplantation (SLET) technique—the gold standard for ocular surface reconstruction. This poster covers everything from molecular pathophysiology to the nuances of surgical execution.",
+  "date": "2026-04-02T06:03:41.433Z",
+  "data": {
+    "title": "LSCD Mastery & The SLET Revolution",
+    "summary": "A comprehensive clinical guide to Limbal Stem Cell Deficiency (LSCD) and the Simple Limbal Epithelial Transplantation (SLET) technique—the gold standard for ocular surface reconstruction. This poster covers everything from molecular pathophysiology to the nuances of surgical execution.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='25' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='4'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='rgba(0,150,255,0.2)'/><path d='M45 45 L55 55 M55 45 L45 55' stroke='red' stroke-width='1'/><circle cx='50' cy='25' r='3' fill='green'/><text x='35' y='95' font-size='6' font-family='Arial' fill='hsl(215, 90%, 45%)'>SLET Technique</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Limbal Stem Cell Deficiency (LSCD) is a pathological condition characterized by the loss or dysfunction of the limbal epithelial stem cells (LESCs) located in the Palisades of Vogt. This leads to the failure of corneal epithelial maintenance, resulting in 'conjunctivalization' (invasion of conjunctival epithelium onto the cornea), chronic inflammation, neovascularization, and significant visual morbidity. SLET (Simple Limbal Epithelial Transplantation) is a modern, single-stage surgical technique using a small donor biopsy to treat unilateral or asymmetric bilateral LSCD."
+      },
+      {
+        "title": "Etiology: Why do the Stem Cells Fail?",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "LSCD Causes",
+          "branches": [
+            "Acquired: Chemical/Thermal Burns (#1)",
+            "Acquired: Stevens-Johnson Syndrome (SJS)",
+            "Acquired: Ocular Cicatricial Pemphigoid (OCP)",
+            "Acquired: Chronic Contact Lens Overwear",
+            "Acquired: Multiple Ocular Surgeries/Cryotherapy",
+            "Congenital: Aniridia (PAX6 mutation)",
+            "Congenital: KID Syndrome",
+            "Congenital: Ectodermal Dysplasia"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Chemical Burns",
+              "value": 75
+            },
+            {
+              "label": "Contact Lens Wear",
+              "value": 15
+            },
+            {
+              "label": "SJS/Chronic Inflammation",
+              "value": 35
+            },
+            {
+              "label": "Congenital/Aniridia",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Deng Classification of LSCD (Staging)",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Clinical Description",
+            "Corneal Involvement"
+          ],
+          "rows": [
+            [
+              "Stage IA",
+              "Partial LSCD, peripheral cornea involved",
+              "< 50% peripheral"
+            ],
+            [
+              "Stage IB",
+              "Partial LSCD, peripheral cornea involved",
+              "> 50% peripheral"
+            ],
+            [
+              "Stage IIA",
+              "Total LSCD of the visual axis (central)",
+              "< 50% central involved"
+            ],
+            [
+              "Stage IIB",
+              "Total LSCD of the visual axis (central)",
+              "> 50% central involved"
+            ],
+            [
+              "Stage III",
+              "Total LSCD (Complete 360° involvement)",
+              "100% of cornea surface"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Classic Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Loss of Palisades of Vogt (visible on high-mag slit lamp)",
+          "Vortex-like Keratopathy (early sign)",
+          "Dull, irregular corneal reflex (epithelial instability)",
+          "Stippled Fluorescein staining (late/delayed uptake)",
+          "Superficial Neovascularization (pannus)",
+          "Persistent Epithelial Defects (PEDs)",
+          "Symblepharon or Fornix shortening (in SJS/Chemical)"
+        ]
+      },
+      {
+        "title": "The SLET Surgical Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Donor Biopsy - 2x2mm strip of limbal tissue from the healthy eye (superior preferred).",
+          "Step 2: Recipient Preparation - 360-degree peritomy and excision of the pannus (kerato-epitheliectomy) to reveal bare stroma.",
+          "Step 3: Amniotic Membrane (AMT) - Secured over the bare stroma using fibrin glue (epithelial side up).",
+          "Step 4: Fragmenting - The 2x2mm donor biopsy is divided into 8 to 15 tiny 'seeds' using Vannas scissors.",
+          "Step 5: Seeding - Fragments are placed on the AMT, avoiding the visual axis, and secured with Fibrin Glue (Tisseel).",
+          "Step 6: Protection - A large-diameter bandage contact lens (BCL) is applied."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Investigation",
+            "Diagnostic Finding"
+          ],
+          "rows": [
+            [
+              "Impression Cytology",
+              "Presence of Goblet cells on cornea (PAS positive)"
+            ],
+            [
+              "AS-OCT",
+              "Thinning of epithelium, loss of limbal crypts"
+            ],
+            [
+              "In Vivo Confocal",
+              "Absence of basal cells/Palisades; presence of goblet cells"
+            ],
+            [
+              "PAX6 Testing",
+              "Used if Aniridia is suspected"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Pseudo-LSCD",
+              "Mechanical/Toxic (e.g. BAK toxicity); reversible"
+            ],
+            [
+              "Thygeson's SPK",
+              "Transient, crumb-like opacities, no neo"
+            ],
+            [
+              "Vernal Keratoconjunctivitis",
+              "Horner-Trantas dots, not total epithelial loss"
+            ],
+            [
+              "Neurotrophic Keratitis",
+              "Decreased sensation, distinct rolled edges of PED"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Medical Management (Pre-op/Mild)",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Preservative-free artificial tears (lubrication is vital)",
+          "Autologous Serum Eye Drops (20% or 50% concentration)",
+          "Therapeutic Scleral Lenses (PROSE/Scleral) to hydrate surface",
+          "Topical Cyclosporine/Tacrolimus for inflammation control",
+          "Punctal Occlusion"
+        ]
+      },
+      {
+        "title": "RED FLAGS: When to Suspect Total LSCD",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Chronic Fluorescein staining that never resolves with lubricants",
+          "Loss of corneal transparency with recurrent sterile melts",
+          "Progression of vascularization toward the visual axis",
+          "Failure of standard epithelial healing post-cataract surgery"
+        ]
+      },
+      {
+        "title": "Comparison: SLET vs Other Techniques",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Technique",
+            "Donor Tissue Needed",
+            "Stages",
+            "Requirement"
+          ],
+          "rows": [
+            [
+              "SLET",
+              "Small (2x2mm)",
+              "1 Stage",
+              "Simple, low cost, no lab needed"
+            ],
+            [
+              "CLET (Cultivated)",
+              "Tiny biopsy",
+              "2 Stages",
+              "Needs expensive GMP laboratory"
+            ],
+            [
+              "CLAU (Autograft)",
+              "Large (2 clock hours x 2)",
+              "1 Stage",
+              "Risk of LSCD in donor eye due to large biopsy"
+            ],
+            [
+              "LRAL/AL (Allograft)",
+              "Cadaveric/Live Relative",
+              "1 Stage",
+              "Requires long-term systemic immunosuppression"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonics for LSCD Diagnosis",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "P.A.N.N.U.S.",
+          "explanation": "P: Palisades loss; A: Abnormal staining; N: Neovascularization; N: Night/Day photophobia; U: Uneven surface; S: Sight loss."
+        }
+      },
+      {
+        "title": "Complications of SLET",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Hemorrhage under the AMT (affects graft take)",
+          "Graft displacement (seed loss)",
+          "Recurrent Conjunctivalization (incomplete pannus removal)",
+          "Secondary Glaucoma (often steroid-induced)",
+          "Pyogenic Granuloma at the biopsy site"
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "The success of SLET depends on a 'clean' recipient bed—meticulous pannus removal is mandatory.",
+          "Always check the donor eye carefully for subclinical LSCD (especially in CL wearers) before taking a biopsy.",
+          "SLET is primarily for unilateral cases; for bilateral cases, consider Allo-SLET with systemic immunosuppression.",
+          "Recent studies show SLET success rates of >75-80% for long-term corneal stability."
+        ]
+      },
+      {
+        "title": "Landmark Studies: The Sangwan Series",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "SLET was first described by Dr. Virender Sangwan and colleagues at LV Prasad Eye Institute in 2012. Their multi-center trials demonstrated that SLET is more cost-effective than CLET and safer for the donor eye than CLAU, revolutionizing the treatment of chemical burns in developing nations."
+      },
+      {
+        "title": "Surgical Instrument Checklist",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "0.12 or Colibri Forceps",
+          "Vannas Scissors (sharp for micro-fragmenting)",
+          "Crescent blade/64 Beaver blade (for kerato-epitheliectomy)",
+          "Tisseel / Fibrin Glue kit",
+          "Cryopreserved or Dehydrated Amniotic Membrane",
+          "20mm Bandage Contact Lens"
+        ]
+      }
+    ],
+    "generationPrompt": "LSCD , SLET technique",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "read": true
+}

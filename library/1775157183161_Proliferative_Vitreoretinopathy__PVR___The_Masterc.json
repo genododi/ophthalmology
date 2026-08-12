@@ -1,0 +1,156 @@
+{
+  "id": 1775157183161,
+  "seqId": 581,
+  "title": "Proliferative Vitreoretinopathy (PVR): The Masterclass Guide",
+  "summary": "PVR remains the leading cause of failure in rhegmatogenous retinal detachment repair, characterized by the formation of fibrotic contractile membranes. This infographic provides a comprehensive overview of its pathogenesis, grading, and surgical management strategies.",
+  "date": "2026-04-02T19:13:03.161Z",
+  "data": {
+    "title": "Proliferative Vitreoretinopathy (PVR): The Masterclass Guide",
+    "summary": "PVR remains the leading cause of failure in rhegmatogenous retinal detachment repair, characterized by the formation of fibrotic contractile membranes. This infographic provides a comprehensive overview of its pathogenesis, grading, and surgical management strategies.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M20 50 Q50 20 80 50 T50 80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 30 L70 70 M70 30 L30 70' stroke='red' stroke-width='3'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathogenesis",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "PVR is a complex process of wound healing following retinal detachment (RD). It involves the migration and proliferation of RPE cells, glial cells, and fibroblasts, forming epiretinal, subretinal, and periretinal membranes. These membranes exert tractional forces, preventing retinal reattachment."
+      },
+      {
+        "title": "Silicone Study Grading (Update)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Grade",
+            "Clinical Description",
+            "Membrane Location"
+          ],
+          "rows": [
+            [
+              "A",
+              "Vitreous haze/pigment clumps",
+              "None"
+            ],
+            [
+              "B",
+              "Wrinkling of inner retinal surface",
+              "Epiretinal"
+            ],
+            [
+              "C (Focal)",
+              "Full-thickness fixed folds",
+              "Posterior"
+            ],
+            [
+              "C (Diffuse)",
+              "Extensive fixed folds/subretinal",
+              "Anterior/Posterior"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Risk Factors",
+        "icon": "science",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Large Breaks",
+              "value": 75
+            },
+            {
+              "label": "Choroidal Detach",
+              "value": 60
+            },
+            {
+              "label": "Long-standing RD",
+              "value": 50
+            },
+            {
+              "label": "Vitreous Hem",
+              "value": 45
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Impending PVR",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Diffuse vitreous haze (cellular infiltration)",
+          "Fixed retinal folds resistant to fluid-air exchange",
+          "Choroidal detachment persistence",
+          "Subretinal strands visible on OCT"
+        ]
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Pars Plana Vitrectomy (PPV) with wide-field visualization.",
+          "Step 2: Core vitrectomy followed by membrane peeling (Il-M, TPA, or forceps).",
+          "Step 3: Relaxing retinectomy (circumferential or radial) to release traction.",
+          "Step 4: Fluid-air exchange and internal tamponade (Silicone Oil or C3F8).",
+          "Step 5: Post-operative positioning (face-down) for tamponade optimization."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "PVR Mimickers",
+          "branches": [
+            "Proliferative Diabetic Retinopathy",
+            "Retinoschisis",
+            "Choroidal Melanoma",
+            "Uveitis"
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: PVR Management",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PEEL",
+          "explanation": "P: Peripheral Relaxing Retinectomy; E: Excision of membranes; E: Endotamponade (Silicon Oil); L: Laser photocoagulation (360°)"
+        }
+      },
+      {
+        "title": "Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Avoid excessive cryotherapy, which releases RPE cells into the vitreous, promoting PVR.",
+          "The use of heavy silicone oil (Densiron) may be considered for inferior PVR cases.",
+          "Pharmacologic adjuncts like Daunorubicin have shown limited clinical success in preventing PVR recurrence.",
+          "Surgical success in PVR (Grade C) is historically < 60% after initial attempt."
+        ]
+      }
+    ],
+    "generationPrompt": "PVR",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal"
+}

@@ -1,0 +1,165 @@
+{
+  "id": 1775134975829,
+  "seqId": 559,
+  "title": "Penetrating Keratoplasty (PKP): The Gold Standard in Corneal Transplantation",
+  "summary": "Penetrating Keratoplasty (PKP) remains the definitive full-thickness replacement of diseased corneal tissue with healthy donor graft. This infographic provides a comprehensive clinical framework for surgical management, graft survival, and post-operative care.",
+  "date": "2026-04-02T13:02:55.829Z",
+  "data": {
+    "title": "Penetrating Keratoplasty (PKP): The Gold Standard in Corneal Transplantation",
+    "summary": "Penetrating Keratoplasty (PKP) remains the definitive full-thickness replacement of diseased corneal tissue with healthy donor graft. This infographic provides a comprehensive clinical framework for surgical management, graft survival, and post-operative care.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M20 50 Q 50 20 80 50 T 20 50' fill='hsl(215, 90%, 90%)' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Indications",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "PKP involves the full-thickness excision of a central corneal button (donor) and suturing it into the patient's recipient bed. Indications include: Keratoconus (non-progressive), Fuchs Dystrophy, Pseudophakic Bullous Keratopathy (PBK), Corneal Scars (post-trauma/infection), and Chemical Burns."
+      },
+      {
+        "title": "Epidemiological Prevalence by Etiology",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Keratoconus",
+              "value": 45
+            },
+            {
+              "label": "PBK",
+              "value": 25
+            },
+            {
+              "label": "Dystrophies",
+              "value": 15
+            },
+            {
+              "label": "Trauma",
+              "value": 10
+            },
+            {
+              "label": "Other",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Risk Factors for Graft Failure",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Pre-existing vascularized corneal bed",
+          "Multiple previous graft rejections",
+          "Concurrent glaucoma",
+          "Ocular surface disease (dry eye/LSCD)",
+          "Herpetic stromal keratitis active inflammation"
+        ]
+      },
+      {
+        "title": "Surgical Technique: Step-by-Step",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Trephination (usually 0.25-0.5mm larger donor than recipient).",
+          "Step 2: Removal of diseased recipient cornea with corneal scissors.",
+          "Step 3: Positioning donor graft and fixation with four cardinal sutures.",
+          "Step 4: Continuous (nylon 10-0) or interrupted suture closure.",
+          "Step 5: Assessment of intraoperative keratometry and chamber reformation."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis for Post-Op Red Eye",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Graft Rejection",
+              "Endothelial line (Khodadoust), uveitis"
+            ],
+            [
+              "Infectious Keratitis",
+              "Infiltrate, hypopyon, positive cultures"
+            ],
+            [
+              "Suture Abscess",
+              "Focal infiltration around nylon knot"
+            ],
+            [
+              "Wound Dehiscence",
+              "Seidel test positive"
+            ],
+            [
+              "Glaucoma",
+              "Elevated IOP, optic disc changes"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Classification of Graft Rejection",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Rejection Types",
+          "branches": [
+            "Epithelial (rare, minor)",
+            "Stromal (infiltrates)",
+            "Endothelial (Khodadoust line)"
+          ]
+        }
+      },
+      {
+        "title": "Khodadoust Line Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "K-L-E-R",
+          "explanation": "Khodadoust Line: Endothelial Rejection characterized by an advancing line of white precipitates moving across the donor endothelium toward the graft-host junction."
+        }
+      },
+      {
+        "title": "Clinical Pearls & Recent Advances",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Topical steroids are the cornerstone of anti-rejection therapy; frequency must be tapered cautiously over 6-12 months.",
+          "Always evaluate for 'Glaucoma' in graft failure cases; IOP monitoring is challenging but critical.",
+          "Corneal Cross-linking (CXL) has significantly delayed the need for PKP in keratoconus patients.",
+          "Femtosecond laser-assisted keratoplasty (FLAK) provides better wound geometry (top-hat/zig-zag) compared to manual trephination.",
+          "The Collaborative Corneal Transplantation Studies (CCTS) highlight the impact of HLA matching in high-risk grafts."
+        ]
+      }
+    ],
+    "generationPrompt": "Pkp",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "communitySource": true,
+  "author": "dodo",
+  "citation": "Author: dodo",
+  "_serverSynced": true,
+  "read": true
+}

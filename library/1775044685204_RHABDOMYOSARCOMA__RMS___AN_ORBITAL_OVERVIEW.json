@@ -1,0 +1,164 @@
+{
+  "id": 1775044685204,
+  "seqId": 387,
+  "title": "RHABDOMYOSARCOMA (RMS): AN ORBITAL OVERVIEW",
+  "summary": "A comprehensive guide to Rhabdomyosarcoma, the most common primary orbital malignancy in childhood. This poster details the demographics, histopathological subtypes, diagnostic signs, and current treatment protocols including IRSG guidelines.",
+  "date": "2026-04-01T11:58:05.204Z",
+  "data": {
+    "title": "RHABDOMYOSARCOMA (RMS): AN ORBITAL OVERVIEW",
+    "summary": "A comprehensive guide to Rhabdomyosarcoma, the most common primary orbital malignancy in childhood. This poster details the demographics, histopathological subtypes, diagnostic signs, and current treatment protocols including IRSG guidelines.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><circle cx='65' cy='35' r='10' fill='rgba(255, 0, 0, 0.3)' stroke='red' stroke-width='1'/><text x='15' y='95' font-family='Arial' font-size='6' fill='hsl(215, 90%, 45%)'>ORBITAL PATHOLOGY</text></svg>",
+    "sections": [
+      {
+        "title": "Introduction & Demographics",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Rhabdomyosarcoma (RMS) is the most common soft tissue sarcoma of childhood.",
+          "40% develop in the head and neck.",
+          "It is the most common primary orbital malignancy in children but is still a rare condition.",
+          "Approximately 90% occur in children under 16 years.",
+          "The average age of onset is 7 years.",
+          "CHAPTER 4: Orbit | Page 149"
+        ]
+      },
+      {
+        "title": "Pathogenesis & Genetics",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "RMS Origins",
+          "branches": [
+            "Derived from undifferentiated mesenchymal cells",
+            "Potential to differentiate into striated muscle",
+            "Variants of the RB1 gene (responsible for retinoblastoma)",
+            "Evidence supports role of epigenetic dysregulation"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: The Mimicker",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "TIP: Rhabdomyosarcoma can mimic an orbital infection in a child.",
+          "May mimic an inflammatory condition such as orbital cellulitis.",
+          "Differential Concern: Rapidly progressive unilateral proptosis.",
+          "Differential Concern: Swelling and redness of overlying skin (Note: the skin is NOT warm)."
+        ]
+      },
+      {
+        "title": "Subtype Classification & Prevalence",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Subtype",
+            "Frequency/Occurrence",
+            "Characteristics",
+            "Prognosis"
+          ],
+          "rows": [
+            [
+              "Embryonal",
+              "85% (Majority of orbital lesions)",
+              "Cells show light microscopic features of striated muscle differentiation (Fig. 4.42A).",
+              "Usually carries a good prognosis."
+            ],
+            [
+              "Alveolar",
+              "Most of the balance of orbital RMS",
+              "Fewer cells show skeletal muscle differentiation; particular chromosomal translocations characteristic on cytogenetics.",
+              "Prognosis is worse."
+            ],
+            [
+              "Botyroid",
+              "4% of cases",
+              "Much less common in the orbit.",
+              "N/A"
+            ],
+            [
+              "Pleomorphic",
+              "Rare",
+              "Much less common in the orbit.",
+              "N/A"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Diagnosis: Signs & Symptoms",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Symptoms: Rapidly progressive unilateral proptosis is usual.",
+          "Tumour Location: Most commonly superonasal or superior (Fig. 4.42B).",
+          "Alternative Locations: May arise anywhere in the orbit, including inferiorly (Fig. 4.42C), conjunctiva, and uvea.",
+          "Skin Signs: Swelling and redness develop (not warm).",
+          "Sensory: Diplopia is frequent.",
+          "Sensory: Pain is less common."
+        ]
+      },
+      {
+        "title": "Diagnostic Investigations",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "MRI: Shows a poorly defined mass.",
+          "CT: Shows a poorly defined mass of homogeneous density, often with adjacent bony destruction (Fig. 4.42D).",
+          "Incisional Biopsy: Performed to confirm diagnosis, establish histopathological subtype, and cytogenetic characteristics.",
+          "Systemic Investigation: Should be performed for metastasis (most common sites: lung and bone)."
+        ]
+      },
+      {
+        "title": "Treatment Protocols",
+        "icon": "healing",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "Commonly used guidelines for staging and a corresponding treatment protocol were produced by the Intergroup Rhabdomyosarcoma Study Group (IRSG). Treatment encompasses a combination of radiotherapy, chemotherapy and sometimes surgical debulking. A single oncogenic fusion gene is associated with treatment resistance and a 40–45% decrease in overall survival. Entinostat with chemotherapy may improve the prognosis in selected cases of rhabdomyosarcoma, but has not yet been approved for clinical use."
+      },
+      {
+        "title": "Prognostic Summary",
+        "icon": "school",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "GOOD PROGNOSIS",
+          "explanation": "The prognosis for patients with disease confined to the orbit is good."
+        }
+      }
+    ],
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "_newlyImported": 1775044685204,
+  "communityId": "sub_1773775007770_6g8aviogmwkodi",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "kanskiMeta": [
+    {
+      "pageNum": 154,
+      "keywords": [
+        "rhabdomyosarcoma",
+        "orbital",
+        "orbit",
+        "subtype",
+        "rms"
+      ]
+    }
+  ]
+}

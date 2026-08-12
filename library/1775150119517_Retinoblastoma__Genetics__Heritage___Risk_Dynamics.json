@@ -1,0 +1,342 @@
+{
+  "id": 1775150119517,
+  "seqId": 571,
+  "title": "Retinoblastoma: Genetics, Heritage & Risk Dynamics",
+  "summary": "A comprehensive deep-dive into the hereditary landscape of RB1 mutations, focusing on the clinical application of Knudson’s Two-Hit Hypothesis, penetrance statistics, and evidence-based screening protocols for at-risk offspring and siblings.",
+  "date": "2026-04-02T17:15:19.517Z",
+  "data": {
+    "title": "Retinoblastoma: Genetics, Heritage & Risk Dynamics",
+    "summary": "A comprehensive deep-dive into the hereditary landscape of RB1 mutations, focusing on the clinical application of Knudson’s Two-Hit Hypothesis, penetrance statistics, and evidence-based screening protocols for at-risk offspring and siblings.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 T30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='white' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><path d='M40 30 L60 70 M40 70 L60 30' stroke='hsl(215, 90%, 45%)' stroke-width='1.5' stroke-linecap='round'/><path d='M20 50 H30 M70 50 H80' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Retinoblastoma is the most common primary intraocular malignancy of childhood, arising from neuroepithelial cells (retinoblasts) in the developing retina. It is fundamentally a disease of the cell cycle, caused by the biallelic inactivation of the RB1 tumor suppressor gene located on chromosome 13q14. Understanding heritage is critical because germline mutations predispose individuals not only to bilateral ocular tumors but also to primitive neuroectodermal tumors (trilateral RB) and secondary non-ocular malignancies later in life."
+      },
+      {
+        "title": "Epidemiology & Global Impact",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Unilateral Cases",
+              "value": 60
+            },
+            {
+              "label": "Bilateral Cases",
+              "value": 40
+            },
+            {
+              "label": "Heritable (Germline)",
+              "value": 40
+            },
+            {
+              "label": "Sporadic (Somatic)",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The RB1 Gene",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Locus: Chromosome 13q14.2",
+          "Function: Encodes pRb protein, which regulates the G1 to S phase transition in the cell cycle.",
+          "Mechanism: pRb binds to E2F transcription factors, inhibiting DNA synthesis.",
+          "Inactivation: Phosphorylation by Cyclin-dependent kinases (CDKs) releases E2F, allowing cell cycle progression."
+        ]
+      },
+      {
+        "title": "Knudson’s Two-Hit Hypothesis",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: The First Hit — In heritable RB, this is a germline mutation (present in all cells). In sporadic RB, this is a somatic mutation in a single retinal cell.",
+          "Step 2: The Second Hit — A second event (mutation, deletion, or methylation) inactivates the remaining wild-type allele in a precursor retinoblast.",
+          "Step 3: Malignant Transformation — Loss of both functional RB1 alleles leads to uncontrolled proliferation and tumor formation.",
+          "Step 4: Clinical Result — Germline 'hits' often lead to multifocal/bilateral disease because only one more hit is needed in any cell. Somatic 'hits' require two rare events in the same cell, leading to unifocal disease."
+        ]
+      },
+      {
+        "title": "Hereditary Risk: Offspring of a Survivor",
+        "icon": "family_history",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Survivor Clinical Status",
+            "Estimated Germline Status",
+            "Risk of RB in Offspring"
+          ],
+          "rows": [
+            [
+              "Bilateral Retinoblastoma",
+              "100% Germline Mutation",
+              "45% - 50% (High Penetrance)"
+            ],
+            [
+              "Unilateral (Multifocal)",
+              "100% Germline Mutation",
+              "45% - 50%"
+            ],
+            [
+              "Unilateral (Unifocal, Family History +)",
+              "100% Germline Mutation",
+              "45% - 50%"
+            ],
+            [
+              "Unilateral (Unifocal, Family History -)",
+              "15% Germline Mosaic/Mutation",
+              "2% - 5%"
+            ],
+            [
+              "Healthy Carrier (Known Mutation)",
+              "100% Germline Mutation",
+              "45% - 50%"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Hereditary Risk: Siblings of an Affected Child",
+        "icon": "groups",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Family Scenario",
+            "Risk to Next Sibling",
+            "Action Required"
+          ],
+          "rows": [
+            [
+              "Parents Healthy, 1 Child Bilateral",
+              "2% - 5% (Low due to parental mosaicism)",
+              "Genetic testing & Frequent Screening"
+            ],
+            [
+              "Parents Healthy, 1 Child Unilateral",
+              "1% (Population risk is ~0.006%)",
+              "Screening until molecular status known"
+            ],
+            [
+              "One Parent Affected (Bilateral)",
+              "45% - 50%",
+              "Intensive Screening from Birth"
+            ],
+            [
+              "Two Affected Children",
+              "50%",
+              "Intensive Screening from Birth"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Penetrance & Expressivity",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "RB1 Variations",
+          "branches": [
+            "Penetrance: ~90% (Not everyone with the mutation gets a tumor)",
+            "Variable Expressivity: Severity differs between individuals",
+            "Retinoma: Benign, arrested version of RB",
+            "Low-Penetrance Phenotypes: Associated with specific missense mutations"
+          ]
+        }
+      },
+      {
+        "title": "Critical Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Trilateral Retinoblastoma: Pineoblastoma or parasellar tumor in a germline patient.",
+          "Orbital Extension: Proptosis or extraocular mass (High mortality).",
+          "Glaucoma in a child: Neovascularization of the iris (NVI) is common in advanced RB.",
+          "Pseudohypopyon: Tumor seeds in the anterior chamber mimicking inflammation."
+        ]
+      },
+      {
+        "title": "Screening Protocol for At-Risk Relatives",
+        "icon": "schedule",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Birth to 3 Months: Examination every 3-4 weeks (EUA if necessary).",
+          "3 Months to 1 Year: Examination every 6-8 weeks.",
+          "1 Year to 3 Years: Examination every 3-4 months.",
+          "3 Years to 5 Years: Examination every 6 months.",
+          "After Age 5: Annual exams indefinitely (risk of retinoma/secondary tumors)."
+        ]
+      },
+      {
+        "title": "Clinical Features & Signs",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Leukocoria (60%): 'White pupil' or 'cat's eye reflex'.",
+          "Strabismus (20%): Due to macular involvement.",
+          "Secondary Glaucoma: Often with buphthalmos.",
+          "Atypical: Vitreous seeds mimicking endophthalmitis.",
+          "Hyphaema or Anterior Chamber seeds.",
+          "Retinal Detachment: Usually exudative."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis (Pseudoretinoblastoma)",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Coats Disease",
+              "Telangiectatic vessels, no mass"
+            ],
+            [
+              "PHPV / PFV",
+              "Ciliary process elongation, microphthalmos"
+            ],
+            [
+              "Toxocariasis",
+              "Granuloma, peripheral dragging"
+            ],
+            [
+              "Astrocytic Hamartoma",
+              "Associated with Tuberous Sclerosis"
+            ],
+            [
+              "RD / ROP",
+              "History of prematurity"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "International Classification (ICRB)",
+        "icon": "format_list_numbered",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Group",
+            "Clinical Findings",
+            "Prognosis"
+          ],
+          "rows": [
+            [
+              "Group A",
+              "Small tumors (≤ 3mm) away from foveola/disc",
+              "Excellent (100% salvage)"
+            ],
+            [
+              "Group B",
+              "Tumors > 3mm, macular/peripapillary, subretinal fluid < 3mm",
+              "Good Salvage"
+            ],
+            [
+              "Group C",
+              "Localized seeds (vitreous or subretinal)",
+              "Moderate Salvage"
+            ],
+            [
+              "Group D",
+              "Diffuse seeds (vitreous or subretinal)",
+              "Guarded Salvage"
+            ],
+            [
+              "Group E",
+              "Extensive RB (neovascular glaucoma, phthisis, hemorrhage)",
+              "Enucleation usually required"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Chemoreduction: Vincristine, Etoposide, Carboplatin (VEC protocol) to shrink tumors.",
+          "Intra-arterial Chemotherapy (IAC): Melphalan delivered via ophthalmic artery (Standard for Groups B-D).",
+          "Intravitreal Chemotherapy: For active vitreous seeds.",
+          "Local Therapy: Cryotherapy (for peripheral) or Laser Photocoagulation/TTT (for posterior).",
+          "Enucleation: For Group E eyes or failed conservative therapy (Long optic nerve stump required).",
+          "Plaque Brachytherapy: For salvage of solitary, medium-sized tumors."
+        ]
+      },
+      {
+        "title": "Memory Aid: The RB Essentials",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "13-Q-VEC",
+          "explanation": "13q14 (Locus), Quiescent (pRb state in G0), Vincristine-Etoposide-Carboplatin (Standard Chemo)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Bilateral RB is ALWAYS germline.",
+          "Unilateral RB with multiple foci is ALWAYS germline.",
+          "Genetic testing of the tumor (if enucleated) is superior to blood testing alone.",
+          "Avoid external beam radiation (EBRT) in germline patients due to high risk of secondary sarcomas."
+        ]
+      },
+      {
+        "title": "Recent Advances: Liquid Biopsy",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Aqueous Humor Analysis: Detection of cell-free DNA (cfDNA) in the aqueous humor allows for genetic profiling without biopsy (biopsy is contraindicated due to seeding risk).",
+          "Copy Number Variation (CNV): Gains in 1q, 6p, and losses in 16q are predictive of treatment response.",
+          "Targeted Therapy: Use of MDM2/MDMX inhibitors in RB1-wildtype (MYCN amplified) cases."
+        ]
+      }
+    ],
+    "generationPrompt": "Retinoblastoma heritage & penetrance (offspring & siblings)",
+    "chapterId": "paediatric"
+  },
+  "chapterId": "paediatric",
+  "bookmarked": true
+}

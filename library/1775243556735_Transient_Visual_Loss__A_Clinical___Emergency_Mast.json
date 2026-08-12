@@ -1,0 +1,162 @@
+{
+  "id": 1775243556735,
+  "seqId": 626,
+  "title": "Transient Visual Loss: A Clinical & Emergency Masterclass",
+  "summary": "Transient visual loss (TVL) represents a critical diagnostic challenge necessitating rapid differentiation between benign ocular phenomena and life-threatening neurovascular disease. This guide synthesizes the diagnostic workup for the modern ophthalmologist.",
+  "date": "2026-04-03T19:12:36.735Z",
+  "data": {
+    "title": "Transient Visual Loss: A Clinical & Emergency Masterclass",
+    "summary": "Transient visual loss (TVL) represents a critical diagnostic challenge necessitating rapid differentiation between benign ocular phenomena and life-threatening neurovascular disease. This guide synthesizes the diagnostic workup for the modern ophthalmologist.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 20 70 50 T30 50' fill='hsl(215, 90%, 80%)'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Transient Visual Loss (TVL), or amaurosis fugax, is defined as a monocular or binocular visual deficit lasting seconds to hours with full spontaneous recovery. Incidence increases significantly with age, particularly in patients >60, mirroring the prevalence of carotid artery disease and giant cell arteritis (GCA)."
+      },
+      {
+        "title": "Diagnostic Classification (Etiologic Categories)",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "TVL",
+          "branches": [
+            "Vascular (Embolic/Hypoperfusion)",
+            "Ocular (Glaucoma/Surface)",
+            "Neurologic (Migraine/Papilledema)",
+            "Hematologic (Hypercoagulability)"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Worry",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Age >50 with new onset headaches or scalp tenderness (Consider GCA)",
+          "Altitudinal or 'curtain coming down' sensation (Suggests carotid source)",
+          "Associated motor or sensory deficits (Suggests TIA/Stroke)",
+          "Pulse asymmetry or carotid bruits",
+          "Lasting >1 hour without clear migrainous features"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Duration",
+            "Character"
+          ],
+          "rows": [
+            [
+              "Amaurosis Fugax",
+              "2-30 min",
+              "Monocular, 'curtain'"
+            ],
+            [
+              "Migraine Aura",
+              "15-30 min",
+              "Binocular, scintillating scotoma"
+            ],
+            [
+              "Papilledema",
+              "<30 seconds",
+              "Binocular, gravity-dependent"
+            ],
+            [
+              "Ocular Ischemic Syndrome",
+              "Variable",
+              "Triggered by light/exertion"
+            ],
+            [
+              "Vertebrobasilar TIA",
+              "Variable",
+              "Binocular, associated ataxia"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Workup Protocol",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: History (Duration, laterality, associated symptoms, provoking factors).",
+          "Step 2: Full Ophthalmic Exam (Slit lamp, IOP, Funduscopy - look for Hollenhorst plaques).",
+          "Step 3: Labs (ESR, CRP, CBC, Platelets, Fasting Glucose, Lipid Panel).",
+          "Step 4: Imaging (Carotid Doppler, Echo, CTA/MRA head/neck).",
+          "Step 5: Cardiology referral (Holter monitor for occult AFib)."
+        ]
+      },
+      {
+        "title": "Mnemonic: Identifying Vascular Risk",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "ABCDE",
+          "explanation": "A: Artery (Carotid), B: Blood (Hypercoaguable), C: Cardiac (AFib/Valvular), D: Diabetes/Dyslipidemia, E: ESR/CRP (GCA)"
+        }
+      },
+      {
+        "title": "Etiology Prevalence (Relative)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Vascular",
+              "value": 60
+            },
+            {
+              "label": "Ocular",
+              "value": 20
+            },
+            {
+              "label": "Neurological",
+              "value": 15
+            },
+            {
+              "label": "Systemic/Other",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Hollenhorst plaques are cholesterol emboli (bright, refractive) usually from the ipsilateral carotid artery.",
+          "Transient vision loss triggered by postural changes or bright light is pathognomonic for Ocular Ischemic Syndrome (OIS).",
+          "Papilledema-associated TVL results from transient elevation of intracranial pressure exceeding perfusion pressure at the optic nerve head.",
+          "Always check blood pressure in both arms; asymmetry may indicate subclavian steal syndrome."
+        ]
+      }
+    ],
+    "generationPrompt": "Transient visual loss",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro"
+}

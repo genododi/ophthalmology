@@ -1,0 +1,392 @@
+{
+  "id": 1775546091672,
+  "seqId": 749,
+  "title": "Drug-Induced Uveitis: The Clinical Masterclass",
+  "summary": "Drug-induced uveitis (DIU) is a rare but critical diagnostic challenge where medications trigger intraocular inflammation. Recognition is vital to prevent irreversible ocular damage and differentiate from infectious or idiopathic causes.",
+  "date": "2026-04-07T07:14:51.672Z",
+  "data": {
+    "title": "Drug-Induced Uveitis: The Clinical Masterclass",
+    "summary": "Drug-induced uveitis (DIU) is a rare but critical diagnostic challenge where medications trigger intraocular inflammation. Recognition is vital to prevent irreversible ocular damage and differentiate from infectious or idiopathic causes.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M60 100 Q100 140 140 100 Q100 60 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='20' fill='hsl(215, 90%, 45%)'/><rect x='85' y='40' width='30' height='50' rx='5' fill='hsl(0, 70%, 50%)'/><path d='M85 65 H115' stroke='white' stroke-width='2'/><circle cx='150' cy='60' r='10' fill='hsl(45, 90%, 50%)'/><circle cx='50' cy='140' r='8' fill='hsl(145, 60%, 50%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Drug-induced uveitis refers to intraocular inflammation caused by systemic, topical, or intraocular administration of pharmacological agents. It often mimics idiopathic anterior uveitis but may present with unique features like hypopyon or retinal vasculitis depending on the agent. Incidence is low but rising due to new biologics and checkpoint inhibitors."
+      },
+      {
+        "title": "Pathophysiologic Mechanisms",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Mechanism of DIU",
+          "branches": [
+            "Direct Toxic Effect (e.g., Cidofovir on ciliary body)",
+            "Type III Hypersensitivity (Immune complex deposition)",
+            "Type IV Delayed Hypersensitivity",
+            "Jarisch-Herxheimer Reaction (e.g., Syphilis Rx)",
+            "Altered Melanin Binding",
+            "Lowered Threshold for Inflammation"
+          ]
+        }
+      },
+      {
+        "title": "The Naranjo Probability Scale",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Question",
+            "Yes",
+            "No",
+            "Unknown"
+          ],
+          "rows": [
+            [
+              "Previous conclusive reports on this reaction?",
+              "+1",
+              "0",
+              "0"
+            ],
+            [
+              "Did ADR appear after drug was administered?",
+              "+2",
+              "-1",
+              "0"
+            ],
+            [
+              "Did ADR improve when drug was discontinued?",
+              "+1",
+              "0",
+              "0"
+            ],
+            [
+              "Did ADR reappear when drug was readministered?",
+              "+2",
+              "-1",
+              "0"
+            ],
+            [
+              "Are there alternative causes for the reaction?",
+              "-1",
+              "+2",
+              "0"
+            ],
+            [
+              "Interpretation: Total Score >9 (Definite), 5-8 (Probable), 1-4 (Possible)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Top Offenders: Systemic Medications",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Drug Class",
+            "Specific Agent",
+            "Typical Presentation",
+            "Clinical Pearl"
+          ],
+          "rows": [
+            [
+              "Antibiotics",
+              "Rifabutin",
+              "Acute Anterior + Hypopyon",
+              "Associated with doses >300mg/day or Clarithromycin co-admin."
+            ],
+            [
+              "Antivirals",
+              "Cidofovir",
+              "Anterior Uveitis + Hypotony",
+              "Reduced risk with oral Probenecid; acts on ciliary body."
+            ],
+            [
+              "Bisphosphonates",
+              "Zoledronate / Pamidronate",
+              "Scleritis / Acute Anterior Uveitis",
+              "Usually occurs within 48-72 hours of IV infusion."
+            ],
+            [
+              "Sulfonamides",
+              "Sulfamethoxazole",
+              "Bilateral Anterior Uveitis",
+              "Often associated with a systemic hypersensitivity rash."
+            ],
+            [
+              "BRAF Inhibitors",
+              "Vemurafenib / Dabrafenib",
+              "Granulomatous or Non-granulomatous",
+              "Can continue drug if uveitis is manageable with topical steroids."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances: Immune Checkpoint Inhibitors (ICI)",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Agents: Nivolumab, Ipilimumab, Pembrolizumab.",
+          "Mechanism: Disinhibition of T-cells leads to 'off-target' autoimmune ocular inflammation.",
+          "Presentation: Often bilateral anterior uveitis; can cause Vogt-Koyanagi-Harada (VKH)-like syndrome.",
+          "Timing: Median onset is 6-12 weeks after starting therapy.",
+          "Management: Topical or systemic steroids; drug cessation usually not required unless Grade 3+ toxicity."
+        ]
+      },
+      {
+        "title": "Topical & Intraocular Culprits",
+        "icon": "colorize",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Brimonidine: Granulomatous follicular conjunctivitis and chronic anterior uveitis.",
+          "Prostaglandin Analogs: Reactivation of HSV or CME; subtle anterior chamber cell.",
+          "Metipranolol: High incidence of granulomatous AU (largely withdrawn from market).",
+          "Intravitreal Brolucizumab: High risk of Occlusive Retinal Vasculitis (4.6% IOI rate).",
+          "Intravitreal Vancomycin: Hemorrhagic Occlusive Retinal Vasculitis (HORV) - Type III hypersensitivity."
+        ]
+      },
+      {
+        "title": "Rifabutin Uveitis: The 'Plastic' Hypopyon",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "RIF-A-BUT-IN",
+          "explanation": "R: Rare if dose <300mg. I: Increased by protease inhibitors. F: Frequent Hypopyon (Pseudo-endophthalmitis). A: Always check for Clarithromycin use. BUT: But manageable with steroids. IN: Inflammation is usually bilateral."
+        }
+      },
+      {
+        "title": "RED FLAG: Brolucizumab (Beovu) Warning",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden vision loss post-injection",
+          "Retinal Vasculitis (Arteritis focus)",
+          "Retinal Vascular Occlusion",
+          "Delayed onset (weeks after injection)",
+          "Avoid re-challenge if inflammation occurs"
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Slit Lamp: AC cells/flare, 'Plastic' hypopyon (Rifabutin), Stellate KPs.",
+          "IOP: Hypotony (Cidofovir) or Elevation (Corticosteroids/Brimonidine).",
+          "Fundoscopy: Retinal vasculitis, Disk edema, Serous retinal detachments (ICIs).",
+          "Gonioscopy: Peripheral anterior synechiae in chronic cases."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Process",
+        "icon": "settings",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Detailed Medication History (Including OTC and Supplements).",
+          "Step 2: Establish Temporal Relationship (Drug start vs. Symptom onset).",
+          "Step 3: Clinical Examination & Exclusion of Infection/Sarcoid/HLA-B27.",
+          "Step 4: Trial of De-challenge (Stopping the drug).",
+          "Step 5: Apply Naranjo Algorithm for Causality."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Differential",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "HLA-B27 Positive AU",
+              "Unilateral/Alternating, intense fibrin, positive family history."
+            ],
+            [
+              "Infectious Endophthalmitis",
+              "Pain, severe vitreous involvement, post-surgical history."
+            ],
+            [
+              "Sarcoidosis",
+              "Granulomatous KPs, Busacca/Berlin nodules, hilar lymphadenopathy."
+            ],
+            [
+              "Masquerade (Lymphoma)",
+              "Older age, vitreous clumps, poor response to steroids."
+            ],
+            [
+              "Fuchs Uveitis Syndrome",
+              "Diffuse stellate KPs, iris heterochromia, no synechiae."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management & Treatment Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Identify and Discontinue: The primary treatment is stopping the offending agent if medically permissible.",
+          "2. Topical Corticosteroids: Prednisolone Acetate 1% q1h to qid depending on severity.",
+          "3. Cycloplegia: Cyclopentolate 1% or Atropine 1% for comfort and synechiae prevention.",
+          "4. Systemic Steroids: Required for ICI-induced VKH-like syndromes or severe vasculitis.",
+          "5. Collaboration: Consult with the prescribing physician (Oncologist/ID specialist) before stopping critical systemic meds."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Always ask about 'bone strengthening' drugs (Bisphosphonates) in acute AU.",
+          "Cidofovir uveitis is often associated with profound hypotony due to ciliary body toxicity.",
+          "DIU is a diagnosis of exclusion; do not miss Syphilis or TB while blaming a drug.",
+          "Drug-induced hypopyon is often 'cold' (less pain than infectious hypopyon)."
+        ]
+      },
+      {
+        "title": "Estimated Incidence of DIU",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Rifabutin (>600mg)",
+              "value": 40
+            },
+            {
+              "label": "Cidofovir (IV)",
+              "value": 35
+            },
+            {
+              "label": "Brolucizumab",
+              "value": 5
+            },
+            {
+              "label": "Zoledronate",
+              "value": 1
+            }
+          ]
+        }
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "event_available",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "Generally excellent if the drug is stopped early. Chronic use of offending agents can lead to secondary glaucoma, cataract formation, and in the case of Cidofovir, permanent hypotony and phthisis bulbi. Brolucizumab/Vancomycin vasculitis carries a guarded prognosis with potential for severe permanent vision loss."
+      },
+      {
+        "title": "Landmark Studies: HAWK & HARRIER",
+        "icon": "history_edu",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Post-hoc analysis revealed the 4.6% rate of IOI for Brolucizumab.",
+          "Led to the formation of the SRC (Safety Review Committee).",
+          "Highlight the importance of aggressive monitoring for DIU in new drug launches."
+        ]
+      }
+    ],
+    "generationPrompt": "Drug induced uveitis",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "kanskiMeta": [
+    {
+      "pageNum": 434,
+      "keywords": [
+        "uveitis",
+        "induced",
+        "ocular",
+        "anterior uveitis",
+        "vkh"
+      ]
+    },
+    {
+      "pageNum": 435,
+      "keywords": [
+        "uveitis",
+        "induced",
+        "systemic",
+        "immune",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 451,
+      "keywords": [
+        "uveitis",
+        "systemic",
+        "recent",
+        "topical",
+        "hypopyon"
+      ]
+    },
+    {
+      "pageNum": 454,
+      "keywords": [
+        "uveitis",
+        "systemic",
+        "immune",
+        "topical",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 455,
+      "keywords": [
+        "uveitis",
+        "systemic",
+        "intraocular",
+        "examination",
+        "findings"
+      ]
+    },
+    {
+      "pageNum": 441,
+      "keywords": [
+        "uveitis",
+        "systemic",
+        "immune",
+        "intraocular",
+        "hypopyon"
+      ]
+    }
+  ]
+}

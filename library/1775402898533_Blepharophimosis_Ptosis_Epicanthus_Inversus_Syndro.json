@@ -1,0 +1,148 @@
+{
+  "id": 1775402898533,
+  "seqId": 703,
+  "title": "Blepharophimosis-Ptosis-Epicanthus Inversus Syndrome (BPES)",
+  "summary": "BPES is a rare, complex congenital eyelid malformation syndrome characterized by four cardinal features: blepharophimosis, ptosis, epicanthus inversus, and telecanthus. It is typically inherited in an autosomal dominant fashion and is frequently associated with premature ovarian insufficiency (POI).",
+  "date": "2026-04-05T15:28:18.533Z",
+  "data": {
+    "title": "Blepharophimosis-Ptosis-Epicanthus Inversus Syndrome (BPES)",
+    "summary": "BPES is a rare, complex congenital eyelid malformation syndrome characterized by four cardinal features: blepharophimosis, ptosis, epicanthus inversus, and telecanthus. It is typically inherited in an autosomal dominant fashion and is frequently associated with premature ovarian insufficiency (POI).",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M20 50 Q50 20 80 50 T20 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Cardinal Features",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "BPES Syndrome",
+          "branches": [
+            "Blepharophimosis (shortened horizontal aperture)",
+            "Blepharoptosis (severe levator dysfunction)",
+            "Epicanthus Inversus (fold from lower lid upwards)",
+            "Telecanthus (increased intercanthal distance)"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Classification",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Features",
+            "Associated Findings"
+          ],
+          "rows": [
+            [
+              "Type I",
+              "BPES + POI",
+              "Ovarian failure occurs in early adulthood"
+            ],
+            [
+              "Type II",
+              "BPES only",
+              "No ovarian dysfunction associated"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Etiology",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Inheritance: Autosomal Dominant",
+          "Gene: FOXL2 (Chromosome 3q22.3)",
+          "Prevalence: ~1 in 50,000",
+          "FOXL2 Function: Transcription factor critical for eyelid development and ovarian granulosa cell maintenance"
+        ]
+      },
+      {
+        "title": "Red Flags: When to refer/screen",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Amblyopia: Secondary to severe ptosis and visual axis occlusion",
+          "Exposure Keratopathy: Due to lagophthalmos post-correction",
+          "Ovarian Failure: Mandatory hormone panel (FSH, LH, Estradiol) in adolescent females",
+          "Corneal scarring: From untreated high astigmatism/deprivation"
+        ]
+      },
+      {
+        "title": "Surgical Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Stage 1 (Ages 3-5): Medial canthoplasty (Mustardé technique) to treat epicanthus inversus and telecanthus.",
+          "Stage 2 (6-12 months later): Frontalis suspension surgery (silicone rod or fascia lata) to address severe blepharoptosis.",
+          "Refinement: Lateral canthoplasty if needed for further horizontal expansion."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Duane Syndrome",
+              "Globe retraction, limited abduction/adduction"
+            ],
+            [
+              "Congenital Ptosis",
+              "Isolated, lacks complex orbital dystopia"
+            ],
+            [
+              "Waardenburg Syndrome",
+              "Hearing loss, heterochromia iridis, telecanthus but no epicanthus inversus"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: The 4 Cardinal Signs",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "B.E.T.P.",
+          "explanation": "B: Blepharophimosis, E: Epicanthus Inversus, T: Telecanthus, P: Ptosis"
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Always measure the palpebral fissure length (normally 28-30mm in adults).",
+          "Telecanthus is defined by an increased distance between the medial canthi despite normal interpupillary distance.",
+          "Surgical correction should prioritize treating the telecanthus/epicanthus before addressing the ptosis to avoid poor eyelid crease contour.",
+          "Genetic counseling is essential for all families."
+        ]
+      }
+    ],
+    "generationPrompt": "BPES",
+    "chapterId": "lids"
+  },
+  "chapterId": "lids"
+}

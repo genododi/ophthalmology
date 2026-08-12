@@ -1,0 +1,270 @@
+{
+  "id": 1775124966691,
+  "seqId": 551,
+  "title": "Carotid Cavernous Fistula (CCF): The Clinical Masterclass",
+  "summary": "A comprehensive guide to the abnormal communication between the carotid arterial system and the cavernous sinus. This high-yield infographic covers everything from the Barrow classification to advanced endovascular management for ophthalmology residents and fellows.",
+  "date": "2026-04-02T10:16:06.691Z",
+  "data": {
+    "title": "Carotid Cavernous Fistula (CCF): The Clinical Masterclass",
+    "summary": "A comprehensive guide to the abnormal communication between the carotid arterial system and the cavernous sinus. This high-yield infographic covers everything from the Barrow classification to advanced endovascular management for ophthalmology residents and fellows.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M60,100 Q80,60 140,100 T140,140' fill='none' stroke='red' stroke-width='4'/><path d='M60,105 Q80,65 140,105' fill='none' stroke='blue' stroke-width='4' stroke-dasharray='4'/><circle cx='100' cy='100' r='30' fill='hsl(215, 90%, 45%)' opacity='0.2'/><text x='75' y='170' font-family='Arial' font-size='10' fill='hsl(215, 90%, 45%)'>HIGH-FLOW SHUNT</text></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "A Carotid Cavernous Fistula (CCF) is an acquired or congenital communication between the carotid artery (or its dural branches) and the cavernous sinus. This creates a high-pressure arterial flow into a low-pressure venous system, leading to venous congestion, ocular hypertension, and potential vision loss."
+      },
+      {
+        "title": "Barrow Classification System",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Description",
+            "Arterial Supply",
+            "Clinical Nature"
+          ],
+          "rows": [
+            [
+              "Type A",
+              "Direct Shunt",
+              "Internal Carotid Artery (ICA) trunk",
+              "High-flow; Acute onset; Usually traumatic"
+            ],
+            [
+              "Type B",
+              "Indirect/Dural",
+              "Meningeal branches of the ICA",
+              "Low-flow; Spontaneous; Subacute"
+            ],
+            [
+              "Type C",
+              "Indirect/Dural",
+              "Meningeal branches of the External Carotid (ECA)",
+              "Low-flow; Subtle symptoms"
+            ],
+            [
+              "Type D",
+              "Indirect/Dural",
+              "Meningeal branches of BOTH ICA and ECA",
+              "Most common indirect type"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "query_stats",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Traumatic Etiology (Type A)",
+              "value": 75
+            },
+            {
+              "label": "Spontaneous/Indirect",
+              "value": 25
+            },
+            {
+              "label": "Female Predominance (Indirect)",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology & Hemodynamics",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Arterial-Venous Communication: High-pressure blood bypasses capillary bed.",
+          "2. Venous Arterialization: Episcleral and orbital veins become engorged and tortuous.",
+          "3. Reduced Outflow: Elevated episcleral venous pressure (EVP) impairs aqueous humor drainage.",
+          "4. Orbital Congestion: Leads to proptosis, chemosis, and extraocular muscle edema.",
+          "5. Ischemic Cascade: Decreased ocular perfusion pressure (OPP) leads to retinal and optic nerve ischemia."
+        ]
+      },
+      {
+        "title": "Clinical Features: The Classic Triad",
+        "icon": "emergency",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Pulsatile Proptosis: Often associated with a palpable thrill.",
+          "Conjunctival Chemosis: Significant 'corkscrew' epibulbar vessel arterialization.",
+          "Orbital Bruit: Subjective (whooshing heard by patient) or objective (audible via stethoscope over the temple)."
+        ]
+      },
+      {
+        "title": "Comprehensive Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Ocular Signs",
+          "branches": [
+            "Anterior: Arterialized 'corkscrew' vessels, Chemosis, Raised IOP (EVP > 10mmHg)",
+            "Extraocular: CN III, IV, VI palsies (VI most common due to position in CS)",
+            "Fundus: Venous tortuosity, Retinal hemorrhages, Disc edema, Choroidal effusions",
+            "Vision: Decreased VA due to Glaucoma, Exposure Keratopathy, or ON Ischemia"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features",
+            "Imaging Clues"
+          ],
+          "rows": [
+            [
+              "Thyroid Eye Disease",
+              "Lid retraction, no bruit, no corkscrew vessels",
+              "Enlarged EOM bellies; tendon sparing"
+            ],
+            [
+              "Orbital Cellulitis",
+              "Fever, elevated WBC, pain on movement",
+              "Sinusitis on CT; orbital fat stranding"
+            ],
+            [
+              "Cavernous Sinus Thrombosis",
+              "Systemic illness, bilateral involvement common",
+              "Filling defects in cavernous sinus"
+            ],
+            [
+              "Orbital Pseudotumor",
+              "Acute pain, response to steroids",
+              "Involvement of EOM tendons and fat"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Non-Invasive Screening: B-Scan USG (demonstrates dilated Superior Ophthalmic Vein [SOV]).",
+          "2. CT/MRI: Shows enlarged EOMs, dilated SOV, and bowing of the cavernous sinus wall.",
+          "3. MRA/CTA: Useful for visualizing the shunt, but may miss low-flow indirect CCFs.",
+          "4. Digital Subtraction Angiography (DSA): THE GOLD STANDARD. Required for definitive diagnosis and planning treatment.",
+          "5. Tonometry: Tonopen/Goldmann to assess EVP-related ocular hypertension."
+        ]
+      },
+      {
+        "title": "Medical & Conservative Management",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Observation: Appropriate for low-flow (Type B-D) shunts as up to 70% may spontaneously close.",
+          "IOP Control: Topical Beta-blockers, Alpha-agonists, or CAIs (Avoid Miotics).",
+          "Lubrication: Intensive artificial tears/ointments for exposure keratopathy.",
+          "Carotid Massage: Intermittent compression of the carotid artery to induce thrombosis (Use with caution!)."
+        ]
+      },
+      {
+        "title": "Endovascular & Surgical Intervention",
+        "icon": "healing",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Interventional Options",
+          "branches": [
+            "Transvenous Embolization: Preferred for Indirect shunts (via Inferior Petrosal Sinus)",
+            "Transarterial Embolization: Usually for Direct Type A (Detachable coils/Onyx)",
+            "Direct SOV Access: Surgical cut-down to SOV when venous routes are occluded",
+            "Stereotactic Radiosurgery: Reserved for refractory low-flow dural shunts"
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Neurosurgical Emergencies",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Rapidly progressive vision loss (Ischemic Optic Neuropathy or Glaucoma)",
+          "Intractable retro-orbital pain",
+          "Evidence of cortical venous reflux on angiography (High risk of Intracranial Hemorrhage)",
+          "Rapidly expanding proptosis with exposure-related corneal melt"
+        ]
+      },
+      {
+        "title": "Mnemonic: The 'P's of CCF",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-U-L-S-E",
+          "explanation": "P: Pulsatile proptosis; U: Unilateral (usually); L: Loud bruit; S: Shunt (A-V); E: Elevated IOP/Episcleral venous pressure."
+        }
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Secondary Glaucoma: Most common cause of permanent vision loss.",
+          "Venous Stasis Retinopathy: Mimics CRVO but with high EVP.",
+          "Intracranial Hemorrhage: Risk associated with dural shunts and cortical venous drainage.",
+          "Prognosis: Excellent if treated timely; Indirect shunts often resolve with minimal intervention."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Board Exam",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "The 6th Nerve (Abducens) is the most commonly affected CN because it lies centrally within the cavernous sinus.",
+          "Ehlers-Danlos Syndrome Type IV (Vascular type) is a major risk factor for spontaneous direct CCF.",
+          "Gold Standard for diagnosis is always Digital Subtraction Angiography (DSA).",
+          "Post-traumatic CCF (Type A) is usually high-flow and requires urgent endovascular intervention.",
+          "Indirect shunts in post-menopausal women are often mistaken for chronic conjunctivitis or thyroid eye disease."
+        ]
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "The shift from surgical ligation to endovascular techniques has revolutionized CCF management. The use of liquid embolic agents like Onyx and sophisticated microcatheters has increased the success rate of transvenous approaches to >90% for complex dural shunts. Recent studies emphasize the importance of identifying 'cortical venous reflux' as a primary indicator for aggressive treatment to prevent stroke."
+      }
+    ],
+    "generationPrompt": "Carotid cavernous fistula",
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit"
+}

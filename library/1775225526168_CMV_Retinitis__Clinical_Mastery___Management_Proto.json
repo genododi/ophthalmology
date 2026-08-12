@@ -1,0 +1,141 @@
+{
+  "id": 1775225526168,
+  "seqId": 613,
+  "title": "CMV Retinitis: Clinical Mastery & Management Protocol",
+  "summary": "Cytomegalovirus (CMV) retinitis remains the most common and sight-threatening opportunistic ocular infection in patients with advanced HIV/AIDS. This guide covers the pathophysiology, diagnostic criteria, and aggressive management strategies required to prevent permanent visual loss.",
+  "date": "2026-04-03T14:12:06.168Z",
+  "data": {
+    "title": "CMV Retinitis: Clinical Mastery & Management Protocol",
+    "summary": "Cytomegalovirus (CMV) retinitis remains the most common and sight-threatening opportunistic ocular infection in patients with advanced HIV/AIDS. This guide covers the pathophysiology, diagnostic criteria, and aggressive management strategies required to prevent permanent visual loss.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M30 30 L70 70 M70 30 L30 70' stroke='red' stroke-width='3'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "CMV retinitis is a necrotizing retinitis caused by Human Herpesvirus 5 (HHV-5). Historically, it affected 30-40% of AIDS patients with CD4+ counts < 50 cells/µL. While HAART has drastically reduced incidence, it remains a critical diagnosis in patients with poor treatment adherence or undiagnosed immunocompromise."
+      },
+      {
+        "title": "Clinical Presentation Subtypes",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Clinical Appearance",
+            "Progression"
+          ],
+          "rows": [
+            [
+              "Fulminant (Edematous)",
+              "Dense white retinal infiltrates, 'pizza-pie' appearance, hemorrhages",
+              "Rapid, full-thickness necrosis"
+            ],
+            [
+              "Indolent (Granular)",
+              "Peripheral granular, fine white dots, minimal hemorrhage",
+              "Slow, creeping progression"
+            ],
+            [
+              "Frosted Branch Angiitis",
+              "Severe perivascular sheathing mimicking frost on vessels",
+              "Very rapid, associated with high viral load"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Sight-Threatening Indicators",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Involvement of the posterior pole (macula/optic nerve head)",
+          "Retinal detachment (Rhegmatogenous) due to retinal necrosis",
+          "Decreased visual acuity (VA < 20/40)",
+          "Any signs of optic nerve edema or infarction",
+          "New onset 'floaters' in a high-risk patient"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Sequence",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Dilated indirect fundoscopy (gold standard).",
+          "Step 2: CBC with differential and CD4+ count.",
+          "Step 3: Aqueous humor sampling (PCR) if diagnosis is ambiguous.",
+          "Step 4: Systemic screening for CMV (PCR, shell vial culture).",
+          "Step 5: Regular monitoring via color fundus photography (ETDRS protocol)."
+        ]
+      },
+      {
+        "title": "Pathophysiology Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.I.Z.Z.A.",
+          "explanation": "P: Perivascular infiltration; I: Intraretinal hemorrhage; Z: Zone of necrosis; Z: Zenith of viral replication (CD4 <50); A: Atrophic retinal scarring."
+        }
+      },
+      {
+        "title": "Differential Diagnosis Mindmap",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "CMV Retinitis DDx",
+          "branches": [
+            "Acute Retinal Necrosis (ARN)",
+            "Progressive Outer Retinal Necrosis (PORN)",
+            "Toxoplasmosis",
+            "Syphilitic Retinitis",
+            "Candida Endophthalmitis"
+          ]
+        }
+      },
+      {
+        "title": "Treatment Protocol",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Induction Therapy: IV Ganciclovir (5 mg/kg BID for 14-21 days) or IV Foscarnet (60 mg/kg TID).",
+          "Maintenance Therapy: Valganciclovir (900 mg daily).",
+          "Intravitreal Options: Ganciclovir (2 mg/0.05 mL) or Foscarnet (2.4 mg/0.1 mL) for sight-threatening lesions.",
+          "HAART Initiation: Crucial to restore immune function (wait 2-4 weeks post-induction to avoid Immune Recovery Uveitis - IRU).",
+          "Retinal Detachment: Surgical intervention via pars plana vitrectomy with silicone oil tamponade."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "CMV retinitis is NOT associated with significant anterior chamber inflammation; if the eye is 'quiet', think CMV.",
+          "Immune Recovery Uveitis (IRU) occurs when CD4 counts rise; it manifests as vitritis and cystoid macular edema.",
+          "Always perform a baseline and serial CD4 testing to monitor immune status.",
+          "Valganciclovir is associated with neutropenia; monitor absolute neutrophil count (ANC) weekly.",
+          "Once a retinal scar forms, it is permanent; the goal is to prevent progression to the macula."
+        ]
+      }
+    ],
+    "generationPrompt": "Cmv retinitis",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "read": true
+}

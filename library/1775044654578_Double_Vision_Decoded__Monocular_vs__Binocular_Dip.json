@@ -1,0 +1,399 @@
+{
+  "id": 1775044654578,
+  "seqId": 70,
+  "title": "Double Vision Decoded: Monocular vs. Binocular Diplopia",
+  "summary": "Diplopia, or double vision, is a critical symptom requiring thorough investigation. Differentiating between monocular (persists with one eye closed) and binocular (resolves with one eye closed) forms is the first crucial step in guiding the diagnostic and management pathway, with implications ranging from simple refractive errors to life-threatening neurological conditions.",
+  "date": "2026-04-01T11:57:34.578Z",
+  "data": {
+    "title": "Double Vision Decoded: Monocular vs. Binocular Diplopia",
+    "summary": "Diplopia, or double vision, is a critical symptom requiring thorough investigation. Differentiating between monocular (persists with one eye closed) and binocular (resolves with one eye closed) forms is the first crucial step in guiding the diagnostic and management pathway, with implications ranging from simple refractive errors to life-threatening neurological conditions.",
+    "summary_illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><linearGradient id=\"a\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:hsl(215, 90%, 45%);stop-opacity:1\"/><stop offset=\"100%\" style=\"stop-color:hsl(215, 70%, 55%);stop-opacity:1\"/></linearGradient></defs><rect x=\"0\" y=\"0\" width=\"100\" height=\"100\" fill=\"#f0f8ff\"/><g transform=\"translate(50, 50)\"><circle cx=\"0\" cy=\"0\" r=\"35\" fill=\"url(#a)\"/><path d=\"M -15 -8 L -5 8 L 5 8 L 15 -8 Z\" fill=\"#fff\"/><path d=\"M -20 -15 L -10 1 L 0 1 L 10 -15 Z\" fill=\"#fff\" transform=\"translate(-5, 0) rotate(5)\"/><path d=\"M -10 -15 L 0 1 L 10 1 L 20 -15 Z\" fill=\"#fff\" transform=\"translate(5, 0) rotate(-5)\"/></g><text x=\"50\" y=\"85\" font-family=\"Arial, sans-serif\" font-size=\"10\" fill=\"#333\" text-anchor=\"middle\">Monocular & Binocular Diplopia</text></svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Overview",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Diplopia, commonly known as double vision, is the perception of two images of a single object. It is a critical ophthalmic symptom that demands thorough investigation due to its wide range of underlying causes, from benign refractive errors to life-threatening neurological conditions. The crucial first step in evaluation is determining if the diplopia is monocular or binocular."
+      },
+      {
+        "title": "2. Monocular vs. Binocular Differentiation",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Monocular Diplopia",
+            "Binocular Diplopia"
+          ],
+          "rows": [
+            [
+              "Key Test",
+              "Persists when one eye is closed",
+              "Resolves when one eye is closed"
+            ],
+            [
+              "Image Appearance",
+              "Ghosting, overlapping, or split images in a single eye",
+              "Two distinct, separated images (horizontal, vertical, or oblique)"
+            ],
+            [
+              "Effect of Pinhole",
+              "Often improves or resolves (due to reduction of optical aberrations)",
+              "No effect or slight blurring"
+            ],
+            [
+              "Underlying Cause",
+              "Optical aberrations or retinal pathology within one eye",
+              "Misalignment of the visual axes between the two eyes (strabismus)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "3. Epidemiology & Incidence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "General Diplopia Incidence (lifetime)",
+              "value": 20
+            },
+            {
+              "label": "Binocular Diplopia (relative prevalence)",
+              "value": 65
+            },
+            {
+              "label": "Monocular Diplopia (relative prevalence)",
+              "value": 35
+            }
+          ],
+          "description": "Diplopia affects a significant portion of the population at some point. Binocular diplopia is generally more common, often associated with decompensated phorias, cranial nerve palsies, or systemic conditions. Monocular diplopia frequency tends to increase with age due to common conditions like cataracts and dry eye."
+        }
+      },
+      {
+        "title": "4. Etiology & Pathophysiology: Monocular Diplopia",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Monocular Diplopia Causes",
+          "branches": [
+            "Corneal Irregularities (e.g., Keratoconus, Pterygium, Dry Eye, Corneal Scar, Post-LASIK Ectasia)",
+            "Lens Pathology (e.g., Cataract, Lenticular Opacities, Lens Subluxation/Dislocation, Polycoria, Aphakia)",
+            "Retinal Conditions (e.g., Macular Edema, Epiretinal Membrane, Foveal Schisis)",
+            "Intraocular Lens Issues (e.g., IOL Decentration/Tilt, Edge Glare, Multifocal IOL Aberrations)",
+            "Pupillary Abnormalities (e.g., Corectopia, Accessory Pupil, Iris Coloboma)"
+          ]
+        }
+      },
+      {
+        "title": "5. Etiology & Pathophysiology: Binocular Diplopia",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Binocular Diplopia Causes",
+          "branches": [
+            "Neurological (Cranial Nerve Palsies: III, IV, VI)",
+            "Myogenic (e.g., Thyroid Eye Disease, Orbital Myositis, Restrictive Strabismus, Orbital Mass)",
+            "Neuromuscular Junction (e.g., Myasthenia Gravis, Botulism)",
+            "Supranuclear Disorders (e.g., Internuclear Ophthalmoplegia, Progressive Supranuclear Palsy)",
+            "Decompensated Phoria (esophoria, exophoria, hyperphoria)",
+            "Orbital Trauma (e.g., Blow-out Fracture with muscle entrapment)"
+          ]
+        }
+      },
+      {
+        "title": "6. Clinical Features & Associated Symptoms",
+        "icon": "person_pin",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Monocular: Often described as 'ghosting' or 'shimmering', stable in all gaze directions, no associated pain or neurological symptoms. Pinhole improves vision.",
+          "Binocular: Images separate in specific gaze directions (gaze-dependent). Often associated with pain (orbital, headache), ptosis, pupillary involvement, proptosis, or systemic symptoms. Patient may adopt a head turn/tilt to fuse images."
+        ]
+      },
+      {
+        "title": "7. Ocular Examination Findings",
+        "icon": "manage_search",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Test/Area",
+            "Monocular Diplopia Findings",
+            "Binocular Diplopia Findings"
+          ],
+          "rows": [
+            [
+              "Visual Acuity/Refraction",
+              "May have uncorrected refractive error, astigmatism; Pinhole improves vision.",
+              "VA often normal, no improvement with pinhole."
+            ],
+            [
+              "Slit Lamp Exam",
+              "Corneal irregularities (e.g., scarring, keratoconus striae), cataract (nuclear, PSC), IOL decentration.",
+              "Typically normal anterior segment, but may show proptosis (TED), chemosis, conjunctival injection."
+            ],
+            [
+              "Pupils",
+              "Usually normal.",
+              "May show anisocoria, relative afferent pupillary defect (RAPD) if optic nerve involved (rare with diplopia)."
+            ],
+            [
+              "Ocular Motility",
+              "Full range of motion.",
+              "Restriction, underaction, or overaction in specific gazes (e.g., CN palsy, TED restriction, strabismus)."
+            ],
+            [
+              "Cover-Uncover/Alternate Cover",
+              "No strabismus detected.",
+              "Manifest (tropia) or latent (phoria) strabismus detected; deviation angle varies with gaze."
+            ],
+            [
+              "Fundoscopy/OCT",
+              "Macular edema, epiretinal membrane, foveal schisis.",
+              "Usually normal, unless associated neurological or systemic condition affects the optic nerve."
+            ],
+            [
+              "Forced Duction Test",
+              "Negative.",
+              "Positive in restrictive myopathy (e.g., TED, orbital fracture)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "8. Investigations & Diagnostic Workup",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "**Step 1: Thorough History & Ophthalmic Exam** (VA, refraction, pupils, motility, slit lamp, fundoscopy, forced duction, red-glass test).",
+          "**Step 2: Monocular Diplopia Specific Tests:** Corneal topography (for irregular astigmatism), OCT (macular pathology), B-scan (IOL position, retinal pathology).",
+          "**Step 3: Binocular Diplopia Specific Workup (Targeted based on clinical suspicion):**",
+          "  - **Labs:** CBC, ESR, CRP (inflammation, GCA), TSH, free T4/T3 (TED), HbA1c (diabetes), Acetylcholine Receptor Antibodies, MuSK antibodies (Myasthenia Gravis), Lyme serology, ANA (autoimmune).",
+          "  - **Imaging:** CT Orbit (orbital fracture, tumor, TED muscle enlargement), MRI Brain/Orbit (cranial nerve palsies, aneurysm, tumor, demyelination, inflammation, brainstem lesions). Consider MRA/CTA for vascular pathology (aneurysm).",
+          "  - **Electrophysiology:** Tensilon test (edrophonium) or Ice Pack Test for Myasthenia Gravis, Single-Fiber EMG.",
+          "  - **Neurology/Endocrinology Consults:** For systemic or neurological causes."
+        ]
+      },
+      {
+        "title": "9. Differential Diagnosis: A Comprehensive Comparison",
+        "icon": "compare",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Category",
+            "Monocular Diplopia Examples",
+            "Binocular Diplopia Examples",
+            "Key Differentiating Features"
+          ],
+          "rows": [
+            [
+              "Corneal",
+              "Keratoconus, Pterygium, Corneal scar, Dry eye",
+              "N/A",
+              "Irregular keratometry, fluorescein staining, pinhole improvement."
+            ],
+            [
+              "Lenticular",
+              "Cataract (nuclear, PSC), Lens subluxation, Polycoria",
+              "N/A",
+              "Slit lamp findings of cataract/lens position, age-related."
+            ],
+            [
+              "Retinal",
+              "Macular edema, Epiretinal membrane, Foveal schisis",
+              "N/A",
+              "OCT findings, metamorphopsia."
+            ],
+            [
+              "IOL Related",
+              "IOL decentration/tilt, Multifocal IOL aberrations",
+              "N/A",
+              "History of cataract surgery, slit lamp of IOL position."
+            ],
+            [
+              "Cranial Neuropathies",
+              "N/A",
+              "CN III (Ptosis, 'down & out', pupillary involvement), CN IV (vertical/oblique, head tilt), CN VI (horizontal, esotropia in primary)",
+              "Specific gaze limitations, pupillary changes (CN III), associated pain/headache."
+            ],
+            [
+              "Restrictive Myopathy",
+              "N/A",
+              "Thyroid Eye Disease (TED), Orbital fracture/mass, Orbital myositis",
+              "Proptosis (TED), forced duction test positive, imaging (CT orbit)."
+            ],
+            [
+              "Neuromuscular Junction",
+              "N/A",
+              "Myasthenia Gravis",
+              "Fatigue of eye muscles, variability of symptoms, ptosis variability, positive Tensilon/Ice Pack test."
+            ],
+            [
+              "Supranuclear",
+              "N/A",
+              "Internuclear Ophthalmoplegia (INO), skew deviation",
+              "Conjugate gaze abnormalities, brainstem signs, MRI brain findings."
+            ],
+            [
+              "Decompensated Phoria",
+              "N/A",
+              "Latent deviation becomes manifest (esophoria, exophoria, hyperphoria)",
+              "Longstanding intermittent diplopia, no other neurological signs, often worse with fatigue."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "10. Staging / Grading (of Underlying Causes)",
+        "icon": "bar_chart",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "While diplopia itself isn't staged, the underlying causes often have established classification systems. For example:\n*   **Cataract:** Graded by LOCS III (Lens Opacities Classification System III) based on type (nuclear, cortical, posterior subcapsular) and severity.\n*   **Thyroid Eye Disease (TED):** Classified by the NOSPECS classification (N=No signs/symptoms, O=Only signs, S=Soft tissue involvement, P=Proptosis, E=Extraocular muscle involvement, C=Corneal involvement, S=Sight loss). Diplopia falls under 'E' (Extraocular muscle involvement).\n*   **Cranial Nerve Palsies:** Classified by etiology (e.g., microvascular, compressive, inflammatory). Severity can be graded by degree of motility restriction or deviation angle."
+      },
+      {
+        "title": "11. Management & Treatment Strategy",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Step 1: Treat the Underlying Cause:** This is paramount. E.g., Cataract extraction for cataract-induced monocular diplopia; Thyroid management for TED; Aneurysm clipping for CN III palsy.",
+          "**Step 2: Optical Management (for Residual/Stable Diplopia):**",
+          "  - **Pinhole:** A temporary diagnostic aid, but can be a simple fix for mild monocular diplopia.",
+          "  - **Prism Correction:** Fresnel prisms (temporary, stick-on) for changing deviations or diagnostic trials; Ground-in prisms (permanent) for stable deviations, often limited to ~10-15 prism diopters per eye.",
+          "  - **Occlusion:** Patching one eye (full or partial/frosted lens) can eliminate diplopia but sacrifices peripheral vision/stereoacuity. Often used as a temporary measure or for intractable diplopia.",
+          "**Step 3: Pharmacological Management:**",
+          "  - **Steroids:** Systemic (e.g., prednisone) for inflammatory conditions like orbital myositis or acute TED. Pulse methylprednisolone for severe cases.",
+          "  - **Immunosuppressants:** For autoimmune conditions like Myasthenia Gravis (e.g., pyridostigmine, azathioprine, mycophenolate mofetil).",
+          "  - **Botulinum Toxin Injection (Botox):** For selected cases of small-angle strabismus, partially paretic muscles, or ocular muscle spasms. Effective for 3-6 months.",
+          "  - **Targeted Biologics:** Teprotumumab for moderate-to-severe active Thyroid Eye Disease.",
+          "**Step 4: Surgical Intervention:**",
+          "  - **Strabismus Surgery:** Recession/resection of extraocular muscles to realign eyes. Adjustable sutures can be used for fine-tuning.",
+          "  - **Cataract Surgery:** Phacoemulsification with IOL implantation.",
+          "  - **Orbital Surgery:** Orbital decompression for severe TED proptosis or compressive optic neuropathy; Orbital tumor excision; Blow-out fracture repair."
+        ]
+      },
+      {
+        "title": "12. Surgical Techniques for Diplopia Management",
+        "icon": "surgical",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "**Cataract Extraction (Phacoemulsification):** Standard procedure for lenticular monocular diplopia. Involves removing the clouded lens and implanting an intraocular lens (IOL).",
+          "**Strabismus Surgery:** Performed for binocular diplopia when deviation is stable. Procedures include recession (weakening) or resection (strengthening) of extraocular muscles (e.g., medial rectus recession for esotropia). Adjustable sutures allow for post-operative fine-tuning.",
+          "**Orbital Decompression:** Surgical removal of orbital bone or fat to increase orbital volume, primarily for severe proptosis and compressive optic neuropathy in Thyroid Eye Disease. This can indirectly improve diplopia by relieving muscle restriction.",
+          "**Ptosis Repair:** For significant ptosis associated with CN III palsy or Myasthenia Gravis, often combined with strabismus surgery, especially if vision is obstructed."
+        ]
+      },
+      {
+        "title": "13. Complications & Prognosis",
+        "icon": "sentiment_dissatisfied",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "**Persistent Diplopia:** Even with treatment, some patients may have residual double vision, especially in complex neurological cases.",
+          "**Amblyopia (in children):** If strabismus is present from a young age, the child may suppress one image, leading to 'lazy eye' and permanent vision loss if not treated early.",
+          "**Abnormal Head Posture:** Patients may adopt a compensatory head turn or tilt to achieve single vision, leading to neck pain.",
+          "**Psychological Impact:** Diplopia can be debilitating, affecting reading, driving, work, and overall quality of life, leading to anxiety and depression.",
+          "**Prognosis:** Highly variable. Good for simple causes like cataract. Less predictable for chronic neurological conditions or progressive autoimmune diseases. Early diagnosis and treatment are crucial for better outcomes."
+        ]
+      },
+      {
+        "title": "14. RED FLAGS: Emergency Diplopia",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "**Acute onset binocular diplopia with severe headache & pain:** Suggests potential subarachnoid hemorrhage or aneurysm (especially if CN III palsy with pupil involvement).",
+          "**Diplopia with pupillary involvement:** (especially a dilated pupil) in CN III palsy is an oculomotor emergency (posterior communicating artery aneurysm until proven otherwise).",
+          "**Diplopia with other neurological deficits:** (e.g., hemiparesis, dysarthria, ataxia, numbness, vision loss) indicates brainstem or widespread CNS involvement (stroke, tumor, demyelination).",
+          "**Diplopia with temporal headache, jaw claudication, scalp tenderness, vision loss:** Suspect Giant Cell Arteritis (GCA), requires immediate high-dose steroid treatment to prevent permanent blindness.",
+          "**Diplopia with rapidly progressive proptosis, vision loss, chemosis, pain:** Suggests orbital cellulitis or orbital inflammatory syndrome.",
+          "**Diplopia with sudden, severe, unexplained vision loss (monocular or binocular):** Always a red flag, requires urgent neuro-ophthalmological assessment."
+        ]
+      },
+      {
+        "title": "15. Mnemonics & Memory Aids",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "**DIPLOPIA Causes (Binocular)**",
+          "explanation": "**D**ecompensated Phoria / **D**iabetes (Microvascular CN Palsy)\n**I**nflammation (TED, Orbital Myositis)\n**P**alsies (CN III, IV, VI)\n**L**esions (Orbital mass, Brainstem stroke/tumor)\n**O**cular Muscle Disease (Myasthenia Gravis, Restriction)\n**P**aralysis (Progressive Supranuclear Palsy, INO)\n**I**njury (Orbital trauma/fracture)\n**A**neurysm (Compressive CN III)"
+        }
+      },
+      {
+        "title": "16. Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Always perform a pinhole test for any patient complaining of diplopia to quickly differentiate monocular from binocular.",
+          "In monocular diplopia, if the pinhole test doesn't resolve it, suspect retinal pathology (e.g., epiretinal membrane) or multiple pupillary apertures.",
+          "Vertical diplopia is often more bothersome and frequently points to CN IV palsy or restrictive thyroid eye disease.",
+          "A pupil-sparing CN III palsy in an elderly diabetic/hypertensive patient is often microvascular and may resolve spontaneously within 3-6 months.",
+          "Any acute, painful CN III palsy with pupil involvement is an emergency – immediate neuroimaging (CTA/MRA) to rule out aneurysm is crucial.",
+          "Variable diplopia that worsens with fatigue or sustained gaze strongly suggests Myasthenia Gravis."
+        ]
+      },
+      {
+        "title": "17. Recent Advances & Landmark Studies",
+        "icon": "insights",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**Teprotumumab for Thyroid Eye Disease (TED):** The OPTIC trial (2019) demonstrated significant improvement in proptosis and diplopia in active TED patients treated with teprotumumab, an IGF-1R inhibitor, revolutionizing TED management.",
+          "**Advanced Neuroimaging:** High-resolution MRI (e.g., 3T and 7T scanners) and diffusion tensor imaging (DTI) offer unprecedented detail for detecting subtle cranial nerve lesions, demyelination, and brainstem pathology.",
+          "**Customized Prism Design:** Sophisticated digital prism mapping and fabrication allow for more precise and comfortable prism correction, especially for complex or non-comitant deviations.",
+          "**AI in Diagnostic Imaging:** Emerging AI tools are assisting in automated detection of subtle macular pathology on OCT and early signs of neurological disease on MRI, potentially aiding earlier diagnosis of monocular and binocular diplopia causes."
+        ]
+      },
+      {
+        "title": "18. Pediatric & Special Population Considerations",
+        "icon": "group",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "**Pediatrics:** Diplopia in children is rare; they often suppress one image, leading to amblyopia. Look for abnormal head posture, eye rubbing, or reduced vision. Causes include congenital strabismus, refractive errors, trauma, or rarely, brain tumors/hydrocephalus.",
+          "**Elderly:** More susceptible to microvascular cranial nerve palsies (due to diabetes, hypertension), Giant Cell Arteritis, cataracts, and decompensated phorias. GCA must always be considered.",
+          "**Pregnant Women:** Can experience transient diplopia due to hormonal changes, gestational hypertension, or rarely, pituitary apoplexy.",
+          "**Post-Surgical Patients:** Monocular diplopia post-cataract surgery (IOL decentration, edge glare, residual astigmatism) or binocular diplopia post-strabismus surgery (over/undercorrection, restrictive scarring)."
+        ]
+      }
+    ],
+    "generationPrompt": "monocular diplopia vs binocular diplopia",
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "_newlyImported": 1775044654578,
+  "communityId": "sub_1774689103125_nrcsag8jk",
+  "communityAuthor": "nemo",
+  "communityDate": "2026-03-28T09:11:43.126Z"
+}

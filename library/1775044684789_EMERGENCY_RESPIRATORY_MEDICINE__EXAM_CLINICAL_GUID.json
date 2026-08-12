@@ -1,0 +1,515 @@
+{
+  "id": 1775044684789,
+  "seqId": 383,
+  "title": "EMERGENCY RESPIRATORY MEDICINE: EXAM CLINICAL GUIDE",
+  "summary": "An exhaustive clinical resource covering the diagnosis, investigation, and management of life-threatening respiratory conditions including Acute Severe Asthma, COPD Exacerbations, Pneumonia, and Tension Pneumothorax. Prepared for FRCS (Glasg) Exam preparation by Waleed Badr.",
+  "date": "2026-04-01T11:58:04.789Z",
+  "data": {
+    "title": "EMERGENCY RESPIRATORY MEDICINE: EXAM CLINICAL GUIDE",
+    "summary": "An exhaustive clinical resource covering the diagnosis, investigation, and management of life-threatening respiratory conditions including Acute Severe Asthma, COPD Exacerbations, Pneumonia, and Tension Pneumothorax. Prepared for FRCS (Glasg) Exam preparation by Waleed Badr.",
+    "summary_illustration": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M30,20 Q50,10 70,20 Q85,40 70,70 Q50,90 30,70 Q15,40 30,20\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"3\"/><path d=\"M50,20 L50,50 M50,50 L40,65 M50,50 L60,65\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"15\" r=\"5\" fill=\"#1d4ed8\"/></svg>",
+    "sections": [
+      {
+        "title": "Acute Severe Asthma: Initial Assessment",
+        "icon": "medical_services",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Acute Severe Asthma",
+          "branches": [
+            "Presentation: Acute breathlessness and wheeze",
+            "History: Ask about usual treatment",
+            "History: Previous attacks",
+            "History: If admitted to ICU"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Picture: Grading Asthma Severity",
+        "icon": "priority_high",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Feature",
+            "Severe Attack",
+            "Life-Threatening Attack"
+          ],
+          "rows": [
+            [
+              "Speech/State",
+              "Unable to complete sentences",
+              "Speechless, Panic, Confusion, Coma"
+            ],
+            [
+              "Respiratory Rate",
+              "> 25/min",
+              "Silent chest, Using accessory muscles"
+            ],
+            [
+              "Pulse / BP",
+              "> 110 beats/min",
+              "Bradycardia, Hypotension"
+            ],
+            [
+              "PEFR",
+              "< 50% of predicted",
+              "< 33% of predicted"
+            ],
+            [
+              "Physical Signs",
+              "N/A",
+              "Sweating, Cyanosis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Asthma Investigations & Initial Treatment (ABC)",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Investigations: Peak expiratory flow rate (PEFR)",
+          "Investigations: ABG (high CO2, low O2 [<90%] + low pH)",
+          "Investigations: CXR, FBC & U&E",
+          "Call for help",
+          "Sit patient up & do not sedate",
+          "ABC: Ensure patent airway",
+          "Give oxygen 100% & secure IV line"
+        ]
+      },
+      {
+        "title": "First-Line Asthma Pharmacotherapy",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Salbutamol (B2-agonist) 5 mg (or terbutaline 10 mg) plus ipratropium bromide 0.5 mg nebulized with oxygen",
+          "Step 2: Hydrocortisone 100 mg IV or prednisolone 30 mg PO or both if very ill",
+          "Step 3: Monitor oxygen saturation (pulse oximeter), heart rate and respiratory rate",
+          "Step 4: CXR to exclude pneumothorax"
+        ]
+      },
+      {
+        "title": "If Asthma Not Improving: Escalation Protocol",
+        "icon": "trending_up",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "After 30 min: Repeat salbutamol every 15min or 10mg continuously per hour",
+          "Give Hydrocortisone 100 mg IV or prednisolone 30 mg PO if not already given",
+          "Next Step: Consider aminophylline (5 mg/kg IVI over 20 min) OR give salbutamol IVI (3 – 20 ug/min)",
+          "Final Escalation: Consider transfer to ICU to intubate, give adrenaline and 500 mL colloid IVI"
+        ]
+      },
+      {
+        "title": "NB: Aminophylline Dose Adjustments",
+        "icon": "settings_suggest",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Action",
+            "Clinical Factor / Drug Interaction"
+          ],
+          "rows": [
+            [
+              "Decrease Dose",
+              "Cardiac or liver failure"
+            ],
+            [
+              "Decrease Dose (Increased half-life)",
+              "Cimetidine, ciprofloxacin, erythromycin & contraceptive steroids"
+            ],
+            [
+              "Increase Dose",
+              "Smoking"
+            ],
+            [
+              "Increase Dose (Decreased half-life)",
+              "Phenytoin, carbamazepine, barbiturates & rifampicin"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Asthma Recovery & Weaning Protocol",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Wean and stop aminophylline over 12 – 24h",
+          "Switch to inhaled B-agonist bronchodilator and steroids",
+          "Continue to monitor PEFR for 24h: Aim for rate > 75% of predicted or best with diurnal variability < 25%",
+          "Warning: Beware of early morning dips in PEFR",
+          "Look for cause of acute exacerbation"
+        ]
+      },
+      {
+        "title": "Acute Exacerbation of COPD",
+        "icon": "ac_unit",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Common in winter & triggered by viral or bacterial infections",
+          "Presentations: Increased cough, breathlessness or wheeze with decreased exercise capacity",
+          "History: Ask about usual treatment (home oxygen), smoking and exercise capacity",
+          "Investigations: PEFR, ABG, CXR, ECG",
+          "Lab Tests: Blood culture (if pyrexial) & sputum culture",
+          "Management Step 1: Look for the cause e.g. infection or pneumothorax"
+        ]
+      },
+      {
+        "title": "COPD: Controlled Oxygen Therapy",
+        "icon": "air",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Don’t leave patients hypoxic",
+          "Risk: Patients relying on hypoxic drive; too much oxygen may lead to reduced respiratory rate, hypercapnia, and fall in conscious level",
+          "If CO2 retention: Start with 24 – 28% O2. Reassess after 30 min",
+          "Aim: Raise O2 above 8.0KPa with a rise in CO2 < 1.5KPa",
+          "If no retention: Use 28-40% O2 but still monitor and repeat ABG"
+        ]
+      },
+      {
+        "title": "COPD Medical Management Steps",
+        "icon": "emergency_heart",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Nebulized bronchodilator (salbutamol 5mg/4h & ipratropium 500ug/6h)",
+          "2. Hydrocortisone 200mg IV & oral prednisolone 30-40mg",
+          "3. Antibiotics if evidence of infection",
+          "4. Physiotherapy to aid sputum expectoration",
+          "5. If no response: consider IV aminophylline",
+          "6. If still no response: consider nasal intermittent positive pressure ventilation (NIPPV)",
+          "7. Intubation and ventilation: Consider if pH decreases and CO2 increases",
+          "8. Respiratory stimulant: Doxapram (short term only, for patients not suitable for mechanical ventilation)"
+        ]
+      },
+      {
+        "title": "Long-Term Management of Stable COPD",
+        "icon": "home_health",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Stop smoking, encourage exercise, proper nutrition, weight reduction",
+          "Influenza vaccination",
+          "Medications: Short acting B2-agonist, ipratropium and corticosteroid inhalations (according to severity)",
+          "Consider long term oxygen therapy",
+          "Surgery: Indicated for recurrent pneumothorax or isolated bullous disease",
+          "Social/Psych: Assess social circumstances/support; Identify and treat depression",
+          "Travel: Air travel is hazardous if O2 saturation is low; check availability of O2"
+        ]
+      },
+      {
+        "title": "Pneumonia: Definition & Incidence",
+        "icon": "info",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Definition: An infection of the lung parenchyma",
+          "Incidence: 12 per 1000 adults",
+          "Mortality rate: 10%"
+        ]
+      },
+      {
+        "title": "Causative Organisms in Pneumonia",
+        "icon": "bug_report",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Strept. pneumoniae",
+              "value": 75
+            },
+            {
+              "label": "Mycoplasma pneumoniae",
+              "value": 18
+            },
+            {
+              "label": "Others (Staph, H. flu, etc)",
+              "value": 7
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pneumonia Organisms: The Full List",
+        "icon": "list",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": "Strept. pneumoniae (commonest 60-75%); Mycoplasma pneumoniae (5-18%); Others: Staph. aureus, Haemophilus influenzae, Legionella & Chlamydia psittaci, G-ve bacilli e.g. Pseudomonas (often hospital-acquired or immunocompromised)."
+      },
+      {
+        "title": "Pneumonia Clinical Manifestations",
+        "icon": "person_search",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Symptoms",
+            "Signs"
+          ],
+          "rows": [
+            [
+              "Fever & Rigors",
+              "Fever, cyanosis, herpes labialis, confusion"
+            ],
+            [
+              "Malaise & Anorexia",
+              "Tachypnoea, tachycardia, hypotension"
+            ],
+            [
+              "Dyspnea & Cough",
+              "Signs of consolidation: diminished expansion, dull percussion note"
+            ],
+            [
+              "Purulent sputum & Haemoptysis",
+              "Increased tactile vocal fremitus/vocal resonance, bronchial breathing"
+            ],
+            [
+              "Pleuritic chest pain",
+              "Pleural rub"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Severity Assessment: CURB-65",
+        "icon": "calculate",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "mnemonic": "CURB-65 Score",
+          "explanation": "C: Confusion; U: Urea > 7mmol/L; R: Respiratory rate ≥ 30/min; B: BP < 90/60; 65: Age ≥ 65"
+        }
+      },
+      {
+        "title": "CURB-65 Scoring Actions",
+        "icon": "rule",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Score 0-1: Home treatment if possible",
+          "Score 2: Hospital therapy",
+          "Score ≥ 3: Severe pneumonia"
+        ]
+      },
+      {
+        "title": "Pneumonia Management: ABC & Investigations",
+        "icon": "inventory",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "A: Adequate ventilation (may need intubation)",
+          "B: Oxygenation",
+          "C: Circulation (IV line, treat hypotension & shock)",
+          "Investigations: CXR, ABG, FBC, U&E, LFT, CRP, blood culture",
+          "Advanced Investigations: Aspiration of pleural fluid for culture & bronchoscopy (if immunocompromised)"
+        ]
+      },
+      {
+        "title": "Empirical Antibiotic Protocols",
+        "icon": "medication_liquid",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Antibiotic Regimen"
+          ],
+          "rows": [
+            [
+              "Standard Therapy",
+              "Cefuroxime 1.5g/8h IV + clarithromycin 500 mg/12h IVI"
+            ],
+            [
+              "Atypical: Legionella",
+              "Add levofloxacin + rifampicin"
+            ],
+            [
+              "Atypical: Chlamydia",
+              "Add tetracycline"
+            ],
+            [
+              "Hospital acquired / Immunocompromised",
+              "Gentamicin IV + antipseudomonal penicillin"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pneumonia Support & Complications",
+        "icon": "warning",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Supportive Care",
+            "Potential Complications"
+          ],
+          "rows": [
+            [
+              "Intravenous fluids as required",
+              "Pleural effusion, Empyema, Lung abscess"
+            ],
+            [
+              "Analgesics for pleuritic chest pain",
+              "Respiratory failure, Septicaemia"
+            ],
+            [
+              "Ventilatory support/intubation",
+              "Pericarditis, Myocarditis, Cholestatic jaundice, Renal failure"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Tension Pneumothorax: EMERGENCY",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "MEDICAL EMERGENCY: Requires immediate relief",
+          "CRITICAL: Do not delay management for obtaining a CXR",
+          "Pathophysiology: Air inside pleural space has no route to escape, pushing mediastinum to opposite side, kinking/compressing great veins",
+          "Risk: Unless air is rapidly removed, cardio respiratory arrest will occur"
+        ]
+      },
+      {
+        "title": "Causes of Pneumothorax",
+        "icon": "coronavirus",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Primary (Spontaneous): Especially in young thin men",
+          "Secondary: Underlying disease (Asthma, COPD, TB, Pneumonia, Lung abscess, Fibrosis, Carcinoma)",
+          "Trauma",
+          "Iatrogenic: Subclavian CVP line insertion, Pleural aspiration/biopsy, Percutaneous liver biopsy, +ve pressure ventilation"
+        ]
+      },
+      {
+        "title": "Tension Pneumothorax: Clinical Picture",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Symptoms",
+            "Signs"
+          ],
+          "rows": [
+            [
+              "Asymptomatic",
+              "Tachycardia & Hypotension"
+            ],
+            [
+              "Sudden onset dyspnea",
+              "Distended neck veins"
+            ],
+            [
+              "Pleuritic chest pain",
+              "Reduced expansion, Hyper-resonance"
+            ],
+            [
+              "N/A",
+              "Diminished breath sounds (affected side)"
+            ],
+            [
+              "N/A",
+              "Trachea deviated away from affected side"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Step 1: Aspiration",
+        "icon": "colorize",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Infilterative anaesthesia",
+          "2. Insert large bore (14-16 G) cannula (venflon) into 2nd intercostal space, mid-clavicular line",
+          "3. Connect to 3-way tap and 50mL 0.9% saline",
+          "4. Aspirate up to 2.5 litres of air",
+          "5. Request CXR to confirm resolution",
+          "6. If successful: Repeat CXR after 24h to exclude recurrence"
+        ]
+      },
+      {
+        "title": "Management Step 2: Chest (Intercostal) Drain",
+        "icon": "straighten",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Insert in 4th – 6th intercostal space, anterior to mid-axillary line",
+          "Use small tube unless blood/pus present",
+          "Removal: 24h after lung re-expanded & air leak stopped (bubbling stops)",
+          "Removal technique: Done during expiration or a Valsalva manoeuvre",
+          "Failed expansion: If failed within 48h, suction or surgery required"
+        ]
+      },
+      {
+        "title": "Surgical Consultation & Long-term Advice",
+        "icon": "gavel",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Request surgical advice if: Bilateral pneumothorax",
+          "Request surgical advice if: Lung fails to expand after drain insertion",
+          "Request surgical advice if: 2 or more previous episodes on same side",
+          "Request surgical advice if: History of pneumothorax on opposite side",
+          "Travel Advice: Avoid air travel for 6 weeks after normal CXR",
+          "Activity Advice: Diving should be permanently avoided"
+        ]
+      },
+      {
+        "title": "Document Information",
+        "icon": "history_edu",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Waleed Badr, FRCS INTERNAL & EMERGENCY MEDICINE FOR FRCS (GLASG) EXAM, 2016. Pages 42-47."
+      }
+    ],
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "_newlyImported": 1775044684789,
+  "communityId": "sub_1773775007770_x2kfddwj90nd9h",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true,
+  "bookmarked": true
+}

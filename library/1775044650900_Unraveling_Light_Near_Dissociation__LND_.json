@@ -1,0 +1,304 @@
+{
+  "id": 1775044650900,
+  "seqId": 25,
+  "title": "Unraveling Light-Near Dissociation (LND)",
+  "summary": "Light-Near Dissociation is a classic neuro-ophthalmic clinical sign where the pupillary constrictor response to a near stimulus (accommodation) is significantly greater than the response to light. This phenomenon localizes lesions to the dorsal midbrain or involves peripheral autonomic pathways, serving as a critical diagnostic marker for systemic and neurological disease.",
+  "date": "2026-04-01T11:57:30.900Z",
+  "data": {
+    "title": "Unraveling Light-Near Dissociation (LND)",
+    "summary": "Light-Near Dissociation is a classic neuro-ophthalmic clinical sign where the pupillary constrictor response to a near stimulus (accommodation) is significantly greater than the response to light. This phenomenon localizes lesions to the dorsal midbrain or involves peripheral autonomic pathways, serving as a critical diagnostic marker for systemic and neurological disease.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M120 20 L180 20 M120 50 L180 50 M120 80 L180 80' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M20 20 L40 40 M20 80 L40 60' stroke='red' stroke-width='2' stroke-dasharray='4'/><circle cx='150' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Core Mechanism",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Light-Near Dissociation (LND) occurs when the pupillary light reflex is absent or sluggish, but the near reflex (accommodation-convergence-miosis triad) is preserved. Pathophysiologically, this is possible because the fibers for the near reflex are located more ventrally in the midbrain and likely bypass the pretectal nuclei, which are the primary relay for the light reflex in the dorsal midbrain."
+      },
+      {
+        "title": "The Big Four: Differential Diagnosis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Adie Tonic Pupil",
+            "Argyll Robertson",
+            "Dorsal Midbrain (Parinaud)",
+            "Severe Afferent Defect"
+          ],
+          "rows": [
+            [
+              "Pupil Size",
+              "Mydriatic (Large) initially",
+              "Miotic (Small), irregular",
+              "Mid-dilated or Normal",
+              "Normal (Isocoric)"
+            ],
+            [
+              "Laterality",
+              "Usually Unilateral (80%)",
+              "Bilateral & Asymmetric",
+              "Bilateral",
+              "Unilateral (Relative)"
+            ],
+            [
+              "Mechanism",
+              "Ciliary Ganglion post-ganglionic",
+              "Trep. Pallidum / Pretectal",
+              "Dorsal Midbrain / Pineal",
+              "Optic Nerve / Retina damage"
+            ],
+            [
+              "Key Signs",
+              "Sector palsy, Vermiform motion",
+              "Poor dilation to mydriatics",
+              "Up-gaze palsy, Retraction nyst.",
+              "Severe RAPD, decreased VA"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Neuro-Anatomy: The Disconnect",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "LND Pathophysiology",
+          "branches": [
+            "Afferent Input: Light enters via CN II to Pretectal Nuclei",
+            "Dorsal Lesion: Damages Pretectal-to-EW pathway",
+            "Near Reflex: Cortical fibers descend ventrally to EW Nuclei",
+            "EW Nucleus: The final common pathway for both reflexes",
+            "Ventral Sparing: Why Near response remains intact"
+          ]
+        }
+      },
+      {
+        "title": "Etiology Classification",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Causes of LND",
+          "branches": [
+            "Neuro-Syphilis (Argyll Robertson)",
+            "Midbrain Compression (Pinealoma)",
+            "Peripheral Neuropathy (Diabetes, Amyloid)",
+            "Aberrant Regeneration (CN III Palsy)",
+            "Demyelination (Multiple Sclerosis)",
+            "Orbital Trauma (Ciliary Ganglion damage)"
+          ]
+        }
+      },
+      {
+        "title": "Argyll Robertson Pupil (ARP) Specifics",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Classically associated with Tertiary Syphilis (Tabes Dorsalis).",
+          "Pupils are small (<2mm), irregular, and difficult to dilate.",
+          "Bilateral but often asymmetric involvement.",
+          "Location of lesion: Periaqueductal gray matter/Pretectal area.",
+          "Mandatory testing: FTA-ABS and RPR/VDRL."
+        ]
+      },
+      {
+        "title": "Adie's Tonic Pupil Dynamics",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Acute Stage: Mydriasis with segmental iris sphincter palsy.",
+          "2. Tonicity: Slow, sustained constriction to near and slow redilation.",
+          "3. Hypersensitivity: Denervation supersensitivity to dilute miotics.",
+          "4. Chronic Stage: Pupil becomes smaller over years ('Little Old Adie')."
+        ]
+      },
+      {
+        "title": "Diagnostic Pharmacological Testing",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Agent",
+            "Dosage",
+            "Clinical Response",
+            "Indication"
+          ],
+          "rows": [
+            [
+              "Pilocarpine (Low Dose)",
+              "0.125%",
+              "Constriction (Supersensitivity)",
+              "Adie Tonic Pupil"
+            ],
+            [
+              "Pilocarpine (Full Dose)",
+              "1.0%",
+              "Constriction",
+              "CN III Palsy (if 0.125% failed)"
+            ],
+            [
+              "Pilocarpine (Full Dose)",
+              "1.0%",
+              "No Constriction",
+              "Pharmacological Blockade (Atropine)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Dorsal Midbrain Syndrome (Parinaud)",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Up-gaze paralysis (Supranuclear).",
+          "Convergence-Retraction Nystagmus (on attempted up-gaze).",
+          "Lid Retraction (Collier's Sign).",
+          "Light-Near Dissociation (Pupils mid-dilated).",
+          "Etiology: Pineal tumors in youth; Stroke in elderly."
+        ]
+      },
+      {
+        "title": "The 4 R's Mnemonic for ARP",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "ARP",
+          "explanation": "Accommodates (Near reflex) Reacts Poorly to light. Also remember: Small, Irregular, and Syphilitic."
+        }
+      },
+      {
+        "title": "Mandatory Ocular Examination Steps",
+        "icon": "menu_book",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Dim light: Check resting pupil size (isocoria vs anisocoria).",
+          "2. Bright light: Check direct and consensual response.",
+          "3. Near target: Use an accommodative target (not just a finger).",
+          "4. Slit lamp: Look for vermiform (worm-like) movements in Adie's.",
+          "5. Motility: Check for up-gaze palsy or retraction."
+        ]
+      },
+      {
+        "title": "Investigation & Diagnostic Workup",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Neuroimaging (MRI Brain/Orbit): Essential for midbrain lesions or Pinealomas.",
+          "Syphilis Serology: RPR/VDRL (activity) and FTA-ABS/TPPA (historical).",
+          "HbA1c: To rule out diabetic autonomic neuropathy.",
+          "Lumbar Puncture: If neurosyphilis is suspected (CSF-VDRL, pleocytosis).",
+          "Slit Lamp Biomicroscopy: To visualize iris sector palsy."
+        ]
+      },
+      {
+        "title": "Prevalence of Causes in Clinical Practice",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Adie Pupil",
+              "value": 45
+            },
+            {
+              "label": "Optic Nerve Damage",
+              "value": 30
+            },
+            {
+              "label": "Dorsal Midbrain",
+              "value": 15
+            },
+            {
+              "label": "Argyll Robertson",
+              "value": 5
+            },
+            {
+              "label": "Other/Rare",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Urgent Neurological Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset headache + LND + Vertical diplopia (Aneurysm or Hemorrhage).",
+          "Progressive papilledema (Increased ICP from Pineal region tumor).",
+          "Acute Anisocoria + Ptosis (Rule out CN III compression).",
+          "Ataxia or weakness accompanying LND (Brainstem stroke)."
+        ]
+      },
+      {
+        "title": "Management & Treatment Protocols",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Adie Pupil: Reassurance; reading glasses for accommodative loss; dilute pilocarpine for cosmesis.",
+          "Argyll Robertson: IV Penicillin G (18-24 million units/day) for 10-14 days.",
+          "Parinaud Syndrome: Neurosurgical consultation for tumor excision or CSF shunting.",
+          "Diabetes: Strict glycemic control for autonomic stabilization."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always test the near reflex if the light reflex is poor.",
+          "The 'near reflex' is technically a triad: Miosis, Convergence, and Accommodation.",
+          "In pseudo-LND (severe optic neuropathy), the pupil can't 'see' the light but can 'see' the near target via the other eye or proprioception.",
+          "Holmes-Adie Syndrome includes Adie pupil plus diminished deep tendon reflexes (DTRs)."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Insights",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Modern Pupillometry (Infrared) now allows for objective quantification of the LND ratio. Research into 'Aberrant Regeneration' of CN III suggests that LND in post-traumatic cases is due to axons originally intended for the medial rectus being misdirected to the ciliary body/sphincter, reinforcing the near-response during convergence efforts."
+      }
+    ],
+    "generationPrompt": "LN dissociation",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044650900,
+  "communityId": "sub_1775027600279_ktmc5as7i",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-04-01T07:13:20.279Z"
+}

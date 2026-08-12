@@ -1,0 +1,334 @@
+{
+  "id": 1775044687603,
+  "seqId": 408,
+  "title": "Atrial Fibrillation: The Ophthalmic Perspective",
+  "summary": "A comprehensive guide to Atrial Fibrillation (AFib) focusing on its critical role as a driver of cardioembolic retinal disease, stroke risk stratification, and the management of patients on systemic anticoagulation.",
+  "date": "2026-04-01T11:58:07.603Z",
+  "data": {
+    "title": "Atrial Fibrillation: The Ophthalmic Perspective",
+    "summary": "A comprehensive guide to Atrial Fibrillation (AFib) focusing on its critical role as a driver of cardioembolic retinal disease, stroke risk stratification, and the management of patients on systemic anticoagulation.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><path d='M100 40 C 120 10, 180 30, 180 80 C 180 130, 100 180, 100 180 C 100 180, 20 130, 20 80 C 20 30, 80 10, 100 40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 100 H50 L55 85 L65 115 L75 95 L85 105 L95 80 L110 120 L125 90 L135 110 L150 100 H170' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/><circle cx='100' cy='100' r='10' fill='red' opacity='0.6'><animate attributeName='r' values='8;12;8' dur='0.5s' repeatCount='indefinite' /></circle></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "monitor_heart",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Atrial Fibrillation (AFib) is a supraventricular tachyarrhythmia characterized by uncoordinated atrial activation and subsequent deterioration of atrial mechanical function. On ECG, it is defined by the replacement of consistent P waves by rapid oscillations or fibrillatory waves (f-waves) and an 'irregularly irregular' ventricular response."
+      },
+      {
+        "title": "Epidemiological Impact",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence (Gen Pop)",
+              "value": 2
+            },
+            {
+              "label": "Prevalence (>80 yrs)",
+              "value": 10
+            },
+            {
+              "label": "Lifetime Risk (White)",
+              "value": 25
+            },
+            {
+              "label": "AFib-related Stroke Risk",
+              "value": 50
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The 'PIRATES' Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "PIRATES",
+          "explanation": "P: Pulmonary disease (PE, COPD); I: Ischemia (MI); R: Rheumatic heart disease (Mitral Stenosis); A: Anemia/Atrial Myxoma; T: Thyrotoxicosis; E: Ethanol (Holiday Heart)/Electrolytes; S: Sepsis/Surgery (Post-CABG)."
+        }
+      },
+      {
+        "title": "Classification of AFib",
+        "icon": "list",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Category",
+            "Definition",
+            "Clinical Implication"
+          ],
+          "rows": [
+            [
+              "Paroxysmal",
+              "Terminates spontaneously or with intervention < 7 days.",
+              "Often triggered by pulmonary vein foci."
+            ],
+            [
+              "Persistent",
+              "Continuous AFib sustained > 7 days.",
+              "Requires pharmacological or electrical cardioversion."
+            ],
+            [
+              "Long-standing Persistent",
+              "Continuous AFib > 12 months duration.",
+              "Rhythm control strategy adopted."
+            ],
+            [
+              "Permanent",
+              "Accepted AFib; rhythm control abandoned.",
+              "Focus shifts to rate control and anticoagulation."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Manifestations & Examination",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "CRAO/BRAO: Sudden, painless vision loss; AFib is a leading cause of cardioembolic retinal artery occlusion.",
+          "Calcific Emboli: Large, dull, white/yellow plaques at the disc or proximal vessels; highly suggestive of cardiac origin.",
+          "Amaurosis Fugax: Transient monocular vision loss (fleeting curtain).",
+          "Ocular Ischemic Syndrome: Chronic hypoperfusion; mid-peripheral hemorrhages.",
+          "Anticoagulation Side Effects: Subconjunctival or vitreous hemorrhages."
+        ]
+      },
+      {
+        "title": "Pathophysiology: Thrombus Formation",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Virchow's Triad in AFib",
+          "branches": [
+            "Stasis (Left Atrial Appendage)",
+            "Endothelial Dysfunction (Atrial Remodeling)",
+            "Hypercoagulability (Prothrombotic state)",
+            "Structural Remodeling (Fibrosis)"
+          ]
+        }
+      },
+      {
+        "title": "CHA2DS2-VASc Score for Stroke Risk",
+        "icon": "calculate",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Points",
+            "Clinical Note"
+          ],
+          "rows": [
+            [
+              "C: Congestive Heart Failure",
+              "1",
+              "LVEF < 40%"
+            ],
+            [
+              "H: Hypertension",
+              "1",
+              "Even if controlled"
+            ],
+            [
+              "A: Age ≥ 75",
+              "2",
+              "High risk category"
+            ],
+            [
+              "D: Diabetes Mellitus",
+              "1",
+              "Significant vascular risk"
+            ],
+            [
+              "S: Stroke/TIA/Thromboembolism",
+              "2",
+              "Highest weight"
+            ],
+            [
+              "V: Vascular Disease",
+              "1",
+              "Prior MI, PAD, Aortic plaque"
+            ],
+            [
+              "A: Age 65-74",
+              "1",
+              "Moderate risk"
+            ],
+            [
+              "Sc: Sex Category (Female)",
+              "1",
+              "In presence of other factors"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "HAS-BLED: Bleeding Risk Assessment",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "H: Hypertension (SBP > 160 mmHg)",
+          "A: Abnormal Renal/Liver Function (1 pt each)",
+          "S: Stroke history",
+          "B: Bleeding predisposition/anemia",
+          "L: Labile INRs (if on Warfarin)",
+          "E: Elderly (Age > 65)",
+          "D: Drugs (NSAIDs/Antiplatelets) or Alcohol"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "12-Lead ECG: Absence of P waves; irregular RR intervals.",
+          "Transthoracic Echogram (TTE): Assess chamber size and valvular function.",
+          "Transesophageal Echogram (TEE): Gold standard to rule out LAA thrombus before cardioversion.",
+          "Holter/Event Monitor: 24h-30d monitoring for paroxysmal AFib.",
+          "Thyroid Function Tests (TFTs): Rule out thyrotoxicosis.",
+          "Renal Function (CrCl): Necessary for DOAC dosing."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Irregular Pulse",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Irregular Pulse",
+          "branches": [
+            "Atrial Flutter (with variable block)",
+            "Multifocal Atrial Tachycardia (MAT)",
+            "Frequent Premature Atrial Contractions (PACs)",
+            "Sinus Arrhythmia",
+            "Second-degree AV Block (Wenckebach)"
+          ]
+        }
+      },
+      {
+        "title": "Management: Rate vs. Rhythm",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Strategy",
+            "Agents / Procedures",
+            "Primary Goal"
+          ],
+          "rows": [
+            [
+              "Rate Control",
+              "Beta-blockers (Metoprolol), CCBs (Diltiazem), Digoxin",
+              "Resting HR < 110 bpm (RACE II trial)"
+            ],
+            [
+              "Rhythm Control",
+              "Amiodarone, Flecainide, Sotalol",
+              "Maintain Sinus Rhythm; Symptom relief"
+            ],
+            [
+              "Anticoagulation",
+              "DOACs (Apixaban, Rivaroxaban), Warfarin",
+              "Stroke prevention; Mandatory for CHA2DS2-VASc ≥ 2 (men)"
+            ],
+            [
+              "Interventional",
+              "Pulmonary Vein Isolation (PVI), LAA Closure (Watchman)",
+              "Reduce AF burden or eliminate anticoagulation needs"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Landmark Clinical Trials",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "AFFIRM: Found no survival advantage of rhythm control over rate control.",
+          "RE-LY: Dabigatran non-inferior/superior to Warfarin for stroke prevention.",
+          "ARISTOTLE: Apixaban superior to Warfarin in stroke prevention and lower bleeding.",
+          "ROCKET-AF: Rivaroxaban non-inferior to Warfarin in high-risk patients."
+        ]
+      },
+      {
+        "title": "Surgical & Procedural Steps",
+        "icon": "construction",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Pulmonary Vein Isolation (PVI): Circumferential ablation around PV ostia.",
+          "Cox-Maze Procedure: Surgical creation of 'maze' scars to direct electrical signals.",
+          "Direct Current Cardioversion (DCCV): Synchronized shock; requires 3-4 weeks anticoagulation prior (or TEE rule-out).",
+          "AV Node Ablation: 'Pace and Ablate'—permanent pacemaker followed by AV node destruction."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Ocular & Systemic Emergencies",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden monocular vision loss (CRAO/BRAO) — Needs immediate neurology consult.",
+          "Acute-onset focal neurologic deficits (FAST: Face, Arms, Speech, Time).",
+          "Hemodynamic instability: Hypotension, altered mentation, or acute HF in new-onset AFib.",
+          "New onset chest pain or severe shortness of breath.",
+          "Signs of internal hemorrhage in patients on anticoagulants (e.g., melena, hematuria)."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Ophthalmologist",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Calcific emboli are heart valves until proven otherwise—order an Urgent Echo.",
+          "Ophthalmologists are often the first to diagnose AFib via retinal embolic events.",
+          "Pre-op: Aspirin can usually be continued; Warfarin/DOACs require surgeon-specific bridging protocols.",
+          "Hollenhorst plaques are usually carotid (cholesterol), but AFib is the primary source of 'white' emboli."
+        ]
+      },
+      {
+        "title": "Recent Advances: AI & Wearables",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Smartwatch technology (Apple/Fitbit) utilizing photoplethysmography (PPG) has revolutionized the detection of paroxysmal AFib, allowing for earlier intervention and stroke prevention in 'silent' cases. AI algorithms can now predict AFib development from 12-lead ECGs even when the patient is in sinus rhythm."
+      }
+    ],
+    "chapterId": "evidence"
+  },
+  "chapterId": "evidence",
+  "_newlyImported": 1775044687603,
+  "communityId": "sub_1773775007770_3jxic1jbahmm4m",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

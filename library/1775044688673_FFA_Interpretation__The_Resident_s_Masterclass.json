@@ -1,0 +1,315 @@
+{
+  "id": 1775044688673,
+  "seqId": 419,
+  "title": "FFA Interpretation: The Resident's Masterclass",
+  "summary": "Fluorescein Fundus Angiography (FFA) remains the gold standard for dynamic imaging of the retinal and choroidal circulation. This guide provides a deep-dive into the pathophysiology, phases, and diagnostic patterns required for fellowship-level interpretation.",
+  "date": "2026-04-01T11:58:08.673Z",
+  "data": {
+    "title": "FFA Interpretation: The Resident's Masterclass",
+    "summary": "Fluorescein Fundus Angiography (FFA) remains the gold standard for dynamic imaging of the retinal and choroidal circulation. This guide provides a deep-dive into the pathophysiology, phases, and diagnostic patterns required for fellowship-level interpretation.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M50 50 Q70 20 90 50 T50 80 T10 50 T50 20' fill='none' stroke='hsl(80, 100%, 50%)' stroke-width='1.5' stroke-dasharray='2 1'/><circle cx='50' cy='50' r='8' fill='hsl(40, 100%, 50%)' opacity='0.6'/><path d='M50 50 L55 30 M50 50 L70 55 M50 50 L45 75 M50 50 L30 45' stroke='hsl(80, 100%, 50%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Fundamental Principles & Dye Dynamics",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Sodium Fluorescein (C20H10Na2O5): Low molecular weight (376 Da), 80% protein-bound (albumin), 20% free (fluorescent).",
+          "Excitation Peak: 465–490 nm (Blue light filter).",
+          "Emission Peak: 520–530 nm (Yellow-green light filter).",
+          "Inner Blood-Retinal Barrier (BRB): Non-fenestrated retinal capillary endothelial cells (tight junctions).",
+          "Outer Blood-Retinal Barrier: Retinal Pigment Epithelium (RPE) zonula occludens.",
+          "Metabolism: Hepatic glucuronidation; Renal excretion (within 24-36 hours)."
+        ]
+      },
+      {
+        "title": "The 5 Phases of the Normal Angiogram",
+        "icon": "schedule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Phase",
+            "Timing (Seconds)",
+            "Key Characteristics"
+          ],
+          "rows": [
+            [
+              "Pre-arterial (Choroidal)",
+              "8–12s",
+              "Cilioretinal arteries fill (if present). Patchy 'mottled' choroidal filling due to fenestrated choriocapillaris."
+            ],
+            [
+              "Arterial Phase",
+              "11–18s",
+              "Rapid filling of retinal arteries. Flow is fastest in the center of the vessel."
+            ],
+            [
+              "Arteriovenous (Laminar)",
+              "15–20s",
+              "Complete arterial filling; 'Laminar' flow in veins where dye lines the vessel walls but the center is dark."
+            ],
+            [
+              "Venous Phase (Full)",
+              "20–25s",
+              "Complete filling of veins. Maximum intensity of fluorescence."
+            ],
+            [
+              "Late (Recirculation)",
+              "5–10 min",
+              "Dye intensity fades; Disc staining occurs; Absence of dye in vessels."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mechanism of Hyperfluorescence",
+        "icon": "lightbulb",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Hyperfluorescence",
+          "branches": [
+            "Window Defect (RPE Atrophy - GA, Drusen)",
+            "Pooling (Sub-retinal or Sub-RPE spaces - CSC, PED)",
+            "Leaking (Break in BRB - NVD/NVE, CME, Cystoid spaces)",
+            "Staining (Vessel walls, Sclera, Scars, Optic Disc)",
+            "Autofluorescence (Optic disc drusen, Astrocytic hamartoma)"
+          ]
+        }
+      },
+      {
+        "title": "Mechanism of Hypofluorescence",
+        "icon": "visibility_off",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Hypofluorescence",
+          "branches": [
+            "Blocking (Pigment, Blood, Hard Exudates, Melanosomes)",
+            "Vascular Filling Defect (Capillary non-perfusion, Arterial occlusion, Venous occlusion)",
+            "Pseudohypofluorescence (Old filters, cataract, vitreous haze)"
+          ]
+        }
+      },
+      {
+        "title": "Window Defect vs. Leakage: The Critical Distinction",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Window Defect",
+            "Leakage"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Early (Choroidal phase)",
+              "Early or Mid-phase"
+            ],
+            [
+              "Intensity",
+              "Increases early, then fades",
+              "Increases throughout study"
+            ],
+            [
+              "Size",
+              "Remains constant",
+              "Increases (borders blur)"
+            ],
+            [
+              "Cause",
+              "RPE loss/thinning",
+              "Vascular incompetence"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pooling: Sub-RPE vs. Sub-Retinal",
+        "icon": "layers",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Sub-RPE Pooling: Seen in Pigment Epithelial Detachment (PED). Discrete, well-demarcated borders. Fills early and stays bright late.",
+          "Sub-Retinal Pooling: Seen in Central Serous Chorioretinopathy (CSC). Indistinct, fuzzy borders. Takes longer to fill than sub-RPE.",
+          "Classic CSC Pattern: 'Smokestack' appearance (10%) or 'Ink-blot' appearance (90%)."
+        ]
+      },
+      {
+        "title": "Adverse Reactions: Incidence & Management",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Nausea",
+              "value": 5
+            },
+            {
+              "label": "Vomiting",
+              "value": 1
+            },
+            {
+              "label": "Urticaria",
+              "value": 0.5
+            },
+            {
+              "label": "Anaphylaxis",
+              "value": 0.01
+            },
+            {
+              "label": "Death",
+              "value": 0.0005
+            }
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Anaphylaxis & Emergencies",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Laryngeal Edema / Stridor: Immediate Epinephrine (0.3mg IM 1:1000).",
+          "Severe Hypotension / Shock: Fluid resuscitation and Trendelenburg position.",
+          "Bronchospasm: Use Beta-agonists or Aminophylline.",
+          "Extravasation of Dye: Can cause local necrosis/phlebitis. Use cold compresses.",
+          "Known severe allergy to fluorescein is an absolute contraindication."
+        ]
+      },
+      {
+        "title": "Cystoid Macular Edema (CME) Patterns",
+        "icon": "grid_view",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Early Phase: Subtle leakage from perifoveal capillaries.",
+          "Late Phase: Classic 'Petaloid' pattern due to dye accumulation in Henle's layer (Outer Plexiform Layer).",
+          "Irvine-Gass Syndrome: Post-cataract surgery CME; features disc leakage + petaloid macula.",
+          "Diabetes: Often more diffuse 'honeycomb' appearance."
+        ]
+      },
+      {
+        "title": "Mnemonic: The Phases of FFA",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Can All Lady-Vegas Really Sing?",
+          "explanation": "C: Choroidal, A: Arterial, L: Laminar (AV), V: Venous, R: Recirculation, S: Staining (Late)."
+        }
+      },
+      {
+        "title": "Management of Adverse Reactions",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Immediate cessation of dye injection if patient complains of itching/shortness of breath.",
+          "Step 2: Monitor Vital Signs (BP, HR, SpO2).",
+          "Step 3: Mild (Nausea/Vomiting) - Reassurance, deep breathing, emesis basin.",
+          "Step 4: Moderate (Urticaria) - Oral or IV Antihistamines (Diphenhydramine 25-50mg).",
+          "Step 5: Severe (Anaphylaxis) - 0.3ml of 1:1000 Epinephrine IM; Call Code Blue/EMS; Oxygen 10L/min."
+        ]
+      },
+      {
+        "title": "Landmark Study Applications",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Study",
+            "FFA Criteria Used",
+            "Key Finding"
+          ],
+          "rows": [
+            [
+              "ETDRS",
+              "Presence of MA, IRMA, and NVE",
+              "Defined Clinically Significant Macular Edema (CSME) and timing for laser."
+            ],
+            [
+              "MPS (Macular Photocoagulation Study)",
+              "Classic vs. Occult CNVM boundaries",
+              "Laser benefit for extrafoveal/juxtafoveal classic CNVM."
+            ],
+            [
+              "TAP / VIP",
+              "Composition of CNVM (>50% classic)",
+              "Photodynamic Therapy (PDT) efficacy based on FFA lesion type."
+            ],
+            [
+              "FAME",
+              "Capillary Non-Perfusion (CNP)",
+              "Correlated area of ischemia with visual prognosis in DR."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Interpretation Algorithm: The 'Rule of 4'",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Analyze the Control Image: Look for autofluorescence and pseudofluorescence.",
+          "2. Verify the Quality: Check for media opacities (lens/vitreous) and timing.",
+          "3. Locate Abnormalities: Is it Hyper or Hypo? Use the Macula as the center reference.",
+          "4. Dynamic Evolution: Does the area change in size or intensity from 30s to 5min?"
+        ]
+      },
+      {
+        "title": "Choroidal Neovascularization (CNV) Classification",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Classic CNV: Well-defined, bright lacy pattern in early phase; intense late leakage that obscures boundaries.",
+          "Occult CNV (Type 1): Fibrovascular PED (irregular elevation) or 'Late Leakage of Undetermined Source'.",
+          "Retinal Angiomatous Proliferation (RAP - Type 3): Intraretinal hemorrhages and small anastomoses filling from retinal circulation.",
+          "Polypoidal Choroidal Vasculopathy (PCV): Best seen on ICG, but FFA shows 'stippled' hyperfluorescence and late pooling."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Fellowship Exams",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Blocked fluorescence: Blood is the most common cause. Subretinal blood blocks choroidal AND retinal; Intraretinal blood blocks retinal vessels.",
+          "The Foveal Avascular Zone (FAZ): Normally 0.5mm; enlargement indicates ischemia (DR, RVO).",
+          "Staining vs. Leakage: Staining involves fixed borders (e.g., old scar); leakage involves expanding, fuzzy borders (e.g., active CNV).",
+          "Dark Choroid: A classic FFA sign of Stargardt Disease due to lipofuscin accumulation in RPE blocking choroidal flush."
+        ]
+      }
+    ],
+    "chapterId": "investigations"
+  },
+  "chapterId": "investigations",
+  "_newlyImported": 1775044688673,
+  "communityId": "sub_1773775007769_t4gbhokfyn5p63",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.769Z"
+}

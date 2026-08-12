@@ -1,0 +1,152 @@
+{
+  "id": 1775107277856,
+  "seqId": 537,
+  "title": "Orbital Compartment Syndrome: The Surgical Emergency",
+  "summary": "Orbital Compartment Syndrome (OCS) is a sight-threatening ophthalmic emergency characterized by increased intraorbital pressure leading to vascular compromise. Immediate recognition and decompression are the only definitive treatments to prevent irreversible optic nerve ischemia.",
+  "date": "2026-04-02T05:21:17.856Z",
+  "data": {
+    "title": "Orbital Compartment Syndrome: The Surgical Emergency",
+    "summary": "Orbital Compartment Syndrome (OCS) is a sight-threatening ophthalmic emergency characterized by increased intraorbital pressure leading to vascular compromise. Immediate recognition and decompression are the only definitive treatments to prevent irreversible optic nerve ischemia.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='#1e88e5' stroke-width='8'/><path d='M60 100 Q100 40 140 100 T100 160' fill='#bbdefb' stroke='#1e88e5' stroke-width='4'/><circle cx='100' cy='100' r='15' fill='#1e88e5'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "emergency",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": "OCS occurs when intraorbital pressure exceeds ocular perfusion pressure, leading to ischemia of the optic nerve and retina. The orbit is a closed fibro-osseous compartment; any increase in volume (hematoma, edema, emphysema) results in an exponential rise in orbital pressure (IOP + orbital venous pressure), culminating in venous stasis and rapid infarction."
+      },
+      {
+        "title": "Etiology: The '5-H' Rule",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Etiology",
+          "branches": [
+            "Hemorrhage (Retrobulbar)",
+            "Hematoma (Coagulopathy)",
+            "Hyperemia (Post-surgical)",
+            "Herniation (Orbital fat)",
+            "High Pressure (Trauma/Emphysema)"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags (Immediate Action Required)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Tense, firm globe (rock-hard eyelids)",
+          "Afferent pupillary defect (APD)",
+          "Proptosis (exophthalmos)",
+          "Ophthalmoplegia (restricted motility)",
+          "Central Retinal Artery Occlusion (CRAO) appearance",
+          "Loss of light perception (LP)"
+        ]
+      },
+      {
+        "title": "Clinical Diagnostic Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.R.E.S.S.",
+          "explanation": "P: Proptosis, R: Resistance to retropulsion, E: Elevated IOP (>40mmHg), S: Sight loss (APD/Decreased VA), S: Stretched/Tense lids."
+        }
+      },
+      {
+        "title": "Management Protocol: Lateral Canthotomy & Cantholysis",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Instill proparacaine and prepare sterile field.",
+          "Step 2: Clamp lateral canthus with hemostat for 30s to crush tissue (hemostasis).",
+          "Step 3: Cut lateral canthal tendon using Stevens scissors.",
+          "Step 4: Perform superior and inferior crural cantholysis—the 'snap' confirms release.",
+          "Step 5: Re-assess IOP and visual status immediately."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Thyroid Eye Disease",
+              "Usually subacute/chronic, bilateral"
+            ],
+            [
+              "Orbital Cellulitis",
+              "Fever, elevated WBC, pain on motility"
+            ],
+            [
+              "Carotid-Cavernous Fistula",
+              "Bruit, dilated episcleral vessels"
+            ],
+            [
+              "Orbital Pseudotumor",
+              "Rapid onset but usually responds to steroids"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Investigations",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Goldmann Applanation Tonometer: IOP > 40mmHg is highly suspicious.",
+          "Exophthalmometry: Quantify displacement.",
+          "Urgent CT Orbit/Brain: Only if it does not delay immediate decompression.",
+          "Pupil Exam: Critical indicator of optic nerve compromise."
+        ]
+      },
+      {
+        "title": "Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Do not wait for CT imaging if clinical signs are definitive.",
+          "The lateral canthal tendon consists of superior and inferior crura; both must be severed.",
+          "OCS is a 'clinical diagnosis'—eyes do not wait for imaging studies.",
+          "If IOP remains elevated post-cantholysis, consider medical adjuncts (IV Mannitol 1g/kg or Acetazolamide)."
+        ]
+      },
+      {
+        "title": "Recent Landmark Considerations",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Recent literature emphasizes that the 'time-to-decompression' is the single most important predictor of visual recovery. Studies show that optic nerve ischemia occurs within 60-100 minutes of sustained orbital pressure elevation, suggesting that bedside lateral cantholysis is superior to any medical therapy or imaging-based delay."
+      }
+    ],
+    "generationPrompt": "Orbital compartment syndrome",
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

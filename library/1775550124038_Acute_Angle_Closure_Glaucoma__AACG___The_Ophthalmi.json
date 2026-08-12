@@ -1,0 +1,360 @@
+{
+  "id": 1775550124038,
+  "seqId": 753,
+  "title": "Acute Angle-Closure Glaucoma (AACG): The Ophthalmic Emergency",
+  "summary": "AACG is a vision-threatening emergency characterized by a rapid, symptomatic rise in intraocular pressure (IOP) due to the sudden occlusion of the trabecular meshwork by the peripheral iris. Timely diagnosis and management are critical to prevent permanent optic nerve damage and vision loss.",
+  "date": "2026-04-07T08:22:04.038Z",
+  "data": {
+    "title": "Acute Angle-Closure Glaucoma (AACG): The Ophthalmic Emergency",
+    "summary": "AACG is a vision-threatening emergency characterized by a rapid, symptomatic rise in intraocular pressure (IOP) due to the sudden occlusion of the trabecular meshwork by the peripheral iris. Timely diagnosis and management are critical to prevent permanent optic nerve damage and vision loss.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M40 100 Q100 20 160 100 Q100 180 40 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='100' cy='100' r='25' fill='hsl(215, 90%, 45%)'/><path d='M100 60 L100 40 M140 100 L160 100 M100 140 L100 160 M60 100 L40 100' stroke='red' stroke-width='3' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "AACG is a clinical syndrome resulting from the rapid closure of a pre-existing narrow anterior chamber angle. This leads to a total or near-total obstruction of aqueous outflow, resulting in a dramatic spike in IOP (often 40-80 mmHg). It is a surgical emergency requiring immediate medical and procedural intervention."
+      },
+      {
+        "title": "Demographics & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Female:Male Ratio",
+              "value": 75
+            },
+            {
+              "label": "East Asian Descent",
+              "value": 90
+            },
+            {
+              "label": "Hyperopia (>+1.5D)",
+              "value": 80
+            },
+            {
+              "label": "Age > 60 years",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "Primary Pathophysiological Mechanisms",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Mechanisms of Closure",
+          "branches": [
+            "Pupillary Block: Most common. High pressure in PC pushes iris forward.",
+            "Plateau Iris: Anteriorly positioned ciliary processes.",
+            "Phacomorphic: Swollen/Lens-induced anterior displacement.",
+            "Malignant Glaucoma: Ciliary block; aqueous misdirection.",
+            "Anatomical: Short axial length, thick lens, small corneal diameter."
+          ]
+        }
+      },
+      {
+        "title": "ISGEO Classification / Staging",
+        "icon": "format_list_numbered",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Description",
+            "Clinical Characteristics"
+          ],
+          "rows": [
+            [
+              "PACS",
+              "Primary Angle Closure Suspect",
+              "ITC > 270°; Normal IOP, Disc, and Field."
+            ],
+            [
+              "PAC",
+              "Primary Angle Closure",
+              "ITC > 270° with raised IOP or PAS; Normal Disc/Field."
+            ],
+            [
+              "PACG",
+              "Primary Angle Closure Glaucoma",
+              "PAC with Glaucomatous Optic Neuropathy (GON) and Field loss."
+            ],
+            [
+              "Acute PAC",
+              "Acute Attack",
+              "Sudden symptomatic IOP spike with corneal edema."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Patient Presentation: Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Severe Ocular Pain: Often described as a deep, boring ache.",
+          "Nausea and Vomiting: Often misdiagnosed as a GI issue.",
+          "Blurred Vision with Halos: Due to corneal epithelial edema (Sattler’s veil).",
+          "Frontal Headache: Radiating from the affected eye.",
+          "Photophobia and Lacrimation."
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "IOP: Typically 40-80 mmHg; eye feels 'stony hard'.",
+          "Conjunctiva: Ciliary flush/injected.",
+          "Cornea: 'Steamy' or hazy epithelial edema.",
+          "AC: Extremely shallow; peripheral iris-corneal contact.",
+          "Pupil: Mid-dilated, vertically oval, and fixed (non-reactive).",
+          "Fundus: Edematous/hyperemic disc (acute) vs. cupping (chronic)."
+        ]
+      },
+      {
+        "title": "Red Flags: The Do-Not-Miss Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "The 'Hard' Globe on palpation: Immediate sign of severely elevated IOP.",
+          "Systemic misdiagnosis: Acute nausea/vomiting leads patients to ER, not Eye Clinic.",
+          "Contralateral Eye: High risk of synchronous or future attack (Must check!).",
+          "Ischemic Pupil: Failure to respond to pilocarpine suggests iris sphincter ischemia (>50-60 mmHg)."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Gonioscopy: Gold standard (Goldmann or Sussman 4-mirror). Use indentation to differentiate appositional vs. synechial closure.",
+          "2. Van Herick Grading: Slit-lamp estimate (AC depth < 1/4 corneal thickness = narrow).",
+          "3. AS-OCT: Non-contact objective measurement of AOD and TISA.",
+          "4. UBM (Ultrasound Biomicroscopy): Visualizes ciliary body and posterior chamber anatomy."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Neovascular Glaucoma",
+              "Rubeosis iridis, history of CRVO/DR."
+            ],
+            [
+              "Phacolytic Glaucoma",
+              "Hypermature cataract, cell/flare, open angle."
+            ],
+            [
+              "Posner-Schlossman",
+              "Mild pain, high IOP, open angle, small KPs."
+            ],
+            [
+              "Acute Uveitis",
+              "Small/constricted pupil, lower IOP usually."
+            ],
+            [
+              "Cluster Headache",
+              "No IOP rise, lacrimation/rhinorrhea."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Emergency Medical Management",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Agent",
+            "Dose/Route",
+            "Mechanism"
+          ],
+          "rows": [
+            [
+              "Acetazolamide (Diamox)",
+              "500 mg IV or PO (2 tabs)",
+              "Decreases aqueous production."
+            ],
+            [
+              "Hyperosmotic (Mannitol)",
+              "1-2 g/kg IV over 45 min",
+              "Osmotic dehydration of vitreous."
+            ],
+            [
+              "Topical Beta-Blocker",
+              "Timolol 0.5% x1",
+              "Rapidly drops aqueous production."
+            ],
+            [
+              "Topical Alpha-Agonist",
+              "Brimonidine 0.2% x1",
+              "Dual action: production/outflow."
+            ],
+            [
+              "Pilocarpine 2%",
+              "1 drop every 15 min x2",
+              "Miotic; pulls iris from angle. Only works if IOP < 40."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical & Laser Interventions",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Laser Peripheral Iridotomy (LPI): Definitive treatment for pupillary block. Equalizes pressure between PC and AC.",
+          "2. Argon Laser Peripheral Iridoplasty (ALPI): Used if LPI is impossible due to corneal edema or for Plateau Iris.",
+          "3. Lens Extraction: Removing the lens (cataract surgery) significantly deepens the AC and lowers IOP.",
+          "4. Anterior Chamber Paracentesis: Immediate mechanical lowering of IOP in refractory cases.",
+          "5. Trabeculectomy/GDD: Reserved for cases where medical/laser therapy fails and PAS is extensive."
+        ]
+      },
+      {
+        "title": "Mnemonic: 'PRESSURE' Management",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PRESSURE",
+          "explanation": "P: Pilocarpine (once IOP <40); R: Reduce Aqueous (Timolol/Brimonidine); E: Examine contralateral eye; S: Systemic Carbonic Anhydrase Inhibitors; S: Supine position (avoid); U: Urea/Mannitol; R: Relieve block (LPI); E: Evaluate optic nerve."
+        }
+      },
+      {
+        "title": "Post-Attack Complications",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Glaucomflecken: Small grey-white anterior subcapsular lens opacities (lens epithelial necrosis).",
+          "Iris Atrophy: Typically sectoral atrophy due to ischemia.",
+          "Peripheral Anterior Synechiae (PAS): Permanent adhesion of iris to meshwork.",
+          "Cystoid Macular Edema (CME): Post-acute inflammation.",
+          "Chronic Angle-Closure Glaucoma."
+        ]
+      },
+      {
+        "title": "Landmark Study: The EAGLE Trial",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The EAGLE Study (Effectiveness in Angle-closure Glaucoma of Lens Extraction) demonstrated that clear-lens extraction showed greater efficacy and was more cost-effective than LPI as a first-line treatment for patients with PAC and IOP >30 mmHg or PACG. It suggests moving towards earlier surgical lens intervention."
+      },
+      {
+        "title": "Clinical Pearls & Practice Points",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Never dilate a patient with a shallow chamber before performing gonioscopy.",
+          "Prophylactic LPI in the fellow eye is mandatory as the risk of an attack is ~50% within 5 years.",
+          "Avoid systemic anticholinergics and adrenergics in patients with narrow angles.",
+          "If the cornea is too cloudy for LPI, use topical glycerin to clear edema or perform ALPI to pull the iris away from the angle mechanically."
+        ]
+      }
+    ],
+    "generationPrompt": "AACG",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "bookmarked": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 354,
+      "keywords": [
+        "glaucoma",
+        "closure",
+        "definition",
+        "risk",
+        "factors"
+      ]
+    },
+    {
+      "pageNum": 350,
+      "keywords": [
+        "glaucoma",
+        "closure",
+        "primary",
+        "classification",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 387,
+      "keywords": [
+        "glaucoma",
+        "risk",
+        "primary",
+        "classification",
+        "patient"
+      ]
+    },
+    {
+      "pageNum": 398,
+      "keywords": [
+        "glaucoma",
+        "closure",
+        "risk",
+        "factors",
+        "patient"
+      ]
+    },
+    {
+      "pageNum": 395,
+      "keywords": [
+        "glaucoma",
+        "closure",
+        "risk",
+        "patient",
+        "diagnostic"
+      ]
+    },
+    {
+      "pageNum": 355,
+      "keywords": [
+        "glaucoma",
+        "risk",
+        "factors",
+        "primary",
+        "mechanisms"
+      ]
+    }
+  ]
+}

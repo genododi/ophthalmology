@@ -1,0 +1,170 @@
+{
+  "id": 1775238891456,
+  "seqId": 624,
+  "title": "Clinical Appraisal of Darkly Pigmented Fundus Lesions",
+  "summary": "A comprehensive diagnostic framework for evaluating pigmented fundus lesions, ranging from benign choroidal nevi to sight-threatening uveal melanoma and choroidal metastasis. Precise differentiation requires a synthesis of clinical examination, multimodal imaging, and rigorous monitoring protocols.",
+  "date": "2026-04-03T17:54:51.456Z",
+  "data": {
+    "title": "Clinical Appraisal of Darkly Pigmented Fundus Lesions",
+    "summary": "A comprehensive diagnostic framework for evaluating pigmented fundus lesions, ranging from benign choroidal nevi to sight-threatening uveal melanoma and choroidal metastasis. Precise differentiation requires a synthesis of clinical examination, multimodal imaging, and rigorous monitoring protocols.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1a56db' stroke-width='4'/><circle cx='50' cy='50' r='15' fill='#1a56db'/><path d='M30 50 Q 50 30 70 50' stroke='#1a56db' stroke-width='2' fill='none'/></svg>",
+    "sections": [
+      {
+        "title": "Differential Diagnosis of Pigmented Lesions",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Lesion",
+            "Key Characteristics",
+            "Risk of Malignancy"
+          ],
+          "rows": [
+            [
+              "Choroidal Nevus",
+              "Flat/slightly elevated, drusen present",
+              "Very Low"
+            ],
+            [
+              "Uveal Melanoma",
+              "Growth, fluid, orange pigment, <3mm from disc",
+              "High"
+            ],
+            [
+              "Congenital Hypertrophy of RPE (CHRPE)",
+              "Jet black, lacunae, sharp borders",
+              "None"
+            ],
+            [
+              "Choroidal Metastasis",
+              "Creamy yellow/brown, often multifocal",
+              "Variable (Primary Site)"
+            ],
+            [
+              "Choroidal Hemangioma",
+              "Red-orange to brown, localized, exudative",
+              "Benign"
+            ],
+            [
+              "Osseous Choristoma",
+              "Calcified, yellow-white/brown, irregular",
+              "Benign"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The 'TFSOMAH' Mnemonic for Melanoma",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "TFSOMAH",
+          "explanation": "To Find Small Ocular Melanoma Using Helpful Hints: Thickness > 2mm, Fluid (subretinal), Symptoms (blurred vision/flashes), Orange pigment (lipofuscin), Margin (near optic disc), Acoustic Hollowness (on B-scan), Halo absence."
+        }
+      },
+      {
+        "title": "Red Flags: When to Biopsy or Refer",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Documented growth on serial imaging",
+          "Presence of subretinal fluid (SRF)",
+          "Visual symptoms (scotoma, metamorphopsia)",
+          "Thickness > 2mm measured on EDI-OCT or B-scan",
+          "Orange pigment (Lipofuscin) accumulation",
+          "Presence of symptoms related to the lesion site"
+        ]
+      },
+      {
+        "title": "Pathophysiology & Histology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Pigmented fundus lesions arise from melanocytes (nevi, melanoma) or RPE cells (CHRPE). Uveal melanoma originates from uveal melanocytes and often undergoes GNAQ/GNA11 mutations. Pathologically, it exhibits spindle cells (A/B) or epithelioid cells, the latter carrying a higher metastatic potential. Invasion through Bruch's membrane results in the classic 'collar-button' configuration."
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Clinical Slit-lamp Biomicroscopy with Indirect Ophthalmoscopy (90D/20D lens).",
+          "Step 2: Fundus Autofluorescence (FAF) to detect lipofuscin (hyper-autofluorescence).",
+          "Step 3: Enhanced Depth Imaging OCT (EDI-OCT) to measure lesion thickness and detect SRF.",
+          "Step 4: Ultrasonography (A/B-scan) for internal reflectivity and thickness measurement.",
+          "Step 5: Fluorescein Angiography (FFA) to evaluate vascularity and 'double circulation'.",
+          "Step 6: Systemic evaluation (Liver function tests, abdominal ultrasound/CT/MRI) if malignancy is suspected."
+        ]
+      },
+      {
+        "title": "Incidence Comparison",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Choroidal Nevus",
+              "value": 90
+            },
+            {
+              "label": "Choroidal Melanoma",
+              "value": 5
+            },
+            {
+              "label": "CHRPE",
+              "value": 3
+            },
+            {
+              "label": "Metastasis",
+              "value": 2
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Most choroidal nevi are dormant; do not biopsy unless suspicious.",
+          "Always document lesion location in relation to the optic disc in disc diameters (DD).",
+          "A halo around a nevus is a benign feature indicating stable/regressing margins.",
+          "B-scan ultrasonography is gold standard for measuring thickness of elevated lesions.",
+          "Genetic testing (BAP1, SF3B1, EIF1AX) is crucial for prognostication in melanoma."
+        ]
+      },
+      {
+        "title": "Classification of CHRPE",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "CHRPE Variants",
+          "branches": [
+            "Solitary (Benign)",
+            "Grouped (Bear tracks)",
+            "Multifocal (Associated with FAP/Gardner Syndrome)"
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Fundus darkly pigmented lesions",
+    "chapterId": "tumours"
+  },
+  "chapterId": "tumours",
+  "read": true
+}

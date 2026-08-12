@@ -1,0 +1,311 @@
+{
+  "id": 1775044687769,
+  "seqId": 410,
+  "title": "COPD: The Ophthalmologist's Guide to Systemic Care & Ocular Impact",
+  "summary": "A comprehensive review of Chronic Obstructive Pulmonary Disease (COPD) through the lens of a board-certified ophthalmologist. This poster bridges systemic pathophysiology with critical perioperative considerations and ocular manifestations for the eye care specialist.",
+  "date": "2026-04-01T11:58:07.769Z",
+  "data": {
+    "title": "COPD: The Ophthalmologist's Guide to Systemic Care & Ocular Impact",
+    "summary": "A comprehensive review of Chronic Obstructive Pulmonary Disease (COPD) through the lens of a board-certified ophthalmologist. This poster bridges systemic pathophysiology with critical perioperative considerations and ocular manifestations for the eye care specialist.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M30,30 Q50,10 70,30 Q90,50 70,70 Q50,90 30,70 Q10,50 30,30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M40,40 Q50,35 60,40 M40,60 Q50,65 60,60' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/><path d='M35,25 L25,15 M65,25 L75,15' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "COPD is a common, preventable, and treatable disease characterized by persistent respiratory symptoms and airflow limitation. It is caused by significant exposure to noxious particles or gases. The chronic airflow limitation is caused by a mixture of small airways disease (obstructive bronchiolitis) and parenchymal destruction (emphysema), the relative contributions of which vary between individuals."
+      },
+      {
+        "title": "Epidemiological Impact",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Global Prevalence (%)",
+              "value": 11
+            },
+            {
+              "label": "Smoking Attributable Risk",
+              "value": 85
+            },
+            {
+              "label": "3rd Leading Cause of Death",
+              "value": 90
+            },
+            {
+              "label": "Underdiagnosis Rate",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Dual Pathology of COPD",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Emphysema (Type A)",
+            "Chronic Bronchitis (Type B)"
+          ],
+          "rows": [
+            [
+              "Primary Site",
+              "Alveoli (distal to terminal bronchiole)",
+              "Bronchi (large and small airways)"
+            ],
+            [
+              "Mechanism",
+              "Destruction of alveolar walls; capillary loss",
+              "Hyperplasia of mucous glands; inflammation"
+            ],
+            [
+              "Clinical Sign",
+              "Pink Puffer (hyperventilation, thin)",
+              "Blue Bloater (cyanosis, edema, productive cough)"
+            ],
+            [
+              "Elastic Recoil",
+              "Markedly decreased",
+              "Relatively normal"
+            ],
+            [
+              "Diffusion Capacity (DLCO)",
+              "Significantly decreased",
+              "Usually normal"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Risk Factors",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "COPD Triggers",
+          "branches": [
+            "Tobacco Smoke (Primary)",
+            "Biomass Fuel Exposure",
+            "Occupational Dusts/Chemicals",
+            "Alpha-1 Antitrypsin Deficiency",
+            "Air Pollution (PM2.5)",
+            "History of Severe Childhood Infections"
+          ]
+        }
+      },
+      {
+        "title": "Diagnosis: The Gold Standard",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Post-Bronchodilator FEV1/FVC < 0.70 is mandatory for diagnosis.",
+          "FEV1: Forced Expiratory Volume in 1 second.",
+          "FVC: Forced Vital Capacity.",
+          "Spirometry is required to differentiate from asthma (irreversible vs. reversible).",
+          "Screening: Perform in any patient with dyspnea, chronic cough, or sputum production."
+        ]
+      },
+      {
+        "title": "GOLD Grade: Airflow Limitation",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Grade",
+            "Severity",
+            "FEV1 (% Predicted)"
+          ],
+          "rows": [
+            [
+              "GOLD 1",
+              "Mild",
+              "≥ 80%"
+            ],
+            [
+              "GOLD 2",
+              "Moderate",
+              "50% – 79%"
+            ],
+            [
+              "GOLD 3",
+              "Severe",
+              "30% – 49%"
+            ],
+            [
+              "GOLD 4",
+              "Very Severe",
+              "< 30%"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis (The 'VET' Rule)",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Dyspnea Differentials",
+          "branches": [
+            "Asthma (Early onset, reversible)",
+            "Congestive Heart Failure (Fine basilar crackles)",
+            "Bronchiectasis (Large sputum volume)",
+            "Tuberculosis (Endemic areas)",
+            "Obliterative Bronchiolitis (Post-transplant)"
+          ]
+        }
+      },
+      {
+        "title": "Ocular Manifestations & Concerns",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Hypoxic Retinopathy: Chronic CO2 retention and low O2 can cause retinal venous tortuosity and dilation.",
+          "Dry Eye Disease (DED): Increased prevalence due to smoking and oxygen mask airflow ('wind' over the ocular surface).",
+          "Steroid-Induced Glaucoma: Chronic systemic or inhaled steroid use increases IOP risk (Ocular Hypertension).",
+          "Posterior Subcapsular Cataract (PSC): Higher incidence in patients on long-term corticosteroids for exacerbations.",
+          "Normal Tension Glaucoma (NTG): Potential link due to chronic vascular dysregulation and nocturnal hypoxia.",
+          "Floppy Eyelid Syndrome: Strongly associated with OSA, which frequently co-exists with COPD (Overlap Syndrome)."
+        ]
+      },
+      {
+        "title": "Perioperative Ophthalmic Considerations",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Assess Positioning - Can the patient lie flat (orthopnea)? Consider 'Incline' surgery for cataracts.",
+          "Step 2: Cough Control - Intense coughing during intraocular surgery (e.g., Phaco) risks expulsive choroidal hemorrhage.",
+          "Step 3: Anesthesia Choice - Avoid retrobulbar blocks if the patient cannot hold their breath or is highly anxious.",
+          "Step 4: Oxygenation - Ensure nasal cannula flow doesn't create 'wind' across the cornea during surgery (DED/Infection risk).",
+          "Step 5: Drug Interactions - Topical Beta-blockers (Timolol) are CONTRAINDICATED or must be used with extreme caution (risk of bronchospasm)."
+        ]
+      },
+      {
+        "title": "CRITICAL: Ophthalmic Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Use of Topical Timolol/Beta-blockers in COPD (Potential for fatal bronchospasm).",
+          "Sudden vision loss during a coughing fit (Valsalva Retinopathy).",
+          "Acute Angle Closure triggered by nebulized anticholinergics (Ipratropium) leaking into the eyes via poorly fitted masks.",
+          "Chronic high-dose steroids resulting in IOP > 30 mmHg."
+        ]
+      },
+      {
+        "title": "Mnemonic: Systemic Treatment (ABCDE)",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "ABCDE",
+          "explanation": "A: Albuterol (SABA); B: Bromides (LAMA/Anticholinergics); C: Corticosteroids (Inhaled); D: Diet/Delivery (Oxygen); E: Exercise/Education (Rehab)."
+        }
+      },
+      {
+        "title": "Pharmacological Management (GOLD 2024)",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Group",
+            "Characteristics",
+            "Recommended First Choice"
+          ],
+          "rows": [
+            [
+              "Group A",
+              "0-1 exacerbations, low symptoms",
+              "A Bronchodilator (SABA or LABA)"
+            ],
+            [
+              "Group B",
+              "0-1 exacerbations, high symptoms",
+              "LABA + LAMA"
+            ],
+            [
+              "Group E",
+              "≥ 2 exacerbations OR 1 hospital",
+              "LABA + LAMA (consider ICS if Eos ≥ 300)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Management & Advanced Care",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Lung Volume Reduction Surgery (LVRS) for upper-lobe emphysema.",
+          "Endobronchial Valves (EBV): One-way valves to collapse hyperinflated segments.",
+          "Lung Transplantation: For GOLD 4 patients with high BODE scores.",
+          "Pulmonary Rehabilitation: Proven to improve QoL and exercise tolerance."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Systemic Risks",
+          "branches": [
+            "Cor Pulmonale (R-Heart Failure)",
+            "Secondary Polycythemia",
+            "Spontaneous Pneumothorax",
+            "Weight Loss / Sarcopenia",
+            "Anxiety & Depression",
+            "Increased Lung Cancer Risk"
+          ]
+        }
+      },
+      {
+        "title": "Landmark Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "BODE Index: Predictive of mortality (BMI, Obstruction, Dyspnea, Exercise capacity).",
+          "Alpha-1 Antitrypsin (AAT) Screening: Every patient with COPD should be tested at least once.",
+          "Oxygen Therapy: The only intervention (besides smoking cessation) shown to improve survival in COPD with severe resting hypoxemia.",
+          "The 6-Minute Walk Test (6MWT): A simple, reproducible marker of functional capacity and prognosis.",
+          "ECLIPSE Study: Confirmed that frequent exacerbators (≥2/year) remain frequent exacerbators, regardless of GOLD grade."
+        ]
+      }
+    ],
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "_newlyImported": 1775044687769,
+  "communityId": "sub_1773775007770_x6ce5qb2md6wub",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

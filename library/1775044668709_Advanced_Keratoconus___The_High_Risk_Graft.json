@@ -1,0 +1,310 @@
+{
+  "id": 1775044668709,
+  "seqId": 221,
+  "title": "Advanced Keratoconus & The High-Risk Graft",
+  "summary": "A comprehensive clinical guide focusing on the management of stage IV Keratoconus and the critical immunological implications of corneal vascularization in penetrating keratoplasty (PKP).",
+  "date": "2026-04-01T11:57:48.709Z",
+  "data": {
+    "title": "Advanced Keratoconus & The High-Risk Graft",
+    "summary": "A comprehensive clinical guide focusing on the management of stage IV Keratoconus and the critical immunological implications of corneal vascularization in penetrating keratoplasty (PKP).",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='20,50 Q50,10 80,50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M50,20 L50,35 M40,22 L45,33 M60,22 L55,33' stroke='red' stroke-width='1'/><circle cx='50' cy='40' r='15' fill='hsla(215, 90%, 45%, 0.2)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Overview: Advanced Keratoconus",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Advanced Keratoconus (Stage IV) is characterized by severe corneal thinning (<200μm), extreme steepening (>55D), and the presence of Vogt's striae, Fleischer rings, and potentially apical scarring. When one eye has progressed to surgical intervention (PKP), the fellow eye requires meticulous monitoring and often specialized contact lens fitting or lamellar surgery to maintain visual rehabilitation."
+      },
+      {
+        "title": "Amsler-Krumeich Staging System",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Stage",
+            "Refraction / Myopia",
+            "Mean K (Diopters)",
+            "Pachymetry (μm)",
+            "Clinical Signs"
+          ],
+          "rows": [
+            [
+              "Stage I",
+              "< 8.00 D",
+              "< 48.00 D",
+              "> 500 μm",
+              "Eccentric steepening"
+            ],
+            [
+              "Stage II",
+              "8.00 - 10.00 D",
+              "48.00 - 53.00 D",
+              "400 - 500 μm",
+              "No scarring"
+            ],
+            [
+              "Stage III",
+              "> 10.00 D",
+              "53.00 - 55.00 D",
+              "300 - 400 μm",
+              "No scarring"
+            ],
+            [
+              "Stage IV",
+              "Unmeasurable",
+              "> 55.00 D",
+              "< 200-300 μm",
+              "Central corneal scarring"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Vascularization Verdict: Deep vs. Superficial",
+        "icon": "warning",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Feature",
+            "Superficial Vascularization",
+            "Deep Stromal Vascularization"
+          ],
+          "rows": [
+            [
+              "Origin",
+              "Limbal loops (conjunctival)",
+              "Long posterior ciliary / Anterior ciliary"
+            ],
+            [
+              "Appearance",
+              "Fine, branching, crosses limbus",
+              "Straight, 'brush-like', disappears at limbus"
+            ],
+            [
+              "Risk Level",
+              "Moderate (Type IV Hypersensitivity)",
+              "CRITICAL (High Risk for Rejection)"
+            ],
+            [
+              "Why it's dangerous",
+              "Associated with chronic surface inflammation.",
+              "Bypasses the 'immune privilege' by providing direct access for T-lymphocytes and antibodies to the donor stroma and endothelium."
+            ],
+            [
+              "Graft Survival",
+              "70-80% at 5 years",
+              "Significant drop; often <50% if >2 quadrants involved"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Treatment Algorithm: Advanced Keratoconus",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Scleral Lens Trial - Bypasses irregular cornea with a fluid reservoir.",
+          "Step 2: CXL (Cross-linking) - Only if cornea >400μm (or use riboflavin-soaked sponge/hypotonic drops).",
+          "Step 3: DALK (Deep Anterior Lamellar Keratoplasty) - Preferred if endothelium is healthy; eliminates rejection risk of endothelium.",
+          "Step 4: PKP (Penetrating Keratoplasty) - Reserved for full-thickness scars or Descemet's membrane ruptures."
+        ]
+      },
+      {
+        "title": "Pathophysiology Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Keratoconus Ectasia",
+          "branches": [
+            "MMP Upregulation",
+            "Collagen Cross-link Reduction",
+            "Oxidative Stress",
+            "Epithelial Thinning",
+            "Bowman Layer Breaks"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup for Advanced KC",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Tomography (Pentacam/Galilei): Posterior elevation is the earliest sign.",
+          "AS-OCT: Measure minimum corneal thickness and epithelial mapping.",
+          "Specular Microscopy: Assess endothelial health before considering DALK.",
+          "Retinoscopy: Scissor reflex is pathognomonic.",
+          "Slit Lamp: Fleischer ring (iron at base), Vogt's striae (vertical stress lines)."
+        ]
+      },
+      {
+        "title": "Mnemonic: Rejection Signs (RSVP)",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "RSVP",
+          "explanation": "R: Redness (Perilimbal/Ciliary flush); S: Sensitivity to light (Photophobia); V: Vision decrease (Blurred vision); P: Pain."
+        }
+      },
+      {
+        "title": "Differential Diagnosis of Ectasia",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Corneal Thinning",
+          "branches": [
+            "Pellucid Marginal Degeneration (Beer belly)",
+            "Keratoglobus (Limbal-to-limbal thinning)",
+            "Post-LASIK Ectasia",
+            "Terrien Marginal Degeneration"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Acute Hydrops",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset of severe pain",
+          "Dramatic drop in vision",
+          "White, opaque corneal appearance",
+          "Break in Descemet's Membrane",
+          "Avoid PKP in acute phase (poor suture hold)"
+        ]
+      },
+      {
+        "title": "Surgical Comparison: PKP vs. DALK",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "PKP (Penetrating)",
+            "DALK (Lamellar)"
+          ],
+          "rows": [
+            [
+              "Layers Replaced",
+              "All layers (Full thickness)",
+              "Epithelium & Stroma (Saves Endothelium)"
+            ],
+            [
+              "Endothelial Rejection",
+              "Risk exists (Khodadoust line)",
+              "Zero risk"
+            ],
+            [
+              "Visual Recovery",
+              "Slow (12-18 months)",
+              "Slow, but faster than PKP"
+            ],
+            [
+              "Wound Strength",
+              "Lower; lifelong risk of dehiscence",
+              "Higher; host-descemet integrity remains"
+            ],
+            [
+              "Main Challenge",
+              "Immunological rejection",
+              "Interface haze / Intraoperative perforation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls for Graft Management",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Suture removal is indicated for vascularization tracking toward the graft-host junction.",
+          "Deep vascularization requires aggressive topical steroids (e.g., Pred Forte q1h) and potentially subconjunctival injections.",
+          "In the KC eye, scleral lenses can delay the need for surgery by 5-10 years.",
+          "Always check for Khodadoust line: a linear precipitate of inflammatory cells on the endothelium."
+        ]
+      },
+      {
+        "title": "Landmark Study: CLEK",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "The Collaborative Longitudinal Evaluation of Keratoconus (CLEK) study demonstrated that corneal scarring was associated with a higher risk of disease progression and that rigid contact lens wear does not 'stop' the progression of ectasia, though it provides the best visual correction."
+      },
+      {
+        "title": "Recent Advances: CXL Plus",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Athens Protocol: Simultaneous Topography-guided PRK + CXL.",
+          "KeraNatural: Use of gamma-irradiated sterile corneal tissue inlays.",
+          "CAIRS: Corneal Allogenic Intrastromal Ring Segments (using donor stroma instead of PMMA)."
+        ]
+      },
+      {
+        "title": "Graft Survival vs. Vascularization Degree",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Avascular",
+              "value": 95
+            },
+            {
+              "label": "1-2 Quadrants",
+              "value": 75
+            },
+            {
+              "label": "3-4 Quadrants (Deep)",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Post-PKP Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Week 1-4: Pred Forte q2h + Topical Antibiotic qid.",
+          "Month 3-6: Suture adjustment/removal based on topography and astigmatism.",
+          "Month 12+: Tapering to once-daily steroid (often lifelong in high-risk grafts)."
+        ]
+      }
+    ],
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044668709,
+  "communityId": "sub_1774352254516_48vyllt8zsdozx",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

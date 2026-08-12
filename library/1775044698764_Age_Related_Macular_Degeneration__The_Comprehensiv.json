@@ -1,0 +1,374 @@
+{
+  "id": 1775044698764,
+  "seqId": 490,
+  "title": "Age-Related Macular Degeneration: The Comprehensive Clinical Roadmap",
+  "summary": "AMD is a progressive degenerative disease of the RPE, Bruch’s membrane, and choriocapillaris, serving as the leading cause of irreversible vision loss in patients over 50. This guide provides a high-yield synthesis of pathophysiology, multimodal imaging, and the evolving landscape of Anti-VEGF and Geographic Atrophy therapeutics.",
+  "date": "2026-04-01T11:58:18.764Z",
+  "data": {
+    "title": "Age-Related Macular Degeneration: The Comprehensive Clinical Roadmap",
+    "summary": "AMD is a progressive degenerative disease of the RPE, Bruch’s membrane, and choriocapillaris, serving as the leading cause of irreversible vision loss in patients over 50. This guide provides a high-yield synthesis of pathophysiology, multimodal imaging, and the evolving landscape of Anti-VEGF and Geographic Atrophy therapeutics.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='30' fill='hsl(215, 90%, 45%)' opacity='0.2'/><path d='M70 100 Q100 70 130 100 Q100 130 70 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='95' cy='95' r='3' fill='yellow'/><circle cx='105' cy='102' r='4' fill='yellow'/><circle cx='110' cy='92' r='2' fill='yellow'/><path d='M100 80 L100 120 M80 100 L120 100' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Age-Related Macular Degeneration (AMD) is a chronic, progressive disease of the macula characterized by the presence of drusen and retinal pigment epithelial (RPE) abnormalities. It is classified into 'Dry' (non-exudative), involving geographic atrophy (GA), and 'Wet' (exudative/neovascular), characterized by Choroidal Neovascularization (CNV). It remains the primary cause of legal blindness in individuals aged 65 and older in industrialized nations."
+      },
+      {
+        "title": "Epidemiology & Modifiable Risks",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Age >75 (Prevalence)",
+              "value": 35
+            },
+            {
+              "label": "Smoking (Relative Risk Increase)",
+              "value": 400
+            },
+            {
+              "label": "Obesity (Risk Factor Impact)",
+              "value": 60
+            },
+            {
+              "label": "Genetic Predisposition (CFH/ARMS2)",
+              "value": 75
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Cascade",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "AMD Genesis",
+          "branches": [
+            "RPE Mitochondrial Dysfunction",
+            "Lipofuscin (A2E) Accumulation",
+            "Bruch's Membrane Calcification",
+            "Complement Cascade Dysregulation",
+            "Choriocapillaris Dropout",
+            "VEGF Overexpression (Wet)"
+          ]
+        }
+      },
+      {
+        "title": "AREDS Clinical Classification",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Category",
+            "Findings",
+            "5-Year Progression Risk"
+          ],
+          "rows": [
+            [
+              "Category 1 (No AMD)",
+              "No or few small drusen (<63μm)",
+              "<1%"
+            ],
+            [
+              "Category 2 (Early)",
+              "Multiple small drusen, few intermediate (63-124μm), or RPE changes",
+              "1.3%"
+            ],
+            [
+              "Category 3 (Intermediate)",
+              "At least one large drusen (>125μm), extensive intermediate drusen, or non-central GA",
+              "18%"
+            ],
+            [
+              "Category 4 (Advanced)",
+              "Central GA or Neovascular AMD in one eye",
+              "43% (of the fellow eye)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Metamorphopsia (distortion on Amsler Grid)",
+          "Central Scotoma (relative or absolute)",
+          "Decreased Contrast Sensitivity",
+          "Slow Dark Adaptation (early sign)",
+          "Micropsia/Macropsia in exudative stages",
+          "Painless, progressive decline in visual acuity"
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "microscope",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Hard Drusen: Small, yellow, well-defined (hyaline deposits)",
+          "Soft Drusen: Large, fuzzy-edged (signify RPE detachment risk)",
+          "RPE Hyper/Hypopigmentation (mottling)",
+          "Geographic Atrophy: Sharply demarcated areas of RPE loss showing choroidal vessels",
+          "Subretinal fluid, hemorrhage, or lipid exudation (CNV)",
+          "Disciform Scar: End-stage subretinal fibrosis"
+        ]
+      },
+      {
+        "title": "Multimodal Imaging: OCT Findings",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "OCT Feature",
+            "Description",
+            "Clinical Significance"
+          ],
+          "rows": [
+            [
+              "Intraretinal Fluid (IRF)",
+              "Cystoid spaces within retina",
+              "Active exudation, often worse prognosis than SRF"
+            ],
+            [
+              "Subretinal Fluid (SRF)",
+              "Fluid between neurosensory retina & RPE",
+              "Sign of active CNV; better tolerated than IRF"
+            ],
+            [
+              "PED (Pigment Epithelial Detachment)",
+              "RPE elevation (Serous, Fibrovascular, or Drusenoid)",
+              "High risk of RPE tear if serous"
+            ],
+            [
+              "SHRM",
+              "Subretinal Hyperreflective Material",
+              "Fibrin, blood, or CNV; correlates with poor VA"
+            ],
+            [
+              "Double Layer Sign",
+              "Shallow elevation of RPE from Bruch's",
+              "Highly suggestive of Type 1 CNV (Occult)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Classification of CNV Types",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Neovascular AMD",
+          "branches": [
+            "Type 1: Sub-RPE (Occult)",
+            "Type 2: Sub-retinal (Classic)",
+            "Type 3: Retinal Angiomatous Proliferation (RAP)",
+            "Type 4: Polypoidal Choroidal Vasculopathy (PCV)"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "CSC",
+              "Younger patients, pachychoroid, 'smokestack' FFA"
+            ],
+            [
+              "Best Disease",
+              "Vitelliform lesion, abnormal EOG, normal ERG"
+            ],
+            [
+              "Pattern Dystrophy",
+              "Yellow-orange pigment at macula, younger onset"
+            ],
+            [
+              "Myopic CNV",
+              "High myopia, lacquer cracks, smaller CNV"
+            ],
+            [
+              "Drug Toxicity",
+              "Chloroquine/Hydroxychloroquine (Bull's eye)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management: Dry AMD & GA",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Smoking Cessation (Critical step)",
+          "2. AREDS2 Supplementation (for Category 3 or 4)",
+          "3. Home Monitoring: Amsler Grid or ForeseeHome PHP",
+          "4. Low Vision Rehabilitation: For advanced GA",
+          "5. Complement Inhibitors: Pegcetacoplan or Avacincaptad pegol (IVT injections)"
+        ]
+      },
+      {
+        "title": "Management: Wet AMD (Anti-VEGF)",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Diagnosis: Confirm activity via OCT/FFA/OCTA",
+          "2. Loading Phase: 3-5 Monthly injections",
+          "3. Maintenance: Treat-and-Extend (T&E) or Pro-re-nata (PRN)",
+          "4. Monitoring: Monthly or extended intervals with OCT",
+          "5. Switching: Consider agent change if poor response"
+        ]
+      },
+      {
+        "title": "The Anti-VEGF Armamentarium",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Drug",
+            "Mechanism",
+            "Standard Dose",
+            "Landmark Trial"
+          ],
+          "rows": [
+            [
+              "Bevacizumab (Avastin)",
+              "Pan-VEGF monoclonal antibody (Off-label)",
+              "1.25 mg",
+              "CATT / IVAN"
+            ],
+            [
+              "Ranibizumab (Lucentis)",
+              "Fab fragment, binds all VEGF-A isoforms",
+              "0.5 mg",
+              "MARINA / ANCHOR"
+            ],
+            [
+              "Aflibercept (Eylea)",
+              "VEGF Trap (VEGF-A, B, and PlGF)",
+              "2.0 mg (8mg high dose)",
+              "VIEW 1 & 2 / PULSAR"
+            ],
+            [
+              "Faricimab (Vabysmo)",
+              "Bispecific (VEGF-A & Angiopoietin-2)",
+              "6.0 mg",
+              "TENAYA / LUCERNE"
+            ],
+            [
+              "Brolucizumab (Beovu)",
+              "Single-chain antibody fragment (scFv)",
+              "6.0 mg",
+              "HAWK / HARRIER"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "URGENT RED FLAGS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset of Metamorphopsia (Signifies fluid/CNV conversion)",
+          "Submacular Hemorrhage (Requires urgent pneumatic displacement or TPA)",
+          "RPE Tear (Sudden vision drop, usually after IVT in large serous PED)",
+          "Endophthalmitis post-injection (Pain, hypopyon, rapid vision loss)",
+          "Intraocular Inflammation (IOI) / Vasculitis (Especially associated with Brolucizumab)"
+        ]
+      },
+      {
+        "title": "Remember: AREDS2 Formulation",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Vitamin C-E-Z-L-Z",
+          "explanation": "C (500mg), E (400 IU), Zinc (80mg), Lutein (10mg), Zeaxanthin (2mg). Copper (2mg) is added to prevent zinc-induced anemia."
+        }
+      },
+      {
+        "title": "Landmark Clinical Trials",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "MARINA/ANCHOR: Established Ranibizumab superiority over PDT/Sham.",
+          "CATT: Bevacizumab is non-inferior to Ranibizumab.",
+          "AREDS/AREDS2: Antioxidants reduce risk of progression by 25%.",
+          "VIEW 1/2: Aflibercept q8w is non-inferior to Ranibizumab q4w.",
+          "GATHER/OAKS: New treatments for GA (geographic atrophy)."
+        ]
+      },
+      {
+        "title": "Advanced Surgical & Laser Interventions",
+        "icon": "precision_manufacturing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Photodynamic Therapy (PDT): Cold laser with Verteporfin; mainly for PCV now.",
+          "Submacular Surgery: Clot displacement with gas + TPA.",
+          "Port Delivery System (Susvimo): Permanent refillable implant for Ranibizumab.",
+          "Telescopic Implants (Samsara): For end-stage bilateral GA/Disciform scars."
+        ]
+      },
+      {
+        "title": "Clinical Pearls & Exam High-Yields",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Classic CNV (Type 2) shows early bright lacy hyperfluorescence on FFA.",
+          "Occult CNV (Type 1) shows late stippled leakage.",
+          "RAP (Type 3) often starts with intraretinal hemorrhages and edema.",
+          "PCV (Type 4) is more common in Asian populations; use ICG to see polyps.",
+          "Geographic Atrophy expansion is faster in 'hyperautofluorescent' borders on FAF."
+        ]
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1775044698764,
+  "communityId": "sub_1774352254516_rhpzhzqjqhbmby",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z",
+  "read": false
+}

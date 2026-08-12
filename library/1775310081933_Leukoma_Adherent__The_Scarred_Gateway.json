@@ -1,0 +1,302 @@
+{
+  "id": 1775310081933,
+  "seqId": 638,
+  "title": "Leukoma Adherent: The Scarred Gateway",
+  "summary": "A complex clinical entity featuring a dense full-thickness corneal opacity with iris tissue incarcerated or attached to its posterior surface. It represents the end-stage of a corneal perforation, where the iris acts as a natural tamponade.",
+  "date": "2026-04-04T13:41:21.933Z",
+  "data": {
+    "title": "Leukoma Adherent: The Scarred Gateway",
+    "summary": "A complex clinical entity featuring a dense full-thickness corneal opacity with iris tissue incarcerated or attached to its posterior surface. It represents the end-stage of a corneal perforation, where the iris acts as a natural tamponade.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 80%)' stroke='hsl(215, 90%, 45%)'/><path d='M50 35 L50 45 M50 55 L50 65 M35 50 L45 50 M55 50 L65 50' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><path d='M45 45 Q50 50 55 45' fill='white' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><path d='M42 42 L48 48' stroke='red' stroke-width='1.5' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Leukoma Adherent is a dense, white, vascularized or non-vascularized corneal scar (leukoma) that is associated with the incarceration of iris tissue into the posterior corneal layers. It typically results from a previous full-thickness corneal perforation, where the iris moves forward to plug the defect, subsequently undergoing fibrovascular fusion with the corneal stroma."
+      },
+      {
+        "title": "Pathophysiology: The Road to Incarceration",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Full-Thickness Breach: Resulting from trauma or a melting corneal ulcer (desmetocele rupture).",
+          "2. Aqueous Outflow: Sudden loss of anterior chamber (AC) depth as aqueous escapes.",
+          "3. Iris Prolapse/Plug: The iris is pushed forward by posterior pressure, plugging the corneal hole.",
+          "4. Fibrin Scaffolding: Fibrin exudates create a temporary bond between iris and cornea.",
+          "5. Fibrosis & Cicatrization: Keratocytes transform into myofibroblasts, creating a permanent collagenous scar (leukoma) that traps the iris tissue."
+        ]
+      },
+      {
+        "title": "Primary Etiologies",
+        "icon": "biotech",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Penetrating Trauma",
+              "value": 65
+            },
+            {
+              "label": "Perforated Ulcer",
+              "value": 25
+            },
+            {
+              "label": "Surgical Complication",
+              "value": 7
+            },
+            {
+              "label": "Congenital (Peters)",
+              "value": 3
+            }
+          ]
+        }
+      },
+      {
+        "title": "Classification of Corneal Opacities",
+        "icon": "reorder",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Description",
+            "Iris Involvement"
+          ],
+          "rows": [
+            [
+              "Nebula",
+              "Faint, ground-glass opacity; iris details visible.",
+              "None"
+            ],
+            [
+              "Macula",
+              "Translucent scar; iris details hazy.",
+              "None"
+            ],
+            [
+              "Leukoma",
+              "Opaque white scar; iris details NOT visible.",
+              "None"
+            ],
+            [
+              "Leukoma Adherent",
+              "Opaque white scar with iris tissue attached posteriorly.",
+              "Incarcerated/Synechial"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Severe reduction in Visual Acuity (if central).",
+          "Photophobia and glare (due to light scattering).",
+          "Visible white spot on the cornea.",
+          "Distorted or 'peaked' pupil shape (corectopia).",
+          "Occasional ocular pain if secondary glaucoma is present.",
+          "History of trauma or 'bursting' sensation during an infection."
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Slit-Lamp: Dense white opacity, often with superficial or deep vascularization.",
+          "Anterior Chamber: Localized shallowing at the site of adherence.",
+          "Pupil: Peaked toward the scar; iris pigment may be visible on the posterior scar surface.",
+          "IOP: Often elevated due to secondary angle-closure or peripheral anterior synechiae (PAS).",
+          "Gonioscopy: Broad-based PAS in the quadrant of the leukoma."
+        ]
+      },
+      {
+        "title": "Diagnostic Imaging Workup",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Modality",
+            "Clinical Value",
+            "Limitations"
+          ],
+          "rows": [
+            [
+              "AS-OCT",
+              "Visualizes iris-cornea interface; measures scar depth.",
+              "Shadowing behind dense leukoma."
+            ],
+            [
+              "UBM (80MHz)",
+              "Gold standard; penetrates opaque tissue to see posterior synechiae.",
+              "Requires immersion/contact probe."
+            ],
+            [
+              "B-Scan USG",
+              "Excludes posterior segment pathology (RD, endophthalmitis).",
+              "Lower resolution for anterior structures."
+            ],
+            [
+              "Topography",
+              "Quantifies irregular astigmatism and corneal thinning.",
+              "Often fails in very dense scars."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Adherent Leukoma Mimics",
+          "branches": [
+            "Peters Anomaly (Congenital)",
+            "Iris Cysts (Touch without scar)",
+            "Phacomorphic Glaucoma (Iris-cornea touch)",
+            "Staphyloma (Corneal thinning + bulging)",
+            "Band Keratopathy (Surface calcium)",
+            "Failed Keratoplasty (Graft-iris synechiae)"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Immediate Concerns",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden increase in IOP (Secondary Angle Closure Glaucoma).",
+          "Worsening pain and redness (Possible late-onset Endophthalmitis).",
+          "Epithelial defect over the scar (Risk of neurotrophic melt).",
+          "Deep vascularization reaching the limbus (High risk for graft rejection)."
+        ]
+      },
+      {
+        "title": "Management Strategy Algorithm",
+        "icon": "settings",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Control IOP using topical Beta-blockers or CAIs (avoid miotics which may pull on synechiae).",
+          "Step 2: Assess visual potential via Entoptic visualization or VEP.",
+          "Step 3: Medical Management (Lubricants, BCL) for surface irregularities.",
+          "Step 4: Surgical Intervention if visual axis is obscured or IOP is refractory.",
+          "Step 5: Post-operative monitoring for graft rejection or glaucoma recurrence."
+        ]
+      },
+      {
+        "title": "Surgical Techniques",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Internal Synechiolysis: Using viscoelastics (Healon GV) or cyclodialysis spatula via a side-port.",
+          "Optical Iridectomy: Creating a new pupil aperture behind clear cornea (if central scar is small).",
+          "Penetrating Keratoplasty (PKP): Full-thickness graft (indicated for large, central scars).",
+          "Sector Iridectomy: Often performed concurrently with PKP to clear the pupillary axis.",
+          "Keratoprosthesis (KPro): For bilateral cases or high-risk graft failure (Type 1 Boston KPro)."
+        ]
+      },
+      {
+        "title": "Surgical Complications",
+        "icon": "error",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Intraoperative Iris Hemorrhage (Hyphema).",
+          "Iridodialysis during synechiolysis.",
+          "High risk of Graft Rejection due to pre-existing vascularization.",
+          "Post-keratoplasty Glaucoma (up to 30% of cases).",
+          "Endophthalmitis (rare but devastating)."
+        ]
+      },
+      {
+        "title": "Mnemonics for Adherent Leukoma",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.U.P.I.L.",
+          "explanation": "P: Perforation history, U: Ulcer/Uveal tissue, P: Peaked iris, I: Increased IOP, L: Leukoma (Dense scar)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Always check for a 'double-contoured' scar on AS-OCT to confirm iris involvement.",
+          "Pre-operative UBM is essential to plan the site of the donor graft to avoid synechiae recurrence.",
+          "Long-term steroid coverage is often needed post-PKP due to the high antigenic load of vascularized scars.",
+          "Consider 'Large Diameter PKP' if PAS are extensive to clear the angle."
+        ]
+      },
+      {
+        "title": "Pediatric Considerations: Peters Anomaly",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "In infants, a central adherent leukoma without a history of trauma is 'Peters Anomaly Type 1' (iris-corneal touch). Unlike acquired leukoma adherent, this is a mesenchymal dysgenesis. Management requires early PKP (within months) to prevent amblyopia, though the prognosis is significantly poorer than in adults."
+      },
+      {
+        "title": "Prognostic Indicators",
+        "icon": "trending_up",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Success (Avascular Scar)",
+              "value": 85
+            },
+            {
+              "label": "Success (Vascularized Scar)",
+              "value": 55
+            },
+            {
+              "label": "Success (Peters Anomaly)",
+              "value": 30
+            },
+            {
+              "label": "Success (Glaucoma + PKP)",
+              "value": 45
+            }
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Leukoma adherent",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "read": true
+}

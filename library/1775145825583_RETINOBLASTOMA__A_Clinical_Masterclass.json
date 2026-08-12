@@ -1,0 +1,307 @@
+{
+  "id": 1775145825583,
+  "seqId": 561,
+  "title": "RETINOBLASTOMA: A Clinical Masterclass",
+  "summary": "Retinoblastoma (Rb) is the most common primary intraocular malignancy of childhood, arising from the neurosensory retina due to biallelic inactivation of the RB1 gene. Early detection and multidisciplinary management are critical for life-saving and globe-salvaging outcomes.",
+  "date": "2026-04-02T16:03:45.583Z",
+  "data": {
+    "title": "RETINOBLASTOMA: A Clinical Masterclass",
+    "summary": "Retinoblastoma (Rb) is the most common primary intraocular malignancy of childhood, arising from the neurosensory retina due to biallelic inactivation of the RB1 gene. Early detection and multidisciplinary management are critical for life-saving and globe-salvaging outcomes.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' stroke='#2c3e50' stroke-width='4' fill='white'/><circle cx='100' cy='100' r='30' fill='#2c3e50'/><path d='M130 70 Q 150 90 140 120 Q 120 140 100 130' fill='#e74c3c' opacity='0.7'/><circle cx='135' cy='95' r='5' fill='white' opacity='0.9'/><path d='M40 100 A 60 60 0 0 1 160 100' stroke='#3498db' stroke-width='8' fill='none' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Diagnosed < 2yrs (%)",
+              "value": 80
+            },
+            {
+              "label": "Bilateral Cases (%)",
+              "value": 40
+            },
+            {
+              "label": "Diagnosed > 5yrs (%)",
+              "value": 5
+            },
+            {
+              "label": "Germline Mutation (%)",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Genetics: Knudson's Two-Hit Hypothesis",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "RB1 Gene (13q14)",
+          "branches": [
+            "Germline: 1st hit inherited, 2nd hit somatic (Bilateral/Multifocal)",
+            "Somatic: Both hits occur in a single retinal cell (Unilateral/Unifocal)",
+            "pRb Protein: Regulates G1 to S phase cell cycle checkpoint",
+            "Penetrance: 90% (High but incomplete)"
+          ]
+        }
+      },
+      {
+        "title": "International Classification of Retinoblastoma (ICRB)",
+        "icon": "table",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Group",
+            "Description",
+            "Prognosis for Globe Salvage"
+          ],
+          "rows": [
+            [
+              "Group A",
+              "Small tumors (≤ 3 mm) away from foveola/disk (> 3 mm)",
+              "Very High (> 95%)"
+            ],
+            [
+              "Group B",
+              "Tumors > 3 mm, macular/peripapillary, or subretinal fluid (< 3 mm from tumor)",
+              "High (90%)"
+            ],
+            [
+              "Group C",
+              "Discrete local seeds (subretinal or vitreous) within 3 mm of tumor",
+              "Moderate (70%)"
+            ],
+            [
+              "Group D",
+              "Diffuse seeds (> 3 mm from tumor) or extensive subretinal fluid",
+              "Low (30-50%)"
+            ],
+            [
+              "Group E",
+              "Tumor touching lens, anterior segment involvement, neovascular glaucoma, or phthisis",
+              "Very Low (< 5%)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation: Beyond Leukocoria",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Leukocoria (60%): The most common presenting sign (white pupillary reflex).",
+          "Strabismus (20%): Due to macular involvement or poor vision.",
+          "Atypical Presentations: Pseudohypopyon, hyphema, or spontaneous vitreous hemorrhage.",
+          "Inflammation: Orbital cellulitis-like picture (sterile pseudoinflammation from tumor necrosis).",
+          "Advanced Disease: Neovascular glaucoma, buphthalmos, and proptosis."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: 'The White Pupil'",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Disease",
+            "Differentiating Features"
+          ],
+          "rows": [
+            [
+              "Coats Disease",
+              "Telangiectatic vessels, massive exudates, NO calcification on USG."
+            ],
+            [
+              "PHPV / PFV",
+              "Microphthalmos, elongated ciliary processes, retrolental stalk."
+            ],
+            [
+              "Toxocariasis",
+              "Peripheral or macular granuloma, tractional bands, eosinophilia."
+            ],
+            [
+              "ROP",
+              "Prematurity history, oxygen therapy, peripheral avascularity."
+            ],
+            [
+              "Astrocytoma",
+              "Seen in Tuberous Sclerosis, mulberry appearance, non-progressive."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathology: Histologic Hallmarks",
+        "icon": "microbiology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Rb Pathology",
+          "branches": [
+            "Flexner-Wintersteiner Rosettes: Pathognomonic (lumen with inner limiting membrane)",
+            "Homer Wright Rosettes: Neuroblastoma-like (no central lumen)",
+            "Fleurettes: Photoreceptor differentiation (benign retinocytoma)",
+            "Calcification: Occurs in necrotic areas (Dystrophic)",
+            "High-Risk Features: Massive uveal invasion (>3mm), post-laminar ON invasion"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Clinical History & Pedigree (family history of Rb or childhood blindness).",
+          "Step 2: EUA (Examination Under Anesthesia) with 360° depressed fundoscopy.",
+          "Step 3: B-scan Ultrasonography (Look for high reflectivity with shadowing → CALCIFICATION).",
+          "Step 4: MRI Orbits & Brain (Assess ON invasion & rule out Pinealoblastoma).",
+          "Step 5: Genetic Testing (Mandatory for all patients and siblings)."
+        ]
+      },
+      {
+        "title": "Critical Red Flags: Life-Threatening Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "TRILATERAL RB: Midline intracranial tumor (usually pinealoblastoma) in germline cases.",
+          "OPTIC NERVE ENLARGEMENT: Suggests direct CNS spread.",
+          "SECONDARY NEOPLASMS: Osteosarcoma is the most common 2nd cancer in RB1 survivors.",
+          "CONTRAINDICATION: Do NOT perform FNAB/Biopsy (Risk of extraocular seeding!).",
+          "CONTRAINDICATION: Avoid CT scans (Radiation increases risk of secondary malignancies)."
+        ]
+      },
+      {
+        "title": "Management Strategy: The Hierarchy of Goals",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. PRESERVE LIFE: Metastasis prevention and monitoring for intracranial tumors.",
+          "2. SALVAGE THE GLOBE: Using chemotherapy and focal consolidation (Laser/Cryo).",
+          "3. PRESERVE VISION: Focus on maintaining macular integrity and managing amblyopia.",
+          "4. COSMESIS: Orbital rehabilitation after enucleation if necessary."
+        ]
+      },
+      {
+        "title": "Systemic and Local Chemotherapy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "IVC (Intravenous Chemotherapy): VEC Protocol (Vincristine, Etoposide, Carboplatin). Standard for bilateral cases.",
+          "IAC (Intra-arterial Chemotherapy): Melphalan or Topotecan delivered via ophthalmic artery. High success in Group C/D.",
+          "IVitC (Intravitreal Chemotherapy): Used specifically for recalcitrant vitreous seeds (Melphalan).",
+          "Side Effects: Myelosuppression (IVC), Ophthalmic artery thrombosis (IAC), Retinal toxicity (IVitC)."
+        ]
+      },
+      {
+        "title": "Focal Consolidation Therapies",
+        "icon": "lightbulb",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Modality",
+            "Indication"
+          ],
+          "rows": [
+            [
+              "Cryotherapy",
+              "Small peripheral tumors (Group A). 'Freeze-thaw' technique."
+            ],
+            [
+              "Laser TTT",
+              "Small posterior tumors. Uses 810nm diode for hyperthermia."
+            ],
+            [
+              "Brachytherapy",
+              "Plaque (I-125) for solitary tumors not responding to chemo."
+            ],
+            [
+              "EBRT",
+              "External Beam Radiation (Historical). Last resort due to 2nd cancer risk."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Technique: Enucleation Pearls",
+        "icon": "psychology",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. 360° Peritomy followed by isolation of recti muscles.",
+          "2. Tagging of recti; avoid excessive traction on the globe to prevent seeding.",
+          "3. Use of curved enucleation scissors or snare.",
+          "4. CRITICAL: Aim for a 10-15mm stump of the Optic Nerve.",
+          "5. Placement of orbital implant (PMMA, Hydroxyapatite) and conformer."
+        ]
+      },
+      {
+        "title": "Memory Aid: High-Risk Histopathology",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PI-U-CON",
+          "explanation": "P: Post-laminar invasion, I: Iris/Anterior segment involvement, U: Uveal invasion (Massive >3mm), CON: Choroidal + Optic Nerve (concurrent) invasion."
+        }
+      },
+      {
+        "title": "Prognosis & Follow-up Schedule",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Survival: >95% in developed countries; <30% in developing nations due to late presentation.",
+          "EUA Schedule: Every 3-4 weeks initially until tumor regression is stable.",
+          "Long-term: Annual brain MRI for germline cases (up to age 5) to monitor for trilateral Rb.",
+          "Life-long follow-up for germline patients: Risk of secondary sarcomas and melanomas."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Resident Exams",
+        "icon": "star",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Pathognomonic sign: Dystrophic calcification on ultrasound ('Iceberg appearance').",
+          "Regressed Rb: Often described as 'Cottage Cheese' appearance (Type 1 regression).",
+          "The 'Salmon Patch': Retinocytoma (the benign version of Rb).",
+          "Genetic Counseling: If a parent has bilateral Rb, the risk to the child is 45-50%.",
+          "Retinoblastoma is the prototype for 'Cancer Genetics' and the first gene ever cloned (RB1)."
+        ]
+      }
+    ],
+    "generationPrompt": "Retinoblastoma",
+    "chapterId": "paediatric"
+  },
+  "chapterId": "paediatric",
+  "bookmarked": true,
+  "read": true
+}

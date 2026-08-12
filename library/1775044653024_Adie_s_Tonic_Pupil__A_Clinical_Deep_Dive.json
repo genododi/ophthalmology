@@ -1,0 +1,254 @@
+{
+  "id": 1775044653024,
+  "seqId": 54,
+  "title": "Adie's Tonic Pupil: A Clinical Deep-Dive",
+  "summary": "Adie's Tonic Pupil is a common neurological condition involving postganglionic parasympathetic denervation of the iris sphincter and ciliary muscle. This poster provides a textbook-level review of its pathophysiology, pharmacological testing, and critical differentials for the ophthalmic resident.",
+  "date": "2026-04-01T11:57:33.024Z",
+  "data": {
+    "title": "Adie's Tonic Pupil: A Clinical Deep-Dive",
+    "summary": "Adie's Tonic Pupil is a common neurological condition involving postganglionic parasympathetic denervation of the iris sphincter and ciliary muscle. This poster provides a textbook-level review of its pathophysiology, pharmacological testing, and critical differentials for the ophthalmic resident.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='25' fill='hsl(215, 90%, 20%)'/><path d='M30 50 Q 50 20 70 50' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='1.5'/><circle cx='50' cy='50' r='10' fill='black'/><path d='M50 25 L50 35 M75 50 L65 50 M50 75 L50 65 M25 50 L35 50' stroke='hsl(215, 90%, 45%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Adie’s Tonic Pupil is a benign but clinically significant condition caused by damage to the postganglionic parasympathetic fibers in the ciliary ganglion or short ciliary nerves. It is characterized by a mid-dilated pupil that reacts poorly to light but shows a robust, albeit 'tonic' (slow), response to near effort. Most cases are idiopathic, but the underlying pathology involves denervation followed by aberrant regeneration of the nerves originally destined for the ciliary body into the iris sphincter muscle."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Female Preponderance",
+              "value": 72
+            },
+            {
+              "label": "Unilateral at Onset",
+              "value": 80
+            },
+            {
+              "label": "Annual Bilateralization Rate",
+              "value": 4
+            },
+            {
+              "label": "Age 20-40 Range",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The Ciliary Ganglion Insult",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Causes of Ciliary Ganglionitis",
+          "branches": [
+            "Idiopathic (Most Common)",
+            "Viral Prodrome (Zoster, HSV)",
+            "Orbital Trauma / Surgery",
+            "Ischemia (GCA/Diabetes)",
+            "Paraneoplastic Syndromes",
+            "Neurosyphilis (Rarely tonic)"
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: Aberrant Regeneration",
+        "icon": "genetics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Insult to the Ciliary Ganglion results in parasympathetic denervation of the iris sphincter and ciliary body.",
+          "Step 2: Acute phase presents with a large, fixed pupil and loss of accommodation (blurred near vision).",
+          "Step 3: Regeneration begins. Normally, fibers to the ciliary body outnumber iris fibers 30:1.",
+          "Step 4: Aberrant Rewiring: Fibers originally destined for the ciliary body (near reflex) regrow into the iris sphincter.",
+          "Step 5: Result: Light-Near Dissociation. The pupil doesn't react to light but constricts during near effort because the 'near' signal is now sent to the iris."
+        ]
+      },
+      {
+        "title": "Hallmark Ocular Exam Findings",
+        "icon": "eye_tracking",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Anisocoria: Greater in bright light than in dim light.",
+          "Segmental Iris Palsy: 'Worm-like' (vermiform) movements of the iris border under slit-lamp.",
+          "Light-Near Dissociation: Minimal reaction to light, slow tonic constriction to near.",
+          "Tonic Redilatation: Pupil takes a long time to return to baseline size after near task.",
+          "Tonic Accommodation: Slowness in changing focus from near to far.",
+          "Decreased Corneal Sensitivity: If short ciliary nerves are involved."
+        ]
+      },
+      {
+        "title": "The Pharmacological Gold Standard",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Measure pupil sizes in controlled dim and bright light.",
+          "Step 2: Instill Pilocarpine 0.1% or 0.125% (low concentration) in both eyes.",
+          "Step 3: Wait 30–45 minutes in a dimly lit room.",
+          "Step 4: Positive Result: The Adie pupil constricts significantly; the normal pupil does NOT (due to denervation supersensitivity).",
+          "Step 5: Interpretation: Confirms post-ganglionic denervation."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "clinical_notes",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Adie's Pupil",
+            "3rd Nerve Palsy",
+            "Argyll Robertson",
+            "Pharmacological"
+          ],
+          "rows": [
+            [
+              "Pupil Size",
+              "Large (Unilateral)",
+              "Large (Unilateral)",
+              "Small (Bilateral)",
+              "Very Large"
+            ],
+            [
+              "Light Reflex",
+              "Absent/Minimal",
+              "Absent",
+              "Absent",
+              "Absent"
+            ],
+            [
+              "Near Reflex",
+              "Tonic / Slow",
+              "Absent (usually)",
+              "Brisk",
+              "Absent"
+            ],
+            [
+              "Motility",
+              "Normal",
+              "Ptosis / Diplopia",
+              "Normal",
+              "Normal"
+            ],
+            [
+              "Pilocarpine 0.1%",
+              "Constricts",
+              "No response",
+              "No response",
+              "No response"
+            ],
+            [
+              "Pilocarpine 1.0%",
+              "Constricts",
+              "Constricts",
+              "Constricts",
+              "No response"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "RED FLAG: Excluding 3rd Nerve Palsy",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset of 'Down and Out' eye position.",
+          "Presence of Ptosis (drooping eyelid).",
+          "Acute headache or 'worst headache of life' (Aneurysm risk!).",
+          "Total lack of response to BOTH light and near stimuli.",
+          "Failure of the pupil to constrict with 0.1% Pilocarpine but constricts with 1% Pilocarpine."
+        ]
+      },
+      {
+        "title": "Holmes-Adie Syndrome & Systemic Links",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Systemic Associations",
+          "branches": [
+            "Holmes-Adie: Adie's + Absent Deep Tendon Reflexes (Achilles/Patellar)",
+            "Ross Syndrome: Adie's + Hyporeflexia + Segmental Anhidrosis (excessive sweating elsewhere)",
+            "Harlequin Syndrome: Unilateral facial flushing and sweating"
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic for Adie's Characteristics",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "The 3 S's of Adie's",
+          "explanation": "S - Sectoral palsy (vermiform movements). S - Second decade (most common in young adults). S - Supersensitivity (constricts to dilute 0.125% pilo)."
+        }
+      },
+      {
+        "title": "Management & Patient Education",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Reassurance: Condition is benign and usually stabilizes.",
+          "Reading Glasses: Unequal accommodation may require a 'plus' lens for the affected eye.",
+          "Tinted Lenses: To manage photophobia from the fixed mydriasis.",
+          "Weak Pilocarpine (0.1%): May be used for cosmesis or to improve focus, though rarely needed.",
+          "Safety: Advise patients that pupillary inequality may be permanent (anisocoria evolves over years)."
+        ]
+      },
+      {
+        "title": "Natural History & Prognosis",
+        "icon": "timeline",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Initially, the Adie pupil is larger than the fellow eye. Over many years, the pupil undergoes 'Little Old Adie' syndrome—it gradually becomes smaller and may eventually be smaller than the normal pupil in dim light, though it remains non-reactive to light. Bilateral involvement occurs in roughly 4% of patients per year."
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "The 'Tonic' nature refers to the slow, sustained contraction and even slower redilatation.",
+          "If the pupil does NOT constrict with 1% Pilocarpine, it is a 'Pharmacological Pupil' (e.g., Atropine or Scopolamine patch).",
+          "Segmental palsy is best seen by turning the slit-lamp beam 90 degrees and observing the iris margin.",
+          "Always check Deep Tendon Reflexes (DTRs) in the clinic for any new tonic pupil diagnosis.",
+          "Adie's is a diagnosis of exclusion; ensure no history of trauma or use of sympathomimetics."
+        ]
+      }
+    ],
+    "generationPrompt": "Adie's pupil",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044653024,
+  "communityId": "sub_1774849543541_uv1olhogj",
+  "communityAuthor": "nino",
+  "communityDate": "2026-03-30T05:45:43.541Z"
+}

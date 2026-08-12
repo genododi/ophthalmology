@@ -1,0 +1,718 @@
+{
+  "id": 1776511149497,
+  "seqId": 804,
+  "title": "Merged: Mastering Diabetic Macular Edema (DME)",
+  "summary": "Diabetic Macular Edema (DME) is the leading cause of moderate vision loss in the working-age population. This poster provides a deep-dive into its pathophysiology, evidence-based management, and the latest landmark clinical trials.",
+  "date": "2026-04-18T11:19:08.960Z",
+  "data": {
+    "title": "Mastering Diabetic Macular Edema (DME)",
+    "summary": "Diabetic Macular Edema (DME) is the leading cause of moderate vision loss in the working-age population. This poster provides a deep-dive into its pathophysiology, evidence-based management, and the latest landmark clinical trials.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 50 Q100 20 140 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='45' r='8' fill='hsl(45, 90%, 60%)' opacity='0.7'/><circle cx='85' cy='52' r='5' fill='hsl(0, 80%, 50%)' opacity='0.8'/><circle cx='115' cy='52' r='5' fill='hsl(0, 80%, 50%)' opacity='0.8'/><line x1='60' y1='50' x2='140' y2='50' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "DME is defined as retinal thickening or hard exudate accumulation within 1 disc diameter of the center of the macula. It results from the breakdown of the inner Blood-Retinal Barrier (BRB), leading to the leakage of fluid and plasma constituents into the intraretinal layers, specifically the Outer Plexiform Layer (Henle's layer) and Inner Nuclear Layer."
+      },
+      {
+        "title": "Epidemiology: The Growing Burden",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence in Type 1 (20yr duration)",
+              "value": 29
+            },
+            {
+              "label": "Prevalence in Type 2 (20yr duration)",
+              "value": 25
+            },
+            {
+              "label": "Global Prevalence in Diabetics",
+              "value": 7
+            },
+            {
+              "label": "Vision Impairment Risk",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Molecular Cascade",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "BRB Breakdown",
+          "branches": [
+            "VEGF Pathway: Upregulation due to hypoxia",
+            "Inflammatory Cytokines: IL-6, MCP-1, TNF-alpha",
+            "Angiopoietin-2: Competes with Ang-1 for Tie2 receptor",
+            "Leukostasis: Neutrophil adhesion to capillary endothelium",
+            "Oxidative Stress: PKC pathway & Polyol pathway activation",
+            "Pericyte Loss: Leading to microaneurysm formation"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Signs",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Microaneurysms (MAs): Earliest sign, focal leakage points.",
+          "Hard Exudates (HE): Lipid deposits, often in circinate patterns.",
+          "Retinal Edema: Thickening/clouding of the macula.",
+          "Cystoid Macular Edema (CME): Fluid pockets in a petaloid pattern.",
+          "Ischemic Maculopathy: Enlarged Foveal Avascular Zone (FAZ).",
+          "Vitreomacular Interface issues: Epiretinal membranes (ERM)."
+        ]
+      },
+      {
+        "title": "ETDRS Classification: CSME Criteria",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Criterion",
+            "Clinical Presentation"
+          ],
+          "rows": [
+            [
+              "Type 1",
+              "Thickening within 500µm of foveal center"
+            ],
+            [
+              "Type 2",
+              "Hard Exudates within 500µm of center + thickening"
+            ],
+            [
+              "Type 3",
+              "Thickening ≥ 1 disc area within 1 DD of center"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: BCVA & Slit-lamp biomicroscopy (90D lens) for baseline.",
+          "Step 2: Optical Coherence Tomography (OCT) to measure CST and identify IRF/SRF.",
+          "Step 3: Fluorescein Angiography (FA) to differentiate Focal vs. Diffuse leakage.",
+          "Step 4: OCT-Angiography (OCT-A) to assess FAZ and capillary non-perfusion.",
+          "Step 5: Fundus Photography for longitudinal tracking of hard exudates."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Irvine-Gass Syndrome",
+              "Post-cataract surgery, classic petaloid leakage on FA."
+            ],
+            [
+              "Wet AMD",
+              "Subretinal neovascularization, drusen, hemorrhage."
+            ],
+            [
+              "RVO",
+              "Widespread flame hemorrhages, dilated tortuous veins."
+            ],
+            [
+              "MEWDS/Inflammation",
+              "White dots, vitreous cells, younger demographic."
+            ],
+            [
+              "Tractional CME",
+              "Visible VMT or ERM on OCT causing mechanical pull."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Medical Management: The Systemic 'Big Three'",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Glycemic Control: Target HbA1c < 7.0% (DCCT/UKPDS).",
+          "Blood Pressure Control: Target < 130/80 mmHg.",
+          "Lipid Management: Statins to reduce hard exudate accumulation (FIELD study).",
+          "Renal Function: Monitoring GFR and albuminuria."
+        ]
+      },
+      {
+        "title": "Anti-VEGF Therapy Protocols",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Drug",
+            "Mechanism / Trial"
+          ],
+          "rows": [
+            [
+              "Ranibizumab",
+              "0.3mg or 0.5mg (RISE/RIDE) - Fab fragment"
+            ],
+            [
+              "Aflibercept",
+              "2mg (VIVID/VISTA) - VEGF Trap, binds VEGF-A, B, PlGF"
+            ],
+            [
+              "Faricimab",
+              "6mg (YOSEMITE/RHINE) - Bispecific Ang-2/VEGF-A"
+            ],
+            [
+              "Bevacizumab",
+              "1.25mg (Off-label) - Full antibody"
+            ],
+            [
+              "Brolucizumab",
+              "6mg (KESTREL/KITE) - scFv fragment"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "DRCR.net Protocol T: The Comparison",
+        "icon": "school",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Aflibercept (+18 ETDRS letters)",
+              "value": 90
+            },
+            {
+              "label": "Ranibizumab (+15 letters)",
+              "value": 75
+            },
+            {
+              "label": "Bevacizumab (+13 letters)",
+              "value": 65
+            }
+          ]
+        }
+      },
+      {
+        "title": "Corticosteroid Implants",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Ozurdex (Dexamethasone 0.7mg): 3-6 month duration, biodegradable.",
+          "Iluvien (Fluocinolone 0.19mg): 36 month duration, non-biodegradable.",
+          "Indications: Chronic DME, pseudophakic patients, anti-VEGF non-responders.",
+          "Side Effects: Cataract progression (near 100%), IOP elevation (approx 30%)."
+        ]
+      },
+      {
+        "title": "Laser & Surgery",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Focal Laser: Target MAs 50-100µm size, 0.1s duration, 'light gray' burn.",
+          "Grid Laser: Applied to areas of diffuse thickening.",
+          "Subthreshold Micropulse: Minimizes collateral RPE damage.",
+          "Pars Plana Vitrectomy (PPV): Reserved for tractional DME (VMT/ERM) or refractory cases."
+        ]
+      },
+      {
+        "title": "Red Flags: When to Worry",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Endophthalmitis: Post-injection pain, redness, hypopyon.",
+          "IOP Spike: Post-steroid injection glaucoma.",
+          "Retinal Detachment: Floaters/flashes post-injection or surgery.",
+          "Ischemic Maculopathy: BCVA < 20/200 with normal CST on OCT.",
+          "Pregnancy: Caution with anti-VEGF (potential systemic absorption)."
+        ]
+      },
+      {
+        "title": "Remember the Protocol T Result",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "20/50 Threshold",
+          "explanation": "If vision is 20/50 or worse, Aflibercept was superior to Bevacizumab/Ranibizumab at 1 year. If 20/40 or better, all drugs performed similarly."
+        }
+      },
+      {
+        "title": "Landmark Clinical Trials",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Trial",
+            "Key Finding"
+          ],
+          "rows": [
+            [
+              "ETDRS",
+              "Focal laser reduced risk of moderate vision loss by 50%."
+            ],
+            [
+              "RISE/RIDE",
+              "Ranibizumab significantly improved VA vs Sham."
+            ],
+            [
+              "VIVID/VISTA",
+              "Aflibercept 2mg Q4/Q8 superior to Laser."
+            ],
+            [
+              "DRCR Protocol V",
+              "Observation is viable for DME with 20/25 or better vision."
+            ],
+            [
+              "PANORAMA",
+              "Aflibercept can improve DR severity scale (DRSS) score."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Always check for 'Disorganization of Retinal Inner Layers' (DRIL) on OCT as a prognostic marker.",
+          "DME can be 'Tractional' or 'Non-tractional'—vitrectomy only helps the former.",
+          "Hard exudates at the fovea often leave permanent scarring/subfoveal fibrosis.",
+          "NSAID drops (e.g., Nepafenac) may be an adjunct in mild, non-CI DME."
+        ]
+      },
+      {
+        "title": "Recent Advances & Future Trends",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Port Delivery Systems (PDS) for continuous ranibizumab release and Gene Therapy (RGX-314) aiming for 'one-and-done' treatment are currently in advanced clinical trials. Dual inhibition of Ang-2 and VEGF-A (Faricimab) represents the new standard for extending treatment intervals up to Q16 weeks."
+      },
+      {
+        "title": "--- Sub-topics from: Diabetic Macular Edema (DME): The Master Clinician's Guide ---",
+        "icon": "merge",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "DME is the leading cause of vision loss in the working-age population. This comprehensive guide covers the intricate pathophysiology, evolving classification systems, and the evidence-based management protocols established by landmark clinical trials."
+      },
+      {
+        "title": "Clinical Definition & Scope",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Diabetic Macular Edema (DME) is defined as the accumulation of fluid in the intraretinal layers (outer plexiform and inner nuclear layers) and/or subretinal space within the macular region. It results from a breakdown of the inner and outer blood-retinal barriers (BRB), primarily triggered by chronic hyperglycemia-induced microvascular damage. It can occur at any stage of Diabetic Retinopathy (DR)."
+      },
+      {
+        "title": "Epidemiology: The 20-Year Rule",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Type 1 (20yr duration)",
+              "value": 15
+            },
+            {
+              "label": "Type 2 (20yr duration)",
+              "value": 25
+            },
+            {
+              "label": "Overall Global Prevalence",
+              "value": 7
+            },
+            {
+              "label": "Risk with Poor HbA1c",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology Cascade",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Hyperglycemia",
+          "branches": [
+            "VEGF Upregulation",
+            "Inflammatory Cytokines (IL-6, MCP-1)",
+            "Loss of Pericytes",
+            "Leukostasis & Capillary Dropout",
+            "Oxidative Stress",
+            "Basement Membrane Thickening"
+          ]
+        }
+      },
+      {
+        "title": "ETDRS Criteria: Clinically Significant Macular Edema (CSME)",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Criterion",
+            "Clinical Description",
+            "Required Proximity to Foveal Center"
+          ],
+          "rows": [
+            [
+              "Retinal Thickening",
+              "Thickening at or within 500 µm of the center of the fovea.",
+              "≤ 500 µm"
+            ],
+            [
+              "Hard Exudates (HE)",
+              "HE at or within 500 µm with adjacent retinal thickening.",
+              "≤ 500 µm"
+            ],
+            [
+              "Large Area Thickening",
+              "Retinal thickening ≥ 1 disc area in size, any part of which is within 1 disc diameter of the foveal center.",
+              "≤ 1 DD"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "OCT Morphological Subtypes",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "DME on OCT",
+          "branches": [
+            "Sponge-like (Diffuse) Edema",
+            "Cystoid Macular Edema (CME)",
+            "Serous Retinal Detachment (SRD)",
+            "Vitreomacular Traction (VMT)",
+            "Epiretinal Membrane (ERM)"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Painless, gradual blurriness of central vision.",
+          "Metamorphopsia (distorted lines).",
+          "Micropsia / Macropsia.",
+          "Reduced contrast sensitivity.",
+          "Central or paracentral scotoma.",
+          "Hard exudates in a circinate pattern.",
+          "Microaneurysms (MA) and dot-blot hemorrhages."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Don't Be Fooled",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Irvine-Gass Syndrome",
+              "Post-cataract surgery; classic petaloid leakage on FFA."
+            ],
+            [
+              "Retinal Vein Occlusion (RVO)",
+              "Sectoral or 4-quadrant hemorrhages; tortuous veins."
+            ],
+            [
+              "Macular Telangiectasia Type 2",
+              "Right-angle vessels; temporal foveal atrophy; no lipid."
+            ],
+            [
+              "Radiation Retinopathy",
+              "History of head/neck radiation; sluggish capillary refill."
+            ],
+            [
+              "Niacin Toxicity",
+              "Pseudo-CME; no leakage on FFA."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Evidence-Based Management (DRCR.net Protocols)",
+        "icon": "school",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Systemic Optimization (HbA1c < 7.0%, Blood Pressure < 130/80, Lipids).",
+          "Step 2: Center-Involved (CI-DME) with VA 20/25 or better: Observation (Protocol V).",
+          "Step 3: CI-DME with VA 20/30 or worse: First-line Anti-VEGF (Protocol T).",
+          "Step 4: Non-Center Involved DME: Focal/Grid Laser (ETDRS Guidelines).",
+          "Step 5: Refractory to Anti-VEGF: Switch agents or add Intravitreal Steroids (Ozurdex/Iluvien).",
+          "Step 6: VMT-associated DME: Pars Plana Vitrectomy (PPV)."
+        ]
+      },
+      {
+        "title": "Pharmacotherapy: Intravitreal Agents",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Drug Class",
+            "Agent",
+            "Mechanism/Note"
+          ],
+          "rows": [
+            [
+              "Anti-VEGF",
+              "Aflibercept (Eylea)",
+              "VEGF-Trap; superior in VA < 20/50 baseline (Protocol T)."
+            ],
+            [
+              "Anti-VEGF",
+              "Ranibizumab (Lucentis)",
+              "Fab fragment; highly effective in all VA ranges."
+            ],
+            [
+              "Anti-VEGF",
+              "Bevacizumab (Avastin)",
+              "Off-label; cost-effective alternative."
+            ],
+            [
+              "Bispecific",
+              "Faricimab (Vabysmo)",
+              "Anti-VEGF & Anti-Ang2; extended durability (YOSEMITE/RHINE)."
+            ],
+            [
+              "Steroid",
+              "Dexamethasone (Ozurdex)",
+              "Slow-release implant; 3-6 month duration."
+            ],
+            [
+              "Steroid",
+              "Fluocinolone (Iluvien)",
+              "Non-erodible implant; lasts up to 36 months."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Steroid Precautions",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Pre-existing Glaucoma (High risk of IOP spike).",
+          "Advanced Cup-to-Disc ratio (> 0.8).",
+          "Phakic Status (Steroids accelerate cataract formation).",
+          "History of Herpetic Keratitis/Endophthalmitis.",
+          "Active Ocular Infection."
+        ]
+      },
+      {
+        "title": "Remember: The 'ABCD' of DME Risk",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "ABCD",
+          "explanation": "A: A1c (Poor glycemic control); B: Blood Pressure (Hypertension); C: Cholesterol (Dyslipidemia); D: Duration (Years since diagnosis)."
+        }
+      },
+      {
+        "title": "Landmark Clinical Trials Summary",
+        "icon": "history",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "ETDRS: Focal/Grid laser reduces risk of moderate vision loss by 50%.",
+          "Protocol T: Aflibercept performed better than Bevacizumab/Ranibizumab in patients with VA 20/50 or worse at 1 year.",
+          "Protocol I: Anti-VEGF + prompt or deferred laser is superior to laser alone.",
+          "Protocol V: Patients with 20/25 vision can be observed safely if monitored closely.",
+          "PANORAMA: Aflibercept can improve DR severity scales and prevent DME.",
+          "YOSEMITE/RHINE: Faricimab (Ang-2/VEGF) shows non-inferiority with potential for Q16 dosing."
+        ]
+      },
+      {
+        "title": "Surgical Technique: PPV for DME",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Core Vitrectomy with posterior vitreous detachment (PVD) induction.",
+          "2. Removal of the Internal Limiting Membrane (ILM) using ICG or Brilliant Blue G.",
+          "3. Release of any tangential traction or epiretinal membranes.",
+          "4. Consideration of steroid injection or endolaser if needed."
+        ]
+      },
+      {
+        "title": "Clinical Pearls & High-Yield Facts",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "DRIL (Disorganization of Retinal Inner Layers) is a strong biomarker for poor visual prognosis.",
+          "Hard exudates in the fovea can lead to permanent photoreceptor loss and subfoveal fibrosis.",
+          "Anemia and Renal Disease (high Creatinine) are strong systemic drivers of DME severity.",
+          "In pregnancy, DME may worsen significantly but often regresses postpartum."
+        ]
+      },
+      {
+        "title": "Impact of HbA1c on DME Recurrence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "HbA1c < 7.0 (Low Recurrence)",
+              "value": 20
+            },
+            {
+              "label": "HbA1c 8.0-9.0 (Moderate)",
+              "value": 55
+            },
+            {
+              "label": "HbA1c > 10.0 (High Recurrence)",
+              "value": 90
+            }
+          ]
+        }
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1775382598575,
+  "communityId": "sub_1775145319798_5f6y3h1uboo768",
+  "communityAuthor": "nemo",
+  "communityDate": "2026-04-02T15:55:19.798Z",
+  "kanskiMeta": [
+    {
+      "pageNum": 614,
+      "keywords": [
+        "macular",
+        "oct",
+        "retina",
+        "signs",
+        "classification"
+      ]
+    },
+    {
+      "pageNum": 649,
+      "keywords": [
+        "macular",
+        "oct",
+        "retina",
+        "signs",
+        "diagnostic"
+      ]
+    },
+    {
+      "pageNum": 511,
+      "keywords": [
+        "diabetic",
+        "macular",
+        "retina",
+        "signs",
+        "etdrs"
+      ]
+    },
+    {
+      "pageNum": 5,
+      "keywords": [
+        "diabetic",
+        "macular",
+        "retina",
+        "etdrs",
+        "csme"
+      ]
+    },
+    {
+      "pageNum": 618,
+      "keywords": [
+        "macular",
+        "oct",
+        "retina",
+        "signs",
+        "classification"
+      ]
+    },
+    {
+      "pageNum": 568,
+      "keywords": [
+        "macular",
+        "oct",
+        "retina",
+        "imaging",
+        "symptoms"
+      ]
+    }
+  ]
+}

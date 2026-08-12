@@ -1,0 +1,193 @@
+{
+  "id": 1775044694120,
+  "seqId": 445,
+  "title": "Pediatric Orbital Emergency: Dystopia & Proptosis Workup",
+  "summary": "A comprehensive clinical breakdown of a 2-year-old presenting with double vision and non-axial proptosis, focusing on the critical differentiation between orbital infection and malignant tumors like Rhabdomyosarcoma.",
+  "date": "2026-04-01T11:58:14.120Z",
+  "data": {
+    "title": "Pediatric Orbital Emergency: Dystopia & Proptosis Workup",
+    "summary": "A comprehensive clinical breakdown of a 2-year-old presenting with double vision and non-axial proptosis, focusing on the critical differentiation between orbital infection and malignant tumors like Rhabdomyosarcoma.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='45' r='25' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='42' cy='52' r='8' fill='hsl(215, 90%, 45%)'/><path d='M20 75 Q50 95 80 75' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><path d='M65 30 L85 15' stroke='red' stroke-width='2' stroke-linecap='round'/><circle cx='85' cy='15' r='3' fill='red'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Case Presentation",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Patient: 2-year-old boy",
+          "Chief Complaint: Double vision",
+          "Trauma History: Negative (No history of trauma)",
+          "Past Medical History: Negative",
+          "Family History: Negative"
+        ]
+      },
+      {
+        "title": "A1. Clinical Description & Examination",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Description: Limited facial photo with left eye dystopia (down and outward), non-axial proptosis, upper lid subcutaneous dilated blood vessels. No erythema, no conjunctival injection, cornea looks clear."
+      },
+      {
+        "title": "A2. Differential Diagnosis (DDX)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Specific Diagnosis",
+            "Key Characteristics"
+          ],
+          "rows": [
+            [
+              "Infection",
+              "Orbital cellulitis / Abscess",
+              "Usually presents with fever, pain, and restricted motility."
+            ],
+            [
+              "Malignant Tumor",
+              "Rhabdomyosarcoma",
+              "Most common primary pediatric orbital malignancy; rapid onset."
+            ],
+            [
+              "Structural",
+              "Mucocele / Encephalocele",
+              "Pulsatile proptosis may be seen in encephaloceles."
+            ],
+            [
+              "Vascular",
+              "Capillary hemangioma / Lymphangioma",
+              "Hemangiomas often have a 'strawberry' appearance if cutaneous."
+            ],
+            [
+              "Neural/Benign",
+              "Neurofibroma / Dermoid",
+              "Dermoids are typically firm, non-tender, and located at suture lines."
+            ],
+            [
+              "Metastasis",
+              "Neuroblastoma / Leukemia",
+              "Neuroblastoma often presents with 'raccoon eyes' (ecchymosis)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "A2. Main Concern",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Primary Concern: Infection",
+          "Primary Concern: Tumor"
+        ]
+      },
+      {
+        "title": "A3. Essential History & Red Flags",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "O.P.P.T.F.",
+          "explanation": "Onset (Rapid vs. Slow), Progression, Pain (present/absent), Trauma (rule out hemorrhage), Family History (genetic predisposition)."
+        }
+      },
+      {
+        "title": "A4 & 5. Diagnostic Investigation Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Clinical Exam (VA, EOM, pupillary light reflex, anterior segment with IOP).",
+          "Step 2: Dilated Fundus Exam: Look for mass, optic disc swelling, or atrophy.",
+          "Step 3: Physical Signs: Assess for Hotness, Palpitation, and perform auscultation.",
+          "Step 4: Imaging: CT scan and MRI of the orbit and brain.",
+          "Step 5: Tissue Diagnosis: Incisional biopsy is performed to confirm the diagnosis.",
+          "Step 6: Staging: Systemic investigation for metastasis."
+        ]
+      },
+      {
+        "title": "A5. Histologic Types: Rhabdomyosarcoma",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Histologic Variants",
+          "branches": [
+            "Embryonal: Most common; undifferentiated connective tissues.",
+            "Alveolar: Most aggressive; fibrovascular strands floating freely in alveolar spaces.",
+            "Pleomorphic: Best prognosis; rarest; most differentiated; found in older individuals.",
+            "Botyroid: Rare variant of embryonal; grape-like form; invades orbit from paranasal sinus."
+          ]
+        }
+      },
+      {
+        "title": "A6. Management Strategies",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Radiotherapy: Often used in conjunction with chemo.",
+          "Chemotherapy: Standard regimen includes Vincristine, Dactinomycin, and Cyclophosphamide (VAC).",
+          "Surgical debulking: For initial cytoreduction.",
+          "Exenteration: Reserved specifically for recurrent cases."
+        ]
+      },
+      {
+        "title": "A7. Prognosis & Survival Data",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Confined to Orbit",
+              "value": 90
+            },
+            {
+              "label": "Extra-orbital/Metastatic",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Prognosis Summary",
+        "icon": "lightbulb",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "The prognosis for patients with disease confined to the orbit is good. Survival rates with radiation and chemotherapy is 90% if tumor is confined to bony orbit."
+      },
+      {
+        "title": "Clinical Pearls & Supplemental Knowledge",
+        "icon": "medication",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "RAPID PROPTOSIS",
+          "explanation": "Any child with rapidly progressing proptosis must be considered a Rhabdomyosarcoma (RMS) case until proven otherwise. Delay in diagnosis significantly impacts the 90% survival rate."
+        }
+      }
+    ],
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "_newlyImported": 1775044694120,
+  "communityId": "sub_1773917523145_t1rgy9k4y",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-19T10:52:03.145Z"
+}

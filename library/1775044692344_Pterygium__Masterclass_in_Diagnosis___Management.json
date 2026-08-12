@@ -1,0 +1,329 @@
+{
+  "id": 1775044692344,
+  "seqId": 426,
+  "title": "Pterygium: Masterclass in Diagnosis & Management",
+  "summary": "A comprehensive clinical deep-dive into the pathogenesis, classification, and surgical management of pterygium. This guide focuses on identifying clinical activity, precise grading, and evidence-based surgical protocols to minimize recurrence.",
+  "date": "2026-04-01T11:58:12.344Z",
+  "data": {
+    "title": "Pterygium: Masterclass in Diagnosis & Management",
+    "summary": "A comprehensive clinical deep-dive into the pathogenesis, classification, and surgical management of pterygium. This guide focuses on identifying clinical activity, precise grading, and evidence-based surgical protocols to minimize recurrence.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='40' fill='hsl(215, 90%, 45%)' opacity='0.2'/><path d='M20,100 Q60,70 110,100 Q60,130 20,100' fill='hsl(0, 70%, 60%)' opacity='0.8'/><path d='M100,75 L115,100 L100,125' fill='none' stroke='white' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Pathophysiology",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "A pterygium is a triangular, wing-shaped fibrovascular proliferation of the subconjunctival tissue that extends onto the cornea, crossing the limbus. It is characterized by elastotic degeneration of collagen and fibrovascular proliferation, often involving a focal Limbal Stem Cell Deficiency (LSCD). Pathogenesis involves UV-B induced DNA damage, up-regulation of cytokines (VEGF, TGF-β), and matrix metalloproteinases (MMPs)."
+      },
+      {
+        "title": "2. The Pterygium Belt (Epidemiology)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence within 30° Latitude",
+              "value": 22
+            },
+            {
+              "label": "Male Predominance",
+              "value": 65
+            },
+            {
+              "label": "Outdoor Occupation Risk",
+              "value": 85
+            },
+            {
+              "label": "UV Exposure Correlation",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "3. Anatomical Components",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Anatomy of Pterygium",
+          "branches": [
+            "Cap: Halo-like avascular zone at the leading edge",
+            "Head: Apex of the triangle, firmly attached to the cornea",
+            "Neck: The constricted portion at the limbus",
+            "Body: Fleshy portion on the bulbar conjunctiva",
+            "Fuchs' Islets: Small white spots near the head representing active precursors",
+            "Stocker’s Line: Iron deposition (haemosiderin) at the leading edge"
+          ]
+        }
+      },
+      {
+        "title": "4. Grading by Corneal Extension",
+        "icon": "straighten",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Grade",
+            "Clinical Extension Description"
+          ],
+          "rows": [
+            [
+              "Grade I",
+              "Limbus to midway between limbus and pupillary margin (<2mm)"
+            ],
+            [
+              "Grade II",
+              "Extends to the pupillary margin (2-4mm)"
+            ],
+            [
+              "Grade III",
+              "Crosses the pupillary margin (>4mm)"
+            ],
+            [
+              "Grade IV",
+              "Extends significantly across the visual axis/central cornea"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "5. Assessing 'Activity' (Tan's Grading)",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Classification",
+            "Clinical Features (Vessel Visibility)"
+          ],
+          "rows": [
+            [
+              "Atrophic (Grade T1)",
+              "Episcleral vessels clearly visible underneath the pterygium body."
+            ],
+            [
+              "Intermediate (Grade T2)",
+              "Episcleral vessels partially obscured by the fibrovascular tissue."
+            ],
+            [
+              "Fleshy (Grade T3)",
+              "Episcleral vessels totally obscured by the thick body. High recurrence risk."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "6. Clinical Signs of Active Growth",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Presence of Fuchs' Islets (active precursor spots).",
+          "Absence of Stocker's Line (Iron line indicates stability).",
+          "Marked vascular congestion and 'fleshiness' (Tan T3).",
+          "Progressive increase in induced with-the-rule (WTR) astigmatism.",
+          "Patient-reported growth over 3-6 months."
+        ]
+      },
+      {
+        "title": "7. Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Pseudopterygium",
+              "Post-trauma/burn; probe can pass under the neck (negative probe test)."
+            ],
+            [
+              "OSSN",
+              "Leukoplakic, gelatinous, or papilliform; lacks classic wing shape."
+            ],
+            [
+              "Pinguecula",
+              "Degeneration limited to conjunctiva; does NOT cross the limbus."
+            ],
+            [
+              "Limbal Dermoid",
+              "Solid, white-yellow choristoma; usually congenital and inferotemporal."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "8. Ocular Examination & Workup",
+        "icon": "clinical_notes",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Visual Acuity and Manifest Refraction (Assess induced astigmatism).",
+          "Step 2: Slit-lamp biomicroscopy (Evaluate head, neck, body, and T-grade).",
+          "Step 3: Corneal Topography (Quantify irregular astigmatism and flattening).",
+          "Step 4: Anterior Segment OCT (Measure depth of stromal invasion and thickness).",
+          "Step 5: Photography (Serial documentation for monitoring growth)."
+        ]
+      },
+      {
+        "title": "9. Indications for Surgical Intervention",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Visual axis involvement (or threat to visual axis).",
+          "Induced astigmatism (>1.5D or symptomatic).",
+          "Chronic ocular irritation refractory to medical therapy.",
+          "Restriction of extraocular motility (Diplopia).",
+          "Significant cosmetic disfigurement."
+        ]
+      },
+      {
+        "title": "10. Surgical Gold Standards",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Technique",
+            "Recurrence Rate",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Bare Sclera",
+              "30% - 80%",
+              "Obsolete due to unacceptably high recurrence."
+            ],
+            [
+              "Conjunctival Autograft (CAG)",
+              "2% - 5%",
+              "Gold standard. Usually superior donor site."
+            ],
+            [
+              "Limbal-Conjunctival Autograft",
+              "<2%",
+              "Transfers stem cells; ideal for recurrent cases."
+            ],
+            [
+              "Amniotic Membrane Graft",
+              "10% - 20%",
+              "Used when conjunctiva must be preserved (e.g., Glaucoma)."
+            ],
+            [
+              "P.E.R.F.E.C.T Technique",
+              "<0.1%",
+              "Extensive dissection (Hirst technique); high learning curve."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "11. Surgical Steps: CAG with Fibrin Glue",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Topical/Subconjunctival anesthesia (Lidocaine + Epinephrine).",
+          "2. Excision of the head (Smooth keratectomy).",
+          "3. Wide excision of the body and underlying Tenon's capsule.",
+          "4. Measurement of the defect (Bare sclera area).",
+          "5. Harvest superior conjunctival graft (thin, no Tenon's).",
+          "6. Application of Fibrin Glue (Tisseel/Artiss).",
+          "7. Graft placement (Ensure limbal-to-limbal orientation)."
+        ]
+      },
+      {
+        "title": "12. Adjuvant Therapies",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Mitomycin C (MMC): 0.02% intraoperatively for 2-3 mins (Risk of scleral melting).",
+          "5-Fluorouracil (5-FU): Less potent than MMC; used for 'fleshy' recurrences.",
+          "Anti-VEGF (Bevacizumab): Subconjunctival injection to reduce vascularity.",
+          "Beta-Irradiation: 15-30 Gray (historical; risk of late scleral necrosis)."
+        ]
+      },
+      {
+        "title": "13. Mnemonics for Clinical Study",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "The 'S' Factors for Pterygium Stability",
+          "explanation": "Stocker's Line (Iron present), Small Size, Sluggish growth, Sparse vasculature (Atrophic), and Symptoms (Minimal)."
+        }
+      },
+      {
+        "title": "14. Post-Operative Management",
+        "icon": "calendar_month",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Topical Steroids (Pred Forte 1%): Tapering over 4-8 weeks to prevent recurrence.",
+          "Topical Antibiotics (Moxifloxacin): 1 week duration.",
+          "Lubricants: Preservative-free for 3-6 months.",
+          "UV Protection: Mandatory sunglasses for all outdoor activities."
+        ]
+      },
+      {
+        "title": "15. Surgical Complications",
+        "icon": "report_problem",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Graft Retraction or Loss (if glue fails).",
+          "Pyogenic Granuloma (inflammatory response).",
+          "Scleral Melting/Necrosis (secondary to MMC or radiation).",
+          "Symblepharon and Diplopia.",
+          "Cyst formation or Inclusion cysts at the graft interface."
+        ]
+      },
+      {
+        "title": "16. Clinical Pearls & Landmark Wisdom",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always measure from the limbus, not the pupillary edge, for consistent grading.",
+          "A negative 'Probe Test' (inability to pass a probe under the neck) confirms a true Pterygium.",
+          "In recurrent cases, always check the pathology to rule out OSSN.",
+          "Fibrin glue reduces surgical time and post-op pain compared to 10-0 Nylon sutures.",
+          "The 'Limbal Stem Cell' niche must be respected; don't cauterize the limbus excessively."
+        ]
+      }
+    ],
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "_newlyImported": 1775044692344,
+  "communityId": "sub_1773775007769_yualzga9r5jg3h",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.769Z",
+  "read": true,
+  "bookmarked": true
+}

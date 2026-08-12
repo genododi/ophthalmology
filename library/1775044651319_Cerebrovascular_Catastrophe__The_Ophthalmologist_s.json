@@ -1,0 +1,420 @@
+{
+  "id": 1775044651319,
+  "seqId": 31,
+  "title": "Cerebrovascular Catastrophe: The Ophthalmologist's Eye on Stroke",
+  "summary": "Stroke, a leading cause of disability, frequently manifests with crucial ocular signs that ophthalmologists are uniquely positioned to detect. Early recognition of these visual and oculomotor symptoms can be life-saving, guiding urgent neurological referral and potentially preventing irreversible brain damage and visual loss. This poster details the ophthalmic perspective of stroke, from etiology to management of ocular sequelae.",
+  "date": "2026-04-01T11:57:31.319Z",
+  "data": {
+    "title": "Cerebrovascular Catastrophe: The Ophthalmologist's Eye on Stroke",
+    "summary": "Stroke, a leading cause of disability, frequently manifests with crucial ocular signs that ophthalmologists are uniquely positioned to detect. Early recognition of these visual and oculomotor symptoms can be life-saving, guiding urgent neurological referral and potentially preventing irreversible brain damage and visual loss. This poster details the ophthalmic perspective of stroke, from etiology to management of ocular sequelae.",
+    "summary_illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" width=\"100\" height=\"100\"><defs><linearGradient id=\"grad1\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:hsl(215, 90%, 45%);stop-opacity:1\" /><stop offset=\"100%\" style=\"stop-color:hsl(215, 60%, 65%);stop-opacity:1\" /></linearGradient></defs><rect x=\"0\" y=\"0\" width=\"100\" height=\"100\" fill=\"#f0f0f0\"/><path d=\"M50,10 C30,10 20,30 20,50 C20,70 30,90 50,90 C70,90 80,70 80,50 C80,30 70,10 50,10 Z\" fill=\"url(#grad1)\" stroke=\"#333\" stroke-width=\"2\"/><circle cx=\"40\" cy=\"45\" r=\"8\" fill=\"#fff\" stroke=\"#333\" stroke-width=\"1.5\"/><circle cx=\"40\" cy=\"45\" r=\"3\" fill=\"#333\"/><circle cx=\"60\" cy=\"45\" r=\"8\" fill=\"#fff\" stroke=\"#333\" stroke-width=\"1.5\"/><circle cx=\"60\" cy=\"45\" r=\"3\" fill=\"#333\"/><path d=\"M35,65 Q50,75 65,65\" stroke=\"#333\" stroke-width=\"2\" fill=\"none\"/><path d=\"M50,30 L50,55\" stroke=\"white\" stroke-width=\"2\" style=\"stroke-dasharray: 4 2;\"/><circle cx=\"50\" cy=\"28\" r=\"3\" fill=\"#FF6347\"/></svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Overview",
+        "icon": "clinical_notes",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "A stroke (cerebrovascular accident, CVA) is a sudden interruption of blood flow to the brain, leading to brain cell death and neurological deficit. It is a medical emergency. From an ophthalmologist's perspective, ocular manifestations are frequently among the earliest or most prominent signs, placing ophthalmologists in a critical position for early detection, rapid referral, and management of visual sequelae."
+      },
+      {
+        "title": "2. Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Ischemic Stroke",
+              "value": 87
+            },
+            {
+              "label": "Hemorrhagic Stroke",
+              "value": 13
+            },
+            {
+              "label": "Hypertension Impact",
+              "value": 70
+            },
+            {
+              "label": "Diabetes Impact",
+              "value": 45
+            }
+          ]
+        }
+      },
+      {
+        "title": "2. Epidemiology (Details)",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "Approximately 800,000 strokes occur annually in the US. It's the fifth leading cause of death and a primary cause of long-term severe disability. **Key Risk Factors:** Hypertension (most significant, increasing risk 2-4x), Diabetes Mellitus, Hyperlipidemia, Atrial Fibrillation, Smoking, Carotid Artery Disease, Obesity, Age > 55, Family history, Sleep Apnea. These factors also directly impact ocular vascular health (e.g., retinal ischemia)."
+      },
+      {
+        "title": "3. Etiology & Pathophysiology (Ocular Relevance)",
+        "icon": "medical_services",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Stroke Etiology",
+          "branches": [
+            {
+              "name": "Ischemic Stroke (~87%)",
+              "sub_branches": [
+                {
+                  "name": "Thrombotic (Atherosclerosis)",
+                  "details": "Plaque rupture/clot formation in cerebral arteries. Large vessel (carotid, MCA) vs. Small vessel (lacunar, affecting deep brain structures, often microvascular ocular palsies)."
+                },
+                {
+                  "name": "Embolic (Cardioembolic)",
+                  "details": "Clot from heart (e.g., Afib, PFO, endocarditis) or carotid plaque travels to brain/eye. Often causes CRAO/BRAO."
+                },
+                {
+                  "name": "Other Ischemic",
+                  "details": "Vasculitis (GCA), arterial dissection (carotid/vertebral), migraine with aura, hypercoagulable states."
+                }
+              ]
+            },
+            {
+              "name": "Hemorrhagic Stroke (~13%)",
+              "sub_branches": [
+                {
+                  "name": "Intracerebral Hemorrhage (ICH)",
+                  "details": "Bleeding within brain parenchyma, often due to uncontrolled HTN, amyloid angiopathy, AVM rupture. Can cause acute severe visual field defects or cranial neuropathies due to mass effect."
+                },
+                {
+                  "name": "Subarachnoid Hemorrhage (SAH)",
+                  "details": "Bleeding into subarachnoid space, typically from ruptured aneurysm (e.g., PCOM aneurysm causing pupil-involving CN III palsy), AVM. Can cause papilledema."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "4. Classification / Subtypes & Ocular Manifestations",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Ocular Stroke-Related Syndrome",
+            "Affected Artery/Area",
+            "Key Ocular Features"
+          ],
+          "rows": [
+            [
+              "Amaurosis Fugax (TIA of the eye)",
+              "Ophthalmic artery/central retinal artery",
+              "Transient monocular vision loss ('curtain coming down'), often embolic (carotid)."
+            ],
+            [
+              "Central Retinal Artery Occlusion (CRAO)",
+              "Central retinal artery",
+              "Sudden, painless, profound monocular vision loss. Cherry-red spot, retinal whitening."
+            ],
+            [
+              "Branch Retinal Artery Occlusion (BRAO)",
+              "Retinal arterioles",
+              "Sudden, painless, sectoral monocular vision loss. Sectoral retinal whitening."
+            ],
+            [
+              "Anterior Ischemic Optic Neuropathy (AION)",
+              "Posterior ciliary arteries",
+              "Sudden, painless monocular vision loss with optic disc edema. Often non-arteritic (NAION) or arteritic (AAION - GCA)."
+            ],
+            [
+              "Oculomotor Nerve Palsy (CN III)",
+              "Brainstem, CN III nerve",
+              "Ptosis, 'down and out' eye, dilated pupil (PCOM aneurysm) or pupil-sparing (microvascular)."
+            ],
+            [
+              "Trochlear Nerve Palsy (CN IV)",
+              "Brainstem, CN IV nerve",
+              "Vertical diplopia, hypertropia, head tilt (Bielschowsky test)."
+            ],
+            [
+              "Abducens Nerve Palsy (CN VI)",
+              "Brainstem, CN VI nerve",
+              "Horizontal diplopia, inability to abduct eye. Common with elevated ICP, microvascular disease."
+            ],
+            [
+              "Homonymous Hemianopia",
+              "Retrochiasmal pathway (optic tract, radiations, occipital cortex)",
+              "Contralateral visual field loss (e.g., right-sided lesion -> left hemianopia). Macular sparing suggests occipital cortex."
+            ],
+            [
+              "Cortical Blindness",
+              "Bilateral occipital lobe infarcts",
+              "Profound bilateral vision loss, often with preserved pupillary reflexes. Anton's syndrome (denial of blindness)."
+            ],
+            [
+              "Horner's Syndrome",
+              "Oculosympathetic pathway (brainstem, cervical spinal cord, carotid artery)",
+              "Ptosis, miosis, anhidrosis. Acute painful Horner's suggests carotid dissection or brainstem stroke."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "5. Clinical Features & Symptoms (Ocular Focus)",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "**Sudden, painless monocular vision loss:** Amaurosis fugax, CRAO, BRAO, AION.",
+          "**Sudden, painless binocular vision loss:** Cortical blindness.",
+          "**New onset diplopia:** Cranial nerve (CN III, IV, VI) palsies, brainstem lesions, gaze palsies.",
+          "**Visual field defects:** Homonymous hemianopia/quadrantanopia (most common), scotomas.",
+          "**Ptosis:** CN III palsy (with or without pupil involvement), Horner's syndrome.",
+          "**Anisocoria:** Dilated pupil (CN III palsy), constricted pupil (Horner's syndrome).",
+          "**Ocular pain:** Orbital/headache (especially with CN III palsy due to aneurysm, or carotid dissection).",
+          "**Nystagmus:** Vestibular stroke (brainstem, cerebellum), gaze-evoked nystagmus.",
+          "**Ocular motor apraxia:** Difficulty initiating saccades (frontal lobe involvement).",
+          "**Conjugate gaze palsies:** Inability to move both eyes in a specific direction (frontal eye fields, brainstem).",
+          "**Photopsias/Auras:** Though typically migraine, can be associated with TIA/stroke."
+        ]
+      },
+      {
+        "title": "6. Ocular Examination Findings",
+        "icon": "microscope",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**Visual Acuity:** May be normal or severely reduced depending on the lesion location.",
+          "**Pupils:** Afferent Pupillary Defect (APD) in unilateral severe optic neuropathy/retinal ischemia. Anisocoria in CN III palsy (mydriasis) or Horner's (miosis).",
+          "**Ocular Motility:** Strabismus, restriction of eye movements (CN palsies, gaze palsies, internuclear ophthalmoplegia (INO) in brainstem stroke).",
+          "**Fundoscopy:**",
+          "  - CRAO: Diffuse retinal whitening, cherry-red spot at macula, attenuated arterioles, 'cattle trucking' blood flow.",
+          "  - BRAO: Sectoral retinal whitening, often with an embolus at an arteriole bifurcation.",
+          "  - Hollenhorst plaque: Cholesterol embolus in retinal arteriole, usually at bifurcation (indicates carotid artery disease).",
+          "  - Optic disc edema: AION, papilledema (if increased ICP, e.g., hemorrhagic stroke).",
+          "  - Retinal hemorrhages/Roth spots: Can occur in certain systemic conditions or with severe HTN.",
+          "**Slit Lamp:** Typically normal unless pre-existing ocular conditions. May reveal signs of systemic vasculitis.",
+          "**Visual Fields:** Confrontation fields (rapid screening) followed by formal perimetry (Humphrey, Goldmann) to map defects (e.g., homonymous hemianopia, quadrantanopia)."
+        ]
+      },
+      {
+        "title": "7. Investigations & Diagnostic Workup (Ophthalmologist's Role)",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**1. Immediate Ophthalmic Evaluation:** Rapid, thorough neuro-ophthalmic exam (VA, pupils, EOMs, visual fields, funduscopy) to localize lesion and assess urgency.",
+          "**2. Urgent Neurological Referral:** IF STROKE IS SUSPECTED, REFER IMMEDIATELY. Time is critical for acute interventions.",
+          "**3. Neuroimaging (Brain):**",
+          "    - **CT Head (non-contrast):** Rapidly excludes hemorrhage, identifies large acute ischemic changes.",
+          "    - **MRI Brain:** Superior for detecting acute ischemic stroke (DWI sequences), identifying smaller lesions (lacunar), assessing brainstem/posterior fossa, and detecting older infarcts (FLAIR).",
+          "    - **MRA/CTA Head/Neck:** Visualize cerebral and carotid arteries for stenosis, occlusion, dissection, aneurysms.",
+          "**4. Carotid Imaging:**",
+          "    - **Carotid Doppler Ultrasound:** Non-invasive screening for carotid artery stenosis.",
+          "    - **CTA/MRA Neck:** Detailed visualization of carotid and vertebral arteries.",
+          "**5. Cardiac Evaluation:**",
+          "    - **ECG:** To detect atrial fibrillation or other arrhythmias.",
+          "    - **Echocardiogram (TTE/TEE):** To identify cardiac sources of emboli (e.g., valvular disease, PFO, thrombus).",
+          "**6. Blood Tests:** CBC, electrolytes, glucose, lipid panel, coagulation profile (PT/INR, PTT), ESR/CRP (if vasculitis, e.g., GCA, suspected).",
+          "**7. Ophthalmic Ancillary Tests (as indicated):** OCT (retinal ischemia, optic nerve edema/atrophy), Fluorescein Angiography (retinal vascular integrity, perfusion), B-scan ultrasound (posterior segment, orbital pathology)."
+        ]
+      },
+      {
+        "title": "8. Differential Diagnosis (Ophthalmocentric)",
+        "icon": "lightbulb",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Ocular Symptom",
+            "Stroke-Related Ophthalmic DDx",
+            "Non-Stroke Ophthalmic DDx"
+          ],
+          "rows": [
+            [
+              "Sudden Monocular Vision Loss",
+              "CRAO, BRAO, AION (NAION/AAION), Amaurosis fugax, Carotid dissection",
+              "Vitreous hemorrhage, Retinal detachment, Optic neuritis, Acute angle-closure glaucoma, Macular edema/degeneration, Retinal vein occlusion."
+            ],
+            [
+              "Sudden Diplopia",
+              "CN III, IV, VI Palsy (microvascular, aneurysm, brainstem lesion), Internuclear ophthalmoplegia (INO), Gaze palsy",
+              "Myasthenia gravis, Thyroid eye disease, Orbital mass, Decompensated phoria, Multiple Sclerosis (MS), Tumor (brainstem/orbit), Trauma, Bell's palsy (facial nerve)."
+            ],
+            [
+              "Homonymous Visual Field Loss",
+              "Post-chiasmal stroke (occipital lobe, optic radiations, optic tract)",
+              "Migraine aura, Glaucoma, Optic neuropathy (severe), Chiasmal compression (pituitary adenoma), MS, Tumor (cerebral)."
+            ],
+            [
+              "Ptosis with Anisocoria",
+              "CN III palsy (aneurysm, microvascular), Horner's syndrome (carotid dissection, brainstem lesion, tumor)",
+              "Myasthenia gravis, Local eyelid pathology, Congenital Horner's, Pharmacologic mydriasis/miosis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9. Staging / Grading (Ophthalmic Impact Assessment)",
+        "icon": "rubric",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Ophthalmic Impact Assessment in Stroke",
+          "branches": [
+            {
+              "name": "Visual Acuity Grading",
+              "sub_branches": [
+                "Snellen Equivalent (20/X)",
+                "Counting Fingers (CF)",
+                "Hand Motion (HM)",
+                "Light Perception (LP)"
+              ]
+            },
+            {
+              "name": "Visual Field Defect Grading",
+              "sub_branches": [
+                "Humphrey Field Analyzer: Mean Deviation (MD) scores",
+                "Pattern Deviation (PD) analysis",
+                "Hemifield Test results (normal, borderline, outside normal limits)"
+              ]
+            },
+            {
+              "name": "Oculomotor Palsy Severity",
+              "sub_branches": [
+                "Degree of restriction (e.g., 0-4 scale)",
+                "Amount of deviation (Prism Diopters)",
+                "Pupil involvement (present/absent)"
+              ]
+            },
+            {
+              "name": "NIH Stroke Scale (NIHSS)",
+              "sub_branches": [
+                "Gaze (Item 1a: 0-2)",
+                "Visual Fields (Item 2: 0-3)",
+                "Facial Palsy (Item 3: 0-3)"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "10. Management & Treatment (Ophthalmologist's Role)",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "**1. Acute Referral for Suspected Stroke:** IMMEDIATE referral to neurology/emergency department. For ischemic stroke, IV thrombolysis (Alteplase) within 3-4.5 hours and mechanical thrombectomy within 6-24 hours for large vessel occlusions are time-critical.",
+          "**2. Systemic Risk Factor Management:** Collaborate with neurologists and PCPs to aggressively control hypertension (e.g., ACE inhibitors, ARBs), diabetes (HbA1c targets), hyperlipidemia (statins, e.g., Atorvastatin 40-80mg), and atrial fibrillation (anticoagulants, e.g., Warfarin, Dabigatran, Rivaroxaban, Apixaban).",
+          "**3. Amaurosis Fugax / TIA Management:** Prompt carotid imaging (Doppler, CTA) and urgent referral for carotid endarterectomy or stenting if significant stenosis (>70-80% NASCET criteria) is found.",
+          "**4. Ocular Sequelae Management:**",
+          "    - **Diplopia:** Initial observation (spontaneous recovery common over 6-12 months). Then, Fresnel prisms, ground-in prisms, occlusion (alternating or sector), botulinum toxin injection (e.g., 2.5-5 units of OnabotulinumtoxinA) for paralytic strabismus, or strabismus surgery (e.g., recession/resection of rectus muscles) if stable for >6-12 months.",
+          "    - **Visual Field Loss:** Visual rehabilitation strategies (scanning training, visual search exercises, low vision aids), prism glasses for homonymous hemianopia (e.g., Peli lenses), referral to occupational therapy.",
+          "    - **Ptosis:** Ptosis crutch glasses, ptosis repair (levator advancement, frontalis sling) if stable and significant.",
+          "    - **Neurobehavioral deficits:** Referral to neuropsychologist, occupational therapist for visual neglect, spatial awareness issues.",
+          "    - **Regular Follow-up:** Monitor for progression, new symptoms, or complications."
+        ]
+      },
+      {
+        "title": "11. Surgical Techniques (Ocular Sequelae)",
+        "icon": "surgical_mask",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "While stroke itself is not directly managed surgically by ophthalmologists, we play a crucial role in managing the ocular sequelae. **Strabismus Surgery** is performed for persistent, disabling diplopia (after 6-12 months of stability), involving recession or resection of extraocular muscles (e.g., medial rectus recession for abducens palsy). **Ptosis Repair** (e.g., levator advancement, frontalis sling) addresses chronic ptosis. **Carotid Endarterectomy** (performed by vascular surgeons) is critical for preventing recurrent ischemic events by removing atherosclerotic plaque, directly impacting ocular blood flow."
+      },
+      {
+        "title": "12. Complications & Prognosis (Ocular)",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "**Permanent visual field defects:** Homonymous hemianopia is the most common and disabling.",
+          "**Persistent diplopia:** Due to unrecovered cranial nerve palsies or oculomotor dysfunction.",
+          "**Chronic ptosis:** From CN III palsy or Horner's syndrome.",
+          "**Cortical blindness:** If bilateral occipital infarcts are extensive.",
+          "**Neurobehavioral vision deficits:** Visual neglect, prosopagnosia (face blindness), simultanagnosia (inability to perceive multiple objects simultaneously).",
+          "**Increased risk of recurrent stroke:** ~25% risk within 5 years without proper secondary prevention.",
+          "**Depression, cognitive impairment:** Affecting quality of life and visual rehabilitation efforts.",
+          "Prognosis varies widely based on stroke type, severity, location, and timeliness of intervention. Visual recovery is often limited for dense field defects."
+        ]
+      },
+      {
+        "title": "13. Red Flags / Emergency Signs",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "**SUDDEN, PAINLESS MONOCULAR VISION LOSS (e.g., CRAO, Amaurosis Fugax):** Immediate referral for carotid/cardiac workup to prevent cerebral stroke.",
+          "**SUDDEN ONSET DIPLOPIA WITH PTOSIS AND DILATED PUPIL (CN III palsy):** Rule out posterior communicating artery (PCOM) aneurysm – a neurosurgical emergency.",
+          "**ACUTE ONSET OF NEW VISUAL FIELD DEFECT:** Requires urgent neuroimaging (CT/MRI brain) to rule out acute stroke or hemorrhage.",
+          "**ACUTE ONSET OF PAINFUL HORNER'S SYNDROME (facial/neck pain):** Highly suggestive of carotid artery dissection, requiring immediate imaging.",
+          "**ANY ACUTE NEUROLOGICAL DEFICIT (weakness, numbness, speech changes) ASSOCIATED WITH OCULAR SIGNS:** Think stroke until proven otherwise – Act FAST!"
+        ]
+      },
+      {
+        "title": "14. Mnemonics & Memory Aids",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "FAST (Recognizing Stroke Symptoms)",
+          "explanation": "F - **Face** Drooping (Ask the person to smile).\nA - **Arm** Weakness (Ask the person to raise both arms).\nS - **Speech** Difficulty (Ask the person to repeat a simple sentence).\nT - **Time** to call 911 (If any of these signs are present, call emergency services immediately).",
+          "mnemonic_2": "The 4 D's of Brainstem Stroke",
+          "explanation_2": "D - **Diplopia**\nD - **Dysarthria** (slurred speech)\nD - **Dysphagia** (difficulty swallowing)\nD - **Dizziness** / Vertigo"
+        }
+      },
+      {
+        "title": "15. Key Clinical Pearls for Ophthalmologists",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**The Eye as a 'Window to the Brain':** Ocular signs are often the earliest or most recognizable indicators of cerebrovascular events.",
+          "**Pupil-Sparing vs. Pupil-Involving CN III Palsy:** Pupil-sparing is typically microvascular (DM, HTN). Pupil-involving is a red flag for PCOM aneurysm until proven otherwise – always urgent neuroimaging (CTA/MRA).",
+          "**Amaurosis Fugax is a TIA of the Eye:** Do NOT dismiss transient monocular vision loss. It demands urgent carotid workup to prevent a full cerebral stroke.",
+          "**Hollenhorst Plaque:** Pathognomonic for atherosclerotic carotid artery disease. Immediate referral for carotid evaluation is mandatory.",
+          "**Homonymous Hemianopia:** Localizes to the retrochiasmal visual pathway, contralateral to the visual field loss. Macular sparing is a classic sign of an occipital cortical lesion.",
+          "**Acute, Painful Horner's Syndrome:** Always consider carotid artery dissection as the etiology, especially if associated with neck or facial pain. Requires urgent imaging.",
+          "**CRAO Management:** Despite limited acute ocular treatment, urgent referral for systemic workup (carotid, cardiac) is paramount to identify the embolic source and prevent cerebral stroke."
+        ]
+      },
+      {
+        "title": "16. Recent Advances & Landmark Studies",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Recent advances have transformed acute stroke management. The **DAWN** and **DEFUSE 3** trials extended the window for mechanical thrombectomy to up to 24 hours in select patients with large vessel occlusions, particularly those with favorable imaging (perfusion-weighted MRI or CT perfusion showing salvageable brain tissue). This emphasizes the critical importance of rapid assessment and referral. Tele-stroke networks have improved access to expert neurological care in rural areas. Ongoing research focuses on neuroprotection strategies (e.g., hypothermia), novel thrombolytic agents, and advanced visual rehabilitation techniques (e.g., virtual reality-based training for visual field defects)."
+      },
+      {
+        "title": "17. Pediatric / Special Population Considerations",
+        "icon": "child_care",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "**Pediatric Stroke:** While less common, causes differ from adults (e.g., sickle cell disease, congenital heart disease, arteriopathies like Moya-moya disease, genetic coagulopathies). Ocular manifestations are similar but presentation can be subtle due to non-specific symptoms. **Stroke in Pregnancy:** Rare, but risk factors include pre-eclampsia, eclampsia, postpartum cerebral angiopathy, and hypercoagulable states. **Elderly:** Higher incidence due to increased prevalence of atherosclerosis, atrial fibrillation, and other systemic comorbidities. Often experience more severe and debilitating visual and neurological deficits."
+      }
+    ],
+    "generationPrompt": "stroke ; by eyes of an ophthalmologist",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "_newlyImported": 1775044651319,
+  "communityId": "sub_1774881180331_7rfwolpzc",
+  "communityAuthor": "kemo",
+  "communityDate": "2026-03-30T14:33:00.331Z",
+  "bookmarked": true
+}

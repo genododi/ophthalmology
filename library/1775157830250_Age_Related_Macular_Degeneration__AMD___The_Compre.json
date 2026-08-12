@@ -1,0 +1,193 @@
+{
+  "id": 1775157830250,
+  "seqId": 586,
+  "title": "Age-Related Macular Degeneration (AMD): The Comprehensive Clinical Guide",
+  "summary": "AMD is the leading cause of irreversible blindness in developed nations, characterized by progressive degeneration of the retinal pigment epithelium and photoreceptors. This guide covers the spectrum from dry drusen formation to neovascular exudative disease.",
+  "date": "2026-04-02T19:23:50.250Z",
+  "data": {
+    "title": "Age-Related Macular Degeneration (AMD): The Comprehensive Clinical Guide",
+    "summary": "AMD is the leading cause of irreversible blindness in developed nations, characterized by progressive degeneration of the retinal pigment epithelium and photoreceptors. This guide covers the spectrum from dry drusen formation to neovascular exudative disease.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M30 30 Q50 10 70 30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Age 50-59",
+              "value": 2
+            },
+            {
+              "label": "Age 60-69",
+              "value": 11
+            },
+            {
+              "label": "Age 70-79",
+              "value": 28
+            },
+            {
+              "label": "Age 80+",
+              "value": 35
+            }
+          ]
+        }
+      },
+      {
+        "title": "AREDS Severity Scale (Staging)",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Stage",
+            "Clinical Findings",
+            "Risk of Progression to Advanced AMD"
+          ],
+          "rows": [
+            [
+              "1 (No AMD)",
+              "No drusen or few small drusen (<63μm)",
+              "<0.5%"
+            ],
+            [
+              "2 (Early AMD)",
+              "Multiple small/few intermediate drusen (63-124μm)",
+              "3%"
+            ],
+            [
+              "3 (Intermediate)",
+              "Extensive intermediate or at least one large drusen (≥125μm)",
+              "12%"
+            ],
+            [
+              "4 (Advanced)",
+              "Geographic atrophy or Neovascular AMD",
+              "N/A"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "AMD Pathogenesis",
+          "branches": [
+            "Lipid/Protein Accumulation (Drusen)",
+            "Complement Cascade Dysregulation",
+            "Oxidative Stress",
+            "VEGF Upregulation"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Emergency Consult",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset metamorphopsia (Amsler grid distortion)",
+          "Rapid central scotoma",
+          "Acute subretinal hemorrhage",
+          "Persistent visual acuity drop >2 lines"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Sequence",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: BCVA and Amsler Grid testing",
+          "Step 2: Dilated slit-lamp biomicroscopy (90D lens)",
+          "Step 3: OCT Macular Cube (to detect subretinal/intraretinal fluid)",
+          "Step 4: Fundus Autofluorescence (FAF) for GA mapping",
+          "Step 5: Fluorescein Angiography (FFA) / OCT-Angiography to localize CNV"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Central Serous Chorioretinopathy",
+              "Younger patients, 'smokestack' leak on FFA"
+            ],
+            [
+              "Myopic Maculopathy",
+              "Lacquer cracks, posterior staphyloma"
+            ],
+            [
+              "Pachychoroid Spectrum",
+              "Thickened choroid, focal RPE alterations"
+            ],
+            [
+              "Best Vitelliform Dystrophy",
+              "Yellow egg-yolk appearance, young onset"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Principles",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "AREDS2 Formulation: Vit C 500mg, Vit E 400IU, Zinc 80mg, Copper 2mg, Lutein 10mg, Zeaxanthin 2mg.",
+          "Anti-VEGF intravitreal injections (Ranibizumab, Aflibercept, Brolucizumab, Faricimab).",
+          "Treat-and-Extend (T&E) dosing protocol to minimize injection burden.",
+          "Lifestyle: Smoking cessation is the single most critical modification."
+        ]
+      },
+      {
+        "title": "Mnemonic: AMD Features",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "DRUSEN",
+          "explanation": "D: Deposits (sub-RPE), R: Retinal pigment epithelium changes, U: Unilateral or bilateral, S: Scotoma (central), E: Exudative risk, N: Neovascularization."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Smoking increases risk of progression to advanced AMD by 2-3x.",
+          "Always check the fellow eye: the risk of developing CNV in a fellow eye of a patient with unilateral neovascular AMD is ~10% per year.",
+          "Brolucizumab (Beovu) carries a higher risk of intraocular inflammation and retinal vasculitis—monitor closely.",
+          "Geographic Atrophy (GA) is currently managed with C3/C5 inhibitors (e.g., Pegcetacoplan) following recent FDA approvals."
+        ]
+      }
+    ],
+    "generationPrompt": "Age related macular degeneration",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "read": true
+}

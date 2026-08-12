@@ -1,0 +1,362 @@
+{
+  "id": 1775844133804,
+  "seqId": 791,
+  "title": "Mapping the Dark: Retrochiasmal & Chiasmal Visual Field Defects",
+  "summary": "A comprehensive neuro-ophthalmic guide to localizing lesions posterior to the optic tract, featuring the nuances of congruity, macular sparing, and the differential diagnosis of chiasmal syndromes.",
+  "date": "2026-04-10T18:02:13.804Z",
+  "data": {
+    "title": "Mapping the Dark: Retrochiasmal & Chiasmal Visual Field Defects",
+    "summary": "A comprehensive neuro-ophthalmic guide to localizing lesions posterior to the optic tract, featuring the nuances of congruity, macular sparing, and the differential diagnosis of chiasmal syndromes.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><path d='M40,100 Q100,20 160,100 Q100,180 40,100 Z' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='30' fill='hsl(215, 90%, 45%)' opacity='0.3'/><line x1='100' y1='20' x2='100' y2='180' stroke='hsl(215, 90%, 45%)' stroke-dasharray='4'/><path d='M100,100 L160,40 M100,100 L160,160' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Overview of Retrochiasmal Pathways",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Retrochiasmal lesions involve the optic tract, lateral geniculate nucleus (LGN), optic radiations, and the visual cortex. Unlike pre-chiasmal lesions, these produce contralateral homonymous visual field defects. A fundamental rule in neuro-ophthalmology states: the more posterior the lesion, the more 'congruous' (symmetric) the field defect between both eyes."
+      },
+      {
+        "title": "The Golden Rule of Congruity",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Optic Tract (Highly Incongruous)",
+              "value": 20
+            },
+            {
+              "label": "Optic Radiations (Moderately Congruous)",
+              "value": 60
+            },
+            {
+              "label": "Occipital Cortex (Exquisitely Congruous)",
+              "value": 95
+            }
+          ]
+        }
+      },
+      {
+        "title": "Essential Clinical Localizers",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Lesion Site",
+            "Field Defect Type",
+            "Associated Features"
+          ],
+          "rows": [
+            [
+              "Optic Tract",
+              "Incongruous Homonymous Hemianopia",
+              "Contralateral RAPD (Wernicke Pupil), Bow-tie Atrophy"
+            ],
+            [
+              "LGN",
+              "Homonymous Sectoranopia",
+              "Variable congruity; rare isolated lesions"
+            ],
+            [
+              "Temporal Lobe",
+              "Superior Quadrantanopia (Pie-in-the-sky)",
+              "Meyer’s Loop involvement, complex hallucinations"
+            ],
+            [
+              "Parietal Lobe",
+              "Inferior Quadrantanopia (Pie-on-the-floor)",
+              "Asymmetric OKN, Hemineglect, Gerstmann syndrome"
+            ],
+            [
+              "Occipital Cortex",
+              "Congruous Homonymous Hemianopia",
+              "Macular sparing (if PCA stroke), Riddoch Phenomenon"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Optic Tract Syndrome: The Trinity",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Contralateral Incongruous Homonymous Hemianopia.",
+          "2. Wernicke's Hemianopic Pupil: RAPD in the eye with the greater field loss (the eye with the temporal field defect contralateral to the lesion).",
+          "3. Bow-tie Atrophy: Primary optic atrophy in the contralateral eye and temporal/nasal pallor ipsilaterally."
+        ]
+      },
+      {
+        "title": "The 'Pie' Mnemonics",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PITS & PARE",
+          "explanation": "PITS: Parietal Inferior, Temporal Superior. PARE: Parietal (decreased) Pursuit, Angular Gyrus (Gerstmann), Reading (Alexia), Extinction (Neglect)."
+        }
+      },
+      {
+        "title": "Pathophysiology of Macular Sparing",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Macular Sparing",
+          "branches": [
+            "Dual Blood Supply (PCA and MCA)",
+            "Large Cortical Representation (Macular Mapping)",
+            "Splenial Crossing Fibers",
+            "Borderzone Collaterals"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls: Occipital Cortex",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Congruity: If the defects match perfectly, look at the occipital pole.",
+          "Temporal Crescent Sparing: The most peripheral 30 degrees of the nasal field is represented monocularly in the anterior visual cortex.",
+          "Riddoch Phenomenon: Perception of motion in a blind hemifield (statokinetic dissociation).",
+          "Anton Syndrome: Cortical blindness with denial of vision (anosognosia)."
+        ]
+      },
+      {
+        "title": "Bitemporal vs. Binasal Hemianopia",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Feature",
+            "Bitemporal Hemianopia",
+            "Binasal Hemianopia"
+          ],
+          "rows": [
+            [
+              "Primary Localization",
+              "Optic Chiasm (Crossing Fibers)",
+              "Lateral Chiasm / Bilateral Optic Nerves"
+            ],
+            [
+              "Most Common Etiology",
+              "Pituitary Adenoma, Craniopharyngioma",
+              "Glaucoma, Calcified Internal Carotid Arteries"
+            ],
+            [
+              "Field Pattern",
+              "Respects Vertical Midline",
+              "Often respects horizontal midline (if Glaucoma)"
+            ],
+            [
+              "Vascular Cause",
+              "Pituitary Apoplexy",
+              "Ischemic Optic Neuropathy (bilateral)"
+            ],
+            [
+              "Other Causes",
+              "Rathke Cleft Cyst, Meningioma",
+              "Increased ICP (distension of 3rd ventricle)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Bitemporal Subtypes",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Chiasmal Compression",
+          "branches": [
+            "Inferior (Pituitary Adenoma) -> Superior Bitemporal",
+            "Superior (Craniopharyngioma) -> Inferior Bitemporal",
+            "Anterior (Willebrand's Knee) -> Junctional Scotoma",
+            "Posterior (Macular decussation) -> Central Bitemporal scotoma"
+          ]
+        }
+      },
+      {
+        "title": "The Binasal 'Differential' Mindset",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Glaucoma: Most common cause; usually respects horizontal, not vertical.",
+          "Atherosclerosis: Calcified ICAs compressing the lateral chiasm fibers.",
+          "Congenital: Optic Nerve Head Drusen or Tilted Discs.",
+          "Neurological: Chiari malformation or hydrocephalus causing 3rd ventricle expansion."
+        ]
+      },
+      {
+        "title": "Emergency Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden Bitemporal Hemianopia + Headache + Ophthalmoplegia: Suspect Pituitary Apoplexy.",
+          "Homonymous Hemianopia + Sudden Neurological Deficit: Rule out CVA (Stroke) immediately.",
+          "Progressive Field Loss + Optic Atrophy: Suspect intracranial compressive neoplasm.",
+          "Bilateral Blindness with Normal Pupillary Reflexes: Suspect Cortical Blindness (V1 lesion)."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Automated Static Perimetry (HVF 24-2 or 30-2) for pattern detection.",
+          "2. Goldmann Kinetic Perimetry for far peripheral mapping (Temporal Crescent).",
+          "3. Pupil Exam: Check for RAPD (Optic tract vs Radiation).",
+          "4. DFE/OCT: Check for Bow-tie pallor or RNFL loss.",
+          "5. Neuroimaging: MRI Brain & Orbits with/without Gadolinium (Sagittal/Coronal cuts)."
+        ]
+      },
+      {
+        "title": "Staging Chiasmal Compression",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Stage I: Upper Quadrant temporal",
+              "value": 25
+            },
+            {
+              "label": "Stage II: Full Hemianopia",
+              "value": 50
+            },
+            {
+              "label": "Stage III: Inferior nasal involvement",
+              "value": 75
+            },
+            {
+              "label": "Stage IV: Total Blindness",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Pseudohomonynous Defects",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Tilted Discs: Can mimic bitemporal hemianopia but usually crosses the vertical midline.",
+          "Functional Visual Loss: Cloverleaf or tubular fields.",
+          "Severe Glaucoma: Mimicking hemianopias (check RNFL and Cupping)."
+        ]
+      },
+      {
+        "title": "Surgical & Management Principles",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Compressive Lesions: Transsphenoidal resection of Pituitary adenomas.",
+          "Vascular: Stroke management (antiplatelets, risk factor control).",
+          "Rehabilitation: Prisms (Frensel) to shift images into the seeing field.",
+          "Training: Saccadic exploration therapy for hemianopia."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearl: Traquair's Junctional Scotoma",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "A junctional scotoma occurs at the junction of the optic nerve and the chiasm. It is characterized by a central scotoma in the ipsilateral eye (optic nerve involvement) and a superior temporal defect in the contralateral eye (compression of the inferior nasal fibers, or 'Willebrand’s knee'). This is a localization 'holy grail' for neuro-ophthalmologists."
+      }
+    ],
+    "generationPrompt": "Field defects posterior to optic tract ( congrous- quads- hemi- macular spare)\n\nDiff: binasal vs Bitemporal",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "kanskiMeta": [
+    {
+      "pageNum": 807,
+      "keywords": [
+        "visual field",
+        "visual",
+        "defects",
+        "pathways",
+        "optic"
+      ]
+    },
+    {
+      "pageNum": 801,
+      "keywords": [
+        "visual field",
+        "visual",
+        "defects",
+        "chiasmal",
+        "optic"
+      ]
+    },
+    {
+      "pageNum": 906,
+      "keywords": [
+        "visual field",
+        "visual",
+        "defects",
+        "optic",
+        "macular"
+      ]
+    },
+    {
+      "pageNum": 765,
+      "keywords": [
+        "visual field",
+        "visual",
+        "defects",
+        "interpretation",
+        "optic"
+      ]
+    },
+    {
+      "pageNum": 804,
+      "keywords": [
+        "visual field",
+        "retrochiasmal",
+        "visual",
+        "defects",
+        "investigations"
+      ]
+    },
+    {
+      "pageNum": 806,
+      "keywords": [
+        "visual field",
+        "visual",
+        "defects",
+        "pathways",
+        "optic"
+      ]
+    }
+  ]
+}

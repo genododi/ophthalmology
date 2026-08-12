@@ -1,0 +1,271 @@
+{
+  "id": 1775127009556,
+  "seqId": 554,
+  "title": "Cataract Surgery in the High Myope",
+  "summary": "Mastering the 'Big Eye': A comprehensive guide to managing eyes with axial lengths >26.0mm. From advanced biometry formulas to preventing reverse pupillary block and mitigating the lifelong risk of retinal detachment.",
+  "date": "2026-04-02T10:50:09.556Z",
+  "data": {
+    "title": "Cataract Surgery in the High Myope",
+    "summary": "Mastering the 'Big Eye': A comprehensive guide to managing eyes with axial lengths >26.0mm. From advanced biometry formulas to preventing reverse pupillary block and mitigating the lifelong risk of retinal detachment.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><ellipse cx='50' cy='50' rx='40' ry='25' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M35,50 Q50,30 65,50 Q50,70 35,50' fill='hsl(215, 90%, 70%)'/><line x1='10' y1='50' x2='90' y2='50' stroke='hsl(215, 90%, 45%)' stroke-dasharray='4'/><text x='75' y='45' font-size='5' fill='hsl(215, 90%, 45%)'>AL > 26mm</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Epidemiology",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "High Myopia: Defined as spherical equivalent ≤ -6.00 D or Axial Length (AL) ≥ 26.0 mm.",
+          "Pathologic Myopia: High myopia with associated degenerative changes (staphyloma, lacquer cracks, etc.).",
+          "Prevalence: Affects 1-3% of the global population; rising significantly in East Asia.",
+          "Cataract Onset: High myopes typically develop nuclear sclerotic and posterior subcapsular cataracts 10-15 years earlier than emmetropes."
+        ]
+      },
+      {
+        "title": "Risk of Post-Surgical Retinal Detachment (RD)",
+        "icon": "warning",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Emmetropes (Baseline)",
+              "value": 1
+            },
+            {
+              "label": "Myope (AL 24-26mm)",
+              "value": 4
+            },
+            {
+              "label": "High Myope (AL >26mm)",
+              "value": 10
+            },
+            {
+              "label": "High Myope + PC Rupture",
+              "value": 25
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pre-operative Biometry: Avoiding Refractive Surprise",
+        "icon": "straighten",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Era",
+            "Formula",
+            "Performance in High Myopia (AL >26mm)"
+          ],
+          "rows": [
+            [
+              "Traditional",
+              "SRK/T",
+              "Commonly used; tends to result in hyperopic surprise in very long eyes without adjustment."
+            ],
+            [
+              "Optimized",
+              "Wang-Koch Adjustment",
+              "Regression adjustment applied to AL to improve accuracy of SRK/T and Holladay 1."
+            ],
+            [
+              "New Gen",
+              "Barrett Universal II",
+              "Highly accurate; accounts for the 'effective lens position' more effectively."
+            ],
+            [
+              "AI/Modern",
+              "Kane / Hill-RBF 3.0",
+              "Current gold standard; uses big data/AI to minimize outliers in extreme AL."
+            ],
+            [
+              "Total Keratometry",
+              "Barrett TK",
+              "Uses posterior corneal curvature; vital if the patient had prior LASIK/PRK."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Intraoperative Challenges: The 'Big Eye' Syndrome",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Intra-op Dynamics",
+          "branches": [
+            "Deep Anterior Chamber",
+            "Reverse Pupillary Block",
+            "Floppy Iris",
+            "Thin Sclera (Risk of Perforation)",
+            "Zonular Laxity",
+            "Large Capsular Bag"
+          ]
+        }
+      },
+      {
+        "title": "The Pathophysiology of Reverse Pupillary Block",
+        "icon": "psychology",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Infusion of BSS creates high pressure in the Anterior Chamber (AC).",
+          "2. Fluid pushes iris 360 degrees against the lens capsule.",
+          "3. A 'one-way valve' is created; fluid cannot flow back to the AC.",
+          "4. Sudden extreme deepening of the AC occurs with intense pain.",
+          "5. Management: Gently lift iris edge with a second instrument to equalize pressure."
+        ]
+      },
+      {
+        "title": "Surgical Technique Pearls",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Incision: Construct longer tunnels to prevent 'floppy iris syndrome' and iris prolapse.",
+          "Capsulorhexis: Aim for 5.0 - 5.5mm. Too small increases risk of capsular phimosis; too large allows IOL tilt.",
+          "Hydrodissection: Be gentle; high myopes have thin posterior capsules and liquefied vitreous (reduced support).",
+          "Phaco Power: Lower parameters needed as the nucleus is often softer than expected, but beware of 'Brunescent' surprises.",
+          "Stability: Use a Capsular Tension Ring (CTR) if there is any sign of zonular laxity or to stabilize a large bag."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Immediate Hazards",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden Loss of Red Reflex: Possible suprachoroidal hemorrhage (increased risk in high myopes).",
+          "Iris-Lens Diaphragm Retraction: Sign of Reverse Pupillary Block.",
+          "Globe Perforation: During peribulbar or retrobulbar block (Staphyloma makes AL unpredictable).",
+          "Post-op 'Flashers and Floaters': Mandatory dilated fundus exam to rule out retinal tears."
+        ]
+      },
+      {
+        "title": "IOL Selection Considerations",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Lens Property",
+            "Recommendation",
+            "Rationale"
+          ],
+          "rows": [
+            [
+              "IOL Power",
+              "Low or Negative Power",
+              "May require specialized ordering (e.g., -5.0 to +5.0 D)."
+            ],
+            [
+              "Material",
+              "Hydrophobic Acrylic",
+              "Lower rates of PCO and less inflammatory."
+            ],
+            [
+              "Design",
+              "3-Piece or C-Loop",
+              "Better stability in large capsular bags compared to plate-haptic IOLs."
+            ],
+            [
+              "Multifocal IOLs",
+              "Approach with Caution",
+              "High risk of dissatisfaction due to macular pathology or higher RD risk later."
+            ],
+            [
+              "Refractive Target",
+              "Mild Myopia (-0.50 to -1.50 D)",
+              "High myopes often prefer some 'near' vision and find sudden emmetropia jarring."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis of Post-Op Vision Loss",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Decreased Post-Op BCVA",
+          "branches": [
+            "Myopic Macular Degeneration",
+            "Choroidal Neovascularization (CNV)",
+            "Retinal Detachment",
+            "Cystoid Macular Edema (CME)",
+            "Epiretinal Membrane",
+            "Macular Hole"
+          ]
+        }
+      },
+      {
+        "title": "Remember the 'MYOPIA' Checklist",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "MYOPIA",
+          "explanation": "M: Macular check (OCT essential). Y: Yield (low) IOL powers. O: Open the iris (Reverse block). P: Periphery (Retinal exam). I: Instruments (Longer reach). A: Accuracy (Barrett/Kane formulas)."
+        }
+      },
+      {
+        "title": "Landmark Insights: Evidence-Based Data",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "The 'AL Adjustment' (Wang-Koch): Highlighted that AL overestimation is a primary cause of hyperopic surprise (2011).",
+          "RD Risk Timeline: Risk remains elevated for up to 20 years post-operatively, peaking in the first 2-3 years.",
+          "YAG Capsulotomy: Increases the risk of RD in high myopes; perform only when clinically essential.",
+          "Refractive Neutrality: Studies show high myopes with AL >29mm have the highest variance in IOL formula performance."
+        ]
+      },
+      {
+        "title": "Post-operative Management Protocol",
+        "icon": "cardiology",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Day 1: IOP check (High myopes prone to steroid response).",
+          "2. Week 1: Dilated fundus exam to inspect peripheral retina.",
+          "3. Month 1: Final refraction and OCT Macula to rule out CME/CNV.",
+          "4. Ongoing: Annual dilated exams for the life of the patient."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls for Residents",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always check for a 'Posterior Staphyloma' on B-scan if biometry is inconsistent.",
+          "Consider Topical Anesthesia to avoid the risk of globe perforation with needles.",
+          "Keep a cohesive OVD (like Healon) ready to maintain the chamber during IOL insertion.",
+          "Warn patients pre-operatively that they may see 'floaters' more clearly once the cataract is removed."
+        ]
+      }
+    ],
+    "generationPrompt": "Cataract surgery in high myope",
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true
+}

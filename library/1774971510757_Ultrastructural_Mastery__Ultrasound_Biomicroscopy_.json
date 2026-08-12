@@ -1,0 +1,168 @@
+{
+  "id": 1774971510757,
+  "seqId": 4,
+  "title": "Ultrastructural Mastery: Ultrasound Biomicroscopy (UBM) in Clinical Practice",
+  "summary": "Ultrasound Biomicroscopy (UBM) is the gold-standard high-frequency imaging modality (35–50 MHz) for visualizing the anterior segment structures in exquisite, cross-sectional detail. It allows for definitive assessment of the iris, ciliary body, and angle anatomy, even in the presence of significant corneal opacity.",
+  "date": "2026-03-31T15:38:30.757Z",
+  "data": {
+    "title": "Ultrastructural Mastery: Ultrasound Biomicroscopy (UBM) in Clinical Practice",
+    "summary": "Ultrasound Biomicroscopy (UBM) is the gold-standard high-frequency imaging modality (35–50 MHz) for visualizing the anterior segment structures in exquisite, cross-sectional detail. It allows for definitive assessment of the iris, ciliary body, and angle anatomy, even in the presence of significant corneal opacity.",
+    "summary_illustration": "<svg viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e88e5' stroke-width='4'/><path d='M50 10v80' stroke='#1e88e5' stroke-width='2'/><path d='M10 50h80' stroke='#1e88e5' stroke-width='2'/><circle cx='50' cy='50' r='10' fill='#1e88e5'/></svg>",
+    "sections": [
+      {
+        "title": "Technical Principles & Physics",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "UBM utilizes high-frequency (35-50 MHz) transducers providing high spatial resolution (approx. 25-50 μm) at the expense of tissue penetration (depth of 5-8 mm). This allows detailed visualization of structures posterior to the iris, which are inaccessible to light-based imaging (OCT) in opaque media."
+      },
+      {
+        "title": "Indications & Diagnostic Applications",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "UBM Usage",
+          "branches": [
+            "Angle-Closure Glaucoma",
+            "Ciliary Body Tumors",
+            "IOL Malposition",
+            "Trauma/Foreign Bodies",
+            "Plateau Iris Syndrome"
+          ]
+        }
+      },
+      {
+        "title": "UBM vs. AS-OCT Comparison",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "UBM",
+            "AS-OCT"
+          ],
+          "rows": [
+            [
+              "Resolution",
+              "Very High (25μm)",
+              "High (5-10μm)"
+            ],
+            [
+              "Penetration",
+              "Posterior to Iris",
+              "Limited by Pigment"
+            ],
+            [
+              "Contact Required",
+              "Yes (Immersion)",
+              "No"
+            ],
+            [
+              "Corneal Opacity",
+              "Can see through",
+              "Blocked"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Red Flags for UBM Referral",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Unexplained elevated IOP with closed angle on gonioscopy",
+          "Suspected ciliary body melanoma or cyst",
+          "Persistent uveitis with cyclitic membrane/hypotony",
+          "Post-traumatic suspicion of ciliary body dialysis or foreign body",
+          "Anterior capsule contraction syndrome with zonular instability"
+        ]
+      },
+      {
+        "title": "Examination Protocol",
+        "icon": "process",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Topical anesthesia (Proparacaine).",
+          "Step 2: Placement of scleral immersion cup (e.g., ClearScan or internal eye cup).",
+          "Step 3: Fill cup with coupling medium (Methylcellulose or saline).",
+          "Step 4: Align transducer perpendicular to the limbus for radial/transverse scans.",
+          "Step 5: Dynamic assessment during light vs. dark and accommodation."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always perform in both light and dark to assess pupil-block dynamics.",
+          "Use 360-degree radial scans to look for ciliary body effusions or 'kissing' choroidals.",
+          "Crucial for identifying 'ciliary sulcus' positioning of IOL haptics.",
+          "Look for the 'double hump' sign in plateau iris syndrome.",
+          "Distinguish between appositional and synechial angle closure."
+        ]
+      },
+      {
+        "title": "Mnemonic: UBM Findings",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "C.A.M.P.",
+          "explanation": "C: Ciliary body position, A: Angle morphology, M: Membrane/Masses, P: Position of IOL/Implant"
+        }
+      },
+      {
+        "title": "Incidence of Pathology in Angle Assessment",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Pupil Block",
+              "value": 75
+            },
+            {
+              "label": "Plateau Iris",
+              "value": 20
+            },
+            {
+              "label": "Ciliary Body Cyst",
+              "value": 15
+            },
+            {
+              "label": "Malignant Glaucoma",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "Recent integration of 3D UBM reconstruction software and AI-based angle quantification tools have enhanced reproducibility. Studies by Pavlin and Foster remain the cornerstone of UBM interpretation, while newer high-speed digital processors reduce motion artifact in pediatric populations."
+      }
+    ],
+    "generationPrompt": "UBM",
+    "chapterId": "investigations"
+  },
+  "chapterId": "investigations",
+  "read": true
+}

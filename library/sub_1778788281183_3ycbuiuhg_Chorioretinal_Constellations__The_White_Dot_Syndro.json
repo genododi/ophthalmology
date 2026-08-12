@@ -1,0 +1,313 @@
+{
+  "id": "sub_1778788281183_3ycbuiuhg",
+  "title": "Chorioretinal Constellations: The White Dot Syndromes",
+  "summary": "A comprehensive clinical guide to the idiopathic inflammatory chorioretinopathies. This infographic navigates the complex differential diagnosis of 'white dots' in the fundus, from transient benign conditions like MEWDS to vision-threatening entities like Serpiginous Choroiditis.",
+  "date": "2026-06-16T12:35:48.302Z",
+  "data": {
+    "title": "Chorioretinal Constellations: The White Dot Syndromes",
+    "summary": "A comprehensive clinical guide to the idiopathic inflammatory chorioretinopathies. This infographic navigates the complex differential diagnosis of 'white dots' in the fundus, from transient benign conditions like MEWDS to vision-threatening entities like Serpiginous Choroiditis.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='#fdf2f2' stroke='#2563eb' stroke-width='4'/><circle cx='60' cy='70' r='8' fill='#ffffff' stroke='#3b82f6' stroke-width='1'/><circle cx='140' cy='85' r='12' fill='#ffffff' stroke='#3b82f6' stroke-width='1'/><circle cx='90' cy='130' r='10' fill='#ffffff' stroke='#3b82f6' stroke-width='1'/><circle cx='120' cy='50' r='6' fill='#ffffff' stroke='#3b82f6' stroke-width='1'/><path d='M80 100 Q 100 120 120 100' stroke='#ef4444' stroke-width='2' fill='none'/><circle cx='160' cy='100' r='15' fill='#fca5a5' fill-opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Pathogenesis",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The White Dot Syndromes (WDS) are a heterogeneous group of rare, idiopathic inflammatory disorders characterized by multiple whitish-yellow lesions at the level of the outer retina, retinal pigment epithelium (RPE), and choroid. While their exact etiology remains elusive, they are generally considered autoimmune or immune-mediated, often triggered by a viral prodrome (molecular mimicry). Understanding the specific anatomical level of involvement—RPE vs. Choriocapillaris—is crucial for diagnosis."
+      },
+      {
+        "title": "Demographic Predilections",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "MEWDS (Female %)",
+              "value": 75
+            },
+            {
+              "label": "Birdshot (Age >40)",
+              "value": 90
+            },
+            {
+              "label": "APMPPE (Bilateral %)",
+              "value": 85
+            },
+            {
+              "label": "PIC (Myopic %)",
+              "value": 80
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Master Comparison Matrix",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Syndrome",
+            "Primary Demographic",
+            "Laterality",
+            "Lesion Level",
+            "Visual Prognosis"
+          ],
+          "rows": [
+            [
+              "MEWDS",
+              "Young Female (20-40s)",
+              "Unilateral",
+              "RPE/Outer Retina (Ellipsoid)",
+              "Excellent (Self-limiting)"
+            ],
+            [
+              "APMPPE",
+              "Young Adult (20-30s)",
+              "Bilateral",
+              "RPE/Choriocapillaris",
+              "Good (Spontaneous resolution)"
+            ],
+            [
+              "Birdshot (BCR)",
+              "Middle-aged (CAU)",
+              "Bilateral",
+              "Deep Choroid",
+              "Guarded (Requires Long-term IMT)"
+            ],
+            [
+              "MCP",
+              "Young-Middle Female",
+              "Bilateral",
+              "Choroid/Stroma",
+              "Fair (Risk of CNVM)"
+            ],
+            [
+              "PIC",
+              "Young Myopic Female",
+              "Bilateral",
+              "Inner Choroid",
+              "Good (unless CNVM occurs)"
+            ],
+            [
+              "Serpiginous",
+              "Middle-aged Male/Female",
+              "Bilateral (Asymmetric)",
+              "Choriocapillaris/RPE",
+              "Poor (Progressive/Recurrent)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Imaging Signatures: FFA vs. ICG",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Fluorescein Angiography (FFA)",
+            "Indocyanine Green (ICG)",
+            "FAF Findings"
+          ],
+          "rows": [
+            [
+              "APMPPE",
+              "Early Masking (Block), Late Staining",
+              "Persistent Hypofluorescence",
+              "Early Hypo, Late Hyper (as RPE heals)"
+            ],
+            [
+              "MEWDS",
+              "Early Hyper (Wreath pattern), Late Stain",
+              "Multiple Hypofluorescent spots",
+              "Hyperautofluorescence (Active spots)"
+            ],
+            [
+              "Birdshot",
+              "Vascular Leakage, CME, Late staining",
+              "Classic 'Birdshot' Hypo-spots",
+              "Minimal changes early"
+            ],
+            [
+              "Serpiginous",
+              "Active edge: Early Hypo, Late Hyper",
+              "Persistent Hypofluorescence",
+              "Hyper at active border"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Classification by Anatomical Focus",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "WDS Anatomy",
+          "branches": [
+            "RPE: APMPPE, MEWDS",
+            "Inner Choroid: PIC, MCP",
+            "Deep Choroid: Birdshot",
+            "Choriocapillaris: Serpiginous"
+          ]
+        }
+      },
+      {
+        "title": "Genetic & Laboratory Markers",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "HLA-A29: Strongest association in medicine (95%+ of Birdshot patients).",
+          "HLA-B7 / HLA-DR2: Associated with APMPPE.",
+          "QuantiFERON/PPD: To rule out 'Serpiginous-like' TB Uveitis.",
+          "ACE/Lysozyme: To rule out Sarcoidosis masquerade.",
+          "Syphilis IgG/RPR: The 'Great Mimicker' must always be ruled out."
+        ]
+      },
+      {
+        "title": "Management Algorithms",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Diagnostic Confirmation (Multimodal imaging: OCT-A, FAF, ICG).",
+          "Step 2: Rule out Infectious Masquerades (TB, Syphilis, West Nile, Bartonella).",
+          "Step 3: Observation Strategy for MEWDS and typical APMPPE.",
+          "Step 4: Systemic Corticosteroids for Serpiginous or vision-threatening MCP/PIC.",
+          "Step 5: Immunomodulatory Therapy (IMT) for Birdshot (Cyclosporine, Mycophenolate).",
+          "Step 6: Anti-VEGF Therapy for secondary CNVM (common in PIC/MCP)."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Urgent Intervention Required",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Neurological deficits in APMPPE (Risk of CNS Vasculitis)",
+          "Foveal involvement in Serpiginous Choroiditis",
+          "Metamorphopsia in PIC/MCP (Indicates CNVM)",
+          "Rapidly expanding 'Snake-like' lesions (Serpiginous)",
+          "Severe Vitritis (Suggests MCP over PIC, or Infectious cause)"
+        ]
+      },
+      {
+        "title": "Mnemonic: The 'White Dot' Checklist",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "M.A.P.B.S.",
+          "explanation": "M: MEWDS (Unilateral/Young); A: APMPPE (Bilateral/Placoid); P: PIC/Point (Myopic/Small dots); B: Birdshot (A29/Deep spots); S: Serpiginous (Snake-like/Aggressive)."
+        }
+      },
+      {
+        "title": "Multimodal Imaging Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "OCT: MEWDS shows 'shaggy' photoreceptor tips and EZ disruption.",
+          "FAF: Excellent for monitoring 'activity'; Hyper-FAF indicates active RPE stress.",
+          "ICG: Often shows much more extensive disease than is visible on fundoscopy.",
+          "OCT-A: Vital for detecting Type 2 CNVM without the haze of dye leakage."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: The Masqueraders",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Masquerade",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Tuberculosis",
+              "Serpiginous-like, but positive Quant/CXR"
+            ],
+            [
+              "Sarcoidosis",
+              "Granulomatous vitritis, hilar adenopathy"
+            ],
+            [
+              "Syphilis",
+              "ASPPC (Acute Syphilitic Posterior Placoid Chorioretinitis)"
+            ],
+            [
+              "Lymphoma",
+              "Older patients, sub-RPE deposits, no response to IMT"
+            ],
+            [
+              "VHK",
+              "Exudative RD, 'sunset glow' fundus, headache"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Landmark Insights & Recent Advances",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Recent literature highlights the role of IL-17 in Birdshot Chorioretinopathy, leading to trials with Secukinumab. The 'SUN' (Standardization of Uveitis Nomenclature) criteria have recently been updated to provide stricter classification for these syndromes to aid clinical research. Furthermore, OCT-Angiography has redefined our understanding of 'flow voids' in the choriocapillaris during the acute phase of APMPPE, suggesting a primary ischemic event at the capillary level rather than a primary RPE inflammation."
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "monitoring",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Choroidal Neovascularization (CNVM): 40% risk in PIC.",
+          "Subretinal Fibrosis: Hallmark of Subretinal Fibrosis and Uveitis Syndrome.",
+          "Cystoid Macular Edema (CME): Common in Birdshot and MCP.",
+          "Chorioretinal Atrophy: Final stage of Serpiginous and APMPPE.",
+          "Epiretinal Membrane (ERM): High prevalence in chronic MCP."
+        ]
+      },
+      {
+        "title": "High-Yield Summary for Rounds",
+        "icon": "star",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "MEWDS = One eye, one visit, 'shaggy' EZ, hyper-FAF.",
+          "APMPPE = Two eyes, placoid, CNS stroke risk, ICG hypo.",
+          "Birdshot = HLA-A29, creamy spots, minimal vitritis, chronic.",
+          "PIC/MCP = Myopic women, small dots, high CNVM risk.",
+          "Serpiginous = Recurrent, centrifugal growth, needs heavy IMT."
+        ]
+      }
+    ],
+    "generationPrompt": "Create an tabulated Infograph comparing white dot syndromes ( uveitis)",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "communitySource": true,
+  "author": "Dodo",
+  "citation": "Author: Dodo",
+  "serverId": "sub_1778788281183_3ycbuiuhg",
+  "_newlyImported": 1781616227529,
+  "seqId": 806
+}

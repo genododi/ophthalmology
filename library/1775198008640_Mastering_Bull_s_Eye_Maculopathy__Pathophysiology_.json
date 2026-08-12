@@ -1,0 +1,161 @@
+{
+  "id": 1775198008640,
+  "seqId": 600,
+  "title": "Mastering Bull's-Eye Maculopathy: Pathophysiology & Clinical Management",
+  "summary": "Bull's-eye maculopathy is a distinct phenotypic presentation characterized by a central area of RPE preservation surrounded by a ring of RPE atrophy. This pattern is pathognomonic for several hereditary and toxic retinal dystrophies requiring precise multimodal diagnostic differentiation.",
+  "date": "2026-04-03T06:33:28.640Z",
+  "data": {
+    "title": "Mastering Bull's-Eye Maculopathy: Pathophysiology & Clinical Management",
+    "summary": "Bull's-eye maculopathy is a distinct phenotypic presentation characterized by a central area of RPE preservation surrounded by a ring of RPE atrophy. This pattern is pathognomonic for several hereditary and toxic retinal dystrophies requiring precise multimodal diagnostic differentiation.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e88e5' stroke-width='4'/><circle cx='50' cy='50' r='15' fill='#1e88e5'/><circle cx='50' cy='50' r='30' fill='none' stroke='#e53935' stroke-width='8' stroke-dasharray='10 5'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Etiology",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Bull's-eye maculopathy describes a specific fundus appearance: a central island of preserved RPE/foveal tissue, a ring of depigmentation/atrophy, and an outer ring of hyperpigmentation. Etiologically, it stems from metabolic disruption of the RPE/photoreceptor complex, often secondary to drug toxicity or genetic mutations (e.g., ABCA4, PROM1)."
+      },
+      {
+        "title": "Differential Diagnosis: The 'Bull's-Eye' Mimickers",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Condition",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Toxic",
+              "Hydroxychloroquine (HCQ)",
+              "Cumulative dose/daily weight-based dosage"
+            ],
+            [
+              "Genetic",
+              "Stargardt Disease",
+              "ABCA4 mutation; early onset; dark choroid"
+            ],
+            [
+              "Genetic",
+              "Cone-Rod Dystrophy",
+              "Early color vision loss; photophobia"
+            ],
+            [
+              "Genetic",
+              "Pattern Dystrophy",
+              "Adult-onset; lipofuscin-like deposits"
+            ],
+            [
+              "Inflammatory",
+              "Batten Disease (NCL)",
+              "Neurodegenerative associations"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Hydroxychloroquine Toxicity: Risk Assessment",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Daily Dose > 5.0mg/kg",
+              "value": 75
+            },
+            {
+              "label": "Duration > 5 years",
+              "value": 60
+            },
+            {
+              "label": "Renal Disease",
+              "value": 40
+            },
+            {
+              "label": "Tamoxifen Use",
+              "value": 50
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags for HCQ Toxicity",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Parafoveal thinning on SD-OCT",
+          "Loss of ellipsoid zone integrity",
+          "Visual field defects (10-2 test)",
+          "Multifocal ERG amplitude reduction",
+          "Autofluorescence ring"
+        ]
+      },
+      {
+        "title": "Diagnostic Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Baseline Fundus Autofluorescence (FAF) for baseline mapping.",
+          "Step 2: SD-OCT (horizontal/vertical macular scans) to check for EZ/OS layer attenuation.",
+          "Step 3: 10-2 Humphrey Visual Field (HVF) for pericentral scotomas.",
+          "Step 4: mfERG for functional assessment of central retinal health.",
+          "Step 5: Fundus photography (Color) to document the classic ring appearance."
+        ]
+      },
+      {
+        "title": "Clinical Pearls & Memory Aid",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "HCQ-STOP",
+          "explanation": "H-Hydroxychloroquine, C-Cumulative dose check, Q-Quantitative 10-2 VF, S-Scanning OCT (parafoveal), T-Tamoxifen interaction, O-Observation of RPE, P-Periodic screening."
+        }
+      },
+      {
+        "title": "Stargardt Disease vs. Pattern Dystrophy",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Inherited Bull's-eye",
+          "branches": [
+            "Stargardt: ABCA4, Early Onset, Dark Choroid on FFA",
+            "Pattern: PRPH2, Adult Onset, Lipofuscin Deposits",
+            "Cone-Rod: Nystagmus, Photophobia, ERG decline"
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances: The AAO 2016 Recommendations",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Shifted screening paradigm from 'dosage' to 'functional imaging' (OCT/FAF/mfERG).",
+          "Maximal daily dose capped at 5.0 mg/kg of real weight.",
+          "Emphasis on early detection before the 'Bull's-eye' becomes visible on color fundus exam.",
+          "High-risk patients (Asian descent, kidney disease) require more frequent, rigorous screening."
+        ]
+      }
+    ],
+    "generationPrompt": "Bulls eye maculopathy",
+    "chapterId": "physiology"
+  },
+  "chapterId": "physiology"
+}

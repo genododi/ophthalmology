@@ -1,0 +1,211 @@
+{
+  "id": 1775153760304,
+  "seqId": 576,
+  "title": "Clinical Mastery: Full-Thickness Macular Hole (FTMH)",
+  "summary": "A comprehensive guide to the pathogenesis, diagnostic staging, and surgical management of full-thickness macular holes, focusing on the current gold standard: pars plana vitrectomy with ILM peeling.",
+  "date": "2026-04-02T18:16:00.304Z",
+  "data": {
+    "title": "Clinical Mastery: Full-Thickness Macular Hole (FTMH)",
+    "summary": "A comprehensive guide to the pathogenesis, diagnostic staging, and surgical management of full-thickness macular holes, focusing on the current gold standard: pars plana vitrectomy with ILM peeling.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e40af' stroke-width='2'/><ellipse cx='50' cy='50' rx='10' ry='5' fill='#ef4444'/><path d='M30 50 Q 50 30 70 50' stroke='#1e40af' fill='none' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A Full-Thickness Macular Hole (FTMH) is a foveal dehiscence involving all retinal layers from the internal limiting membrane (ILM) to the retinal pigment epithelium (RPE). It typically results from tangential and anteroposterior vitreous traction at the macula."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Female:Male",
+              "value": 85
+            },
+            {
+              "label": "Age >60",
+              "value": 90
+            },
+            {
+              "label": "Bilateral involvement",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The Tractional Theory",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "FTMH Etiology",
+          "branches": [
+            "Anteroposterior Vitreous Traction",
+            "Tangential Epiretinal Membrane Traction",
+            "Aging-related Vitreous Liquefaction (Synchisis)"
+          ]
+        }
+      },
+      {
+        "title": "Gass Classification System (Stages)",
+        "icon": "list",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Anatomic Description",
+            "OCT Finding"
+          ],
+          "rows": [
+            [
+              "1a",
+              "Foveal detachment (occult hole)",
+              "Foveal flattening, loss of depression"
+            ],
+            [
+              "1b",
+              "Occult hole",
+              "Small intraretinal cyst"
+            ],
+            [
+              "2",
+              "Small full-thickness defect (<400um)",
+              "Full thickness opening"
+            ],
+            [
+              "3",
+              "Large defect (>400um)",
+              "Operculum present, no PVD"
+            ],
+            [
+              "4",
+              "Complete PVD",
+              "Weiss ring present"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Emergency Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Metamorphopsia (Amsler grid distortion)",
+          "Central scotoma expansion",
+          "Sudden drop in BCVA",
+          "Associated Rhegmatogenous Retinal Detachment (RRD)"
+        ]
+      },
+      {
+        "title": "Mnemonic: Symptoms",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "M.A.C.U.L.A.",
+          "explanation": "Metamorphopsia (wavy lines), Amsler grid distortion, Central vision loss, Unilateral symptoms, Loss of contrast sensitivity, Aching (minimal/none)."
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: BCVA - Usually 20/70 to 20/200.",
+          "Step 2: Amsler Grid testing - Reveal central metamorphopsia.",
+          "Step 3: Slit-Lamp Biomicroscopy - Watzke-Allen test (positive).",
+          "Step 4: SD-OCT - Gold standard to confirm hole diameter and integrity of EZ (Ellipsoid Zone)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Differentiator"
+          ],
+          "rows": [
+            [
+              "Lamellar Macular Hole",
+              "Intact photoreceptors"
+            ],
+            [
+              "Macular Pseudohole",
+              "Epiretinal membrane contraction"
+            ],
+            [
+              "Vitreomacular Traction (VMT)",
+              "Retinal attachment intact"
+            ],
+            [
+              "Cystoid Macular Edema",
+              "Intraretinal fluid accumulation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Pars Plana Vitrectomy (PPV) - 23/25/27 Gauge.",
+          "Step 2: Induction of PVD - Vital for releasing traction.",
+          "Step 3: Internal Limiting Membrane (ILM) Peeling - Use of Brilliant Blue G or Indocyanine Green (ICG).",
+          "Step 4: Fluid-Air Exchange.",
+          "Step 5: Tamponade - C3F8 (14%) or SF6 (20%) gas.",
+          "Step 6: Face-down positioning - Essential for 3-5 days."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Closure rates exceed 90-95% for most primary macular holes.",
+          "Inverted ILM flap technique is preferred for chronic or large (>400um) holes.",
+          "Post-operative BCVA improvement is highly dependent on the integrity of the Ellipsoid Zone (EZ) on OCT.",
+          "Risk of cataract progression is nearly 100% following gas tamponade."
+        ]
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Recent landmark trends emphasize the use of autologous platelet-rich plasma (PRP) or amniotic membrane grafts for refractory macular holes. Additionally, studies on micro-incision vitrectomy (MIVS) demonstrate faster recovery times and reduced inflammation."
+      }
+    ],
+    "generationPrompt": "Macular hole",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "read": true,
+  "bookmarked": true
+}

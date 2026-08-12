@@ -77,8 +77,26 @@ function createGeminiKeyRecord(key) {
         id: `gemini-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
         key: key.trim(),
         status: 'ready',
-        message: ''
+        message: '',
+        attempts: 0,
+        successes: 0,
+        failures: 0
     };
+}
+
+function getGeminiKeyScore(item) {
+    const attempts = Number(item?.attempts) || 0;
+    return attempts ? Math.round(((Number(item?.successes) || 0) / attempts) * 100) : null;
+}
+
+function getRecommendedGeminiKeyRecord() {
+    return geminiApiKeys.slice().sort((a, b) => {
+        const aScore = getGeminiKeyScore(a);
+        const bScore = getGeminiKeyScore(b);
+        return (bScore ?? -1) - (aScore ?? -1) ||
+            (Number(b.successes) || 0) - (Number(a.successes) || 0) ||
+            (Number(a.failures) || 0) - (Number(b.failures) || 0);
+    })[0] || null;
 }
 
 function persistGeminiApiKeys() {
@@ -142,24 +160,31 @@ function renderGeminiKeyPool() {
     if (!geminiApiKeys.length) {
         geminiKeyPoolElement.innerHTML = '<div class="gemini-key-empty">No keys saved</div>';
     } else {
-        geminiKeyPoolElement.innerHTML = geminiApiKeys.map((item, index) => `
+        const recommended = getRecommendedGeminiKeyRecord();
+        geminiKeyPoolElement.innerHTML = geminiApiKeys.map((item, index) => {
+            const score = getGeminiKeyScore(item);
+            const stats = score === null ? 'Not tested yet' : `${score}% success · ${item.successes}/${item.attempts}`;
+            return `
             <div class="gemini-key-item status-${escapeHtml(item.status)}" title="${escapeHtml(item.message || 'Ready to use')}">
                 <label class="gemini-key-select">
                     <input type="radio" name="gemini-api-key-choice" value="${escapeHtml(item.id)}" ${selected?.id === item.id ? 'checked' : ''}>
-                    <span class="gemini-key-name">Key ${index + 1}</span>
+                    <span class="gemini-key-name">Key ${index + 1}${recommended?.id === item.id ? ' · Recommended' : ''}</span>
                     <code>${escapeHtml(maskGeminiApiKey(item.key))}</code>
+                    <small class="gemini-key-score">${escapeHtml(stats)}</small>
                 </label>
                 <span class="gemini-key-status">${escapeHtml(item.status)}</span>
                 <button type="button" class="icon-btn gemini-key-remove" data-key-id="${escapeHtml(item.id)}" title="Remove key" aria-label="Remove Key ${index + 1}">
                     <span class="material-symbols-rounded">close</span>
                 </button>
-            </div>
-        `).join('');
+            </div>`;
+        }).join('');
     }
 
     if (geminiKeySummary) {
         const failed = geminiApiKeys.filter(item => item.status === 'failed').length;
-        geminiKeySummary.textContent = `${geminiApiKeys.length} saved${failed ? `, ${failed} failed` : ''}`;
+        const recommended = getRecommendedGeminiKeyRecord();
+        const score = getGeminiKeyScore(recommended);
+        geminiKeySummary.textContent = `${geminiApiKeys.length} saved${failed ? `, ${failed} failed` : ''}${recommended ? ` · Key ${geminiApiKeys.indexOf(recommended) + 1} recommended${score === null ? '' : ` (${score}%)`}` : ''}`;
     }
     if (geminiKeyVisibilityBtn) {
         geminiKeyVisibilityBtn.innerHTML = `<span class="material-symbols-rounded">${revealGeminiApiKeys ? 'visibility_off' : 'visibility'}</span>`;
@@ -204,6 +229,18 @@ function setGeminiApiKeyStatus(id, status, message = '') {
     renderGeminiKeyPool();
 }
 
+function recordGeminiKeyOutcome(id, succeeded, message = '') {
+    const item = geminiApiKeys.find(keyItem => keyItem.id === id);
+    if (!item) return;
+    item.attempts = (Number(item.attempts) || 0) + 1;
+    if (succeeded) item.successes = (Number(item.successes) || 0) + 1;
+    else item.failures = (Number(item.failures) || 0) + 1;
+    item.status = succeeded ? 'success' : 'failed';
+    item.message = message;
+    persistGeminiApiKeys();
+    renderGeminiKeyPool();
+}
+
 function getGeminiApiKeyRotation() {
     const selected = getSelectedGeminiKeyRecord();
     if (!selected) return [];
@@ -223,7 +260,7 @@ async function initGeminiApiKeys() {
         if (Array.isArray(stored)) {
             geminiApiKeys = stored
                 .filter(item => isValidGeminiApiKey(item?.key))
-                .map(item => ({ ...createGeminiKeyRecord(item.key), ...item, status: item.status === 'trying' ? 'ready' : (item.status || 'ready') }));
+                .map(item => ({ ...createGeminiKeyRecord(item.key), ...item, attempts: Number(item.attempts) || 0, successes: Number(item.successes) || 0, failures: Number(item.failures) || 0, status: item.status === 'trying' ? 'ready' : (item.status || 'ready') }));
         }
         const legacyKey = localStorage.getItem(GEMINI_API_KEY_STORAGE) || '';
         if (isValidGeminiApiKey(legacyKey) && !geminiApiKeys.some(item => item.key === legacyKey)) {
@@ -1188,7 +1225,7 @@ function isGitHubPages() {
     return window.location.hostname === GITHUB_PAGES_HOST;
 }
 
-async function safeFetch(url, options) {
+async function safeFetch(url, options = {}) {
     if (isCapacitorNativeApp()) {
         const path = String(url || '').replace(/^\//, '');
         if (path.startsWith('api/library/list')) {
@@ -1216,12 +1253,99 @@ async function safeFetch(url, options) {
         }
     }
 
-    if (window.location.protocol === 'file:') {
-        // Point to localhost server if running locally
-        const fullUrl = url.startsWith('http') ? url : `${SERVER_URL}/${url}`;
+    const isRelativeApiRequest = !String(url).startsWith('http') && /^\/?api\//.test(String(url));
+    if (isRelativeApiRequest && (window.location.protocol === 'file:' ||
+        (isLocalDevHost() && window.location.port !== '3000'))) {
+        // The app may be previewed by another local web server (for example on
+        // port 5174), while the Node backend owns the API on port 3000.
+        const fullUrl = `${SERVER_URL}/${String(url).replace(/^\//, '')}`;
         return fetch(fullUrl, options);
     }
     return fetch(url, options);
+}
+
+function showUploadProgress(destination, count) {
+    const itemLabel = `${count} infographic${count === 1 ? '' : 's'}`;
+    const overlay = document.createElement('div');
+    overlay.className = 'progress-overlay';
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:rgba(15,23,42,.72);backdrop-filter:blur(4px);color:#fff;';
+    overlay.innerHTML = `
+        <div style="width:min(320px,calc(100vw - 40px));padding:24px;border-radius:16px;background:#1e293b;text-align:center;box-shadow:0 18px 48px rgba(0,0,0,.35);">
+            <span class="material-symbols-rounded upload-progress-icon" style="font-size:38px;color:#60a5fa;">cloud_upload</span>
+            <h3 class="upload-progress-title" style="margin:10px 0 6px;font-size:1.15rem;">Uploading to ${destination}…</h3>
+            <p class="upload-progress-detail" style="margin:0 0 16px;color:#cbd5e1;font-size:.9rem;">Preparing ${itemLabel}</p>
+            <div style="height:9px;overflow:hidden;border-radius:99px;background:#334155;"><div class="upload-progress-fill" style="width:8%;height:100%;border-radius:99px;background:#60a5fa;transition:width .25s ease,background .25s ease;"></div></div>
+        </div>`;
+    document.body.appendChild(overlay);
+
+    const fill = overlay.querySelector('.upload-progress-fill');
+    const icon = overlay.querySelector('.upload-progress-icon');
+    const title = overlay.querySelector('.upload-progress-title');
+    const detail = overlay.querySelector('.upload-progress-detail');
+    let percent = 8;
+    const timer = setInterval(() => {
+        percent = Math.min(90, percent + Math.max(1, (90 - percent) * 0.14));
+        fill.style.width = `${percent}%`;
+    }, 240);
+    const pause = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+    return {
+        async succeed(message) {
+            clearInterval(timer);
+            fill.style.width = '100%';
+            fill.style.background = '#22c55e';
+            icon.textContent = 'check_circle';
+            icon.style.color = '#4ade80';
+            title.textContent = 'Upload successful';
+            detail.textContent = message || `${itemLabel} uploaded to ${destination}.`;
+            await pause(800);
+        },
+        async fail(message) {
+            clearInterval(timer);
+            fill.style.width = '100%';
+            fill.style.background = '#ef4444';
+            icon.textContent = 'error';
+            icon.style.color = '#f87171';
+            title.textContent = 'Upload failed';
+            detail.textContent = message || 'Please try again.';
+            await pause(800);
+        },
+        close() {
+            clearInterval(timer);
+            overlay.remove();
+        }
+    };
+}
+
+async function uploadItemsToServerLibrary(items) {
+    if (!Array.isArray(items) || items.length === 0) {
+        throw new Error('No infographics selected.');
+    }
+    if (isGitHubPages()) {
+        if (!window.CommunitySubmissions || !CommunitySubmissions.uploadToServerLibrary) {
+            throw new Error('The server upload module is unavailable. Please refresh and try again.');
+        }
+        return CommunitySubmissions.uploadToServerLibrary(items);
+    }
+
+    let response;
+    try {
+        response = await safeFetch('api/library/upload', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(items)
+        });
+    } catch (error) {
+        if (isLocalDevHost() || window.location.protocol === 'file:') {
+            throw new Error('Local server is unavailable. Start it with: npm start');
+        }
+        throw error;
+    }
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || !result.success) {
+        throw new Error(result.error || result.message || `Server returned ${response.status}`);
+    }
+    return { success: true, count: items.length, nativeLocalOnly: result.nativeLocalOnly };
 }
 
 // Fetch library from static JSON file (for GitHub Pages)
@@ -1395,7 +1519,12 @@ function autoDetectChapter(title) {
                 'central serous', 'csr', 'csc', 'cscr', 'pachychoroid',
                 'myopic maculopathy', 'pathological myopia', 'macular atrophy',
                 'epiretinal', 'macular dystrophy', 'vitelliform', 'best disease',
-                'stargardt', 'pattern dystrophy',
+                'stargardt', 'pattern dystrophy', 'adult-onset foveomacular vitelliform',
+                'macular telangiectasia', 'mac tel', 'macular telangiectasia type 2',
+                'x-linked retinoschisis', 'xlrs', 'familial exudative vitreoretinopathy', 'fevr',
+                'coats disease', 'retinal astrocytoma', 'retinal capillary hemangioma', 'von hippel-lindau',
+                'acute zonal occult outer retinopathy', 'azoor', 'acute idiopathic blind spot enlargement',
+                'acute macular neuroretinopathy', 'amn', 'paracentral acute middle maculopathy', 'pamm',
                 // Other medical retina
                 'retinitis pigmentosa', 'rp', 'rod-cone', 'cone-rod', 'choroideremia',
                 'retinal dystrophy', 'inherited retinal', 'ird',
@@ -1438,7 +1567,11 @@ function autoDetectChapter(title) {
                 // Other corneal
                 'corneal opacity', 'corneal scar', 'corneal edema', 'bullous keratopathy',
                 'exposure keratopathy', 'neurotrophic', 'persistent epithelial defect',
-                'recurrent erosion', 'epithelial basement membrane'
+                'recurrent erosion', 'epithelial basement membrane', 'marginal keratitis',
+                'peripheral ulcerative keratitis', 'puk', 'sterile infiltrate', 'contact lens keratitis',
+                'limbal stem cell deficiency', 'lscd', 'superior limbic keratoconjunctivitis',
+                'ocular rosacea', 'filamentary keratitis', 'thygeson', 'corneal hydrops',
+                'descemetocele', 'corneal melt', 'sterile corneal melt'
             ], chapter: 'cornea'
         },
 
@@ -1500,7 +1633,11 @@ function autoDetectChapter(title) {
                 'iris bombe', 'seclusio pupillae', 'cyclitic membrane',
                 'band keratopathy uveitis', 'uveitic glaucoma', 'uveitic cataract',
                 // Treatment-related
-                'immunosuppression', 'steroid-sparing', 'biologic', 'adalimumab', 'infliximab'
+                'immunosuppression', 'steroid-sparing', 'biologic', 'adalimumab', 'infliximab',
+                'fuchs uveitis', 'fuchs heterochromic iridocyclitis', 'posner-schlossman',
+                'juvenile idiopathic arthritis uveitis', 'jia uveitis', 'tinu', 'blau syndrome',
+                'ocular histoplasmosis', 'presumed ocular histoplasmosis', 'pohs',
+                'relentless placoid chorioretinitis', 'ampiginous', 'masquerade syndrome'
             ], chapter: 'uveitis'
         },
 
@@ -1556,7 +1693,10 @@ function autoDetectChapter(title) {
                 'childhood blindness', 'cortical visual impairment', 'cvi',
                 // Genetic/metabolic
                 'retinoblastoma', 'coats disease', 'norrie', 'familial exudative',
-                'fevr', 'incontinentia pigmenti', 'albinism ocular'
+                'fevr', 'incontinentia pigmenti', 'albinism ocular', 'microphthalmia', 'nanophthalmos',
+                'persistent hyperplastic primary vitreous', 'morning glory disc', 'optic nerve hypoplasia',
+                'septo-optic dysplasia', 'primary congenital glaucoma', 'megalocornea', 'microcornea',
+                'retinal dysplasia', 'rpe65', 'leber congenital amaurosis', 'lca', 'juvenile x-linked retinoschisis'
             ], chapter: 'paediatric'
         },
 
@@ -1580,6 +1720,9 @@ function autoDetectChapter(title) {
                 'cavernous hemangioma', 'lymphangioma', 'dermoid', 'orbital dermoid',
                 'optic nerve glioma', 'optic nerve meningioma', 'orbital meningioma',
                 'rhabdomyosarcoma', 'orbital lymphoma', 'orbital metastasis',
+                'venolymphatic malformation', 'lymphatic malformation', 'orbital venous malformation',
+                'orbital varix', 'capillary hemangioma', 'infantile hemangioma', 'dacryops',
+                'pleomorphic adenoma', 'adenoid cystic carcinoma', 'orbital apex syndrome', 'superior orbital fissure syndrome',
                 // Trauma & other
                 'orbital fracture', 'blow-out fracture', 'medial wall fracture',
                 'floor fracture', 'enophthalmos', 'orbital reconstruction',
@@ -1633,7 +1776,9 @@ function autoDetectChapter(title) {
                 'dcr', 'dacryocystorhinostomy', 'endonasal dcr', 'external dcr',
                 'jones tube', 'lacrimal stent', 'intubation lacrimal',
                 'lacrimal gland', 'lacrimal sac', 'lacrimal drainage',
-                'dry eye lacrimal', 'tear production', 'reflex tearing'
+                'dry eye lacrimal', 'tear production', 'reflex tearing', 'functional epiphora',
+                'lacrimal pump failure', 'nasolacrimal duct probing', 'lacrimal irrigation', 'syringing',
+                'dacryoscintigraphy', 'dacryocystography', 'common canalicular obstruction', 'canalicular laceration'
             ], chapter: 'lacrimal'
         },
 
@@ -1654,7 +1799,9 @@ function autoDetectChapter(title) {
                 'stevens-johnson syndrome', 'sjs', 'toxic epidermal', 'ten',
                 'symblepharon', 'fornix shortening', 'conjunctival scarring',
                 'conjunctival tumor', 'ocular surface squamous', 'ossn', 'cin',
-                'conjunctival melanoma', 'conjunctival nevus', 'pan'
+                'conjunctival melanoma', 'conjunctival nevus', 'pan', 'phlyctenular conjunctivitis',
+                'ligneous conjunctivitis', 'conjunctivochalasis', 'pseudomembranous conjunctivitis',
+                'molluscum conjunctivitis', 'contact lens papillary conjunctivitis'
             ], chapter: 'conjunctiva'
         },
 
@@ -1694,7 +1841,9 @@ function autoDetectChapter(title) {
                 // Assessment
                 'wavefront', 'aberrometry', 'topography', 'tomography',
                 'keratometry', 'corneal power', 'axial length', 'biometry',
-                'spectacle', 'glasses', 'contact lens'
+                'spectacle', 'glasses', 'contact lens', 'orthokeratology', 'ortho-k',
+                'myopia control', 'low-dose atropine', 'peripheral defocus', 'multifocal contact lens',
+                'presbylasik', 'monovision'
             ], chapter: 'refractive'
         },
 
@@ -1707,6 +1856,8 @@ function autoDetectChapter(title) {
                 'open globe', 'ruptured globe', 'penetrating injury', 'perforating injury',
                 'closed globe', 'blunt trauma', 'contusion',
                 'foreign body', 'iofb', 'intraocular foreign body', 'corneal foreign body',
+                'ocular surface burn', 'roper-hall', 'dua classification', 'eyelid laceration', 'canalicular laceration',
+                'traumatic iritis', 'traumatic mydriasis', 'traumatic aniridia', 'globe rupture',
                 'hyphema', 'traumatic hyphema', 'eight ball hyphema',
                 'chemical burn', 'chemical injury', 'alkali burn', 'acid burn',
                 'thermal burn', 'radiation injury',
@@ -2124,6 +2275,11 @@ function setupKnowledgeBase() {
             keywords: ['differential', 'diagnosis', 'ddx', 'vs', 'versus', 'distinguish', 'differentiate']
         },
         {
+            id: 'red_flags', name: 'Red Flags & Emergencies', icon: 'emergency',
+            keywords: ['red flag', 'emergency', 'urgent', 'immediate referral', 'same day', 'do not miss', 'warning sign', 'sight-threatening'],
+            sectionTypes: ['red_flag']
+        },
+        {
             id: 'causes', name: 'Causes', icon: 'help_outline',
             keywords: ['cause', 'aetiology', 'etiology', 'pathogenesis', 'pathophysiology', 'mechanism', 'risk factor', 'predisposing', 'associated with', 'due to']
         },
@@ -2178,25 +2334,24 @@ function setupKnowledgeBase() {
 
                 if (selectedDestination === 'server') {
                     if (!confirm(`Upload ${itemsToExport.length} ${itemWord} directly to the established server library? They will not be sent through the Community Hub.`)) return;
-                    if (!window.CommunitySubmissions || !CommunitySubmissions.uploadToServerLibrary) {
-                        alert('The server upload module is unavailable. Please refresh and try again.');
-                        return;
-                    }
-
                     const originalIcon = exportBtn.innerHTML;
                     exportBtn.disabled = true;
                     exportBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span>';
+                    const progress = showUploadProgress('Server Library', itemsToExport.length);
                     try {
-                        const result = await CommunitySubmissions.uploadToServerLibrary(itemsToExport);
+                        const result = await uploadItemsToServerLibrary(itemsToExport);
                         if (!result.success) throw new Error(result.message || 'Server upload failed.');
+                        await progress.succeed(`${result.count} ${itemWord} uploaded to the server library.`);
                         alert(`✅ ${result.count} ${itemWord} uploaded to the server library.`);
                         selectionMode = false;
                         selectedItems.clear();
                         renderLibraryList();
                     } catch (err) {
                         console.error('Server library upload error:', err);
+                        await progress.fail(err.message);
                         alert(`Server upload failed: ${err.message}`);
                     } finally {
+                        progress.close();
                         exportBtn.disabled = false;
                         exportBtn.innerHTML = originalIcon;
                     }
@@ -2263,10 +2418,13 @@ function setupKnowledgeBase() {
                         clearInterval(progressInterval);
                         fill.style.width = '100%';
 
-                        // Small delay to let user see 100%
-                        await new Promise(r => setTimeout(r, 400));
-
                         if (result.success) {
+                            fill.style.background = '#22c55e';
+                            progressOverlay.querySelector('h3').textContent = result.queued ? 'Upload queued' : 'Upload successful';
+                            progressOverlay.querySelector('p').textContent = result.queued
+                                ? 'Your upload will publish automatically when GitHub is available.'
+                                : `${result.count} infographic${result.count === 1 ? '' : 's'} published to the Community Hub.`;
+                            await new Promise(r => setTimeout(r, 800));
                             const msg = result.queued
                                 ? `⏳ ${result.count} infographic${result.count === 1 ? '' : 's'} safely queued for upload.`
                                 : `✅ ${result.count} infographic${result.count === 1 ? '' : 's'} published successfully!`;
@@ -2279,6 +2437,12 @@ function setupKnowledgeBase() {
                         }
                     } catch (err) {
                         console.error('Community submission error:', err);
+                        clearInterval(progressInterval);
+                        fill.style.width = '100%';
+                        fill.style.background = '#ef4444';
+                        progressOverlay.querySelector('h3').textContent = 'Upload failed';
+                        progressOverlay.querySelector('p').textContent = err.message || 'Please try again.';
+                        await new Promise(r => setTimeout(r, 800));
                         alert('Error submitting to the Community Hub: ' + err.message);
                     } finally {
                         if (document.body.contains(progressOverlay)) {
@@ -2297,26 +2461,23 @@ function setupKnowledgeBase() {
 
             const originalIcon = exportBtn.innerHTML;
             exportBtn.innerHTML = '<span class="material-symbols-rounded">sync</span>';
+            exportBtn.disabled = true;
+            const progress = showUploadProgress('Server Library', itemsToExport.length);
 
             try {
-                const response = await safeFetch('api/library/upload', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(itemsToExport)
-                });
-
-                if (response.ok) {
-                    alert('Export successful!');
-                    selectionMode = false;
-                    selectedItems.clear();
-                    renderLibraryList();
-                } else {
-                    alert('Failed to export to server.');
-                }
+                const result = await uploadItemsToServerLibrary(itemsToExport);
+                await progress.succeed(`${result.count} infographic${result.count === 1 ? '' : 's'} saved to the server library.`);
+                alert('Export successful!');
+                selectionMode = false;
+                selectedItems.clear();
+                renderLibraryList();
             } catch (err) {
                 console.error('Export error:', err);
-                alert('Error connecting to server.');
+                await progress.fail(err.message);
+                alert(`Server upload failed: ${err.message}`);
             } finally {
+                progress.close();
+                exportBtn.disabled = false;
                 exportBtn.innerHTML = originalIcon;
             }
         });
@@ -2587,7 +2748,6 @@ function setupKnowledgeBase() {
                             // Skip this item - it's a duplicate
                             skippedDuplicates++;
                             skippedTitles.push(serverItem.title?.substring(0, 30) || 'Untitled');
-                            console.log(`[Sync] Skipping duplicate: "${serverItem.title}"`);
                         } else {
                             // Not a duplicate - safe to add
                             // CRITICAL: Strip the server's seqId so we assign a new LOCAL one
@@ -3446,6 +3606,8 @@ function setupKnowledgeBase() {
 
         // Primary title keywords — the section title must contain one of these
         const titlePrimary = {
+            differential: ['differential', 'ddx', 'differential diagnosis', 'mimic', 'masquerade', 'distinguish'],
+            red_flags: ['red flag', 'emergency', 'urgent', 'warning', 'when to refer', 'when to escalate', 'do not miss'],
             causes: ['cause', 'aetiology', 'etiology', 'pathogenesis', 'pathophysiology', 'risk factor', 'predisposing', 'etiolog'],
             clinical: ['clinical', 'presentation', 'symptom', 'sign', 'feature', 'manifestation', 'examination', 'finding'],
             complications: ['complication', 'adverse', 'side effect', 'sequelae', 'prognosis', 'outcome'],
@@ -3516,6 +3678,8 @@ function setupKnowledgeBase() {
         // Theme colors per filter type
         const themeColors = {
             tables: { bg: '#eff6ff', border: '#bfdbfe', header: '#2563eb', headerEnd: '#1d4ed8', accent: '#1e40af' },
+            differential: { bg: '#eef2ff', border: '#c7d2fe', header: '#4f46e5', headerEnd: '#3730a3', accent: '#3730a3' },
+            red_flags: { bg: '#fff1f2', border: '#fecdd3', header: '#e11d48', headerEnd: '#9f1239', accent: '#9f1239' },
             causes: { bg: '#fefce8', border: '#fef08a', header: '#ca8a04', headerEnd: '#a16207', accent: '#854d0e' },
             clinical: { bg: '#f0fdf4', border: '#bbf7d0', header: '#16a34a', headerEnd: '#15803d', accent: '#166534' },
             complications: { bg: '#fef2f2', border: '#fecaca', header: '#ef4444', headerEnd: '#dc2626', accent: '#b91c1c' },
@@ -3569,18 +3733,21 @@ function setupKnowledgeBase() {
         const totalSections = matchingItems.reduce((sum, i) => sum + i.sections.length, 0);
 
         cfBody.innerHTML = `
-            <!-- Category filter -->
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;">
-                <label style="font-weight: 600; color: ${theme.accent}; display: flex; align-items: center; gap: 4px;">
-                    <span class="material-symbols-rounded" style="font-size: 1.1rem;">filter_list</span>
+            <div class="cf-summary" style="--cf-accent:${theme.accent}; --cf-border:${theme.border};">
+                <div class="cf-summary-icon"><span class="material-symbols-rounded">${filterDef.icon}</span></div>
+                <div><strong>${totalSections}</strong> relevant sections in <strong>${matchingItems.length}</strong> infographics</div>
+            </div>
+            <div class="cf-controls">
+                <label style="color: ${theme.accent};">
+                    <span class="material-symbols-rounded">filter_list</span>
                     Filter by Category:
                 </label>
-                <select id="cf-category-filter" style="padding: 0.5rem 1rem; border: 1px solid ${theme.border}; border-radius: 8px; font-size: 0.9rem; background: white; color: #374151; min-width: 180px;">
+                <select id="cf-category-filter" style="border-color: ${theme.border};">
                     <option value="all">All Categories (${matchingItems.length})</option>
                     ${catOptions.map(c => `<option value="${c.id}">${c.name} (${matchingItems.filter(i => i.chapterId === c.id).length})</option>`).join('')}
                 </select>
             </div>
-            <p id="cf-count-text" style="margin-bottom: 1rem; color: ${theme.accent}; font-weight: 500;">
+            <p id="cf-count-text" class="cf-count-text" style="color: ${theme.accent};">
                 Found ${totalSections} matching section(s) across ${matchingItems.length} infographic(s):
             </p>
             ${matchingItems.map(item => {
@@ -3589,30 +3756,31 @@ function setupKnowledgeBase() {
                 ? `<span style="display: inline-flex; align-items: center; gap: 3px; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; color: white; background: ${ch.color}; margin-left: 6px;"><span class="material-symbols-rounded" style="font-size: 11px;">folder</span>${ch.name}</span>`
                 : '';
             return `
-                <div class="cf-card" data-chapter="${item.chapterId}" style="background: ${theme.bg}; border: 1px solid ${theme.border}; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
-                    <h3 style="color: ${theme.accent}; margin: 0 0 0.5rem 0; font-size: 1rem; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
-                        <span class="material-symbols-rounded" style="font-size: 1.2rem;">${filterDef.icon}</span>
-                        ${item.title.substring(0, 60)}${item.title.length > 60 ? '...' : ''}
+                <article class="cf-card" data-chapter="${item.chapterId}" style="--cf-bg:${theme.bg}; --cf-border:${theme.border}; --cf-header:${theme.header}; --cf-accent:${theme.accent};">
+                    <h3>
+                        <span class="material-symbols-rounded">${filterDef.icon}</span>
+                        ${escapeHtml(item.title.substring(0, 80))}${item.title.length > 80 ? '…' : ''}
                         ${catBadge}
                     </h3>
                     ${item.sections.map(sec => `
-                        <div style="margin-bottom: 0.75rem; padding: 0.5rem 0.75rem; background: white; border-radius: 6px; border-left: 3px solid ${theme.header};">
-                            <div style="font-weight: 600; font-size: 0.85rem; color: ${theme.accent}; margin-bottom: 4px;">
-                                ${sec.title}
+                        <section class="cf-section">
+                            <div class="cf-section-title">
+                                <span class="material-symbols-rounded">${sec.type === 'red_flag' ? 'emergency' : 'article'}</span>
+                                ${escapeHtml(sec.title)}
                             </div>
                             ${sec.lines.length > 0 ? `
-                                <ul style="margin: 0; padding-left: 1.25rem; color: #374151; font-size: 0.85rem;">
-                                    ${sec.lines.slice(0, 20).map(l => `<li style="margin-bottom: 3px;">${l}</li>`).join('')}
-                                    ${sec.lines.length > 20 ? `<li style="color: #94a3b8; font-style: italic;">...and ${sec.lines.length - 20} more items</li>` : ''}
+                                <ul>
+                                    ${sec.lines.slice(0, 20).map(l => `<li>${escapeHtml(l)}</li>`).join('')}
+                                    ${sec.lines.length > 20 ? `<li class="cf-more">…and ${sec.lines.length - 20} more items</li>` : ''}
                                 </ul>
-                            ` : '<p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">No text content extracted.</p>'}
-                        </div>
+                            ` : '<p class="cf-empty">No text content extracted.</p>'}
+                        </section>
                     `).join('')}
-                    <button class="btn-small cf-view-btn" data-item-id="${item.id}" style="margin-top: 0.5rem;">
+                    <button class="btn-small cf-view-btn" data-item-id="${item.id}">
                         <span class="material-symbols-rounded">visibility</span>
                         View Infographic
                     </button>
-                </div>
+                </article>
             `}).join('')}
         `;
 
@@ -5386,6 +5554,7 @@ function setupSyncStatus() {
 
             exportBtn.disabled = true;
             exportBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Publishing...';
+            const progress = showUploadProgress('Community Hub', count);
 
             try {
                 const itemDataList = itemsToExport.map(item => item.data || item);
@@ -5398,17 +5567,24 @@ function setupSyncStatus() {
                 exportBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Publish Local-Only to Community Hub';
 
                 if (result.success) {
+                    await progress.succeed(result.queued
+                        ? 'Upload queued and will publish automatically.'
+                        : `${result.count} infographic${result.count === 1 ? '' : 's'} published to the Community Hub.`);
                     alert(result.queued
                         ? `⏳ ${result.count} item${result.count > 1 ? 's' : ''} safely queued for upload. They will publish automatically when GitHub is available.`
                         : `✅ ${result.count} item${result.count > 1 ? 's' : ''} published to the Community Hub in one shot!`);
                 } else {
+                    await progress.fail(result.message);
                     alert(`Failed to export items: ${result.message}`);
                 }
             } catch (err) {
                 console.error('Export error:', err);
                 exportBtn.disabled = false;
                 exportBtn.innerHTML = '<span class="material-symbols-rounded">cloud_upload</span> Publish Local-Only to Community Hub';
+                await progress.fail(err.message);
                 alert('An error occurred during export. Please try again.');
+            } finally {
+                progress.close();
             }
         });
     }
@@ -5430,23 +5606,23 @@ function setupSyncStatus() {
 
             if (!itemsToUpload.length) return;
             if (!confirm(`Upload ${itemsToUpload.length} infographic${itemsToUpload.length === 1 ? '' : 's'} directly to the server library? They will not be sent through the Community Hub.`)) return;
-            if (!window.CommunitySubmissions || !CommunitySubmissions.uploadToServerLibrary) {
-                alert('The server upload module is unavailable. Please refresh and try again.');
-                return;
-            }
 
             const original = uploadServerBtn.innerHTML;
             uploadServerBtn.disabled = true;
             uploadServerBtn.innerHTML = '<span class="material-symbols-rounded rotating">sync</span> Uploading to Server...';
+            const progress = showUploadProgress('Server Library', itemsToUpload.length);
             try {
-                const result = await CommunitySubmissions.uploadToServerLibrary(itemsToUpload);
+                const result = await uploadItemsToServerLibrary(itemsToUpload);
                 if (!result.success) throw new Error(result.message || 'Server upload failed.');
+                await progress.succeed(`${result.count} infographic${result.count === 1 ? '' : 's'} uploaded to the server library.`);
                 alert(`✅ ${result.count} infographic${result.count === 1 ? '' : 's'} uploaded to the server library.`);
                 await comparLibraries();
             } catch (err) {
                 console.error('Server library upload error:', err);
+                await progress.fail(err.message);
                 alert(`Server upload failed: ${err.message}`);
             } finally {
+                progress.close();
                 uploadServerBtn.disabled = false;
                 uploadServerBtn.innerHTML = original;
             }
@@ -5469,20 +5645,7 @@ function setupFTPServer() {
 
     ftpBtn.addEventListener('click', () => {
         ftpModal.classList.add('active');
-        if (window.location.protocol !== 'file:') {
-            updateFTPStatus();
-        } else {
-            const statusEl = document.getElementById('ftp-status');
-            if (statusEl) {
-                statusEl.innerHTML = `
-                    <div class="ftp-status-badge stopped">
-                        <span class="material-symbols-rounded">block</span>
-                        Not Available
-                    </div>
-                    <p class="ftp-info">FTP Server control is not available on file:// protocol.</p>
-                `;
-            }
-        }
+        updateFTPStatus();
     });
 
     if (closeFtpBtn) {
@@ -5513,7 +5676,7 @@ function setupFTPServer() {
                     alert('Failed to start FTP server: ' + result.error);
                 }
             } catch (err) {
-                alert('FTP server requires the Node.js backend. Please run: node server.js');
+                alert('FTP server is unavailable. Start the local backend with: npm start');
             }
         });
     }
@@ -6488,21 +6651,33 @@ generateBtn.addEventListener('click', async () => {
     }
 
     if (generationSource === 'web-llm') {
-        // Default: generate in-app via the Hugging Face EYE-Llama ophthalmology LLM.
-        // Without a token (or on failure) fall back to the manual paste flow.
+        // Generate end-to-end in the app; never send users to a manual prompt
+        // or JSON-paste step. If HF is unavailable, use the Gemini key pool.
         setLoading(true);
         try {
             const hfData = await generateInfographicWithHuggingFace(combinedInput);
-            if (hfData) {
-                currentInfographicData = hfData;
-                renderInfographic(hfData);
-            } else {
-                showWebLLMInfographicFlow(combinedInput);
+            currentInfographicData = hfData;
+            renderInfographic(hfData);
+        } catch (hfError) {
+            console.error('Hugging Face generation error:', hfError);
+            try {
+                if (!getGeminiApiKeyRotation().length) throw hfError;
+                showToast('HF MED LLM is unavailable. Automatically trying the Gemini key pool…', 'warning');
+                const data = await generateInfographicDataWithKeyRotation(combinedInput);
+                currentInfographicData = data;
+                renderInfographic(data);
+            } catch (fallbackError) {
+                const message = fallbackError?.message || hfError?.message || 'No configured model could generate this infographic.';
+                outputContainer.classList.remove('empty-state');
+                outputContainer.innerHTML = `
+                    <div class="error-container">
+                        <span class="material-symbols-rounded error-icon">error</span>
+                        <h3>Generation unavailable</h3>
+                        <p>${escapeHtml(message)}</p>
+                        <p class="error-hint">Add a Hugging Face token or select a working Gemini key, then try again. No manual prompt or JSON step is required.</p>
+                    </div>`;
+                showToast('Automatic generation could not reach a configured model.', 'error');
             }
-        } catch (error) {
-            console.error('Hugging Face generation error:', error);
-            showToast(`Hugging Face generation failed (${error.message || 'unknown error'}). Opening manual flow.`, 'error');
-            showWebLLMInfographicFlow(combinedInput);
         } finally {
             setLoading(false);
         }
@@ -6629,11 +6804,11 @@ async function copyTextToClipboard(text) {
  * Generate an infographic via the Hugging Face Inference API using the
  * EYE-Llama ophthalmology LLM first, then reputable medical LLM fallbacks.
  * @param {string} topic - user topic/text
- * @returns {Promise<Object|null>} parsed infographic data, or null if no HF token is set
+ * @returns {Promise<Object>} parsed infographic data
  */
 async function generateInfographicWithHuggingFace(topic) {
     const token = (localStorage.getItem(HF_TOKEN_STORAGE) || '').trim();
-    if (!token) return null;
+    if (!token) throw new Error('HF MED LLM needs a Hugging Face token to run in-app.');
 
     const systemPrompt = buildWebLLMInfographicPrompt(topic);
     let lastError = null;
@@ -6687,90 +6862,6 @@ async function generateInfographicWithHuggingFace(topic) {
 
     throw lastError || new Error('All Hugging Face models failed.');
 }
-
-function showWebLLMInfographicFlow(topic) {
-    const promptText = buildWebLLMInfographicPrompt(topic);
-    outputContainer.classList.remove('empty-state');
-    outputContainer.innerHTML = `
-        <div class="web-llm-panel">
-            <div class="web-llm-header">
-                <div>
-                    <span class="material-symbols-rounded">public</span>
-                    <strong>Generate with ${escapeHtml(BEST_WEB_LLM.provider)} ${escapeHtml(BEST_WEB_LLM.name)}</strong>
-                </div>
-                <span class="web-llm-badge">${escapeHtml(BEST_WEB_LLM.verifiedLabel)}</span>
-            </div>
-            <div class="web-llm-actions">
-                <button type="button" class="btn-primary" id="web-llm-open-btn">
-                    <span class="material-symbols-rounded">open_in_new</span>
-                    Open Model on Hugging Face
-                </button>
-                <button type="button" class="btn-secondary" id="web-llm-copy-btn">
-                    <span class="material-symbols-rounded">content_copy</span>
-                    Copy Prompt
-                </button>
-            </div>
-            <label class="web-llm-label" for="web-llm-prompt">Prompt sent to the web LLM</label>
-            <textarea id="web-llm-prompt" class="web-llm-textarea" readonly></textarea>
-            <label class="web-llm-label" for="web-llm-json">Paste the JSON response here</label>
-            <textarea id="web-llm-json" class="web-llm-textarea web-llm-json" placeholder="{ &quot;title&quot;: ... }"></textarea>
-            <button type="button" class="primary-btn web-llm-render-btn" id="web-llm-render-btn">
-                Render Infographic
-            </button>
-        </div>
-    `;
-
-    const promptArea = document.getElementById('web-llm-prompt');
-    const jsonArea = document.getElementById('web-llm-json');
-    const openBtn = document.getElementById('web-llm-open-btn');
-    const copyBtn = document.getElementById('web-llm-copy-btn');
-    const renderBtn = document.getElementById('web-llm-render-btn');
-
-    if (promptArea) promptArea.value = promptText;
-
-    const openWebLLM = () => {
-        const opened = window.open(BEST_WEB_LLM.url, '_blank');
-        if (opened) opened.opener = null;
-        if (!opened) {
-            showToast('Popup blocked. Use Open Model on Hugging Face after copying the prompt.', 'warning');
-        }
-    };
-
-    openBtn?.addEventListener('click', openWebLLM);
-    copyBtn?.addEventListener('click', async () => {
-        const copied = await copyTextToClipboard(promptText);
-        if (copied) {
-            showToast('Prompt copied. Paste it into the web LLM.', 'success');
-        } else {
-            promptArea?.focus();
-            promptArea?.select();
-            showToast('Select and copy the prompt manually.', 'warning');
-        }
-    });
-
-    renderBtn?.addEventListener('click', () => {
-        const raw = jsonArea?.value?.trim() || '';
-        if (!raw) {
-            alert('Paste the JSON response from the web LLM first.');
-            return;
-        }
-        try {
-            const data = parseInfographicJsonResponse(raw);
-            data.generationPrompt = topic;
-            data.generatedWith = `${BEST_WEB_LLM.provider} ${BEST_WEB_LLM.name} via web`;
-            currentInfographicData = data;
-            renderInfographic(data);
-            showToast('Web LLM infographic rendered.', 'success');
-        } catch (error) {
-            alert('Could not parse the pasted JSON. Ask the web LLM to return ONLY valid JSON, then paste it again.\n\n' + (error.message || error));
-        }
-    });
-
-    copyTextToClipboard(promptText).then(copied => {
-        if (copied) showToast('Prompt copied. Open the web LLM and paste it there.', 'success');
-    });
-}
-
 
 function isTopicMode(input) {
     const wordCount = input.trim().split(/\s+/).length;
@@ -6933,12 +7024,12 @@ async function generateInfographicDataWithKeyRotation(topic) {
         try {
             const data = await generateInfographicData(keyRecord.key, topic);
             selectGeminiApiKey(keyRecord.id);
-            setGeminiApiKeyStatus(keyRecord.id, 'success', 'Last generation succeeded');
+            recordGeminiKeyOutcome(keyRecord.id, true, 'Last generation succeeded');
             return data;
         } catch (error) {
             lastError = error;
             const message = getGeminiErrorMessage(error);
-            setGeminiApiKeyStatus(keyRecord.id, 'failed', message.slice(0, 180));
+            recordGeminiKeyOutcome(keyRecord.id, false, message.slice(0, 180));
             if (index < rotation.length - 1) {
                 showToast(`Gemini Key ${geminiApiKeys.indexOf(keyRecord) + 1} failed. Trying the next saved key...`, 'warning');
             }
@@ -12685,6 +12776,9 @@ function setupCommunityHub() {
 
     let currentPreviewId = null;
     let cachedSubmissions = { submissions: [], approved: [] };
+    let communityRefreshTimer = null;
+    let communityLoadInFlight = false;
+    const COMMUNITY_LIVE_REFRESH_MS = 20000;
 
     // Check if CommunitySubmissions module is loaded
     function isCommunityModuleLoaded() {
@@ -12699,13 +12793,17 @@ function setupCommunityHub() {
         }
 
         communityModal.classList.add('active');
-        await loadCommunitySubmissions();
+        await loadCommunitySubmissions({ forceRefresh: true });
+        startCommunityLiveRefresh();
     }
 
-    // Load submissions
-    async function loadCommunitySubmissions() {
+    // Load submissions. A forced refresh bypasses the five-minute offline cache,
+    // so manually refreshing and the live Hub view always show remote updates.
+    async function loadCommunitySubmissions({ forceRefresh = false } = {}) {
+        if (communityLoadInFlight) return;
+        communityLoadInFlight = true;
         try {
-            const data = await CommunitySubmissions.getAll();
+            const data = await CommunitySubmissions.getAll({ forceRefresh });
             cachedSubmissions = data;
 
             const pending = data.submissions || [];
@@ -12731,7 +12829,24 @@ function setupCommunityHub() {
 
         } catch (err) {
             console.error('Error loading community submissions:', err);
+        } finally {
+            communityLoadInFlight = false;
         }
+    }
+
+    function startCommunityLiveRefresh() {
+        if (communityRefreshTimer) return;
+        communityRefreshTimer = setInterval(() => {
+            if (communityModal.classList.contains('active') && document.visibilityState === 'visible') {
+                loadCommunitySubmissions({ forceRefresh: true });
+            }
+        }, COMMUNITY_LIVE_REFRESH_MS);
+    }
+
+    function stopCommunityLiveRefresh() {
+        if (!communityRefreshTimer) return;
+        clearInterval(communityRefreshTimer);
+        communityRefreshTimer = null;
     }
 
     // Render submissions list
@@ -12841,7 +12956,7 @@ function setupCommunityHub() {
 
                 // Refresh community list if modal is open
                 if (communityModal.classList.contains('active')) {
-                    await loadCommunitySubmissions();
+                    await loadCommunitySubmissions({ forceRefresh: true });
                 }
             } else {
                 alert('Submission failed: ' + result.message);
@@ -13242,6 +13357,7 @@ function setupCommunityHub() {
     if (closeCommBtn) {
         closeCommBtn.addEventListener('click', () => {
             communityModal.classList.remove('active');
+            stopCommunityLiveRefresh();
         });
     }
 
@@ -13267,10 +13383,16 @@ function setupCommunityHub() {
     if (refreshBtn) {
         refreshBtn.addEventListener('click', async () => {
             refreshBtn.classList.add('rotating');
-            await loadCommunitySubmissions();
+            await loadCommunitySubmissions({ forceRefresh: true });
             setTimeout(() => refreshBtn.classList.remove('rotating'), 500);
         });
     }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible' && communityModal.classList.contains('active')) {
+            loadCommunitySubmissions({ forceRefresh: true });
+        }
+    });
 
     if (confirmSubmitBtn) {
         confirmSubmitBtn.addEventListener('click', handleSubmitToCommunity);
@@ -13299,6 +13421,7 @@ function setupCommunityHub() {
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
                     modal.classList.remove('active');
+                    if (modal === communityModal) stopCommunityLiveRefresh();
                 }
             });
         }

@@ -90,11 +90,46 @@ function communityShardForSubmission(submission) {
 /**
  * fetch with a hard timeout so a stalled network can never hang the UI forever.
  */
-async function fetchT(url, options = {}, timeoutMs = 30000) {
-    const opts = typeof AbortSignal !== 'undefined' && AbortSignal.timeout
-        ? { ...options, signal: AbortSignal.timeout(timeoutMs) }
-        : options;
-    return fetch(url, opts);
+const TRANSIENT_FETCH_RETRIES = 3;
+
+function describeNetworkError(error) {
+    const name = String(error && error.name || '');
+    const message = String(error && error.message || '');
+    if (name === 'TimeoutError' || name === 'AbortError' || /timed? out|aborted|abort/i.test(message)) {
+        return 'GitHub did not respond in time. Please check your connection and try again.';
+    }
+    if (/load failed|failed to fetch|networkerror|network request failed/i.test(message)) {
+        return 'Unable to reach GitHub. Please check your internet connection and try again.';
+    }
+    return message || 'Unable to reach GitHub. Please try again.';
+}
+
+/**
+ * Fetch a read with a timeout and a short retry window. Safari reports some
+ * transient cross-origin failures simply as "Load failed"; retrying reads
+ * avoids failing an upload before it has even begun, while writes remain
+ * controlled by repoWriteFiles so they cannot be duplicated blindly.
+ */
+async function fetchT(url, options = {}, timeoutMs = 90000) {
+    const method = String(options.method || 'GET').toUpperCase();
+    const attempts = method === 'GET' || method === 'HEAD' ? TRANSIENT_FETCH_RETRIES : 1;
+    let lastError;
+
+    for (let attempt = 0; attempt < attempts; attempt++) {
+        const opts = typeof AbortSignal !== 'undefined' && AbortSignal.timeout
+            ? { ...options, signal: AbortSignal.timeout(timeoutMs) }
+            : options;
+        try {
+            return await fetch(url, opts);
+        } catch (error) {
+            lastError = error;
+            if (attempt < attempts - 1) {
+                await new Promise(resolve => setTimeout(resolve, 400 * (attempt + 1)));
+            }
+        }
+    }
+
+    throw new Error(describeNetworkError(lastError));
 }
 
 /**
@@ -136,7 +171,7 @@ async function repoReadFileAuthoritative(path) {
             if (response.ok) return { success: true, text: await response.text() };
             return { success: false, status: response.status, message: `Contents read failed (${response.status})`, authError: response.status === 401 || response.status === 403 };
         } catch (err) {
-            return { success: false, status: 0, message: err.message || 'Network error' };
+            return { success: false, status: 0, message: describeNetworkError(err) };
         }
     }).then((result) => {
         if (!result || !result.success) throw new Error((result && result.message) || 'Authoritative repo read failed');
@@ -303,7 +338,14 @@ async function repoWriteFiles(files, message, { retryConflicts = true } = {}) {
                 if (failure.retry && attempt < COMMUNITY_COMMIT_RETRIES - 1) { await wait(failure.delay); continue; }
                 return failure.result;
             } catch (err) {
-                return { success: false, status: 0, message: err.message || 'Network error' };
+                // A failed write may have reached GitHub even when the browser
+                // lost the response. Re-running the whole optimistic write is
+                // safe: it re-reads the branch and replaces the same paths.
+                if (attempt < COMMUNITY_COMMIT_RETRIES - 1) {
+                    await wait(500 + (attempt * 750));
+                    continue;
+                }
+                return { success: false, status: 0, message: describeNetworkError(err) };
             }
         }
         return { success: false, status: 409, message: 'The community is receiving several uploads. Please retry in a moment.' };
@@ -1245,24 +1287,24 @@ async function submitMultiple(infographicsList, userName) {
 /**
  * Get all pending submissions (for public view)
  */
-async function getPendingSubmissions() {
-    const data = await fetchSubmissions();
+async function getPendingSubmissions(options = {}) {
+    const data = await fetchSubmissions(options);
     return (data.submissions || []).filter(s => s.status === 'pending');
 }
 
 /**
  * Get all approved submissions (for public gallery)
  */
-async function getApprovedSubmissions() {
-    const data = await fetchSubmissions();
+async function getApprovedSubmissions(options = {}) {
+    const data = await fetchSubmissions(options);
     return data.approved || [];
 }
 
 /**
  * Get all submissions (for admin view)
  */
-async function getAllSubmissions() {
-    return await fetchSubmissions();
+async function getAllSubmissions(options = {}) {
+    return await fetchSubmissions(options);
 }
 
 /**

@@ -95,7 +95,7 @@
                     <span class="material-symbols-rounded input-icon">key</span>
                     <input type="password" id="hf-api-token" placeholder="Paste your Hugging Face token (hf_...)">
                 </div>
-                <small class="hint">Runs the EYE-Llama ophthalmology LLM in-app with automatic medical-LLM fallbacks (OpenBioLLM, Meditron, BioMistral). Get a free token at <a href="https://huggingface.co/settings/tokens" target="_blank" rel="noopener" style="color:#3b82f6;">huggingface.co/settings/tokens</a>. Saved in this browser only.</small>
+                <small class="hint">Generates the complete infographic in-app with automatic medical-LLM fallbacks (OpenBioLLM, Meditron, BioMistral). No prompt copying or JSON pasting. Get a free token at <a href="https://huggingface.co/settings/tokens" target="_blank" rel="noopener" style="color:#3b82f6;">huggingface.co/settings/tokens</a>. Saved in this browser only.</small>
             </div>
 
             <div class="control-group" id="gemini-key-group">
@@ -115,7 +115,7 @@
                         <span class="material-symbols-rounded">visibility</span>
                     </button>
                 </div>
-                <small class="hint">Paste keys separated by spaces or new lines. The selected key is tried first, then failed keys rotate automatically. Keys stay in this browser.</small>
+                <small class="hint">Paste keys separated by spaces or new lines. Select any key to try first; failed keys rotate automatically. Success scores show the recommended key. Keys stay in this browser.</small>
             </div>
 
             <div class="control-group" id="openai-key-group">
@@ -1083,7 +1083,7 @@
     <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
     <script src="firebase-storage.js"></script>
-    <script src="community-submissions.js?v=2026080704"></script>
+    <script src="community-submissions.js?v=2026081201"></script>
     <script src="mobile-billing-config.js?v=2026061701"></script>
     <script src="mobile-iap.js?v=2026061701"></script>
     <!-- Load Google Generative AI as fallback for local file:// protocol -->
@@ -1092,8 +1092,8 @@
             console.warn('Running locally via file:// protocol. ES modules may not work. Please use a local server (e.g., npx serve) or access via GitHub Pages.');
         }
     </script>
-    <script type="module" src="script.js?v=2026080704"></script>
-    <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.03.15.07</div>
+    <script type="module" src="script.js?v=2026081201"></script>
+    <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.08.12.01</div>
 </body>
 
 </html>

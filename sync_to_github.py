@@ -89,11 +89,32 @@ def generate_library_index():
             max_seq_val += 1  # type: ignore
             item['seqId'] = max_seq_val
     
+    # Keep exactly one copy of every normalized title. This protects the
+    # published catalogue from accidental repeat uploads even if a stale client
+    # submits the same infographic with a different numeric ID.
+    def normalized_title(item):
+        return ''.join(ch for ch in str(item.get('title', '')).lower() if ch.isalnum())
+
+    unique_items = []
+    seen_titles = set()
+    duplicate_ids = []
+    for item in all_items:
+        key = normalized_title(item)
+        if key and key in seen_titles:
+            duplicate_ids.append(str(item.get('id', '')))
+            continue
+        if key:
+            seen_titles.add(key)
+        unique_items.append(item)
+    all_items = unique_items
+
     # Write the index file
     with open(INDEX_FILE, 'w', encoding='utf-8') as f:
         json.dump(all_items, f, indent=2, ensure_ascii=False)
-    
+
     log(f"Generated {INDEX_FILE.name} with {len(all_items)} items", "SUCCESS")
+    if duplicate_ids:
+        log(f"Excluded {len(duplicate_ids)} duplicate title(s) from the published index", "WARNING")
     return len(all_items)
 
 

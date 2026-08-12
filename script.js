@@ -686,7 +686,10 @@ async function exportToPDF(element) {
 
         const pageWidth = pdf.internal.pageSize.getWidth();
         const pageHeight = pdf.internal.pageSize.getHeight();
-        const margin = 18;
+        // All export coordinates are derived from this printable area. Keeping the
+        // margin modest prevents unnecessarily narrow columns on A4 while ensuring
+        // every element remains inside the page.
+        const margin = 12;
         const contentWidth = pageWidth - (margin * 2);
         let yPos = margin;
 
@@ -705,6 +708,23 @@ async function exportToPDF(element) {
 
         // Paragraph vertical spacing between consecutive text lines (mm)
         const PARA_SPACING = 2.2;
+
+        // Character spacing is deliberately left at jsPDF's default. Previously,
+        // the renderer applied charSpace after measuring a line with
+        // splitTextToSize, so text that appeared to fit was expanded into the
+        // margin and clipped in the saved PDF.
+        const normalizePdfText = (value) => String(value ?? '')
+            // Built-in jsPDF Helvetica does not reliably encode these glyphs.
+            // Use clear ASCII equivalents instead of producing corrupted cells.
+            .replace(/≥/g, '>=')
+            .replace(/≤/g, '<=')
+            .replace(/≈/g, '~');
+        const writeText = (text, x, y, options) => pdf.text(
+            Array.isArray(text) ? text.map(normalizePdfText) : normalizePdfText(text),
+            x,
+            y,
+            options
+        );
 
         // Helper: Add new page if needed
         const checkPageBreak = (neededHeight) => {
@@ -736,7 +756,7 @@ async function exportToPDF(element) {
         pdf.setFontSize(24);
         pdf.setTextColor(...colors.primaryDark);
         const titleLines = pdf.splitTextToSize(data.title || 'Infographic', contentWidth);
-        pdf.text(titleLines, margin, yPos, { charSpace: 0.6 }); // Even letter spacing for the title
+        writeText(titleLines, margin, yPos);
         yPos += titleLines.length * 11 + 6;
 
         // Summary
@@ -745,7 +765,7 @@ async function exportToPDF(element) {
             pdf.setFontSize(11);
             pdf.setTextColor(...colors.textSecondary);
             const summaryLines = pdf.splitTextToSize(data.summary, contentWidth);
-            pdf.text(summaryLines, margin, yPos, { charSpace: 0.15 });
+            writeText(summaryLines, margin, yPos);
             yPos += summaryLines.length * 6.5 + PARA_SPACING + 8;
         }
 
@@ -796,7 +816,7 @@ async function exportToPDF(element) {
                 pdf.setFont('helvetica', 'bold');
                 pdf.setFontSize(14);
                 pdf.setTextColor(...colors.primaryDark);
-                pdf.text(section.title || 'Section', margin + 6, yPos + 4, { charSpace: 0.35 });
+                writeText(section.title || 'Section', margin + 6, yPos + 4);
                 yPos += 14;
 
                 // Section content based on type
@@ -822,7 +842,7 @@ async function exportToPDF(element) {
                             pdf.setFontSize(fit.fontSize);
                             pdf.setTextColor(...colors.red);
                             fit.lines.forEach((line, idx) => {
-                                pdf.text(line, margin + 8, yPos + idx * fit.lineHeight, { charSpace: 0.12 });
+                                writeText(line, margin + 8, yPos + idx * fit.lineHeight);
                             });
                             yPos += flagHeight;
                         }
@@ -842,7 +862,7 @@ async function exportToPDF(element) {
 
                             pdf.setFontSize(labelFit.fontSize);
                             labelFit.lines.forEach((line, idx) => {
-                                pdf.text(line, margin, yPos + idx * labelFit.lineHeight, { charSpace: 0.12 });
+                                writeText(line, margin, yPos + idx * labelFit.lineHeight);
                             });
                             yPos += labelHeight + 2.5;
 
@@ -853,7 +873,7 @@ async function exportToPDF(element) {
                             drawBox(margin, yPos, barWidth, 5, themeColor);
                             // Value text
                             pdf.setFontSize(8);
-                            pdf.text(`${chartValue}%`, margin + contentWidth * 0.72, yPos + 4, { charSpace: 0.1 });
+                            writeText(`${chartValue}%`, margin + contentWidth * 0.72, yPos + 4);
                             yPos += 9;
                         }
                         break;
@@ -877,14 +897,14 @@ async function exportToPDF(element) {
                         pdf.setFont('helvetica', 'bold');
                         pdf.setFontSize(18);
                         pdf.setTextColor(...colors.purple);
-                        pdf.text(displayText(mem.mnemonic || 'REMEMBER'), margin + contentWidth / 2, yPos + 8, { align: 'center', charSpace: 0.5 });
+                        writeText(displayText(mem.mnemonic || 'REMEMBER'), margin + contentWidth / 2, yPos + 8, { align: 'center' });
 
                         // Explanation - all lines
                         pdf.setFont('helvetica', 'normal');
                         pdf.setFontSize(expFit.fontSize);
                         pdf.setTextColor(...colors.text);
                         expFit.lines.forEach((line, idx) => {
-                            pdf.text(line, margin + 5, yPos + 16 + idx * expFit.lineHeight, { charSpace: 0.12 });
+                            writeText(line, margin + 5, yPos + 16 + idx * expFit.lineHeight);
                         });
                         yPos += boxHeight + 6;
                         break;
@@ -901,7 +921,7 @@ async function exportToPDF(element) {
                         pdf.roundedRect(margin + (contentWidth - centerWidth) / 2, yPos, centerWidth, 8, 2, 2, 'F');
                         pdf.setTextColor(255, 255, 255);
                         pdf.setFont('helvetica', 'bold');
-                        pdf.text(centerText, margin + contentWidth / 2, yPos + 5.5, { align: 'center', charSpace: 0.35 });
+                        writeText(centerText, margin + contentWidth / 2, yPos + 5.5, { align: 'center' });
                         yPos += 14;
 
                         // Branches - with auto-fit for each
@@ -931,7 +951,7 @@ async function exportToPDF(element) {
 
                             pdf.setFontSize(branchFit.fontSize);
                             branchFit.lines.forEach((line, idx) => {
-                                pdf.text(line, branchX + 2, yPos + 3 + idx * branchFit.lineHeight, { charSpace: 0.1 });
+                                writeText(line, branchX + 2, yPos + 3 + idx * branchFit.lineHeight);
                             });
                         }
                         yPos += 14;
@@ -954,7 +974,7 @@ async function exportToPDF(element) {
                             // All text lines
                             pdf.setFontSize(pointFit.fontSize);
                             pointFit.lines.forEach((line, idx) => {
-                                pdf.text(line, margin + 8, yPos + idx * pointFit.lineHeight, { charSpace: 0.12 });
+                                writeText(line, margin + 8, yPos + idx * pointFit.lineHeight);
                             });
                             yPos += pointHeight;
                         }
@@ -969,11 +989,12 @@ async function exportToPDF(element) {
                                 break;
                             }
 
-                            // Calculate column widths - minimum 25mm, evenly distributed
-                            const minColWidth = 25;
-                            const tableWidth = contentWidth - 4; // 2mm padding on each side
-                            const colWidth = Math.max(minColWidth, tableWidth / numCols);
-                            const actualTableWidth = Math.min(tableWidth, colWidth * numCols);
+                            // Columns must always add up to the printable table width.
+                            // The former 25mm minimum let later columns overflow the
+                            // page whenever a table had more than a few columns.
+                            const tableWidth = contentWidth;
+                            const colWidth = tableWidth / numCols;
+                            const actualTableWidth = tableWidth;
 
                             // Helper: Auto-size text to fit in cell
                             // Returns { fontSize, lines, lineHeight }
@@ -1011,26 +1032,27 @@ async function exportToPDF(element) {
                                 return fit;
                             });
 
-                            checkPageBreak(headerHeight + 10);
-
-                            // Draw header background
-                            drawBox(margin, yPos, actualTableWidth, headerHeight, [248, 250, 252]);
-                            pdf.setDrawColor(...colors.border);
-                            pdf.rect(margin, yPos, actualTableWidth, headerHeight, 'S');
-
-                            // Draw header text with fitted fonts
-                            pdf.setFont('helvetica', 'bold');
-                            fittedHeaders.forEach((fit, i) => {
-                                pdf.setFontSize(fit.fontSize);
-                                fit.lines.forEach((line, lineIdx) => {
-                                    pdf.text(line, margin + i * colWidth + 2, yPos + 3.5 + lineIdx * fit.lineHeight, { charSpace: 0.1 });
+                            const drawTableHeader = () => {
+                                // Draw the header anew after every page break so a
+                                // continuation stays legible and aligned.
+                                drawBox(margin, yPos, actualTableWidth, headerHeight, [248, 250, 252]);
+                                pdf.setDrawColor(...colors.border);
+                                pdf.rect(margin, yPos, actualTableWidth, headerHeight, 'S');
+                                pdf.setFont('helvetica', 'bold');
+                                fittedHeaders.forEach((fit, i) => {
+                                    pdf.setFontSize(fit.fontSize);
+                                    fit.lines.forEach((line, lineIdx) => {
+                                        writeText(line, margin + i * colWidth + 2, yPos + 3.5 + lineIdx * fit.lineHeight);
+                                    });
+                                    if (i < numCols - 1) {
+                                        pdf.line(margin + (i + 1) * colWidth, yPos, margin + (i + 1) * colWidth, yPos + headerHeight);
+                                    }
                                 });
-                                // Draw vertical separator
-                                if (i < numCols - 1) {
-                                    pdf.line(margin + (i + 1) * colWidth, yPos, margin + (i + 1) * colWidth, yPos + headerHeight);
-                                }
-                            });
-                            yPos += headerHeight;
+                                yPos += headerHeight;
+                            };
+
+                            checkPageBreak(headerHeight + 10);
+                            drawTableHeader();
 
                             // Data rows with auto-fitting
                             pdf.setFont('helvetica', 'normal');
@@ -1046,7 +1068,11 @@ async function exportToPDF(element) {
                                     return fit;
                                 });
 
-                                checkPageBreak(rowHeight);
+                                if (yPos + rowHeight > pageHeight - margin) {
+                                    pdf.addPage();
+                                    yPos = margin;
+                                    drawTableHeader();
+                                }
 
                                 // Draw bottom border
                                 pdf.setDrawColor(...colors.border);
@@ -1056,7 +1082,7 @@ async function exportToPDF(element) {
                                 fittedCells.forEach((fit, i) => {
                                     pdf.setFontSize(fit.fontSize);
                                     fit.lines.forEach((line, lineIdx) => {
-                                        pdf.text(line, margin + i * colWidth + 2, yPos + 3 + lineIdx * fit.lineHeight, { charSpace: 0.1 });
+                                        writeText(line, margin + i * colWidth + 2, yPos + 3 + lineIdx * fit.lineHeight);
                                     });
                                     // Draw vertical separator
                                     if (i < numCols - 1) {
@@ -1076,7 +1102,7 @@ async function exportToPDF(element) {
                         const textLines = pdf.splitTextToSize(textContent, contentWidth);
                         for (const line of textLines) {
                             checkPageBreak(6);
-                            pdf.text(line, margin, yPos, { charSpace: 0.12 });
+                            writeText(line, margin, yPos);
                             yPos += 6;
                         }
                         break;

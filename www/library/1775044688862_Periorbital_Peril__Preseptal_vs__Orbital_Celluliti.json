@@ -1,0 +1,297 @@
+{
+  "id": 1775044688862,
+  "seqId": 421,
+  "title": "Periorbital Peril: Preseptal vs. Orbital Cellulitis",
+  "summary": "A comprehensive guide to distinguishing and managing infections around the orbit. While preseptal cellulitis is confined to the superficial tissues, orbital cellulitis is a sight- and life-threatening emergency involving the post-septal space.",
+  "date": "2026-04-01T11:58:08.862Z",
+  "data": {
+    "title": "Periorbital Peril: Preseptal vs. Orbital Cellulitis",
+    "summary": "A comprehensive guide to distinguishing and managing infections around the orbit. While preseptal cellulitis is confined to the superficial tissues, orbital cellulitis is a sight- and life-threatening emergency involving the post-septal space.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 100 Q100 60 140 100 Q100 140 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)'/><line x1='115' y1='50' x2='115' y2='150' stroke='red' stroke-width='3' stroke-dasharray='5,5'/><text x='125' y='60' fill='red' font-size='12' font-family='Arial'>Septum</text><text x='30' y='180' fill='hsl(215, 90%, 45%)' font-size='10' font-family='Arial'>Preseptal</text><text x='140' y='180' fill='hsl(215, 90%, 45%)' font-size='10' font-family='Arial'>Orbital</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definitions",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The fundamental distinction lies at the **Orbital Septum**, a fibrous layer extending from the orbital periosteum to the tarsal plates. **Preseptal Cellulitis** involves the skin and soft tissues anterior to the septum. **Orbital Cellulitis** involves the orbital contents (fat and extraocular muscles) posterior to the septum, representing a surgical emergency."
+      },
+      {
+        "title": "Etiological Origins",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Infection Source",
+          "branches": [
+            "Sinusitis (70-90%): Usually Ethmoid",
+            "Trauma: Lacerations, Insect Bites",
+            "Ocular Surgery: Strabismus, DCR, Evisceration",
+            "Distant Spread: Odontogenic, Middle Ear",
+            "Internal: Dacryocystitis, Hordeolum"
+          ]
+        }
+      },
+      {
+        "title": "Incidence by Source",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Sinusitis",
+              "value": 85
+            },
+            {
+              "label": "Skin Trauma",
+              "value": 10
+            },
+            {
+              "label": "Dental/Other",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Microbiology & Pathogens",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Streptococcus pneumoniae (Most common Gram +)",
+          "Staphylococcus aureus (including MRSA)",
+          "Streptococcus pyogenes",
+          "Haemophilus influenzae (Decreased post-vaccine era)",
+          "Anaerobes: Bacteroides, Fusobacterium (Associated with dental source)",
+          "Fungi: Mucor/Aspergillus (Immunocompromised/Diabetics)"
+        ]
+      },
+      {
+        "title": "The Golden Rule: P-R-O-P",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-R-O-P",
+          "explanation": "Signs of ORBITAL involvement: P for Proptosis, R for Restriction of motility, O for Optic nerve dysfunction (RAPD/Vision loss), P for Pain on eye movement."
+        }
+      },
+      {
+        "title": "Preseptal vs. Orbital: Clinical Differentiation",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Preseptal Cellulitis",
+            "Orbital Cellulitis"
+          ],
+          "rows": [
+            [
+              "Proptosis",
+              "Absent",
+              "Present (May be axial or eccentric)"
+            ],
+            [
+              "Ocular Motility",
+              "Full / Normal",
+              "Painful and Restricted (Ophthalmoplegia)"
+            ],
+            [
+              "Visual Acuity",
+              "Normal / Unaffected",
+              "May be decreased (Optic Nerve compression)"
+            ],
+            [
+              "Pupillary Reaction",
+              "Normal (No RAPD)",
+              "May show RAPD (Optic Nerve compression)"
+            ],
+            [
+              "Chemosis",
+              "Rare",
+              "Common and Severe"
+            ],
+            [
+              "Systemic Symptoms",
+              "Mild fever/malaise",
+              "High fever, leukocytosis, toxicity"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Chandler's Classification of Orbital Infections",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Stage",
+            "Description",
+            "Clinical Findings"
+          ],
+          "rows": [
+            [
+              "I: Preseptal",
+              "Periorbital Cellulitis",
+              "Eyelid edema, erythema only."
+            ],
+            [
+              "II: Orbital",
+              "Diffuse Orbital Inflammation",
+              "Proptosis, chemosis, motility limit."
+            ],
+            [
+              "III: Subperiosteal",
+              "Abscess under periosteum",
+              "Displaced globe (eccentric proptosis)."
+            ],
+            [
+              "IV: Orbital Abscess",
+              "Pus within orbital fat",
+              "Severe ophthalmoplegia, visual loss."
+            ],
+            [
+              "V: CST",
+              "Cavernous Sinus Thrombosis",
+              "Bilateral signs, CN III, IV, V1, V2, VI palsies."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Full Ocular Exam: Check VA, Pupils, Color Vision, and IOP.",
+          "2. Laboratory: CBC with diff, Blood cultures (positive in <10% adults, higher in kids).",
+          "3. Imaging: CT Orbit/Sinuses with contrast (Gold Standard). Look for fat stranding, abscess, or sinus opacification.",
+          "4. Microbiology: Culture any wound drainage or nasal secretions.",
+          "5. Lumbar Puncture: Only if meningeal signs are present."
+        ]
+      },
+      {
+        "title": "Radiological Red Flags (CT/MRI)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Displacement of the globe by a fluid collection (Subperiosteal Abscess)",
+          "Gas bubbles within the orbit (Anaerobic infection)",
+          "Dilation of the Superior Ophthalmic Vein (CST)",
+          "Thickening of the Extraocular Muscles",
+          "Intracranial extension (Epidural or Brain abscess)"
+        ]
+      },
+      {
+        "title": "Orbital Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: ADMIT to hospital for IV antibiotics and close observation.",
+          "Step 2: INITIAL ANTIBIOTICS: Ceftriaxone (2g IV q12h) + Vancomycin (15mg/kg q12h) + Metronidazole (for anaerobes).",
+          "Step 3: NASAL DECONGESTANTS: Oxymetazoline spray to facilitate sinus drainage.",
+          "Step 4: MONITOR: Vision, pupils, and motility every 4-6 hours.",
+          "Step 5: SURGERY: If vision worsens, no improvement in 24-48h, or large abscess present."
+        ]
+      },
+      {
+        "title": "Surgical Indications",
+        "icon": "handyman",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Decreasing Visual Acuity or worsening RAPD",
+          "Large Subperiosteal Abscess (SPA) >10mm or in older children (>9 yrs)",
+          "Abscess of the Frontal Sinus",
+          "Failure to respond to IV antibiotics within 48 hours",
+          "Evidence of Intracranial Extension",
+          "Need for diagnostic biopsy (suspected fungus)"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Masqueraders",
+          "branches": [
+            "Thyroid Eye Disease (usually bilateral, no fever)",
+            "Idiopathic Orbital Inflammation (Rapid onset, painful)",
+            "Orbital Rhabdomyosarcoma (Sudden onset in children)",
+            "Ruptured Dermoid Cyst (Chemical inflammation)",
+            "Carotid-Cavernous Fistula (Bruit, corkscrew vessels)"
+          ]
+        }
+      },
+      {
+        "title": "Pediatric Pearls",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Children <9 years often have single-pathogen aerobic infections; respond better to medical therapy.",
+          "Children >9 years more likely to have polymicrobial/anaerobic infections and higher surgical rates.",
+          "Subperiosteal abscesses can be managed medically in very young kids if vision is stable and abscess is small (<10mm)."
+        ]
+      },
+      {
+        "title": "CST: The Deadly Complication",
+        "icon": "skull",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapidly progressive bilateral involvement",
+          "Multiple Cranial Nerve Palsies (III, IV, VI)",
+          "Hypoesthesia in V1/V2 distribution",
+          "Severe headache and meningismus",
+          "High risk of mortality (30%) and permanent morbidity"
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "The CT scan must include the sinuses; the ethmoid sinus is the primary source in the majority of cases.",
+          "If you can't see the eye due to eyelid swelling, get a CT scan immediately.",
+          "Pupillary assessment and color vision (using a red bottle cap) are sensitive markers for early optic nerve compression.",
+          "Always check for dental pain or recent dental procedures; these favor anaerobic infections.",
+          "A 'quiet' eye with proptosis is unlikely to be cellulitis; think neoplasm or TED."
+        ]
+      }
+    ],
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "_newlyImported": 1775044688862,
+  "communityId": "sub_1773775007769_ynp9pogdroj7gj",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.769Z",
+  "read": true
+}

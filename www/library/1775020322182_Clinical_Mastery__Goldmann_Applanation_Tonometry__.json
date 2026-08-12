@@ -1,0 +1,162 @@
+{
+  "id": 1775020322182,
+  "seqId": 18,
+  "title": "Clinical Mastery: Goldmann Applanation Tonometry (GAT)",
+  "summary": "Goldmann Applanation Tonometry remains the gold standard for intraocular pressure (IOP) measurement, relying on the Imbert-Fick principle. Precision is paramount in glaucoma screening, surgical planning, and long-term management.",
+  "date": "2026-04-01T05:12:02.182Z",
+  "data": {
+    "title": "Clinical Mastery: Goldmann Applanation Tonometry (GAT)",
+    "summary": "Goldmann Applanation Tonometry remains the gold standard for intraocular pressure (IOP) measurement, relying on the Imbert-Fick principle. Precision is paramount in glaucoma screening, surgical planning, and long-term management.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q 50 30 70 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 50 Q 50 70 70 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Principle",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "GAT is a contact method that measures the force required to flatten a fixed area (3.06 mm diameter) of the cornea. It is based on the Imbert-Fick Law: P = F / A, where Pressure (P) equals Force (F) applied over Area (A). For the cornea, when A is 3.06 mm, the capillary attraction of the tear film and corneal rigidity negate each other, allowing the force reading to directly approximate IOP in mmHg."
+      },
+      {
+        "title": "The Imbert-Fick Variables",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Factor",
+            "Effect on GAT Reading"
+          ],
+          "rows": [
+            [
+              "Corneal Thickness > 550μm",
+              "Overestimates"
+            ],
+            [
+              "Corneal Thickness < 500μm",
+              "Underestimates"
+            ],
+            [
+              "High Corneal Astigmatism",
+              "Error (>3D)"
+            ],
+            [
+              "Excessive Fluorescein",
+              "Overestimates"
+            ],
+            [
+              "Too little Fluorescein",
+              "Underestimates"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Setup & Procedure",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Instill proparacaine and fluorescein sodium.",
+          "Step 2: Align the blue cobalt filter and set the biprism to 0 position.",
+          "Step 3: Advance the tonometer head until the biprism touches the apex.",
+          "Step 4: View through the slit lamp; align the inner edges of the two semi-circles.",
+          "Step 5: Record the reading when the edges are perfectly aligned (10x magnification)."
+        ]
+      },
+      {
+        "title": "Red Flags: Procedural Errors",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Do not apply excessive pressure (can induce vasovagal response or corneal abrasion).",
+          "Avoid contact with patients with active corneal ulcers (infectious transmission risk).",
+          "Disinfect biprism with 70% isopropyl alcohol for at least 5 minutes to prevent adenovirus transmission.",
+          "Ensure proper alignment (misalignment creates vertical shift of semi-circles)."
+        ]
+      },
+      {
+        "title": "Mnemonic for Alignment",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "THE 3-STEP",
+          "explanation": "T-ouch (Gentle contact), H-orizontal (Ensure semi-circles are level), E-dge (Align the inner margins perfectly)."
+        }
+      },
+      {
+        "title": "Differential Diagnosis for IOP Variance",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "IOP Accuracy Influencers",
+          "branches": [
+            "Central Corneal Thickness",
+            "Corneal Hysteresis",
+            "Astigmatism",
+            "Tear Film Quality",
+            "Patient Anxiety (Valsalva)"
+          ]
+        }
+      },
+      {
+        "title": "Comparison of Tonometry Methods",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Goldmann (Gold Standard)",
+              "value": 95
+            },
+            {
+              "label": "Perkins (Portable)",
+              "value": 90
+            },
+            {
+              "label": "Tono-Pen (Soft eyes)",
+              "value": 80
+            },
+            {
+              "label": "Non-Contact (Screening)",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Calibration check: Perform weekly using the standardized weight block (0, 2, and 6 g).",
+          "Astigmatism > 3.0D: Align the biprism mark with the patient's minus-cylinder axis.",
+          "Always dry the biprism after disinfection to prevent chemical keratitis.",
+          "IOP is typically highest in the morning; repeat measurements may be needed for diurnal curves.",
+          "Wait 10-15 minutes after topical anesthetic before performing Schirmer's testing."
+        ]
+      }
+    ],
+    "generationPrompt": "Goldmann applanation tonometer",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

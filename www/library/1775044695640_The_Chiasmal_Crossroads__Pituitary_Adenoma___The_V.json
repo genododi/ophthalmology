@@ -1,0 +1,313 @@
+{
+  "id": 1775044695640,
+  "seqId": 461,
+  "title": "The Chiasmal Crossroads: Pituitary Adenoma & The Visual System",
+  "summary": "A comprehensive clinical guide to the diagnosis, ophthalmic manifestations, and neuro-surgical management of pituitary adenomas. This poster focuses on the intricate relationship between sellar pathology and the optic chiasm, emphasizing visual field interpretation and multidisciplinary care.",
+  "date": "2026-04-01T11:58:15.640Z",
+  "data": {
+    "title": "The Chiasmal Crossroads: Pituitary Adenoma & The Visual System",
+    "summary": "A comprehensive clinical guide to the diagnosis, ophthalmic manifestations, and neuro-surgical management of pituitary adenomas. This poster focuses on the intricate relationship between sellar pathology and the optic chiasm, emphasizing visual field interpretation and multidisciplinary care.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='40' r='15' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 70 Q50 40 70 70' stroke='hsl(215, 90%, 45%)' stroke-width='3' fill='none'/><path d='M35 55 L65 55' stroke='red' stroke-width='1' stroke-dasharray='2,2'/><circle cx='50' cy='65' r='8' fill='hsl(215, 90%, 45%)' opacity='0.6'/><text x='50' y='90' font-family='Arial' font-size='6' text-anchor='middle' fill='hsl(215, 90%, 45%)'>OPTIC CHIASM</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Pituitary adenomas are primary benign neoplasms of the anterior pituitary gland (adenohypophysis). They represent approximately 10-15% of all intracranial tumors. Ophthalmologically, they are the most common cause of a chronic chiasmal syndrome, typically presenting with progressive visual field loss due to upward expansion of the mass from the sella turcica, compressing the decussating nasal retinal fibers of the optic chiasm."
+      },
+      {
+        "title": "Epidemiology & Tumor Statistics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prolactinoma",
+              "value": 45
+            },
+            {
+              "label": "Non-Functioning",
+              "value": 30
+            },
+            {
+              "label": "Growth Hormone",
+              "value": 15
+            },
+            {
+              "label": "ACTH (Cushing's)",
+              "value": 8
+            },
+            {
+              "label": "TSH/Gonadotropin",
+              "value": 2
+            }
+          ]
+        }
+      },
+      {
+        "title": "Classification by Size and Function",
+        "icon": "straighten",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Criteria",
+            "Clinical Note"
+          ],
+          "rows": [
+            [
+              "Microadenoma",
+              "< 10 mm diameter",
+              "Usually present with endocrine dysfunction."
+            ],
+            [
+              "Macroadenoma",
+              "≥ 10 mm diameter",
+              "More likely to cause mass effect/VF defects."
+            ],
+            [
+              "Giant Adenoma",
+              "> 40 mm diameter",
+              "Significant risk of cavernous sinus invasion."
+            ],
+            [
+              "Functioning",
+              "Hormone Secreting",
+              "Prolactin, GH, ACTH, or TSH."
+            ],
+            [
+              "Non-Functioning",
+              "Inert",
+              "Present late via 'Mass Effect'."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology of Visual Deficit",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Chiasmal Compression",
+          "branches": [
+            "Anterior: Compression of distal optic nerve (Junctional Scotoma)",
+            "Central: Decussating nasal fibers (Bitemporal Hemianopia)",
+            "Posterior: Macular fibers (Bitemporal Central Scotoma)",
+            "Lateral: Compression of non-decussating temporal fibers (Nasal defect)"
+          ]
+        }
+      },
+      {
+        "title": "Visual Field Progression Pattern",
+        "icon": "visibility",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Superior Temporal Quadrantanopia (Compression of inferior fibers first)",
+          "Step 2: Full Bitemporal Hemianopia (Dense and respects the vertical midline)",
+          "Step 3: Loss of Fixation (If macular fibers are involved)",
+          "Step 4: Diffuse Visual Loss (Advanced optic atrophy)"
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Reduced Visual Acuity (often late-stage or junctional)",
+          "Relative Afferent Pupillary Defect (RAPD) if asymmetric",
+          "Optic Disc Pallor: Classic 'Bow-tie' (Band) Atrophy",
+          "See-saw Nystagmus (rare, usually indicates diencephalic involvement)",
+          "Cranial Nerve Palsies (III, IV, VI) if invading Cavernous Sinus",
+          "Post-fixational Blindness (difficulty reading due to disappearing text)"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Sellar Masses",
+        "icon": "rule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Key Distinguishing Features",
+            "Radiology Tips"
+          ],
+          "rows": [
+            [
+              "Craniopharyngioma",
+              "Bimodal age (children/elderly), calcification common.",
+              "Suprasellar, cystic and solid components."
+            ],
+            [
+              "Meningioma",
+              "Tuberculum sellae origin; hyperostosis.",
+              "Homogeneous enhancement with 'dural tail'."
+            ],
+            [
+              "Aneurysm",
+              "Internal Carotid Artery (ICA) origin; sudden onset risk.",
+              "Flow void on MRI; CTA/MRA is diagnostic."
+            ],
+            [
+              "Rathke Cleft Cyst",
+              "Benign epithelium-lined cyst.",
+              "No enhancement of the cyst itself."
+            ],
+            [
+              "Pituitary Metastasis",
+              "Rapid progression, painful ophthalmoplegia.",
+              "History of primary cancer (Breast, Lung)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Junctional Scotoma (Traquair)",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "Junctional Scotoma",
+          "explanation": "Caused by a lesion at the junction of the optic nerve and chiasm. Results in: 1. Central scotoma in the ipsilateral eye. 2. Superior-temporal defect in the contralateral eye (due to compression of Wilbrand's knee)."
+        }
+      },
+      {
+        "title": "EMERGENCY: Pituitary Apoplexy",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden 'Thunderclap' Headache",
+          "Acute Visual Loss / Bitemporal Hemianopia",
+          "Acute Ophthalmoplegia (usually CN III)",
+          "Altered Mental Status / Coma",
+          "Adrenal Crisis (Nausea, Hypotension)",
+          "STAT Neurosurgical and Endocrine consultation required!"
+        ]
+      },
+      {
+        "title": "Comprehensive Diagnostic Workup",
+        "icon": "content_paste_search",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Neuro-Ophthalmic Exam: VA, Pupils, CV, DFE, and Ishihara color testing.",
+          "2. Automated Perimetry: Humphrey Visual Field (HVF) 24-2 or 30-2; Goldmann Perimetry.",
+          "3. Imaging: MRI Brain and Sella with/without Gadolinium (Coronal/Sagittal views).",
+          "4. Optical Coherence Tomography (OCT): Analyze RNFL and Ganglion Cell Layer (GCL).",
+          "5. Endocrine Panel: Prolactin, IGF-1, Cortisol, TSH, fT4, LH, FSH, Testosterone/Estradiol.",
+          "6. Multidisciplinary Review: Tumor board (Neuro-ophthalmology, Neurosurgery, Endocrinology)."
+        ]
+      },
+      {
+        "title": "Management & Treatment Protocols",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Modality",
+            "Indications",
+            "Specific Options"
+          ],
+          "rows": [
+            [
+              "Medical",
+              "Primary for Prolactinomas",
+              "Dopamine Agonists: Cabergoline (First line), Bromocriptine."
+            ],
+            [
+              "Surgical",
+              "Non-functioning, Acromegaly, Apoplexy, Medical Failure",
+              "Transsphenoidal Surgery (Endoscopic or Microscopic)."
+            ],
+            [
+              "Radiation",
+              "Recurrent or Incompletely resected tumors",
+              "Stereotactic Radiosurgery (Gamma Knife) or Proton Beam."
+            ],
+            [
+              "Observation",
+              "Incidental microadenomas (asymptomatic)",
+              "Annual MRI and Visual Field monitoring."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Landmark Clinical Pearl: OCT in Chiasmal Compression",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "The 'Binasal' GCL Thinning: OCT of the macula shows loss of Ganglion Cell Layer specifically in the nasal half of both eyes.",
+          "Prognostic Value: If RNFL/GCL are still normal despite VF defects, visual recovery post-decompression is highly likely.",
+          "If significant optic atrophy is present on OCT, visual recovery is limited."
+        ]
+      },
+      {
+        "title": "Systemic Mnemonic: PITUITARY",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "P-I-T-U-I-T-A-R-Y",
+          "explanation": "P: Prolactinoma (Common), I: Inferior fibers (First hit), T: Temporal defect (Bitemporal), U: Upward growth, I: Imaging (MRI), T: Transsphenoidal approach, A: Apoplexy (Emergency), R: RAPD (In asymmetric cases), Y: Yield (High-yield diagnosis on VF)."
+        }
+      },
+      {
+        "title": "Post-Surgical Monitoring",
+        "icon": "history",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Immediate: Monitor for Diabetes Insipidus (Urine output/Sodium).",
+          "1-2 Weeks: Repeat Visual Field to document recovery.",
+          "6 Weeks: Follow-up endocrine panel.",
+          "6 Months: Repeat MRI Sella to establish new baseline.",
+          "Annual: Long-term ophthalmic and endocrine surveillance."
+        ]
+      },
+      {
+        "title": "Prognosis & Outcomes",
+        "icon": "trending_up",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "80-90% of patients show visual improvement post-decompression.",
+          "Color vision usually recovers first, then visual field, then acuity.",
+          "Long-standing atrophy (>1-2 years) predicts poor visual recovery.",
+          "Recurrence rate: Approximately 10-20% over 10 years for macroadenomas."
+        ]
+      }
+    ],
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044695641,
+  "communityId": "sub_1774122711826_fcvcjm5wd",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-21T19:51:51.826Z"
+}

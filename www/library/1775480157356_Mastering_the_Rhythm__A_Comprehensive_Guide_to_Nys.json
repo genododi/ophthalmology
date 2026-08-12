@@ -1,0 +1,372 @@
+{
+  "id": 1775480157356,
+  "seqId": 732,
+  "title": "Mastering the Rhythm: A Comprehensive Guide to Nystagmus",
+  "summary": "A clinical roadmap for the evaluation and management of ocular oscillations. This poster synthesizes the complexity of congenital waveforms and the localization of acquired neurological patterns for the ophthalmic specialist.",
+  "date": "2026-04-06T12:55:57.356Z",
+  "data": {
+    "title": "Mastering the Rhythm: A Comprehensive Guide to Nystagmus",
+    "summary": "A clinical roadmap for the evaluation and management of ocular oscillations. This poster synthesizes the complexity of congenital waveforms and the localization of acquired neurological patterns for the ophthalmic specialist.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='70' cy='50' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='70' cy='50' r='12' fill='hsl(215, 90%, 45%)'/><path d='M120 40 L160 40 M160 40 L150 30 M160 40 L150 50' stroke='hsl(215, 90%, 45%)' stroke-width='3' fill='none'/><path d='M160 60 L120 60 M120 60 L130 50 M120 60 L130 70' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none' stroke-dasharray='4'/><path d='M20 50 Q 40 20, 70 50 T 120 50' stroke='hsl(215, 90%, 45%)' stroke-width='1' fill='none' opacity='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & The Neural Integrator",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Nystagmus is a repetitive, involuntary, rhythmic oscillation of the eyes initiated by a slow phase drift. It results from a failure in the systems that maintain steady gaze: the Vestibulo-Ocular Reflex (VOR), the Optokinetic System, and the Neural Integrator (NI). The NI—comprising the Nucleus Prepositus Hypoglossi and Medial Vestibular Nucleus (NPH-MVN) for horizontal gaze and the Interstitial Nucleus of Cajal (INC) for vertical gaze—is responsible for converting velocity signals into position signals ('leaky integrator' leads to nystagmus)."
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Infantile Nystagmus",
+              "value": 85
+            },
+            {
+              "label": "Acquired Neuro",
+              "value": 15
+            },
+            {
+              "label": "Idiopathic INS",
+              "value": 40
+            },
+            {
+              "label": "Albinism-assoc",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Worry",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "New onset oscillopsia (suggests acquired nystagmus)",
+          "Vertical nystagmus (Downbeat/Upbeat) - high risk of CNS pathology",
+          "Associated papilledema or focal neurological deficits",
+          "Afferent Pupillary Defect (APD) or significant optic atrophy",
+          "Nystagmus in a child with 'Spasmus Nutans' like features (Rule out Chiasmal Glioma)"
+        ]
+      },
+      {
+        "title": "Classification Mindmap",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Nystagmus Types",
+          "branches": [
+            "Infantile (INS): Accelerated slow phase, horizontal, dampened by convergence",
+            "Fusion Maladaptation (FMAS): Latent nystagmus, seen with monocular occlusion",
+            "Acquired: Decelerating or constant velocity slow phase, often vertical/torsional",
+            "Vestibular: Jerk nystagmus, follows Alexander's Law",
+            "Physiologic: End-point, Optokinetic (OKN), Vestibular caloric"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Examination Protocol",
+        "icon": "visibility",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: History - Age of onset, oscillopsia, family history, medications.",
+          "Step 2: Waveform - Determine if Pendular (equal velocity) or Jerk (slow drift, fast reset).",
+          "Step 3: Direction - Note horizontal, vertical, torsional, or mixed components.",
+          "Step 4: Fixation & Convergence - Does it dampen with convergence (typical of INS)?",
+          "Step 5: Search for Null Point - Find the head position where nystagmus is minimized and VA is best.",
+          "Step 6: Monocular vs. Binocular - Check for Latent Nystagmus (FMAS) by covering one eye.",
+          "Step 7: Associated Signs - Check for head nodding, torticollis, and full neuro-ophthalmic exam."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Acquired Jerk Nystagmus",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Localization",
+            "Common Etiologies"
+          ],
+          "rows": [
+            [
+              "Downbeat",
+              "Craniocervical Junction / Cerebellum",
+              "Chiari Malformation, Cerebellar degeneration, Lithium toxicity, Vit B12 def."
+            ],
+            [
+              "Upbeat",
+              "Medulla or Midbrain",
+              "Infarction, MS, Tumors, Wernicke's Encephalopathy."
+            ],
+            [
+              "Seesaw",
+              "Parasellar / Midbrain",
+              "Chiasmal compression, Craniopharyngioma, Thalamic stroke (Maddox)."
+            ],
+            [
+              "Periodic Alternating (PAN)",
+              "Cerebellar Nodulus/Uvula",
+              "Cerebellar atrophy, MS, Chiari, or Congenital."
+            ],
+            [
+              "Brun's",
+              "Cerebellopontine Angle (CPA)",
+              "Large Vestibular Schwannoma (Cerebellar + Vestibular mix)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Infantile Nystagmus Syndrome (INS) Features",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Onset: Birth to 6 months.",
+          "Waveform: Increasing velocity slow phase (pathognomonic).",
+          "Direction: Usually horizontal and conjugate; stays horizontal on upgaze.",
+          "No Oscillopsia: Patient does not perceive the world moving.",
+          "Null Point: Preferred head turn to optimize vision.",
+          "Convergence: Paradoxically dampens the nystagmus.",
+          "Inverted OKN: Fast phase goes with the drum direction (atypical)."
+        ]
+      },
+      {
+        "title": "Remember: Spasmus Nutans Triad",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "The Triad of Spasmus Nutans",
+          "explanation": "1. Fine, rapid, shimmering nystagmus (often asymmetric/monocular). 2. Head nodding. 3. Torticollis. IMPORTANT: Must image to rule out Chiasmal Glioma mimicking this triad."
+        }
+      },
+      {
+        "title": "Pharmacological Management",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Drug Name",
+            "Indication",
+            "Dosage/Mechanism"
+          ],
+          "rows": [
+            [
+              "Baclofen",
+              "Periodic Alternating Nystagmus (PAN)",
+              "5-10mg TID; GABA-B agonist."
+            ],
+            [
+              "Gabapentin",
+              "Acquired Pendular / INS",
+              "300-900mg TID; stabilizes GABAergic pathways."
+            ],
+            [
+              "Memantine",
+              "INS / Acquired Pendular",
+              "10-40mg daily; NMDA receptor antagonist."
+            ],
+            [
+              "Aminopyridines (4-AP)",
+              "Downbeat Nystagmus",
+              "5-10mg BID; Potassium channel blocker."
+            ],
+            [
+              "Botulinum Toxin",
+              "Severe Oscillopsia",
+              "Injection into EOMs; temporary/last resort."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Strategies",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Kestenbaum-Anderson Procedure: Moving the eyes toward the head turn (moving the null point to primary position).",
+          "Augmented Classic Rule: 5-6-7-8 mm (MR-LR-MR-LR) recess/resect adjustments.",
+          "Large 4-Muscle Recession: To dampen the nystagmus amplitude by weakening the 'rotors' of the globe.",
+          "Tenotomy and Reattachment: Proposed to disrupt the peripheral feedback loop of the EOM enthesis."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Essentials",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. High-Resolution MRI: Focus on posterior fossa, craniocervical junction, and chiasm.",
+          "2. Video-Nystagmography (VNG): For precise waveform and slow-phase velocity analysis.",
+          "3. ERG/VEP: Essential in infants to rule out LCA, Achromatopsia, or Albinism.",
+          "4. Genetic Testing: FRMD7 (X-linked) and other INS-related panels.",
+          "5. Lab Tests: Vit B12, Magnesium, and toxicology screen (Lithium/Anticonvulsants)."
+        ]
+      },
+      {
+        "title": "Vestibular Nystagmus: Peripheral vs. Central",
+        "icon": "ear_buds",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Peripheral (Labyrinth/CN VIII)",
+            "Central (Brainstem/Cerebellum)"
+          ],
+          "rows": [
+            [
+              "Direction",
+              "Unidirectional (Fast phase away from lesion)",
+              "Bidirectional or purely vertical/torsional"
+            ],
+            [
+              "Fixation",
+              "Inhibited by fixation",
+              "Not inhibited (or worsened) by fixation"
+            ],
+            [
+              "Alexander's Law",
+              "Present (Greater in direction of fast phase)",
+              "Variable"
+            ],
+            [
+              "Associated Signs",
+              "Hearing loss, Tinnitus, Vertigo",
+              "Diplopia, Dysarthria, Dysmetria"
+            ],
+            [
+              "Vertigo Severity",
+              "Severe/Paroxysmal",
+              "Mild/Vague"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls & Exam Tips",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "The 'Maddox' See-saw: One eye elevates and intorts, while the other eye depresses and extorts (Di-encephalic/Thalamic lesions).",
+          "Latent Nystagmus: Occurs only when one eye is covered; the fast phase beats toward the fixating (uncovered) eye.",
+          "Brun's Nystagmus: A 'Double-Whammy' sign of a large CPA tumor. Low-frequency large-amplitude (Cerebellar) looking one way, high-frequency small-amplitude (Vestibular) looking the other.",
+          "Oscillopsia Check: If a patient has nystagmus but no oscillopsia, it likely started in childhood."
+        ]
+      },
+      {
+        "title": "Optical Management",
+        "icon": "flare",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Optimal Refraction: Contact lenses are superior to glasses as they move with the eye, keeping the optical center aligned.",
+          "2. Prism Trial: Use Base-Out prisms to induce convergence (dampens INS).",
+          "3. Null Point Shifting: Use prisms (Base toward the head turn) to shift images toward the null point."
+        ]
+      },
+      {
+        "title": "Recent Advances: Eye Tracking & Gene Therapy",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Gaze-contingent displays: Using high-speed trackers to stabilize images on the retina for patients with severe oscillopsia.",
+          "Gene Therapy: Successful RPE65 and ongoing GUCY2D trials for retinal dystrophies can secondary improve associated nystagmus.",
+          "Deep Brain Stimulation (DBS): Investigational for severe, refractory acquired pendular nystagmus in MS."
+        ]
+      }
+    ],
+    "generationPrompt": "Approach to nystagmus case",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "kanskiMeta": [
+    {
+      "pageNum": 828,
+      "keywords": [
+        "nystagmus",
+        "neuro-ophthalmology",
+        "differential",
+        "acquired",
+        "jerk"
+      ]
+    },
+    {
+      "pageNum": 825,
+      "keywords": [
+        "nystagmus",
+        "classification",
+        "differential",
+        "jerk",
+        "vestibular"
+      ]
+    },
+    {
+      "pageNum": 741,
+      "keywords": [
+        "nystagmus",
+        "differential",
+        "syndrome",
+        "surgical",
+        "peripheral"
+      ]
+    },
+    {
+      "pageNum": 758,
+      "keywords": [
+        "nystagmus",
+        "rhythm",
+        "neural",
+        "classification",
+        "acquired"
+      ]
+    },
+    {
+      "pageNum": 829,
+      "keywords": [
+        "nystagmus",
+        "differential"
+      ]
+    },
+    {
+      "pageNum": 822,
+      "keywords": [
+        "nystagmus",
+        "neuro-ophthalmology",
+        "syndrome",
+        "ino"
+      ]
+    }
+  ]
+}

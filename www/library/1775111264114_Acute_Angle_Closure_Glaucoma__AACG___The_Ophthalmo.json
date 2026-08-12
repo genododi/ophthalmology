@@ -1,0 +1,186 @@
+{
+  "id": 1775111264114,
+  "seqId": 542,
+  "title": "Acute Angle-Closure Glaucoma (AACG): The Ophthalmological Emergency",
+  "summary": "AACG represents a true ocular emergency characterized by a rapid, sustained elevation of intraocular pressure due to mechanical obstruction of the trabecular meshwork by the peripheral iris. Immediate recognition and intervention are critical to prevent permanent optic nerve damage and blindness.",
+  "date": "2026-04-02T06:27:44.114Z",
+  "data": {
+    "title": "Acute Angle-Closure Glaucoma (AACG): The Ophthalmological Emergency",
+    "summary": "AACG represents a true ocular emergency characterized by a rapid, sustained elevation of intraocular pressure due to mechanical obstruction of the trabecular meshwork by the peripheral iris. Immediate recognition and intervention are critical to prevent permanent optic nerve damage and blindness.",
+    "summary_illustration": "<svg viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M50 10 L50 90 M10 50 L90 50' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "AACG is defined by the sudden apposition of the peripheral iris against the trabecular meshwork (TM), causing acute outflow obstruction. The primary mechanism is pupillary block (relative resistance to aqueous flow between the lens and iris), leading to iris bombe and angle closure. Secondary causes include plateau iris, phacomorphic glaucoma, or tractional mechanisms."
+      },
+      {
+        "title": "Risk Factors & Epidemiology",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Hyperopia",
+              "value": 85
+            },
+            {
+              "label": "Age > 60",
+              "value": 70
+            },
+            {
+              "label": "Female Sex",
+              "value": 65
+            },
+            {
+              "label": "Asian Descent",
+              "value": 90
+            },
+            {
+              "label": "Short Axial Length",
+              "value": 80
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features (The 5 'P's)",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Pain: Severe, boring ocular/periorbital pain.",
+          "Pupil: Mid-dilated, non-reactive.",
+          "Pressure: Often > 50 mmHg.",
+          "Prostration: Nausea, vomiting, diaphoresis.",
+          "Perception: Blurred vision with halos around lights."
+        ]
+      },
+      {
+        "title": "Red Flags (Emergency Signs)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Corneal Edema (hazy view)",
+          "Fixed mid-dilated pupil",
+          "Shallow anterior chamber (Van Herick Grade 1)",
+          "Glaukomflecken (anterior subcapsular lens opacities)",
+          "Nausea/Vomiting (often misdiagnosed as GI event)"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Differentiating Feature"
+          ],
+          "rows": [
+            [
+              "Uveitic Glaucoma",
+              "Cells/flare in AC, precipitates"
+            ],
+            [
+              "Neovascular Glaucoma",
+              "NVI, NVA, history of CRVO/DR"
+            ],
+            [
+              "Phacomorphic Glaucoma",
+              "Intumescent cataract"
+            ],
+            [
+              "Pigment Dispersion",
+              "Transillumination defects"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Slit-lamp biomicroscopy (Assess AC depth, corneal edema, iris position).",
+          "Step 2: Tonometry (Goldmann Applanation or Tono-Pen).",
+          "Step 3: Gonioscopy (The Gold Standard - assess TM pigmentation and synechiae).",
+          "Step 4: Fundoscopy (Evaluate C/D ratio if view allows; check for disc edema).",
+          "Step 5: UBM or Anterior Segment OCT (Assess angle anatomy)."
+        ]
+      },
+      {
+        "title": "Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Immediate: Topical Beta-blockers, Alpha-agonists, Carbonic Anhydrase Inhibitors.",
+          "Systemic: Oral or IV Acetazolamide (500mg), Hyperosmotic agents (Mannitol/Glycerol).",
+          "Miotics: Pilocarpine 1-2% (once pressure < 40 mmHg).",
+          "Definitive: Laser Peripheral Iridotomy (LPI) or surgical peripheral iridectomy."
+        ]
+      },
+      {
+        "title": "Memory Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "CAMP",
+          "explanation": "C: Corneal edema, A: A-chamber shallow, M: Mid-dilated pupil, P: Pressure high."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Never perform LPI on a hazy cornea; use topical glycerin to clear it.",
+          "Always examine the fellow eye; 50% risk of closure in 5 years.",
+          "Avoid pilocarpine in high pressure as it is ineffective due to iris ischemia."
+        ]
+      },
+      {
+        "title": "Classification Mindmap",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Angle-Closure Glaucoma",
+          "branches": [
+            "Primary (Pupillary Block)",
+            "Plateau Iris",
+            "Phacomorphic",
+            "Secondary (Synechial/Tractional)"
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "AACG",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true
+}

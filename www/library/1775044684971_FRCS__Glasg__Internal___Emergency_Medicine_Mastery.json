@@ -1,0 +1,508 @@
+{
+  "id": 1775044684971,
+  "seqId": 385,
+  "title": "FRCS (Glasg) Internal & Emergency Medicine Mastery",
+  "summary": "An exhaustive clinical protocol guide for Acute Renal Failure, poisoning, burns, hypothermia, and perioperative management for ophthalmic surgical candidates. Designed for high-stakes exam preparation and emergency reference.",
+  "date": "2026-04-01T11:58:04.971Z",
+  "data": {
+    "title": "FRCS (Glasg) Internal & Emergency Medicine Mastery",
+    "summary": "An exhaustive clinical protocol guide for Acute Renal Failure, poisoning, burns, hypothermia, and perioperative management for ophthalmic surgical candidates. Designed for high-stakes exam preparation and emergency reference.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='90' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 100 Q100 40 140 100 Q100 160 60 100 Z' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)'/><path d='M100 130 L100 170 M80 150 L120 150' stroke='hsl(215, 90%, 45%)' stroke-width='8' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Acute Renal Failure (ARF): Definition & Etiology",
+        "icon": "nephrology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "ARF: Acute Deterioration (Hours/Days)",
+          "branches": [
+            "Definition: Characterized by increased serum creatinine & urea, often with oliguria or anuria",
+            "Prerenal/Systemic: Hypovolaemia, low COP, Hepatorenal syndrome",
+            "Renal/Intrinsic: Drugs, Glomerulonephritis, sepsis, vasculitis",
+            "Postrenal: Obstruction"
+          ]
+        }
+      },
+      {
+        "title": "ARF Initial Management & Monitoring",
+        "icon": "monitoring",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Catheterize: Assess hourly urine output & establish fluid charts.",
+          "2. Assess Intravascular Volume: BP, JVP, skin turgor, fluid balance sheet, weight, CVP.",
+          "3. Cardiac Monitoring: Attach to cardiac monitor.",
+          "4. Access: Consider inserting a central venous cannula."
+        ]
+      },
+      {
+        "title": "Comprehensive ARF Investigations",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Blood: U&E, Ca2+, PO4-3, FBC, ESR, CRP, INR, LFT, CK, LDH, protein electrophoresis, hepatitis serology",
+          "Autoantibodies: ANA, ANCA, complement, anti-GBM, ASOT",
+          "Cultures: Blood cultures, Urgent urine microscopy & cultures",
+          "Urine WBCs: Infection & interstitial nephritis",
+          "Urine RBCs: Inflammatory glomerular condition",
+          "Imaging: USS of renal tract (exclude obstruction), ECG, CXR"
+        ]
+      },
+      {
+        "title": "Hyperkalaemia: Red Alert (K+ > 6mmol/L)",
+        "icon": "emergency_home",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Causes: Oliguric renal failure, metabolic acidosis (DM) & K+ sparing diuretics",
+          "ECG Sign 1: Tall T waves ± flat P waves ± increased PR interval",
+          "ECG Sign 2: Widening of QRS complex leads to VF/VT",
+          "TREATMENT: 10 mL Ca gluconate (10%) IV over 2min (Cardioprotection/threshold potential; NO change to K+ levels)",
+          "TREATMENT: Insulin (10U) + 50% glucose (50mL) IV over 30 mins (Moves K+ into cells)",
+          "TREATMENT: Nebulized salbutamol (2.5 mg) (Moves K+ into cells)",
+          "TREATMENT: Polystyrene sulfonate resin (Ca Resonium 15g/6-8h PO or 30g enema) to remove K+ from colon",
+          "TREATMENT: Dialysis"
+        ]
+      },
+      {
+        "title": "ARF: Specialized Care Protocols",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Intervention",
+            "Target/Notes"
+          ],
+          "rows": [
+            [
+              "Precipitating Cause",
+              "Blood loss -> Transfusion; Sepsis -> Antibiotics",
+              "Treat underlying trigger"
+            ],
+            [
+              "Dehydration",
+              "250-500 mL colloid or saline over 30min",
+              "Aim for CVP 5-10 cm"
+            ],
+            [
+              "Maintenance",
+              "20 mL + previous hour’s urine output per hour",
+              "Start once fluid replete"
+            ],
+            [
+              "Volume Overload",
+              "Urgent dialysis. Nitrate infusion, furosemide, 'renal dose' dopamine",
+              "Dopamine does not alter outcome"
+            ],
+            [
+              "Acidosis",
+              "50 mL of 8.4% Sodium Bicarbonate IV",
+              "Correct pH"
+            ],
+            [
+              "Diet",
+              "High calories, adequate high-quality protein",
+              "Consider NG or parenteral feeding"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Urgent Dialysis Indications & Nephrotoxins",
+        "icon": "report_problem",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "AVOID: Nephrotoxic drugs e.g., NSAIDS & aminoglycosides",
+          "DIALYSE IF: Persistent hyperkalaemia (> 6 mmol/L)",
+          "DIALYSE IF: Acidosis (pH < 7.2)",
+          "DIALYSE IF: Hypercatabolic renal failure",
+          "DIALYSE IF: Pulmonary edema & no substantial diuresis",
+          "DIALYSE IF: Pericarditis (in tamponade, dialyse after pressure relief)"
+        ]
+      },
+      {
+        "title": "Acute Poisoning: General Management",
+        "icon": "medical_mask",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "A: Adequate ventilation",
+          "B: Oxygenation",
+          "C: Circulation -> IV line",
+          "D: Level of consciousness (Naloxone if decreased)",
+          "Monitor: Vital signs monitoring",
+          "Assess: History (patient/friends/family) + Physical examination",
+          "Investigate: Glucose, U&E, FBC, LFT, INR, ABG, ECG, Paracetamol/Salicylate levels, Toxicology"
+        ]
+      },
+      {
+        "title": "Poisoning: Supportive Measures & Antidotes",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Method/Drug",
+            "Guidelines/Antidote"
+          ],
+          "rows": [
+            [
+              "Gastric Lavage",
+              "Rarely used; Worse after 30-60m; Contraindicated: Petroleum/corrosives, unconscious, unable to protect airway. NEVER induce vomiting."
+            ],
+            [
+              "Activated Charcoal",
+              "50g with water. Use for: Salicylates, paracetamol. Don't use: Petroleum, corrosives, alcohols, metal salts."
+            ],
+            [
+              "Benzodiazepines",
+              "Flumazenil"
+            ],
+            [
+              "B-Blockers",
+              "Atropine"
+            ],
+            [
+              "Cyanide",
+              "Hydroxycobalamin"
+            ],
+            [
+              "CO",
+              "100% O2"
+            ],
+            [
+              "Digoxin",
+              "Digoxin-specific antibody fragments"
+            ],
+            [
+              "Iron / Opiates",
+              "Desferrioxamine / Naloxone"
+            ],
+            [
+              "Oral Anticoagulants",
+              "Vitamin K / FFP"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Salicylate Poisoning",
+        "icon": "pill",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Dose: Mild (150 mg/kg), Moderate (250 mg/kg), Severe (>500 mg/kg)",
+          "Symptoms: Vomiting, dehydration, hyperventilation, tinnitus, vertigo, sweating",
+          "Rare/Severe: Coma, seizures, decreased BP, Heart block, pulmonary oedema, hyperthermia",
+          "Acid-Base: Respiratory alkalosis (central stimulation) then metabolic acidosis",
+          "Management: Gastric lavage (within 1h) + charcoal; Correct metabolic acidosis with HCO3 (Aim urine pH 7.5-8.5)",
+          "Dialysis: If salicylate level > 700 mg/L"
+        ]
+      },
+      {
+        "title": "Paracetamol Poisoning & NAC Protocol",
+        "icon": "vaccines",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Threshold: 150 mg/kg or 12g (fatal). Symptoms: RUQ pain, jaundice, encephalopathy, renal failure.",
+          "NAC Step 1: 150 mg/kg IVI in 200 mL 5% dextrose over 15 min.",
+          "NAC Step 2: 50 mg/kg in 500 mL 5% dextrose over 4h.",
+          "NAC Step 3: 100 mg/kg every 16h in 1L 5% dextrose.",
+          "Alternative: Methionine 2.5g/4h PO for 16h (if NAC unavailable).",
+          "Specialist Transfer: INR > 2 (<48h) or > 3.5 (<72h), Encephalopathy, Creatinine > 200 umol/L, Blood pH < 7.3, Systolic BP < 80mmHg."
+        ]
+      },
+      {
+        "title": "Burns Assessment: Extent & Depth",
+        "icon": "local_fire_department",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Classification",
+            "Adult Rule of 9",
+            "Depth Features"
+          ],
+          "rows": [
+            [
+              "Minor: <15% (Adult) / <10% (Child)",
+              "Head & Neck: 9%",
+              "Partial: Blisters, erythema, wet, VERY painful (epidermis/superficial dermis)"
+            ],
+            [
+              "Intermediate: 15-25% (Adult) / 10-20% (Child)",
+              "Each Upper Limb: 9% | Lower Limb: 18%",
+              "Full: White/black eschar, dry, PAINLESS (loss of nerve endings)"
+            ],
+            [
+              "Major: >25% (Adult) / >20% (Child)",
+              "Trunk: 18% (Front) / 18% (Back) | Perineum: 1%",
+              "Serious Sites: Face/Neck (Oedema of glottis), Perineum (nursing difficulty)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Burns Management Protocols",
+        "icon": "water_drop",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "mnemonic": "PARKLAND FORMULA",
+          "explanation": "4 X weight (kg) X % burn = mL crystalloid solution in 24h (Half given in first 8h). Muir & Barclay Formula (Colloid/Albumin): [weight (kg) X % burn] / 2 per time period."
+        }
+      },
+      {
+        "title": "Burns Management Process",
+        "icon": "health_and_safety",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Airway: Intubate if airway obstruction or smoke inhalation.",
+          "Breathing: 100% O2; exclude tension pneumothorax & CO poisoning (cherry-red skin).",
+          "Circulation: 2 large-bore (14 or 16G) IV lines.",
+          "Target Output: 0.5mL/kg/h (1mL/kg/h in children).",
+          "Cooling: Use saline/tap water but warm the patient to prevent shock.",
+          "Meds: Antitetanic/Anti-gas gangrene serum, antibiotics, morphine 10mg.",
+          "Dressings: Biological/Synthetic for Partial; Tangential excision/grafts for Full."
+        ]
+      },
+      {
+        "title": "Hypothermia Management",
+        "icon": "ac_unit",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Definition: Core (rectal) temperature < 35º C.",
+          "Causes Young: Exposure, near-drowning, alcohol/drug overdose.",
+          "Causes Elderly: Impaired homeostasis, immobility, hypothyroidism, DM, confusion, drugs (tranquilizers, diuretics).",
+          "Investigations: U&E, glucose, TFTs, FBC, ECG (J-waves).",
+          "Management: ABCs, warm IVI, Urinary catheter, Antibiotics (if >65y and T<32C).",
+          "Rewarming: Slowly (Aim 0.5ºC/h). Rapid warming = decreased BP/shock.",
+          "Complications: Arrhythmias, pneumonia, pancreatitis, ARF, intravascular coagulation.",
+          "Prognosis: Age > 70y & T < 32C = Mortality > 50%."
+        ]
+      },
+      {
+        "title": "Needle-stick Injuries",
+        "icon": "colorize",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "HIV Transmission",
+              "value": 0.5
+            },
+            {
+              "label": "Hepatitis C Transmission",
+              "value": 15
+            },
+            {
+              "label": "Hepatitis B Transmission",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Needle-stick: Post-Exposure Prophylaxis (PEP)",
+        "icon": "verified_user",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Immediate: Encourage bleeding, wash under running water; eyes: irrigate copiously.",
+          "Reporting: Within 1h to Occupational Health or A&E.",
+          "PEP Initiation: Within 1h for High Risk (sharps injury from known/suspected HIV donor).",
+          "PEP Regimen: Zidovudine 250mg 2x/d + Lamivudine 150mg 2x/d + Indinavir 800mg 3x/d.",
+          "Duration: Continue PEP for 4 weeks if donor is HIV+.",
+          "Testing: Recipient tested at 6 weeks, 3 months, and 6 months."
+        ]
+      },
+      {
+        "title": "Perioperative Contraindications (Ophthalmic)",
+        "icon": "cancel",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Uncontrolled BP (>180/100 mmHg)",
+          "Myocardial Ischemia/MI within last 3 months",
+          "Uncontrolled Hyperglycemia",
+          "Uncontrolled Arrhythmias",
+          "Excessive INR",
+          "Acute Systemic Illness"
+        ]
+      },
+      {
+        "title": "Preoperative Management Protocols",
+        "icon": "fact_check",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Patient Category",
+            "Management Guideline"
+          ],
+          "rows": [
+            [
+              "General Anesthesia",
+              "NBM from 8 hours before."
+            ],
+            [
+              "Hypertension",
+              "Continue antihypertensives (including day of surgery); Postpone if BP >180/100."
+            ],
+            [
+              "IHD",
+              "Continue antianginals; ensure sublingual nitro is available; postpone if MI < 3 months."
+            ],
+            [
+              "Valvular Heart Disease",
+              "Antibiotic prophylaxis NOT required for intraocular procedures."
+            ],
+            [
+              "Aspirin",
+              "Continue for intraocular/strabismus; discontinue 2 weeks for orbital/oculoplastic (discuss with PCP)."
+            ],
+            [
+              "Anticoagulants",
+              "INR < 3 for intraocular/strabismus; INR < 2 for orbital/oculoplastic. Check within 48h."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diabetic Surgery: Type 1 IDDM",
+        "icon": "settings_suggest",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Priority: Place first on the surgery list.",
+          "Insulin: Stop all long-acting insulin the night before. Morning of surgery: Stop all SC insulin.",
+          "Infusion: Start IV 1L 5% dextrose + 20mmol KCl/8h.",
+          "Pump: 50U short-acting insulin in 50mL 0.9% saline per sliding scale.",
+          "Monitoring: Check blood glucose hourly; aim for 7-11mmol/L during surgery.",
+          "Post-op: Continue IV insulin/dextrose until tolerating food."
+        ]
+      },
+      {
+        "title": "Diabetes: IV Insulin Sliding Scale (mmol/L)",
+        "icon": "grid_on",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Glucose",
+            "IV Soluble Insulin",
+            "Alt SC Insulin"
+          ],
+          "rows": [
+            [
+              "< 2",
+              "None (50% glucose IV)",
+              "None"
+            ],
+            [
+              "2 - 5",
+              "No insulin",
+              "No insulin"
+            ],
+            [
+              "5 - 10",
+              "1u/h",
+              "2u/h"
+            ],
+            [
+              "10 - 15",
+              "2u/h",
+              "5u/h"
+            ],
+            [
+              "15 - 20",
+              "3u/h",
+              "7u/h"
+            ],
+            [
+              "> 20",
+              "6u/h (Urgent Review)",
+              "N/A"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diabetic Surgery: Type 2 NIDDM",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Control: If fasting glucose > 10mmol/L, treat as Type 1.",
+          "Sulphonylureas: Do not give long-acting (e.g., glibenclamide) on morning of surgery (risk of prolonged hypoglycemia).",
+          "Metformin: Beware lactic acidosis, especially with IV contrast or poor renal function (Creatinine > 150 umol/L).",
+          "Major Surgery: Check fasting glucose; start IV/SC insulin sliding scale if NBM post-op."
+        ]
+      },
+      {
+        "title": "Local Anaesthetic (LA) Toxicity",
+        "icon": "danger",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Signs: Sudden LOC ± tonic-clonic convulsions; Cardiovascular collapse (Bradycardia, conduction blocks, asystole, VT).",
+          "Immediate: STOP injection, call for help, maintain airway/100% O2, confirm IV access.",
+          "Seizures: Small incremental doses of benzodiazepine, thiopental, or propofol.",
+          "Cardiac Arrest CPR: Start standard CPR; manage arrhythmias; consider bypass.",
+          "LIPID EMULSION (70kg patient): IV Bolus Intralipid 20% 1.5 ml/kg (100ml) over 1 min.",
+          "INFUSION: Start Intralipid at 0.25 ml/kg/min (400ml over 20 min).",
+          "REFRACTORY: Repeat bolus twice at 5 min intervals; increase rate to 0.5 ml/kg/min if no recovery.",
+          "NOTE: Recovery may take > 1 hour. Propofol is NOT a substitute for Intralipid."
+        ]
+      },
+      {
+        "title": "Authorship & Source",
+        "icon": "history_edu",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Waleed Badr, FRCS INTERNAL & EMERGENCY MEDICINE FOR FRCS (GLASG) EXAM, 2016. Including protocols from The Association of Anaesthetists of Great Britain & Ireland (AAGBI)."
+      }
+    ],
+    "chapterId": "surgery_care"
+  },
+  "chapterId": "surgery_care",
+  "_newlyImported": 1775044684971,
+  "communityId": "sub_1773775007770_sq0gnhn0ilmwgy",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true,
+  "bookmarked": true
+}

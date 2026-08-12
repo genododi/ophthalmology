@@ -1,0 +1,284 @@
+{
+  "id": 1775044665362,
+  "seqId": 186,
+  "title": "TASS vs. Infectious Endophthalmitis: The Post-Op Crisis",
+  "summary": "Differentiating Toxic Anterior Segment Syndrome (TASS) from infectious endophthalmitis is the most critical diagnostic challenge in the immediate postoperative period. While TASS is a sterile inflammatory response to an intraocular insult, endophthalmitis is a vision-threatening infection requiring urgent antimicrobial intervention.",
+  "date": "2026-04-01T11:57:45.362Z",
+  "data": {
+    "title": "TASS vs. Infectious Endophthalmitis: The Post-Op Crisis",
+    "summary": "Differentiating Toxic Anterior Segment Syndrome (TASS) from infectious endophthalmitis is the most critical diagnostic challenge in the immediate postoperative period. While TASS is a sterile inflammatory response to an intraocular insult, endophthalmitis is a vision-threatening infection requiring urgent antimicrobial intervention.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><circle cx='60' cy='50' r='35' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M35 55 Q 60 75 85 55' fill='hsl(50, 90%, 50%)'/><text x='45' y='50' font-family='Arial' font-size='8' fill='hsl(215, 90%, 45%)'>Sterile</text><circle cx='140' cy='50' r='35' fill='none' stroke='hsl(0, 80%, 50%)' stroke-width='2'/><path d='M115 55 Q 140 75 165 55' fill='hsl(0, 80%, 70%)'/><circle cx='135' cy='45' r='2' fill='hsl(0, 80%, 30%)'/><circle cx='145' cy='40' r='2' fill='hsl(0, 80%, 30%)'/><circle cx='150' cy='50' r='2' fill='hsl(0, 80%, 30%)'/><text x='125' y='50' font-family='Arial' font-size='8' fill='hsl(0, 80%, 40%)'>Infected</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definitions",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Toxic Anterior Segment Syndrome (TASS) is an acute, sterile, non-infectious intraocular inflammation caused by a non-infectious substance entering the anterior segment, resulting in toxic damage to intraocular tissues. Acute Endophthalmitis is a severe intraocular infection (usually bacterial) involving the vitreous and aqueous humors, often occurring within 1 week of surgery."
+      },
+      {
+        "title": "The Golden Clock: Time of Onset",
+        "icon": "schedule",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "TASS: 12–24 hours post-op (can occur as early as 6h).",
+          "Acute Virulent Endo: 24–48 hours (Streptococcus, Pseudomonas).",
+          "Typical Endo: 3–7 days post-op (Staph epidermidis).",
+          "Delayed-Onset Endo: Weeks to months (P. acnes, Fungal)."
+        ]
+      },
+      {
+        "title": "Incidence & Epidemiology",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Post-Cataract Endo",
+              "value": 4
+            },
+            {
+              "label": "Post-IVT Endo",
+              "value": 2
+            },
+            {
+              "label": "TASS Outbreak Rate",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "TASS vs. Endophthalmitis: Key Differentiators",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "TASS",
+            "Infectious Endophthalmitis"
+          ],
+          "rows": [
+            [
+              "Pain",
+              "Usually minimal or absent",
+              "Severe, throbbing, progressive"
+            ],
+            [
+              "Corneal Edema",
+              "Diffuse, Limbus-to-Limbus",
+              "Localized (wound) or minimal early"
+            ],
+            [
+              "Vitreous Involvement",
+              "Absent (Strictly Anterior Segment)",
+              "Dense Vitritis (Key Differentiator)"
+            ],
+            [
+              "IOP",
+              "Often High (Trabecular damage)",
+              "Usually Low (Ciliary body shutdown)"
+            ],
+            [
+              "Steroid Response",
+              "Rapid improvement within hours",
+              "No improvement or worsening"
+            ],
+            [
+              "Systemic Health",
+              "N/A",
+              "Diabetes/Immunocompromise risk"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Etiology of TASS (The Culprit List)",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Toxic Agents",
+          "branches": [
+            "Preservatives (Benzalkonium chloride)",
+            "Detergents (Inadequate rinsing)",
+            "OVDs (Heat-stable endotoxins)",
+            "Intracameral Drugs (pH/Osmolality issues)",
+            "Metallic Ions (Zinc, Copper, Brass)",
+            "Denatured proteins (Visco-clogging)"
+          ]
+        }
+      },
+      {
+        "title": "Pathogens in Acute Endophthalmitis",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Microbiology",
+          "branches": [
+            "Coag-Negative Staph (70-80% - EVS)",
+            "Staphylococcus aureus (high virulence)",
+            "Streptococcus species (worst prognosis)",
+            "Gram-Negative (Pseudomonas/Proteus)",
+            "Enterococcus (Aggressive)"
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Think Endophthalmitis!",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Profound, sudden loss of vision (Light Perception or worse)",
+          "Severe eye pain and periorbital headache",
+          "Marked chemosis and eyelid edema",
+          "Presence of vitreous membranes/cells on B-scan",
+          "Failure to respond to intensive topical steroids after 6 hours"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Clinical History (Onset time is critical)",
+          "Step 2: Slit Lamp (Look for limbus-to-limbus edema vs vitritis)",
+          "Step 3: B-Scan Ultrasonography (Assess vitreous status)",
+          "Step 4: If suspicious for Endo: AC & Vitreous Tap for culture/gram stain",
+          "Step 5: PCR Analysis (If available, for rapid pathogen ID)"
+        ]
+      },
+      {
+        "title": "The TASS Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "T.A.S.S.",
+          "explanation": "T: Timeline (Acute <24h); A: Anterior focus (No Vitritis); S: Sterile (Culture Negative); S: Steroid response (Rapid improvement)."
+        }
+      },
+      {
+        "title": "Management: TASS Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Intensive Topical Steroids (Pred Forte 1% every 30-60 mins)",
+          "Topical NSAIDs as adjunct",
+          "Aqueous Suppressants (if IOP > 30 mmHg)",
+          "Close follow-up (every 6-12 hours initially)",
+          "Rule out infection if no response in 24 hours"
+        ]
+      },
+      {
+        "title": "Management: Endophthalmitis Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Intravitreal Vancomycin (1mg/0.1mL) + Ceftazidime (2.25mg/0.1mL)",
+          "AC/Vitreous Tap & Gown (Before antibiotics)",
+          "Immediate Pars Plana Vitrectomy (PPV) if Vision is Light Perception (LP) or worse",
+          "Intensive Topical Fortified Antibiotics (Vancomycin/Tobramycin)",
+          "Systemic Antibiotics (Controversial, except in specific cases)"
+        ]
+      },
+      {
+        "title": "Evidence-Based Pearl: EVS Study",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "EVS (Endophthalmitis Vitrectomy Study) Findings:",
+          "Primary outcome: PPV is superior to Tap/Inject ONLY if presenting vision is Light Perception (LP).",
+          "If vision is Hand Motion (HM) or better, Tap/Inject is equivalent to PPV.",
+          "Systemic antibiotics (Amikacin/Ceftazidime) showed NO benefit for visual outcome.",
+          "Diabetes was a significant risk factor for worse outcomes."
+        ]
+      },
+      {
+        "title": "Surgical Complications of TASS",
+        "icon": "farsight",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Long-term Result"
+          ],
+          "rows": [
+            [
+              "Permanent Corneal Edema",
+              "Secondary to massive endothelial cell loss"
+            ],
+            [
+              "Refractory Glaucoma",
+              "Peripheral anterior synechiae / TM damage"
+            ],
+            [
+              "Fixed Dilated Pupil",
+              "Iris sphincter muscle necrosis (Urrets-Zavalia)"
+            ],
+            [
+              "Cystoid Macular Edema",
+              "Secondary to chronic inflammation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Prevention Checklist",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Strict instrument cleaning protocols (No enzymatic detergents)",
+          "Single-use cannulas preferred",
+          "Minimize volume of intracameral medications",
+          "Wait 20 mins after ETO sterilization for off-gassing",
+          "Regular autoclave maintenance & biological indicators"
+        ]
+      },
+      {
+        "title": "Landmark Clinical Pearl",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "The 'Cold' Hypopyon",
+          "explanation": "TASS often presents with a 'cold' hypopyon—one that shifts easily with head movement and is associated with a white, quiet conjunctiva—whereas infectious endophthalmitis presents with a 'hot' hypopyon, often fibrin-locked and associated with angry, injected conjunctiva/chemosis."
+        }
+      }
+    ],
+    "generationPrompt": "TASS vs endophthalmitis",
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "_newlyImported": 1775044665362,
+  "communityId": "sub_1774427980005_7hhzl6y78",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-03-25T08:39:40.005Z"
+}

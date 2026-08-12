@@ -1,0 +1,570 @@
+{
+  "id": 1776511149289,
+  "seqId": 802,
+  "title": "Merged: Choroidal Melanoma: Clinical Guide & Management",
+  "summary": "An exhaustive clinical overview of choroidal melanoma, the most common uveal melanoma. This poster covers its classification, suspicious diagnostic features, multi-modal treatment strategies, and genetic prognostic indicators.",
+  "date": "2026-04-18T11:19:08.960Z",
+  "data": {
+    "title": "Choroidal Melanoma: Clinical Guide & Management",
+    "summary": "An exhaustive clinical overview of choroidal melanoma, the most common uveal melanoma. This poster covers its classification, suspicious diagnostic features, multi-modal treatment strategies, and genetic prognostic indicators.",
+    "summary_illustration": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"45\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"2\"/><path d=\"M20 50 Q50 20 80 50 Q50 80 20 50\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"10\" fill=\"#1d4ed8\"/><path d=\"M65 40 Q75 45 70 60 Q60 70 55 60 Z\" fill=\"#444\"/><path d=\"M68 45 L72 48\" stroke=\"#f97316\" stroke-width=\"1\"/></svg>",
+    "sections": [
+      {
+        "title": "Epidemiology & Histology",
+        "icon": "microscope",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Choroidal melanomas account for 65% of all uveal melanomas.",
+          "Presentation: Usually at about 50–60y of age.",
+          "Histological Types: Spindle cells (types A and B), epithelioid cells, or a mixture (commonest type).",
+          "Necrosis: May prevent cell typing in 5% of cases."
+        ]
+      },
+      {
+        "title": "Classification by Size",
+        "icon": "straighten",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Small (<10mm diameter)",
+              "value": 33
+            },
+            {
+              "label": "Medium (10–15mm diameter)",
+              "value": 66
+            },
+            {
+              "label": "Large (>15mm diameter)",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Presentation",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Choroidal Melanoma",
+          "branches": [
+            "Often asymptomatic",
+            "Decreased Visual Acuity (dVa)",
+            "Visual Field Loss",
+            "‘Ball of light’ slowly moving across vision",
+            "Elevated sub-RPE mass (Brown or Amelanotic)",
+            "Orange pigment (lipofuscin)",
+            "Exudative Retinal Detachment (eRD)",
+            "Bruch’s membrane/RPE rupture (20%) forming subretinal ‘mushroom’",
+            "Occasional: Vitreous haemorrhage, iIOp, cataract, uveitis"
+          ]
+        }
+      },
+      {
+        "title": "Box 15.2: Suspicious Features",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Symptomatic",
+          "Juxtapapillary location",
+          "SRF/retinal detachment",
+          "Lipofuscin on the surface",
+          "Large size (e.g. >2mm thickness)",
+          "Significant growth"
+        ]
+      },
+      {
+        "title": "Diagnostic Dilemma Note",
+        "icon": "priority_high",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "NB: The key diagnostic dilemma is to distinguish a malignant melanoma from a benign naevus (see E Choroidal naevus, p. 706). Suspicious features are listed in Box 15.2."
+      },
+      {
+        "title": "Investigations",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "US (Ultrasound): Solid, acoustically hollow, low internal reflectivity, with choroidal excavation.",
+          "CT and MRI: May detect extraglobar extension; cannot reliably differentiate between types of tumour.",
+          "Biopsy: Diagnostic incisional biopsy or FNa may be performed in selected cases.",
+          "Prognostic Biopsy: Using genetic analysis; may be offered to patients undergoing radiotherapy. (Controversial: confers no survival advantage, small risk of extraocular seeding).",
+          "Systemic Assessment: FBC, LFTs, liver/abdominal US (or CT, MRI).",
+          "Metastasis Status: At presentation, most (98%) do not have detectable metastatic disease."
+        ]
+      },
+      {
+        "title": "Treatment: Observation & Radiotherapy",
+        "icon": "radar",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Specialist advice should be sought for all options.",
+          "Observation: For small asymptomatic lesions without suspicious features. Collaborative Ocular Melanoma Study (COMS) showed growth in only 31% of small melanomas by 5y.",
+          "Radiotherapy - Plaques: 3mm larger in diameter than lesion; deliver 80–100Gy to tumour apex.",
+          "Radiotherapy - Proton Beam: Usually 50–70Gy in 4–5 fractions.",
+          "Stereotactic Radiosurgery: Used in selected patients (e.g., where GA is contraindicated).",
+          "Plaque vs Proton: Plaque has fewer local side effects; as effective as enucleation for medium-sized melanomas (COMS).",
+          "Radiotherapy Side Effects: Dry eyes, radiation retinopathy (treatable with anti-VEGF), cataracts, and NVG."
+        ]
+      },
+      {
+        "title": "Surgical & Other Treatment Modalities",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Local Resection: For smaller anterior tumours; preserves vision/cosmesis. Risks: Vitreous haemorrhage, retinal detachment, cataract. Requires hypotensive anaesthesia (unsuitable for CV comorbidities). Adjuvant brachytherapy if margins contaminated.",
+          "Enucleation: For large tumours (>15mm diameter, 10mm thickness), optic nerve involvement, or painful blind eyes. No benefit for pre-enucleation radiotherapy.",
+          "Orbital Exenteration: For extrascleral/orbital extension or recurrence after enucleation.",
+          "PDT (Photodynamic Therapy): Can be used for small tumours.",
+          "Transpupillary Thermotherapy (TTT): Largely abandoned as 1° treatment due to high local recurrence; still used as an adjunct."
+        ]
+      },
+      {
+        "title": "Prognosis & Genetic Predictors",
+        "icon": "analytics",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "POOR PROGNOSIS",
+          "explanation": "Older patient, large tumour size, extrascleral extension, epithelioid cell type, high mitotic count, and specific genetic mutations."
+        }
+      },
+      {
+        "title": "Genetic Stratification",
+        "icon": "dna",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Most important genetic predictors of mortality: Chr 3 loss (monosomy 3) and duplication (partial or total) of Chr 8q.",
+          "Microarray Analysis: Stratifies metastatic risk based on the pattern of expression of multiple genes."
+        ]
+      },
+      {
+        "title": "Table 15.3: Differential Diagnosis of Choroidal Mass",
+        "icon": "compare",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Pigmented",
+            "Nonpigmented"
+          ],
+          "rows": [
+            [
+              "Choroidal melanoma",
+              "Choroidal melanoma"
+            ],
+            [
+              "Naevus",
+              "Choroidal granuloma"
+            ],
+            [
+              "CHRPE",
+              "Posterior scleritis"
+            ],
+            [
+              "Melanocytoma",
+              "Retinal detachment"
+            ],
+            [
+              "Metastasis (rare)",
+              "Choroidal detachment"
+            ],
+            [
+              "BDUMP syndrome (Bilateral diffuse uveal melanocytic proliferation)",
+              "Choroidal neovascular membrane"
+            ],
+            [
+              " ",
+              "Haematoma (subretinal/sub-RPE/suprachoroidal)"
+            ],
+            [
+              " ",
+              "Choroidal osteoma"
+            ],
+            [
+              " ",
+              "Choroidal haemangioma"
+            ],
+            [
+              " ",
+              "Metastasis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "--- Sub-topics from: CHOROIDAL TUMOURS: A Clinical Masterclass ---",
+        "icon": "merge",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "An exhaustive guide to the diagnosis, differential diagnosis, investigation, and multi-modal treatment of choroidal melanoma and simulating lesions. This poster details clinical signs, histopathological features, and modern genetic prognostic indicators."
+      },
+      {
+        "title": "Diagnosis and Initial Presentation",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Symptoms are often absent, with a tumour detected by chance on routine fundus examination.",
+          "A range of visual disturbance can occur depending on tumour characteristics.",
+          "Signs: A solitary elevated subretinal grey-brown (Fig. 20.26A) or rarely amelanotic (Fig. 20.26B) dome-shaped mass.",
+          "Diffuse infiltration is uncommon.",
+          "About 60% are located within 3 mm of the optic disc (Fig. 20.26C) or fovea.",
+          "Clumps of overlying orange pigment are common (Fig. 20.26D)."
+        ]
+      },
+      {
+        "title": "Advanced Clinical Signs",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Breakthrough: If the tumour breaks through Bruch membrane it acquires a ‘collar stud’ appearance (see Fig. 20.25C and Fig. 20.28C).",
+          "Associated haemorrhage and subretinal fluid (Fig. 20.26E) are common.",
+          "Exudative retinal detachment (Fig. 20.26F) may result from subretinal fluid, which can mask the underlying lesion.",
+          "Other signs: Sentinel vessels (Fig. 20.27), choroidal folds, inflammation, rubeosis iridis, secondary glaucoma and cataract."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Pigmented Lesions",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Characteristics"
+          ],
+          "rows": [
+            [
+              "Choroidal naevus",
+              "Usually exhibits numerous surface drusen, without serous retinal detachment and little if any orange pigment."
+            ],
+            [
+              "Melanocytoma",
+              "Deeply pigmented and usually located at the optic disc."
+            ],
+            [
+              "Congenital hypertrophy of the RPE",
+              "Flat, often grey-black; has a well-defined margin with lacunae."
+            ],
+            [
+              "Haemorrhage",
+              "In subretinal or suprachoroidal space (e.g., from choroidal neovascularization or retinal artery macroaneurysm)."
+            ],
+            [
+              "Metastatic cutaneous melanoma",
+              "Smooth surface, light brown colour, indistinct margins, extensive retinal detachment; often a past history of malignancy."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Non-Pigmented Lesions",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Characteristics"
+          ],
+          "rows": [
+            [
+              "Circumscribed choroidal haemangioma",
+              "Typically posterior, pink, dome-shaped with a smooth surface."
+            ],
+            [
+              "Metastasis",
+              "Often associated with exudative retinal detachment."
+            ],
+            [
+              "Solitary choroidal granuloma",
+              "Examples include sarcoidosis and tuberculosis."
+            ],
+            [
+              "Posterior scleritis",
+              "Presents with large elevated lesion; unlike melanoma, pain is a common feature."
+            ],
+            [
+              "Large elevated CNV lesion",
+              "Eccentrically located (temporal pre-equatorial), associated with exudate and fresh haemorrhage (rare in melanoma)."
+            ],
+            [
+              "Prominent vortex vein ampulla",
+              "Small, smooth, brown, dome-shaped lesion that disappears with pressure on the eye."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Histopathology of Choroidal Melanoma",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Cell Type / Feature",
+            "Histological Description"
+          ],
+          "rows": [
+            [
+              "Spindle cells",
+              "Tightly arranged fusiform cells with indistinct cell membranes and slender or plump oval nuclei."
+            ],
+            [
+              "Epithelioid cells",
+              "Large pleomorphic cells with distinct cell membranes, large vesicular nuclei with prominent nucleoli, and abundant cytoplasm."
+            ],
+            [
+              "Bruch membrane penetration",
+              "Acquires a ‘collar stud’ fashion."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Investigations (Imaging)",
+        "icon": "monochrome_photos",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Examination: Sufficient for diagnosis in the majority of cases.",
+          "Fluorescein Angiography (FA): Limited diagnostic value; no pathognomonic pattern. Shows intrinsic ‘dual’ circulation (Fig. 20.28A), mottled fluorescence (arteriovenous phase), late diffuse leakage and staining.",
+          "Ultrasound: Measures dimensions and detects tumours through opaque media/exudative detachment. Shows internal homogeneity, low to medium reflectivity, choroidal excavation (Fig. 20.28B), and orbital shadowing.",
+          "Acoustic Hollowing: A basal acoustically quiet zone due to greater tissue homogeneity in this region.",
+          "Collar Stud (US): Configuration (Fig. 20.28C) is almost pathognomonic when present.",
+          "FAF: Intense diffuse or confluent hyperautofluorescence is a useful indicator of melanoma.",
+          "OCT: Measures dimensions and demonstrates subretinal fluid/secondary retinal changes overlying the lesion.",
+          "ICGA: Usually shows hypofluorescence throughout; provides more information than FA about tumour extent due to lower RPE interference.",
+          "MRI: Useful for extraocular extension (Fig. 20.28D) and differential diagnosis."
+        ]
+      },
+      {
+        "title": "Biopsy and Advanced Pathology",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Biopsy: Used when diagnosis is not established by non-invasive methods. Performed via fine needle or 25-gauge vitrectomy system (larger sample).",
+          "Immunocytochemistry (PAX8): Distinguishes tumours. Melanoma and melanocytoma are PAX8-negative; pigmented adenocarcinomas are PAX8-positive."
+        ]
+      },
+      {
+        "title": "Genetic Tumour Analysis & Prognosis",
+        "icon": "genetics",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "M3 & i8q",
+          "explanation": "Loss of one copy of chromosome 3 (M3) and changes in chromosome 8 (i8q) strongly correlate with poor outcome, especially when occurring together. Metastasis occurs almost exclusively with certain genetic profiles."
+        }
+      },
+      {
+        "title": "Prognostic Resources",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "The Liverpool Uveal Melanoma Prognosticator is an online resource combining anatomic, genetic, and histopathological data to determine prognosis for life.",
+          "Reduced surveillance can be adopted for patients with a low-risk genetic profile."
+        ]
+      },
+      {
+        "title": "Systemic Investigation Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Detect metastatic spread (primary focus on liver).",
+          "Step 2: Liver function testing and ultrasonography (mainstays).",
+          "Step 3: Chest radiography (rarely shows lung secondaries without liver disease).",
+          "Step 4: Consider whole-body PET/CT (Greater sensitivity for extrahepatic lesions, but high ionizing radiation dose)."
+        ]
+      },
+      {
+        "title": "Treatment Principles",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Objective: Avoid a painful/unsightly eye while conserving useful vision.",
+          "Survival: Influence of ocular treatment on survival is not yet defined, though smaller earlier tumours may have lower risk of metastasis.",
+          "Management: Individualized based on tumour characteristics (apical height, basal diameter) and patient factors (health, age, preferences, fellow eye)."
+        ]
+      },
+      {
+        "title": "Radiotherapy Options",
+        "icon": "radiology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Method",
+            "Indications / Details",
+            "Complications"
+          ],
+          "rows": [
+            [
+              "Brachytherapy (Plaque)",
+              "Tumours < 20mm basal diameter and < 10mm thick. Plaque sutured to sclera for several days. Regression starts 1–2 months post-treatment.",
+              "Cataract, papillopathy, disc neovascularization, radiation retinopathy, 'toxic tumour syndrome'."
+            ],
+            [
+              "External Beam (Protons)",
+              "Used for large or posterior tumours unsuitable for brachytherapy. Targeting aided by tantalum markers. Survival comparable to brachytherapy.",
+              "Lashes loss, eyelid depigmentation, keratitis, and intraocular complications similar to brachytherapy."
+            ],
+            [
+              "Stereotactic",
+              "Multiple collimated beams (concurrent or sequential) delivering high dose only to the tumour.",
+              "Effective, but may have a comparatively high complication rate."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Laser and Surgical Therapies",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Transpupillary thermotherapy (TTT): Uses infrared laser for hyperthermia (not coagulation). For small tumours when radiotherapy is inappropriate or for vision-threatening exudation. Tumour disappears to leave bare sclera.",
+          "TTT Complications: Retinal traction, tears, rhegmatogenous detachment, vascular occlusion, neovascularization. Local recurrence common in thick, amelanotic, or disc-margin tumours.",
+          "Trans-scleral choroidectomy: Technically difficult. For tumours > 16mm in diameter too thick for radiotherapy. Complications: Detachment, hypotony, wound dehiscence, recurrence.",
+          "Light-activated AU-011: Novel treatment for small melanomas (2–3.4 mm). Nano-particles from HPV + infrared dye injected into vitreous; activated by infrared light to cause necrosis."
+        ]
+      },
+      {
+        "title": "Enucleation: Removal of the Eye",
+        "icon": "content_cut",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Large tumour size",
+          "Optic disc invasion",
+          "Extensive involvement of ciliary body or angle",
+          "Irreversible loss of useful vision",
+          "Poor motivation to keep the eye",
+          "Critical: Must perform ophthalmoscopy after surgical draping to ensure correct eye is removed."
+        ]
+      },
+      {
+        "title": "Metastatic Disease Management",
+        "icon": "coronavirus",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "No standard treatment for metastatic disease exists.",
+          "Tebentafusc: Immunotherapy drug that can modestly increase survival in some patients.",
+          "Note: Cutaneous melanoma checkpoint inhibitors are NOT effective against uveal melanoma.",
+          "Systemic chemotherapy has NOT been shown to benefit cases without evidence of metastatic spread."
+        ]
+      }
+    ],
+    "chapterId": "tumours"
+  },
+  "chapterId": "tumours",
+  "_newlyImported": 1775382596249,
+  "communityId": "sub_1775145319798_bwi4xafxt3qrb7",
+  "communityAuthor": "nemo",
+  "communityDate": "2026-04-02T15:55:19.798Z",
+  "kanskiMeta": [
+    {
+      "pageNum": 865,
+      "keywords": [
+        "choroidal melanoma",
+        "choroidal",
+        "melanoma",
+        "uveal melanoma",
+        "intraocular"
+      ]
+    },
+    {
+      "pageNum": 870,
+      "keywords": [
+        "choroidal melanoma",
+        "choroidal",
+        "melanoma",
+        "metastatic",
+        "uveal melanoma"
+      ]
+    },
+    {
+      "pageNum": 843,
+      "keywords": [
+        "choroidal melanoma",
+        "choroidal",
+        "melanoma",
+        "metastatic",
+        "intraocular"
+      ]
+    },
+    {
+      "pageNum": 866,
+      "keywords": [
+        "choroidal melanoma",
+        "choroidal",
+        "melanoma",
+        "metastatic",
+        "histology"
+      ]
+    },
+    {
+      "pageNum": 404,
+      "keywords": [
+        "choroidal melanoma",
+        "choroidal",
+        "melanoma",
+        "intraocular",
+        "surgical"
+      ]
+    },
+    {
+      "pageNum": 872,
+      "keywords": [
+        "choroidal melanoma",
+        "choroidal",
+        "melanoma",
+        "histology",
+        "size"
+      ]
+    }
+  ]
+}

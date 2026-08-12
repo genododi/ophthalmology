@@ -1,0 +1,162 @@
+{
+  "id": 1775282199987,
+  "seqId": 632,
+  "title": "Clinical Mastery: Altitudinal Visual Field Defects",
+  "summary": "An altitudinal visual field defect is a semi-circular loss of the superior or inferior visual field, typically indicating pathology along the visual pathway from the optic nerve to the chiasm. Rapid identification is critical to prevent permanent vision loss in ischemic and compressive conditions.",
+  "date": "2026-04-04T05:56:39.987Z",
+  "data": {
+    "title": "Clinical Mastery: Altitudinal Visual Field Defects",
+    "summary": "An altitudinal visual field defect is a semi-circular loss of the superior or inferior visual field, typically indicating pathology along the visual pathway from the optic nerve to the chiasm. Rapid identification is critical to prevent permanent vision loss in ischemic and compressive conditions.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e40af' stroke-width='4'/><path d='M10 50 A 40 40 0 0 1 90 50' fill='#fca5a5'/><text x='35' y='55' font-size='10' fill='#1e40af'>AION</text></svg>",
+    "sections": [
+      {
+        "title": "Definition & Topography",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "An altitudinal defect is a visual field loss that respects the horizontal meridian. Superior altitudinal defects are classically associated with inferior optic nerve/retinal pathology, while inferior altitudinal defects result from superior involvement. Unlike hemianopias, these defects are primarily pre-chiasmal in origin."
+      },
+      {
+        "title": "Primary Etiologies (The '3 I's and C')",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Altitudinal Defect",
+          "branches": [
+            "Ischemia (NAION/AAION)",
+            "Inflammation (Optic Neuritis)",
+            "Increased IOP (Glaucoma)",
+            "Compression (Tumors/Masses)"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Mechanism",
+            "Field Characteristic"
+          ],
+          "rows": [
+            [
+              "NAION",
+              "Infarction of posterior ciliary arteries",
+              "Often inferior altitudinal"
+            ],
+            [
+              "Glaucoma",
+              "Axonal loss at the lamina cribrosa",
+              "Superior or Inferior arcuate/altitudinal"
+            ],
+            [
+              "Optic Disc Drusen",
+              "Crowding/compression of nerve fibers",
+              "Variable, often altitudinal"
+            ],
+            [
+              "Branch Retinal Artery Occlusion",
+              "Embolic event",
+              "Sharp, straight-edged altitudinal"
+            ],
+            [
+              "Papilledema",
+              "Raised ICP (Late stage)",
+              "Inferior nasal-to-altitudinal"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Panic",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "ESR > 50mm/hr or CRP elevated (Giant Cell Arteritis)",
+          "Altitudinal defect in a patient > 50 with jaw claudication",
+          "Bilateral sequential vision loss",
+          "Disc edema with 'chalky white' appearance",
+          "Presence of afferent pupillary defect (APD)"
+        ]
+      },
+      {
+        "title": "Remember the Mnemonic: NAION",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-A-I-N-S",
+          "explanation": "P: Pill (Viagra/PDE5i), A: Age > 50, I: Ischemic/Inflammatory, N: Nocturnal hypotension, S: Small cup-to-disc ratio (disc-at-risk)"
+        }
+      },
+      {
+        "title": "Diagnostic Workflow",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Confrontation Fields & Automated Perimetry (24-2 or 30-2 HFA).",
+          "Step 2: Slit-lamp biomicroscopy of the optic nerve head (assess for cupping vs. edema).",
+          "Step 3: Blood panel (ESR, CRP, CBC, Glucose) if GCA or Diabetes suspected.",
+          "Step 4: Neuro-imaging (MRI Brain/Orbit with Gadolinium) if compression is suspected.",
+          "Step 5: OCT Optic Nerve Head (check RNFL thickness) and OCT-Angiography."
+        ]
+      },
+      {
+        "title": "Epidemiological Trends",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "NAION",
+              "value": 60
+            },
+            {
+              "label": "Glaucoma",
+              "value": 25
+            },
+            {
+              "label": "GCA",
+              "value": 10
+            },
+            {
+              "label": "Tumor",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "In NAION, the visual field defect is classically inferior, but can be central or arcuate.",
+          "A 'disc-at-risk' is defined as a small vertical cup-to-disc ratio < 0.2.",
+          "Always check blood pressure; nocturnal systemic hypotension is a major risk factor for ischemic optic neuropathy.",
+          "In glaucoma, altitudinal defects usually occur in advanced stages (Stage 4+)."
+        ]
+      }
+    ],
+    "generationPrompt": "Altitudinal field defect",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro"
+}

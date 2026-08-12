@@ -1,0 +1,445 @@
+{
+  "id": 1775044684727,
+  "seqId": 382,
+  "title": "FRCS Internal & Emergency Medicine: VTE & Cardiovascular Pharmacology",
+  "summary": "A comprehensive reference for Venous Thromboembolic Disease (DVT/PE) and essential Cardiovascular Drugs. Designed for high-stakes FRCS exam preparation, covering clinical signs, management protocols, and specific ophthalmic side effects.",
+  "date": "2026-04-01T11:58:04.727Z",
+  "data": {
+    "title": "FRCS Internal & Emergency Medicine: VTE & Cardiovascular Pharmacology",
+    "summary": "A comprehensive reference for Venous Thromboembolic Disease (DVT/PE) and essential Cardiovascular Drugs. Designed for high-stakes FRCS exam preparation, covering clinical signs, management protocols, and specific ophthalmic side effects.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='90' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 100 Q 100 40 140 100 Q 100 160 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='100' cy='100' r='20' fill='hsl(215, 90%, 45%)'/><path d='M100 140 L100 170 M85 165 L115 165' stroke='red' stroke-width='5'/><path d='M40 60 L60 80 M40 80 L60 60' stroke='red' stroke-width='3'/></svg>",
+    "sections": [
+      {
+        "title": "Venous Thromboembolic Disease (VTE) Overview",
+        "icon": "vitals",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "The most common presentation is Deep vein thrombosis (DVT) of the leg and/or pulmonary embolism (PE).",
+          "Deep vein thrombosis (DVT) occurs in 25-50% of surgical patients, and many non-surgical patients."
+        ]
+      },
+      {
+        "title": "Risk Factors for DVT/PE",
+        "icon": "warning",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "VTE Risk Factors",
+          "branches": [
+            "Patient factors: Increased Age, obesity, varicose veins, previous DVT/PE, family history, pregnancy, oestrogen-containing oral contraceptives & HRT.",
+            "Immobility: Especially long flights (> 4 hours) or associated with illness / hospital admission.",
+            "Surgical conditions: Recent major surgery (especially pelvic or orthopaedic).",
+            "Medical conditions: MI/heart failure, inflammatory bowel disease, pneumonia & malignancy.",
+            "Haematological disorders: Thrombophilic states, hyperviscosity syndromes & Myeloproliferative disease."
+          ]
+        }
+      },
+      {
+        "title": "Clinical Signs of DVT",
+        "icon": "accessibility_new",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Calf warmth, tenderness, swelling, and erythema.",
+          "Pitting oedema.",
+          "Mild fever."
+        ]
+      },
+      {
+        "title": "CRITICAL WARNING: Homans' Sign",
+        "icon": "dangerous",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Homans' sign: Increased resistance/pain on forced foot dorsiflexion.",
+          "SHOULD NOT BE TESTED: It may dislodge the thrombus."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of DVT",
+        "icon": "difference",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Ruptured knee (Baker’s Cyst)",
+              "Usually occurs in patients with rheumatoid arthritis."
+            ],
+            [
+              "Cellulitis",
+              "Usually distinguished by marked skin erythema & heat localized within a well-demarcated area; may have an entry source (insect bite/ulcer)."
+            ],
+            [
+              "Note",
+              "Both Ruptured Baker's Cyst and Cellulitis may coexist with a DVT."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "VTE Investigations",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. FBC: WCC for infection; Hb for polycythaemia; Platelet count for thrombocytosis.",
+          "2. D-dimer blood tests: High sensitivity, low specificity (increased in thrombosis, infection, malignancy, and post-op).",
+          "3. Compression U/S of calf & leg (Doppler): If negative, repeat at 1 week to catch early propagating DVTs; rules out ruptured knee.",
+          "4. Pulmonary Concern: ECG, CXR, ABG, V/Q scan & CT pulmonary angiography.",
+          "5. Thrombophilia tests: Before starting anticoagulants if no predisposing factors exist, in recurrent DVT, or strong family history."
+        ]
+      },
+      {
+        "title": "Complications of VTE",
+        "icon": "report_problem",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1. Pulmonary embolism: Severity ranges from asymptomatic to sudden death.",
+          "2. Chronic post-phlebitic leg problems (10-30%): Due to valve damage; causes pain, swelling, eczema, itch & ulceration.",
+          "3. Stroke/Arterial embolus: Paradoxical embolus via cardiac defect.",
+          "4. Anticoagulant complications: Haemorrhage (intra-cranial, ocular, GI & other)."
+        ]
+      },
+      {
+        "title": "Prophylaxis against DVT/PE",
+        "icon": "verified_user",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Early post-op mobilization (simplest method).",
+          "Compression stockings.",
+          "Low M.W heparin (e.g., enoxaparin 20 mg/24h SC).",
+          "Aspirin.",
+          "Avoid contraceptive pill in high-risk (major/orthopedic surgery).",
+          "Vena caval filters (limited use)."
+        ]
+      },
+      {
+        "title": "DVT Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Graded support stockings and treatment of underlying risk factors.",
+          "Step 2: Assess risk factors for haemorrhage.",
+          "Step 3: Start Heparin (e.g., LMWH enoxaparin 1.5mg/kg/24h SC).",
+          "Step 4: Start Warfarin simultaneously with LMWH (prothrombotic for first 48h).",
+          "Step 5: Stop heparin when INR reaches 2-3.",
+          "Duration: 3 months if post-op; 6 months if no cause found, malignancy, or recurrent DVT.",
+          "Vena caval filters: Use in active bleeding or anticoagulant failure to minimize PE risk."
+        ]
+      },
+      {
+        "title": "WELLS Score: High Probability DVT",
+        "icon": "format_list_numbered",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Calf swelling > 3cm (measured 10cm below tibial tuberosity).",
+          "Immobile (bed, plaster, or paralysed).",
+          "Local tenderness over deep venous system.",
+          "Active malignancy.",
+          "Family history of DVT (≥ 2 close relatives).",
+          "Others: Pitting edema & dilated superficial veins."
+        ]
+      },
+      {
+        "title": "Pulmonary Embolism (PE) Essentials",
+        "icon": "air",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Always suspect PE in sudden collapse 1-2 wks after surgery.",
+          "Mechanism: Venous thrombi pass into pulmonary circulation and block blood flow.",
+          "Signs/Symptoms: Acute dyspnea, tachypnea, pleuritic chest pain, hypotension, tachycardia, gallop rhythm, loud P2, increased JVP, haemoptysis, syncope, Cyanosis, AF, and DVT signs."
+        ]
+      },
+      {
+        "title": "PE Investigations & ECG Patterns",
+        "icon": "monitor_heart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Modality",
+            "Findings"
+          ],
+          "rows": [
+            [
+              "ECG",
+              "Normal/Sinus Tachycardia (commonest). Right ventricular strain (V1-3), Rt Axis deviation, RBBB, AF. Rarely: SI, QIII, TIII (Deep S in I, path. Q in III, inverted T in III)."
+            ],
+            [
+              "CXR",
+              "Often normal. Decreased vascular markings, small pleural effusion, wedge-shaped area of infarction."
+            ],
+            [
+              "ABG",
+              "Decreased O2, Decreased CO2, Increased pH."
+            ],
+            [
+              "D-dimer",
+              "Increased if thrombosis present; helps exclude PE if Normal (High sens/Low spec)."
+            ],
+            [
+              "CTPA",
+              "Sensitive & specific for emboli in pulmonary artery. Helical/Spiral CT preferred."
+            ],
+            [
+              "Other",
+              "U&E, FBC, baseline clotting. V/Q scan if CTPA unavailable. Pulmonary angiography/venograms if equivocal. Doppler U/S for legs."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Immediate PE Management",
+        "icon": "emergency",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "1. Oxygen 100%.",
+          "2. Morphine 10 mg IV (if pain) + antiemetic.",
+          "3. If critically ill: Consider immediate thrombolysis or surgery.",
+          "4. Start LMWH or Unfractioned Heparin (10,000 U IV bolus then 15–25 U/Kg/h IVI guided by APTT).",
+          "5. If Systolic BP > 90 mmHg: Start Warfarin 10 mg/24h PO and confirm diagnosis.",
+          "6. If Systolic BP < 90 mmHg: Start rapid colloid infusion (500 mL).",
+          "7. Persistent Low BP: Give dobutamine 2.5–10 ug/kg/min IV (Aim BP >90). Consider noradrenaline.",
+          "8. Thrombolysis: Consider streptokinase if no improvement after 30–60 min (250,000 U IVI over 30 min, then 100,000 U/h for 12–72 h)."
+        ]
+      },
+      {
+        "title": "Beta-Blockers (β-blockers) Classification",
+        "icon": "medication_liquid",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Generation",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "1st Gen (Non-selective)",
+              "Propranolol, Sotalol, Timolol, Levobunolol, Metipranolol"
+            ],
+            [
+              "2nd Gen (Selective B1 / Cardioselective)",
+              "Atenolol, Metoprolol, Bisoprolol, Betaxolol"
+            ],
+            [
+              "3rd Gen (With V.D action)",
+              "Dilevalol, Nebivolol"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Beta-Blocker Clinical Profile",
+        "icon": "info",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Mechanism: Block B-adrenoceptors; B1-blocking is negatively inotropic/chronotropic; B2-blocking induces peripheral vasoconstriction and bronchoconstriction.",
+          "Indications: Hypertension (2nd line), IHD (Angina, Post-MI), Cardiac arrhythmias, Hyperthyroidism, Prophylaxis of migraine, Anxiety & tremors, Glaucoma.",
+          "Side Effects: Bronchospasm, Hypotension, Bradycardia, Peripheral ischaemia/Cold extremities, Decreased metabolism of other drugs, Potentiation of insulin hypoglycaemia & masking symptoms, Hyperkalaemia (diabetic/uraemic), Nightmares, depression, headache, nausea, vomiting, impotence, possible decreased HDL."
+        ]
+      },
+      {
+        "title": "BB Bradycardia Antidote & Contraindications",
+        "icon": "dangerous",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Bradycardia Antidote: Atropine up to 3mg IV. If fails, Glucagon 2-10mg IV bolus + 5% dextrose (or 50µg/kg/h infusion). Pacing/Balloon pump if unresponsive.",
+          "Contraindications: Congestive heart failure, Heart block, Asthma/COPD, Hypotension & Bradycardia, Prinzmetal's angina, Peripheral vascular disease."
+        ]
+      },
+      {
+        "title": "Comparison of Diuretics",
+        "icon": "water_drop",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Mechanism",
+            "Indications",
+            "Side Effects"
+          ],
+          "rows": [
+            [
+              "Loop (Furosemide)",
+              "Ascending limb Loop of Henle. Inhibits Na+/K+/2Cl- cotransport.",
+              "Acute pulmonary edema, Hypertensive emergencies, Hyper Ca2+ & Hyper K+.",
+              "Hypokalaemia, Hypomagnesaemia, Hyponatraemia, Hypocalcaemia, Hyperuricaemia, Ototoxicity."
+            ],
+            [
+              "Thiazide (Hydrochlorothiazide)",
+              "Proximal part of DCT. Inhibits NaCl cotransport.",
+              "Congestive heart failure, Essential hypertension, Diabetes insipidus.",
+              "Hypokalaemia, Hypomagnesaemia, Hyponatraemia, Hyperuricaemia."
+            ],
+            [
+              "K+ Sparing (Spironolactone)",
+              "Distal DCT & upper collecting tubules. Competitive inhibition with aldosterone.",
+              "Given with other diuretics to balance K+ loss, Hyperaldosteronism.",
+              "Hyperkalaemia, Gynecomastia & impotence in males, Menstrual disorders & hirsutism in females."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Calcium Channel Blockers (CCB)",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Class",
+            "Drugs",
+            "Pharmacological Effects",
+            "Indications"
+          ],
+          "rows": [
+            [
+              "Dihydropyridines",
+              "Nifedipine, Amlodipine, Lacidipine, Nimodipine, Nicardipine, Felodipine",
+              "Peripheral V.D, Coronary V.D, Tachycardia (safe with BB), BP lowering.",
+              "Hypertension & Angina"
+            ],
+            [
+              "Nondihydropyridines",
+              "Verapamil, Diltiazem",
+              "A-V & S-A conduction delay, Bradycardia (NO BB - risk of LVF), Peripheral & Coronary V.D, BP lowering.",
+              "Hypertension, Angina & Arrhythmias"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CCB Mechanism & Side Effects",
+        "icon": "list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Mechanism: Block voltage-gated Ca2+ channels in cardiac muscle & vessels. Decreased intracellular Ca2+ reduces muscle contraction, promoting V.D and reducing myocardial oxygen consumption.",
+          "Side Effects: CHF aggravation, A-V block, Dizziness, fatigue, headache, flushing, Ankle oedema, Gingival hyperplasia, Nausea, vomiting, constipation.",
+          "Contraindications: Heart failure & Heart block."
+        ]
+      },
+      {
+        "title": "Digitalis (Digoxin) Profile",
+        "icon": "heart_plus",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Mechanism: +ve inotropic (blocks Na+/K+ pump), slows HR (control ventricular rate in AF <100), conduction velocity increased in small dose/decreased in large dose.",
+          "Indications: CHF with AF (major), heart failure non-responsive to diuretics, atrial flutter, paroxysmal atrial tachycardia.",
+          "Dosage: PO loading 0.5mg BID (AF total 1.25-1.5mg in 3-4 doses). Maintenance 0.125-0.25mg daily. IV 0.75-1mg in 0.9% NaCl over 2h.",
+          "CI: Digitalis toxicity, Heart block, HOCM, WPW syndrome, Paroxysmal VT."
+        ]
+      },
+      {
+        "title": "Digitalis Toxicity & Management",
+        "icon": "visibility",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Precautions: Check K+ levels; lower dose for elderly; halved dose with amiodarone; avoid cardioversion; verify no digitalis in previous 14 days before IV load.",
+          "Cardiac SE: Any arrhythmia (AV block, VT/VF).",
+          "Ocular SE: White halos, yellow/green chromatopsia, diplopia.",
+          "Other SE: Nausea/Vomiting/Anorexia, Hypokalaemia, Digitalis Delirium (Confusion/hallucinations), Gynaecomastia/Galactorrhea.",
+          "Management: Stop Digoxin, correct hypokalaemia, treat arrhythmias. Use Digibind® (Digoxin-specific antibody fragments IVI)."
+        ]
+      },
+      {
+        "title": "Antiarrhythmic Drugs Classification",
+        "icon": "reorder",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Class",
+            "Drugs"
+          ],
+          "rows": [
+            [
+              "Class I",
+              "Ia: Quinidine, Disopyramide, Procainamide; Ib: Lidocaine; Ic: Flecainide"
+            ],
+            [
+              "Class II",
+              "Beta-blockers"
+            ],
+            [
+              "Class III",
+              "Amiodarone"
+            ],
+            [
+              "Class IV",
+              "Calcium channel blockers (Verapamil & Diltiazem)"
+            ],
+            [
+              "Class V",
+              "Adenosine, Digoxin"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Amiodarone Side Effects",
+        "icon": "remove_red_eye",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Vortex keratopathy",
+          "Cataract",
+          "Optic neuropathy",
+          "Peripheral neuropathy",
+          "Myopathy",
+          "Alteration of thyroid function",
+          "Hepatotoxicity"
+        ]
+      }
+    ],
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "_newlyImported": 1775044684727,
+  "communityId": "sub_1773775007770_nx7iwf2vzjk0fu",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true,
+  "bookmarked": true
+}

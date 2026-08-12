@@ -1,0 +1,326 @@
+{
+  "id": 1775472003093,
+  "seqId": 723,
+  "title": "Ophthalmic Mastery: High-Yield FRCS/FRCO Clinical Review",
+  "summary": "The ultimate high-fidelity review for FRCS/FRCO candidates, synthesizing Kanski and BCSC principles into actionable clinical pearls. This guide covers essential classifications, landmark trials, and diagnostic criteria required for postgraduate success.",
+  "date": "2026-04-06T10:40:03.093Z",
+  "data": {
+    "title": "Ophthalmic Mastery: High-Yield FRCS/FRCO Clinical Review",
+    "summary": "The ultimate high-fidelity review for FRCS/FRCO candidates, synthesizing Kanski and BCSC principles into actionable clinical pearls. This guide covers essential classifications, landmark trials, and diagnostic criteria required for postgraduate success.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M20 50 Q50 20 80 50 Q50 80 20 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M40 30 L60 30 M50 20 L50 40' stroke='white' stroke-width='1'/><rect x='42' y='10' width='16' height='8' rx='2' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Landmark Clinical Trials: Gold Standard Evidence",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Study",
+            "Key Finding",
+            "Clinical Impact"
+          ],
+          "rows": [
+            [
+              "EVS (Endophthalmitis Vitrectomy Study)",
+              "Vitrectomy beneficial only if presenting vision is LP (Light Perception).",
+              "Immediate TAP/BI (Intravitreal Antibiotics) for HM or better."
+            ],
+            [
+              "DCCT / UKPDS",
+              "Intensive glucose control reduces risk/progression of DR.",
+              "Target HbA1c < 7.0% for diabetic patients."
+            ],
+            [
+              "TVT (Tube Versus Trabeculectomy)",
+              "Tube shunt (Baerveldt 350) more successful than MMC-Trab in patients with prior surgery.",
+              "Favors tubes for failed trabeculectomy or prior CE/IOL."
+            ],
+            [
+              "CATT Study",
+              "Ranibizumab vs. Bevacizumab for nAMD.",
+              "Equivalent visual acuity outcomes at 1 and 2 years."
+            ],
+            [
+              "ETROP (Early Treatment for ROP)",
+              "Treatment for Type 1 ROP (Zone I any stage with plus, Zone I stage 3, Zone II stage 2/3 with plus).",
+              "Shifted treatment from 'Threshold' to 'Pre-threshold' Type 1."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Phakomatoses: Multi-System Review",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Phakomatoses",
+          "branches": [
+            "NF1: Lisch nodules, Optic pathway glioma, Sphenoid wing dysplasia",
+            "VHL: Retinal hemangioblastoma, Renal cell carcinoma, Pheochromocytoma",
+            "Sturge-Weber: Port-wine stain (V1/V2), Choroidal hemangioma, Glaucoma",
+            "Tuberous Sclerosis: Astrocytic hamartoma, Ash-leaf spots, Adenoma sebaceum",
+            "Wyburn-Mason: Racemose hemangioma (Retina + Midbrain)"
+          ]
+        }
+      },
+      {
+        "title": "Uveitis: HLA Associations & Systemic Links",
+        "icon": "healing",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "HLA Allele",
+            "Associated Ocular Condition"
+          ],
+          "rows": [
+            [
+              "HLA-B27",
+              "Acute Anterior Uveitis (AS, IBD, Psoriatic, Reactive)"
+            ],
+            [
+              "HLA-A29",
+              "Birdshot Chorioretinopathy"
+            ],
+            [
+              "HLA-B51",
+              "Behçet Disease"
+            ],
+            [
+              "HLA-DR4",
+              "Vogt-Koyanagi-Harada (VKH) / Sympathetic Ophthalmia"
+            ],
+            [
+              "HLA-B7 / DR2",
+              "Multiple Sclerosis / Pars Planitis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Ocular Emergencies",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "CRAO with Giant Cell Arteritis suspicion (check ESR/CRP/PV/Plt)",
+          "Endophthalmitis (Hypopyon, pain, decreasing vision post-op)",
+          "Orbital Cellulitis (Proptosis, painful motility, RAPD)",
+          "Third Nerve Palsy (Pupil-involving - suspect P-Com Aneurysm)",
+          "Chemical Burn (Immediate irrigation until pH 7.0-7.2)"
+        ]
+      },
+      {
+        "title": "Glaucoma Staging: Hodapp-Parrish-Anderson",
+        "icon": "visibility",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Early (MD > -6dB)",
+              "value": 30
+            },
+            {
+              "label": "Moderate (MD -6 to -12dB)",
+              "value": 60
+            },
+            {
+              "label": "Severe (MD < -12dB)",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "Memorable Mnemonics for Viva",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "LR6 (SO4) 3",
+          "explanation": "Lateral Rectus = CN VI; Superior Oblique = CN IV; All others = CN III."
+        }
+      },
+      {
+        "title": "TGFBI Corneal Dystrophies: Genetic Mapping",
+        "icon": "fingerprint",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Dystrophy",
+            "Stain",
+            "Material",
+            "Mutation (Codon)"
+          ],
+          "rows": [
+            [
+              "Lattice Type 1",
+              "Congo Red / Green Birefringence",
+              "Amyloid",
+              "Arg124Cys"
+            ],
+            [
+              "Granular Type 1",
+              "Masson Trichrome",
+              "Hyaline",
+              "Arg555Trp"
+            ],
+            [
+              "Macular (MCD)",
+              "Alcian Blue / Colloidal Iron",
+              "Acid Mucopolysaccharide",
+              "CHST6 (Non-TGFBI)"
+            ],
+            [
+              "Avellino (GCD2)",
+              "Masson/Congo Red",
+              "Hyaline + Amyloid",
+              "Arg124His"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management of Acute Angle Closure (AACG)",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Immediate pressure lowering: IV Acetazolamide 500mg.",
+          "2. Topical therapy: Beta-blocker, Alpha-agonist, Steroid.",
+          "3. Pilocarpine 2% (only once IOP < 40 mmHg and ischemia resolved).",
+          "4. Definitive: YAG Laser Peripheral Iridotomy (LPI) - both eyes.",
+          "5. Alternative: Lens extraction if cataract-induced (phacomorphic)."
+        ]
+      },
+      {
+        "title": "FFA Phases: Timing and Pathology",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Choroidal (Pre-arterial): 10-12s - Cilioretinal art. fills.",
+          "2. Arterial: 13s - Complete filling of retinal arteries.",
+          "3. Arteriovenous (Capillary): Laminar flow in veins.",
+          "4. Venous: 15-20s - Complete filling of veins.",
+          "5. Recirculation/Late: 5-10m - Disc staining/leaks visible."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "The most common cause of a spontaneous vitreous hemorrhage in a non-diabetic is a posterior vitreous detachment (PVD) with a retinal tear.",
+          "Shafer's Sign (Tobacco Dust) indicates RPE cells in the vitreous - 90% risk of a retinal break.",
+          "Argyll Robertson Pupil: Small, irregular, accommodates but doesn't react (Neurosyphilis - Midbrain lesion).",
+          "Fuchs Heterochromic Iridocyclitis: Chronic low-grade uveitis, no posterior synechiae, diffuse fine KPs, risk of cataract/glaucoma.",
+          "Pseudoexfoliation Syndrome (PXF): Associated with LOXL1 gene; risk of zonular dehiscence during phacoemulsification."
+        ]
+      },
+      {
+        "title": "ETDRS Diabetic Retinopathy Grading",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "4-2-1 Rule (Severe NPDR)",
+          "branches": [
+            "4 quadrants of severe intraretinal hemorrhages",
+            "2 quadrants of venous beading (VB)",
+            "1 quadrant of IRMA (Intraretinal Microvascular Abnormalities)",
+            "Presence of 1 = Severe; Presence of 2 = Very Severe"
+          ]
+        }
+      },
+      {
+        "title": "Surgical Instruments & Steps: Phacoemulsification",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Paracentesis & OVD (Viscoelastic) injection.",
+          "2. Clear corneal incision (CCI) - Keratome.",
+          "3. Continuous Curvilinear Capsulorhexis (CCC) - Cystotome/Utrata.",
+          "4. Hydrodissection & Hydrodelineation.",
+          "5. Nucleus Emulsification (Divide & Conquer or Stop & Chop).",
+          "6. Cortical aspiration (I&A) and IOL Implantation."
+        ]
+      },
+      {
+        "title": "Pediatric Cataract: Timing and Critical Periods",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Congenital Unilateral: Surgery within 4-6 weeks to prevent amblyopia.",
+          "Congenital Bilateral: Surgery within 8-10 weeks.",
+          "Post-op: Aggressive aphakic contact lens fitting or primary IOL (if >6-12 months old).",
+          "Risk: High incidence of secondary glaucoma (30%) in aphakic infants."
+        ]
+      },
+      {
+        "title": "Keith-Wagener-Barker Hypertension Classification",
+        "icon": "cardiology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Grade",
+            "Retinal Findings"
+          ],
+          "rows": [
+            [
+              "Grade I",
+              "Mild generalized arteriolar narrowing ('Silver wiring')"
+            ],
+            [
+              "Grade II",
+              "Grade I + Focal constriction and AV nicking"
+            ],
+            [
+              "Grade III",
+              "Grade II + Cotton wool spots, flame hemorrhages, hard exudates"
+            ],
+            [
+              "Grade IV",
+              "Grade III + Optic disc swelling (Malignant Hypertension)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances: Gene Therapy & Biosimilars",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Voretigene neparvovec (Luxturna) is now the standard for RPE65-mediated inherited retinal dystrophy (LCA). Biosimilars for Ranibizumab (Byooviz) and Aflibercept are entering clinical practice to reduce costs. Port Delivery Systems (PDS) and longer-acting agents like Faricimab (dual VEGF/Ang-2 inhibitor) are reshaping management of nAMD and DME."
+      }
+    ],
+    "generationPrompt": "High yield points for frcs/frco exam",
+    "chapterId": "evidence"
+  },
+  "chapterId": "evidence",
+  "bookmarked": true
+}

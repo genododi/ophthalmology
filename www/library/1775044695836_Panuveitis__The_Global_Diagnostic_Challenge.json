@@ -1,0 +1,334 @@
+{
+  "id": 1775044695836,
+  "seqId": 463,
+  "title": "Panuveitis: The Global Diagnostic Challenge",
+  "summary": "A textbook-level deep dive into panuveitis, characterized by simultaneous inflammation of the anterior chamber, vitreous, and retina or choroid. This infographic covers the critical etiology, diagnostic workup, and evidence-based management of this sight-threatening condition.",
+  "date": "2026-04-01T11:58:15.836Z",
+  "data": {
+    "title": "Panuveitis: The Global Diagnostic Challenge",
+    "summary": "A textbook-level deep dive into panuveitis, characterized by simultaneous inflammation of the anterior chamber, vitreous, and retina or choroid. This infographic covers the critical etiology, diagnostic workup, and evidence-based management of this sight-threatening condition.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='30' fill='hsl(215, 90%, 85%)'/><path d='M60 60 L140 140 M140 60 L60 140' stroke='hsl(0, 70%, 50%)' stroke-width='2' opacity='0.6'/><circle cx='70' cy='70' r='5' fill='hsl(0, 70%, 50%)'/><circle cx='130' cy='130' r='5' fill='hsl(0, 70%, 50%)'/><circle cx='100' cy='150' r='5' fill='hsl(0, 70%, 50%)'/><text x='50%' y='90%' text-anchor='middle' font-size='10' font-family='sans-serif' fill='hsl(215, 90%, 45%)'>PANUVEITIS</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Panuveitis refers to an intraocular inflammation involving the anterior chamber, vitreous, and the posterior segment (retina, choroid, or both). According to the SUN (Standardization of Uveitis Nomenclature) criteria, there must be active inflammation in all three compartments. It accounts for approximately 7-15% of all uveitis cases in tertiary referral centers and carries a high risk of permanent visual impairment if not managed aggressively."
+      },
+      {
+        "title": "Epidemiology & Geographic Distribution",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Vogt-Koyanagi-Harada (VKH)",
+              "value": 85
+            },
+            {
+              "label": "Sarcoidosis",
+              "value": 65
+            },
+            {
+              "label": "Behcet Disease",
+              "value": 55
+            },
+            {
+              "label": "Infectious (TB/Syphilis)",
+              "value": 45
+            },
+            {
+              "label": "Sympathetic Ophthalmia",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology Classification",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Panuveitis Causes",
+          "branches": [
+            "Non-Infectious (VKH, Behcet, Sarcoid, SO, IBD)",
+            "Infectious (TB, Syphilis, Toxoplasmosis, ARN/Viral, Endophthalmitis)",
+            "Masquerade (Intraocular Lymphoma, Leukemia)",
+            "Idiopathic (Up to 30% of cases)"
+          ]
+        }
+      },
+      {
+        "title": "SUN Grading for Vitreous Haze",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Grade",
+            "Description",
+            "Clinical Visibility"
+          ],
+          "rows": [
+            [
+              "0",
+              "None",
+              "Clear view of nerve fiber layer"
+            ],
+            [
+              "0.5+",
+              "Trace",
+              "Slight blurring of optic disc margin"
+            ],
+            [
+              "1+",
+              "Mild",
+              "Slightly obscured nerve fiber layer and vessels"
+            ],
+            [
+              "2+",
+              "Moderate",
+              "Obscured optic disc and vessels"
+            ],
+            [
+              "3+",
+              "Marked",
+              "Optic nerve head border is invisible"
+            ],
+            [
+              "4+",
+              "Severe",
+              "Dense haze; no visualization of the fundus"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Anterior Segment Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Cells and Flare in the Anterior Chamber (AC)",
+          "Keratic Precipitates (KP): Mutton-fat (granulomatous) vs. Fine (non-granulomatous)",
+          "Iris Nodules: Koeppe (pupillary border) or Busacca (iris stroma)",
+          "Posterior Synechiae: Adhesion of iris to lens",
+          "Peripheral Anterior Synechiae (PAS)",
+          "Secondary Glaucoma due to trabeculitis or pupil block"
+        ]
+      },
+      {
+        "title": "Posterior Segment Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Vitreous Cells and Snowballs/Snowbanking (if pars plana involved)",
+          "Chorioretinal Lesions (Granulomas in Sarcoid/TB, Dalen-Fuchs in SO/VKH)",
+          "Retinal Vasculitis (Sheathing, Exudates, 'Candle-wax drippings' in Sarcoid)",
+          "Optic Disc Edema or Hyperemia",
+          "Cystoid Macular Edema (CME) - most common cause of vision loss",
+          "Exudative Retinal Detachment (Common in VKH)"
+        ]
+      },
+      {
+        "title": "Infectious vs. Non-Infectious DDx",
+        "icon": "school",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Feature",
+            "Diagnostic Gold Standard"
+          ],
+          "rows": [
+            [
+              "Tuberculosis",
+              "Serpiginous-like choroiditis, Granulomas",
+              "Quantiferon-Gold, Chest CT, PCR vitreous"
+            ],
+            [
+              "Syphilis",
+              "Salt & Pepper Fundus, Acute Syphilitic Posterior Placoid",
+              "RPR, VDRL, FTA-ABS"
+            ],
+            [
+              "Sarcoidosis",
+              "Candle-wax vasculitis, Mutton-fat KP, Bilateral",
+              "Serum ACE, Lysozyme, Chest X-ray/CT"
+            ],
+            [
+              "VKH",
+              "Bilateral exudative RD, Poliosis, Tinnitus",
+              "Clinical + Fluorescein Angiography (FFA)"
+            ],
+            [
+              "Behcet Disease",
+              "Transient hypopyon, Occlusive Vasculitis",
+              "Clinical (Oral/Genital ulcers, Skin Pathergy)"
+            ],
+            [
+              "Sympathetic Ophthalmia",
+              "History of trauma or surgery in the fellow eye",
+              "Clinical/B-scan (Diffuse choroidal thickening)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Thorough history (travel, trauma, systemic symptoms, sexual history).",
+          "Step 2: Baseline labs: CBC, ESR, CRP, RPR/FTA-ABS (Syphilis rule-out is mandatory).",
+          "Step 3: Rule out TB/Sarcoid: Quantiferon-Gold, Chest X-ray or High-Resolution CT (HRCT).",
+          "Step 4: Ocular Imaging: OCT Macula (CME), FFA (Vasculitis/Ischemia), ICG (Choroidal involvement).",
+          "Step 5: Ancillary Tests: B-scan (if media opaque), HLA-B51 (Behcet), HLA-DR4 (VKH).",
+          "Step 6: Invasive Tests: Aqueous tap or Vitreous biopsy (if masquerade or treatment-resistant infectious suspicion)."
+        ]
+      },
+      {
+        "title": "Emergency Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapid, painful vision loss (Suggests ARN or Endophthalmitis)",
+          "Relative Afferent Pupillary Defect (RAPD)",
+          "Ischemic Retinal Vasculitis (high risk of NVE/VH)",
+          "Sudden 'Sea-fan' Neovascularization",
+          "Suspicion of Masquerade (CNS symptoms in elderly + panuveitis)"
+        ]
+      },
+      {
+        "title": "Remember the VKH Phases",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-A-C-R",
+          "explanation": "P: Prodromal (Flu-like, Meningism); A: Acute Uveitic (Exudative RD, thick choroid); C: Convalescent (Sunset-glow fundus, Sugiura sign); R: Recurrent (Chronic AC inflammation)."
+        }
+      },
+      {
+        "title": "Management Step-Ladder",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Phase 1: Induction. Oral Prednisone (1mg/kg/day) or IV Methylprednisolone pulses for severe cases.",
+          "Phase 2: Local Control. Topical Steroids (Pred Forte q1h) and Cycloplegics (Atropine/Cyclopentolate).",
+          "Phase 3: Steroid Sparing. If tapered below 10mg/day fails, start IMT (Methotrexate, Mycophenolate Mofetil, or Azathioprine).",
+          "Phase 4: Biologics. Adalimumab (Humira) 40mg SC every 2 weeks or Infliximab (Remicade) for Behcet's or refractory cases.",
+          "Phase 5: Local Implants. Intravitreal Dexamethasone (Ozurdex) or Fluocinolone (Yutiq) for chronic non-infectious cases."
+        ]
+      },
+      {
+        "title": "Surgical Interventions",
+        "icon": "handyman",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Diagnostic Pars Plana Vitrectomy (PPV) for masquerade/PCR.",
+          "Therapeutic PPV for clearing dense vitreous debris or vitreous hemorrhage.",
+          "Glaucoma surgery (Tube shunts preferred over trabeculectomy in active uveitis).",
+          "Cataract surgery: Must be 'quiet' for 3 months; use heavy perioperative steroid coverage."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Chronic CME: Leading cause of permanent central vision loss.",
+          "Cataract: Posterior Subcapsular (PSC) from both disease and steroids.",
+          "Epiretinal Membrane (ERM) and Macular Hole.",
+          "Band Keratopathy: Calcium deposits in the cornea.",
+          "Phthisis Bulbi: End-stage atrophy from ciliary body failure."
+        ]
+      },
+      {
+        "title": "Pharmacotherapy Dosing Reference",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Medication",
+            "Standard Dose",
+            "Monitoring Requirement"
+          ],
+          "rows": [
+            [
+              "Prednisone",
+              "1 mg/kg/day PO",
+              "Glucose, BP, Bone density, Weight"
+            ],
+            [
+              "Methotrexate",
+              "15-25 mg/week PO/SC",
+              "CBC, Liver Function Tests (LFTs)"
+            ],
+            [
+              "Mycophenolate Mofetil",
+              "1g BID PO",
+              "CBC (Neutropenia), GI upset"
+            ],
+            [
+              "Adalimumab",
+              "80mg load, then 40mg q2w",
+              "TB skin test/Quantiferon, Malignancy screen"
+            ],
+            [
+              "Cyclosporine",
+              "2-5 mg/kg/day PO",
+              "Renal function, Blood pressure"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls & Recent Advances",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "SYPHILIS RULE: Always test for Syphilis; it is the 'Great Imitator' and can mimic any panuveitis pattern.",
+          "VISUAL I & II Trials: Established Adalimumab as the first non-steroid systemic therapy approved for non-infectious intermediate, posterior, and panuveitis.",
+          "Wide-field FFA: Essential to identify peripheral ischemia and vasculitis that standard photography misses.",
+          "STP Tapering: Never taper steroids faster than 5-10mg every 1-2 weeks once below 20mg/day to avoid rebound.",
+          "Biologics in Behcet's: Infliximab is often preferred for rapid control of sight-threatening Behcet's retinal vasculitis."
+        ]
+      }
+    ],
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "_newlyImported": 1775044695836,
+  "communityId": "sub_1774251986761_w551xwo8c",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-23T07:46:26.761Z"
+}

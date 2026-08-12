@@ -1,0 +1,306 @@
+{
+  "id": 1775384804068,
+  "seqId": 677,
+  "title": "Dragged Disc: Macular Heterotopia & Vitreoretinal Traction",
+  "summary": "The 'dragged disc' appearance is a classic clinical sign of chronic peripheral vitreoretinal traction, characterized by the temporal displacement of the optic nerve head's vascular arcades and the macula. It is most commonly associated with Retinopathy of Prematurity (ROP), FEVR, and Ocular Toxocariasis.",
+  "date": "2026-04-05T10:26:44.068Z",
+  "data": {
+    "title": "Dragged Disc: Macular Heterotopia & Vitreoretinal Traction",
+    "summary": "The 'dragged disc' appearance is a classic clinical sign of chronic peripheral vitreoretinal traction, characterized by the temporal displacement of the optic nerve head's vascular arcades and the macula. It is most commonly associated with Retinopathy of Prematurity (ROP), FEVR, and Ocular Toxocariasis.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='#fdf2f2' stroke='#e02424' stroke-width='2'/><circle cx='80' cy='100' r='15' fill='#ffedd5' stroke='#f97316' stroke-width='1'/><path d='M85 90 Q120 80 160 85' stroke='#ef4444' stroke-width='3' fill='none'/><path d='M85 110 Q120 120 160 115' stroke='#ef4444' stroke-width='3' fill='none'/><circle cx='150' cy='100' r='8' fill='#fbbf24' opacity='0.6'/><path d='M160 60 L180 100 L160 140' stroke='#3b82f6' stroke-width='2' fill='none' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "A 'dragged disc' refers to the physical displacement of the optic disc's vascular exit points and the macula (macular heterotopia) due to centripetal traction from peripheral fibrovascular membranes. This typically results in temporal straightening of the retinal vessels and an abnormally large positive Angle Kappa."
+      },
+      {
+        "title": "The Pathophysiological Vector",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Peripheral Traction",
+          "branches": [
+            "Peripheral Ischemia (VEGF)",
+            "Fibrovascular Proliferation",
+            "Membrane Contraction",
+            "Temporal Vector Force",
+            "Vessel Straightening",
+            "Macular Ectopia"
+          ]
+        }
+      },
+      {
+        "title": "Top Etiologies of Dragged Disc",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "ROP (Regressed Stage 3+)",
+              "value": 90
+            },
+            {
+              "label": "FEVR",
+              "value": 75
+            },
+            {
+              "label": "Ocular Toxocariasis",
+              "value": 60
+            },
+            {
+              "label": "Incontinentia Pigmenti",
+              "value": 40
+            },
+            {
+              "label": "Combined Hamartoma",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Common Clinical Features",
+        "icon": "list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Pseudo-exotropia: Large positive Angle Kappa due to temporal macular displacement.",
+          "Temporal straightening of the superior and inferior vascular arcades.",
+          "Ectopic Macula: Often displaced temporally and sometimes superiorly.",
+          "Peripheral 'Shagreen' or white-without-pressure in ROP/FEVR.",
+          "Stretched retinal nerve fiber layer (RNFL) on the nasal side.",
+          "Falciform retinal folds: Often extending from the disc to the peripheral mass."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis (The 'Dreaded' Dragged Disc)",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Laterality",
+            "Hallmark Features",
+            "Genetic/Systemic Link"
+          ],
+          "rows": [
+            [
+              "ROP",
+              "Bilateral (usually)",
+              "Prematurity history, peripheral avascular zone, ridge.",
+              "Low birth weight, Oxygen therapy."
+            ],
+            [
+              "FEVR",
+              "Bilateral (asymmetric)",
+              "Full-term birth, peripheral non-perfusion, exudation.",
+              "NDP, FZD4, LRP5, TSPAN12 mutations."
+            ],
+            [
+              "Toxocariasis",
+              "Unilateral",
+              "Peripheral granuloma with tractional band to disc.",
+              "Exposure to puppies/pica, eosinophilia."
+            ],
+            [
+              "Incontinentia Pigmenti",
+              "Bilateral",
+              "Peripheral ischemia, 'whorled' skin lesions (Blaschko lines).",
+              "X-linked dominant (IKBKG gene), lethal in males."
+            ],
+            [
+              "Combined Hamartoma",
+              "Unilateral",
+              "Peripapillary epiretinal membrane, vascular tortuosity.",
+              "Often associated with NF-2."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Critical Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden decrease in vision (Threatens macular detachment or vitreous hemorrhage).",
+          "New onset of Leukocoria (White pupillary reflex).",
+          "Presence of 'Plus Disease' (Dilated/tortuous vessels) in ROP cases.",
+          "Progression of falciform folds toward the foveal center.",
+          "Total Rhegmatogenous or Tractional Retinal Detachment (Stage 4/5 ROP/FEVR)."
+        ]
+      },
+      {
+        "title": "FEVR Staging (Pendergast & Trese)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Clinical Findings"
+          ],
+          "rows": [
+            [
+              "Stage 1",
+              "Peripheral avascular zone / Non-perfusion"
+            ],
+            [
+              "Stage 2",
+              "Extraretinal neovascularization (no RD)"
+            ],
+            [
+              "Stage 3",
+              "Subretinal exudation (3A: Extra-macular; 3B: Macular)"
+            ],
+            [
+              "Stage 4",
+              "Subtotal RD (4A: Extra-macular; 4B: Macular)"
+            ],
+            [
+              "Stage 5",
+              "Total Retinal Detachment"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: Causes of Peripheral Neovascularization",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "FETCH CAKE",
+          "explanation": "FEVR, Eales disease, Toxocariasis, Coats disease, Hemoglobinopathies (Sickle Cell), Congenital Retinoschisis, Angiomatosis Retinae, K (Incontinentia Pigmenti), ET (ROP)."
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Wide-field Fundus Photography (RetCam or Optos) to document the extent of dragging.",
+          "Step 2: Fluorescein Angiography (FA) - Look for peripheral non-perfusion and 'pruning' of vessels.",
+          "Step 3: Optical Coherence Tomography (OCT) - Assess macular anatomy, dragging, and foveal schisis.",
+          "Step 4: B-Scan Ultrasonography - Rule out total RD or mass lesions (Retinoblastoma) in hazy media.",
+          "Step 5: Genetic Testing - Crucial for FEVR (LRP5/FZD4) and IP (IKBKG)."
+        ]
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Laser Photocoagulation: Ablation of the peripheral avascular zone to reduce VEGF production.",
+          "Anti-VEGF Injections: Intravitreal Ranibizumab/Aflibercept/Bevacizumab as an adjunct or primary in ROP.",
+          "Scleral Buckling: To relieve circumferential traction in certain detachment patterns.",
+          "Pars Plana Vitrectomy (PPV): Required for Stage 4/5 ROP or FEVR to peel membranes and flatten the retina.",
+          "Amblyopia Management: Aggressive patching/glasses for the pseudo-strabismus and visual deprivation."
+        ]
+      },
+      {
+        "title": "Surgical Technique: PPV for Dragged Disc",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Lens-sparing Vitrectomy (LSV) if possible in pediatric patients.",
+          "2. Induction of Posterior Vitreous Detachment (PVD) using Triescence.",
+          "3. Segmentation and Delamination of fibrovascular membranes.",
+          "4. Relieving 'Bridge Traction' between the disc and the periphery.",
+          "5. Endolaser to the ischemic peripheral retina.",
+          "6. Air/Gas/Oil Tamponade depending on retinal stability."
+        ]
+      },
+      {
+        "title": "Landmark Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Angle Kappa Pearl: The light reflex is nasal, giving an appearance of exotropia (pseudo-XT), because the fovea is pulled temporally.",
+          "Asymmetry: FEVR is often highly asymmetric; always check the 'normal' eye with FA for peripheral non-perfusion.",
+          "The 'Drag' Force: Traction is usually in the direction of the greatest peripheral ischemia.",
+          "The 'Macular Displacement' distance: In severe ROP survivors, the fovea can be dragged more than 2 disc diameters temporally.",
+          "Post-Surgical Prognosis: Visual recovery is often limited by structural foveal changes and amblyopia."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Complication",
+            "Mechanism"
+          ],
+          "rows": [
+            [
+              "Tractional RD",
+              "Progression of fibrovascular contracture."
+            ],
+            [
+              "Vitreous Hemorrhage",
+              "Bleeding from fragile neovascular vessels."
+            ],
+            [
+              "Angle-Closure Glaucoma",
+              "Anterior displacement of the lens-iris diaphragm (ROP)."
+            ],
+            [
+              "Macular Folds",
+              "Sub-foveal fibrosis or tangential traction."
+            ],
+            [
+              "Phthisis Bulbi",
+              "End-stage hypotony from ciliary body detachment."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Artificial Intelligence (AI): Deep learning models (e.g., i-ROP) to quantify vascular tortuosity and disc dragging.",
+          "Handheld OCT: Allowing high-resolution imaging of the infant fovea in the NICU or OR.",
+          "Anti-VEGF vs. Laser: The RAINBOW and BEAT-ROP studies provide evidence for anti-VEGF efficacy in Zone 1 disease.",
+          "Gene Therapy: Emerging research for FEVR to restore the Norrin/Wnt signaling pathway."
+        ]
+      }
+    ],
+    "generationPrompt": "Dragged disc",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "_newlyImported": 1775384804068,
+  "communityId": "sub_1775384035715_am25yhbvq0mqzz",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-04-05T10:13:55.715Z"
+}

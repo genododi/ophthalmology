@@ -1,0 +1,254 @@
+{
+  "id": 1775127613286,
+  "seqId": 555,
+  "title": "Cataract Surgery in the Post-Radial Keratotomy (RK) Eye",
+  "summary": "Managing cataract surgery in post-RK eyes requires navigating profound corneal instability, irregular astigmatism, and high risk for IOL power calculation errors. This guide outlines the evidence-based strategies for achieving successful refractive outcomes and maintaining structural integrity.",
+  "date": "2026-04-02T11:00:13.286Z",
+  "data": {
+    "title": "Cataract Surgery in the Post-Radial Keratotomy (RK) Eye",
+    "summary": "Managing cataract surgery in post-RK eyes requires navigating profound corneal instability, irregular astigmatism, and high risk for IOL power calculation errors. This guide outlines the evidence-based strategies for achieving successful refractive outcomes and maintaining structural integrity.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='100' cy='100' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='4'/><line x1='100' y1='20' x2='100' y2='70' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><line x1='100' y1='130' x2='100' y2='180' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><line x1='20' y1='100' x2='70' y2='100' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><line x1='130' y1='100' x2='180' y2='100' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><line x1='43' y1='43' x2='78' y2='78' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><line x1='122' y1='122' x2='157' y2='157' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><line x1='157' y1='43' x2='122' y2='78' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><line x1='78' y1='122' x2='43' y2='157' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Overview & Challenges",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Radial Keratotomy (RK), popular in the 1980s and 90s, utilized radial incisions to flatten the central cornea. As these patients age, they present for cataract surgery with unique anatomical issues: extreme corneal flattening, diurnal refractive fluctuations (corneal instability), and a high likelihood of refractive 'surprises' post-operatively due to inaccurate biometry."
+      },
+      {
+        "title": "The Pathophysiology of Post-RK Optics",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Peripheral incisions weaken the corneal biomechanics, leading to progressive hyperopic shifts over decades.",
+          "Non-physiologic 'oblate' corneal shape (flatter in center, steeper in periphery).",
+          "Significant increase in Higher-Order Aberrations (HOAs), especially spherical aberration.",
+          "Diurnal Fluctuation: Incision edema causes corneal steepening (myopic shift) in the morning and flattening (hyperopic shift) in the evening."
+        ]
+      },
+      {
+        "title": "IOL Calculation: Why Standard Formulas Fail",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Error Type",
+            "Mechanism",
+            "Refractive Outcome"
+          ],
+          "rows": [
+            [
+              "Keratometric Error",
+              "Standard K-readings assume a fixed ratio between front and back corneal surfaces (37.5/337.5). RK alters this ratio.",
+              "Underestimation of corneal power → Hyperopic Surprise"
+            ],
+            [
+              "Radius Error",
+              "Keratometers measure at 3.2mm, often missing the flatter central optical zone (flat-top profile).",
+              "Underestimation of corneal power → Hyperopic Surprise"
+            ],
+            [
+              "IOL Position (ELP) Error",
+              "Formulas (like SRK/T) use K-readings to predict the Effective Lens Position. Flat K leads the formula to expect a shallow AC.",
+              "IOL placed too posterior relative to calculation → Hyperopic Surprise"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Recommended IOL Power Formulas",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Barrett True-K (No History or History): Currently the gold standard; utilizes the Barrett Universal II and a modification for the oblate cornea.",
+          "Haigis-L: Uses 3 constants (a0, a1, a2) and doesn't rely on K to predict ELP, making it more accurate in post-refractive eyes.",
+          "Shammas-PL: No-history formula that adjusts the measured K to account for the post-RK geometry.",
+          "Potvin-Hill: Utilizes Pentacam (Scheimpflug imaging) measurements of the central 4mm zone.",
+          "ASCRS Post-Refractive Calculator: Essential tool for averaging multiple advanced formulas."
+        ]
+      },
+      {
+        "title": "Pre-operative Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Perform serial topography/tomography to ensure refractive stability (difference <0.5D over 3-6 months).",
+          "Step 2: Measure at the same time of day (preferably late afternoon when cornea is flattest).",
+          "Step 3: Obtain axial length using optical biometry (IOLMaster 700 / Lenstar).",
+          "Step 4: Use Pentacam/OCT to find the 'True' central corneal power.",
+          "Step 5: Counsel patient extensively on 'Refractive Neutrality' vs 'Refractive Precision'."
+        ]
+      },
+      {
+        "title": "Surgical Planning & Incision Strategy",
+        "icon": "healing",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Incision Choice",
+          "branches": [
+            "Scleral Tunnel: Preferred for 8+ incisions or peripheral RK to avoid intersecting scars",
+            "Clear Cornea: Only if 'safety zone' between RK incisions is >2.5mm",
+            "Avoid Incision Intersections: Prevents 'fish-mouthing' and dehiscence",
+            "Side-port Meticulousness: Use a sharp knife; avoid tearing existing RK scars"
+          ]
+        }
+      },
+      {
+        "title": "Intraoperative Considerations",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Low Flow / Low Bottle Height: Prevents excessive stress on weakened cornea.",
+          "Liberal Use of OVD: Disperse-and-Cohesive (Soft-Shell) to protect the endothelium.",
+          "Gentle Hydrodissection: Avoid high-pressure fluid waves that might stress incisions.",
+          "Capsulorhexis: Standard size (5.0-5.5mm) to ensure IOL stability.",
+          "Wound Closure: Check for RK incision leaks (Seidel test) even if they weren't directly touched."
+        ]
+      },
+      {
+        "title": "IOL Selection Hierarchy",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "IOL Type",
+            "Recommendation"
+          ],
+          "rows": [
+            [
+              "Monofocal Aspheric (Neutral)",
+              "Best Choice (e.g., SofPort AO, enVista). Doesn't add to corneal HOAs."
+            ],
+            [
+              "Monofocal Aspheric (Negative)",
+              "Caution. May worsen vision if centration is poor or HOAs are high."
+            ],
+            [
+              "Multifocal / Trifocal",
+              "Generally Contraindicated due to loss of contrast sensitivity."
+            ],
+            [
+              "Toric IOLs",
+              "Use only if astigmatism is regular and central (rare in post-RK)."
+            ],
+            [
+              "IC-8 (Small Aperture)",
+              "Excellent for irregular astigmatism / high HOAs."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: The Hyperopic Surprise",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Most post-RK refractive errors result in unwanted hyperopia.",
+          "Targeting -0.75D to -1.25D (Myopic target) is MANDATORY to compensate for late hyperopic shift.",
+          "Intraoperative floppy iris or poor visualization due to RK scar light scattering.",
+          "Rupture of RK incisions ('Fish-mouthing') during phacoemulsification.",
+          "Small Optical Zones (<3mm) signify high risk for severe irregular astigmatism."
+        ]
+      },
+      {
+        "title": "Management of Incision Dehiscence",
+        "icon": "emergency",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Immediate reduction of IOP/Infusion pressure.",
+          "Step 2: Close the dehiscence with 10-0 Nylon sutures (X-pattern or interrupted).",
+          "Step 3: Ensure the suture is buried and not inducing excessive astigmatism.",
+          "Step 4: Use a bandage contact lens (BCL) post-operatively."
+        ]
+      },
+      {
+        "title": "Remember the RK Rules",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "F.L.A.T.",
+          "explanation": "F: Formulas (Barrett True-K, Haigis-L). L: Late-day measurement. A: Aim for Myopia (-1.0D). T: Tunnel Incision (Scleral)."
+        }
+      },
+      {
+        "title": "Post-operative Management & Expectations",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Within 0.5D Target",
+              "value": 45
+            },
+            {
+              "label": "Within 1.0D Target",
+              "value": 75
+            },
+            {
+              "label": "Hyperopic Surprise Risk",
+              "value": 30
+            },
+            {
+              "label": "Diurnal Fluctuation",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Under-promise and over-deliver: Patients must expect a 'two-step' process (Phaco then Enhancement).",
+          "Double-K Method: Use the pre-RK 'K' to calculate ELP, but the post-RK 'K' for lens power calculation.",
+          "Wait at least 8 weeks post-op before finalizing refractive measurements or performing enhancements.",
+          "Always look for 'macro-gaps' in RK incisions under the slit-lamp pre-op; these are high risk for dehiscence."
+        ]
+      },
+      {
+        "title": "Landmark Studies & Evidence",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "The ASCRS Post-Refractive IOL Calculator study (Wang et al.) demonstrated that the Barrett True-K and Haigis-L formulas significantly outperform traditional third-generation formulas (Hoffer Q, SRK/T). The PERK Study (Prospective Evaluation of Radial Keratotomy) provided the long-term data showing the 10-year progressive hyperopic shift (mean +0.89D) that clinicians must account for when choosing a myopic target in cataract surgery today."
+      }
+    ],
+    "generationPrompt": "Cataract surgery in post RK",
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

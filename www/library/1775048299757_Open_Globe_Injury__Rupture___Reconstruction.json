@@ -1,0 +1,344 @@
+{
+  "id": 1775048299757,
+  "seqId": 525,
+  "title": "Open Globe Injury: Rupture & Reconstruction",
+  "summary": "Rupture of the globe is a vision-threatening emergency defined by a full-thickness wound of the eye wall caused by blunt trauma. Rapid diagnosis, protective measures, and primary surgical closure are the cornerstones of management to prevent irreversible blindness and sympathetic ophthalmia.",
+  "date": "2026-04-01T12:58:19.757Z",
+  "data": {
+    "title": "Open Globe Injury: Rupture & Reconstruction",
+    "summary": "Rupture of the globe is a vision-threatening emergency defined by a full-thickness wound of the eye wall caused by blunt trauma. Rapid diagnosis, protective measures, and primary surgical closure are the cornerstones of management to prevent irreversible blindness and sympathetic ophthalmia.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 30 L50 50 L35 70 M70 30 L50 50 L65 70' stroke='hsl(0, 80%, 50%)' stroke-width='3' fill='none'/><circle cx='50' cy='50' r='12' fill='hsl(215, 90%, 45%)'/><path d='M20 50 Q50 20 80 50' stroke='hsl(215, 90%, 45%)' fill='none' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & BETTS Classification",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Mechanical Globe Trauma",
+          "branches": [
+            "Closed Globe (Contusion, Lamellar Laceration)",
+            "Open Globe (Full-thickness wound)",
+            "Rupture: Blunt trauma, inside-out mechanism",
+            "Laceration: Sharp object, outside-in mechanism",
+            "Penetrating: Single entry wound",
+            "Perforating: Entry and Exit wound",
+            "IOFB: Intraocular Foreign Body retained"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Males (Gender Bias)",
+              "value": 85
+            },
+            {
+              "label": "Age < 30 years",
+              "value": 60
+            },
+            {
+              "label": "Workplace Injuries",
+              "value": 40
+            },
+            {
+              "label": "Domestic Accidents",
+              "value": 30
+            },
+            {
+              "label": "Assault/Violence",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Rupture occurs when blunt force causes a sudden increase in intraocular pressure (IOP). The eye wall gives way at its weakest points: the limbus, the insertion of the rectus muscles (where the sclera is thinnest at ~0.3mm), and prior surgical incisions (e.g., old ECCE scars). This is an 'inside-out' injury mechanism compared to the 'outside-in' nature of sharp lacerations."
+      },
+      {
+        "title": "Anatomical Zones of Injury",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Zone",
+            "Anatomic Landmark",
+            "Prognostic Significance"
+          ],
+          "rows": [
+            [
+              "Zone I",
+              "Cornea and Limbus",
+              "Best visual prognosis"
+            ],
+            [
+              "Zone II",
+              "Limbus to 5mm posterior",
+              "Involves ciliary body; moderate risk"
+            ],
+            [
+              "Zone III",
+              "Posterior to 5mm from limbus",
+              "High risk of RD and severe vision loss"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Signs",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Marked vision loss (often NLP to HM)",
+          "Severe subconjunctival hemorrhage (often bullous/360°)",
+          "Shallow or extremely deep Anterior Chamber",
+          "Peaked or 'teardrop' pupil pointing toward the wound",
+          "Iris prolapse (brown uveal tissue at wound)",
+          "Hyphema (often total/8-ball)",
+          "Vitreous hemorrhage",
+          "Commotio retinae or retinal detachment"
+        ]
+      },
+      {
+        "title": "The 'Occult' Rupture Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "360-degree Bullous Subconjunctival Hemorrhage (high suspicion for scleral rupture)",
+          "Persistent hypotony (IOP < 5 mmHg) after blunt trauma",
+          "Abnormally deep anterior chamber (posterior rupture)",
+          "Relative Afferent Pupillary Defect (RAPD)",
+          "Limitation of ocular motility (muscle involvement or incarceration)"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: History (time, mechanism, last meal for NPO)",
+          "Step 2: Visual Acuity (crucial for OTS scoring)",
+          "Step 3: External exam (DO NOT perform tonometry or push on globe)",
+          "Step 4: Non-contrast CT Orbits (1mm thin cuts) to look for 'Flat Tire Sign'",
+          "Step 5: B-Scan Ultrasound (ONLY if globe is closed/repaired; contraindicated in open globe)"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "rule",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Severe Contusion",
+              "IOP may be high, globe intact"
+            ],
+            [
+              "Lamellar Laceration",
+              "Partial thickness, no uveal prolapse"
+            ],
+            [
+              "Penetrating Injury",
+              "Sharp entry wound, usually anterior"
+            ],
+            [
+              "Retrobulbar Heme",
+              "Proptosis, high IOP, no rupture"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Immediate Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1. Apply rigid Fox Shield (no pressure patches)",
+          "2. Bed rest with head elevated 30 degrees",
+          "3. NPO status for urgent surgical repair",
+          "4. IV Antibiotics: Vancomycin (1g Q12h) + Ceftazidime (1g Q12h) or Ciprofloxacin",
+          "5. Update Tetanus prophylaxis",
+          "6. Analgesics and Anti-emetics (Ondansetron) to prevent Valsalva"
+        ]
+      },
+      {
+        "title": "Ocular Trauma Score (OTS) - Prognosis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Points to Subtract"
+          ],
+          "rows": [
+            [
+              "Rupture",
+              "-23"
+            ],
+            [
+              "Endophthalmitis",
+              "-17"
+            ],
+            [
+              "Retinal Detachment",
+              "-11"
+            ],
+            [
+              "Perforating Injury",
+              "-14"
+            ],
+            [
+              "Afferent Pupillary Defect",
+              "-10"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Repair Principles",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "General Anesthesia (avoid succinylcholine - increases IOP)",
+          "360-degree peritomy to explore all quadrants",
+          "Primary goal: Restore globe integrity (water-tight closure)",
+          "Minimize tissue excision (repose viable uveal tissue)",
+          "Corneal Scleral wounds: Suture limbus first as anatomical landmark",
+          "'Close-as-you-go' technique for long scleral wounds"
+        ]
+      },
+      {
+        "title": "Suture Guide for Globe Repair",
+        "icon": "architecture",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Tissue",
+            "Suture Type",
+            "Needle"
+          ],
+          "rows": [
+            [
+              "Cornea",
+              "10-0 Nylon",
+              "Spatulated"
+            ],
+            [
+              "Limbus",
+              "9-0 or 10-0 Nylon",
+              "Spatulated"
+            ],
+            [
+              "Sclera",
+              "8-0 or 9-0 Nylon/Silk",
+              "Spatulated"
+            ],
+            [
+              "Conjunctiva",
+              "8-0 Vicryl/Plain Gut",
+              "Taper/Cutting"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Sympathetic Ophthalmia (SO)",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "SO: See One, Save One",
+          "explanation": "Bilateral granulomatous panuveitis following trauma to one eye (exciting eye). Occurs 2 weeks to many years later. Dalen-Fuchs nodules are characteristic."
+        }
+      },
+      {
+        "title": "Red Flags: When to Suspect Endophthalmitis",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Increasing pain out of proportion to injury",
+          "Rapidly decreasing vision post-repair",
+          "Increasing hypopyon or vitritis",
+          "Fibrinous anterior chamber reaction",
+          "Eyelid edema and chemosis worsening"
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Resident",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Always examine the fellow eye thoroughly; trauma is often the focus, but pre-existing conditions or bilateral trauma can be missed.",
+          "If the wound is posterior to the rectus insertions, do not attempt to excise prolapsed vitreous aggressively as it may cause more traction.",
+          "Low IOP is the most reliable sign of occult rupture, but a normal IOP does NOT rule it out.",
+          "The 'Flat Tire Sign' on CT refers to the loss of the globe's spherical contour.",
+          "Siderosis bulbi: Retained iron foreign bodies can cause irreversible retinal toxicity within weeks."
+        ]
+      },
+      {
+        "title": "Post-Operative Complications",
+        "icon": "report_problem",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Late Sequelae",
+          "branches": [
+            "Phthisis Bulbi (Atrophy of the globe)",
+            "Proliferative Vitreoretinopathy (PVR)",
+            "Traumatic Cataract / Subluxated Lens",
+            "Angle Recession Glaucoma",
+            "Corneal scarring and Astigmatism"
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Rupture globe",
+    "chapterId": "trauma"
+  },
+  "chapterId": "trauma",
+  "communitySource": true,
+  "author": "dodo",
+  "citation": "Author: dodo",
+  "_serverSynced": true
+}

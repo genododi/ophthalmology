@@ -1,0 +1,294 @@
+{
+  "id": 1775200102487,
+  "seqId": 607,
+  "title": "High-Risk Proliferative Diabetic Retinopathy (HR-PDR)",
+  "summary": "High-Risk PDR represents a critical threshold in diabetic eye disease where the risk of severe vision loss (SVL) increases exponentially. This guide covers the landmark DRS criteria, multimodal imaging, and the evolving paradigm of PRP vs. Anti-VEGF therapy.",
+  "date": "2026-04-03T07:08:22.487Z",
+  "data": {
+    "title": "High-Risk Proliferative Diabetic Retinopathy (HR-PDR)",
+    "summary": "High-Risk PDR represents a critical threshold in diabetic eye disease where the risk of severe vision loss (SVL) increases exponentially. This guide covers the landmark DRS criteria, multimodal imaging, and the evolving paradigm of PRP vs. Anti-VEGF therapy.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='12' fill='hsl(215, 90%, 45%)'/><path d='M50 20 Q60 35 50 50 Q40 65 50 80' stroke='red' stroke-width='1' fill='none'/><path d='M30 50 Q50 40 70 50' stroke='red' stroke-width='1' fill='none'/><path d='M55 45 L65 35 M55 55 L65 65 M45 45 L35 35 M45 55 L35 65' stroke='red' stroke-width='1.5' stroke-linecap='round'/><circle cx='58' cy='42' r='2' fill='red' opacity='0.6'/><circle cx='42' cy='58' r='2' fill='red' opacity='0.6'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Significance",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Proliferative Diabetic Retinopathy (PDR) is characterized by the presence of extraretinal fibrovascular proliferation. 'High-Risk' PDR is a specific subset defined by the Diabetic Retinopathy Study (DRS) as having a high risk of developing severe visual loss (defined as visual acuity <5/200 on two consecutive visits) within 2 years if left untreated."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "DM Type 1 (20yr prevalence)",
+              "value": 50
+            },
+            {
+              "label": "DM Type 2 (20yr prevalence)",
+              "value": 25
+            },
+            {
+              "label": "Risk with HbA1c >9%",
+              "value": 85
+            },
+            {
+              "label": "Risk reduction by Tight Control",
+              "value": 76
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Four DRS High-Risk Characteristics",
+        "icon": "rule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Characteristic",
+            "Description / Definition",
+            "Significance"
+          ],
+          "rows": [
+            [
+              "NVD ≥ 1/4 - 1/3 Disc Area",
+              "Neovascularization at or within 1DD of the optic disc.",
+              "High-risk even without hemorrhage."
+            ],
+            [
+              "NVD < 1/3 Disc Area + Hemorrhage",
+              "Any NVD associated with Vitreous Hemorrhage (VH) or Preretinal Hemorrhage (PRH).",
+              "Indicates active, fragile vessels."
+            ],
+            [
+              "NVE ≥ 1/2 Disc Area + Hemorrhage",
+              "Neovascularization elsewhere ≥ 0.5 disc area AND VH or PRH.",
+              "Large area of ischemia and active bleeding."
+            ],
+            [
+              "Presence of VH/PRH",
+              "Vitreous or Preretinal hemorrhage associated with NVD or NVE.",
+              "The hallmark of proliferative activity and risk."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Ischemic Cascade",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Chronic Hyperglycemia: Leads to polyol pathway activation and AGE accumulation.",
+          "2. Capillary Non-perfusion: Pericyte loss and basement membrane thickening cause microvascular occlusion.",
+          "3. Retinal Hypoxia: Triggered by extensive capillary dropout.",
+          "4. Cytokine Release: Upregulation of VEGF (Vascular Endothelial Growth Factor) and Erythropoietin.",
+          "5. Neovascularization: New vessels lack tight junctions, leading to leakage and tractional membranes."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Retinal Neovascularization",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "CRVO/BRVO",
+              "Hemisheaths, sudden onset, optic disc swelling in CRVO."
+            ],
+            [
+              "Ocular Ischemic Syndrome",
+              "Pain, mid-peripheral blot hemes, narrowed arteries."
+            ],
+            [
+              "Sickle Cell Retinopathy",
+              "'Sea-fan' peripheral NV, sunburst scars."
+            ],
+            [
+              "Eales Disease",
+              "Peripheral perivasculitis, idiopathic, young males."
+            ],
+            [
+              "Radiation Retinopathy",
+              "History of plaque or external beam radiation."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Investigation Workup",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "HR-PDR Workup",
+          "branches": [
+            "FFA: Identifying areas of capillary non-perfusion (CNP) and leakage at NVD/NVE",
+            "OCT-Macula: Evaluate for concomitant DME (Diabetic Macular Edema)",
+            "OCT-A: Non-invasive detection of FVP and foveal avascular zone (FAZ) enlargement",
+            "B-Scan USG: Critical if VH obscures fundus; rule out Tractional Retinal Detachment (TRD)",
+            "Wide-field Imaging: Captures peripheral ischemia and NVE outside standard 7-fields"
+          ]
+        }
+      },
+      {
+        "title": "Management Algorithm: Treatment of Choice",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Systemic Optimization (HbA1c < 7.0%, BP < 130/80, Lipid control).",
+          "Step 2: Panretinal Photocoagulation (PRP) - Gold Standard. 1200-1500 burns, 200-500um spot, 0.1s duration.",
+          "Step 3: Intravitreal Anti-VEGF (Ranibizumab/Aflibercept) - Non-inferior to PRP for VA (Protocol S), but requires high compliance.",
+          "Step 4: Combination Therapy - Anti-VEGF prior to PRP to reduce DME risk and facilitate NV regression.",
+          "Step 5: Pars Plana Vitrectomy (PPV) - Indicated for non-clearing VH, TRD, or combined RRD/TRD."
+        ]
+      },
+      {
+        "title": "Surgical Indications & Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Non-clearing Vitreous Hemorrhage (>1 month in T1DM, >3 months in T2DM)",
+          "Tractional Retinal Detachment (TRD) involving or threatening the macula",
+          "Combined Tractional and Rhegmatogenous Retinal Detachment",
+          "Neovascular Glaucoma (NVG) with media opacity preventing PRP",
+          "Ghost Cell Glaucoma"
+        ]
+      },
+      {
+        "title": "Mnemonic: Signs of PDR",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "4-2-1 Rule (Pre-proliferative)",
+          "explanation": "High risk of PDR progression: 4 quadrants of severe hemorrhages, 2 quadrants of venous beading, or 1 quadrant of IRMA."
+        }
+      },
+      {
+        "title": "Landmark Clinical Trials Summary",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Trial",
+            "Key Finding for PDR",
+            "Clinical Impact"
+          ],
+          "rows": [
+            [
+              "DRS (1976)",
+              "PRP reduces risk of SVL by >50%.",
+              "Established PRP as standard of care."
+            ],
+            [
+              "ETDRS (1985)",
+              "PRP not recommended for mild/mod NPDR; consider in severe NPDR/early PDR.",
+              "Defined timing of laser."
+            ],
+            [
+              "DRCR Protocol S",
+              "Ranibizumab non-inferior to PRP through 5 years for visual acuity.",
+              "Alternative to laser in compliant patients."
+            ],
+            [
+              "CLARITY (2017)",
+              "Aflibercept superior to PRP for VA outcomes at 1 year.",
+              "Supports Anti-VEGF as first-line."
+            ],
+            [
+              "PANORAMA/W",
+              "Anti-VEGF prevents PDR in high-risk NPDR.",
+              "Suggests early treatment benefit."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "PRP Technical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Burn intensity: Dull white/grey (Level II-III).",
+          "Spacing: One burn width apart.",
+          "Extent: From vascular arches to the periphery.",
+          "Avoid: Direct treatment of the macula, major vessels, or optic disc.",
+          "Retrobulbar block: Consider if patient is sensitive or for extensive supplementation."
+        ]
+      },
+      {
+        "title": "Vitreoretinal Surgery Steps",
+        "icon": "handyman",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. 23G or 25G Valved Trocar Placement.",
+          "2. Core Vitrectomy and induction of PVD (if not present).",
+          "3. Segmentation/Delamination of fibrovascular membranes.",
+          "4. Hemostasis using endodiathermy.",
+          "5. Endolaser Photocoagulation (Filling in PRP gaps).",
+          "6. Fluid-Air Exchange and optional Silicone Oil/Gas Tamponade."
+        ]
+      },
+      {
+        "title": "Complications of HR-PDR Treatment",
+        "icon": "report_problem",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Complications",
+          "branches": [
+            "PRP: Constriction of visual field, night blindness, choroidal effusion",
+            "Anti-VEGF: Endophthalmitis, 'Crunch Syndrome' (rapid TRD progression)",
+            "Surgery: Iatrogenic breaks, recurrence of VH, cataract progression"
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "star",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always rule out Neovascular Glaucoma; perform gonioscopy on all HR-PDR patients.",
+          "Treat DME before or concurrent with PRP to prevent laser-induced maculopathy.",
+          "Falsely low HbA1c: Check for sickle cell, anemia, or recent transfusions.",
+          "Pregnancy can cause rapid acceleration of PDR; requires monthly screening.",
+          "Post-PRP VH: Doesn't always mean failure; may be 'washout' of old heme."
+        ]
+      }
+    ],
+    "generationPrompt": "High risk pdr",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "read": true
+}

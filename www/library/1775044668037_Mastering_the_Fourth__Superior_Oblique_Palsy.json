@@ -1,0 +1,320 @@
+{
+  "id": 1775044668037,
+  "seqId": 214,
+  "title": "Mastering the Fourth: Superior Oblique Palsy",
+  "summary": "The definitive clinical guide to Trochlear Nerve (CN IV) Palsy, covering the complex anatomy, the legendary 3-step test, and advanced surgical management of vertical diplopia.",
+  "date": "2026-04-01T11:57:48.037Z",
+  "data": {
+    "title": "Mastering the Fourth: Superior Oblique Palsy",
+    "summary": "The definitive clinical guide to Trochlear Nerve (CN IV) Palsy, covering the complex anatomy, the legendary 3-step test, and advanced surgical management of vertical diplopia.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 70 Q100 40 140 70' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='6' stroke-linecap='round'/><path d='M140 70 L160 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><text x='50%' y='65%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='12' fill='hsl(215, 90%, 45%)'>IV NERVE</text><path d='M80 130 L120 130' stroke='red' stroke-width='3'/><path d='M100 110 L100 150' stroke='red' stroke-width='3'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Anatomical Peculiarities",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "The Trochlear Nerve (CN IV) is the thinnest cranial nerve (~2,400 axons).",
+          "Longest intracranial course (approx. 75mm) making it highly susceptible to trauma.",
+          "The only cranial nerve to exit the brainstem dorsally.",
+          "The only cranial nerve where all lower motor neuron fibers decussate (in the superior medullary velum).",
+          "Innervates the Superior Oblique (SO) muscle, which depresses, abducts, and incyclotorts the eye."
+        ]
+      },
+      {
+        "title": "Etiological Breakdown",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Congenital",
+              "value": 40
+            },
+            {
+              "label": "Trauma",
+              "value": 30
+            },
+            {
+              "label": "Ischemic (Vasculopathic)",
+              "value": 20
+            },
+            {
+              "label": "Neoplasm/Other",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology & Mechanisms",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "CN IV Insult",
+          "branches": [
+            "Loss of Incyclotorsion",
+            "Loss of Depression in Adduction",
+            "Secondary IO Overaction",
+            "Contralateral SR Overaction",
+            "Ipsilateral IR Contracture"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation & Symptoms",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Vertical Diplopia: Worse on down-gaze (reading) and looking away from the side of the lesion.",
+          "Torsional Diplopia: Images appear tilted.",
+          "Compensatory Head Tilt: To the opposite shoulder to minimize diplopia (Bielschowsky's sign).",
+          "Aesthenopia: Vague eye strain during near work.",
+          "Facial Asymmetry: Often seen in long-standing congenital cases (hypoplasia of the affected side)."
+        ]
+      },
+      {
+        "title": "Parks-Bielschowsky Three-Step Test",
+        "icon": "school",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Step 1: Identify which eye is Hypertropic in primary position (e.g., Right Hypertropia).",
+          "Step 2: Determine if the Hypertropia increases in Right or Left Gaze (e.g., increases in Left Gaze).",
+          "Step 3: Determine if the Hypertropia increases on Right or Left Head Tilt (e.g., increases on Right Tilt).",
+          "Conclusion: If RHT is worse in Left Gaze and Right Tilt = Right SO Palsy."
+        ]
+      },
+      {
+        "title": "Congenital vs. Acquired Palsy",
+        "icon": "genetics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Congenital",
+            "Acquired"
+          ],
+          "rows": [
+            [
+              "Diplopia",
+              "Intermittent or Absent (Suppression)",
+              "Acute Onset, Symptomatic"
+            ],
+            [
+              "Fusional Amplitudes",
+              "Large (up to 10-15 prism diopters)",
+              "Normal (2-4 prism diopters)"
+            ],
+            [
+              "Old Photos",
+              "Shows head tilt (FAT Scan - Family Album Tomography)",
+              "No prior head tilt"
+            ],
+            [
+              "Facial Asymmetry",
+              "Common (plagiocephaly)",
+              "Absent"
+            ],
+            [
+              "Torsion",
+              "Subjective torsion usually absent",
+              "Significant subjective excyclotorsion"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Knapp's Classification of SO Palsy",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Class",
+            "Greatest Deviation Area",
+            "Suggested Surgery"
+          ],
+          "rows": [
+            [
+              "Class I",
+              "Opposite side Up-gaze (IO Overaction)",
+              "IO Weakening"
+            ],
+            [
+              "Class II",
+              "Opposite side Down-gaze (SO Underaction)",
+              "SO Tuck"
+            ],
+            [
+              "Class III",
+              "Entire opposite side gaze",
+              "IO Weakening + SO Tuck"
+            ],
+            [
+              "Class IV",
+              "Entire opposite side gaze + Primary",
+              "IO Weakening + L-IR Recession"
+            ],
+            [
+              "Class V",
+              "Entire Down-gaze",
+              "SO Tuck + R-IR Recession"
+            ],
+            [
+              "Class VI",
+              "Bilateral (V-pattern, large torsion)",
+              "Bilateral SO Tucks / Harada-Ito"
+            ],
+            [
+              "Class VII",
+              "Traumatic (SO Paretic + Brown syndrome)",
+              "Traction test dependent"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Orthoptic measurements (Prism Cover Test) in 9 positions of gaze.",
+          "2. Double Maddox Rod test: Quantify excyclotorsion (usually >5-10° in bilateral).",
+          "3. Hess Chart / Lancaster Red-Green: Documentation of paretic field.",
+          "4. Neuroimaging (MRI Brain/Orbit): If non-vasculopathic, non-traumatic, or associated with other CN signs.",
+          "5. Systemic screen: BP, HbA1c, Myasthenia screen (Ice test/Tensilon) if mimicry suspected."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Key Differentiating Feature"
+          ],
+          "rows": [
+            [
+              "Skew Deviation",
+              "Associated with brainstem signs, tilt is non-comitant"
+            ],
+            [
+              "Thyroid Eye Disease",
+              "IR restriction; positive forced ductions"
+            ],
+            [
+              "Myasthenia Gravis",
+              "Variable ptosis, fatigue, no torsion"
+            ],
+            [
+              "Brown Syndrome",
+              "V-pattern, limited elevation in ADduction"
+            ],
+            [
+              "Orbital Myositis",
+              "Pain, orbital congestion on imaging"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Bilateral IV Nerve Palsy Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Excyclotorsion > 10 degrees on Double Maddox Rod.",
+          "Reversing Hypertropia (RHT in left gaze, LHT in right gaze).",
+          "Significant V-pattern Esotropia (>15PD difference).",
+          "Positive Bielschowsky tilt test to both sides.",
+          "Chin-down head position."
+        ]
+      },
+      {
+        "title": "Surgical Techniques",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Inferior Oblique (IO) Weakening: Recession, Myectomy, or Anteriorization. Used for Class I/III.",
+          "Superior Oblique (SO) Tuck: Tightening the tendon. Used for lax tendons or Class II.",
+          "Harada-Ito Procedure: Splitting the SO tendon and moving the anterior portion anteriorly/laterally to correct excyclotorsion.",
+          "Ipsilateral Superior Rectus (SR) Recession: For small deviations in primary gaze.",
+          "Contralateral Inferior Rectus (IR) Recession: For deviations larger in down-gaze."
+        ]
+      },
+      {
+        "title": "Clinical Pearls & Landmarks",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "The '4' Rule",
+          "explanation": "IV Nerve, 4000 (actually 2.4k) fibers, 4th decade (ischemic), 4 types of surgery. Remember SO: Superior Oblique = SIN (Superior muscles are Incyclotortors)."
+        }
+      },
+      {
+        "title": "Key High-Yield Pearls",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "The 'Masked Bilateral' phenomenon: Operating on one eye reveals a palsy in the other that was previously hidden by suppression.",
+          "Superior Medullary Velum is the most common site of traumatic injury due to decussating fibers.",
+          "Non-traumatic, non-vasculopathic isolated IV palsy in adults should prompt neuroimaging to rule out schwannoma or meningioma.",
+          "Prism therapy (Base-down over the hypertropic eye) is excellent for stable, small-angle acquired palsies."
+        ]
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Most ischemic IV nerve palsies resolve spontaneously within 3 to 6 months. Surgical success rates are high, but patients must be warned about the possibility of 'iatrogenic Brown syndrome' following an over-zealous SO tuck. Recurrence is rare unless the underlying cause (e.g., tumor) progresses."
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "CISS/FIESTA MRI sequences: High-resolution imaging now allows direct visualization of the trochlear nerve to detect atrophy or aplasia.",
+          "Botulinum Toxin: Used in the acute phase into the antagonist IO muscle to prevent contracture and alleviate symptoms while waiting for recovery.",
+          "Computerized Strabismus Mapping: Improved pre-operative planning for complex multi-muscle surgery."
+        ]
+      }
+    ],
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "_newlyImported": 1775044668037,
+  "communityId": "sub_1773775007770_vp5fwkofvi6w01",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true
+}

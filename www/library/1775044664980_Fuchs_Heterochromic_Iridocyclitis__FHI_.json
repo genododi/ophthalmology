@@ -1,0 +1,274 @@
+{
+  "id": 1775044664980,
+  "seqId": 182,
+  "title": "Fuchs Heterochromic Iridocyclitis (FHI)",
+  "summary": "A chronic, typically unilateral, non-granulomatous uveitis characterized by a classic triad of iris heterochromia, diffuse stellate keratic precipitates, and early cataract formation. Often misdiagnosed, it is famously resistant to topical corticosteroids.",
+  "date": "2026-04-01T11:57:44.980Z",
+  "data": {
+    "title": "Fuchs Heterochromic Iridocyclitis (FHI)",
+    "summary": "A chronic, typically unilateral, non-granulomatous uveitis characterized by a classic triad of iris heterochromia, diffuse stellate keratic precipitates, and early cataract formation. Often misdiagnosed, it is famously resistant to topical corticosteroids.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='18' fill='hsl(215, 90%, 45%)' opacity='0.3'/><circle cx='50' cy='50' r='18' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='1' stroke-dasharray='2 2'/><path d='M45 45l2 2m3-5l1 3m-6 2l3 1m10-4l-2 2' stroke='white' stroke-width='1' stroke-linecap='round'/><path d='M35 30l2 2m25 5l-2 2m-10 40l1 2' stroke='hsl(215, 90%, 45%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Fuchs Heterochromic Iridocyclitis (FHI), also known as Fuchs Uveitis Syndrome (FUS), is a chronic, low-grade, non-granulomatous anterior uveitis. It is classically unilateral (90-95%) and occurs in patients in their 3rd to 4th decades. Unlike most uveitis, FHI is characterized by a lack of typical inflammatory symptoms (no pain, no redness, no photophobia) and a lack of posterior synechiae. It is frequently diagnosed only when complications like cataract or glaucoma arise."
+      },
+      {
+        "title": "Epidemiological Profile",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Uveitis Cases (%)",
+              "value": 3
+            },
+            {
+              "label": "Unilateral Cases",
+              "value": 92
+            },
+            {
+              "label": "Male/Female Ratio",
+              "value": 50
+            },
+            {
+              "label": "Risk of Glaucoma",
+              "value": 25
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathogenesis",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Etiological Theories",
+          "branches": [
+            "Rubella Virus (Strongest link: Aqueous IgG)",
+            "Toxoplasmosis (Historical association)",
+            "Sympathetic Denervation (Iris color change)",
+            "CMV (In immunocompetent patients)",
+            "Autoimmune/Vascular Insufficiency"
+          ]
+        }
+      },
+      {
+        "title": "The Pathognomonic Keratic Precipitates (KPs)",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Diffuse distribution: Scattered over the entire posterior corneal endothelium (not just Arlt's triangle).",
+          "Morphology: Small, stellate (star-shaped) or round, grey-white in color.",
+          "Fibrin filaments: Fine filaments often seen interconnecting the KPs.",
+          "Non-confluent: KPs rarely coalesce even in high-grade inflammation.",
+          "Stability: KPs persist for years, even when the anterior chamber is quiet."
+        ]
+      },
+      {
+        "title": "Iris Morphology & Heterochromia",
+        "icon": "palette",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Iris Hypochromia: The affected eye is usually lighter (blue/grey).",
+          "Inverse Heterochromia: In very light-colored eyes, stromal atrophy can reveal the posterior pigment epithelium, making the eye look darker.",
+          "Loss of Iris Crypts: Surface looks 'smooth' or 'featureless'.",
+          "Moth-eaten Appearance: Transillumination defects at the pupillary border.",
+          "Koeppe/Busacca Nodules: Occasionally present but transient.",
+          "Iris Crystals: Rare, fine crystalline deposits on the iris surface (Russell bodies)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Chronic Anterior Uveitis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Fuchs (FHI)",
+            "Posner-Schlossman",
+            "Herpetic Uveitis",
+            "Idiopathic Chronic"
+          ],
+          "rows": [
+            [
+              "KPs",
+              "Stellate, Diffuse",
+              "Few, Large, Central",
+              "Sectoral/Focal",
+              "Arlt's Triangle"
+            ],
+            [
+              "Iris Atrophy",
+              "Diffuse/Stromal",
+              "None",
+              "Sectoral (Specific)",
+              "Generalized late"
+            ],
+            [
+              "IOP",
+              "Mild/Chronic Rise",
+              "Acute/Very High",
+              "High during flare",
+              "Variable"
+            ],
+            [
+              "Synechiae",
+              "Absent",
+              "Absent",
+              "Present",
+              "Common"
+            ],
+            [
+              "Cataract",
+              "Very Common (PSC)",
+              "Rare",
+              "Variable",
+              "Common (Steroid induced)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Gonioscopy & The Amsler Sign",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Perform Gonioscopy to visualize fine, radial, filiform vessels in the angle.",
+          "Step 2: Note lack of Peripheral Anterior Synechiae (PAS) despite chronic inflammation.",
+          "Step 3: Amsler Sign - Sudden filiform hemorrhage upon paracentesis or minor trauma.",
+          "Step 4: Hemorrhage occurs opposite the site of entry due to fragile angle vessels."
+        ]
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Diagnose clinically. Avoid long-term topical steroids (ineffective & cataractogenic).",
+          "Step 2: Monitor IOP every 3-6 months. Treat Glaucoma medically (Beta-blockers/PGAs).",
+          "Step 3: Manage Cataract (Phacoemulsification with IOL is usually very successful).",
+          "Step 4: Perform Vitrectomy if floaters significantly impair vision.",
+          "Step 5: Surgical Glaucoma management (Trabeculectomy/GDD) if medical therapy fails."
+        ]
+      },
+      {
+        "title": "Red Flags: When to Question the Diagnosis",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Presence of Posterior Synechiae (Virtually excludes pure FHI).",
+          "Severe Pain or Ciliary Flush (Suggests acute hypertensive uveitis or HSV).",
+          "Cystoid Macular Edema (CME) - Extremely rare in FHI; suspect other causes.",
+          "Large, Mutton-fat KPs (Suggests Sarcoidosis or TB).",
+          "Rapid Response to Steroids (FHI is characteristically steroid-resistant)."
+        ]
+      },
+      {
+        "title": "Surgical Considerations (The FHI Patient)",
+        "icon": "settings",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Phacoemulsification: Excellent visual prognosis; low risk of post-op flare.",
+          "IOL Choice: Monofocal preferred; multifocals risky due to potential glaucoma.",
+          "Bleeding Risk: Be prepared for minor hyphaema (Amsler sign) during surgery.",
+          "Glaucoma Surgery: FHI patients have a higher failure rate for trabeculectomy; GDD (Ahmed/Baerveldt) often preferred.",
+          "Post-op: Steroid taper can be standard; no prolonged course usually needed."
+        ]
+      },
+      {
+        "title": "FHI Memory Aid",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "FUCHS",
+          "explanation": "F: Fine, stellate KPs. U: Unilateral (usually). C: Cataract (PSC). H: Heterochromia/Hyphaema (Amsler). S: Synechiae (Absent) / Steroid-resistant."
+        }
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Cataract Formation",
+              "value": 85
+            },
+            {
+              "label": "Secondary Glaucoma",
+              "value": 25
+            },
+            {
+              "label": "Vitreous Opacities",
+              "value": 50
+            },
+            {
+              "label": "Good Visual Outcome",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Always check the fellow eye's color in natural light or with a flashlight, not just the slit-lamp.",
+          "Iris atrophy is best seen by observing the loss of iris crypts and the 'velvety' texture.",
+          "The 'Amsler Sign' is an intraoperative pearl—don't panic if you see a small wisp of blood during paracentesis.",
+          "In brown-eyed patients, the heterochromia is often subtle; look for 'dullness' of the iris pattern.",
+          "The diagnosis is CLINICAL. PCR for Rubella is supportive but rarely necessary for management."
+        ]
+      },
+      {
+        "title": "Recent Advances: The Rubella Connection",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Recent landmark studies using Goldmann-Witmer Coefficient (GWC) and PCR analysis have identified Rubella virus as a likely causative agent. Patients with FHI often show intraocular antibody production against Rubella. Interestingly, the incidence of FHI is declining in countries with universal Rubella vaccination programs, further strengthening this epidemiological link. This has shifted the view of FHI from a 'degenerative syndrome' to a chronic viral-mediated uveitis."
+      }
+    ],
+    "generationPrompt": "fuchs heterochromic iridocyclitis",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "_newlyImported": 1775044664980,
+  "communityId": "sub_1774535192129_gq246aelb",
+  "communityAuthor": "geno",
+  "communityDate": "2026-03-26T14:26:32.129Z",
+  "bookmarked": true,
+  "read": true
+}

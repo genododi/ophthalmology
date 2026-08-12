@@ -1,0 +1,202 @@
+{
+  "id": 1775044681825,
+  "seqId": 353,
+  "title": "Mastering Lamellar Keratoplasty: DALK vs DMEK vs DSAEK",
+  "summary": "A comprehensive comparative guide to modern corneal transplantation techniques. This poster breaks down the anatomical targets, clinical indications, and surgical outcomes for Deep Anterior and Posterior Lamellar procedures.",
+  "date": "2026-04-01T11:58:01.825Z",
+  "data": {
+    "title": "Mastering Lamellar Keratoplasty: DALK vs DMEK vs DSAEK",
+    "summary": "A comprehensive comparative guide to modern corneal transplantation techniques. This poster breaks down the anatomical targets, clinical indications, and surgical outcomes for Deep Anterior and Posterior Lamellar procedures.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M10 50 Q 50 10 90 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M10 60 Q 50 20 90 60' fill='none' stroke='hsl(215, 90%, 65%)' stroke-width='2'/><path d='M15 50 L 85 50' stroke='hsl(215, 90%, 45%)' stroke-width='0.5' stroke-dasharray='2,2'/><circle cx='50' cy='40' r='3' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Anatomical Definitions & Layers",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Procedure",
+            "Acronym",
+            "Layers Replaced",
+            "Layers Preserved"
+          ],
+          "rows": [
+            [
+              "Deep Anterior Lamellar Keratoplasty",
+              "DALK",
+              "Anterior Stroma (down to Descemet's)",
+              "Host Endothelium & Descemet's Membrane"
+            ],
+            [
+              "Descemet Stripping Automated Endothelial Keratoplasty",
+              "DSAEK",
+              "Endothelium, Descemet's, & Posterior Stroma",
+              "Host Anterior Stroma & Epithelium"
+            ],
+            [
+              "Descemet Membrane Endothelial Keratoplasty",
+              "DMEK",
+              "Endothelium & Descemet's Membrane only",
+              "Host Stroma & Epithelium"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Primary Clinical Indications",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Lamellar Surgery",
+          "branches": [
+            "DALK: Keratoconus, Corneal Scars, Corneal Dystrophies (Anterior)",
+            "DSAEK: Fuchs' Dystrophy, Bullous Keratopathy, ICE Syndrome",
+            "DMEK: Fuchs' Dystrophy, Failed DSAEK, Posterior Polymorphous Dystrophy"
+          ]
+        }
+      },
+      {
+        "title": "Visual Recovery & Quality",
+        "icon": "visibility",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "DMEK (Best/Fastest)",
+              "value": 95
+            },
+            {
+              "label": "DSAEK (Good/Fast)",
+              "value": 75
+            },
+            {
+              "label": "DALK (Excellent/Slower)",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "Surgical Complexity Comparison",
+        "icon": "psychology",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "DMEK (Very High)",
+              "value": 90
+            },
+            {
+              "label": "DALK (High - Big Bubble)",
+              "value": 85
+            },
+            {
+              "label": "DSAEK (Moderate)",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "title": "Graft Rejection Risk (Lower is Better)",
+        "icon": "shield",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "DALK (Near Zero)",
+              "value": 5
+            },
+            {
+              "label": "DMEK (Lowest Endothelial)",
+              "value": 15
+            },
+            {
+              "label": "DSAEK (Low)",
+              "value": 35
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Advantages of Each Technique",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "DALK: Eliminates endothelial rejection risk and maintains the integrity of the host's inner cornea.",
+          "DSAEK: Technically easier graft handling than DMEK; automated microtome creates predictable graft thickness.",
+          "DMEK: Superior visual acuity (often 20/20 or 20/25); minimal stromal interface interference.",
+          "Both Endothelial (DMEK/DSAEK): Small incision surgery, no suture-related astigmatism, rapid recovery compared to PKP."
+        ]
+      },
+      {
+        "title": "The Surgical Process: Lamellar Steps",
+        "icon": "rebase_edit",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Donor Preparation (Pre-cut or Manual)",
+          "2. Recipient Bed Preparation (Stripping or Bubble)",
+          "3. Graft Insertion (Glide or Injector)",
+          "4. Graft Centration & Positioning",
+          "5. Air/Gas Tamponade for Attachment"
+        ]
+      },
+      {
+        "title": "Remember: The 'Bubble' Management",
+        "icon": "info",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "ABC",
+          "explanation": "A for Air bubble positioning (supine post-op); B for Bubbling (re-bubbling for detachments); C for Check intraocular pressure (pupillary block risk)."
+        }
+      },
+      {
+        "title": "Critical Red Flags & Complications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Graft Detachment (High risk in DMEK, requires re-bubbling)",
+          "Pupillary Block Glaucoma (from air/gas bubble migration)",
+          "Interface Haze or Scarring (Specific to DALK and DSAEK)",
+          "Inadvertent Descemet's Membrane Perforation (During DALK dissection)",
+          "Primary Graft Failure (Non-clearing cornea within 4 weeks)"
+        ]
+      },
+      {
+        "title": "Note on Technical Execution",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Lamellar surgery represents a paradigm shift from full-thickness Penetrating Keratoplasty (PKP). DALK focuses on stromal replacement while sparing the healthy endothelium. In contrast, DSAEK and DMEK focus solely on the posterior layers, replacing the diseased endothelium while preserving the anterior structure of the host cornea. Choice of procedure depends on the patient's specific layer of disease and the surgeon's expertise with ultrathin tissues."
+      }
+    ],
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044681825,
+  "communityId": "sub_1773775007770_r792npn2k4sc21",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

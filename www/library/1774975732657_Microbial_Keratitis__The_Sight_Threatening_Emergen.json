@@ -1,0 +1,166 @@
+{
+  "id": 1774975732657,
+  "seqId": 11,
+  "title": "Microbial Keratitis: The Sight-Threatening Emergency",
+  "summary": "An urgent, sight-threatening infection of the corneal stroma characterized by epithelial defect, infiltrate, and associated inflammation. Rapid diagnosis and targeted antimicrobial therapy are mandatory to prevent stromal melting and permanent vision loss.",
+  "date": "2026-03-31T16:48:52.657Z",
+  "data": {
+    "title": "Microbial Keratitis: The Sight-Threatening Emergency",
+    "summary": "An urgent, sight-threatening infection of the corneal stroma characterized by epithelial defect, infiltrate, and associated inflammation. Rapid diagnosis and targeted antimicrobial therapy are mandatory to prevent stromal melting and permanent vision loss.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e40af' stroke-width='4'/><path d='M30 50 Q 50 30 70 50' stroke='#ef4444' stroke-width='6' fill='none'/><circle cx='50' cy='50' r='10' fill='#1e40af'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Epidemiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Microbial keratitis is an infection involving the corneal stroma, often secondary to contact lens wear, ocular surface disease, or trauma. Globally, bacterial keratitis is the most common form, with Pseudomonas aeruginosa being the most frequent pathogen in contact lens wearers. Incidence is estimated at 2.5–799 per 100,000 person-years depending on geography and risk factor prevalence."
+      },
+      {
+        "title": "Epidemiological Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Contact Lenses",
+              "value": 90
+            },
+            {
+              "label": "Ocular Surface Dis.",
+              "value": 65
+            },
+            {
+              "label": "Trauma",
+              "value": 50
+            },
+            {
+              "label": "Post-Surgical",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiological Classification",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Microbial Keratitis",
+          "branches": [
+            "Bacterial (Staph, PsA)",
+            "Fungal (Aspergillus, Fusarium)",
+            "Acanthamoeba",
+            "Viral (HSV/VZV)"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Urgent Intervention Required",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Corneal thinning or impending perforation (Seidel positive)",
+          "Involvement of the visual axis (central location)",
+          "Hypopyon exceeding 2mm",
+          "Scleral involvement (Sclerokeratitis)",
+          "Lack of response to initial therapy at 24-48 hours"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Sterile Infiltrate",
+              "Peripheral, smaller, less pain, no hypopyon"
+            ],
+            [
+              "Acanthamoeba",
+              "Radial perineuritis, severe pain out of proportion to exam"
+            ],
+            [
+              "Fungal Keratitis",
+              "Feathery edges, satellite lesions, slow progression"
+            ],
+            [
+              "HSV Keratitis",
+              "Dendritic/geographic epithelium, decreased sensation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Process",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Visual Acuity & Slit-lamp exam (map infiltrate size).",
+          "Step 2: Corneal scrapings using Kimura spatula or platinum blade.",
+          "Step 3: Inoculate onto Blood Agar, Chocolate Agar, Sabouraud Agar, and Thioglycolate broth.",
+          "Step 4: Perform Gram stain and initiate empiric fortified antibiotics.",
+          "Step 5: Perform in-vivo confocal microscopy if Acanthamoeba/Fungal suspected."
+        ]
+      },
+      {
+        "title": "Treatment Protocol: Fortified Antibiotics",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Fortified Tobramycin (15mg/ml) q1h",
+          "Fortified Cefazolin (50mg/ml) q1h",
+          "Monotherapy: Gatifloxacin or Moxifloxacin 0.5% (for smaller lesions)",
+          "Cycloplegics (Atropine 1% or Cyclopentolate 1%) for pain",
+          "Topical steroids: Only after epithelialization and reduced organism load"
+        ]
+      },
+      {
+        "title": "Remember the Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STAMP",
+          "explanation": "S: Staining (Fluorescein), T: Tincture (Stains like Gram), A: Acanthamoeba check, M: Microscopy (Confocal), P: Pathogen identification"
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Always evaluate for contact lens case contamination.",
+          "Avoid eye patching; it creates a warm, hypoxic environment for bacterial growth.",
+          "The 'SCUT trial' provided evidence that adjunctive topical corticosteroids do not improve visual outcomes at 3 months for bacterial ulcers.",
+          "If the patient is monocular, hospitalize for intensive monitoring."
+        ]
+      }
+    ],
+    "generationPrompt": "Microbial keratitis",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea"
+}

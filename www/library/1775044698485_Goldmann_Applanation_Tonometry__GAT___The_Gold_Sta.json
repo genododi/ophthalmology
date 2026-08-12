@@ -1,0 +1,134 @@
+{
+  "id": 1775044698485,
+  "seqId": 487,
+  "title": "Goldmann Applanation Tonometry (GAT): The Gold Standard in IOP Assessment",
+  "summary": "Goldmann Applanation Tonometry remains the clinical gold standard for measuring intraocular pressure (IOP) by applying the Imbert-Fick Law. This guide covers the physical principles, standardized clinical application, and the diagnostic pitfalls every ophthalmic surgeon must master.",
+  "date": "2026-04-01T11:58:18.485Z",
+  "data": {
+    "title": "Goldmann Applanation Tonometry (GAT): The Gold Standard in IOP Assessment",
+    "summary": "Goldmann Applanation Tonometry remains the clinical gold standard for measuring intraocular pressure (IOP) by applying the Imbert-Fick Law. This guide covers the physical principles, standardized clinical application, and the diagnostic pitfalls every ophthalmic surgeon must master.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><rect x='85' y='40' width='30' height='30' fill='hsl(215, 90%, 45%)'/><path d='M70 100 Q100 130 130 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/></svg>",
+    "sections": [
+      {
+        "title": "Principle: The Imbert-Fick Law",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The Goldmann tonometer operates on the Imbert-Fick principle: For an ideal, dry, thin-walled sphere, the pressure (P) inside the sphere is equal to the force (F) required to flatten its surface divided by the area (A) of applanation (P = F/A). In GAT, the diameter of the circular flattened area is exactly 3.06 mm."
+      },
+      {
+        "title": "Epidemiology & Prevalence of Measurement Error",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Thick Cornea (>560µm)",
+              "value": 75
+            },
+            {
+              "label": "Normal Cornea (520-560µm)",
+              "value": 20
+            },
+            {
+              "label": "Thin Cornea (<520µm)",
+              "value": 65
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Procedure (Step-by-Step)",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Instill topical anesthetic (proparacaine 0.5%) and fluorescein sodium.",
+          "2. Set the biprism to 10 mmHg as a starting point.",
+          "3. Position patient at slit-lamp with forehead firmly against the headrest.",
+          "4. Align the biprism with the central cornea under cobalt blue light.",
+          "5. Advance the probe until the semicircles meet.",
+          "6. Adjust the tension dial until the inner edges of the semicircles just touch."
+        ]
+      },
+      {
+        "title": "Red Flags: When NOT to Trust GAT",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Excessive fluorescein: Causes overestimation of IOP.",
+          "Poor tear film: Leads to jagged, irregular, or missing semicircles.",
+          "Excessive eyelid pressure: Patient holding breath or blinking forces eye back (pseudoelevation).",
+          "Corneal scarring or edema: Distorts the applanation area, making 3.06mm diameter invalid.",
+          "Astigmatism > 3.00 D: Must align prism axis with -43° (minus cylinder axis) to avoid measurement error."
+        ]
+      },
+      {
+        "title": "Mnemonic: M.I.S.T. (Common Errors)",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "M.I.S.T.",
+          "explanation": "M: Measurement too early (too much force). I: Irregular semicircles. S: Squeezing (lid pressure). T: Thin/Thick corneal adjustment (CCT) ignored."
+        }
+      },
+      {
+        "title": "Correction Factors for CCT",
+        "icon": "calculate",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "CCT (µm)",
+            "Adjustment (mmHg)"
+          ],
+          "rows": [
+            [
+              "< 500",
+              "-2.0 to -3.0"
+            ],
+            [
+              "520-560",
+              "0 (Baseline)"
+            ],
+            [
+              "> 600",
+              "+2.0 to +3.0"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Always disinfect the prism with 70% isopropyl alcohol and allow to air dry for 5-10 minutes to prevent transmission of adenovirus or prion diseases.",
+          "The standard 3.06 mm diameter exists because the capillary attraction of the tear film and corneal rigidity cancel each other out at this exact area.",
+          "If corneal astigmatism is > 3.00 D, align the 'red' mark on the biprism with the patient's minus-cylinder axis.",
+          "Compare IOP between eyes; a difference of >3 mmHg requires clinical correlation.",
+          "Always document the time of measurement for glaucoma follow-ups."
+        ]
+      }
+    ],
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "_newlyImported": 1775044698485,
+  "communityId": "sub_1774352254516_xljaffgyd8saek",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z",
+  "read": true
+}

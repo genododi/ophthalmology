@@ -1,0 +1,321 @@
+{
+  "id": 1775044687321,
+  "seqId": 405,
+  "title": "DVT: Systemic Essentials & Ophthalmic Implications",
+  "summary": "A comprehensive deep dive into Deep Venous Thrombosis (DVT), bridging the gap between systemic vascular medicine and ophthalmic practice. This poster covers everything from Virchow's Triad to perioperative anticoagulation management in ocular surgery.",
+  "date": "2026-04-01T11:58:07.321Z",
+  "data": {
+    "title": "DVT: Systemic Essentials & Ophthalmic Implications",
+    "summary": "A comprehensive deep dive into Deep Venous Thrombosis (DVT), bridging the gap between systemic vascular medicine and ophthalmic practice. This poster covers everything from Virchow's Triad to perioperative anticoagulation management in ocular surgery.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M30,10 Q50,0 70,10 L70,90 Q50,100 30,90 Z' fill='hsl(215, 90%, 85%)' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M35,40 Q50,35 65,40 L65,50 Q50,55 35,50 Z' fill='hsl(0, 80%, 50%)'/><circle cx='50' cy='45' r='8' fill='hsl(0, 100%, 30%)'/><path d='M50,15 L50,35 M50,55 L50,85' stroke='hsl(215, 90%, 45%)' stroke-width='4' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Deep Venous Thrombosis (DVT) is the formation of a thrombus within a deep vein, most commonly in the lower extremities. While primarily a systemic condition, it serves as a critical marker for hypercoagulable states that also manifest in the eye as Retinal Vein Occlusions (RVO) and poses significant perioperative risks during ophthalmic surgery."
+      },
+      {
+        "title": "The Pathophysiology: Virchow's Triad",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Virchow's Triad",
+          "branches": [
+            "Endothelial Injury (Surgery, Trauma, Vasculitis)",
+            "Stasis (Immobilization, Obesity, Varicose Veins)",
+            "Hypercoagulability (Factor V Leiden, Cancer, Pregnancy, OCPs)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Incidence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Age <40",
+              "value": 10
+            },
+            {
+              "label": "Age 40-60",
+              "value": 35
+            },
+            {
+              "label": "Age 60-80",
+              "value": 75
+            },
+            {
+              "label": "Age >80",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Wells Criteria for DVT Probability",
+        "icon": "rule",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Clinical Feature",
+            "Points"
+          ],
+          "rows": [
+            [
+              "Active Cancer (treatment within 6 mo)",
+              "+1"
+            ],
+            [
+              "Paralysis, paresis, or recent cast",
+              "+1"
+            ],
+            [
+              "Bedridden >3 days or major surgery <12 wks",
+              "+1"
+            ],
+            [
+              "Localized tenderness along deep veins",
+              "+1"
+            ],
+            [
+              "Entire leg swollen",
+              "+1"
+            ],
+            [
+              "Calf swelling >3cm (vs asymptomatic side)",
+              "+1"
+            ],
+            [
+              "Pitting edema (symptomatic leg only)",
+              "+1"
+            ],
+            [
+              "Collateral superficial veins (non-varicose)",
+              "+1"
+            ],
+            [
+              "Alternative diagnosis at least as likely",
+              "-2"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "DVT vs. Retinal Vein Occlusion (RVO)",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Deep Venous Thrombosis (DVT)",
+            "Central Retinal Vein Occlusion (CRVO)"
+          ],
+          "rows": [
+            [
+              "Primary Mechanism",
+              "Venous stasis + Hypercoagulability",
+              "Arterial compression + Endothelial damage"
+            ],
+            [
+              "Common Risk Factors",
+              "Immobility, Surgery, Factor V",
+              "HTN, Glaucoma, Hyperlipidemia, Age"
+            ],
+            [
+              "Genetic Overlap",
+              "High (Factor V, Protein C/S)",
+              "Low (Controversial for isolated CRVO)"
+            ],
+            [
+              "Life-Threatening Comp.",
+              "Pulmonary Embolism (PE)",
+              "Neovascular Glaucoma (NVG) / Vision Loss"
+            ],
+            [
+              "Standard Treatment",
+              "Anticoagulation (DOACs/Warfarin)",
+              "Anti-VEGF, Steroids, PRP (if ischemic)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: DVT Risk Factors",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "THROMBOSIS",
+          "explanation": "T: Trauma/Travel; H: Hormones (OCP/HRT); R: Relatives (Genetics); O: Old age; M: Malignancy; B: Blood disorders; O: Obesity; S: Surgery; I: Immobilization; S: Sickness (CHF/Nephrotic)."
+        }
+      },
+      {
+        "title": "RED FLAGS: Pulmonary Embolism",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset Dyspnea (Shortness of breath)",
+          "Pleuritic Chest Pain",
+          "Hemoptysis (Coughing up blood)",
+          "Tachycardia (>100 bpm) and Tachypnea",
+          "Syncope or Sudden Collapse"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Flow",
+        "icon": "reorder",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Clinical Assessment (Wells Score calculation).",
+          "Step 2: D-dimer Assay (High sensitivity, low specificity; use to rule out in low-risk).",
+          "Step 3: Compression Ultrasonography (CUS) - Gold standard imaging.",
+          "Step 4: Venography (Rarely used now; gold standard if CUS is inconclusive).",
+          "Step 5: CT Pulmonary Angiogram (If PE is suspected)."
+        ]
+      },
+      {
+        "title": "Perioperative Management for Ophthalmic Surgeons",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Cataract Surgery: Continue anticoagulants (Warfarin/DOACs); risk of retrobulbar hemorrhage is minimal with topical anesthesia.",
+          "Glaucoma Surgery (Trabeculectomy): High risk of hyphema/suprachoroidal hemorrhage; consider stopping 3-5 days pre-op if systemic risk is low.",
+          "Vitreoretinal Surgery: Generally continue anticoagulation for small-gauge (23/25/27g) surgery unless extensive dissection is needed.",
+          "Orbital Surgery: High risk for sight-threatening hematoma; must coordinate with Hematology to bridge/stop anticoagulation.",
+          "DVT Prophylaxis: Use sequential compression devices (SCDs) for long orbital or plastic procedures (>90 mins)."
+        ]
+      },
+      {
+        "title": "Medical Management: Pharmacotherapy",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Drug Class",
+            "Examples",
+            "Mechanism",
+            "Reversal Agent"
+          ],
+          "rows": [
+            [
+              "LMWH",
+              "Enoxaparin (1mg/kg BID)",
+              "Factor Xa inhibition",
+              "Protamine (Partial)"
+            ],
+            [
+              "Vitamin K Antagonist",
+              "Warfarin (INR target 2.0-3.0)",
+              "Inhibits Vit K dependent factors (II, VII, IX, X)",
+              "Vitamin K, PCC, FFP"
+            ],
+            [
+              "DOAC (Direct Xa)",
+              "Rivaroxaban, Apixaban",
+              "Direct Factor Xa inhibition",
+              "Andexanet Alfa"
+            ],
+            [
+              "Direct Thrombin Inhibitor",
+              "Dabigatran",
+              "Direct Factor IIa inhibition",
+              "Idarucizumab"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Complications of Anticoagulants",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Subconjunctival Hemorrhage (Benign but alarming to patients).",
+          "Spontaneous Hyphema (Rare, usually associated with underlying rubeosis).",
+          "Increased risk of vitreous hemorrhage in exudative AMD.",
+          "Progression of Sub-retinal hemorrhage in neovascular membranes."
+        ]
+      },
+      {
+        "title": "Cavernous Sinus Thrombosis (CST)",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "The Ocular Equivalent of DVT: Often septic (Staph aureus).",
+          "Signs: Proptosis, Chemosis, Cranial Nerve Palsies (III, IV, V1, V2, VI).",
+          "Key Finding: Rapid progression to bilateral involvement.",
+          "Treatment: High-dose IV antibiotics + Anticoagulation (controversial but often used)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Leg Pain/Swelling",
+        "icon": "list",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "DVT Mimics",
+          "branches": [
+            "Cellulitis (Warmth, Fever, Erythema)",
+            "Baker's Cyst Rupture (Sudden pain, fluid in popliteal fossa)",
+            "Superficial Thrombophlebitis (Palpable cord)",
+            "Lymphedema (Chronic, non-pitting, dorsal foot swelling)",
+            "Venous Insufficiency (Bilateral, stasis dermatitis)"
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Phlegmasia Cerulea Dolens: A surgical emergency where massive DVT causes arterial compromise (blue, painful leg).",
+          "Post-Thrombotic Syndrome (PTS): Chronic venous hypertension causing leg heaviness and ulcers in 20-50% of DVT patients.",
+          "D-dimer Caveat: Elevated in pregnancy, cancer, and inflammation; only useful for its Negative Predictive Value.",
+          "Pre-op: Always document a baseline INR for patients on Warfarin before performing any needle-based anesthesia (e.g., retrobulbar block)."
+        ]
+      },
+      {
+        "title": "Landmark Studies & Recent Advances",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "The **EINSTEIN** and **AMPLIFY** trials revolutionized management by proving DOACs (Rivaroxaban and Apixaban) are non-inferior to Warfarin for DVT/PE treatment with a lower risk of major bleeding. In ophthalmology, recent retrospective series suggest that stopping DOACs for cataract surgery may actually increase the risk of systemic thromboembolism without significantly reducing surgical complications."
+      }
+    ],
+    "chapterId": "surgery_care"
+  },
+  "chapterId": "surgery_care",
+  "_newlyImported": 1775044687321,
+  "communityId": "sub_1773775007770_2z52wjqdy45ndt",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

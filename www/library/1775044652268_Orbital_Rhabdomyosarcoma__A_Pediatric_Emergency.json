@@ -1,0 +1,350 @@
+{
+  "id": 1775044652268,
+  "seqId": 44,
+  "title": "Orbital Rhabdomyosarcoma: A Pediatric Emergency",
+  "summary": "Rhabdomyosarcoma (RMS) is the most common primary orbital malignancy in children, characterized by its rapid, alarming progression. Early diagnosis via urgent biopsy and multi-modal treatment with chemotherapy and radiotherapy has transformed this once-fatal disease into one with a high survival rate.",
+  "date": "2026-04-01T11:57:32.268Z",
+  "data": {
+    "title": "Orbital Rhabdomyosarcoma: A Pediatric Emergency",
+    "summary": "Rhabdomyosarcoma (RMS) is the most common primary orbital malignancy in children, characterized by its rapid, alarming progression. Early diagnosis via urgent biopsy and multi-modal treatment with chemotherapy and radiotherapy has transformed this once-fatal disease into one with a high survival rate.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M20 30 Q 50 10 80 30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M75 40 C 85 45 95 60 85 75' fill='hsl(0, 70%, 50%)' opacity='0.6' d='M70 30 A 25 25 0 1 1 50 80'/><path d='M70 25 L 90 15' stroke='red' stroke-width='3'/><text x='10' y='90' font-family='Arial' font-size='6' fill='hsl(215, 90%, 45%)'>RAPID PROPTOSIS</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Orbital Rhabdomyosarcoma is a highly malignant neoplasm of primitive mesenchymal cells that show a tendency toward rhabdomyoblastic differentiation. Despite its name, it does not typically arise from extraocular muscles but from undifferentiated pluripotent cells. It is a true ophthalmic emergency due to its potential for rapid orbital expansion and intracranial spread."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Median Age (7-8 yrs)",
+              "value": 75
+            },
+            {
+              "label": "Cases before age 16",
+              "value": 90
+            },
+            {
+              "label": "Male Predominance",
+              "value": 62
+            },
+            {
+              "label": "Orbital % of all RMS",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathological Subtypes",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Subtype",
+            "Frequency",
+            "Typical Location",
+            "Prognosis",
+            "Histology Features"
+          ],
+          "rows": [
+            [
+              "Embryonal",
+              "80%",
+              "Superonasal quadrant",
+              "Good (94% survival)",
+              "Spindle-shaped cells, loose stroma"
+            ],
+            [
+              "Alveolar",
+              "10-15%",
+              "Inferior orbit",
+              "Poor (74% survival)",
+              "Fibrous septa, 'alveoli' spaces, PAX3-FOXO1"
+            ],
+            [
+              "Pleomorphic",
+              "Rare",
+              "Adults / Any location",
+              "Variable",
+              "Large, multinucleated 'strap' cells"
+            ],
+            [
+              "Botryoid",
+              "Very Rare",
+              "Anterior segment/conjunctiva",
+              "Excellent",
+              "Grape-like clusters, Cambium layer"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Key Genetics",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "RMS Pathogenesis",
+          "branches": [
+            "Primitive Mesenchyme",
+            "t(2;13) Translocation (Alveolar)",
+            "t(1;13) Translocation (Alveolar)",
+            "PAX3-FOXO1 Fusion Gene",
+            "Li-Fraumeni Syndrome (p53 mutation)",
+            "Neurofibromatosis Type 1"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features: The Rapid Onset",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Sudden, rapidly progressive proptosis (days to weeks)",
+          "Globe displacement (usually downward/outward for Embryonal)",
+          "Ptosis and lid edema with characteristic discoloration",
+          "Palpable, non-tender, firm orbital mass",
+          "Decreased ocular motility (ophthalmoplegia)",
+          "Pain is rare (only 10%), mimicking cellulitis",
+          "Late findings: Optic disc edema, choroidal folds"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Pediatric Proptosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Differential",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Orbital Cellulitis",
+              "Fever, leukocytosis, paranasal sinus opacification on CT, pain with movement."
+            ],
+            [
+              "Neuroblastoma Metastasis",
+              "Often bilateral, ecchymosis ('raccoon eyes'), adrenal primary on imaging."
+            ],
+            [
+              "Capillary Hemangioma",
+              "Usually present at birth/infancy, blanches with pressure, Valsalva increase."
+            ],
+            [
+              "Lymphangioma",
+              "Acute onset only if hemorrhage occurs ('chocolate cyst'), slow growth otherwise."
+            ],
+            [
+              "Idiopathic Orbital Inflammation",
+              "Pain is a hallmark, dramatic response to corticosteroids."
+            ],
+            [
+              "Chloroma (Leukemic Infiltrate)",
+              "Associated with AML, requires peripheral blood smear/marrow biopsy."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Urgent Imaging: CT (bone destruction) and MRI (soft tissue detail, T2 hyperintense).",
+          "2. Urgent Incisional Biopsy: Gold standard; avoid complete excision if it risks vital structures.",
+          "3. Immunohistochemistry: Test for Desmin, Myogenin, MyoD1, and Muscle-specific Actin.",
+          "4. Systemic Staging: Chest CT, Bone Scan, Bone Marrow Aspiration, and Lumbar Puncture (for parameningeal).",
+          "5. Pre-treatment Labs: CBC, LFTs, Renal function (baseline for chemotherapy)."
+        ]
+      },
+      {
+        "title": "IRS Clinical Grouping System",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Group",
+            "Extent of Disease"
+          ],
+          "rows": [
+            [
+              "Group I",
+              "Localized disease, completely resected"
+            ],
+            [
+              "Group II",
+              "Microscopic residual disease after surgery"
+            ],
+            [
+              "Group III",
+              "Incomplete resection or biopsy only (Most common)"
+            ],
+            [
+              "Group IV",
+              "Distant metastasis at diagnosis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Strategy (IRS Protocols)",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Biopsy to confirm diagnosis and subtype.",
+          "Step 2: Debulking surgery only if vision/nerves are not compromised.",
+          "Step 3: Chemotherapy (VAC Regime) for 6–12 months.",
+          "Step 4: Radiotherapy (External Beam) for Groups II, III, and IV.",
+          "Step 5: Orbital Exenteration (Reserved for resistant or recurrent cases)."
+        ]
+      },
+      {
+        "title": "The 'VAC' Chemotherapy Regimen",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Vincristine: Mitotic inhibitor (microtubule disruption).",
+          "Actinomycin D (Dactinomycin): RNA synthesis inhibitor.",
+          "Cyclophosphamide: Alkylating agent (DNA cross-linking).",
+          "Orbital RMS is exquisitely chemosensitive."
+        ]
+      },
+      {
+        "title": "EMERGENCY: RED FLAGS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapidly increasing proptosis over 24-48 hours",
+          "New onset ophthalmoplegia in a child",
+          "Evidence of bony erosion on CT scan",
+          "Presence of 'raccoon eyes' (suggests metastatic neuroblastoma or RMS)",
+          "Distant metastases to lungs or bone (check for respiratory distress or bone pain)"
+        ]
+      },
+      {
+        "title": "Histopathology Memory Aid",
+        "icon": "menu_book",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "The 'M' Markers",
+          "explanation": "To confirm RMS, remember the M's: Myogenin (most specific), MyoD1 (very sensitive), and Muscle-Specific Actin (MSA). These confirm the cell is trying to become a muscle cell."
+        }
+      },
+      {
+        "title": "Survival Rates by Site/Type",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Orbital Embryonal (5-yr)",
+              "value": 95
+            },
+            {
+              "label": "Orbital Alveolar (5-yr)",
+              "value": 75
+            },
+            {
+              "label": "Parameningeal RMS",
+              "value": 65
+            },
+            {
+              "label": "Metastatic Disease",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Surgical Principles",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Primary goal: Tissue for diagnosis and IHC.",
+          "Avoid Exenteration as primary therapy (no survival benefit over chemo/RT).",
+          "Incisional biopsy is preferred over fine-needle aspiration (FNA) for architecture.",
+          "Lid-sparing approaches where possible."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Boards",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Embryonal is 'Everyone' (most common) and occurs 'Everywhere' (but favors superonasal).",
+          "Alveolar is 'Awful' (worse prognosis) and occurs 'At the bottom' (inferior orbit).",
+          "RMS is the most common pediatric orbital primary, but Metastatic Neuroblastoma is the most common pediatric orbital secondary.",
+          "Cross-striations on H&E are found in only ~50-60% of cases; IHC is necessary.",
+          "Radiation doses are typically 40-50 Gy, but can cause late complications like cataract, dry eye, and orbital hypoplasia."
+        ]
+      },
+      {
+        "title": "Complications & Long-term Follow-up",
+        "icon": "history",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Radiation-induced cataract (near 100% within years).",
+          "Radiation keratopathy and severe xerophthalmia.",
+          "Orbital bone growth arrest (facial asymmetry).",
+          "Secondary malignancies (Osteosarcoma) in the radiation field.",
+          "Infertility or secondary leukemia from alkylating agents (Cyclophosphamide)."
+        ]
+      },
+      {
+        "title": "Landmark Studies: IRS I to IV",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "The Intergroup Rhabdomyosarcoma Studies (IRS) have shown that orbital RMS has a 'favorable site' prognosis. IRS-IV established that pulsed VAC chemotherapy is highly effective and that local control is best achieved with 45-50.4 Gy radiation for residual disease. Current COG (Children's Oncology Group) trials aim to reduce toxicity by lowering radiation doses in specific 'low-risk' embryonal cohorts."
+      }
+    ],
+    "generationPrompt": "rhabdomyosarcoma",
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "_newlyImported": 1775044652268,
+  "communityId": "sub_1774723521664_j6fjno5ig",
+  "communityAuthor": "nemo",
+  "communityDate": "2026-03-28T18:45:21.664Z"
+}

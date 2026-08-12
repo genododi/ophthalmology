@@ -1,0 +1,266 @@
+{
+  "id": 1775044695261,
+  "seqId": 457,
+  "title": "Accommodative Esotropia: A Clinical Masterclass",
+  "summary": "Accommodative Esotropia (AE) is the most common form of pediatric strabismus, occurring when the effort to overcome hyperopia triggers excessive convergence. This guide covers the diagnosis, physiological mechanisms, and evidence-based management of refractive, non-refractive, and mixed subtypes.",
+  "date": "2026-04-01T11:58:15.261Z",
+  "data": {
+    "title": "Accommodative Esotropia: A Clinical Masterclass",
+    "summary": "Accommodative Esotropia (AE) is the most common form of pediatric strabismus, occurring when the effort to overcome hyperopia triggers excessive convergence. This guide covers the diagnosis, physiological mechanisms, and evidence-based management of refractive, non-refractive, and mixed subtypes.",
+    "summary_illustration": "<svg viewBox='0 0 200 120' xmlns='http://www.w3.org/2000/svg'><circle cx='60' cy='60' r='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M60 60 L140 30' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/><path d='M60 60 L140 90' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/><circle cx='60' cy='60' r='5' fill='hsl(215, 90%, 45%)'/><path d='M100 20 Q110 60 100 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><text x='115' y='65' font-family='Arial' font-size='10' fill='hsl(215, 90%, 45%)'>Convergent Axis</text></svg>",
+    "sections": [
+      {
+        "title": "Definition & Core Concept",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Accommodative Esotropia is a convergent deviation associated with the activation of the accommodation reflex. It is rooted in Donders' theory, which posits that hyperopes must accommodate to clear their vision, even at distance, thereby triggering the neurologically linked accommodative convergence (AC)."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence in Population",
+              "value": 2
+            },
+            {
+              "label": "Avg. Age of Onset (2-3 yrs)",
+              "value": 85
+            },
+            {
+              "label": "Family History Positive",
+              "value": 75
+            },
+            {
+              "label": "Amblyopia Comorbidity",
+              "value": 35
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Triad",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Near Reflex Triad",
+          "branches": [
+            "Accommodation (Ciliary Muscle Contraction)",
+            "Convergence (Medial Recti Activation)",
+            "Miosis (Pupillary Constriction)",
+            "High Hyperopia (+2.00 to +7.00D)",
+            "AC/A Ratio (Accommodative Convergence to Accommodation)"
+          ]
+        }
+      },
+      {
+        "title": "Classification of Accommodative ET",
+        "icon": "format_list_bulleted",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Mechanism",
+            "Clinical Profile"
+          ],
+          "rows": [
+            [
+              "Refractive",
+              "Uncorrected Hyperopia + Normal AC/A",
+              "Aligned with full plus correction at all distances."
+            ],
+            [
+              "Non-Refractive",
+              "High AC/A Ratio",
+              "ET at near significantly greater than distance (>10 PD diff)."
+            ],
+            [
+              "Mixed / Combined",
+              "Hyperopia + High AC/A Ratio",
+              "Requires full plus AND bifocal add for alignment."
+            ],
+            [
+              "Partial / Decompensated",
+              "Residual manifest ET",
+              "Remains esotropic even with full hyperopic correction."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The AC/A Ratio: Calculation Methods",
+        "icon": "calculate",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Gradient Method: Change in deviation (PD) / Change in lens power (D). Normal is 3-5:1.",
+          "2. Heterophoria Method: AC/A = IPD(cm) + [ (Dn - Df) / Acc_Demand ].",
+          "3. Clinical Rule: Difference of >10 PD between distance and near suggests High AC/A."
+        ]
+      },
+      {
+        "title": "Mandatory Ocular Examination",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Cycloplegic Refraction: Mandatory. Use 1% Atropine (BID x 3 days) or 1% Cyclopentolate.",
+          "Cover Test: Prisms and alternate cover at 6m and 33cm using accommodative targets.",
+          "Sensory Testing: Titmus/Randot stereoacuity and Worth 4-Dot.",
+          "Fundus Exam: Rule out sensory causes of ET (e.g., Retinoblastoma, Macular Scar).",
+          "Dilation: Check for optic nerve hypoplasia or morning glory disc."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Infantile Esotropia",
+              "Onset <6 months, large stable angle, latent nystagmus."
+            ],
+            [
+              "Sensory Esotropia",
+              "Poor VA in one eye (cataract, retinal disease)."
+            ],
+            [
+              "6th Nerve Palsy",
+              "Incomitant deviation, worsens on abduction, often traumatic/viral."
+            ],
+            [
+              "Cyclic Esotropia",
+              "Regular 24-48 hour clockwork cycles of ET and orthophoria."
+            ],
+            [
+              "Divergence Insufficiency",
+              "ET greater at distance, common in older adults/neuro cases."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Full Cycloplegic Hyperopic Correction. Do NOT cut the plus.",
+          "Step 2: Amblyopia Treatment. Patching or Atropine penalization of the sound eye.",
+          "Step 3: Evaluate High AC/A. If ET remains at near with distance glasses, add +2.50 to +3.00D bifocals.",
+          "Step 4: Surgical Intervention. Indicated only for the non-accommodative component (Partial ET)."
+        ]
+      },
+      {
+        "title": "Bifocal Management in High AC/A",
+        "icon": "eyeglasses",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Prescribe: Flat-top 35 or Executive (bisecting the pupil) to ensure child uses it.",
+          "Strength: Lowest plus that aligns the eyes at near (usually +2.50 or +3.00).",
+          "Tapering: Consider 'weaning' plus after age 8-10 as the AC/A ratio naturally improves."
+        ]
+      },
+      {
+        "title": "Surgical Protocols",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Goal: Correct the 'residual' manifest deviation with full glasses on.",
+          "Procedure: Bilateral Medial Rectus Recession (BMR).",
+          "Dosing: Use the 'Parks' table or similar for the manifest residual angle.",
+          "Caution: Overcorrection leads to consecutive Exotropia (XT), especially in kids with high hyperopia."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Amblyopia: 35-50% risk if treatment is delayed.",
+          "Consecutive XT: Risk increases if surgery is too aggressive or hyperopia regresses.",
+          "Sensory Outcome: Excellent prognosis for stereopsis if aligned early.",
+          "Loss of Binocularity: If 'Partial ET' is not addressed, permanent suppression scotoma develops."
+        ]
+      },
+      {
+        "title": "Red Flags: When to Worry",
+        "icon": "report",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Incomitant Deviation (suggests palsy or restrictive process)",
+          "Abnormal Optic Nerve Appearance",
+          "Associated Neurological Signs (Ataxia, Papilledema)",
+          "Sudden Onset in an older child without refractive error"
+        ]
+      },
+      {
+        "title": "Mnemonic for Classification",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "R.N.M.P.",
+          "explanation": "Refractive (Total correction), Non-Refractive (High AC/A), Mixed (Both), Partial (Surgery needed for residual)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "NEVER cut the plus in accommodative ET; the brain needs the full correction to relax convergence.",
+          "Bifocal lines must be high (mid-pupil) in children, unlike adults.",
+          "Always check for a 'small angle' residual ET which can cause monofixation syndrome.",
+          "Repeat cycloplegia every 6 months as hyperopia may increase in early childhood."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The PEDIG (Pediatric Eye Disease Investigator Group) studies have solidified the role of Atropine penalization as equal to patching for moderate amblyopia. Recent studies on the 'Natural History of Accommodative ET' suggest that many children can be successfully weaned off bifocals as they enter teenage years due to a physiological decrease in the AC/A ratio."
+      }
+    ],
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "_newlyImported": 1775044695261,
+  "communityId": "sub_1774116371683_2rdhdokv4",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-21T18:06:11.683Z"
+}

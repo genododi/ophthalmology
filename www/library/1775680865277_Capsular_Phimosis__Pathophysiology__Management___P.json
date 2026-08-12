@@ -1,0 +1,332 @@
+{
+  "id": 1775680865277,
+  "seqId": 768,
+  "title": "Capsular Phimosis: Pathophysiology, Management & Prevention",
+  "summary": "Capsular Phimosis (Capsulorhexis Contraction Syndrome) is the centripetal constriction of the anterior capsulorhexis opening following cataract surgery. This comprehensive guide covers the molecular mechanisms, high-risk populations, and advanced management strategies for ophthalmology residents and fellows.",
+  "date": "2026-04-08T20:41:05.277Z",
+  "data": {
+    "title": "Capsular Phimosis: Pathophysiology, Management & Prevention",
+    "summary": "Capsular Phimosis (Capsulorhexis Contraction Syndrome) is the centripetal constriction of the anterior capsulorhexis opening following cataract surgery. This comprehensive guide covers the molecular mechanisms, high-risk populations, and advanced management strategies for ophthalmology residents and fellows.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4' stroke-dasharray='4 2'/><path d='M50 25 L50 35 M50 65 L50 75 M25 50 L35 50 M65 50 L75 50' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M35 35 L42 42 M58 58 L65 65 M35 65 L42 58 M58 42 L65 35' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Capsular phimosis is the fibrotic contraction of the anterior capsulorhexis opening (ACO) following Phacoemulsification. It results from the metaplasia and proliferation of residual lens epithelial cells (LECs) into myofibroblasts, which exert centripetal contractile forces on the capsular bag. While mild contraction is common, severe phimosis can lead to IOL decentration, zonular dialysis, and significant visual impairment."
+      },
+      {
+        "title": "Prevalence by Predisposing Condition",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Pseudoexfoliation",
+              "value": 85
+            },
+            {
+              "label": "Retinitis Pigmentosa",
+              "value": 70
+            },
+            {
+              "label": "High Myopia",
+              "value": 55
+            },
+            {
+              "label": "Diabetes Mellitus",
+              "value": 40
+            },
+            {
+              "label": "Uveitis",
+              "value": 65
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Risk Factors",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Pseudoexfoliation Syndrome (PEX): Weak zonules fail to counteract contractile forces.",
+          "Small Capsulorhexis: Openings <5.0mm are significantly more prone to phimosis.",
+          "IOL Material: Silicone lenses (especially 3-piece) show higher rates than hydrophobic acrylic.",
+          "Chronic Inflammation: Uveitis increases cytokine release (TGF-beta).",
+          "Myotonic Dystrophy & Retinitis Pigmentosa: Associated with early and severe contraction.",
+          "Inadequate Cortical Cleanup: Residual LECs are the primary engine of fibrosis."
+        ]
+      },
+      {
+        "title": "The Pathophysiological Cascade",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Surgical trauma triggers cytokine release (TGF-β, IL-1, IL-6) into the aqueous humor.",
+          "Step 2: Residual A-cells (Lens Epithelial Cells) migrate from the equatorial region to the anterior capsule margin.",
+          "Step 3: Epithelial-Mesenchymal Transition (EMT) converts LECs into myofibroblasts.",
+          "Step 4: Expression of α-smooth muscle actin (α-SMA) within myofibroblasts.",
+          "Step 5: Coordinated centripetal contraction of the fibrotic membrane, reducing the ACO diameter."
+        ]
+      },
+      {
+        "title": "Classification by ACO Reduction",
+        "icon": "layers",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Grade",
+            "Reduction in ACO Diameter",
+            "Clinical Significance"
+          ],
+          "rows": [
+            [
+              "Mild",
+              "< 25% reduction",
+              "Usually asymptomatic; monitor."
+            ],
+            [
+              "Moderate",
+              "25% - 50% reduction",
+              "Glare, photopsia, possible IOL tilt."
+            ],
+            [
+              "Severe",
+              "> 50% reduction",
+              "Significant visual loss, zonular stress, RD risk."
+            ],
+            [
+              "Total",
+              "Near-complete occlusion",
+              "Aphakia-like vision, high risk of IOL dislocation."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "PCO",
+              "Opacity of the posterior capsule, not the rhexis edge."
+            ],
+            [
+              "IOL Calcification",
+              "Surface deposits on the IOL optic, often hydrophilic acrylic."
+            ],
+            [
+              "Soemmering's Ring",
+              "Peripheral lens material sequestration, doesn't constrict ACO."
+            ],
+            [
+              "Primary Zonular Dialysis",
+              "Lens tilt without obvious rhexis fibrosis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Clinical Signs",
+          "branches": [
+            "Thickened, white opacified rhexis margin",
+            "Centripetal 'purse-string' contraction",
+            "Zonular elongation or dialysis (visible on gonioscopy)",
+            "IOL tilt or decentration (Pseudo-phacodonesis)",
+            "Retinal traction (in extreme cases)",
+            "Induced astigmatism (due to IOL tilt)"
+          ]
+        }
+      },
+      {
+        "title": "URGENT RED FLAGS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Progressive IOL Decentration: Indicates asymmetric zonular failure.",
+          "Sunset Syndrome: Inferior subluxation of the IOL/capsular bag complex.",
+          "Anterior Displacement of IOL: Causes a 'myopic shift' and shallowing of the anterior chamber.",
+          "Vitreous in the Anterior Chamber: Sign of frank zonular dialysis.",
+          "Peripheral Retinal Tears: Resulting from excessive centripetal traction on the vitreous base."
+        ]
+      },
+      {
+        "title": "Neodymium:YAG Laser Management",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Dilate the pupil fully to visualize the fibrotic edge.",
+          "2. Apply topical anesthesia (e.g., Proparacaine).",
+          "3. Use a YAG-laser offset of 0 to +100μm.",
+          "4. Energy: 1.2 – 2.5 mJ per pulse.",
+          "5. Create 4 to 6 radial relaxing incisions (Cruciate pattern).",
+          "6. Post-op: Topical NSAIDs or Steroids for 3-5 days; monitor IOP."
+        ]
+      },
+      {
+        "title": "YAG Laser Pearl: The 'Relaxing' Incision",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "RADIAL",
+          "explanation": "R-adial incisions (4-6), A-void IOL pits, D-iameter expansion goal, I-ncremental energy, A-ssess zonules, L-ower IOP monitoring."
+        }
+      },
+      {
+        "title": "Surgical Intervention (Advanced Cases)",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Manual Capsulectomy: Use micro-scissors (Vannas) to excise the fibrotic ring.",
+          "Plasma Blade (Fugo Blade): High-frequency cutting to reopen the ACO.",
+          "IOL Exchange: Required if the IOL is severely damaged or permanently decentered.",
+          "Scleral Fixation: If zonular loss is >4 clock hours, the bag-IOL complex may require sutured fixation (Gore-Tex or Yamane)."
+        ]
+      },
+      {
+        "title": "Intraoperative Prevention Strategies",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Optimal Rhexis Size: Aim for 5.5mm to 6.0mm (never <5.0mm).",
+          "Capsular Polishing: Thoroughly polish the underside of the anterior capsule to remove A-cells.",
+          "IOL Selection: Choose hydrophobic acrylic with sharp square edges.",
+          "Capsular Tension Ring (CTR): Distributes contractile forces; essential in PEX patients.",
+          "Large Optic IOLs: 6.0mm optics provide more mechanical resistance to contraction than 5.0mm optics."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Early intervention is easier: YAG is much more effective before the fibrosis becomes 'woody'.",
+          "Zonular check: If you see the IOL 'shaking' during YAG, the zonules are already compromised.",
+          "The 'Aqueous Outflow' theory: Chronic inflammation leads to higher levels of TGF-beta in the aqueous, fueling the myofibroblasts.",
+          "In RP patients, perform prophylactic YAG relaxing incisions 1-month post-op if contraction is seen."
+        ]
+      },
+      {
+        "title": "Prognosis & Outcomes",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "With timely YAG laser anterior capsulotomy, the visual prognosis is excellent. The ACO usually remains stable after radial incisions are made. However, if zonular dialysis has already occurred, the patient may face long-term risks of IOL subluxation requiring complex vitreoretinal intervention."
+      },
+      {
+        "title": "Mnemonic: Risk Factors",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "S-M-A-L-L",
+          "explanation": "S-ilicone IOLs, M-yopia/Myotonic Dystrophy, A-dvanced PEX, L-ow zonular integrity, L-imited (Small) Rhexis."
+        }
+      }
+    ],
+    "generationPrompt": "Capsular phimosis",
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 332,
+      "keywords": [
+        "iol",
+        "capsular",
+        "lens",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 323,
+      "keywords": [
+        "iol",
+        "capsular",
+        "lens",
+        "risk",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 339,
+      "keywords": [
+        "iol",
+        "capsular",
+        "lens",
+        "condition",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 337,
+      "keywords": [
+        "iol",
+        "capsular",
+        "lens",
+        "differential",
+        "laser"
+      ]
+    },
+    {
+      "pageNum": 341,
+      "keywords": [
+        "iol",
+        "capsular",
+        "lens",
+        "risk",
+        "factors"
+      ]
+    },
+    {
+      "pageNum": 321,
+      "keywords": [
+        "iol",
+        "capsular",
+        "lens",
+        "risk",
+        "ocular"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,333 @@
+{
+  "id": 1775047006244,
+  "seqId": 523,
+  "title": "Acute Visual Loss: The Clinical Triage Masterclass",
+  "summary": "Sudden loss of vision (SLOV) is a high-stakes ophthalmic emergency defined by vision loss occurring within seconds to 24 hours. This guide provides a systematic approach to differentiating painful from painless etiologies to ensure sight-saving and life-saving interventions.",
+  "date": "2026-04-01T12:36:46.244Z",
+  "data": {
+    "title": "Acute Visual Loss: The Clinical Triage Masterclass",
+    "summary": "Sudden loss of vision (SLOV) is a high-stakes ophthalmic emergency defined by vision loss occurring within seconds to 24 hours. This guide provides a systematic approach to differentiating painful from painless etiologies to ensure sight-saving and life-saving interventions.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M60 100 L140 100 M100 60 L100 140' stroke='hsl(215, 90%, 45%)' stroke-width='4' stroke-linecap='round'/><path d='M40 100 Q100 20 160 100 Q100 180 40 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='6'/><circle cx='100' cy='100' r='20' fill='hsl(215, 90%, 45%)'/><path d='M100 40 L100 25 M145 55 L155 45 M160 100 L175 100 M145 145 L155 155 M100 160 L100 175' stroke='red' stroke-width='4' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Temporal Triage",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Sudden Vision Loss (SLOV) describes a subjective decrease in vision reaching its peak within 24 hours. The primary clinical bifurcation is based on the presence or absence of PAIN. Painless loss suggests vascular, retinal, or neuro-ophthalmic causes, while painful loss often points to the anterior segment, glaucoma, or inflammatory processes."
+      },
+      {
+        "title": "Incidence of Major Etiologies",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "NAION",
+              "value": 85
+            },
+            {
+              "label": "Retinal Detachment",
+              "value": 60
+            },
+            {
+              "label": "CRVO",
+              "value": 50
+            },
+            {
+              "label": "Vitreous Heme",
+              "value": 45
+            },
+            {
+              "label": "CRAO",
+              "value": 15
+            },
+            {
+              "label": "GCA (AAION)",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Painless vs. Painful Dichotomy",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Sudden Vision Loss",
+          "branches": [
+            "Painless: Vascular (CRAO, CRVO, NAION)",
+            "Painless: Retinal (RD, Vitreous Heme, Wet AMD)",
+            "Painless: Transient (Amaurosis Fugax, Migraine)",
+            "Painful: Anterior (AACG, Uveitis, Keratitis)",
+            "Painful: Posterior (Optic Neuritis, Scleritis)",
+            "Painful: Systemic (GCA - Headache/Claudication)"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Painless Vision Loss",
+        "icon": "table",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Clinical Features",
+            "Fundus Findings",
+            "Key Investigation"
+          ],
+          "rows": [
+            [
+              "CRAO",
+              "Seconds onset, profound loss (CF/HM)",
+              "Cherry red spot, retinal whitening",
+              "Carotid Doppler / Echo"
+            ],
+            [
+              "CRVO",
+              "Subacute onset, 'Blood & Thunder'",
+              "Tortuous veins, flame hemorrhages",
+              "OCT Macula / FFA"
+            ],
+            [
+              "NAION",
+              "Altitudinal defect, 'Disc at risk'",
+              "Segmental disc edema, splinter heme",
+              "Visual Fields (HVF)"
+            ],
+            [
+              "Retinal Detachment",
+              "Flashes, floaters, 'curtain' closing",
+              "Elevated corrugated retina",
+              "B-Scan Ultrasound"
+            ],
+            [
+              "Vitreous Heme",
+              "Floaters, hazy view to fundus",
+              "Acellular blood in vitreous",
+              "B-Scan (to rule out RD)"
+            ],
+            [
+              "Wet AMD",
+              "Metamorphopsia, central scotoma",
+              "Subretinal fluid/heme",
+              "OCT / FFA"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Painful Vision Loss",
+        "icon": "table",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Pain Character",
+            "Associated Signs",
+            "Immediate Action"
+          ],
+          "rows": [
+            [
+              "Acute Angle Closure",
+              "Severe, periorbital + Nausea",
+              "Mid-dilated pupil, high IOP, hazy cornea",
+              "LPI / Pressure lowering"
+            ],
+            [
+              "Optic Neuritis",
+              "Pain with eye movement",
+              "RAPD, decreased color vision",
+              "MRI Brain / Orbits"
+            ],
+            [
+              "Giant Cell Arteritis",
+              "Headache, Jaw claudication",
+              "Pale disc edema (AAION), tender temples",
+              "High-dose Steroids + ESR/CRP"
+            ],
+            [
+              "Endophthalmitis",
+              "Severe, post-surgical/trauma",
+              "Hypopyon, vitreous cells, chemosis",
+              "Intravitreal Antibiotics"
+            ],
+            [
+              "Posterior Scleritis",
+              "Boring, deep ache",
+              "T-sign on USG, restricted motility",
+              "Systemic NSAIDs / Steroids"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Critical Red Flags (GCA & Vascular)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Scalp tenderness or Jaw claudication (GCA Emergency)",
+          "Profound vision loss (NPL/PL) in a white eye (CRAO/GCA)",
+          "Bilateral sudden loss (Cortical blindness or GCA)",
+          "New onset flashes and floaters (RD/Tear)",
+          "Third Nerve Palsy with pupillary involvement (Aneurysm)"
+        ]
+      },
+      {
+        "title": "RAPD Logic: Localizing the Lesion",
+        "icon": "lightbulb",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. RAPD Present + Clear Media: Optic Nerve (ON) lesion or extensive RD.",
+          "2. RAPD Present + Opaque Media: Large RD or Vitreous Heme.",
+          "3. RAPD Absent + Dense Vision Loss: Macular pathology or Functional loss.",
+          "4. RAPD Absent + Mild Loss: Refractive error or mild Maculopathy."
+        ]
+      },
+      {
+        "title": "Mnemonic: V-I-S-I-O-N Loss",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "V.I.S.I.O.N.",
+          "explanation": "V: Vascular (CRAO/CRVO/GCA); I: Inflammatory (Optic Neuritis/Uveitis); S: Structural (RD/Heme); I: IOP (AACG); O: Optical (Cornea/Lens changes); N: Neurological (Stroke/Cortex)."
+        }
+      },
+      {
+        "title": "Immediate Management: CRAO (The 90-Min Window)",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Digital Massage: Dislodge embolus.",
+          "2. IOP Lowering: IV Acetazolamide (500mg) or Paracentesis.",
+          "3. Carbogen/Paper Bag: Induce hypercapnia (vasodilation).",
+          "4. Immediate Neurology/Stroke Team consultation.",
+          "5. Rule out GCA: Stat ESR/CRP if age > 50."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Algorithm",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: VA, IOP, and Pupil exam (Check for RAPD).",
+          "Step 2: Slit lamp exam (Corneal clarity, AC cells/hypopyon, Gonioscopy).",
+          "Step 3: Dilated fundus exam (Look for disc edema, cherry red spot, blood, or RD).",
+          "Step 4: If media is hazy (dense cataract/heme), perform B-Scan Ultrasound.",
+          "Step 5: Ancillary Imaging: OCT for macula/ONH, FFA for vascular occlusion.",
+          "Step 6: Systemic screen: BP, Pulse (A-fib), Carotid auscultation, ESR/CRP."
+        ]
+      },
+      {
+        "title": "Classification of Retinal Vein Occlusion (CRVO)",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Non-Ischemic (Perfused)",
+            "Ischemic (Non-Perfused)"
+          ],
+          "rows": [
+            [
+              "Vision",
+              "Usually > 20/200",
+              "Usually < 20/200"
+            ],
+            [
+              "RAPD",
+              "Absent or Mild",
+              "Marked RAPD"
+            ],
+            [
+              "FFA",
+              "< 10 disc areas drop-out",
+              "> 10 disc areas capillary drop-out"
+            ],
+            [
+              "Prognosis",
+              "Good (50% improve)",
+              "Poor (High NVG risk)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The 'Disc at Risk' (NAION vs AAION)",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "NAION: Painless, sectoral edema, small C/D ratio in fellow eye (disc at risk).",
+          "AAION (GCA): Painful (headache), chalky-white edema, systemic malaise.",
+          "Clinical Pearl: Every patient >55 with sudden vision loss and disc edema is GCA until proven otherwise."
+        ]
+      },
+      {
+        "title": "Landmark Studies: The Evidence Base",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "ONTT (Optic Neuritis Treatment Trial): IV methylprednisolone speeds recovery but doesn't change final VA outcome vs placebo.",
+          "SCORE/BRAVO/CRUISE: Established anti-VEGF (Ranibizumab/Aflibercept) as gold standard for RVO macular edema.",
+          "EAGLE Study: Early lens extraction is superior to LPI for primary angle closure with high IOP.",
+          "CVOS (Central Vein Occlusion Study): PRP indicated only when neovascularization develops (360-degree)."
+        ]
+      },
+      {
+        "title": "Surgical Intervention Triggers",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Rhegmatogenous RD: Immediate surgery (Pars Plana Vitrectomy or Scleral Buckle).",
+          "Vitreous Heme with RD: Urgent Vitrectomy.",
+          "Non-clearing Vitreous Heme: Elective Vitrectomy after 1-3 months.",
+          "Endophthalmitis: Tap and Inject (EVS Study protocols)."
+        ]
+      },
+      {
+        "title": "Recent Advances: The Future of SLOV",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Tenecteplase for CRAO: Ongoing trials for intra-arterial vs intravenous thrombolysis within 4.5h.",
+          "AI-Driven Fundus Screening: Immediate diagnosis of CRVO/CRAO via smartphone imaging.",
+          "Neuroprotection: Investigational agents for RGC survival in ischemic events."
+        ]
+      }
+    ],
+    "generationPrompt": "Sudden painless vs painful loss of vision",
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "read": true
+}

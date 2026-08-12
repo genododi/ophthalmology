@@ -1,0 +1,299 @@
+{
+  "id": 1775117764149,
+  "seqId": 547,
+  "title": "Multisystem Uveitis: The Diagnostic Puzzle",
+  "summary": "An 18-year-old female presenting with recurrent red eye, cough, arthralgia, oral ulcers, and skin nodules suggests a complex systemic inflammatory syndrome. This clinical picture primarily points toward Behçet’s Disease or Sarcoidosis, requiring a rigorous multidisciplinary workup to prevent irreversible ocular and systemic morbidity.",
+  "date": "2026-04-02T08:16:04.149Z",
+  "data": {
+    "title": "Multisystem Uveitis: The Diagnostic Puzzle",
+    "summary": "An 18-year-old female presenting with recurrent red eye, cough, arthralgia, oral ulcers, and skin nodules suggests a complex systemic inflammatory syndrome. This clinical picture primarily points toward Behçet’s Disease or Sarcoidosis, requiring a rigorous multidisciplinary workup to prevent irreversible ocular and systemic morbidity.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='35' r='15' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='35' r='6' fill='hsl(215, 90%, 45%)'/><path d='M30 70 Q50 90 70 70' stroke='hsl(215, 90%, 45%)' stroke-width='3' fill='none'/><path d='M40 55 L35 75 M60 55 L65 75' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><rect x='42' y='75' width='16' height='8' rx='2' fill='hsl(0, 80%, 60%)' opacity='0.7'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Case Synthesis & Overview",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The constellation of recurrent uveitis, aphthous stomatitis (oral ulcers), polyarthritis, and erythema nodosum (skin nodules) in a young adult is a classic presentation for Behçet’s Disease (BD). However, the presence of a cough necessitates the exclusion of Sarcoidosis, Tuberculosis, and Granulomatosis with Polyangiitis (GPA). In ophthalmology, these systemic diseases manifest as sight-threatening panuveitis or retinal vasculitis."
+      },
+      {
+        "title": "Primary Differential Diagnosis Matrix",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Behçet’s Disease",
+            "Sarcoidosis",
+            "SLE",
+            "GPA (Wegener's)"
+          ],
+          "rows": [
+            [
+              "Oral Ulcers",
+              "Universal, painful, recurrent",
+              "Rare",
+              "Painless, palatal",
+              "Painful, strawberry gingivitis"
+            ],
+            [
+              "Eye Findings",
+              "Transient hypopyon, Occlusive vasculitis",
+              "Mutton-fat KPs, String of pearls",
+              "Cotton wool spots, Scleritis",
+              "Scleritis, Orbital pseudotumor"
+            ],
+            [
+              "Skin Nodules",
+              "Erythema Nodosum, Pustules",
+              "Erythema Nodosum, Lupus Pernio",
+              "Malar rash, Discoid lesions",
+              "Purpura, Ulcerations"
+            ],
+            [
+              "Lung/Cough",
+              "Pulmonary artery aneurysms",
+              "Hilar adenopathy, Fibrosis",
+              "Pleuritis, Pneumonitis",
+              "Cavitary nodules, Hemoptysis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Genetic Markers",
+        "icon": "genetics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "HLA-B51 (Behçet)",
+              "value": 60
+            },
+            {
+              "label": "HLA-DRB1 (Sarcoid)",
+              "value": 45
+            },
+            {
+              "label": "Silk Road Ancestry",
+              "value": 85
+            },
+            {
+              "label": "Female Predominance (SLE)",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "International Criteria for Behçet's (ICBD)",
+        "icon": "rule",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Oral Aphthosis (Mandatory in older criteria): 2 points",
+          "Genital Aphthosis: 2 points",
+          "Ocular Lesions (Uveitis/Vasculitis): 2 points",
+          "Skin Lesions (Pseudofolliculitis/Nodules): 1 point",
+          "Neurological Manifestations: 1 point",
+          "Vascular Manifestations: 1 point",
+          "Positive Pathergy Test: 1 point (optional)",
+          "Diagnosis: Score ≥ 4 points is diagnostic."
+        ]
+      },
+      {
+        "title": "Ocular Examination: The 'Red Eye'",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Behçet's Panuveitis",
+          "branches": [
+            "Shifting/Transient Hypopyon (Non-granulomatous)",
+            "Diffuse Vitritis (Cloudy media)",
+            "Occlusive Retinal Vasculitis (Arteries + Veins)",
+            "Recurrent Retinal Hemorrhages",
+            "Optic Disc Hyperemia/Edema",
+            "Macular Edema (CME)"
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Neutrophilic Blitz",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Behçet's is an autoinflammatory vasculitis. It is characterized by hyperactive neutrophils and Th1/Th17 mediated response. Unlike Sarcoidosis, which is granulomatous, Behçet's features a sterile, neutrophilic infiltration leading to tissue necrosis and vascular occlusion."
+      },
+      {
+        "title": "Red Flags: Ocular Emergencies",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden, painless vision loss (Central Retinal Artery Occlusion)",
+          "Thunderclap headache (Dural Sinus Thrombosis)",
+          "Severe hemoptysis (Pulmonary Artery Aneurysm Rupture)",
+          "Numbness/Weakness (Neuro-Behçet's)",
+          "Hypopyon with severe pain (Endophthalmitis Mimic)"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup: Step-by-Step",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Baseline Labs - CBC (Leukocytosis), ESR/CRP (Elevated), ANA/RF (Exclude SLE/RA).",
+          "Step 2: Pathergy Test - Prick forearm with 20G needle; read at 48h for sterile pustule.",
+          "Step 3: Imaging - Chest X-Ray or HRCT Chest (Look for Hilar Adenopathy for Sarcoid).",
+          "Step 4: Ocular Imaging - Fluorescein Angiography (FA) to detect 'fern-like' leakage and capillary non-perfusion.",
+          "Step 5: Ancillary Ocular - OCT for Macular Edema; ICG for choroidal involvement.",
+          "Step 6: Multidisciplinary Consult - Rheumatology and Pulmonology referral."
+        ]
+      },
+      {
+        "title": "Medical Management Protocol",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Severity",
+            "First-Line Therapy",
+            "Dose/Notes"
+          ],
+          "rows": [
+            [
+              "Anterior Uveitis",
+              "Topical Steroids + Cycloplegics",
+              "Prednisolone Acetate 1% q1h initially"
+            ],
+            [
+              "Posterior/Panuveitis",
+              "Systemic Corticosteroids",
+              "1mg/kg/day Oral Prednisone or IV Pulse"
+            ],
+            [
+              "Maintenance (IMT)",
+              "Azathioprine or Cyclosporine A",
+              "AZA: 2-3mg/kg; CSA: 2-5mg/kg (Monitor Kidney)"
+            ],
+            [
+              "Refractory/Severe",
+              "Biologics (Infliximab/Adalimumab)",
+              "Anti-TNF alpha agents are highly effective for BD"
+            ],
+            [
+              "Oral/Skin Lesions",
+              "Colchicine",
+              "0.6mg BID/TID; helps prevent recurrences"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Considerations",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Cataract Surgery: Delay until 3 months of complete quiescence.",
+          "Pars Plana Vitrectomy (PPV): Indicated for non-clearing vitreous hemorrhage or tractional RD.",
+          "Glaucoma: Often secondary to steroids or synechiae; may require tube shunts.",
+          "Intravitreal Implants: Ozurdex (Dexamethasone) can be used but risk of IOP spike."
+        ]
+      },
+      {
+        "title": "Remember: The 'BEHCETS' Mnemonic",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "BEHCETS",
+          "explanation": "B: Blood clots (Vasculitis); E: Erythema nodosum; H: Hypopyon (Shifting); C: CNS involvement; E: Eye (Panuveitis); T: Triad (Oral, Genital, Eye); S: Skin pathergy."
+        }
+      },
+      {
+        "title": "Clinical Pearls & Landmark Evidence",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Pearl: The Behçet's hypopyon is 'cold' and moves with head position, unlike the 'sticky' hypopyon of HLA-B27.",
+          "Evidence: The VISUAL I & II trials established Adalimumab as a steroid-sparing agent for non-infectious uveitis.",
+          "Pearl: Always check for genital ulcers; patients are often embarrassed to report them.",
+          "Observation: Retinal veins in Behçet's often show 'perivascular cuffing' and 'sheathing' early in the disease."
+        ]
+      },
+      {
+        "title": "Long-term Complications & Prognosis",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Macular Scarring",
+              "value": 40
+            },
+            {
+              "label": "Secondary Glaucoma",
+              "value": 30
+            },
+            {
+              "label": "Optic Atrophy",
+              "value": 25
+            },
+            {
+              "label": "Phthisis Bulbi (Late)",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Pulmonary Connection (Sarcoidosis Focus)",
+        "icon": "cardiology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Sarcoid Features",
+          "branches": [
+            "Bilateral Hilar Lymphadenopathy (BHL)",
+            "Elevated Serum ACE & Lysozyme",
+            "Granulomatous KPs (Mutton-fat)",
+            "Berlin's Nodules (Iris)",
+            "Snowballs/String of Pearls (Vitreous)"
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "18 y old female ; Recurrent red eye + cough+ joint pain + oral ulcers + skin nodules\n\nCauses & DDs",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

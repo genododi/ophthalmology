@@ -1,0 +1,285 @@
+{
+  "id": 1775044652718,
+  "seqId": 50,
+  "title": "Idiopathic Orbital Inflammatory Disease (IOID): The Great Mimicker",
+  "summary": "A comprehensive clinical guide to the diagnosis and management of non-specific orbital inflammation, characterized by acute pain, proptosis, and a dramatic response to corticosteroids. Often termed 'Orbital Pseudotumor,' it remains a diagnosis of exclusion requiring rigorous workup.",
+  "date": "2026-04-01T11:57:32.718Z",
+  "data": {
+    "title": "Idiopathic Orbital Inflammatory Disease (IOID): The Great Mimicker",
+    "summary": "A comprehensive clinical guide to the diagnosis and management of non-specific orbital inflammation, characterized by acute pain, proptosis, and a dramatic response to corticosteroids. Often termed 'Orbital Pseudotumor,' it remains a diagnosis of exclusion requiring rigorous workup.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 80 Q100 40 140 80 Q100 120 60 80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='100' cy='80' r='15' fill='hsl(215, 90%, 45%)'/><path d='M40 140 Q100 180 160 140' stroke='hsl(0, 80%, 50%)' stroke-width='8' fill='none' opacity='0.6'/><path d='M30 60 L170 140 M170 60 L30 140' stroke='hsl(0, 70%, 50%)' stroke-width='2' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Overview & Definition",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Idiopathic Orbital Inflammatory Disease (IOID) is a benign, non-infectious, space-occupying inflammatory process of the orbit that lacks an identifiable local or systemic cause. It is characterized histologically by a polymorphous infiltrate of inflammatory cells and varying degrees of fibrosis. It is the third most common orbital disease after Thyroid Eye Disease and Lymphoproliferative disorders."
+      },
+      {
+        "title": "Epidemiological Profile",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Adult Cases",
+              "value": 85
+            },
+            {
+              "label": "Pediatric Cases",
+              "value": 15
+            },
+            {
+              "label": "Bilateral (Adults)",
+              "value": 25
+            },
+            {
+              "label": "Bilateral (Children)",
+              "value": 50
+            }
+          ]
+        }
+      },
+      {
+        "title": "Anatomical Classification",
+        "icon": "account_tree",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Subtype",
+            "Target Tissue",
+            "Primary Clinical Signs"
+          ],
+          "rows": [
+            [
+              "Orbital Myositis",
+              "Extraocular Muscles",
+              "Pain on eye movement, diplopia, localized redness over muscle insertion."
+            ],
+            [
+              "Dacryoadenitis",
+              "Lacrimal Gland",
+              "S-shaped upper lid deformity, tenderness in superotemporal orbit."
+            ],
+            [
+              "Anterior IOID",
+              "Sclera, Tenon's, Globe",
+              "Uveitis, scleritis, disc edema, exudative retinal detachment."
+            ],
+            [
+              "Diffuse IOID",
+              "Entire Orbital Contents",
+              "Severe proptosis, chemosis, profound ophthalmoplegia."
+            ],
+            [
+              "Orbital Apex Syndrome",
+              "Posterior Orbit / Apex",
+              "Early vision loss (CN II), multiple CN palsies (III, IV, VI)."
+            ],
+            [
+              "Perineuritis",
+              "Optic Nerve Sheath",
+              "Disc edema, minimal vision loss initially, mimic of optic neuritis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology & Histology",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "IOID Mechanisms",
+          "branches": [
+            "T-cell mediated delayed hypersensitivity",
+            "IgG4-Related Disease (Sclerosing variant)",
+            "Polymorphous Infiltrate: Lymphocytes, Plasma cells, Eosinophils",
+            "Reactive fibrosis (Cytokine-driven)"
+          ]
+        }
+      },
+      {
+        "title": "Common Clinical Features",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Acute onset of periorbital pain (Classic Hallmark)",
+          "Proptosis (often non-axial depending on subtype)",
+          "Eyelid erythema and edema",
+          "Chemosis and conjunctival injection",
+          "Diplopia due to painful ophthalmoplegia",
+          "Decreased visual acuity (if apical or diffuse)"
+        ]
+      },
+      {
+        "title": "Radiological Diagnostic Signs",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "CT/MRI: Contrast enhancement of involved tissues",
+          "Myositis: Involvement of the muscle AND the tendon (Tendon-sparing = TED)",
+          "Molding: Mass often 'molds' to the shape of the globe without bone erosion",
+          "Sclerosing Variant: Low T1 and T2 signal intensity on MRI due to dense collagen",
+          "Perineuritis: 'Tram-track' enhancement around the optic nerve"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis (The Great Mimickers)",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Differential Dx",
+          "branches": [
+            "Thyroid Eye Disease (Painless, tendon-sparing)",
+            "Orbital Lymphoma (Painless, 'salmon-patch', older age)",
+            "Orbital Cellulitis (Fever, leukocytosis, sinusitis)",
+            "Granulomatosis with Polyangiitis (GPA/Wegener's)",
+            "Sarcoidosis (Granulomatous, bilateral lacrimal enlargement)",
+            "Metastatic Disease (Breast, Lung, Neuroblastoma)",
+            "Carotid-Cavernous Fistula (Bruit, corkscrew vessels)"
+          ]
+        }
+      },
+      {
+        "title": "Key Distinction: IOID vs. TED",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "IOID Myositis",
+            "Thyroid Eye Disease"
+          ],
+          "rows": [
+            [
+              "Pain",
+              "Frequent & Acute",
+              "Rare / Mild ache"
+            ],
+            [
+              "Tendon",
+              "Involved",
+              "Spared"
+            ],
+            [
+              "Involvement",
+              "Medial/Lateral Recti common",
+              "Inferior/Medial Recti common"
+            ],
+            [
+              "Onset",
+              "Sudden/Days",
+              "Chronic/Months"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The 'Red Flags' of IOID",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Bilateral involvement in adults (High risk of systemic disease/lymphoma)",
+          "Lack of response to systemic steroids within 48-72 hours",
+          "Evidence of bony destruction on CT (Suggests malignancy)",
+          "Numbness in V1/V2 distribution (Suggests perineural spread of tumor)",
+          "Fever and systemic malaise (Suggests infection or vasculitis)"
+        ]
+      },
+      {
+        "title": "Management & Treatment Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Diagnostic Workup (Imaging + Labs to rule out systemic causes).",
+          "Step 2: Observation or NSAIDs for very mild, localized cases.",
+          "Step 3: Systemic Corticosteroids (Prednisone 1.0–1.5 mg/kg/day). Dramatic improvement is diagnostic support.",
+          "Step 4: Slow Steroid Taper over 6-12 weeks to prevent rebound inflammation.",
+          "Step 5: Orbital Radiation (low dose, 10-20 Gy) if steroids are contraindicated or ineffective.",
+          "Step 6: Steroid-sparing agents (Methotrexate, Mycophenolate Mofetil, or Cyclosporine).",
+          "Step 7: Biologic agents (Rituximab for IgG4-RD or Infliximab for refractory cases)."
+        ]
+      },
+      {
+        "title": "Indications for Orbital Biopsy",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Atypical clinical presentation",
+          "Palpable anterior orbital mass",
+          "Recurrent disease despite therapy",
+          "Failure to respond to steroids within 48-72 hours",
+          "Suspicion of lymphoma or systemic granulomatous disease"
+        ]
+      },
+      {
+        "title": "Mnemonic: 5 S's of Sclerosing IOID",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "STIFF",
+          "explanation": "S: Slower onset; T: Tough fibrosis; I: IgG4-Related often; F: Fixed/Frozen globe; F: Failed steroid response (requires aggressive immunosuppression)."
+        }
+      },
+      {
+        "title": "Clinical Pearls & Pro-Tips",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "In children, IOID is more likely to be bilateral and associated with systemic symptoms (uveitis, headache).",
+          "Tolosa-Hunt Syndrome is essentially IOID extending into the cavernous sinus.",
+          "Always check serum IgG4 levels in chronic or sclerosing cases.",
+          "A 'dramatic response' to steroids is suggestive but NOT pathognomonic for IOID; some lymphomas also respond initially."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Recurrence rates vary from 30% to 50% after steroid taper.",
+          "Permanent vision loss from compressive optic neuropathy or exudative RD.",
+          "Ptosis and restrictive strabismus due to chronic fibrosis.",
+          "Phthisis bulbi in severe, untreated anterior IOID.",
+          "Prognosis is generally excellent for acute cases but guarded for sclerosing variants."
+        ]
+      }
+    ],
+    "generationPrompt": "idiopathic orbital inflammatory disease",
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "_newlyImported": 1775044652718,
+  "communityId": "sub_1774723370051_76ly1ucq0",
+  "communityAuthor": "nemo",
+  "communityDate": "2026-03-28T18:42:50.051Z"
+}

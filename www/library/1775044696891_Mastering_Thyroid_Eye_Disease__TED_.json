@@ -1,0 +1,299 @@
+{
+  "id": 1775044696891,
+  "seqId": 472,
+  "title": "Mastering Thyroid Eye Disease (TED)",
+  "summary": "A comprehensive clinical guide to Graves' Orbitopathy, covering the complex interplay of TSHR/IGF-1R signaling, the Rundle curve of activity, and the multidisciplinary management from Selenium to Teprotumumab and Rehabilitative Surgery.",
+  "date": "2026-04-01T11:58:16.891Z",
+  "data": {
+    "title": "Mastering Thyroid Eye Disease (TED)",
+    "summary": "A comprehensive clinical guide to Graves' Orbitopathy, covering the complex interplay of TSHR/IGF-1R signaling, the Rundle curve of activity, and the multidisciplinary management from Selenium to Teprotumumab and Rehabilitative Surgery.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><ellipse cx='100' cy='100' rx='40' ry='25' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)'/><path d='M60 70 Q 100 40 140 70' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M60 130 Q 100 160 140 130' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M40 100 L 20 100 M 160 100 L 180 100' stroke='red' stroke-width='2' opacity='0.6'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Thyroid Eye Disease (TED), also known as Graves' Orbitopathy (GO), is an organ-specific autoimmune inflammatory disorder characterized by remodeling of orbital tissues. It is the most common cause of unilateral and bilateral proptosis in adults, primarily associated with Graves' hyperthyroidism, though patients may be euthyroid or hypothyroid."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Female:Male Ratio",
+              "value": 85
+            },
+            {
+              "label": "Smoking (Relative Risk)",
+              "value": 90
+            },
+            {
+              "label": "Radioiodine Risk",
+              "value": 35
+            },
+            {
+              "label": "Graves Patients with TED",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Molecular Nexus",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Orbital Fibroblast Activation",
+          "branches": [
+            "TSHR & IGF-1R Crosstalk: Synergistic signaling on CD34+ fibroblasts",
+            "Glycosaminoglycan (GAG) Production: Hyaluronic acid causes osmotic edema",
+            "Adipogenesis: Differentiation of fibroblasts into adipocytes (fat expansion)",
+            "Cytokine Storm: IL-1, TNF-alpha, and IF-gamma drive inflammation",
+            "Muscle Fibrosis: End-stage cicatricial changes leading to restrictive strabismus"
+          ]
+        }
+      },
+      {
+        "title": "Eponymous Clinical Signs",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Sign Name",
+            "Clinical Description"
+          ],
+          "rows": [
+            [
+              "Dalrymple Sign",
+              "Widened palpebral fissures due to upper lid retraction in primary gaze."
+            ],
+            [
+              "Von Graefe Sign",
+              "Lid lag: The upper eyelid fails to follow the globe downward on downgaze."
+            ],
+            [
+              "Stellwag Sign",
+              "Infrequent or incomplete blinking."
+            ],
+            [
+              "Mobius Sign",
+              "Inability to maintain convergence of the eyes."
+            ],
+            [
+              "Joffroy Sign",
+              "Absence of forehead wrinkling on upward gaze."
+            ],
+            [
+              "Kocher Sign",
+              "Staring or frightened expression on active fixation."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Activity Score (CAS)",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "1. Spontaneous retrobulbar pain",
+          "2. Pain on upward or downward gaze",
+          "3. Eyelid erythema",
+          "4. Conjunctival injection",
+          "5. Chemosis (conjunctival edema)",
+          "6. Swelling of the caruncle or plica",
+          "7. Eyelid edema",
+          "Note: Score ≥ 3/7 indicates Active TED."
+        ]
+      },
+      {
+        "title": "NOSPECS Classification",
+        "icon": "format_list_numbered",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "NOSPECS",
+          "explanation": "N: No signs/symptoms; O: Only signs (lid retraction); S: Soft tissue involvement; P: Proptosis; E: Extraocular muscle involvement; C: Corneal involvement; S: Sight loss (Optic Neuropathy)."
+        }
+      },
+      {
+        "title": "EUGOGO Severity Grading",
+        "icon": "grading",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Grade",
+            "Clinical Features",
+            "Management Strategy"
+          ],
+          "rows": [
+            [
+              "Mild",
+              "Minor impact on daily life; lid retraction <2mm; mild soft tissue signs.",
+              "Observation, Selenium (100mcg BID), Lubricants, Smoking cessation."
+            ],
+            [
+              "Moderate-to-Severe",
+              "Lid retraction ≥2mm; Proptosis ≥3mm above normal; Diplopia.",
+              "IV Methylprednisolone, Teprotumumab, or Mycophenolate."
+            ],
+            [
+              "Sight-Threatening",
+              "Dysthyroid Optic Neuropathy (DON) or Corneal Breakdown.",
+              "Emergency IV Steroids or Orbital Decompression Surgery."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Imaging Findings: CT and MRI",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Coke-Bottle Sign: Characteristic spindle-shaped enlargement of muscle bellies.",
+          "Tendon Sparing: Unlike orbital myositis, TED spares the muscle tendons.",
+          "Increased Orbital Fat: Proliferation and herniation of fat.",
+          "Apical Crowding: Compression of the optic nerve at the orbital apex.",
+          "MRI T2 Signal: High signal in muscles indicates active inflammatory phase (edema)."
+        ]
+      },
+      {
+        "title": "Muscle Involvement Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "I'M SLOW",
+          "explanation": "Order of muscle involvement: 1. Inferior Rectus (most common); 2. Medial Rectus; 3. Superior Rectus; 4. Lateral Rectus; 5. Obliques (least common)."
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "find_in_page",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Orbital Myositis",
+              "Painful; involves the muscle tendon; rapid onset."
+            ],
+            [
+              "Idiopathic Orbital Inflammation",
+              "Diffuse involvement (lacrimal gland, fat, muscle); rapid response to oral steroids."
+            ],
+            [
+              "Carotid-Cavernous Fistula",
+              "Pulsatile proptosis; corkscrew epibulbar vessels; orbital bruit."
+            ],
+            [
+              "Orbital Lymphoma",
+              "Molding to globe shape; 'salmon-patch' conjunctival lesions; slow progression."
+            ],
+            [
+              "IgG4-Related Disease",
+              "Bilateral lacrimal gland enlargement; infraorbital nerve enlargement."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Medical Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Achieve Euthyroidism (Antithyroid drugs, RAI, or Surgery).",
+          "Step 2: Smoking Cessation (Absolute requirement to reduce progression).",
+          "Step 3: Selenium Supplementation (100mcg twice daily for 6 months for mild GO).",
+          "Step 4: IV Methylprednisolone (EUGOGO Protocol: 0.5g weekly for 6 wks, then 0.25g for 6 wks; Max 6-8g).",
+          "Step 5: Biologicals - Teprotumumab (IGF-1R inhibitor) for significant proptosis/diplopia.",
+          "Step 6: Second-line - Mycophenolate Mofetil or Orbital Radiotherapy (20 Gy in 10 fractions)."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Dysthyroid Optic Neuropathy (DON)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Decreased Visual Acuity (unexplained by surface)",
+          "Afferent Pupillary Defect (RAPD)",
+          "New-onset Dyschromatopsia (loss of color vision)",
+          "Visual Field defects (Central or Arcuate)",
+          "Optic Disc edema or pallor"
+        ]
+      },
+      {
+        "title": "Rehabilitative Surgical Sequence",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Orbital Decompression: Must be done first (may change alignment/lids).",
+          "2. Strabismus Surgery: Performed once alignment is stable for 6 months.",
+          "3. Eyelid Recession: To address lid retraction (Müller's muscle/levator).",
+          "4. Blepharoplasty: Final aesthetic touch for fat prolapse and skin excess."
+        ]
+      },
+      {
+        "title": "Recent Advances: Teprotumumab",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Mechanism: Fully human monoclonal antibody inhibitor of IGF-1R.",
+          "Dosing: 10mg/kg first dose, then 20mg/kg every 3 weeks for 7 additional doses.",
+          "Evidence: OPTIC trials showed significant reduction in proptosis (mean ~3mm).",
+          "Side Effects: Muscle cramps, hyperglycemia, and hearing loss (audiometry monitoring required)."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Resident",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "The Rundle Curve: TED has an active phase (6-18 months) followed by a stable burnt-out phase.",
+          "Never perform elective surgery in the active phase; only for emergencies like DON.",
+          "Radioiodine (RAI) can worsen TED; cover with oral Prednisone (0.5mg/kg/day) if needed.",
+          "Superior Limbic Keratoconjunctivitis (SLK) is frequently associated with TED."
+        ]
+      }
+    ],
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "_newlyImported": 1775044696891,
+  "communityId": "sub_1774352254516_kpbcddipla0vud",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

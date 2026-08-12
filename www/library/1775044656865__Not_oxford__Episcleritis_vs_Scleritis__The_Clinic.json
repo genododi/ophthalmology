@@ -1,0 +1,157 @@
+{
+  "id": 1775044656865,
+  "seqId": 96,
+  "title": "(Not oxford) Episcleritis vs Scleritis: The Clinical Face-Off",
+  "summary": "A comprehensive visual guide to differentiating between superficial episcleral inflammation and the deep, sight-threatening inflammation of the sclera. This poster highlights key diagnostic tests, symptom profiles, and classification types.",
+  "date": "2026-04-01T11:57:36.865Z",
+  "data": {
+    "title": "(Not oxford) Episcleritis vs Scleritis: The Clinical Face-Off",
+    "summary": "A comprehensive visual guide to differentiating between superficial episcleral inflammation and the deep, sight-threatening inflammation of the sclera. This poster highlights key diagnostic tests, symptom profiles, and classification types.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='hsl(215, 90%, 45%)'/><path d='M20 50 Q 50 10 80 50 Q 50 90 20 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M10 30 L30 40 M10 70 L30 60' stroke='red' stroke-width='1.5' stroke-linecap='round'/><path d='M70 35 L90 25 M70 65 L90 75' stroke='purple' stroke-width='3' stroke-opacity='0.6' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Core Clinical Comparison",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Episcleritis",
+            "Scleritis"
+          ],
+          "rows": [
+            [
+              "Pain Level",
+              "Mild discomfort, grittiness, or asymptomatic",
+              "Severe, 'boring' pain; may radiate to temple/jaw; awakens patient at night"
+            ],
+            [
+              "Redness Color",
+              "Bright red or pink",
+              "Deep red, bluish, or violaceous hue"
+            ],
+            [
+              "Vessel Depth",
+              "Superficial episcleral plexus",
+              "Deep episcleral plexus"
+            ],
+            [
+              "Phenylephrine 2.5%",
+              "Vessels blanch (whiten) significantly",
+              "Vessels do NOT blanch"
+            ],
+            [
+              "Palpation",
+              "Generally non-tender",
+              "Exquisitely tender to touch through lids"
+            ],
+            [
+              "Systemic Link",
+              "Commonly idiopathic (uncommon association)",
+              "Strongly associated with systemic autoimmune disease (up to 50%)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Classification Hierarchy",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Inflammation Types",
+          "branches": [
+            "Simple Episcleritis (Sectoral or Diffuse)",
+            "Nodular Episcleritis (Localized nodule)",
+            "Anterior Scleritis (Diffuse, Nodular, Necrotizing)",
+            "Posterior Scleritis (Involves globe behind insertion of recti)"
+          ]
+        }
+      },
+      {
+        "title": "The Phenylephrine Blanch Test",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Observe the baseline congestion and vessel color in natural light.",
+          "Step 2: Instill one drop of Phenylephrine 2.5% into the affected eye.",
+          "Step 3: Wait 10-15 minutes for the vasoconstrictive effect.",
+          "Step 4: Re-evaluate: If vessels whiten, it's Episcleritis. If they remain dark/congested, suspect Scleritis."
+        ]
+      },
+      {
+        "title": "Scleritis Red Flags",
+        "icon": "dangerous",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Necrotizing Scleritis: The most severe form, often associated with systemic vasculitis.",
+          "Scleral Thinning: Appearance of the dark uvea through the thinned sclera (Scleromalacia Perforans).",
+          "Vision Loss: Potential for permanent damage due to uveitis, glaucoma, or keratitis.",
+          "Exudative Retinal Detachment: A serious complication of Posterior Scleritis."
+        ]
+      },
+      {
+        "title": "Systemic Disease Association Rates",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Episcleritis (Idiopathic)",
+              "value": 75
+            },
+            {
+              "label": "Scleritis (Systemic Link)",
+              "value": 50
+            },
+            {
+              "label": "Scleritis (RA associated)",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Points to Remember",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "DEEP",
+          "explanation": "D: Deep Boring Pain (Scleritis), E: Episcleral Blanching (Episcleritis), E: Edema of Sclera (Scleritis), P: Phenylephrine Test (Diagnostic)"
+        }
+      },
+      {
+        "title": "Vessel Mobility Details",
+        "icon": "info",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "In Episcleritis, the inflamed vessels can be moved over the underlying sclera with a cotton-tipped applicator.",
+          "In Scleritis, the inflammation is deep within the sclera; the vessels are fixed and do not move independently of the globe.",
+          "Episcleritis usually resolves within 1-3 weeks without treatment.",
+          "Scleritis requires urgent systemic workup and aggressive anti-inflammatory/immunosuppressive therapy."
+        ]
+      }
+    ],
+    "chapterId": "sclera"
+  },
+  "chapterId": "sclera",
+  "_newlyImported": 1775044656865,
+  "communityId": "sub_1773775007771_2g4q6lmg97fb5d",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.771Z",
+  "read": true
+}

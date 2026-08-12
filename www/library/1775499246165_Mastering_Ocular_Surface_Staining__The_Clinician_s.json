@@ -1,0 +1,235 @@
+{
+  "id": 1775499246165,
+  "seqId": 745,
+  "title": "Mastering Ocular Surface Staining: The Clinician's Diagnostic Guide",
+  "summary": "Ocular surface staining is the diagnostic cornerstone for evaluating tear film integrity, epithelial cell health, and corneal damage. This guide provides a systematic approach to interpreting vital dye patterns for precise clinical diagnosis.",
+  "date": "2026-04-06T18:14:06.165Z",
+  "data": {
+    "title": "Mastering Ocular Surface Staining: The Clinician's Diagnostic Guide",
+    "summary": "Ocular surface staining is the diagnostic cornerstone for evaluating tear film integrity, epithelial cell health, and corneal damage. This guide provides a systematic approach to interpreting vital dye patterns for precise clinical diagnosis.",
+    "summary_illustration": "<svg viewBox='0 0 200 100' xmlns='http://www.w3.org/2000/svg'><path d='M40 50 Q 100 20 160 50 T 40 50' fill='none' stroke='#1e88e5' stroke-width='4'/><circle cx='100' cy='50' r='10' fill='#f44336'/><text x='70' y='90' font-family='Arial' font-size='10'>Vital Dye Pattern</text></svg>",
+    "sections": [
+      {
+        "title": "Vital Dyes: Mechanism of Action",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Dye",
+            "Molecular Target",
+            "Clinical Interpretation"
+          ],
+          "rows": [
+            [
+              "Fluorescein Sodium",
+              "Intercellular spaces; damaged tight junctions",
+              "Highlights epithelial defects/erosions"
+            ],
+            [
+              "Lissamine Green",
+              "Degenerated cells; mucin-deficient areas",
+              "Stains devitalized cells; excellent on conjunctiva"
+            ],
+            [
+              "Rose Bengal",
+              "Dead/dying cells; cells with reduced membrane mucins",
+              "Highly sensitive but toxic/painful to patients"
+            ],
+            [
+              "Alcian Blue",
+              "Acidic mucopolysaccharides",
+              "Highlights mucus filaments and keratinization"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Big Three Dyes: Comparative Utility",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Fluorescein (Corneal)",
+              "value": 95
+            },
+            {
+              "label": "Lissamine (Conjunctival)",
+              "value": 85
+            },
+            {
+              "label": "Rose Bengal (Conjunctival)",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Interpretation of Staining",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Staining Patterns",
+          "branches": [
+            "Superior: SLK or Lid pathology",
+            "Interpalpebral: DES/Exposure",
+            "Inferior: Lagophthalmos/Trichiasis",
+            "Punctate: Viral/Toxic/DES"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags for Cornea Specialists",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Dendritic/Map-like staining: Consider Herpes Simplex Keratitis (HSV).",
+          "Punctate Epithelial Erosions (PEE) in 'catarrhal' configuration: Consider Staphylococcal hypersensitivity.",
+          "Rapid dye clearing: Possible aqueous leak (Seidel positive).",
+          "Confluent staining with stromal thinning: Impending corneal melt."
+        ]
+      },
+      {
+        "title": "Grading Systems: Van Bijsterveld Score",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Zone",
+            "Staining Criteria",
+            "Score (0-3)"
+          ],
+          "rows": [
+            [
+              "Nasal Bulbar Conjunctiva",
+              "Presence of punctate spots",
+              "0-3"
+            ],
+            [
+              "Temporal Bulbar Conjunctiva",
+              "Presence of punctate spots",
+              "0-3"
+            ],
+            [
+              "Cornea",
+              "Presence of punctate spots",
+              "0-3"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Procedural Protocol",
+        "icon": "process_check",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Instill dye (use dry impregnated strips; avoid liquid solutions for infection control).",
+          "Step 2: Ensure adequate blinking to distribute the dye.",
+          "Step 3: Wait 60-90 seconds before evaluation.",
+          "Step 4: Use Cobalt Blue filter (for Fluorescein) or White/Yellow filter (for Lissamine).",
+          "Step 5: Document size, density, and location using the NEI/Industry workshop grid."
+        ]
+      },
+      {
+        "title": "Mnemonic for Ocular Surface Disease",
+        "icon": "remember",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STAIN",
+          "explanation": "S: Superior (SLK), T: Tear film (DES), A: Assessment (Systematic), I: Inferior (Exposure), N: Nature (Epithelial vs. Stromal)."
+        }
+      },
+      {
+        "title": "Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Lissamine Green is the preferred dye for dry eye exams as it does not sting.",
+          "Always evaluate staining BEFORE tonometry to avoid false-positive abrasions.",
+          "Rose Bengal may mask underlying HSV; verify presence of dendrites first.",
+          "Staining patterns are dynamic; timing of assessment is critical."
+        ]
+      }
+    ],
+    "generationPrompt": "Different ocular surface stains",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "kanskiMeta": [
+    {
+      "pageNum": 165,
+      "keywords": [
+        "ocular",
+        "surface",
+        "staining",
+        "corneal",
+        "mechanism"
+      ]
+    },
+    {
+      "pageNum": 164,
+      "keywords": [
+        "ocular",
+        "surface",
+        "corneal",
+        "mechanism",
+        "three"
+      ]
+    },
+    {
+      "pageNum": 186,
+      "keywords": [
+        "ocular",
+        "surface",
+        "staining",
+        "disease",
+        "keratitis"
+      ]
+    },
+    {
+      "pageNum": 171,
+      "keywords": [
+        "ocular",
+        "surface",
+        "staining",
+        "corneal",
+        "cornea"
+      ]
+    },
+    {
+      "pageNum": 454,
+      "keywords": [
+        "ocular",
+        "disease",
+        "keratitis"
+      ]
+    },
+    {
+      "pageNum": 929,
+      "keywords": [
+        "ocular",
+        "surface",
+        "corneal",
+        "cornea",
+        "disease"
+      ]
+    }
+  ]
+}

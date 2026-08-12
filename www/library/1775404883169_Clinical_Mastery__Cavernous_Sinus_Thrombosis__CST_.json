@@ -1,0 +1,183 @@
+{
+  "id": 1775404883169,
+  "seqId": 705,
+  "title": "Clinical Mastery: Cavernous Sinus Thrombosis (CST)",
+  "summary": "Cavernous Sinus Thrombosis (CST) is a life-threatening, septic or aseptic thrombosis of the cavernous sinus, representing a true neuro-ophthalmologic emergency. Rapid recognition of the hallmark 'ophthalmoplegia with proptosis' is critical to mitigating high morbidity and mortality.",
+  "date": "2026-04-05T16:01:23.169Z",
+  "data": {
+    "title": "Clinical Mastery: Cavernous Sinus Thrombosis (CST)",
+    "summary": "Cavernous Sinus Thrombosis (CST) is a life-threatening, septic or aseptic thrombosis of the cavernous sinus, representing a true neuro-ophthalmologic emergency. Rapid recognition of the hallmark 'ophthalmoplegia with proptosis' is critical to mitigating high morbidity and mortality.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e40af' stroke-width='4'/><path d='M30 40 L70 40 M30 60 L70 60' stroke='#1e40af' stroke-width='2'/><circle cx='50' cy='50' r='10' fill='#ef4444'/></svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "CST is the formation of a clot within the cavernous sinus, a paired dural venous sinus receiving drainage from the ophthalmic veins, superficial cortical veins, and pterygoid plexus. Pathophysiology involves hematogenous spread of infection (often from the 'danger triangle' of the face) leading to endophlebitis, thrombosis, and subsequent venous congestion."
+      },
+      {
+        "title": "2. Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Sinusitis",
+              "value": 70
+            },
+            {
+              "label": "Dental Infection",
+              "value": 15
+            },
+            {
+              "label": "Otitis/Mastoiditis",
+              "value": 10
+            },
+            {
+              "label": "Facial Furuncle",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "3. Red Flags (Medical Emergency)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapid onset of bilateral orbital signs",
+          "Decreased level of consciousness/Meningeal signs",
+          "CN III, IV, V1, V2, and VI involvement",
+          "Systemic sepsis or hemodynamic instability",
+          "Cavernous sinus involvement starting from a dental source"
+        ]
+      },
+      {
+        "title": "4. Clinical Classification",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "CST Etiology",
+          "branches": [
+            "Septic (Bacterial)",
+            "Aseptic (Hypercoagulable state)",
+            "Traumatic/Carotid-Cavernous Fistula",
+            "Neoplastic/Invasive"
+          ]
+        }
+      },
+      {
+        "title": "5. Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Chemosis: Often severe and aggressive",
+          "Proptosis: Typically axial, may become bilateral",
+          "Ophthalmoplegia: Complete (Total) usually by early stage",
+          "Pupillary changes: Dilated or sluggish due to CN III palsy",
+          "Sensory loss: V1/V2 distribution (corneal anesthesia)"
+        ]
+      },
+      {
+        "title": "6. Mnemonic: The 'Cavernous' Six",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "O-T-O-S-I-S",
+          "explanation": "Ophthalmoplegia (Total), Trigeminal (V1/V2) pain, Orbital congestion (chemosis/proptosis), Systemic symptoms (fever/sepsis), Imaging (Filling defect), Sepsis (Staph aureus source)"
+        }
+      },
+      {
+        "title": "7. Diagnostic Workup Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Blood cultures (aerobic/anaerobic) and complete metabolic panel.",
+          "Step 2: Urgent Contrast-enhanced MRI/MRV of brain and orbits (Gold Standard).",
+          "Step 3: If MRI contraindicated, CT scan with venography.",
+          "Step 4: Lumbar puncture if meningitis suspected after stabilization.",
+          "Step 5: Emergent ENT consultation for primary source drainage."
+        ]
+      },
+      {
+        "title": "8. Differential Diagnosis",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Differential",
+            "Key Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Orbital Cellulitis",
+              "Usually unilateral; no CN involvement"
+            ],
+            [
+              "Carotid-Cavernous Fistula",
+              "Pulsatile proptosis, audible bruit"
+            ],
+            [
+              "Tolosa-Hunt Syndrome",
+              "Painful ophthalmoplegia, steroid responsive"
+            ],
+            [
+              "Orbital Apex Syndrome",
+              "No chemosis/bilateral signs; optic nerve involvement early"
+            ],
+            [
+              "Mucormycosis",
+              "Black eschar, immunocompromised host"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9. Management & Treatment Strategy",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Antibiotics: High-dose IV antibiotics (Vancomycin + Ceftriaxone + Metronidazole) covering MRSA and anaerobes.",
+          "Surgical: Drainage of primary site (e.g., sphenoid sinusotomy) is mandatory.",
+          "Anticoagulation: Controversy exists; reserved for cases of worsening neurological status or thrombus extension.",
+          "Steroids: High-dose IV dexamethasone to reduce inflammation/cranial nerve compression."
+        ]
+      },
+      {
+        "title": "10. Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "CST is the only condition where orbital congestion rapidly spreads from one eye to the other via the intercavernous sinuses.",
+          "Always evaluate corneal sensitivity early; loss indicates significant V1 involvement.",
+          "Prognosis: Mortality has dropped from 80% to 20% with modern antibiotics and neuro-imaging.",
+          "Don't forget the 'Danger Triangle'—superficial facial infections can track posteriorly via the facial vein to the cavernous sinus."
+        ]
+      }
+    ],
+    "generationPrompt": "Cavernous sinus thrombosis",
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit"
+}

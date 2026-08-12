@@ -1,0 +1,322 @@
+{
+  "id": 1775044675656,
+  "seqId": 289,
+  "title": "OPHTHALMIC SURGERY & UVEITIS: THE CLINICAL BLUEPRINT",
+  "summary": "An exhaustive clinical guide covering corneal transplantation protocols, donor/recipient selection, advanced IOL biometry for challenging axial lengths, and the comprehensive management of ocular toxoplasmosis.",
+  "date": "2026-04-01T11:57:55.656Z",
+  "data": {
+    "title": "OPHTHALMIC SURGERY & UVEITIS: THE CLINICAL BLUEPRINT",
+    "summary": "An exhaustive clinical guide covering corneal transplantation protocols, donor/recipient selection, advanced IOL biometry for challenging axial lengths, and the comprehensive management of ocular toxoplasmosis.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='5,5'/><path d='M60 100 Q100 60 140 100 Q100 140 60 100' fill='hsl(215, 90%, 45%)' opacity='0.3'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Absolute Donor Contraindications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "1- Death from unknown cause",
+          "2- Systemic infections: HIV, HCV, HBV, Syphilis, Rubella, T.B, Septicaemia, Malaria",
+          "3- Prior high-risk behavior for HIV and Hepatitis (Gay, Prostitution, Drug abuse)",
+          "4- Last 12 months: Sex with someone who has engaged in high-risk behaviour, received blood clotting factor concentrate, tattooing, ear/body piercing",
+          "5- CNS infectious/degenerative diseases: Creutzfeldt Jakob, systemic sclerosing, panencephalitis, Alzheimer, progressive multifocal leukoencephalopathy, MS and Motor Neurone disease",
+          "6- Receipt of transplanted organ",
+          "7- Receipt of human pituitary derived growth hormone",
+          "8- Brain or spinal surgery before 1992",
+          "9- Haematological malignancies",
+          "10- Ocular factors: Ocular diseases, malignant ocular tumors and corneal refractive surgery"
+        ]
+      },
+      {
+        "title": "Recipient Prognostic Factors",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Factor Category",
+            "Specific Clinical Findings"
+          ],
+          "rows": [
+            [
+              "Corneal Condition",
+              "Severe stromal vascularization, Absent corneal sensation, Extreme thinning at proposed host graft junction"
+            ],
+            [
+              "Active Pathology",
+              "Active corneal inflammation, Uveitis, Uncontrolled glaucoma"
+            ],
+            [
+              "Ocular Surface",
+              "Blepharitis, Ectropion, Trichiasis, Tear film dysfunction"
+            ],
+            [
+              "Conjunctival Disease",
+              "Recurrent progressive conjunctival inflammation, Atopic conjunctivitis, Ocular Cicatricial Pemphigoid (OCP)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: The Red Eye Post-Keratoplasty",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Graft Rejection",
+              "Khodadoust line, Krachmer spots, sudden onset drop in VA."
+            ],
+            [
+              "Microbial Keratitis",
+              "Infiltrates at suture sites, hypopyon, purulent discharge."
+            ],
+            [
+              "Uveitis Flare",
+              "AC cells/flare without specific rejection lines."
+            ],
+            [
+              "Ocular Hypertension",
+              "Steroid-induced vs. pupillary block, hazy cornea without KPs."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Post-Operative Complications Timeline",
+        "icon": "history",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Early Complications (Immediate Phase)",
+            "Late Complications (Delayed Phase)"
+          ],
+          "rows": [
+            [
+              "1. Persistent epithelial defect",
+              "1. Astigmatism"
+            ],
+            [
+              "2. Loose/protruding sutures (infection-papillary hypertrophy)",
+              "2. Recurrence of underlying disease"
+            ],
+            [
+              "3. Wound leak (flat AC, iris prolapse)",
+              "3. Late wound dehiscence"
+            ],
+            [
+              "4. Uveitis",
+              "4. Retrocorneal membrane formation"
+            ],
+            [
+              "5. Elevated IOP",
+              "5. Glaucoma"
+            ],
+            [
+              "6. Traumatic graft rupture",
+              "6. Rejection"
+            ],
+            [
+              "7. CME (Cystoid Macular Edema)",
+              "7. Failure without rejection"
+            ],
+            [
+              "8. Microbial keratitis",
+              ""
+            ],
+            [
+              "9. Endophthalmitis",
+              ""
+            ],
+            [
+              "10. Rejection",
+              ""
+            ],
+            [
+              "11. Urrets-Zavalia Syndrome (Dilated fixed pupil)",
+              ""
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Graft Rejection: Predisposing Factors",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Rejection Risk",
+          "branches": [
+            "Eccentric or large grafts > 8 mm diameter",
+            "Infection (e.g., Herpetic)",
+            "Glaucoma",
+            "Previous keratoplasty",
+            "Host sensitization to donor HLA antigens",
+            "Gender incompatibility"
+          ]
+        }
+      },
+      {
+        "title": "Signs of Graft Rejection",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Ciliary injection & Anterior uveitis",
+          "Epithelial rejection: Elevated line of abnormal epithelium (avg. 3 months post-op)",
+          "Sub-epithelial rejection: Subepithelial infiltrates (Krachmer spots) resembling adenovirus; deeper edema",
+          "Stromal rejection: Deeper haze (chronic/hyperacute)",
+          "Endothelial rejection: Linear pattern of KPs (Khodadoust line) at graft margins",
+          "Stromal edema: Signifies endothelial failure"
+        ]
+      },
+      {
+        "title": "Management of Graft Rejection",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Preservative-free topical steroids hourly/24h (tapered over weeks)",
+          "Step 2: Steroid ointment at bedtime during tapering",
+          "Step 3: High-risk maintenance: Prednisone acetate 1% 4x daily for extended periods",
+          "Step 4: Cycloplegia 2x daily",
+          "Step 5: Topical Ciclosporin 0.05% (note: delayed onset)",
+          "Step 6: Oral Prednisolone 1mg/kg daily (1-2 weeks) with subsequent tapering",
+          "Step 7: IV Methylprednisolone 500mg daily (up to 3 days) for severe episodes",
+          "Step 8: Subconjunctival Dexamethasone (0.5 ml of 4mg/ml)",
+          "Step 9: Systemic immunosuppressants (Ciclosporin, Tacrolimus, Azathioprine)"
+        ]
+      },
+      {
+        "title": "Surgical Modalities: Indications & Outcomes",
+        "icon": "architecture",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Procedure",
+            "Indications",
+            "Advantages/Disadvantages"
+          ],
+          "rows": [
+            [
+              "Superficial Lamellar Keratoplasty",
+              "Opacification of superficial 1/3 stroma (non-recurrent), Marginal thinning (Pterygium, Terrien, Limbal Dermoid), Localized thinning/Descemetocele",
+              "Lower risk than full thickness."
+            ],
+            [
+              "DALK (Deep Anterior Lamellar)",
+              "Disease involving anterior 95% stroma with normal endothelium (e.g., KC), Chronic inflammation with rejection risk",
+              "Adv: No endothelial rejection, stronger globe, less astigmatism. Disadv: Difficult, perforation risk, interface haze."
+            ],
+            [
+              "Endothelial Keratoplasty (EK)",
+              "Fuchs Dystrophy, Localized tectonic graft for perforation",
+              "Adv: Faster rehab, structurally intact, minimal sutures. Disadv: Learning curve, endothelial rejection possible, donor-recipient fibrosis."
+            ],
+            [
+              "Keratoprosthesis",
+              "Inactive severe OCP, Stevens-Johnson, Chemical burns, Trachoma (bilateral blindness), CF vision or less with intact ON/Retina",
+              "Complications: 40% Glaucoma, 25% Retro-prosthetic membrane, 3% RD/Endophthalmitis, Tilting/Extrusion."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "IOL Calculation & Biometry",
+        "icon": "calculate",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Scenario",
+            "Recommended Formulae / Factors"
+          ],
+          "rows": [
+            [
+              "Short Axial Length (< 22mm)",
+              "Hoffer Q, Haigis, Hill-RBF, Kane formulae"
+            ],
+            [
+              "Long Axial Length (> 26mm)",
+              "Barrett Universal II (BUii), Holladay, Haigis (optimized constant), Kane"
+            ],
+            [
+              "Confounding AL Factors",
+              "Poor patient fixation, Irregularities in globe contour, Silicone oil in vitreous"
+            ],
+            [
+              "Post-Refractive Surgery",
+              "1. Refractive History/Contact Lens method (Hoffer Q/Masket). 2. Haigis-L regression formula."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Toxoplasmosis: Clinical Picture",
+        "icon": "coronavirus",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Toxoplasmosis",
+          "branches": [
+            "Symptoms: Acute floaters, blurring, photophobia",
+            "Anterior: Spill-over uveitis, Acute IOP elevation",
+            "Retinitis: Fluffy white focus, Pigmented scar satellite lesions",
+            "Vitritis: 'Headlight in the fog'",
+            "Vascular: Vasculitis (Commonly Venous), Vascular occlusion",
+            "Optic Nerve: Disc edema, Neuroretinitis",
+            "Atypical: Punctate outer retinal toxoplasmosis, De novo foci (Immunocompromised)",
+            "Vision Loss: Macular lesions, Edema, RD (Serous/Rhegmatogenous/Tractional)"
+          ]
+        }
+      },
+      {
+        "title": "Toxoplasmosis Investigations",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "I. Serology: IgM, IgG levels",
+          "II. PCR: Testing of intraocular fluid",
+          "III. Goldman-Witmer Coefficient: Ratio between IgG in aqueous to IgG in serum",
+          "IV. Imaging: OCT, B-scan U/S, Fundus Autofluorescence (FAF) to monitor activity"
+        ]
+      },
+      {
+        "title": "Clinical Pearls & Mnemonics",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "STEROIDS",
+          "explanation": "S-Subconjunctival Dex, T-Topical hourly, E-Extended maintenance for high risk, R-Reduce gradually, O-Oral Prednisolone 1mg/kg, I-IV Methylprednisolone pulse, D-Delay with Cyclosporin, S-Systemic immunosuppressants."
+        }
+      }
+    ],
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "_newlyImported": 1775044675656,
+  "communityId": "sub_1774352254516_iasro8amdje8vi",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

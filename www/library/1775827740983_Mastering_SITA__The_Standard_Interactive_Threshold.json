@@ -1,0 +1,288 @@
+{
+  "id": 1775827740983,
+  "seqId": 783,
+  "title": "Mastering SITA: The Standard Interactive Thresholding Algorithm",
+  "summary": "A comprehensive guide to Humphrey Field Analyzer (HFA) SITA protocols, exploring Bayesian probability models, comparative strategies (Standard, Fast, Faster), and clinical interpretation for glaucoma management. Designed for the high-level ophthalmic practitioner.",
+  "date": "2026-04-10T13:29:00.983Z",
+  "data": {
+    "title": "Mastering SITA: The Standard Interactive Thresholding Algorithm",
+    "summary": "A comprehensive guide to Humphrey Field Analyzer (HFA) SITA protocols, exploring Bayesian probability models, comparative strategies (Standard, Fast, Faster), and clinical interpretation for glaucoma management. Designed for the high-level ophthalmic practitioner.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='100' cy='100' r='5' fill='hsl(215, 90%, 45%)'/><path d='M60 60 L140 140 M140 60 L60 140' stroke='hsl(215, 90%, 45%)' stroke-width='1' opacity='0.3'/><rect x='85' y='40' width='30' height='20' rx='2' fill='hsl(215, 90%, 45%)' opacity='0.8'/><rect x='40' y='85' width='20' height='30' rx='2' fill='hsl(215, 90%, 45%)' opacity='0.6'/><circle cx='130' cy='130' r='12' fill='hsl(215, 90%, 45%)' opacity='0.9'/><circle cx='70' cy='130' r='8' fill='hsl(215, 90%, 45%)' opacity='0.4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Core Logic",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "SITA (Standard Interactive Thresholding Algorithm) is the gold-standard software used in the Humphrey Field Analyzer (HFA) to estimate visual field thresholds. Developed by Bengtsson and Heijl, it utilizes complex Bayesian mathematical models to predict threshold values based on real-time patient responses and a large database of normal and glaucomatous visual fields. Unlike the old 'staircase' method (Full Threshold), SITA continuously recalculates the probability of a point's threshold, significantly reducing test time without sacrificing clinical accuracy."
+      },
+      {
+        "title": "The Evolution of SITA Protocols",
+        "icon": "history",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Protocol",
+            "Avg. Time (24-2)",
+            "Mechanism",
+            "Clinical Indication"
+          ],
+          "rows": [
+            [
+              "SITA Standard (SS)",
+              "6 - 8 Minutes",
+              "Cross-references neighbor points; very high precision.",
+              "Gold standard; Baseline testing; Research (EMGT Study)."
+            ],
+            [
+              "SITA Fast (SF)",
+              "3 - 4 Minutes",
+              "Larger error tolerance; terminates earlier than SS.",
+              "Screening; Patients with fatigue; Elderly; Advanced loss."
+            ],
+            [
+              "SITA Faster (SFR)",
+              "2 Minutes",
+              "Eliminates False Negative tests & blind spot checks.",
+              "High-volume clinics; Experienced test-takers; 24-2C."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Comparison of Testing Times",
+        "icon": "speed",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Full Threshold",
+              "value": 100
+            },
+            {
+              "label": "SITA Standard",
+              "value": 55
+            },
+            {
+              "label": "SITA Fast",
+              "value": 35
+            },
+            {
+              "label": "SITA Faster",
+              "value": 20
+            }
+          ]
+        }
+      },
+      {
+        "title": "Crucial Reliability Indices",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Fixation Losses (FL): >20% suggests poor fixation (Heijl-Krakau method or Eye Tracking).",
+          "False Positives (FP): The 'Trigger Happy' patient. Rates >15% significantly invalidate the Mean Deviation (MD).",
+          "False Negatives (FN): Failure to respond to a brighter stimulus. In SITA, high FN in glaucoma is often a sign of disease (short-term variability) rather than poor effort.",
+          "Gaze Tracking: Upward spikes indicate saccades; downward spikes indicate blinks."
+        ]
+      },
+      {
+        "title": "The SITA Bayesian Process",
+        "icon": "schema",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Start with Age-Corrected Normative data for the first four primary seed points.",
+          "Step 2: Present stimulus at expected threshold. Update 'Probability Map' based on hit/miss.",
+          "Step 3: Information from neighboring points informs the prior probability of the current point.",
+          "Step 4: Algorithm calculates the 'likelihood' of the true threshold after every response.",
+          "Step 5: Termination: Test stops once the measurement error (standard deviation) falls below a pre-set limit."
+        ]
+      },
+      {
+        "title": "SITA 24-2C: The Macular Integration",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "24-2C Protocol",
+          "branches": [
+            "10 Additional Points",
+            "Anatomically Targeted (Macular Bundle)",
+            "Replaces separate 10-2 tests",
+            "Only available on SITA Faster",
+            "Detects early central paracentral scotomas"
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Visual Field Artifacts",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Cloverleaf Pattern: Patient stops responding after initial points (malingering/fatigue).",
+          "Rim Artifact: High plus lens too far from eye; creates peripheral ring scotoma.",
+          "Learning Effect: First test is often 'worse' than subsequent; always repeat a suspicious field.",
+          "Trigger Happy (FP > 20%): Can 'mask' real defects by creating super-normal thresholds (white scotomas)."
+        ]
+      },
+      {
+        "title": "Mnemonic for VF Interpretation",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "R.P.G. (Reliability, Pattern, Global)",
+          "explanation": "R: Reliability Indices (FP, FN, FL). P: Pattern Deviation (filters out cataracts). G: Global Indices (MD, PSD, VFI)."
+        }
+      },
+      {
+        "title": "High-Yield Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "VFI (Visual Field Index) is less affected by media opacities than MD.",
+          "PSD (Pattern Standard Deviation) is the most sensitive marker for early localized glaucomatous damage.",
+          "SITA Faster does NOT measure False Negatives. It uses Saccadic Eye Tracking for fixation instead of blind-spot re-testing.",
+          "Always use the same SITA strategy for GPA (Guided Progression Analysis) to ensure longitudinal validity."
+        ]
+      },
+      {
+        "title": "Differential: Glaucoma vs. Neurological Pattern",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Glaucomatous Defect",
+            "Neurological Defect"
+          ],
+          "rows": [
+            [
+              "Symmetry",
+              "Often asymmetric across horizontal midline (Nasal Step).",
+              "Respects Vertical Midline (Hemianopia)."
+            ],
+            [
+              "Typical Pattern",
+              "Arcuate scotoma, Paracentral, Bjerrum's area.",
+              "Bitemporal, Quadrantanopia, Altitudinal (Ischemic)."
+            ],
+            [
+              "Optic Nerve",
+              "Cupping, Notch, DH, RNFL loss.",
+              "Pallor (non-excavated), Atrophy."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Guided Progression Analysis (GPA)",
+        "icon": "monitoring",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "GPA is the software tool within HFA that tracks change over time. It compares follow-up fields to a 2-test baseline. 'Possible Progression' is defined as 3 or more points showing significant decline (p < 0.05) in two consecutive tests. 'Likely Progression' requires three consecutive tests showing the same decline. The VFI Rate of Progression (RoP) slope helps predict the functional lifespan of the patient's vision."
+      },
+      {
+        "title": "Special Populations: Pediatric & Geriatric",
+        "icon": "family_history",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Pediatrics: Use SITA Fast to reduce boredom/fatigue; 10-2 may be easier to perform than 24-2.",
+          "Geriatrics: Beware of 'miotic' effect on MD; ensure proper pupil dilation (>3mm) if possible or maintain consistency.",
+          "Advanced Glaucoma: Switch to Size V (Goldmann 5) stimuli or SITA Fast to decrease test duration and increase dynamic range."
+        ]
+      },
+      {
+        "title": "Landmark Study: EMGT (Early Manifest Glaucoma Trial)",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The EMGT was instrumental in validating SITA Standard. It demonstrated that SITA Standard 24-2 was as sensitive as the Full Threshold 24-2 strategy in detecting progression while cutting test time by half. The study solidified the use of SITA in both clinical trials and routine practice, proving that Bayesian models could provide high-quality data for long-term management of intraocular pressure reduction therapy."
+      }
+    ],
+    "generationPrompt": "Sita protocols in visual field",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "kanskiMeta": [
+    {
+      "pageNum": 18,
+      "keywords": [
+        "standard",
+        "interactive",
+        "thresholding",
+        "algorithm",
+        "visual field"
+      ]
+    },
+    {
+      "pageNum": 7,
+      "keywords": [
+        "standard",
+        "interactive",
+        "thresholding",
+        "algorithm",
+        "visual field"
+      ]
+    },
+    {
+      "pageNum": 17,
+      "keywords": [
+        "standard",
+        "visual field",
+        "testing",
+        "visual",
+        "field"
+      ]
+    },
+    {
+      "pageNum": 422,
+      "keywords": [
+        "standard",
+        "glaucoma",
+        "times",
+        "early",
+        "cataract"
+      ]
+    },
+    {
+      "pageNum": 322,
+      "keywords": [
+        "standard",
+        "process",
+        "special"
+      ]
+    },
+    {
+      "pageNum": 901,
+      "keywords": [
+        "standard",
+        "visual field",
+        "times",
+        "macular",
+        "visual"
+      ]
+    }
+  ]
+}

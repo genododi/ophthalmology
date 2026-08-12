@@ -1,0 +1,301 @@
+{
+  "id": 1775464888606,
+  "seqId": 719,
+  "title": "Vernal Keratoconjunctivitis (VKC) & Shield Ulcers",
+  "summary": "A comprehensive clinical guide to the 'Spring Catarrh'—a chronic, bilateral, IgE and T-cell mediated ocular surface inflammation primarily affecting young males in warm climates. This infographic details the spectrum of disease from giant papillae to the sight-threatening shield ulcer.",
+  "date": "2026-04-06T08:41:28.606Z",
+  "data": {
+    "title": "Vernal Keratoconjunctivitis (VKC) & Shield Ulcers",
+    "summary": "A comprehensive clinical guide to the 'Spring Catarrh'—a chronic, bilateral, IgE and T-cell mediated ocular surface inflammation primarily affecting young males in warm climates. This infographic details the spectrum of disease from giant papillae to the sight-threatening shield ulcer.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><ellipse cx='50' cy='50' rx='20' ry='10' fill='hsl(215, 90%, 45%)' opacity='0.3'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)'/><path d='M35 30 Q50 20 65 30' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='3' stroke-linecap='round'/><path d='M40 45 L60 45 L55 55 L45 55 Z' fill='hsl(20, 90%, 60%)' opacity='0.8'/><text x='50' y='85' font-family='Arial' font-size='6' text-anchor='middle' fill='hsl(215, 90%, 45%)'>SHIELD ULCER</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Vernal Keratoconjunctivitis (VKC) is a severe, recurrent, bilateral allergic inflammation of the ocular surface. It is considered a hybrid hypersensitivity reaction, involving both Type I (IgE-mediated) and Type IV (cell-mediated/Th2) pathways. Characteristically affecting children and young adults, it follows a seasonal pattern (peaking in spring/summer) but can become perennial in tropical environments."
+      },
+      {
+        "title": "Epidemiological Profile",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Male Predominance",
+              "value": 85
+            },
+            {
+              "label": "Age < 15 Years",
+              "value": 90
+            },
+            {
+              "label": "Warm/Dry Climate",
+              "value": 95
+            },
+            {
+              "label": "History of Atopy",
+              "value": 45
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Th2 Storm",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "VKC Pathogenesis",
+          "branches": [
+            "Type I Hypersensitivity: IgE + Mast Cell Degranulation",
+            "Type IV Hypersensitivity: Th2 Lymphocyte Activation",
+            "Cytokines: IL-4, IL-5, IL-13 (Eosinophil recruitment)",
+            "Tissue Remodeling: Conjunctival Fibroblast Hyperproliferation"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Classification",
+        "icon": "grid_view",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Primary Location",
+            "Key Findings"
+          ],
+          "rows": [
+            [
+              "Palpebral VKC",
+              "Superior Tarsal Conjunctiva",
+              "Giant papillae (>1mm), 'Cobblestone' appearance, mucus in crevices."
+            ],
+            [
+              "Limbal VKC",
+              "Corneoscleral Limbus",
+              "Horner-Trantas dots, gelatinous limbal thickening (Hyperplasia)."
+            ],
+            [
+              "Mixed VKC",
+              "Both Tarsal & Limbal",
+              "Most severe form; combined features of both types."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Symptom Checklist",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Intense Itching (Pruritus) - Hallmark symptom",
+          "Photophobia (often severe)",
+          "Thick, ropy, 'stringy' mucoid discharge",
+          "Foreign body sensation",
+          "Lacrimation and blepharospasm",
+          "Burning sensation and heaviness of lids"
+        ]
+      },
+      {
+        "title": "Classic Ocular Signs",
+        "icon": "eye_tracking",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Giant Papillae: Flattened tops, >1mm diameter on upper tarsus.",
+          "Maxwell-Lyons Sign: Fibrin-coated papillae (milky appearance).",
+          "Horner-Trantas Dots: Collections of eosinophils and epithelial debris at the limbus.",
+          "Pseudo-gerontoxon: Lipid deposit resembling arcus senilis adjacent to limbal inflammation.",
+          "Conjunctival Hyperpigmentation: Common in dark-skinned individuals."
+        ]
+      },
+      {
+        "title": "Cameron Classification of Shield Ulcers",
+        "icon": "shield",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Grade",
+            "Description",
+            "Prognosis/Management"
+          ],
+          "rows": [
+            [
+              "Grade 1",
+              "Transparent base, no epithelial plaque.",
+              "Good response to medical therapy."
+            ],
+            [
+              "Grade 2",
+              "Translucent/Opaque plaque covering the ulcer base.",
+              "Requires debridement or intensive topical management."
+            ],
+            [
+              "Grade 3",
+              "Extensive, thick, elevated plaque with heavy mucus.",
+              "Surgical intervention (debridement/AMT) likely needed."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Allergic Spectrum",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Differentiating Features"
+          ],
+          "rows": [
+            [
+              "Atopic Keratoconjunctivitis (AKC)",
+              "Adults (20-50y), history of eczema, inferior tarsal involvement, skin lichenification."
+            ],
+            [
+              "Giant Papillary Conjunctivitis (GPC)",
+              "History of contact lens wear, ocular prosthesis, or exposed sutures."
+            ],
+            [
+              "Seasonal Allergic Conjunctivitis (SAC)",
+              "No giant papillae, primarily chemosis and watery discharge, mild cornea involvement."
+            ],
+            [
+              "Trachoma (Stage IV)",
+              "Superior scarring (Arlt's line), Herbert's pits, non-seasonal."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Stepwise Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Conservative: Cold compresses, lubricated eye drops (preservative-free), allergen avoidance.",
+          "Step 2: Prophylaxis: Mast cell stabilizers (e.g., Sodium Cromoglicate 2%) or dual-action agents (Olopatadine 0.1% BID).",
+          "Step 3: Acute Flare: Topical Steroids (Fluorometholone or Loteprednol for mild; Prednisolone 1% or Dexamethasone for severe).",
+          "Step 4: Steroid-Sparing: Topical Calcineurin Inhibitors (Cyclosporine A 0.05-1.0% or Tacrolimus 0.03-0.1% ointment).",
+          "Step 5: Systemic (Rare): Oral Montelukast or Omalizumab (anti-IgE) in refractory cases."
+        ]
+      },
+      {
+        "title": "Surgical Management of Shield Ulcer",
+        "icon": "content_cut",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1. Mechanical Debridement: Removing the macro-plaque from the base.",
+          "2. Superficial Keratectomy: Removing calcified or fibrotic plaque material.",
+          "3. Amniotic Membrane Transplantation (AMT): To promote re-epithelialization.",
+          "4. Botulinum Toxin induced ptosis: (Rarely) to protect the ocular surface."
+        ]
+      },
+      {
+        "title": "Diagnostic & Monitoring Tools",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Conjunctival Scraping: Presence of eosinophils (highly suggestive).",
+          "Corneal Topography: Mandatory screen for Keratoconus (high association due to rubbing).",
+          "AS-OCT: To monitor corneal thickness and shield ulcer depth.",
+          "IOP Monitoring: Crucial during steroid therapy (Steroid Responders)."
+        ]
+      },
+      {
+        "title": "Mnemonic: The VKC 'P's",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "The 5 Ps of VKC",
+          "explanation": "P - Photophobia (Severe), P - Pruritus (Itching), P - Papillae (Giant/Cobblestone), P - Plaques (Shield Ulcer), P - Pseudo-gerontoxon."
+        }
+      },
+      {
+        "title": "URGENT: Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden drop in visual acuity (Shield ulcer/Microbial keratitis)",
+          "Rising Intraocular Pressure (IOP) during steroid use",
+          "Central corneal thinning or hydrops (Keratoconus progression)",
+          "Purulent discharge (Secondary bacterial infection)",
+          "Cataract formation (Posterior Subcapsular)"
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "VKC is usually self-limiting after puberty, but permanent damage occurs during the active years.",
+          "Supratarsal steroid injection (Triamcinolone) is highly effective for recalcitrant giant papillae.",
+          "Always check for associated Keratoconus; constant eye rubbing is a major risk factor.",
+          "Tacrolimus 0.03% skin ointment (applied to lids or off-label in fornix) is a game-changer for steroid-dependent cases.",
+          "Shield ulcers are sterile but highly susceptible to secondary bacterial infection."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "history",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Long-term Outcomes",
+          "branches": [
+            "Keratoconus (Rubbing related)",
+            "Steroid-Induced Glaucoma",
+            "Posterior Subcapsular Cataract",
+            "Limbal Stem Cell Deficiency",
+            "Corneal Scarring/Amblyopia"
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Cequa/Ikervis: Higher concentration Cyclosporine formulations for faster relief.",
+          "Biologicals: Ongoing trials for Dupilumab in severe VKC.",
+          "VEGF Inhibitors: Research into reducing limbal neovascularization in chronic cases."
+        ]
+      }
+    ],
+    "generationPrompt": "VKC (+shield ulcer)",
+    "chapterId": "conjunctiva"
+  },
+  "chapterId": "conjunctiva",
+  "read": true,
+  "bookmarked": true
+}

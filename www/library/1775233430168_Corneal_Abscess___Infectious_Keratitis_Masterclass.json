@@ -1,0 +1,329 @@
+{
+  "id": 1775233430168,
+  "seqId": 619,
+  "title": "Corneal Abscess & Infectious Keratitis Masterclass",
+  "summary": "A comprehensive clinical deep-dive into the diagnosis, microbiology, and aggressive management of suppurative corneal infiltrates. This poster integrates Kanski-level detail with BCSC protocols for the ophthalmic surgeon.",
+  "date": "2026-04-03T16:23:50.168Z",
+  "data": {
+    "title": "Corneal Abscess & Infectious Keratitis Masterclass",
+    "summary": "A comprehensive clinical deep-dive into the diagnosis, microbiology, and aggressive management of suppurative corneal infiltrates. This poster integrates Kanski-level detail with BCSC protocols for the ophthalmic surgeon.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><circle cx='100' cy='100' r='40' fill='hsl(215, 90%, 85%)'/><path d='M80 90 Q100 70 120 90 Q100 110 80 90' fill='white' opacity='0.8'/><path d='M70 120 Q100 135 130 120' fill='hsl(60, 80%, 60%)' opacity='0.9'/><text x='100' y='185' font-family='Arial' font-size='12' text-anchor='middle' fill='hsl(215, 90%, 45%)' font-weight='bold'>INFECTIOUS KERATITIS</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A corneal abscess (Infectious Keratitis) is a sight-threatening ophthalmic emergency characterized by suppurative inflammation of the corneal stroma. It involves the migration of polymorphonuclear leukocytes (PMNs) into the stroma in response to invading pathogens (bacteria, fungi, protozoa, or viruses), often accompanied by epithelial breakdown and necrosis."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Contact Lens Wear",
+              "value": 65
+            },
+            {
+              "label": "Ocular Trauma",
+              "value": 25
+            },
+            {
+              "label": "Prior Ocular Surgery",
+              "value": 15
+            },
+            {
+              "label": "Chronic Surface Disease",
+              "value": 20
+            },
+            {
+              "label": "Immunosuppression",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "The PEDAL Criteria (Mnemonic)",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PEDAL",
+          "explanation": "P: Pain (Severe in infectious); E: Epithelial defect (Usually overlying the infiltrate); D: Discharge (Mucopurulent); A: Anterior chamber reaction (Hypopyon); L: Location (Central is more likely infectious)."
+        }
+      },
+      {
+        "title": "Microbiologic Etiology",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Common Pathogens",
+          "branches": [
+            "Gram-Positive: S. aureus, S. pneumoniae, Coag-neg Staph",
+            "Gram-Negative: Pseudomonas (CL wearers), Moraxella, Neisseria",
+            "Fungal: Fusarium & Aspergillus (Trauma/Vegetative), Candida (Chronic Surface)",
+            "Protozoal: Acanthamoeba (CL use/Tap water exposure)",
+            "Viral: HSV/VZV (Often secondary bacterial infection)"
+          ]
+        }
+      },
+      {
+        "title": "Infectious vs. Sterile Infiltrates",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Infectious (Abscess)",
+            "Sterile (Marginal)"
+          ],
+          "rows": [
+            [
+              "Pain",
+              "Severe, constant",
+              "Mild to moderate"
+            ],
+            [
+              "Location",
+              "Often central/paracentral",
+              "Peripheral (near limbus)"
+            ],
+            [
+              "Epi Defect",
+              "Large, 1:1 ratio with infiltrate",
+              "Small or absent"
+            ],
+            [
+              "AC Reaction",
+              "Common (Hypopyon possible)",
+              "Rare"
+            ],
+            [
+              "Discharge",
+              "Purulent/Mucopurulent",
+              "Clear/Mucoid"
+            ],
+            [
+              "Clear Zone",
+              "Absent (touches limbus if peripheral)",
+              "Lucent zone between limbus & infiltrate"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Stop all antibiotics for 24-48h if possible (unless severe).",
+          "Step 2: Proparacaine anesthesia (avoid preservative-heavy drops).",
+          "Step 3: Scrape leading edge and base of ulcer with Kimura spatula or 25G needle.",
+          "Step 4: Direct inoculation onto Blood, Chocolate, and Sabouraud agar.",
+          "Step 5: Prepare slides for Gram, Giemsa, and Calcofluor White stains.",
+          "Step 6: PCR for fastidious organisms or viruses if suspected."
+        ]
+      },
+      {
+        "title": "Culture Media Selection",
+        "icon": "pet_supplies",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Media",
+            "Target Organism"
+          ],
+          "rows": [
+            [
+              "Blood Agar",
+              "Most bacteria & fungi"
+            ],
+            [
+              "Chocolate Agar",
+              "Neisseria, Haemophilus, Moraxella"
+            ],
+            [
+              "Sabouraud Agar",
+              "Fungi (low pH)"
+            ],
+            [
+              "Thioglycollate",
+              "Anaerobic bacteria"
+            ],
+            [
+              "Non-nutrient agar + E.coli",
+              "Acanthamoeba"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Fortified Antibiotic Protocols",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Drug",
+            "Concentration",
+            "Spectrum"
+          ],
+          "rows": [
+            [
+              "Vancomycin",
+              "25 - 50 mg/mL",
+              "Gram-positive (including MRSA)"
+            ],
+            [
+              "Tobramycin",
+              "9 - 14 mg/mL",
+              "Gram-negative (including Pseudomonas)"
+            ],
+            [
+              "Ceftazidime",
+              "50 mg/mL",
+              "Strong Gram-negative coverage"
+            ],
+            [
+              "Amphotericin B",
+              "0.15% - 0.5%",
+              "Yeasts (Candida)"
+            ],
+            [
+              "Natamycin",
+              "5% (Commercial)",
+              "Filamentous fungi (Fusarium)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Algorithm: Bacterial",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Loading Dose: 1 drop every 5-15 mins for 1 hour.",
+          "Maintenance: 1 drop every hour around the clock (24/7).",
+          "Cycloplegia: Atropine 1% BID or Cyclopentolate 1% TID to prevent synechiae and reduce pain.",
+          "Tapering: Only after clear signs of clinical improvement (e.g., blunting of edges, decreased AC reaction).",
+          "Steroids: SCUT Trial suggests waiting 48-72h of effective antibiotics; avoid in fungal/Nocardia."
+        ]
+      },
+      {
+        "title": "Surgical Interventions",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "PACK-CXL: Photoactivated Chromophore for Infectious Keratitis (Emerging adjunctive).",
+          "Tissue Adhesive (Cyanoacrylate): For impending or small (<2mm) perforations.",
+          "Tectonic Lamellar Keratoplasty: For severe thinning.",
+          "Therapeutic Penetrating Keratoplasty (TPKP): For large perforations or uncontrolled infection (high risk of graft failure)."
+        ]
+      },
+      {
+        "title": "Red Flags: Impending Perforation",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Descemetocele formation (clear central area in an opaque ulcer).",
+          "Sudden flattening of the anterior chamber.",
+          "Positive Seidel test (aqueous leak).",
+          "Significant stromal thinning (>90%).",
+          "Severe 'melting' (keratolysis) out of proportion to infiltration."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Mindmap",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Look-alikes",
+          "branches": [
+            "Mooren Ulcer (Peripheral, idiopathic)",
+            "Rheumatoid Arthritis Melt (Peripheral Ulcerative Keratitis)",
+            "Neurotrophic Keratopathy (Inferior, oval, smooth edges)",
+            "Toxic Keratopathy (Medication-induced)",
+            "Shield Ulcer (Vernal Keratoconjunctivitis)"
+          ]
+        }
+      },
+      {
+        "title": "High-Yield Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Pseudomonas ulcers can progress to perforation in <24-48 hours due to proteases.",
+          "Feathery borders and satellite lesions suggest Fungal Keratitis.",
+          "Ring infiltrates are classic for Acanthamoeba but can also seen in Pseudomonas and chronic fungal infections.",
+          "Never use a 'tapering' dose of antibiotics for a culture-positive active abscess; keep it at least QID until healed."
+        ]
+      },
+      {
+        "title": "Landmark Study: MUTT Trials",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "The Mycotic Ulcer Treatment Trials (MUTT I & II) established that topical Natamycin 5% is superior to Voriconazole 1% for filamentous fungal keratitis, particularly Fusarium. Furthermore, oral Voriconazole did not show significant benefit in typical cases and might worsen outcomes in Fusarium infections."
+      },
+      {
+        "title": "Acanthamoeba Specifics",
+        "icon": "microbiology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Symptoms: Pain out of proportion to signs.",
+          "Signs: Radial keratoneuritis (early), Ring infiltrate (late).",
+          "Treatment: Brolene (Propamidine) + Biguanides (PHMB 0.02% or Chlorhexidine 0.02%).",
+          "Note: Standard antibiotics will NOT work."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "priority_high",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Corneal Scarring (Leucoma) requiring future optical PKP/DALK.",
+          "Secondary Glaucoma (Inflammatory/Synechial).",
+          "Endophthalmitis (Rare unless perforation occurs).",
+          "Cataract formation (Toxic/Inflammatory).",
+          "Phthisis Bulbi (In severe, uncontrolled cases)."
+        ]
+      }
+    ],
+    "generationPrompt": "Corneal abscess",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "bookmarked": true
+}

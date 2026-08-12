@@ -1,0 +1,262 @@
+{
+  "id": 1775044688085,
+  "seqId": 413,
+  "title": "Best Vitelliform Macular Dystrophy (BVMD)",
+  "summary": "A progressive, autosomal dominant macular dystrophy caused by mutations in the BEST1 gene, characterized by the accumulation of subretinal lipofuscin in a classic 'egg-yolk' appearance. It is uniquely identified by a pathognomonic reduction in the EOG Arden ratio despite a normal ERG.",
+  "date": "2026-04-01T11:58:08.085Z",
+  "data": {
+    "title": "Best Vitelliform Macular Dystrophy (BVMD)",
+    "summary": "A progressive, autosomal dominant macular dystrophy caused by mutations in the BEST1 gene, characterized by the accumulation of subretinal lipofuscin in a classic 'egg-yolk' appearance. It is uniquely identified by a pathognomonic reduction in the EOG Arden ratio despite a normal ERG.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='#FFD700' opacity='0.8'/><path d='M30 50 Q 50 30 70 50' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='1'/><path d='M30 60 Q 50 80 70 60' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Best Vitelliform Macular Dystrophy (BVMD), or 'Best Disease', is an autosomal dominant generalized tapetoretinal dystrophy. It primarily affects the Retinal Pigment Epithelium (RPE) and secondarily involves the photoreceptors. The hallmark is the bilateral, symmetrical accumulation of yellowish, 'egg-yolk' like material (lipofuscin) within the subretinal space, typically appearing in the first or second decade of life."
+      },
+      {
+        "title": "Epidemiology & Genetics",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Inheritance: Autosomal Dominant with variable expressivity and high penetrance.",
+          "Gene: BEST1 (formerly VMD2) located on chromosome 11q12.3.",
+          "Protein: Bestrophin-1, a transmembrane protein acting as a calcium-sensitive chloride channel in the RPE basolateral membrane.",
+          "Prevalence: Estimated at 1 in 10,000 to 1 in 15,000.",
+          "Age of Onset: Usually 3–15 years, though often asymptomatic until later stages."
+        ]
+      },
+      {
+        "title": "Pathophysiology Flow",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Mutation in BEST1 gene → Defective Bestrophin-1 protein.",
+          "Impaired chloride ion transport across RPE basolateral membrane.",
+          "Failure of fluid regulation and phagocytosis in the subretinal space.",
+          "Accumulation of lipofuscin/vitelliform material (A2E) between RPE and photoreceptors.",
+          "Secondary RPE atrophy and photoreceptor degeneration."
+        ]
+      },
+      {
+        "title": "Clinical Staging (Gass Classification)",
+        "icon": "layers",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Stage",
+            "Description",
+            "Visual Acuity (Typical)"
+          ],
+          "rows": [
+            [
+              "Stage 0: Pre-vitelliform",
+              "Normal fundus; abnormal EOG is the only finding.",
+              "20/20"
+            ],
+            [
+              "Stage 1: Early/Pre-vitelliform",
+              "Subtle RPE pigmentary changes or tiny yellow flecks.",
+              "20/20"
+            ],
+            [
+              "Stage 2: Vitelliform",
+              "Classic 'Egg-Yolk' lesion (0.5 - 5mm) in the macula.",
+              "20/20 - 20/50"
+            ],
+            [
+              "Stage 3: Pseudohypopyon",
+              "Partial absorption of material; layer of yellow fluid settles inferiorly.",
+              "20/20 - 20/50"
+            ],
+            [
+              "Stage 4: Vitelliruptive",
+              "'Scrambled Egg' appearance as material breaks up.",
+              "20/20 - 20/100"
+            ],
+            [
+              "Stage 5: Atrophic",
+              "Central RPE and chorioretinal atrophy; looks like GA.",
+              "20/200 or worse"
+            ],
+            [
+              "Stage 6: Cicatricial/CNV",
+              "End-stage scarring or Choroidal Neovascularization.",
+              "< 20/200"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Electrophysiology: The Gold Standard",
+        "icon": "biotech",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "EOG < 1.55",
+          "explanation": "In Best Disease, the EOG (Electro-oculogram) is ALWAYS abnormal. The Arden Ratio (Light peak / Dark trough) is typically < 1.5 (Normal > 1.85). CRITICALLY: The Full-field ERG remains NORMAL because the global photoreceptor function is preserved."
+        }
+      },
+      {
+        "title": "Multimodal Imaging Findings",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Imaging",
+          "branches": [
+            "OCT: Hyperreflective material between RPE and Ellipsoid Zone",
+            "FAF: Intense hyper-autofluorescence of vitelliform material",
+            "FFA: Early blockage (masking) by material; late staining",
+            "OCT-A: Used to rule out CNV in stage 6"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "fact_check",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature from BVMD",
+            "EOG Result"
+          ],
+          "rows": [
+            [
+              "Adult-Onset VMD",
+              "Smaller lesions, older age (40-60), minimal progression.",
+              "Normal or Mildly Subnormal"
+            ],
+            [
+              "Stargardt Disease",
+              "Pisciform flecks, 'dark choroid' on FFA, early vision loss.",
+              "Normal or Abnormal"
+            ],
+            [
+              "CSCR",
+              "Serous detachment without yellow material; 'smoke stack' FFA.",
+              "Normal"
+            ],
+            [
+              "Solar Retinopathy",
+              "History of sun gazing, small foveal hole/defect.",
+              "Normal"
+            ],
+            [
+              "Pattern Dystrophy",
+              "Pigment at RPE level, various patterns (butterfly, etc.).",
+              "Normal or Mildly Subnormal"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Baseline EOG and Genetic testing (BEST1).",
+          "Step 2: Annual monitoring with OCT and Amsler Grid.",
+          "Step 3: Screen family members (even if asymptomatic) with EOG.",
+          "Step 4: Treat CNV (Stage 6) with intravitreal Anti-VEGF (e.g., Ranibizumab, Aflibercept).",
+          "Step 5: Low vision rehabilitation for atrophic stages."
+        ]
+      },
+      {
+        "title": "Risk of Vision Loss",
+        "icon": "show_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "20/40 or better (Age <40)",
+              "value": 85
+            },
+            {
+              "label": "20/40 or better (Age >60)",
+              "value": 40
+            },
+            {
+              "label": "CNV Risk",
+              "value": 20
+            },
+            {
+              "label": "Legal Blindness Risk",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Red Flags / Emergency Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden drop in vision or new metamorphopsia (Suggests CNV).",
+          "Subretinal hemorrhage or hard exudates on fundoscopy.",
+          "Rapidly expanding subretinal fluid on OCT.",
+          "Development of Macular Hole (Rare complication of stage 4/5)."
+        ]
+      },
+      {
+        "title": "Mnemonic: STAGES of BEST",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-V-P-V-A-C",
+          "explanation": "Pre-vitelliform, Vitelliform (Yolk), Pseudohypopyon, Vitelliruptive (Scrambled), Atrophic, Cicatricial."
+        }
+      },
+      {
+        "title": "Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Vision often remains surprisingly good despite a dramatic 'egg-yolk' appearance.",
+          "An abnormal EOG in a parent with a normal fundus confirms they are a carrier.",
+          "The vitelliform material is located between the RPE and the photoreceptors (subretinal).",
+          "Anti-VEGF response for CNV in Best disease is generally very good."
+        ]
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Gene therapy is the most promising frontier for BVMD. Ongoing research focuses on adeno-associated virus (AAV) mediated delivery of a functional BEST1 gene to the RPE. Recent studies using patient-derived induced pluripotent stem cells (iPSCs) have successfully modeled the chloride channel defect and tested potential small-molecule therapies to enhance RPE function."
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1775044688085,
+  "communityId": "sub_1773775007770_7ozovqqbbdbsqf",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

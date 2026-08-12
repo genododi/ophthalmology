@@ -1,0 +1,169 @@
+{
+  "id": 1775371084557,
+  "seqId": 661,
+  "title": "Mastering Scleral Buckling: A Surgical Fellowship Guide",
+  "summary": "A definitive guide to the foundational extra-scleral procedure for rhegmatogenous retinal detachment repair, focusing on anatomical restoration and long-term surgical success.",
+  "date": "2026-04-05T06:38:04.557Z",
+  "data": {
+    "title": "Mastering Scleral Buckling: A Surgical Fellowship Guide",
+    "summary": "A definitive guide to the foundational extra-scleral procedure for rhegmatogenous retinal detachment repair, focusing on anatomical restoration and long-term surgical success.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e40af' stroke-width='4'/><path d='M10 50 Q 50 10 90 50' fill='none' stroke='#1e40af' stroke-width='2'/><path d='M30 50 A 20 20 0 0 1 70 50' fill='none' stroke='#ef4444' stroke-width='6'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Scleral buckling is an extra-ocular surgical procedure for rhegmatogenous retinal detachment (RRD). It involves the application of a buckle (silicone explant) to the sclera, creating an indentation to relieve vitreous traction and seal the retinal break by closing the gap between the RPE and neurosensory retina."
+      },
+      {
+        "title": "Indications vs. Contraindications",
+        "icon": "checklist",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Indications (Favor Buckle)",
+            "Contraindications (Relative/Absolute)"
+          ],
+          "rows": [
+            [
+              "Young patients (phakic)",
+              "Posterior staphyloma"
+            ],
+            [
+              "Inferior retinal breaks",
+              "Severe PVR (Grade C or higher)"
+            ],
+            [
+              "Presence of lattice degeneration",
+              "Media opacities preventing view"
+            ],
+            [
+              "Clear crystalline lens",
+              "Multiple posterior breaks"
+            ],
+            [
+              "Tractional component minimal",
+              "Hemorrhagic RRD"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Technique: Step-by-Step",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Peritomy: 360-degree conjunctival peritomy.",
+          "2. Muscle Isolation: Secure 4 recti muscles with 2-0 silk sutures.",
+          "3. Localization: Indirect ophthalmoscopy to mark retinal break.",
+          "4. Cryotherapy: Apply trans-scleral cryopexy around the break to create chorioretinal adhesion.",
+          "5. Explant Placement: Suture silicone sponge or solid element to the sclera.",
+          "6. Drainage: Optional external subretinal fluid drainage via sclerotomy (if bullous).",
+          "7. Closure: Secure buckle, tighten encircling band (usually #40 or #240)."
+        ]
+      },
+      {
+        "title": "Complications Hierarchy",
+        "icon": "warning",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Buckle Complications",
+          "branches": [
+            "Infection/Extrusion",
+            "Diplopia",
+            "Myopic Shift",
+            "Vascular Occlusion",
+            "PVR Induction"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Emergency Signs",
+        "icon": "report",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Post-op endophthalmitis (pain, vitritis)",
+          "Ischemia from excessive buckle height (CRAO)",
+          "Extreme IOP spikes post-drainage",
+          "Signs of orbital cellulitis post-explant"
+        ]
+      },
+      {
+        "title": "Mnemonic: Surgical Planning",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "CRYO",
+          "explanation": "C: Check the break localization; R: Relief of traction; Y: Yielding high attachment (cryo); O: Observe for post-op IOP spikes."
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Goldmann three-mirror exam for peripheral break localization.",
+          "Indirect Ophthalmoscopy with 20D lens is the gold standard.",
+          "Scleral indentation reveals the break-buckle relationship.",
+          "Pre-op B-scan USG is mandatory in dense cataract to assess detachment extent."
+        ]
+      },
+      {
+        "title": "Comparison: Buckle vs. Vitrectomy",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Phakic RRD Success",
+              "value": 90
+            },
+            {
+              "label": "Pseudophakic RRD Success",
+              "value": 75
+            },
+            {
+              "label": "Cost Effectiveness",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Always check the buckle height: it should be at least 2 disc diameters wide to cover the break.",
+          "Avoid over-tightening the encircling element to prevent anterior segment ischemia.",
+          "Prophylactic drainage of subretinal fluid is controversial; reserve for bullous detachments.",
+          "Post-operative myopic shift is expected; warn patients of change in refraction."
+        ]
+      }
+    ],
+    "generationPrompt": "Scleral buckle: indications, contraindications, complications, technique",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "read": true,
+  "bookmarked": true
+}

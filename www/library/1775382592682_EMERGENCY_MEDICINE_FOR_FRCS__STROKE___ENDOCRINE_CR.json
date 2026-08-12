@@ -1,0 +1,489 @@
+{
+  "id": 1775382592682,
+  "seqId": 585,
+  "title": "EMERGENCY MEDICINE FOR FRCS: STROKE & ENDOCRINE CRISES",
+  "summary": "A comprehensive clinical guide for the FRCS (Glasg) Exam covering Acute Stroke, Intracranial Pressure, Diabetic Emergencies (DKA, HONK, Hypoglycemia), and Thyroid/Adrenal crises. Designed for rapid review of diagnostic pointers and management protocols.",
+  "date": "2026-04-05T09:49:52.682Z",
+  "data": {
+    "title": "EMERGENCY MEDICINE FOR FRCS: STROKE & ENDOCRINE CRISES",
+    "summary": "A comprehensive clinical guide for the FRCS (Glasg) Exam covering Acute Stroke, Intracranial Pressure, Diabetic Emergencies (DKA, HONK, Hypoglycemia), and Thyroid/Adrenal crises. Designed for rapid review of diagnostic pointers and management protocols.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='90' fill='none' stroke='#1d4ed8' stroke-width='4'/><path d='M60 100 Q100 20 140 100 Q100 180 60 100' fill='#1d4ed8' opacity='0.2'/><circle cx='100' cy='100' r='25' fill='#1d4ed8'/><path d='M50 50 L150 150 M150 50 L50 150' stroke='#ef4444' stroke-width='3' stroke-linecap='round'/></svg>",
+    "sections": [
+      {
+        "title": "Stroke: Definition & Clinical Manifestation",
+        "icon": "neurology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Definition: ischemic infarction (or bleeding into) any part of the brain. It manifests by rapid onset (over minutes) of focal CNS signs and symptoms (contralateral hemiplegia & sensory loss + homonymous hemianopia)."
+      },
+      {
+        "title": "Causes of Stroke",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Stroke Etiology",
+          "branches": [
+            "Atherothromboembolism (e.g from carotid)",
+            "Heart emboli (AF; IE; MI)",
+            "CNS bleed (hypertension, trauma and aneurysm rupture)"
+          ]
+        }
+      },
+      {
+        "title": "Risk Factors",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Hypertension",
+          "Hypercholesterolemia",
+          "Smoking",
+          "DM",
+          "Heart disease (AF, valvular, ischaemic)"
+        ]
+      },
+      {
+        "title": "Immediate Management Protocol",
+        "icon": "emergency",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Call for help.",
+          "2. A → Adequate ventilation.",
+          "3. B → Oxygenation.",
+          "4. C → Circulation → IV line.",
+          "5. Document Level of consciousness.",
+          "6. Vital sign monitoring: For hypertension, admit and control over days not hours.",
+          "7. Admission to stroke units for nursing/physio (saves lives and provides motivation)."
+        ]
+      },
+      {
+        "title": "Imaging & Diagnostic Pointers",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Investigation Type",
+            "Details / Pointers"
+          ],
+          "rows": [
+            [
+              "Urgent CT/MRI",
+              "Within a few days to differentiate hemorrhagic from ischemic if considering anticoagulation."
+            ],
+            [
+              "Hemorrhagic Pointers",
+              "Meningism, severe headache, and coma within hours."
+            ],
+            [
+              "Ischemic Pointers",
+              "Carotid bruit, AF, and past TIA."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Transient Ischaemic Attack (TIA) & Bruits",
+        "icon": "info",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "TIA & Bruit NB",
+          "explanation": "NB1. TIA: sudden onset of focal CNS signs (resolve within few minutes) due to temporary occlusion, usually by emboli, of part of cerebral circulation. NB2: carotid bruit may signify stenosis (>30%), often near internal carotid origin. Best heard behind the angle of the jaw."
+        }
+      },
+      {
+        "title": "Comprehensive Investigations List",
+        "icon": "list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "FBC",
+          "CXR",
+          "ECG",
+          "ESR",
+          "U&E",
+          "Lipids",
+          "Blood glucose",
+          "Clotting tests",
+          "Echo",
+          "Carotid doppler",
+          "Carotid angiography"
+        ]
+      },
+      {
+        "title": "Stroke Treatment Strategy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Aspirin: 300mg/24h PO (unless strong suspicion of CNS bleeding).",
+          "Nil by mouth if swallowing is a problem.",
+          "Maintain hydration: Do not over-hydrate (cerebral edema).",
+          "Monitor and treat ↑ BP.",
+          "Immediate evacuation: Refer if cerebellar hemorrhage is possible.",
+          "Nursing care: Turn regularly and keep dry (consider catheterization) to stop bed sores.",
+          "DVT Prophylaxis: Passive limb movements, subcutaneous heparin, and compressing stockings.",
+          "Support: Emotional support and rehabilitation."
+        ]
+      },
+      {
+        "title": "Thrombolysis & Prevention",
+        "icon": "verified",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "NB Thrombolysis: Alteplase within 3h of onset may decrease adverse outcomes (trials). Requires dedicated 24h CNS thrombolysis teams. Note: Not yet recommended in the UK in 2016.",
+          "Prevention 1: Control risk factors.",
+          "Prevention 2: Exercise (↑ HDL).",
+          "Prevention 3: Life long anticoagulants for rheumatic/prosthetic heart valves on left side.",
+          "Prevention 4: Aspirin 75 mg/day for life."
+        ]
+      },
+      {
+        "title": "Increased Intracranial Pressure (ICP)",
+        "icon": "arrow_upward",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Normal ICT: 0-10 mmHg.",
+          "Causes: Tumours (1ry or metastatic), Head injury, Brain haemorrhage (any type).",
+          "Causes: Infection (meningitis, encephalitis, brain abscess), Hydrocephalus, Cerebral oedema, Status epilepticus."
+        ]
+      },
+      {
+        "title": "Signs & Symptoms of ICP",
+        "icon": "visibility",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Headache, vomiting ± nausea.",
+          "Deterioration of consciousness: drowsiness, irritability, seizures, coma.",
+          "Cushing’s response: ↓ pulse, ↑ BP & Cheyne-Stokes respiration.",
+          "Ophthalmic: ↓ VA & peripheral visual field loss.",
+          "Ophthalmic: Pupil changes (constriction 1st, later dilatation). DON’T DILATE.",
+          "Papilloedema: Loss of previous spontaneous venous pulsation. (If preserved, exclude papilloedema)."
+        ]
+      },
+      {
+        "title": "ICP Management",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "1. ABC (Intubate if needed).",
+          "2. Correct hypotension & treat seizures.",
+          "3. Brief history & examination.",
+          "4. Elevate head of bed 30º- 40º.",
+          "5. Mannitol 20%: 1-2g/kg IV over 10-20 min (5mL/kg). Clinical effect after 20 min, lasts 2-6h. Aim for serum osmolarity 300 mosmol/kg.",
+          "6. Dexamethasone: 10 mg IV then 4 mg/6h IV/PO (if cerebral oedema).",
+          "7. Fluid restriction to < 1.5L/d.",
+          "8. Close monitoring of ICP & vitals.",
+          "9. Search for cause & treat factors like hyperglycaemia, hyponatraemia.",
+          "10. Refer to neurosurgeon for definitive treatment."
+        ]
+      },
+      {
+        "title": "Hypoglycemic Coma",
+        "icon": "blood_type",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Glucose Level",
+            "Manifestation"
+          ],
+          "rows": [
+            [
+              "< 3.6 mmol/L",
+              "↑ sympathetic activity (cold & sweaty skin)"
+            ],
+            [
+              "< 2.6 mmol/L",
+              "Neuroglycopenia (confusion & slurred speech)"
+            ],
+            [
+              "< 1.5 mmol/L",
+              "Coma"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Hypoglycemia Treatment",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Give 200–300 mL of 10% dextrose IV (20-30g).",
+          "OR Glucagon 1mg IM (if no IV access; will not work in drunk patients).",
+          "Once conscious: give sugary drinks & a meal.",
+          "Thiamine 1-2 mg/kg IV: if malnutrition or alcohol suspicion.",
+          "If oral hypoglycemic history: Admission for 10% glucose over 1-2 hours."
+        ]
+      },
+      {
+        "title": "Diabetic Ketoacidosis (DKA)",
+        "icon": "warning",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": "DKA coma only occurs in type I D.M (IDDM); it may be the mode of presentation. Diagnosis requires: hyperglycaemia + ketosis + metabolic acidosis (pH < 7.3)."
+      },
+      {
+        "title": "DKA: Signs & Precipitants",
+        "icon": "history",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Signs: Gradual drowsiness, vomiting, abdominal pain, dehydration, polydipsia, lethargy, anorexia, polyuria, ketotic breath, coma.",
+          "Precipitants: Infection, surgery, MI, chemotherapy, non-compliance, or wrong insulin dose."
+        ]
+      },
+      {
+        "title": "DKA Fluid Replacement Protocol",
+        "icon": "water_drop",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. IV 0.9% saline immediately (Dehydration correction is priority).",
+          "2. 1L stat.",
+          "3. 1L over next 1 hour.",
+          "4. 1L over next 2 hours.",
+          "5. 1L over next 4 hours.",
+          "6. 1L over next 6 hours.",
+          "7. Use Dextrose 5% when blood glucose is < 10 mmol/L.",
+          "8. Caution in elderly/heart failure; monitor CVP."
+        ]
+      },
+      {
+        "title": "DKA Insulin & Potassium Management",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Insulin Pump: 50U soluble insulin in 50ml saline (1U/ml). Give 4-8 U/h if glucose > 20mmol/L. Aim for fall of 5 mmol/L per h.",
+          "If No Pump: Load 20U IM, then 4-6 U/h IM while glucose > 10mmol/L.",
+          "K+ Replacement: Add 20-40mmol/L to IV fluid (Normal K+: 3.5-5).",
+          "K+ Shifting: Serum K+ is high in DKA due to lack of insulin, but total body K+ is low. Insulin shifts K+ into cells; must monitor to prevent hypokalaemia/arrhythmias.",
+          "K+ Timing: Don't add to 1st bag. Start when urine flow > 30ml/h."
+        ]
+      },
+      {
+        "title": "HONK (Hyperglycemic Hyperosmolar Non-Ketotic Coma)",
+        "icon": "elderly",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Feature",
+            "Details"
+          ],
+          "rows": [
+            [
+              "Risk Group",
+              "Type II DM (NIDDM), often elderly."
+            ],
+            [
+              "Presentation",
+              "Longer history (1 wk), glucose > 35 mmol/L, marked dehydration."
+            ],
+            [
+              "Acidosis",
+              "Absent (no ketone metabolism)."
+            ],
+            [
+              "Complications",
+              "Focal CNS signs, DIC, DVT (fully heparinize)."
+            ],
+            [
+              "Treatment",
+              "Rehydration with 0.9% saline (1/2 DKA rate) over 48h. Heparinize."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Thyroid Function Test Interpretation",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Result",
+            "Interpretation"
+          ],
+          "rows": [
+            [
+              "↑ TSH & ↓ T4",
+              "Hypothyroidism"
+            ],
+            [
+              "↑ TSH & normal T4",
+              "Subclinical Hypothyroidism"
+            ],
+            [
+              "↑ TSH & ↑ T4",
+              "TSH-secreting pituitary adenoma (rare)"
+            ],
+            [
+              "↓ TSH & normal T4/T3",
+              "Subclinical Hyperthyroidism"
+            ],
+            [
+              "↓ TSH & ↑ T4 or ↑ T3",
+              "Hyperthyroidism"
+            ],
+            [
+              "TBG Influences",
+              "↑ in pregnancy/pill/hepatitis; ↓ in nephrotic/liver disease/steroids."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Hyperthyroid Crisis (Thyrotoxic Storm)",
+        "icon": "bolt",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Signs: Hyperpyrexia (>41°C), Tachycardia (>140bpm), AF, CHF, Diarrhea, Vomiting, Agitation, Coma.",
+          "Precipitated by: Infection, trauma, MI, stroke, stopping antithyroid meds, surgery, radioiodine.",
+          "Propranolol: 40 mg/8h PO or 1 mg IV over 1min (unless asthma/heart failure).",
+          "Carbimazole: 15-25 mg/6h PO; followed by Lugol’s solution 0.3 mL/8h after 4h.",
+          "Hydrocortisone: 100 mg/6h IV or Dexamethasone 4 mg/6h PO (blocks T4 to T3 conversion).",
+          "Aspirin Warning: Avoid Aspirin as it can ↑ T4."
+        ]
+      },
+      {
+        "title": "Myxoedema Coma",
+        "icon": "ac_unit",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Signs: Hypothyroid, >65yrs, hypothermia, hyporeflexia, ↓ glucose, bradycardia, goitre, cyanosis.",
+          "Management: High flow O2, Correct hypoglycaemia.",
+          "T3: 5-20 ug/12h IV slowly (Caution: may precipitate ischaemia).",
+          "Hydrocortisone: 100 mg/8h IV if pituitary cause suspected.",
+          "Avoid precipitating LVF with saline."
+        ]
+      },
+      {
+        "title": "Addisonian & Hypopituitary Crisis",
+        "icon": "priority_high",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Addisonian: Endocrinal shock, hypoglycemia. Treat with Hydrocortisone 100mg/6h IV and IV fluids.",
+          "Hypopituitary: Refractory hypotension, short stature, loss of axillary/pubic hair, hypoglycaemia.",
+          "Hypopituitary Management: Hydrocortisone IV first, then Liothyronine (T3) 10 ug/12h PO. Surgery if pituitary apoplexy."
+        ]
+      },
+      {
+        "title": "Pheochromocytoma",
+        "icon": "emergency_home",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Definition: Rare catecholamine-producing tumour of adrenal medulla.",
+          "Signs: Pallor, pulsating headache, malignant hypertension, VT, cardiogenic shock.",
+          "Emergency Management: Phentolamine 2-5 mg IV (repeat to maintain safe BP).",
+          "Follow-up: Phenoxybenzamine 10 mg/24h PO (titrate up to 30 mg).",
+          "Elective surgery usually performed after 4-6 weeks."
+        ]
+      }
+    ],
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775382592682,
+  "communityId": "sub_1775145319797_qe8f8i98gr9k1z",
+  "communityAuthor": "nemo",
+  "communityDate": "2026-04-02T15:55:19.797Z",
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 633,
+      "keywords": [
+        "erg",
+        "coma",
+        "function"
+      ]
+    },
+    {
+      "pageNum": 632,
+      "keywords": [
+        "erg",
+        "imaging",
+        "investigations",
+        "increased",
+        "potassium"
+      ]
+    },
+    {
+      "pageNum": 372,
+      "keywords": [
+        "erg",
+        "diagnostic",
+        "pressure",
+        "function",
+        "test"
+      ]
+    },
+    {
+      "pageNum": 539,
+      "keywords": [
+        "emergency",
+        "stroke",
+        "risk",
+        "factors",
+        "imaging"
+      ]
+    },
+    {
+      "pageNum": 645,
+      "keywords": [
+        "erg",
+        "imaging",
+        "signs",
+        "symptoms",
+        "function"
+      ]
+    },
+    {
+      "pageNum": 664,
+      "keywords": [
+        "erg",
+        "increased",
+        "pressure",
+        "signs",
+        "function"
+      ]
+    }
+  ]
+}

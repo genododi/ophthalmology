@@ -1,0 +1,307 @@
+{
+  "id": 1775044687224,
+  "seqId": 404,
+  "title": "Pulmonary Embolism: A Comprehensive Clinical Blueprint",
+  "summary": "Pulmonary Embolism (PE) is a life-threatening occlusion of the pulmonary arterial system, most commonly secondary to Deep Vein Thrombosis (DVT). Rapid identification via risk stratification (Wells Score) and definitive imaging (CTPA) is vital for reducing the high mortality associated with right ventricular failure.",
+  "date": "2026-04-01T11:58:07.224Z",
+  "data": {
+    "title": "Pulmonary Embolism: A Comprehensive Clinical Blueprint",
+    "summary": "Pulmonary Embolism (PE) is a life-threatening occlusion of the pulmonary arterial system, most commonly secondary to Deep Vein Thrombosis (DVT). Rapid identification via risk stratification (Wells Score) and definitive imaging (CTPA) is vital for reducing the high mortality associated with right ventricular failure.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M30,20 Q50,10 70,20 Q85,40 75,70 Q50,90 25,70 Q15,40 30,20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M70,20 Q50,10 30,20 Q15,40 25,70 Q50,90 75,70 Q85,40 70,20' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><line x1='50' y1='20' x2='50' y2='50' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M50,40 L35,60 M50,45 L65,65' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='40' cy='55' r='3' fill='red'/><circle cx='42' cy='58' r='2' fill='red'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Pulmonary Embolism (PE) is the most serious clinical manifestation of Venous Thromboembolism (VTE). It occurs when a thrombus (or occasionally fat, air, or amniotic fluid) migrates from the systemic venous circulation to the pulmonary arterial tree. This leads to a ventilation-perfusion (V/Q) mismatch, increased pulmonary vascular resistance, and potential right ventricular (RV) failure."
+      },
+      {
+        "title": "Etiology: Virchow's Triad",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "VTE Pathogenesis",
+          "branches": [
+            "Endothelial Injury (Surgery, Trauma, Vasculitis)",
+            "Stasis (Immobility, Polycythemia, Varicose Veins)",
+            "Hypercoagulability (Factor V Leiden, Cancer, OCP, Protein C/S Deficiency)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Mortality",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "DVT associated with PE",
+              "value": 70
+            },
+            {
+              "label": "Mortality (Untreated)",
+              "value": 30
+            },
+            {
+              "label": "Mortality (Treated)",
+              "value": 8
+            },
+            {
+              "label": "Incidence per 100k",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "title": "Wells Criteria for PE Stratification",
+        "icon": "rule",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Clinical Variable",
+            "Points",
+            "Score Interpretation"
+          ],
+          "rows": [
+            [
+              "Clinical signs of DVT",
+              "3.0",
+              "0-1: Low Probability"
+            ],
+            [
+              "Alternative diagnosis less likely than PE",
+              "3.0",
+              "2-6: Moderate Probability"
+            ],
+            [
+              "Heart rate > 100 bpm",
+              "1.5",
+              "> 6: High Probability"
+            ],
+            [
+              "Immobilization (>3 days) or surgery (4 weeks)",
+              "1.5",
+              "Simplified: 0-4 (Unlikely), >4 (Likely)"
+            ],
+            [
+              "Previous DVT/PE",
+              "1.5",
+              "--"
+            ],
+            [
+              "Hemoptysis",
+              "1.0",
+              "--"
+            ],
+            [
+              "Malignancy (on treatment or palliative)",
+              "1.0",
+              "--"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation & Physical Signs",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Sudden onset dyspnea (85% of cases)",
+          "Pleuritic chest pain (Inflammation of the pleura)",
+          "Tachycardia (HR > 100 bpm) and Tachypnea (RR > 20/min)",
+          "Cough and Hemoptysis (indicative of pulmonary infarction)",
+          "Syncope (signifies massive PE and reduced cardiac output)",
+          "Accentuated P2 (Loud second heart sound component)",
+          "Distended jugular veins (JVD)"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Algorithm",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Clinical Assessment & Wells Score calculation",
+          "Step 2: D-Dimer test (if low clinical probability) to rule out",
+          "Step 3: CT Pulmonary Angiography (CTPA) - Gold Standard",
+          "Step 4: V/Q Scan (if CTPA is contraindicated, e.g., renal failure)",
+          "Step 5: Lower limb Doppler USG if DVT is suspected",
+          "Step 6: Bedside Echo to assess RV strain in unstable patients"
+        ]
+      },
+      {
+        "title": "ECG Findings: The Classic & Common",
+        "icon": "monitor_heart",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "S1Q3T3",
+          "explanation": "S-wave in Lead I, Q-wave in Lead III, and Inverted T-wave in Lead III. Note: Sinus Tachycardia is actually the most common finding; S1Q3T3 is specific for RV strain but rare."
+        }
+      },
+      {
+        "title": "Ocular Connection: Fat Embolism Syndrome",
+        "icon": "ophthalmology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Fat Embolism Syndrome (FES) can present as a subtype of PE",
+          "Triad: Respiratory distress, petechial rash, and confusion",
+          "Ocular Findings: Purtscher-like Retinopathy",
+          "Cotton-wool spots and Purtscher flecken (ischaemic retinal whitening)",
+          "Caused by occlusion of precapillary arterioles by fat globules"
+        ]
+      },
+      {
+        "title": "Classification of PE Severity",
+        "icon": "reorder",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Class",
+            "Clinical Status",
+            "Markers (RV Strain/Troponin)",
+            "Management Focus"
+          ],
+          "rows": [
+            [
+              "Massive (High Risk)",
+              "Hypotension (SBP <90) or Shock",
+              "Usually Positive",
+              "Thrombolysis or Embolectomy"
+            ],
+            [
+              "Submassive (Intermediate)",
+              "Normotensive",
+              "Positive RV Strain or Troponin",
+              "Admission & Close Monitoring"
+            ],
+            [
+              "Low Risk",
+              "Normotensive",
+              "Negative Markers",
+              "Outpatient/Short-stay Anticoagulation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Acute Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Oxygen Supplementation (Maintain SpO2 >90%)",
+          "2. Fluid Resuscitation (Cautious, to avoid RV over-distention)",
+          "3. Anticoagulation: UFH (bolus then infusion) or LMWH (Enoxaparin 1mg/kg BID)",
+          "4. Thrombolysis (Alteplase 100mg over 2h) for Massive PE",
+          "5. IVC Filter: Only if anticoagulation is contraindicated or fails"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Chest Pain/Dyspnea",
+          "branches": [
+            "Acute MI (ECG changes, Troponin)",
+            "Pneumothorax (Absent breath sounds)",
+            "Pneumonia (Fever, infiltrates)",
+            "Aortic Dissection (Tearing pain)",
+            "Pericarditis (Positional pain)"
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Hemodynamic Instability",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Systolic Blood Pressure < 90 mmHg for > 15 minutes",
+          "Refractory hypoxia despite 100% FiO2",
+          "Altered Mental Status / Impending Doom",
+          "New-onset Right Bundle Branch Block (RBBB) on ECG",
+          "Evidence of Right Ventricular Dilation on Echo (RV > LV size)"
+        ]
+      },
+      {
+        "title": "Long-Term Anticoagulation Options",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "DOACs (First line): Apixaban, Rivaroxaban (no bridging needed)",
+          "Warfarin (Vitamin K Antagonist): Requires Heparin bridge (INR 2.0-3.0)",
+          "Duration: 3 months for provoked PE (surgery/trauma)",
+          "Duration: Extended/Indefinite for unprovoked or recurrent VTE",
+          "Special consideration: LMWH is preferred in pregnancy and active cancer"
+        ]
+      },
+      {
+        "title": "Landmark Studies in PE",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "PEITHO Trial: Demonstrated that while thrombolysis in intermediate-risk PE prevents hemodynamic collapse, it significantly increases the risk of major hemorrhage and stroke. MOPETT Trial: Suggested that 'Safe Dose' (half-dose) thrombolysis may be effective with fewer bleeding complications for submassive PE."
+      },
+      {
+        "title": "Surgical & Interventional Techniques",
+        "icon": "construction",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Surgical Embolectomy: Indicated for massive PE when thrombolysis is contraindicated",
+          "Catheter-Directed Thrombolysis (CDT): Lower dose of Alteplase delivered via ultrasound-assisted catheter",
+          "Mechanical Thrombectomy: Fragmenting and aspirating the clot via percutaneous route",
+          "ECMO: Veno-arterial (VA) ECMO for circulatory support in extreme shock"
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "A normal Chest X-ray in a setting of severe hypoxia is a strong hint for PE (Westermark sign and Hampton’s hump are classic but rare).",
+          "D-dimer has high negative predictive value but low specificity; it is useless in post-operative or pregnant patients.",
+          "In the Ophthalmic Perioperative setting: If a patient on anticoagulants requires urgent surgery (e.g., ruptured globe), discuss reversing with Prothrombin Complex Concentrate (PCC) vs. Heparin bridging.",
+          "Tachycardia is often the only sign in the early stages—never ignore it in a post-surgical patient."
+        ]
+      }
+    ],
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "_newlyImported": 1775044687224,
+  "communityId": "sub_1773775007770_km0hrkhktxhkx0",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true
+}

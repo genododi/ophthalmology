@@ -1,0 +1,154 @@
+{
+  "id": 1775052857373,
+  "seqId": 527,
+  "title": "Mastering Functional Visual Loss (FVL): Clinical Navigation",
+  "summary": "Functional Visual Loss (FVL), or non-organic vision loss, represents a diagnostic challenge requiring a delicate balance of rigorous exclusion of organic disease and compassionate patient management. This guide provides the framework for systematic identification and clinical verification.",
+  "date": "2026-04-01T14:14:17.373Z",
+  "data": {
+    "title": "Mastering Functional Visual Loss (FVL): Clinical Navigation",
+    "summary": "Functional Visual Loss (FVL), or non-organic vision loss, represents a diagnostic challenge requiring a delicate balance of rigorous exclusion of organic disease and compassionate patient management. This guide provides the framework for systematic identification and clinical verification.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q 50 30 70 50' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='4'/><circle cx='50' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Functional Visual Loss (FVL) is the report of reduced visual acuity or visual field deficit in the absence of an identifiable organic ocular or neurological substrate. It encompasses two primary categories: Malingering (conscious fabrication for secondary gain) and Conversion Disorder/Psychogenic Visual Loss (unconscious manifestation of psychological distress)."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Pediatric Patients",
+              "value": 60
+            },
+            {
+              "label": "Young Adults",
+              "value": 30
+            },
+            {
+              "label": "Other/Older",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Verification: The 'Must-Do' Tests",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Check Pupils (RAPD absent in pure FVL).",
+          "Step 2: Formal Refraction (Rule out uncorrected refractive error).",
+          "Step 3: Optokinetic Nystagmus (OKN) drum (Positive response confirms vision is present).",
+          "Step 4: Mirror Test (Follows movements, confirming peripheral processing).",
+          "Step 5: Visual Evoked Potentials (VEP) to assess retrobulbar pathway integrity.",
+          "Step 6: Goldmann/Automated perimetry (Look for tunnel vision or spiraling fields)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: The 'Organic' Rule-Outs",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Amblyopia",
+              "History of strabismus/anisometropia"
+            ],
+            [
+              "Cortical Blindness",
+              "Preserved pupils, intact OKN, CT/MRI findings"
+            ],
+            [
+              "Retrobulbar Neuritis",
+              "Pain on EOM, RAPD present"
+            ],
+            [
+              "Early Glaucoma",
+              "Optic nerve cupping, characteristic VF defects"
+            ],
+            [
+              "Retinitis Pigmentosa",
+              "Fundus exam findings, ERG abnormalities"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Non-Organic Indicators",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Tubular visual fields (field size remains constant regardless of distance to tangent screen).",
+          "Inconsistency between objective findings (VEP/ERG) and subjective reports.",
+          "Rapid 'flickering' of acuity on E-chart (e.g., seeing 20/200 then 20/20).",
+          "Monocular 'blindness' with binocular vision intact (Polaroid test).",
+          "Resistance to confrontation testing or extreme visual hesitation."
+        ]
+      },
+      {
+        "title": "The 'Remember' Mnemonic for Field Testing",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "SPIRAL",
+          "explanation": "S-pacing of field, P-eripheral constriction, I-nconsistency, R-elation to distance (Tubular), A-lternating responses, L-acking organic cause."
+        }
+      },
+      {
+        "title": "Etiology Mindmap",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Etiology",
+          "branches": [
+            "Secondary Gain (Malingering)",
+            "Stress/Anxiety (Conversion)",
+            "Psychiatric Comorbidity",
+            "Visual Processing Disorder"
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Use the 4-diopter prism test: A patient claiming monocular blindness who tracks the prism is seeing with that eye.",
+          "The patient's visual acuity on a near chart should correlate with the distance chart; ask the patient to read inverted charts to confuse memory.",
+          "Always document objectively: 'Visual acuity is inconsistent' rather than 'Patient is malingering'.",
+          "Collaborate: Early referral to psychology/psychiatry is vital for conversion cases.",
+          "Avoid confrontational language; maintain a supportive, diagnostic-focused bedside manner."
+        ]
+      }
+    ],
+    "generationPrompt": "Functional visual loss",
+    "chapterId": "aids"
+  },
+  "chapterId": "aids"
+}

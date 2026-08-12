@@ -1,0 +1,151 @@
+{
+  "id": 1775044654495,
+  "seqId": 69,
+  "title": "Mastering Surgery in Fuchs Endothelial Corneal Dystrophy (FECD)",
+  "summary": "FECD presents unique intraoperative challenges and postoperative risks due to corneal decompensation. This guide outlines the surgical precautions, optimization strategies, and clinical pearls for managing cataract surgery and DMEK/DSAEK in affected patients.",
+  "date": "2026-04-01T11:57:34.495Z",
+  "data": {
+    "title": "Mastering Surgery in Fuchs Endothelial Corneal Dystrophy (FECD)",
+    "summary": "FECD presents unique intraoperative challenges and postoperative risks due to corneal decompensation. This guide outlines the surgical precautions, optimization strategies, and clinical pearls for managing cataract surgery and DMEK/DSAEK in affected patients.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 30 70 50 T30 50' fill='hsl(215, 90%, 20%)' opacity='0.3'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "FECD is a bilateral, slowly progressive, primary non-inflammatory dystrophy of the corneal endothelium characterized by the development of guttata (excrescences of Descemet membrane). Pathophysiologically, endothelial pump failure leads to stromal and epithelial edema. Surgical trauma in these eyes exacerbates the loss of endothelial cells (ECs), potentially triggering bullous keratopathy."
+      },
+      {
+        "title": "Pre-Surgical Assessment",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Clinical Importance"
+          ],
+          "rows": [
+            [
+              "Specular Microscopy",
+              "Assess ECD (cells/mm²) and CV (coefficient of variation). <800 cells/mm² is high risk."
+            ],
+            [
+              "Pachymetry",
+              "Baseline central corneal thickness (>640µm suggests decompensation)."
+            ],
+            [
+              "AS-OCT",
+              "Visualizing guttae severity and stromal edema depth."
+            ],
+            [
+              "Visual Function",
+              "Assess glare/haze severity (often worse in AM due to nocturnal lid closure)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical 'Red Flags'",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Pre-existing stromal haze: Avoid phacoemulsification alone if >640µm thickness.",
+          "High endothelial cell loss during phaco: Excess fluid usage is dangerous.",
+          "Posterior synechiae: Increases risk of rupture during endothelial dissection.",
+          "Intraocular Pressure Spikes: Post-op IOP control is mandatory to prevent graft detachment."
+        ]
+      },
+      {
+        "title": "Intraoperative Precautions",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Use high-viscosity dispersive OVD (e.g., Viscoat) to coat the endothelium thoroughly.",
+          "Step 2: Maintain a deep anterior chamber; perform 'soft-shell' technique to protect the endothelium.",
+          "Step 3: Minimize phaco-time; utilize horizontal chop to reduce total ultrasound energy (CDE).",
+          "Step 4: Keep instruments away from the central 4-5mm zone of the endothelium.",
+          "Step 5: Perform aggressive irrigation/aspiration of OVD post-phaco to prevent IOP spikes."
+        ]
+      },
+      {
+        "title": "Decision Making: The Algorithm",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Management Plan",
+          "branches": [
+            "Cataract Only (Mild Guttae)",
+            "Combined Phaco + DMEK (Advanced)",
+            "DSAEK (If Anterior Segment Complexity)",
+            "Conservative/Medical Management"
+          ]
+        }
+      },
+      {
+        "title": "Remember the 3 'S' Factors",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "SSS",
+          "explanation": "S - Surrender the ultrasound energy (Minimize CDE); S - Shield the endothelium (Dispersive OVD); S - Steady the pressure (Post-op IOP management)."
+        }
+      },
+      {
+        "title": "Recent Advances",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "DMEK is now the gold standard over DSAEK due to lower rejection and better visual recovery.",
+          "Rho-kinase (ROCK) inhibitors (e.g., Ripasudil) are being investigated to promote endothelial survival.",
+          "DSAEK/DMEK in 'triple procedures' (Phaco + Keratoplasty) reduces surgical burden on the patient."
+        ]
+      },
+      {
+        "title": "Endothelial Cell Loss Rates",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Phaco alone (FECD)",
+              "value": 35
+            },
+            {
+              "label": "Phaco + DSAEK",
+              "value": 60
+            },
+            {
+              "label": "Phaco + DMEK",
+              "value": 45
+            }
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "surgical precautions in fuchs endothelial dystrophy",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044654495,
+  "communityId": "sub_1774686576631_u5g83popn",
+  "communityAuthor": "nemo",
+  "communityDate": "2026-03-28T08:29:36.631Z",
+  "read": true
+}

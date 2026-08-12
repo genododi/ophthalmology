@@ -1,0 +1,151 @@
+{
+  "id": 1775192359852,
+  "seqId": 594,
+  "title": "TENSION PNEUMOTHORAX: The Lethal Breath-Stealer",
+  "summary": "A life-threatening, time-sensitive emergency characterized by progressive accumulation of air in the pleural space, leading to hemodynamic collapse via obstructive shock. Immediate clinical diagnosis and decompression are mandatory.",
+  "date": "2026-04-03T04:59:19.852Z",
+  "data": {
+    "title": "TENSION PNEUMOTHORAX: The Lethal Breath-Stealer",
+    "summary": "A life-threatening, time-sensitive emergency characterized by progressive accumulation of air in the pleural space, leading to hemodynamic collapse via obstructive shock. Immediate clinical diagnosis and decompression are mandatory.",
+    "summary_illustration": "<svg viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e40af' stroke-width='4'/><path d='M50 20 L50 80 M20 50 L80 50' stroke='#ef4444' stroke-width='6'/><path d='M30 30 L70 70 M70 30 L30 70' stroke='#1e40af' stroke-width='4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Mechanism",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Tension pneumothorax is the presence of air in the pleural space with a 'one-way valve' mechanism. Air enters during inspiration but cannot exit during expiration. This results in positive intrapleural pressure, mediastinal shift, compression of the contralateral lung, and decreased venous return to the heart (obstructive shock)."
+      },
+      {
+        "title": "Pathophysiology Flow",
+        "icon": "psychology",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Pleural defect allows unidirectional airflow (valvular mechanism).",
+          "Step 2: Progressive intrapleural pressure elevation exceeds atmospheric pressure.",
+          "Step 3: Mediastinal deviation to the contralateral side.",
+          "Step 4: Mechanical obstruction of the Superior/Inferior Vena Cava.",
+          "Step 5: Drop in Preload -> Reduced Cardiac Output -> Obstructive Shock -> Cardiac Arrest."
+        ]
+      },
+      {
+        "title": "Red Flags: Immediate Action Required",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Unilateral absent breath sounds",
+          "Tracheal deviation (Late sign!)",
+          "Distended neck veins (JVD)",
+          "Hypotension/Hemodynamic instability",
+          "Severe, rapid-onset dyspnea",
+          "Cyanosis and altered mental status"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Massive Hemothorax",
+              "Dullness to percussion"
+            ],
+            [
+              "Cardiac Tamponade",
+              "Beck's Triad (no lung signs)"
+            ],
+            [
+              "Massive Pulmonary Embolism",
+              "Clear breath sounds"
+            ],
+            [
+              "Diaphragmatic Rupture",
+              "Bowel sounds in chest"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Emergency Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Step 1: Clinical Diagnosis ONLY (Do not wait for CXR!)",
+          "Step 2: Immediate Needle Decompression (14-16G needle)",
+          "Step 3: Location: 2nd Intercostal Space (Mid-clavicular) OR 4th/5th ICS (Mid-axillary)",
+          "Step 4: Emergent Tube Thoracostomy (Chest Tube, 28-32 French)",
+          "Step 5: Connect to underwater seal suction (-20 cm H2O)"
+        ]
+      },
+      {
+        "title": "Diagnostic Pearls",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Percussion: Hyper-resonance to percussion",
+          "Auscultation: Silent hemithorax",
+          "Imaging: If stable, CXR shows deep sulcus sign/mediastinal shift",
+          "POCUS: Lung point and absent lung sliding are diagnostic"
+        ]
+      },
+      {
+        "title": "Mnemonic: Signs of Tension",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-D-T-H",
+          "explanation": "P: Pleural air (trapped), D: Distended veins (JVD), T: Tracheal shift, H: Hypotension/Hypoxia"
+        }
+      },
+      {
+        "title": "Epidemiology & Etiology Distribution",
+        "icon": "science",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Trauma (Penetrating)",
+              "value": 40
+            },
+            {
+              "label": "Iatrogenic (Central lines)",
+              "value": 30
+            },
+            {
+              "label": "Spontaneous (Ruptured Bleb)",
+              "value": 20
+            },
+            {
+              "label": "Mechanical Ventilation",
+              "value": 10
+            }
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Tension pneumothorax (Medicine & emergency)",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills"
+}

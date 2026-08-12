@@ -1,0 +1,306 @@
+{
+  "id": 1775044673428,
+  "seqId": 268,
+  "title": "Duane Retraction Syndrome (DRS): The Miswired Eye",
+  "summary": "A comprehensive guide to Duane Retraction Syndrome (DRS), a Congenital Cranial Dysinnervation Disorder (CCDD) characterized by aberrant innervation of the lateral rectus by the 3rd cranial nerve. This poster covers clinical classification, surgical management, and the underlying neuro-anatomical anomalies.",
+  "date": "2026-04-01T11:57:53.428Z",
+  "data": {
+    "title": "Duane Retraction Syndrome (DRS): The Miswired Eye",
+    "summary": "A comprehensive guide to Duane Retraction Syndrome (DRS), a Congenital Cranial Dysinnervation Disorder (CCDD) characterized by aberrant innervation of the lateral rectus by the 3rd cranial nerve. This poster covers clinical classification, surgical management, and the underlying neuro-anatomical anomalies.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 20 70 50 Q50 80 30 50' fill='hsl(215, 90%, 45%)' opacity='0.3'/><circle cx='50' cy='50' r='12' fill='hsl(215, 90%, 45%)'/><path d='M75 50 L95 50 M75 45 L95 40 M75 55 L95 60' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-linecap='round'/><path d='M10 50 C20 40 30 40 40 50' fill='none' stroke='red' stroke-width='2' stroke-dasharray='2,2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Neuro-Etiology",
+        "icon": "psychology",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Duane Retraction Syndrome (DRS) is a congenital motility disorder resulting from the failure of the abducens nerve (CN VI) nucleus and nerve to develop normally. The lateral rectus (LR) muscle is instead innervated by a branch of the oculomotor nerve (CN III), leading to anomalous co-contraction of the medial and lateral recti on attempted adduction."
+      },
+      {
+        "title": "Epidemiology: The Numbers",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Female Predilection",
+              "value": 60
+            },
+            {
+              "label": "Left Eye Involvement",
+              "value": 60
+            },
+            {
+              "label": "Bilateral Cases",
+              "value": 20
+            },
+            {
+              "label": "Sporadic (Non-Familial)",
+              "value": 90
+            }
+          ]
+        }
+      },
+      {
+        "title": "Huber's Clinical Classification",
+        "icon": "reorder",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Description",
+            "Primary Finding",
+            "Mechanism"
+          ],
+          "rows": [
+            [
+              "Type I",
+              "Most Common (70-80%)",
+              "Markedly limited abduction; normal/near-normal adduction.",
+              "Absent CN VI; LR innervated by CN III only on adduction."
+            ],
+            [
+              "Type II",
+              "Least Common (7%)",
+              "Limited adduction; normal or slightly limited abduction.",
+              "CN VI present; LR innervated by both CN VI and CN III branches."
+            ],
+            [
+              "Type III",
+              "Common (15%)",
+              "Limited abduction AND limited adduction.",
+              "Co-contraction of MR and LR in both directions of horizontal gaze."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Pathophysiological Cascade",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Failure of CN VI nucleus/nerve development in the first trimester.",
+          "Step 2: Aberrant axonal sprouting from CN III (inferior division).",
+          "Step 3: Synaptic connection to the Lateral Rectus (LR) muscle.",
+          "Step 4: Attempted adduction triggers both MR and LR (Co-contraction).",
+          "Step 5: Globe is pulled posteriorly into the orbit (Retraction)."
+        ]
+      },
+      {
+        "title": "Classic Clinical Features",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Globe Retraction: Occurs on attempted adduction.",
+          "Palpebral Fissure Narrowing: Secondary to globe retraction.",
+          "Upshoots & Downshoots: 'Leash effect' or 'Sling effect' during adduction.",
+          "Compensatory Abnormal Head Position (AHP): Usually a face turn to maintain binocularity.",
+          "Secondary Strabismus: Esotropia (Type I) or Exotropia (Type II) in primary position."
+        ]
+      },
+      {
+        "title": "The 'Remember' Mnemonic",
+        "icon": "psychology_alt",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "The Rule of 60s",
+          "explanation": "60% are Female, 60% are Left Eye, 60% of cases are Type I (actually 70-80%, but 60 is a helpful anchor for the other stats)."
+        }
+      },
+      {
+        "title": "Critical Surgical Contraindications",
+        "icon": "report",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "NEVER perform a Lateral Rectus Resection: This severely worsens globe retraction.",
+          "Avoid large bimedial recessions if globe retraction is the primary concern.",
+          "Do not operate if the patient is orthophoric with no AHP and good stereopsis.",
+          "Watch for post-operative 'Pseudo-6th nerve palsy' after large recessions."
+        ]
+      },
+      {
+        "title": "Diagnostic Differential Diagnosis",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Differential",
+            "Distinguishing Features",
+            "Clinical Clue"
+          ],
+          "rows": [
+            [
+              "6th Nerve Palsy",
+              "No globe retraction; acquired onset; secondary deviation > primary.",
+              "Negative forced ductions early on."
+            ],
+            [
+              "Congenital Esotropia",
+              "Large angle ET; cross-fixation; no retraction.",
+              "Normal abduction with 'doll's head' maneuver."
+            ],
+            [
+              "Möbius Syndrome",
+              "Bilateral 6th & 7th nerve palsies; mask-like facies.",
+              "Check tongue/extremity malformations."
+            ],
+            [
+              "Brown Syndrome",
+              "Limited elevation in adduction; V-pattern.",
+              "Positive FDT for superior oblique tendon."
+            ],
+            [
+              "Pseudo-Duane",
+              "Result of trauma or medial wall fracture (MR entrapment).",
+              "History of trauma."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Systemic Associations (Mindmap)",
+        "icon": "hub",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "DRS Associations",
+          "branches": [
+            "Goldenhar (Oculo-auriculo-vertebral)",
+            "Wildervanck (Klippel-Feil + Deafness)",
+            "Holt-Oram (Upper limb + Cardiac)",
+            "Morning Glory Disc Anomaly",
+            "Cleft Palate / Hearing Loss"
+          ]
+        }
+      },
+      {
+        "title": "Surgical Management Goals",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Eliminate AHP (Abnormal Head Position).",
+          "Align the eyes in primary position.",
+          "Reduce cosmetically significant globe retraction.",
+          "Minimize severe upshoots/downshoots (Leash Effect).",
+          "Expand the binocular single vision (BSV) field."
+        ]
+      },
+      {
+        "title": "Advanced Surgical Techniques",
+        "icon": "content_cut",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Recommended Procedure",
+            "Technical Goal"
+          ],
+          "rows": [
+            [
+              "Type I (ET Duane)",
+              "Medial Rectus (MR) Recession",
+              "Reduce primary position esotropia and face turn."
+            ],
+            [
+              "Type II (XT Duane)",
+              "Lateral Rectus (LR) Recession",
+              "Reduce primary position exotropia and face turn."
+            ],
+            [
+              "Severe Retraction",
+              "Recess both MR and LR",
+              "Decrease the co-contraction pull on the globe."
+            ],
+            [
+              "Upshoot/Downshoot",
+              "Y-splitting of the LR muscle",
+              "Prevents the LR from slipping over the globe (Sling effect)."
+            ],
+            [
+              "Abduction Deficit",
+              "Vertical Rectus Transposition (VRT)",
+              "Improve abduction (Warning: risk of worsening retraction)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Process",
+        "icon": "menu_book",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Measurement of deviation in all 9 cardinal gazes.",
+          "2. Assessment of AHP and palpebral fissure width.",
+          "3. Forced Duction Test (FDT) to differentiate from 6th nerve palsy.",
+          "4. Cycloplegic refraction (Rule out accommodative component).",
+          "5. MRI Brain/Orbit (Only if atypical or part of research)."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Board Exam",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "FDT is usually positive (tight) for the MR in chronic Type I.",
+          "Marcus Gunn Jaw-Winking is rarely associated.",
+          "Bilateral DRS: Always rule out Möbius Syndrome.",
+          "Stereopsis is usually excellent within the field of the head turn.",
+          "V-pattern esotropia is the most common pattern found in Type I."
+        ]
+      },
+      {
+        "title": "Genetic Considerations",
+        "icon": "genetics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "While 90% are sporadic, familial cases (10%) often show Autosomal Dominant inheritance. Mutations in the CHN1 gene (coding for α-chimerin) have been identified in familial Duane Syndrome, which is involved in pathfinding of ocular motor axons during development."
+      },
+      {
+        "title": "Prognosis & Outcomes",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Surgical success (alignment in PP) is achieved in >80% of cases.",
+          "Amblyopia occurs in 10-20% (often anisometropic, not strabismic).",
+          "Full restoration of normal motility is never possible.",
+          "Long-term stability is generally high following surgery."
+        ]
+      }
+    ],
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "_newlyImported": 1775044673428,
+  "communityId": "sub_1773775007770_am60gbvdbzg2yu",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true
+}

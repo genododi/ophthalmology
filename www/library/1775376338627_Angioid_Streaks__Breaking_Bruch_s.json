@@ -1,0 +1,276 @@
+{
+  "id": 1775376338627,
+  "seqId": 664,
+  "title": "Angioid Streaks: Breaking Bruch's",
+  "summary": "Angioid streaks are jagged, radiating cracks in a calcified and brittle Bruch’s membrane. While often asymptomatic, they are a harbinger of potential vision loss from choroidal neovascularization and serve as a crucial diagnostic clue for systemic elastic tissue disorders.",
+  "date": "2026-04-05T08:05:38.627Z",
+  "data": {
+    "title": "Angioid Streaks: Breaking Bruch's",
+    "summary": "Angioid streaks are jagged, radiating cracks in a calcified and brittle Bruch’s membrane. While often asymptomatic, they are a harbinger of potential vision loss from choroidal neovascularization and serve as a crucial diagnostic clue for systemic elastic tissue disorders.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M130 80 L170 60 M140 100 L180 100 M130 120 L170 140 M100 140 L100 180 M70 120 L30 140 M60 100 L20 100 M70 80 L30 60' stroke='hsl(215, 90%, 45%)' stroke-width='3' stroke-linecap='round' fill='none'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Angioid streaks are irregular, jagged, tapering lines that radiate from the peripapillary area into the peripheral fundus. They represent dehiscences (cracks) in a thickened, calcified, and abnormally brittle Bruch's membrane. Primarily involving the elastic lamina, these cracks allow for potential ingrowth of choroidal fibrovascular tissue, leading to vision-threatening complications. The condition is often bilateral and progressive."
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "PXE Patients with Streaks",
+              "value": 85
+            },
+            {
+              "label": "Paget's Disease Association",
+              "value": 10
+            },
+            {
+              "label": "Sickle Cell Association",
+              "value": 6
+            },
+            {
+              "label": "Idiopathic Cases",
+              "state": 45
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Mechanism of Brittleness",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Abnormal mineralization (calcification) of the elastic lamina of Bruch’s membrane.",
+          "Step 2: Increase in fragility and brittleness of the Bruch's-RPE complex.",
+          "Step 3: Mechanical stress (ocular muscle traction or minor trauma) causes linear ruptures.",
+          "Step 4: Atrophy of overlying Retinal Pigment Epithelium (RPE).",
+          "Step 5: Access provided for Choroidal Neovascularization (CNV) to enter sub-retinal space."
+        ]
+      },
+      {
+        "title": "The PEPSI Mnemonic (Systemic Associations)",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PEPSI",
+          "explanation": "P: Pseudoxanthoma Elasticum (PXE / Grönblad–Strandberg syndrome) | E: Ehlers-Danlos Syndrome (Type VI) | P: Paget’s Disease of Bone | S: Sickle Cell Disease (and other hemoglobinopathies like Thalassemia) | I: Idiopathic."
+        }
+      },
+      {
+        "title": "Detailed Systemic Workup",
+        "icon": "clinical_notes",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Systemic Features",
+            "Diagnostic Tests"
+          ],
+          "rows": [
+            [
+              "PXE",
+              "Plucked-chicken skin (neck/axilla), mitral valve prolapse, GI bleeds",
+              "Skin biopsy (Von Kossa stain), ABCC6 genetic testing"
+            ],
+            [
+              "Paget's Disease",
+              "Enlarged skull, bone pain, hearing loss",
+              "Serum Alkaline Phosphatase (elevated), Bone Scan, X-ray"
+            ],
+            [
+              "Sickle Cell",
+              "Vaso-occlusive crises, anemia",
+              "Hemoglobin electrophoresis"
+            ],
+            [
+              "Ehlers-Danlos",
+              "Hyperflexible joints, skin hyperextensibility",
+              "Clinical assessment, Genetic testing (COL5A1/A2)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Peripapillary Configuration: Streaks radiate from a circular ring around the optic disc.",
+          "Color: Vary from red, brown, to grey depending on the background pigmentation.",
+          "Peau d'orange: Mottled RPE appearance (orange peel) temporal to the macula; often precedes streaks.",
+          "Optic Disc Drusen: Highly associated with PXE cases.",
+          "Salmon Spots: Small, yellowish peripheral chorioretinal scars (peripheral focal atrophies).",
+          "Crystalline Bodies: Small, subretinal white-yellow spots in the mid-periphery."
+        ]
+      },
+      {
+        "title": "Multimodal Imaging Characteristics",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Imaging Angioid Streaks",
+          "branches": [
+            "FFA: Early hyperfluorescence (window defect) with late staining; leakage if CNV present",
+            "ICGA: Better detection; usually shows more streaks than clinical exam (hypofluorescent)",
+            "FAF: Usually hypo-autofluorescent streaks due to RPE atrophy; may show hyper-AF margins",
+            "OCT: Irregularity/breaks in the RPE-Bruch's complex; 'saw-tooth' configuration"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Lacquer Cracks",
+              "Associated with high myopia, usually more linear/yellow, lack peripapillary ring."
+            ],
+            [
+              "Choroidal Rupture",
+              "Concentric to the optic disc, history of trauma, usually white (exposed sclera)."
+            ],
+            [
+              "Toxoplasmosis Scars",
+              "Linear scars can mimic, but usually have pigmented borders and no peripapillary origin."
+            ],
+            [
+              "Pattern Dystrophy",
+              "Can coexist with PXE, but pigment distribution is more central and symmetric."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Threat of CNV: Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Baseline Assessment: Multimodal imaging (OCT, FFA) to rule out occult CNV.",
+          "2. Home Monitoring: Daily Amsler Grid is mandatory for all patients.",
+          "3. First-line Treatment: Intravitreal Anti-VEGF (Ranibizumab 0.5mg, Aflibercept 2mg, or Bevacizumab 1.25mg).",
+          "4. Dosing Schedule: Usually Pro-re-nata (PRN) or Treat-and-Extend (T&E) based on fluid.",
+          "5. Laser: Only for extrafoveal CNV (rarely used now due to risk of streak expansion)."
+        ]
+      },
+      {
+        "title": "Critical Complications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Subretinal Hemorrhage: Can occur from MINOR blunt trauma without CNV (fragile Bruch's).",
+          "Type 2 Choroidal Neovascularization (CNV): Most common cause of disciform scarring.",
+          "Geographic Atrophy: Progressive RPE loss leads to poor visual prognosis even without CNV.",
+          "Foveal Involvement: Direct extension of a streak through the fovea."
+        ]
+      },
+      {
+        "title": "Emergency Patient Education",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "MANDATORY: Polycarbonate safety glasses for all contact sports/high-risk activities.",
+          "Urgent reporting of metamorphopsia (wavy lines).",
+          "Avoidance of heavy lifting or Valsalva maneuvers (risk of subretinal bleed).",
+          "Smoking cessation (accelerates RPE degeneration and CNV risk)."
+        ]
+      },
+      {
+        "title": "Clinical Pearls & High-Yield Facts",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Most common systemic association is PXE (up to 85%).",
+          "Streaks are 'angioid' because they resemble blood vessels, not because they contain blood.",
+          "Vision loss is rarely due to the streaks themselves, but rather secondary CNV or trauma.",
+          "Angioid streaks in Sickle Cell are usually found in patients >25 years old.",
+          "The 'peau d'orange' sign is highly specific for PXE."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Recent studies have highlighted the long-term efficacy of Anti-VEGF therapy in Angioid Streak-associated CNV, though the frequency of injections required may be higher than in AMD. Genetic research into the ABCC6 gene (PXE) has opened doors for potential enzyme replacement therapies or systemic pyrophosphate supplementation, which may one day prevent the mineralization of Bruch's membrane entirely. Landmark case series emphasize that early detection of CNV via OCT-Angiography (OCTA) leads to significantly better visual outcomes compared to waiting for symptomatic hemorrhage."
+      },
+      {
+        "title": "Visual Prognosis Chart",
+        "icon": "monitoring",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Retention of 20/40 (Treated CNV)",
+              "value": 65
+            },
+            {
+              "label": "Retention of 20/40 (Untreated CNV)",
+              "value": 15
+            },
+            {
+              "label": "Risk of Bilaterality (5 years)",
+              "value": 80
+            }
+          ]
+        }
+      },
+      {
+        "title": "Classification of Streak Progression",
+        "icon": "genetics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Stage 1: Peau d'orange (mottling) without visible streaks.",
+          "Stage 2: Discrete, fine streaks radiating from the disc.",
+          "Stage 3: Widening of streaks and focal RPE atrophy.",
+          "Stage 4: Development of CNV or subretinal fibrosis.",
+          "Stage 5: Extensive disciform scarring and macular atrophy."
+        ]
+      }
+    ],
+    "generationPrompt": "Angioid streaks",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina"
+}

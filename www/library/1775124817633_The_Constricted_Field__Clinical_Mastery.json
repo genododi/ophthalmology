@@ -1,0 +1,302 @@
+{
+  "id": 1775124817633,
+  "seqId": 550,
+  "title": "The Constricted Field: Clinical Mastery",
+  "summary": "A comprehensive guide to 'tunnel vision' and peripheral field loss, ranging from end-stage glaucoma and tapetoretinal degenerations to neurological and functional etiologies. Essential for board-prep and advanced ophthalmic practice.",
+  "date": "2026-04-02T10:13:37.633Z",
+  "data": {
+    "title": "The Constricted Field: Clinical Mastery",
+    "summary": "A comprehensive guide to 'tunnel vision' and peripheral field loss, ranging from end-stage glaucoma and tapetoretinal degenerations to neurological and functional etiologies. Essential for board-prep and advanced ophthalmic practice.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='#2c3e50' opacity='0.8'/><circle cx='100' cy='100' r='15' fill='#ffffff'/><path d='M100 20 L100 180 M20 100 L180 100' stroke='#3498db' stroke-width='1' stroke-dasharray='4'/><circle cx='100' cy='100' r='15' fill='none' stroke='#e74c3c' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Constricted visual fields, colloquially termed 'tunnel vision', involve the loss of peripheral vision while retaining a small central island (typically <10–20°). This can result from end-stage optic neuropathies, retinal dystrophies, or cortical insults. Clinically, it significantly impacts mobility and orientation, while central visual acuity often remains remarkably preserved (20/20) until the terminal stages."
+      },
+      {
+        "title": "The 'Big Five' Etiologies",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Constricted Field Causes",
+          "branches": [
+            "End-stage Glaucoma",
+            "Retinitis Pigmentosa (RP)",
+            "Post-Papilledema Atrophy",
+            "Bilateral Occipital Infarcts (Macular Sparing)",
+            "Functional/Malingering"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Glaucoma (Global Prevalence)",
+              "value": 3.5
+            },
+            {
+              "label": "Retinitis Pigmentosa (1:4000)",
+              "value": 0.025
+            },
+            {
+              "label": "Functional VF Loss (%)",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology Mechanisms",
+        "icon": "genetics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Peripheral Photoreceptor or Ganglion Cell death (Retrograde/Anterograde degeneration).",
+          "Step 2: Microvascular compromise in the watershed zones of the peripheral retina.",
+          "Step 3: Glial proliferation (gliosis) and RPE migration (Bone Spicules).",
+          "Step 4: Optic nerve remodeling and axonal loss at the Lamina Cribrosa."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Organic vs. Functional",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Organic Constriction",
+            "Functional (Non-organic)"
+          ],
+          "rows": [
+            [
+              "Goldmann Pattern",
+              "Isopters expand with increasing distance/size.",
+              "Tubular or Spiral (Funnel-shaped) fields."
+            ],
+            [
+              "Orientation",
+              "Patient bumps into objects frequently.",
+              "Rarely bumps into objects (unconscious awareness)."
+            ],
+            [
+              "Symmetry",
+              "Often asymmetrical (Glaucoma/Vascular).",
+              "Usually highly symmetrical."
+            ],
+            [
+              "Pupillary Reflex",
+              "May show RAPD (if asymmetric).",
+              "Normal pupillary responses."
+            ],
+            [
+              "ERG",
+              "Abnormal (in RP/Retinal disease).",
+              "Normal ERG."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Optic Disc: Cupping (Glaucoma), Waxy Pallor (RP), or Chronic Swelling/Atrophy (Papilledema).",
+          "Vessels: Arteriolar attenuation (characteristic of RP and long-standing atrophy).",
+          "Retina: Bone-spicule pigmentation in the mid-periphery (RP), or sector-based atrophy.",
+          "Macula: Often spared until late stages; check for Cystoid Macular Edema (CME) in RP.",
+          "Gonioscopy: Assess for Angle-Closure (synechiae) as a cause of rapid field loss."
+        ]
+      },
+      {
+        "title": "CRITICAL EMERGENCY SIGNS",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset peripheral loss (Vascular Occlusion/Retinal Detachment)",
+          "New onset headache and disc edema (Intracranial Hypertension)",
+          "Temporal artery tenderness (GCA - can cause ischemic optic neuropathy)",
+          "Rapidly progressive field loss in an only eye",
+          "Presence of neurological deficits (Hemiparesis/Ataxia)"
+        ]
+      },
+      {
+        "title": "Investigations & Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Static Perimetry (HVF 24-2/30-2): Initial assessment of depth and pattern.",
+          "2. Kinetic Perimetry (Goldmann): Gold standard for peripheral constriction and 'tubular' testing.",
+          "3. 10-2 Perimetry: Crucial for monitoring the remaining central island.",
+          "4. OCT (RNFL and GCL): Quantify structural loss; follow-up for progression.",
+          "5. Electroretinogram (fERG/mfERG): Differentiate retinal (RP) from neural (Optic Nerve) causes.",
+          "6. Neuro-imaging (MRI Brain/Orbits): Mandatory if field loss does not match clinical exam or is neurological."
+        ]
+      },
+      {
+        "title": "Mnemonics for Constriction",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "P.U.R.G.E.",
+          "explanation": "P: Papilledema (Chronic Stage); U: Uveitis (Vogt-Koyanagi-Harada late); R: Retinitis Pigmentosa; G: Glaucoma (End-stage); E: Embolus (CRAO with cilioretinal sparing)."
+        }
+      },
+      {
+        "title": "Glaucoma Staging (Hodapp-Parrish-Anderson)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "MD (Mean Deviation)",
+            "HVF Criteria"
+          ],
+          "rows": [
+            [
+              "Early",
+              "< -6 dB",
+              "Few points in arcuate area."
+            ],
+            [
+              "Moderate",
+              "-6 to -12 dB",
+              "One hemifield affected."
+            ],
+            [
+              "Severe",
+              "> -12 dB",
+              "Constriction, both hemifields."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical & Medical Management",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Medical (Glaucoma): PG Analogs (Latanoprost 0.005% QHS), Beta-blockers (Timolol 0.5% BID).",
+          "Surgical (Glaucoma): Trabeculectomy with Mitomycin-C or GDD (Ahmed/Baerveldt) to stabilize field.",
+          "Gene Therapy: Voretigene neparvovec (Luxturna) for RPE65-mediated RP.",
+          "Systemic: Acetazolamide for chronic papilledema; weight loss (IIH).",
+          "Vitamins: Vitamin A Palmitate (15,000 IU/day) for RP (consult specialist first)."
+        ]
+      },
+      {
+        "title": "Surgical Technique: Trabeculectomy",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Conjunctival peritomy (limbal or fornix based).",
+          "2. Partial thickness scleral flap creation.",
+          "3. Application of Mitomycin-C (0.2-0.4 mg/ml) for 2-3 minutes.",
+          "4. Sclerostomy and peripheral iridectomy.",
+          "5. Flap closure with 10-0 Nylon (releasable or fixed)."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "The 'Wipe-out' Phenomenon",
+          "explanation": "Sudden loss of the remaining central island after glaucoma surgery. Occurs in end-stage patients with <10 degrees of field."
+        }
+      },
+      {
+        "title": "Landmark Clinical Studies",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Study",
+            "Key Finding",
+            "Relevance to VF"
+          ],
+          "rows": [
+            [
+              "OHTS",
+              "20% IOP reduction halved conversion.",
+              "Prevention of initial VF loss."
+            ],
+            [
+              "EMGT",
+              "Each 1mmHg drop reduces progression by 10%.",
+              "Slowing field constriction."
+            ],
+            [
+              "LiGHT",
+              "SLT is effective first-line therapy.",
+              "Early intervention saves field."
+            ],
+            [
+              "TVT",
+              "Tubes vs. Trab for previous failure.",
+              "Managing refractory field loss."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Toxic & Nutritional Causes",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Quinine Toxicity: Can lead to profound peripheral constriction.",
+          "Vigabatrin: Anti-epileptic causing irreversible peripheral VF loss (requires baseline perimetry).",
+          "Ethambutol: Usually central/cecocentral but can cause generalized depression.",
+          "Methanol: Severe optic atrophy and field constriction."
+        ]
+      },
+      {
+        "title": "Pediatric & Special Populations",
+        "icon": "fingerprint",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "In children, constricted fields often point towards Leber Congenital Amaurosis (LCA) or syndromes like Usher's (sensorineural hearing loss + RP). Testing is difficult; utilize FPL (Formatted Preferential Looking) and objective electrophysiology (ERG) early to assess potential for low vision rehabilitation."
+      }
+    ],
+    "generationPrompt": "Constricted field",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "read": true
+}

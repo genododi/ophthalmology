@@ -1,0 +1,288 @@
+{
+  "id": 1775044692585,
+  "seqId": 429,
+  "title": "Dacryocystitis: Clinical Excellence & Surgical Mastery",
+  "summary": "A comprehensive deep-dive into the pathogenesis, diagnosis, and management of lacrimal sac inflammation. This guide covers everything from the microbiology of acute infections to the intricate steps of Dacryocystorhinostomy (DCR).",
+  "date": "2026-04-01T11:58:12.585Z",
+  "data": {
+    "title": "Dacryocystitis: Clinical Excellence & Surgical Mastery",
+    "summary": "A comprehensive deep-dive into the pathogenesis, diagnosis, and management of lacrimal sac inflammation. This guide covers everything from the microbiology of acute infections to the intricate steps of Dacryocystorhinostomy (DCR).",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 80 Q100 50 140 80 Q100 110 60 80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='80' r='15' fill='hsl(215, 90%, 45%)'/><path d='M65 85 L55 120' stroke='hsl(215, 90%, 45%)' stroke-width='4' stroke-linecap='round'/><path d='M55 120 Q55 140 65 145' stroke='red' stroke-width='6' stroke-linecap='round' fill='none'/><circle cx='55' cy='130' r='8' fill='red' opacity='0.6'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Dacryocystitis is the inflammation and infection of the lacrimal sac, almost invariably occurring secondary to obstruction of the nasolacrimal duct (NLDO). It is characterized by a bimodal age distribution and presents as either an acute, life-threatening orbital emergency or a chronic, smoldering condition causing persistent epiphora and discharge. Effective management requires a combination of aggressive antimicrobial therapy and definitive surgical bypass of the obstruction."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Female Predisposition",
+              "value": 80
+            },
+            {
+              "label": "Over Age 50",
+              "value": 75
+            },
+            {
+              "label": "Left-Sided Dominance",
+              "value": 55
+            },
+            {
+              "label": "Congenital (Infants)",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Microbial Landscape",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Common Organisms"
+          ],
+          "rows": [
+            [
+              "Acute (Gram +)",
+              "S. aureus, S. pneumoniae, B-hemolytic Strep"
+            ],
+            [
+              "Acute (Gram -)",
+              "H. influenzae (kids), Pseudomonas, Proteus"
+            ],
+            [
+              "Chronic",
+              "Staph epidermidis, Candida albicans, Actinomyces"
+            ],
+            [
+              "Granulomatous",
+              "Mycobacterium tuberculosis, Sarcoidosis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology Flow",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Nasolacrimal Duct Obstruction (NLDO) - Primary (PANDO) or Secondary (Stone, Trauma).",
+          "Step 2: Stasis of Tear Film - Accumulation of tears, debris, and bacteria within the lacrimal sac.",
+          "Step 3: Bacterial Proliferation - Stagnant environment promotes rapid growth of normal skin/conjunctival flora.",
+          "Step 4: Mucosal Inflammation - Edema and hypervascularity of the sac lining.",
+          "Step 5: Abscess Formation - High pressure leads to sac distension and potential rupture into surrounding tissue."
+        ]
+      },
+      {
+        "title": "Clinical Classification",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Dacryocystitis",
+          "branches": [
+            "Acute (Painful, Erythematous)",
+            "Chronic (Epiphora, Mucocele)",
+            "Subacute (Low-grade inflammation)",
+            "Congenital (Amnentocele/Dacryocystocele)"
+          ]
+        }
+      },
+      {
+        "title": "Acute vs. Chronic Features",
+        "icon": "grading",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Acute",
+            "Chronic"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Sudden/Hours",
+              "Insidious/Months"
+            ],
+            [
+              "Pain",
+              "Severe, Throbbing",
+              "Painless/Mild Discomfort"
+            ],
+            [
+              "Swelling",
+              "Tense, Over Medial Canthus",
+              "Soft, Fluctuant Mucocele"
+            ],
+            [
+              "Reflux",
+              "Too painful to test",
+              "Mucoid reflux on pressure"
+            ],
+            [
+              "Systemic",
+              "Fever/Leukocytosis",
+              "Absent"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Essential Diagnostic Workup",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "External Exam: Check for swelling BELOW the medial canthal tendon (suggests sac vs tumor).",
+          "Regurgitation Test: Pressure on sac produces mucoid/purulent reflux from puncta.",
+          "Jones I Test: Fluorescein recovery in the nose (negative in obstruction).",
+          "Jones II Test: Syringing/Irrigation to identify the site of obstruction.",
+          "Probing: Determines 'Hard Stop' (bone/NLD) vs 'Soft Stop' (canalicular obstruction).",
+          "Culture/Sensitivity: Vital for selecting narrow-spectrum antibiotics."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Medial Canthal Mass",
+          "branches": [
+            "Lacrimal Sac Tumor (Above tendon)",
+            "Ethmoid Sinusitis (Superior-medial)",
+            "Infected Sebaceous Cyst",
+            "Dacryops (Lacrimal Gland Cyst)",
+            "Frontal Mucocele",
+            "Encephalocele (Congenital)"
+          ]
+        }
+      },
+      {
+        "title": "The DCR Surgical Blueprint",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Incision: 10-12mm linear incision 8mm medial to inner canthus (External) or Endonasal approach.",
+          "2. Exposure: Dissection through orbicularis to reach the medial canthal tendon and lacrimal crest.",
+          "3. Periosteal Elevation: Reflecting the lacrimal sac laterally to expose the lacrimal fossa.",
+          "4. Osteotomy: Creating a 15mm bone window using a Kerrison Rongeur or drill (removing lacrimal bone and maxilla).",
+          "5. Intubation: Passing Bowman probes/Crawford stents through puncta into the nasal cavity.",
+          "6. Flap Creation: H-shaped incisions in sac mucosa and nasal mucosa to create anterior/posterior flaps.",
+          "7. Anastomosis: Suturing flaps (usually 6-0 Vicryl) to create a permanent bypass track.",
+          "8. Closure: Skin closure with 6-0 Prolene or fast-absorbing gut."
+        ]
+      },
+      {
+        "title": "Emergency Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Orbital Cellulitis: Proptosis, ophthalmoplegia, and decreased vision.",
+          "Cavernous Sinus Thrombosis: Bilateral involvement, CN palsies, rapid progression.",
+          "Meningitis: Nuchal rigidity, altered mental status.",
+          "Sac Abscess Pointing: Spontaneous skin fistulization risk.",
+          "Non-resolving Swelling: Suspicion of Lacrimal Sac Squamous Cell Carcinoma."
+        ]
+      },
+      {
+        "title": "Medical Management Protocol",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Acute Phase: Warm compresses and digital massage (Crigler maneuver).",
+          "Oral Antibiotics: Amoxicillin/Clavulanate (Augmentin) 875mg BID or Cephalexin 500mg QID.",
+          "Severe/Febrile: IV Cefazolin or Vancomycin (if MRSA suspected).",
+          "Analgesia: NSAIDs (Ibuprofen 400-600mg) for pain and inflammation.",
+          "Avoid Irrigation: Never syring/probe during acute infection (risk of spreading sepsis)."
+        ]
+      },
+      {
+        "title": "Landmark Studies & Advances",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Endonasal vs. External: Meta-analyses show equivalent success rates (approx. 90-95%) in experienced hands.",
+          "Mitomycin-C (MMC): Use of 0.02% MMC on osteotomy site may reduce ostium cicatrization.",
+          "Lacrimal Scintigraphy: Emerging as the gold standard for 'Functional' NLDO vs 'Anatomical'.",
+          "Dacryocystoplasty: Balloon dilation is increasingly used for partial stenoses before committing to DCR."
+        ]
+      },
+      {
+        "title": "Remember: The 'JONES' Tests",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "JONES (1 is Fun, 2 is True)",
+          "explanation": "Jones 1 (Primary): If Fluorescein appears in nose after 5 mins, system is patent (Fun!). Jones 2 (Secondary): If syringing forces fluorescein into nose, it was a functional block. If clear saline, it's a complete anatomical block (True blockage)."
+        }
+      },
+      {
+        "title": "Post-Operative Complications",
+        "icon": "report_problem",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Hemorrhage: Severe epistaxis (often from the angular vein or sphenopalatine artery).",
+          "Stent Prolapse: Crawford tubes looping out of the medial canthus.",
+          "Cicatricial Failure: Ostium closure due to excessive scarring.",
+          "Cerebrospinal Fluid (CSF) Leak: Rare, caused by accidental ethmoid roof penetration.",
+          "Canalicular Cheese-wiring: Stents cutting through the punctal tissue."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "tips_and_updates",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "A mucocele is sterile; a dacryocystitis is infected. Treat the infection before the surgery.",
+          "Always palpate for the medial canthal tendon. If the mass is above the tendon, think MALIGNANCY until proven otherwise.",
+          "In congenital cases, 90% resolve by age 1 with massage. Do not rush to probe unless dacryocystocele (amnentocele) is present.",
+          "Check the nose! 15% of DCR failures are due to unrecognized nasal pathology (septal deviation, polyps, or synechiae)."
+        ]
+      }
+    ],
+    "chapterId": "lacrimal"
+  },
+  "chapterId": "lacrimal",
+  "_newlyImported": 1775044692585,
+  "communityId": "sub_1773778942890_av56edhqj",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-03-17T20:22:22.890Z",
+  "read": true
+}

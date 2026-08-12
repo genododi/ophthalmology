@@ -1,0 +1,298 @@
+{
+  "id": 1775044651825,
+  "seqId": 38,
+  "title": "MYASTHENIA GRAVIS CRISIS: The Neuromuscular Emergency",
+  "summary": "A life-threatening exacerbation of Myasthenia Gravis (MG) characterized by respiratory failure requiring mechanical ventilation. This medical emergency demands rapid identification of triggers, intensive care monitoring, and aggressive immunotherapy to prevent catastrophic outcomes.",
+  "date": "2026-04-01T11:57:31.825Z",
+  "data": {
+    "title": "MYASTHENIA GRAVIS CRISIS: The Neuromuscular Emergency",
+    "summary": "A life-threatening exacerbation of Myasthenia Gravis (MG) characterized by respiratory failure requiring mechanical ventilation. This medical emergency demands rapid identification of triggers, intensive care monitoring, and aggressive immunotherapy to prevent catastrophic outcomes.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 40 Q50 10 70 40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4' stroke-linecap='round'/><path d='M30 60 Q50 90 70 60' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4' stroke-linecap='round'/><path d='M35 45 L45 45 M55 45 L65 45' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><path d='M40 70 L60 70' stroke='red' stroke-width='2' stroke-dasharray='2 2'/><rect x='48' y='30' width='4' height='40' fill='hsl(215, 90%, 45%)' opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Scope",
+        "icon": "emergency",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Myasthenic Crisis is defined as an exacerbation of MG-related muscle weakness severe enough to necessitate intubation for airway protection or mechanical ventilation. It occurs in approximately 15-20% of patients with MG, usually within the first two years of diagnosis. It is a true neuro-ophthalmic and pulmonary emergency."
+      },
+      {
+        "title": "Pathophysiology: The NMJ Failure",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "NMJ Blockade",
+          "branches": [
+            "AChR Antibodies (85%): Direct receptor blockade & complement-mediated destruction",
+            "MuSK Antibodies: Impaired receptor clustering",
+            "LRP4 Antibodies: Disrupted signaling pathways",
+            "Post-synaptic membrane simplification",
+            "Widened synaptic cleft"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Statistical Risk",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Lifetime Risk",
+              "value": 20
+            },
+            {
+              "label": "Trigger: Infection",
+              "value": 45
+            },
+            {
+              "label": "Post-Thymectomy",
+              "value": 10
+            },
+            {
+              "label": "Idiopathic/Unknown",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Impending Respiratory Failure",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Weak cough and inability to clear secretions",
+          "Staccato speech (pausing for breath every few words)",
+          "Use of accessory respiratory muscles (sternocleidomastoid)",
+          "Paradoxical breathing (abdominal wall moves in during inspiration)",
+          "Difficulty swallowing saliva (pooling of secretions)",
+          "Rapidly progressive bulbar palsy"
+        ]
+      },
+      {
+        "title": "The '20-30-40 Rule' for Intubation",
+        "icon": "clinical_notes",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Critical Threshold",
+            "Clinical Significance"
+          ],
+          "rows": [
+            [
+              "Forced Vital Capacity (FVC)",
+              "< 20 mL/kg",
+              "Severe reduction in ventilatory reserve; elective intubation indicated."
+            ],
+            [
+              "Maximal Inspiratory Pressure (MIP)",
+              "< -30 cmH2O",
+              "Inability to generate enough force to expand lungs."
+            ],
+            [
+              "Maximal Expiratory Pressure (MEP)",
+              "< 40 cmH2O",
+              "Inability to clear secretions; high risk of aspiration pneumonia."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular & Bulbar Clinical Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Cogan's Lid Twitch: Overshoot of the upper lid after looking down then rapidly back to primary.",
+          "Enhanced Ptosis: Manually lifting one lid causes the other to drop (Hering’s Law).",
+          "Variable Diplopia: Does not follow a single cranial nerve pattern; often mimics 3rd, 4th, or 6th nerve palsies.",
+          "Orbicularis Oculi Weakness: Pathognomonic 'peek sign' during sustained forceful closure.",
+          "Fatigability: Increasing ptosis during sustained upgaze for 60 seconds."
+        ]
+      },
+      {
+        "title": "Pharmacological Triggers to Avoid",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Drug Class",
+            "Specific Examples"
+          ],
+          "rows": [
+            [
+              "Antibiotics",
+              "Aminoglycosides (Gentamicin), Fluoroquinolones (Cipro), Macrolides"
+            ],
+            [
+              "Cardiovascular",
+              "Beta-blockers (even topical Timolol), Calcium Channel Blockers, Procainamide"
+            ],
+            [
+              "Electrolytes",
+              "Magnesium Sulfate (Absolute contraindication)"
+            ],
+            [
+              "Neuromuscular",
+              "Neuromuscular blocking agents (Succinylcholine, Vecuronium)"
+            ],
+            [
+              "Psychotropic",
+              "Lithium, Phenytoin, Chlorpromazine"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Hierarchy",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Clinical Assessment & Bedside Tests (Ice Pack Test: 2 mins on lid; improvement = positive).",
+          "Step 2: Pulmonary Function Tests (Bedside VC, MIP, MEP every 4-6 hours).",
+          "Step 3: Serology (AChR-Ab, MuSK-Ab, LRP4-Ab). Note: Crisis can occur in seronegative patients.",
+          "Step 4: Electrophysiology (Repetitive Nerve Stimulation showing >10% decrement; Single-fiber EMG for highest sensitivity).",
+          "Step 5: Imaging (Chest CT/MRI to evaluate for Thymoma or thymic hyperplasia)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: MG vs. The World",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Cholinergic Crisis",
+              "Overdose of Pyridostigmine; SLUDGE syndrome (Salivation, Lacrimation, Urination, etc.), miosis, bradycardia."
+            ],
+            [
+              "Lambert-Eaton (LEMS)",
+              "Strength improves with exercise; associated with Small Cell Lung Cancer; autonomic dysfunction."
+            ],
+            [
+              "Miller Fisher (GBS)",
+              "Triad of Ataxia, Areflexia, and Ophthalmoplegia; CSF shows albuminocytologic dissociation."
+            ],
+            [
+              "Botulism",
+              "Fixed dilated pupils (usually), descending paralysis, history of ingestion/wound."
+            ],
+            [
+              "Thyroid Eye Disease",
+              "Lid retraction (not ptosis), proptosis, restrictive strabismus, CT shows enlarged muscles."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Acute Management Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. ICU Admission: Continuous pulse oximetry and cardiac monitoring.",
+          "2. Airway Management: Early elective intubation based on '20-30-40' rule.",
+          "3. Stop Anticholinesterases: Hold Pyridostigmine (Mestinon) during crisis to reduce bronchial secretions.",
+          "4. Targeted Therapy: Initiate Plasmapheresis (PLEX) 5-7 exchanges OR IVIG (2g/kg over 2-5 days). PLEX is often preferred for rapid response.",
+          "5. Corticosteroids: Start High-dose Prednisone (60-80mg) or IV Methylprednisolone. Caution: Steroids can cause transient worsening.",
+          "6. Complication Prophylaxis: VTE prophylaxis, stress ulcer prevention, and aggressive treatment of underlying infection."
+        ]
+      },
+      {
+        "title": "REMEMBER: The Mnemonic 'CRISIS'",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "C-R-I-S-I-S",
+          "explanation": "C: Cholinesterase inhibitors (Hold them); R: Respiration (20/30/40 rule); I: Infection (Treat trigger); S: Steroids (Wait until PLEX/IVIG started); I: IVIG or PLEX; S: Secretion management."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Pyridostigmine has no role in the acute management of crisis and may worsen it by increasing secretions.",
+          "The Ice Pack Test has a sensitivity of ~80% for myasthenic ptosis; the cold decreases acetylcholinesterase activity.",
+          "MuSK-positive MG often involves more severe bulbar and respiratory weakness with less ocular involvement.",
+          "Up to 15% of MG patients have an underlying Thymoma; thymectomy is indicated after the patient is stabilized."
+        ]
+      },
+      {
+        "title": "Prognosis & Outcomes",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Survival Rate",
+              "value": 95
+            },
+            {
+              "label": "Full Recovery",
+              "value": 75
+            },
+            {
+              "label": "Chronic Weakness",
+              "value": 20
+            },
+            {
+              "label": "Recurrence Rate",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances: Targeted Biologics",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Eculizumab (Soliris): Complement inhibitor (C5) for refractory AChR-positive MG.",
+          "Efgartigimod (Vyvgart): Neonatal Fc receptor (FcRn) blocker; reduces circulating IgG levels.",
+          "Zilucoplan: Small peptide C5 inhibitor (subcutaneous delivery).",
+          "Rozanolixizumab: Another FcRn inhibitor specifically effective in both AChR+ and MuSK+ MG."
+        ]
+      }
+    ],
+    "generationPrompt": "Myasthenia crisis",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044651825,
+  "communityId": "sub_1774677694014_sdy3j060p",
+  "communityAuthor": "geno",
+  "communityDate": "2026-03-28T06:01:34.014Z"
+}

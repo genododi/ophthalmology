@@ -1,0 +1,326 @@
+{
+  "id": 1775381974414,
+  "seqId": 674,
+  "title": "Choroidal Nevus vs. Melanoma: Clinical Masterclass",
+  "summary": "Differentiating a benign choroidal nevus from a life-threatening uveal melanoma is a critical skill for the ophthalmologist. This poster explores the epidemiology, multimodal imaging features, and the 'TFSOM-UHHD' risk assessment used to guide management.",
+  "date": "2026-04-05T09:39:34.414Z",
+  "data": {
+    "title": "Choroidal Nevus vs. Melanoma: Clinical Masterclass",
+    "summary": "Differentiating a benign choroidal nevus from a life-threatening uveal melanoma is a critical skill for the ophthalmologist. This poster explores the epidemiology, multimodal imaging features, and the 'TFSOM-UHHD' risk assessment used to guide management.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 Q 50 10 80 50 Q 50 90 20 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='12' fill='hsl(215, 90%, 45%)'/><path d='M75 55 A 15 10 0 0 1 85 70' stroke='hsl(30, 90%, 50%)' stroke-width='3' stroke-linecap='round'/><text x='35' y='95' font-family='Arial' font-size='6' fill='hsl(215, 90%, 45%)'>CHOROIDAL LESION</text></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Choroidal nevus is a common, benign intraocular melanocytic tumor (prevalence 5-10%). Uveal melanoma is the most common primary intraocular malignancy in adults, arising from melanocytes within the uveal tract (choroid 85%, ciliary body 10%, iris 5%). Proper identification is vital to prevent systemic metastasis, primarily to the liver."
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Nevus (General Pop)",
+              "value": 85
+            },
+            {
+              "label": "Melanoma (Incidence/1M)",
+              "value": 6
+            },
+            {
+              "label": "Nevus Transformation Risk",
+              "value": 1
+            },
+            {
+              "label": "10-Yr Survival (Small Mel)",
+              "value": 88
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Gold Standard Mnemonic: TFSOM-UHHD",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "To Find Small Ocular Melanoma Using Helpful Hints Daily",
+          "explanation": "T: Thickness >2mm; F: Fluid (subretinal); S: Symptoms (flashes/floaters/vision loss); O: Orange pigment (lipofuscin); M: Margin touching optic disc (<3mm); U: Ultrasonographic Hollowness; H: Halo Absence; H: Drusen Absence (Drusen suggest chronicity/benignity)."
+        }
+      },
+      {
+        "title": "Clinical Differentiation Table",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Choroidal Nevus",
+            "Uveal Melanoma"
+          ],
+          "rows": [
+            [
+              "Thickness",
+              "Usually <2.0 mm",
+              "Often >2.0 mm"
+            ],
+            [
+              "Basal Diameter",
+              "Usually <5 mm",
+              "Can vary; usually larger"
+            ],
+            [
+              "Orange Pigment",
+              "Absent",
+              "Present (Lipofuscin)"
+            ],
+            [
+              "Subretinal Fluid",
+              "Rare (except if CNVM present)",
+              "Common (Serous RD)"
+            ],
+            [
+              "Drusen",
+              "Common (indicates chronicity)",
+              "Usually absent"
+            ],
+            [
+              "Margin",
+              "Ill-defined or halo",
+              "Sharply defined"
+            ],
+            [
+              "Vascularity",
+              "Avascular",
+              "Intrinsic 'double circulation'"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "B-Scan Ultrasonography Findings",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Melanoma B-Scan",
+          "branches": [
+            "Low-to-medium internal reflectivity",
+            "Acoustic quiet zone (excavation)",
+            "Choroidal excavation",
+            "Orbital shadowing",
+            "Spontaneous vascular pulsations"
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Genetics",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "GNAQ/GNA11 Mutations: Found in 85% of both nevi and melanomas (early event).",
+          "BAP1 Mutation: Associated with high metastatic risk (Monosomy 3).",
+          "SF3B1/EIF1AX: Associated with intermediate/low metastatic risk.",
+          "Risk Factors: Fair skin, light iris color, ocular melanocytosis (Nevus of Ota), BAP1-TPDS."
+        ]
+      },
+      {
+        "title": "Multimodal Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Slit-lamp biomicroscopy & Indirect Ophthalmoscopy (Identify lesion location/color).",
+          "Step 2: Fundus Photography & Autofluorescence (FAF) to detect orange pigment.",
+          "Step 3: Enhanced Depth Imaging (EDI-OCT) to measure thickness and detect subretinal fluid/shaggy photoreceptors.",
+          "Step 4: B-scan/A-scan Ultrasonography (Assess reflectivity and dimensions).",
+          "Step 5: Fluorescein Angiography (FFA) to rule out CNVM or confirm 'double circulation'.",
+          "Step 6: Fine Needle Aspiration Biopsy (FNAB) for prognostic GEP (Gene Expression Profiling) if treatment is planned."
+        ]
+      },
+      {
+        "title": "COMS Classification (Size)",
+        "icon": "straighten",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Height (mm)",
+            "Basal Diam. (mm)"
+          ],
+          "rows": [
+            [
+              "Small",
+              "1.0 - 2.5",
+              "5.0 - 16.0"
+            ],
+            [
+              "Medium",
+              "2.5 - 10.0",
+              "≤ 16.0"
+            ],
+            [
+              "Large",
+              "> 10.0",
+              "> 16.0"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "analytics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Masqueraders",
+          "branches": [
+            "Choroidal Hemangioma (Red-orange)",
+            "Choroidal Metastasis (Creamy yellow)",
+            "CHRPE (Flat, black, lacunae)",
+            "Melanocytoma (Jet black, optic disc)",
+            "Subretinal Hematoma (Mimics melanoma)",
+            "Posterior Scleritis"
+          ]
+        }
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Suspicious Nevus: Observation every 3-6 months with serial imaging.",
+          "Small Melanoma: Plaque brachytherapy (I-125) or Thermotherapy (TTT) or continued observation if dormant.",
+          "Medium Melanoma: Plaque brachytherapy (COMS showed no survival difference vs Enucleation).",
+          "Large Melanoma: Enucleation is standard; Brachytherapy if feasible.",
+          "Systemic Monitoring: Semi-annual Liver USG, MRI, or CT for metastatic surveillance."
+        ]
+      },
+      {
+        "title": "Emergency 'Red Flags'",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Documented growth on serial photography",
+          "Presence of sentinel vessels (episcleral congestion)",
+          "Extrascleral extension on B-scan",
+          "Ciliary body involvement (worse prognosis)",
+          "Diffuse 'flat' growth pattern"
+        ]
+      },
+      {
+        "title": "Surgical Techniques: Plaque Brachytherapy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Isotopes: Iodine-125 (common), Ruthenium-106, Palladium-103.",
+          "Procedure: Peritomy, muscle isolation/tagging, localization with transillumination.",
+          "Dose: Usually 85 Gy to the tumor apex.",
+          "Plaque stays in place for 4-7 days depending on activity level."
+        ]
+      },
+      {
+        "title": "Prognosis & Metastasis",
+        "icon": "trending_up",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Liver Involvement",
+              "value": 90
+            },
+            {
+              "label": "5-yr Survival (Monosomy 3)",
+              "value": 50
+            },
+            {
+              "label": "5-yr Survival (Disomy 3)",
+              "value": 95
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls (High Yield)",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Drusen are your friend; they indicate the lesion has likely been there for years.",
+          "Lipofuscin (orange pigment) is the 'hottest' indicator of malignancy.",
+          "If a lesion is <2mm but has 3+ risk factors, treat it as a melanoma.",
+          "Always check the other eye; uveal melanoma is almost always unilateral."
+        ]
+      },
+      {
+        "title": "Landmark Study: COMS Trial",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "The Collaborative Ocular Melanoma Study (COMS) established that: 1) There is no survival difference between enucleation and Iodine-125 brachytherapy for medium-sized tumors. 2) Pre-enucleation radiation for large tumors does not improve survival. 3) Small tumors can often be observed safely until growth is documented."
+      },
+      {
+        "title": "Recent Advances: GEP Testing",
+        "icon": "fingerprint",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "GEP Class",
+            "Risk Level",
+            "5-Year Metastatic Risk"
+          ],
+          "rows": [
+            [
+              "Class 1A",
+              "Very Low",
+              "< 2%"
+            ],
+            [
+              "Class 1B",
+              "Intermediate",
+              "21%"
+            ],
+            [
+              "Class 2",
+              "High",
+              "72% (Associated with BAP1 loss)"
+            ]
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Choroidal nevus vs melanoma",
+    "chapterId": "tumours"
+  },
+  "chapterId": "tumours"
+}

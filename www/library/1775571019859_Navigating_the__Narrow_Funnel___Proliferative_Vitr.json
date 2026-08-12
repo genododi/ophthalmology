@@ -1,0 +1,416 @@
+{
+  "id": 1775571019859,
+  "seqId": 761,
+  "title": "Navigating the 'Narrow Funnel': Proliferative Vitreoretinopathy (PVR) in Retinal Detachment",
+  "summary": "This poster provides a comprehensive, expert-level overview of narrow funnel retinal detachment with Proliferative Vitreoretinopathy (PVR). It delves into the complex pathophysiology, detailed classification, advanced diagnostic techniques, and intricate surgical management strategies essential for ophthalmology residents and fellows.",
+  "date": "2026-04-07T14:10:19.859Z",
+  "data": {
+    "title": "Navigating the 'Narrow Funnel': Proliferative Vitreoretinopathy (PVR) in Retinal Detachment",
+    "summary": "This poster provides a comprehensive, expert-level overview of narrow funnel retinal detachment with Proliferative Vitreoretinopathy (PVR). It delves into the complex pathophysiology, detailed classification, advanced diagnostic techniques, and intricate surgical management strategies essential for ophthalmology residents and fellows.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' fill='hsl(215, 90%, 45%)'><defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:3px;}</style></defs><path class='cls-1' d='M50,15 C70,25 85,45 85,55 C85,65 70,80 50,85 C30,80 15,65 15,55 C15,45 30,25 50,15Z' fill='#FFF'/><path class='cls-1' d='M50,20 C65,30 75,45 75,55 C75,65 65,75 50,80 C35,75 25,65 25,55 C25,45 35,30 50,20Z' fill='hsl(215, 90%, 85%)'/><circle cx='50' cy='55' r='5' fill='currentColor'/><path class='cls-1' d='M30 40 Q40 30 50 35 M70 40 Q60 30 50 35 M50 35 L50 20 M30 70 Q40 80 50 75 M70 70 Q60 80 50 75 M50 75 L50 90' stroke='currentColor' stroke-width='2' stroke-dasharray='4,4'/><path class='cls-1' d='M50,45 C60,50 65,60 65,65 C65,70 60,75 50,75 C40,75 35,70 35,65 C35,60 40,50 50,45Z' fill='hsl(215, 90%, 45%)' stroke='hsl(215, 90%, 45%)'/><path d='M50,20 C65,30 75,45 75,55 C75,65 65,75 50,80 C35,75 25,65 25,55 C25,45 35,30 50,20Z' fill='none' stroke='currentColor' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Overview",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A 'Narrow Funnel Retinal Detachment' (RD) describes a severe form of rhegmatogenous retinal detachment (RRD) complicated by advanced Proliferative Vitreoretinopathy (PVR). In this stage, the retina is contracted into a funnel-like configuration, often immobile, significantly shortened, and typically involving the macula. PVR is characterized by the proliferation, migration, and contraction of various cells (RPE, glial cells, fibroblasts, macrophages) within the vitreous and on both surfaces of the retina, leading to fixed retinal folds, subretinal bands, and eventual tractional RD. It is the leading cause of surgical failure in RRD repair."
+      },
+      {
+        "title": "2. Epidemiology of RD & PVR",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "RRD Incidence (per 100k)",
+              "value": 12
+            },
+            {
+              "label": "PVR in Initial RRD",
+              "value": 50
+            },
+            {
+              "label": "PVR Post-Surgery",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "PVR Risk Factors",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Giant retinal tears (>90 degrees)",
+          "Choroidal detachment",
+          "Vitreous hemorrhage",
+          "Long-standing RRD (>2 weeks)",
+          "Previous failed RD repair",
+          "Aphakia/Pseudophakia",
+          "Intraocular inflammation/trauma",
+          "Large or multiple retinal breaks",
+          "Poor visualization during surgery"
+        ]
+      },
+      {
+        "title": "3. Etiology & Pathophysiology",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "PVR Pathogenesis",
+          "branches": [
+            "Retinal Break & RPE Detachment → RPE Cells Migrate",
+            "Inflammatory Cascade → Cytokine Release (PDGF, TGF-β, IL-6, IL-8)",
+            "Cell Proliferation (RPE, Glia, Macrophages, Fibroblasts)",
+            "Extracellular Matrix Deposition (Collagen, Fibronectin)",
+            "Membrane Formation (Epiretinal, Subretinal)",
+            "Cellular Contraction → Fixed Retinal Folds, Traction"
+          ]
+        }
+      },
+      {
+        "title": "4. PVR Classification (Updated Silicone Study)",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Grade",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Grade A (Minimal)",
+              "Vitreous haze, pigment clumps (RPE cells), vitreous cells."
+            ],
+            [
+              "Grade B (Moderate)",
+              "Wrinkling of inner retinal surface, rolled edge of retinal break, vascular sheathing, tortuosity, stiffness of retina, localized subretinal pigment dots."
+            ],
+            [
+              "Grade C (Severe)",
+              "Full-thickness retinal folds, often involving the macula. Retinal shortening with starfolds. Subretinal strands. Fixed folds (starfolds) on posterior retina."
+            ],
+            [
+              "Grade C1-C12",
+              "Quantifies the extent of posterior fixed folds in clock hours (C1 = 1 clock hour, C12 = 12 clock hours). Further subdivided by location (Anterior, Posterior, Subretinal)."
+            ],
+            [
+              "Grade D (Massive/Funnel)",
+              "Total retinal detachment with fixed folds (often a narrow funnel shape). Anterior or posterior contraction."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "5. Clinical Features & Symptoms",
+        "icon": "medical_information",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Decreased vision (progressive, severe)",
+          "Visual field defect (non-resolving, often central)",
+          "Metamorphopsia (due to traction)",
+          "Photopsia/floaters (may be initial RD symptoms)",
+          "Pain (rare, suggests inflammation or secondary glaucoma)",
+          "Diplopia (if associated with ocular motility issues)"
+        ]
+      },
+      {
+        "title": "6. Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Reduced visual acuity",
+          "Relative Afferent Pupillary Defect (RAPD)",
+          "Vitreous cells/hemorrhage",
+          "Retinal detachment (often bullous initially, then fixed)",
+          "Fixed retinal folds (starfolds, linear folds)",
+          "Rolled/elevated edges of retinal breaks",
+          "Subretinal membranes/bands",
+          "Vitreous traction bands (often pigmented)",
+          "Narrowed or stiffened retinal vasculature",
+          "Retinal shortening, leading to a 'funnel' configuration",
+          "Hypotony (common in severe PVR with ciliary body detachment)"
+        ]
+      },
+      {
+        "title": "7. Investigations & Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Step 1: **Detailed Ophthalmic Examination** (VA, IOP, RAPD, Slit-lamp, Fundoscopy with indirect ophthalmoscopy and scleral depression). Assess extent of RD and PVR.",
+          "Step 2: **B-scan Ultrasonography** (Required for opaque media e.g., vitreous hemorrhage). Characterizes RD configuration (funnel, open), PVR membranes, choroidal detachment, and ciliary body detachment.",
+          "Step 3: **Optical Coherence Tomography (OCT)** (If media allows). High-resolution imaging to identify epiretinal/subretinal membranes, vitreomacular traction, and assess macular integrity pre/post-op.",
+          "Step 4: **Anterior Segment OCT/Ultrasound Biomicroscopy (UBM)** (To assess angle closure, anterior PVR, cyclitic membranes, ciliary body detachment/rotation)."
+        ]
+      },
+      {
+        "title": "8. Differential Diagnosis",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Exudative RD",
+              "No retinal breaks, shifting fluid, often serous choroidal detachment, underlying systemic disease."
+            ],
+            [
+              "Tractional RD (non-PVR)",
+              "Caused by non-PVR vitreoretinal traction (e.g., severe diabetic retinopathy). No fixed folds from cellular proliferation."
+            ],
+            [
+              "Choroidal Detachment",
+              "Smooth, dome-shaped elevations, often bilobed (kissing choroidals), usually solid on B-scan (unless hemorrhagic). Retinal contour intact or minimally affected."
+            ],
+            [
+              "Retinoschisis",
+              "Inner and outer layers of retina split, typically stable, non-progressive. Immobile, no subretinal fluid shifting, absolute scotoma."
+            ],
+            [
+              "Intraocular Foreign Body (IOFB)",
+              "History of trauma, often visible IOFB on imaging (X-ray, CT), associated inflammation, localized RD or vitreous hemorrhage."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9. Staging / Grading (PVR progression)",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Grade A -> B",
+              "value": 20
+            },
+            {
+              "label": "Grade B -> C",
+              "value": 40
+            },
+            {
+              "label": "Grade C -> D (Funnel)",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "title": "10. Management & Treatment Strategy",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: **Preoperative Optimization**: Control inflammation (topical/systemic steroids), manage IOP, consider prophylactic antibiotics.",
+          "Step 2: **Pars Plana Vitrectomy (PPV)**: Core vitrectomy, peripheral vitrectomy to relieve vitreous traction.",
+          "Step 3: **Membranectomy**: Meticulous removal of epiretinal and subretinal membranes using micro-forceps (e.g., 23/25/27G end-grasping forceps, Grieshaber), vitreoretinal picks (e.g., Finesse), and sometimes diamond-dusted scrapers. This is crucial for relaxing the retina.",
+          "Step 4: **Retinectomy/Relaxing Retinotomy**: If membranes are too adherent or retina is severely shortened (Grade C/D funnel), a peripheral retinectomy (full-thickness removal of a segment of retina) or relaxing retinotomy may be performed to release traction and allow the retina to flatten. Often combined with endolaser around the edges.",
+          "Step 5: **Fluid-Air Exchange**: Complete removal of subretinal fluid through a peripheral retinotomy or retinal break.",
+          "Step 6: **Endolaser Photocoagulation**: Barricade treatment around all retinal breaks and the edges of any retinectomy/retinotomy to create a chorioretinal adhesion.",
+          "Step 7: **Tamponade**: Long-acting tamponading agent (Silicone Oil or C3F8/SF6 gas). Silicone oil is preferred for severe PVR and narrow funnel RDs due to its prolonged tamponade effect, especially in inferior detachments."
+        ]
+      },
+      {
+        "title": "11. Surgical Techniques: PPV for PVR",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**Instrumentation**: 23/25/27-gauge micro-incisional vitrectomy system (MIVS) with wide-angle viewing (e.g., BIOM, RESIGHT). High-speed vitrectome.",
+          "**Core Vitrectomy**: Carefully remove central vitreous gel. Use triamcinolone acetonide for vitreous staining.",
+          "**Membrane Peeling**: Identify and delaminate epiretinal membranes (ERM) and subretinal membranes (SRM). Use bimanual technique with chandelier illumination for difficult cases. Utilize curved or angled micro-forceps. For SRMs, create a retinotomy if necessary to access, then gently peel.",
+          "**Relaxing Retinotomy**: Incise the peripheral retina circumferentially using a vitreous cutter or scissors. This is a complex maneuver requiring careful planning to avoid vital structures. Ensure sufficient healthy retina remains for reattachment.",
+          "**Perfluorocarbon Liquid (PFCL)**: Often used to flatten the retina intraoperatively after membrane peeling and before fluid-air exchange, especially in giant tears or highly mobile funnels. Slowly inject over the optic nerve, letting it push fluid out of breaks.",
+          "**Laser Retinopexy**: Apply 2-3 rows of confluent laser spots (e.g., 532nm green laser) around all breaks and retinotomy edges. Power typically 150-300mW, 100-200ms duration.",
+          "**Silicone Oil Injection**: Replace PFCL or air with silicone oil (e.g., 1000 cSt or 5000 cSt) using a pump, ensuring complete fill and no bubbles trapped under the retina. Ensure proper exchange with active aspiration of fluid from the periphery."
+        ]
+      },
+      {
+        "title": "12. Complications & Prognosis",
+        "icon": "sentiment_dissatisfied",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Recurrent Retinal Detachment (most common failure)",
+          "Silicone Oil Complications (emulsification, migration, glaucoma, keratopathy)",
+          "Hypotony (due to cyclitic membrane, ciliary body detachment)",
+          "Secondary Glaucoma (e.g., pupillary block, angle closure, steroid-induced)",
+          "Cataract formation/progression (nearly universal post-vitrectomy)",
+          "Corneal decompensation (especially with silicone oil in aphakic eyes)",
+          "Macular pucker/edema",
+          "Phthisis Bulbi (end-stage, irreversible)"
+        ]
+      },
+      {
+        "title": "Prognosis",
+        "icon": "trending_up",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "Anatomic success rates for PVR-RD repair range from 60-80% (often requiring multiple surgeries). Visual prognosis is guarded, with only 30-50% achieving functional vision (≥20/200). Factors influencing prognosis include initial PVR grade, macular status, duration of RD, and presence of hypotony."
+      },
+      {
+        "title": "13. Red Flags / Emergency Signs",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden, severe decrease in vision post-op (suspect re-detachment or hemorrhage).",
+          "New floaters, photopsias, or worsening field defect in operated eye.",
+          "Unremitting ocular pain (could indicate acute glaucoma, inflammation, or endophthalmitis).",
+          "Increasing redness, discharge, or lid swelling (suggests infection).",
+          "Persistent or severe hypotony (<6 mmHg), especially with vision loss.",
+          "Evidence of silicone oil migration into the anterior chamber with corneal contact."
+        ]
+      },
+      {
+        "title": "14. Mnemonics & Memory Aids",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PVR FUNNEL Steps",
+          "explanation": "**P**eel membranes. **V**itrectomy thorough. **R**etinectomy/Relaxing if needed. **F**luid-air exchange. **U**nderfill with PFCL. **N**arrow funnel needs oil. **N**one left behind (breaks). **E**ndolaser. **L**ong-term tamponade."
+        }
+      },
+      {
+        "title": "15. Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "The hallmark of PVR is fixed retinal folds, not mobile RD.",
+          "Early diagnosis and intervention for RRD are critical to prevent PVR.",
+          "Silicone oil is the tamponade of choice for most PVR-related RDs.",
+          "Bimanual surgery and wide-angle viewing systems significantly improve PVR management.",
+          "Retinectomy is a powerful, but aggressive, tool to achieve retinal flattening in severe cases.",
+          "Post-op hypotony is a strong predictor of poor outcome in PVR.",
+          "Visual recovery can be slow and often limited despite anatomic success."
+        ]
+      },
+      {
+        "title": "16. Recent Advances & Landmark Studies",
+        "icon": "history_edu",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**Silicone Study**: Landmark trials (I and II) established silicone oil as superior to long-acting gases for complicated RDs with PVR, demonstrating better anatomic and visual outcomes.",
+          "**Micro-incisional Vitrectomy (MIVS)**: 23/25/27G systems reduce surgical trauma, faster recovery, comparable outcomes to 20G for PVR.",
+          "**Pharmacologic Adjuncts**: Ongoing research into anti-proliferative agents (e.g., 5-fluorouracil, methotrexate, corticosteroids) used as intraocular injections or in silicone oil to prevent PVR recurrence, though none are standard yet.",
+          "**Surgical Instrumentation**: Advances in wide-angle viewing, improved illumination, high-speed cutters, and precision micro-forceps have enhanced surgical capabilities.",
+          "**Heavy Silicone Oils/Tamponades**: Development of denser tamponade agents (e.g., Oxane HD) for complex inferior PVR, though not widely adopted due to challenges."
+        ]
+      },
+      {
+        "title": "17. Pediatric / Special Population Considerations",
+        "icon": "child_friendly",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Retinopathy of Prematurity (ROP)**: PVR-like changes are integral to severe ROP (Stage 4 & 5). Management involves lens-sparing vitrectomy, membrane peeling, and laser.",
+          "**Pediatric Trauma**: Higher incidence of PVR post-trauma in children due to increased inflammatory response and regenerative capacity. Early intervention is crucial.",
+          "**Marfan Syndrome/Stickler Syndrome**: These syndromes have a higher predisposition to RRD and PVR due to vitreoretinal degeneration. Prognosis often worse.",
+          "**Aphakic PVR**: High incidence in aphakic eyes, often requiring complex anterior and posterior segment management.",
+          "**Anatomic Differences**: Smaller eyes, denser vitreous, and often more robust inflammatory responses in children pose unique surgical challenges."
+        ]
+      }
+    ],
+    "generationPrompt": "Narrow funnel RD with PVR",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "kanskiMeta": [
+    {
+      "pageNum": 687,
+      "keywords": [
+        "retinal detachment",
+        "proliferative vitreoretinopathy",
+        "pvr",
+        "proliferative",
+        "vitreoretinopathy"
+      ]
+    },
+    {
+      "pageNum": 660,
+      "keywords": [
+        "retinal detachment",
+        "proliferative vitreoretinopathy",
+        "proliferative",
+        "vitreoretinopathy",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 509,
+      "keywords": [
+        "retinopathy",
+        "proliferative",
+        "retinal",
+        "risk",
+        "factors"
+      ]
+    },
+    {
+      "pageNum": 511,
+      "keywords": [
+        "retinal detachment",
+        "retinopathy",
+        "proliferative",
+        "retinal",
+        "detachment"
+      ]
+    },
+    {
+      "pageNum": 693,
+      "keywords": [
+        "retinal detachment",
+        "retinopathy",
+        "proliferative vitreoretinopathy",
+        "pvr",
+        "proliferative"
+      ]
+    },
+    {
+      "pageNum": 686,
+      "keywords": [
+        "retinal detachment",
+        "proliferative vitreoretinopathy",
+        "pvr",
+        "proliferative",
+        "vitreoretinopathy"
+      ]
+    }
+  ]
+}

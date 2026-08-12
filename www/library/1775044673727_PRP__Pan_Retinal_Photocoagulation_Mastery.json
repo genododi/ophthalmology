@@ -1,0 +1,312 @@
+{
+  "id": 1775044673727,
+  "seqId": 271,
+  "title": "PRP: Pan-Retinal Photocoagulation Mastery",
+  "summary": "The definitive surgical laser intervention for ischemic retinal diseases, primarily Proliferative Diabetic Retinopathy (PDR). By selectively destroying peripheral photoreceptors, PRP reduces metabolic demand and suppresses the production of Vascular Endothelial Growth Factor (VEGF).",
+  "date": "2026-04-01T11:57:53.727Z",
+  "data": {
+    "title": "PRP: Pan-Retinal Photocoagulation Mastery",
+    "summary": "The definitive surgical laser intervention for ischemic retinal diseases, primarily Proliferative Diabetic Retinopathy (PDR). By selectively destroying peripheral photoreceptors, PRP reduces metabolic demand and suppresses the production of Vascular Endothelial Growth Factor (VEGF).",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='8' fill='hsl(215, 90%, 45%)' opacity='0.3'/><circle cx='65' cy='50' r='4' fill='hsl(30, 90%, 50%)' opacity='0.5'/><g fill='hsl(0, 100%, 50%)'><circle cx='50' cy='15' r='2'/><circle cx='75' cy='25' r='2'/><circle cx='85' cy='50' r='2'/><circle cx='75' cy='75' r='2'/><circle cx='50' cy='85' r='2'/><circle cx='25' cy='75' r='2'/><circle cx='15' cy='50' r='2'/><circle cx='25' cy='25' r='2'/><circle cx='40' cy='20' r='2'/><circle cx='60' cy='20' r='2'/><circle cx='80' cy='40' r='2'/><circle cx='80' cy='60' r='2'/></g><path d='M50 50 L85 50' stroke='hsl(0, 100%, 50%)' stroke-width='0.5' stroke-dasharray='2,1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Pan-Retinal Photocoagulation (PRP) is a thermal laser procedure applied to the peripheral retina. Its primary goal is to induce the regression of neovascularization (NV) by ablating ischemic retinal tissue, thereby reducing the drive for vasoproliferative factors like VEGF and improving the oxygenation of the remaining viable retina."
+      },
+      {
+        "title": "DRS High-Risk Characteristics (HRCs)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "NVD > 1/4 to 1/3 disc area",
+          "Any NVD associated with Vitreous Hemorrhage (VH) or Preretinal Hemorrhage",
+          "NVE > 1/2 disc area associated with Vitreous Hemorrhage",
+          "Presence of Neovascularization of the Iris (NVI) or Angle (NVA)"
+        ]
+      },
+      {
+        "title": "Pathophysiology: The Ischemic Drive",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Mechanism of PRP",
+          "branches": [
+            "Reduction of Oxygen Consumption: Destroys high-metabolic-rate photoreceptors",
+            "Improved Inner Retinal Oxygenation: Allows oxygen from choroid to reach inner retina",
+            "Downregulation of Cytokines: Significant drop in intraocular VEGF levels",
+            "RPE Stimulation: Production of anti-angiogenic factors (e.g., PEDF)"
+          ]
+        }
+      },
+      {
+        "title": "Standard Laser Parameters",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Conventional (Argon/Green)",
+            "Pattern Scan (Pascal/Multispot)"
+          ],
+          "rows": [
+            [
+              "Wavelength",
+              "514 nm (Argon) / 532 nm (Green)",
+              "532 nm / 577 nm (Yellow)"
+            ],
+            [
+              "Spot Size",
+              "200 - 500 µm",
+              "200 - 400 µm"
+            ],
+            [
+              "Pulse Duration",
+              "0.1 - 0.2 seconds",
+              "0.01 - 0.03 seconds (shorter)"
+            ],
+            [
+              "Power",
+              "Titrate to dull gray-white burn",
+              "Higher power needed due to short duration"
+            ],
+            [
+              "Spacing",
+              "0.5 to 1 burn width apart",
+              "Tight arrays, 0.5 burn width"
+            ],
+            [
+              "Total Burns",
+              "1,200 - 1,600+ (divided sessions)",
+              "2,000 - 3,000+ (often one session)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Treatment Anatomy & Zones",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Posterior Border - 2 disc diameters from the foveal center.",
+          "Step 2: Nasal Border - 1 disc diameter from the optic disc margin.",
+          "Step 3: Superior/Inferior Borders - Beyond the vascular arcades.",
+          "Step 4: Peripheral Extent - To the equator or beyond (ora serrata in severe cases)."
+        ]
+      },
+      {
+        "title": "DRS vs. ETDRS Evidence",
+        "icon": "menu_book",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Risk Reduction (DRS)",
+              "value": 50
+            },
+            {
+              "label": "Severe Vision Loss (Untreated)",
+              "value": 16
+            },
+            {
+              "label": "Severe Vision Loss (PRP Treated)",
+              "value": 6
+            }
+          ]
+        }
+      },
+      {
+        "title": "Indications Beyond Diabetes",
+        "icon": "list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Central Retinal Vein Occlusion (CRVO) - Ischemic type (10 DD non-perfusion)",
+          "Hemicentral Retinal Vein Occlusion",
+          "Branch Retinal Vein Occlusion (BRVO) with NV",
+          "Ocular Ischemic Syndrome (OIS)",
+          "Sickle Cell Retinopathy (Stage 3+)",
+          "Eales Disease"
+        ]
+      },
+      {
+        "title": "Mnemonic: PRP '3-2-1' Rule",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "3-2-1 Strategy",
+          "explanation": "3 sessions (if manual), 2 disc diameters from fovea, 1 disc diameter from optic nerve."
+        }
+      },
+      {
+        "title": "Immediate Post-Op Complications",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Choroidal Effusion / Ciliary Body Detachment",
+          "Acute Angle Closure (anterior displacement of lens-iris diaphragm)",
+          "Exacerbation of Macular Edema (CME)",
+          "Transient IOP Spike",
+          "Accidental Foveal Burn (Visual Disaster)"
+        ]
+      },
+      {
+        "title": "Long-term Functional Side Effects",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Peripheral Field Loss",
+              "value": 90
+            },
+            {
+              "label": "Reduced Night Vision (Nyctalopia)",
+              "value": 75
+            },
+            {
+              "label": "Decreased Contrast Sensitivity",
+              "value": 60
+            },
+            {
+              "label": "Altered Color Vision",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Conditions Mimicking NV",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Neovascularization (NV)",
+            "IRMA (Intraretinal Microvascular Abnormalities)"
+          ],
+          "rows": [
+            [
+              "Location",
+              "Pre-retinal / Vitreous interface",
+              "Intraretinal (deep)"
+            ],
+            [
+              "FFA Leakage",
+              "Profuse, early leakage",
+              "Minimal to no leakage (stays within vessel)"
+            ],
+            [
+              "Vessel Pattern",
+              "Fine, lace-like, disordered",
+              "Dilated, tortuous segments"
+            ],
+            [
+              "Crossing Vessels",
+              "Crosses over arteries/veins",
+              "Limited by vascular boundaries"
+            ],
+            [
+              "Management",
+              "PRP indicated if HRCs present",
+              "Observation or close monitoring"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Pearl: The 'Filler' Technique",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Always treat the inferior retina first; if a VH occurs during the session, superior burns are still achievable.",
+          "Use a Goldmann 3-mirror or Mainster PRP lens for optimal visualization of the periphery.",
+          "Avoid visible retinal vessels to prevent hemorrhage.",
+          "Ensure retrobulbar or sub-Tenon's anesthesia if patient is unable to tolerate laser or if long sessions are planned."
+        ]
+      },
+      {
+        "title": "Modern Advances: DRCR.net Protocol S",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Protocol S compared PRP vs. Ranibizumab (0.5mg) for PDR. Findings: Anti-VEGF is non-inferior to PRP for visual acuity through 5 years. Anti-VEGF resulted in less peripheral field loss and fewer vitrectomies but requires high patient compliance for repeated injections."
+      },
+      {
+        "title": "Red Flags: When to STOP Laser",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Tractional Retinal Detachment (TRD) involving or threatening the macula (PRP can worsen traction via 'crunch' syndrome)",
+          "Dense Vitreous Hemorrhage obscuring view (requires Vitrectomy/Endo-laser)",
+          "Patient Vasovagal Response",
+          "Poor pupillary dilation (requires indirect ophthalmoscope laser delivery)"
+        ]
+      },
+      {
+        "title": "Pre-Procedure Diagnostic Workup",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. BCVA and IOP measurement.",
+          "2. Dilated Fundus Exam (DFE) with Scleral Depression.",
+          "3. Wide-field Fundus Photography.",
+          "4. Fluorescein Angiography (FA) to identify areas of NVE and non-perfusion.",
+          "5. OCT Macula to check for co-existing DME (determines if Anti-VEGF is needed first)."
+        ]
+      },
+      {
+        "title": "Prognosis & Follow-up",
+        "icon": "event",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Regression of NV typically occurs within 4-6 weeks.",
+          "Follow-up: Every 4-8 weeks initially to assess regression.",
+          "Supplemental (Fill-in) Laser: Needed in up to 25% of cases with persistent NV.",
+          "If NV progresses despite maximal PRP: Consider Anti-VEGF or Pars Plana Vitrectomy (PPV)."
+        ]
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1775044673727,
+  "communityId": "sub_1773775007770_p6jz557hqz27r0",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z",
+  "read": true,
+  "bookmarked": true
+}

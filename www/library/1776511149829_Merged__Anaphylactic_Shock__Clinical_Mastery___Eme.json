@@ -1,0 +1,555 @@
+{
+  "id": 1776511149829,
+  "seqId": 799,
+  "title": "Merged: Anaphylactic Shock: Clinical Mastery & Emergency Protocol",
+  "summary": "Anaphylaxis is a severe, life-threatening systemic hypersensitivity reaction characterized by rapid onset and multisystem involvement. Immediate recognition and administration of intramuscular epinephrine are the cornerstones of survival.",
+  "date": "2026-04-18T11:19:08.960Z",
+  "data": {
+    "title": "Anaphylactic Shock: Clinical Mastery & Emergency Protocol",
+    "summary": "Anaphylaxis is a severe, life-threatening systemic hypersensitivity reaction characterized by rapid onset and multisystem involvement. Immediate recognition and administration of intramuscular epinephrine are the cornerstones of survival.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='hsl(215, 90%, 45%)' opacity='0.1'/><path d='M100 40 L100 160 M40 100 L160 100' stroke='hsl(215, 90%, 45%)' stroke-width='8' stroke-linecap='round'/><path d='M100 60 L140 100 L100 140 L60 100 Z' fill='none' stroke='white' stroke-width='4'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Anaphylaxis is an acute, systemic IgE-mediated (or non-IgE-mediated) reaction involving mast cell and basophil activation. Pathophysiology involves the rapid release of mediators: Histamine, Tryptase, Prostaglandin D2, and Leukotrienes, leading to vasodilation, increased capillary permeability, and bronchoconstriction."
+      },
+      {
+        "title": "Diagnostic Criteria (NIAID/FAAN)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Criterion",
+            "Clinical Presentation"
+          ],
+          "rows": [
+            [
+              "Criterion 1",
+              "Acute onset (min to hrs) with skin/mucosal involvement PLUS respiratory or CV compromise."
+            ],
+            [
+              "Criterion 2",
+              "2+ of: skin, respiratory, CV, or GI involvement after exposure to likely allergen."
+            ],
+            [
+              "Criterion 3",
+              "Reduced BP after exposure to known allergen (e.g., <90mmHg systolic or 30% drop)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Immediate Actions",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Airway obstruction (stridor, laryngeal edema)",
+          "Hypotension/Shock (end-organ hypoperfusion)",
+          "Cardiac arrest/Arrhythmia",
+          "Refractory bronchospasm",
+          "Loss of consciousness"
+        ]
+      },
+      {
+        "title": "Clinical Features",
+        "icon": "medication",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Organ Systems",
+          "branches": [
+            "Skin: Urticaria, angioedema",
+            "Resp: Wheeze, stridor",
+            "CV: Tachycardia, hypotension",
+            "GI: Cramps, vomiting"
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: ABCs of Management",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "E-P-I-N-E-P-H-R-I-N-E",
+          "explanation": "E: Epinephrine (First line!) | P: Position (Supine) | I: IV Fluids | N: Nebulizers | E: Electrolytes | P: Pressors | H: H1/H2 Blockers | R: Refractory checks | I: Intubation if needed | N: Notify team | E: Evaluate vitals"
+        }
+      },
+      {
+        "title": "Emergency Treatment Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Remove inciting agent immediately.",
+          "2. Administer IM Epinephrine (1mg/mL): 0.01 mg/kg (Max 0.5mg in adults) into mid-outer thigh.",
+          "3. Position patient supine with legs elevated.",
+          "4. High-flow Oxygen (10-15 L/min).",
+          "5. Volume expansion with Crystalloids (1-2L isotonic saline).",
+          "6. Adjuncts: Albuterol, H1-antagonists (Diphenhydramine 50mg), H2-antagonists (Famotidine), Corticosteroids (Methylprednisolone 125mg)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Diagnosis",
+            "Key Differentiator"
+          ],
+          "rows": [
+            [
+              "Vasovagal",
+              "Bradycardia, pallor, no skin rash"
+            ],
+            [
+              "Carcinoid",
+              "Chronic flushing, diarrhea"
+            ],
+            [
+              "Scombroid",
+              "History of spoiled fish ingestion"
+            ],
+            [
+              "Panic attack",
+              "Normal BP, hyperventilation"
+            ],
+            [
+              "Pheochromocytoma",
+              "Hypertension (not hypo)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Incidence of Triggers",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Food (Peanuts/Shellfish)",
+              "value": 40
+            },
+            {
+              "label": "Medications (Antibiotics)",
+              "value": 30
+            },
+            {
+              "label": "Stings (Hymenoptera)",
+              "value": 20
+            },
+            {
+              "label": "Idiopathic/Other",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Do not wait for cutaneous signs (skin symptoms absent in 20% of anaphylaxis).",
+          "IM injection in the thigh is superior to SC or subcutaneous injection for rapid absorption.",
+          "Biphasic reactions occur in 1-20% of cases; keep patients observed for 4-6 hours.",
+          "Beta-blockers can render epinephrine ineffective; consider Glucagon (1-5mg IV) in such patients.",
+          "Serum tryptase levels (peak at 60-90 min post-onset) can confirm the diagnosis retrospectively."
+        ]
+      },
+      {
+        "title": "--- Sub-topics from: Anaphylactic Shock: Ophthalmic Emergency Protocol ---",
+        "icon": "merge",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Anaphylaxis is a severe, life-threatening systemic Type I hypersensitivity reaction. In the ophthalmic setting, it is most commonly triggered by intravenous dyes (FFA/ICG), local anesthetics, or latex, requiring immediate recognition and IM Epinephrine administration."
+      },
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Anaphylaxis is a rapidly developing, multi-systemic immunoglobulin E (IgE)-mediated hypersensitivity reaction. It results from the sudden systemic release of mediators (histamine, tryptase, leukotrienes) from mast cells and basophils. In ophthalmology, it represents the most critical office-based emergency, often occurring within minutes of diagnostic dye injection or anesthetic block."
+      },
+      {
+        "title": "Epidemiology in Ophthalmology",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "FFA Mild Reaction",
+              "value": 50
+            },
+            {
+              "label": "FFA Severe/Shock",
+              "value": 5
+            },
+            {
+              "label": "ICG Reaction Rate",
+              "value": 2
+            },
+            {
+              "label": "General Pop. Lifetime Risk",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Type I Cascade",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Sensitization: Initial exposure leads to IgE production by B-cells.",
+          "2. Priming: IgE binds to FcεRI receptors on Mast cells and Basophils.",
+          "3. Re-exposure: Allergen cross-links IgE on cell surfaces.",
+          "4. Degranulation: Massive release of Histamine, Prostaglandin D2, and Leukotrienes.",
+          "5. Systemic Effect: Vasodilation, increased capillary permeability, and smooth muscle contraction."
+        ]
+      },
+      {
+        "title": "Common Ophthalmic Triggers",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Ophthalmic Allergens",
+          "branches": [
+            "Diagnostic Dyes (Fluorescein Sodium, Indocyanine Green)",
+            "Local Anesthetics (Lidocaine, Bupivacaine, Proparacaine)",
+            "Antibiotics (Penicillins, Cephalosporins, Bacitracin)",
+            "Mydriatics (Phenylephrine - rare systemic pressor effect)",
+            "Surgical Materials (Latex, Povidone-iodine, Chymotrypsin)",
+            "Preservatives (Benzalkonium Chloride, Thimerosal)"
+          ]
+        }
+      },
+      {
+        "title": "Systemic Clinical Features",
+        "icon": "clinical_notes",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "System",
+            "Signs & Symptoms"
+          ],
+          "rows": [
+            [
+              "Skin/Mucosa (90%)",
+              "Generalized urticaria, pruritus, flushing, angioedema (lips, tongue, uvula)."
+            ],
+            [
+              "Respiratory (70%)",
+              "Dyspnea, wheezing (bronchospasm), stridor (laryngeal edema), rhinitis."
+            ],
+            [
+              "Cardiovascular (45%)",
+              "Hypotension, tachycardia, arrhythmia, chest pain, cardiac arrest."
+            ],
+            [
+              "Gastrointestinal (45%)",
+              "Crampy abdominal pain, vomiting, diarrhea."
+            ],
+            [
+              "Neurological",
+              "Anxiety, 'sense of impending doom', altered mental status, syncope."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Manifestations",
+        "icon": "eye_tracking",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Severe conjunctival chemosis (often immediate).",
+          "Periorbital edema and erythema.",
+          "Profuse lacrimation and conjunctival injection.",
+          "Sudden vision blurring (due to corneal edema or hypotension)."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Immediate Threats",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Stridor or hoarseness (Laryngeal edema)",
+          "Silent chest on auscultation (Severe bronchospasm)",
+          "Systolic BP < 90 mmHg",
+          "Rapidly spreading urticaria after IV dye injection",
+          "Cyanosis or SpO2 < 92%"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup (Post-Stabilization)",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Serum Tryptase: Drawn 0.5–3 hours after onset (peak at 1hr).",
+          "2. Repeat Tryptase: At 24 hours to establish baseline.",
+          "3. Allergy Referral: For skin prick or IgE testing (after 4-6 weeks).",
+          "4. Review FFA/ICG logs for lot numbers and dosages."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "rule",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Vasovagal Syncope",
+              "Bradycardia, pallor, no urticaria, rapid recovery when supine."
+            ],
+            [
+              "Panic Attack",
+              "Normal BP/O2, tachypnea, carpopedal spasm, no angioedema."
+            ],
+            [
+              "Myocardial Infarction",
+              "Chest pain, ECG changes, elevated troponins."
+            ],
+            [
+              "Asthma Exacerbation",
+              "No skin changes, history of triggers, slow onset."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Step-by-Step",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. STOP the offending agent (Disconnect FFA infusion immediately).",
+          "2. CALL for help / Activate Emergency Medical Services (EMS).",
+          "3. POSITION: Supine with legs elevated (unless respiratory distress predominates).",
+          "4. ADRENALINE (Epinephrine): 0.3–0.5 mg IM (1:1000) in the mid-outer thigh.",
+          "5. AIRWAY: High-flow Oxygen (15L/min via non-rebreather mask).",
+          "6. FLUIDS: Rapid IV bolus of Normal Saline (1-2 Liters).",
+          "7. ADJUNCTS: Antihistamines (H1/H2 blockers) and Corticosteroids."
+        ]
+      },
+      {
+        "title": "Emergency Drug Dosages",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Medication",
+            "Dose (Adult)",
+            "Route",
+            "Repeat Frequency"
+          ],
+          "rows": [
+            [
+              "Epinephrine (1:1000)",
+              "0.3 - 0.5 mg",
+              "Intramuscular (IM)",
+              "Every 5-15 mins if no improvement"
+            ],
+            [
+              "Normal Saline",
+              "500 - 1000 mL",
+              "IV Bolus",
+              "As needed for BP support"
+            ],
+            [
+              "Hydrocortisone",
+              "200 mg",
+              "IV / IM",
+              "Once (prevents biphasic reaction)"
+            ],
+            [
+              "Chlorphenamine",
+              "10 mg",
+              "IV / IM",
+              "Once (for skin symptoms)"
+            ],
+            [
+              "Salbutamol",
+              "2.5 - 5 mg",
+              "Nebulized",
+              "For persistent bronchospasm"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: 'ADRENALINE'",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "A-D-R-E-N-A-L-I-N",
+          "explanation": "A: Airway, D: Dye Stop, R: Recline/Raise legs, E: Epinephrine IM, N: Normal Saline, A: Antihistamines, L: Lungs (Oxygen/Albuterol), I: IV Access, N: Next dose of Epi if needed."
+        }
+      },
+      {
+        "title": "Grading Severity (Brown's Criteria)",
+        "icon": "format_list_numbered",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Grade",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Mild",
+              "Skin & subcutaneous tissues only (generalized erythema, urticaria)."
+            ],
+            [
+              "Moderate",
+              "Respiratory, cardiovascular, or GI involvement (dyspnea, stridor, nausea)."
+            ],
+            [
+              "Severe",
+              "Hypoxia (SpO2 <90%), Hypotension (SBP <90), or Neurological compromise."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Pearls for the Ophthalmologist",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "IM Epinephrine is safer and easier than IV Epinephrine for non-coding patients; use the mid-thigh (Vastus Lateralis).",
+          "Patients on Beta-blockers may be resistant to Epinephrine; consider Glucagon (1-5mg IV over 5 mins).",
+          "Biphasic reactions occur in up to 20% of cases; observe patients for at least 4-12 hours post-event.",
+          "Always have a 'Crash Cart' in the FFA suite with up-to-date medications and a portable oxygen tank.",
+          "ICG contains Iodine; check for shellfish or iodine allergy before administration."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Consensus",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "The 2020 World Allergy Organization (WAO) Anaphylaxis Guidance emphasizes that there are no absolute contraindications to Epinephrine in anaphylaxis. Recent studies in 'Ophthalmology' (AAO) suggest that pre-filled auto-injectors (EpiPens) should be accessible in every retina clinic due to their ease of use during high-stress FFA reactions."
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "monitoring",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Hypoxic-Ischemic Encephalopathy (due to prolonged shock).",
+          "Myocardial Ischemia / Stress-induced Cardiomyopathy.",
+          "Biphasic Reaction (recurrence of symptoms without re-exposure).",
+          "Prognosis is excellent if Epinephrine is administered early."
+        ]
+      }
+    ],
+    "generationPrompt": "Anaphylactic shock (Medicine & emergency)",
+    "chapterId": "clinical_skills"
+  },
+  "chapterId": "clinical_skills",
+  "_newlyImported": 1775382583617,
+  "communityId": "sub_1775194252495_02yxfh1vy86lz9",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-04-03T05:30:52.495Z",
+  "kanskiMeta": [
+    {
+      "pageNum": 633,
+      "keywords": [
+        "erg"
+      ]
+    },
+    {
+      "pageNum": 632,
+      "keywords": [
+        "erg",
+        "drug"
+      ]
+    },
+    {
+      "pageNum": 372,
+      "keywords": [
+        "erg",
+        "diagnostic",
+        "criteria",
+        "systemic",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 645,
+      "keywords": [
+        "erg",
+        "prognosis"
+      ]
+    },
+    {
+      "pageNum": 664,
+      "keywords": [
+        "erg",
+        "prognosis"
+      ]
+    },
+    {
+      "pageNum": 319,
+      "keywords": [
+        "protocol",
+        "systemic",
+        "ocular",
+        "prognosis"
+      ]
+    }
+  ]
+}

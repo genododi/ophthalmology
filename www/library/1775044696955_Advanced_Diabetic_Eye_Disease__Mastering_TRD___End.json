@@ -1,0 +1,323 @@
+{
+  "id": 1775044696955,
+  "seqId": 473,
+  "title": "Advanced Diabetic Eye Disease: Mastering TRD & End-Stage PDR",
+  "summary": "Advanced Diabetic Eye Disease (ADED) represents the sight-threatening zenith of proliferative diabetic retinopathy, characterized by Tractional Retinal Detachment (TRD), persistent vitreous hemorrhage, and fibrovascular proliferation. This guide provides a residency-level deep dive into its surgical and clinical management.",
+  "date": "2026-04-01T11:58:16.955Z",
+  "data": {
+    "title": "Advanced Diabetic Eye Disease: Mastering TRD & End-Stage PDR",
+    "summary": "Advanced Diabetic Eye Disease (ADED) represents the sight-threatening zenith of proliferative diabetic retinopathy, characterized by Tractional Retinal Detachment (TRD), persistent vitreous hemorrhage, and fibrovascular proliferation. This guide provides a residency-level deep dive into its surgical and clinical management.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M40 100 Q 70 60, 100 80 T 160 60' fill='none' stroke='hsl(0, 70%, 50%)' stroke-width='3' stroke-dasharray='5,5'/><path d='M45 110 Q 80 85, 120 105 T 155 90' fill='none' stroke='#DAA520' stroke-width='4'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)' opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Advanced Diabetic Eye Disease (ADED)",
+          "branches": [
+            "Tractional Retinal Detachment (TRD)",
+            "Persistent Vitreous Hemorrhage (>1-3 months)",
+            "Neovascular Glaucoma (NVG)",
+            "Dense Premacular Hemorrhage",
+            "Rubeosis Iridis (NVI)",
+            "Fibrovascular Proliferation (FVP)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "T1DM Duration >20yrs",
+              "value": 95
+            },
+            {
+              "label": "T2DM Duration >20yrs",
+              "value": 60
+            },
+            {
+              "label": "HbA1c >9.0%",
+              "value": 85
+            },
+            {
+              "label": "Hypertension Link",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Ischemic Cascade",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "1. Chronic Hyperglycemia → Capillary non-perfusion",
+          "2. Retinal Ischemia → Upregulation of VEGF & PEDF imbalance",
+          "3. Neovascularization at Disk (NVD) or Elsewhere (NVE)",
+          "4. Fibrous scaffolding grows along posterior hyaloid face",
+          "5. Vitreous contraction → Tangential & Anteroposterior traction",
+          "6. Retinal elevation → Tractional Retinal Detachment"
+        ]
+      },
+      {
+        "title": "TRD vs. Rhegmatogenous RD (RRD)",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Tractional RD (TRD)",
+            "Rhegmatogenous RD (RRD)"
+          ],
+          "rows": [
+            [
+              "Configuration",
+              "Concave, smooth surface",
+              "Convex, corrugated/wrinkled"
+            ],
+            [
+              "Mobility",
+              "Fixed, non-mobile",
+              "Mobile, undulating"
+            ],
+            [
+              "Extension",
+              "Rarely extends to Ora Serrata",
+              "Often extends to Ora Serrata"
+            ],
+            [
+              "Subretinal Fluid",
+              "Clear, does not shift",
+              "May shift with gravity"
+            ],
+            [
+              "Breaks",
+              "Absent (unless combined)",
+              "Primary retinal break present"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "NVI/NVA: Check undilated gonioscopy for angle vessels.",
+          "Vitreous: Shafer sign (uncommon in pure TRD), vitreous heme.",
+          "Membranes: Opaque white fibrovascular fronds along arcades.",
+          "Macula: Tractional macular edema or heterotopia.",
+          "Periphery: Signs of prior incomplete PRP (skip areas)."
+        ]
+      },
+      {
+        "title": "Urgent Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapid vision drop in one eye (Combined TRD/RRD)",
+          "Sudden 'curtain' with flashes (New break)",
+          "Painful red eye with high IOP (NVG)",
+          "Macula-threatening TRD (Urgent surgery indication)",
+          "B-scan showing 'kissing choroidals' or total RD"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Investigations",
+          "branches": [
+            "B-Scan Ultrasonography (Critical if VH is dense)",
+            "OCT: Quantify macular traction/VMT",
+            "Wide-field FFA: Identify areas of non-perfusion",
+            "HbA1c & Renal Function (BUN/Creatinine)",
+            "B-Scan: Look for 'V' or 'X' shaped configuration"
+          ]
+        }
+      },
+      {
+        "title": "The DRVS Landmark Study Lessons",
+        "icon": "school",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Patient Group",
+            "Recommendation"
+          ],
+          "rows": [
+            [
+              "Type 1 Diabetics",
+              "Early vitrectomy (within 1-6 months) improves outcomes."
+            ],
+            [
+              "Type 2 Diabetics",
+              "Early vs late vitrectomy had similar 2-year outcomes."
+            ],
+            [
+              "Severe PDR",
+              "Early PPV leads to better VA in very severe cases."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: Surgical Indications",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "T.R.A.C.T.I.O.N.",
+          "explanation": "T: TRD involving macula; R: RRD (Combined); A: Acute premacular heme; C: Chronic VH (>3 mo); T: Tight hyaloid; I: Iris neovasc (NVG prophylaxis); O: Opacity preventing PRP; N: Neovascularization progression despite laser."
+        }
+      },
+      {
+        "title": "Surgical Management Protocol (PPV)",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Port Placement: 23G, 25G, or 27G Pars Plana Vitrectomy.",
+          "2. Core Vitrectomy: Clear central vitreous hemorrhage.",
+          "3. Induction of PVD: Often difficult due to tight adhesions; use Triesence/TA.",
+          "4. Segmentation: Cutting membranes into small islands to relieve tangential traction.",
+          "5. Delamination: Peeling membranes off the retinal surface using shears or forceps.",
+          "6. Hemostasis: Endodiathermy for bleeding fronds; increase IOP temporarily.",
+          "7. Endolaser: Complete 360-degree Panretinal Photocoagulation (PRP).",
+          "8. Tamponade: Air, Gas (SF6/C3F8), or Silicone Oil if breaks are present."
+        ]
+      },
+      {
+        "title": "Key Surgical Techniques & Tools",
+        "icon": "precision_manufacturing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Bimanual Technique: Using a chandelier light and two instruments.",
+          "Viscodissection: Injecting Healon GV to separate membranes.",
+          "Foldback Technique: Starting delamination at the edge of a membrane.",
+          "Vertical Scissors: Crucial for cutting tight bridges between retina and hyaloid.",
+          "Valved Cannulas: Maintain stable IOP during instrument exchange."
+        ]
+      },
+      {
+        "title": "Intraoperative Complications",
+        "icon": "error",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Complication",
+            "Management"
+          ],
+          "rows": [
+            [
+              "Iatrogenic Breaks",
+              "Mark, Laser, & Tamponade"
+            ],
+            [
+              "Subretinal Heme",
+              "Drain through break/t-PA"
+            ],
+            [
+              "Lens Touch",
+              "Lensectomy if significant"
+            ],
+            [
+              "Fibrin Reaction",
+              "Intracameral steroids"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Post-operative Management",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Steroid-Antibiotic drops (Pred Forte/Vigamox) QID.",
+          "Atropine 1% BD if significant inflammation/gas.",
+          "Prone positioning if gas/oil tamponade used.",
+          "Monitor IOP closely (risk of steroid response or gas expansion).",
+          "Early Anti-VEGF (Avastin) injection if recurrent VH occurs."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Fellow",
+        "icon": "star",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Don't 'chase' every peripheral membrane; focus on relieving macular traction.",
+          "Pre-op Anti-VEGF (2-7 days prior) significantly reduces intra-op bleeding.",
+          "Always check the renal status; ADED patients often have diabetic nephropathy.",
+          "In cases of NVG, perform PRP/PPV early to save the optic nerve.",
+          "TRD fluid is slowly absorbed; don't expect immediate flattening post-op."
+        ]
+      },
+      {
+        "title": "Prognosis & Outcomes",
+        "icon": "trending_up",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Anatomic Success (Reattachment)",
+              "value": 90
+            },
+            {
+              "label": "VA Improvement (>2 lines)",
+              "value": 65
+            },
+            {
+              "label": "Stable Vision",
+              "value": 20
+            },
+            {
+              "label": "Recurrent Hemorrhage Risk",
+              "value": 15
+            }
+          ]
+        }
+      }
+    ],
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "_newlyImported": 1775044696955,
+  "communityId": "sub_1774352254516_iq3rjuhkr6wcv7",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

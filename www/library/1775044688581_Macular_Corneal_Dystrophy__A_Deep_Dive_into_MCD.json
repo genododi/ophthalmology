@@ -1,0 +1,284 @@
+{
+  "id": 1775044688581,
+  "seqId": 418,
+  "title": "Macular Corneal Dystrophy: A Deep Dive into MCD",
+  "summary": "Macular Corneal Dystrophy (MCD) is a rare, autosomal recessive stromal dystrophy characterized by diffuse corneal haze and ill-defined gray-white opacities. Unlike other stromal dystrophies, it involves the entire corneal thickness and extends to the limbus, significantly impacting vision early in life.",
+  "date": "2026-04-01T11:58:08.581Z",
+  "data": {
+    "title": "Macular Corneal Dystrophy: A Deep Dive into MCD",
+    "summary": "Macular Corneal Dystrophy (MCD) is a rare, autosomal recessive stromal dystrophy characterized by diffuse corneal haze and ill-defined gray-white opacities. Unlike other stromal dystrophies, it involves the entire corneal thickness and extends to the limbus, significantly impacting vision early in life.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><circle cx='50' cy='50' r='25' fill='rgba(200, 200, 200, 0.6)'/><path d='M35 40 Q 40 35 45 40 T 55 40 T 65 40' stroke='white' stroke-width='1' fill='none'/><path d='M30 55 Q 40 50 50 55 T 70 55' stroke='white' stroke-width='1' fill='none'/><path d='M40 65 Q 50 60 60 65' stroke='white' stroke-width='1' fill='none'/><circle cx='40' cy='45' r='2' fill='white' opacity='0.8'/><circle cx='60' cy='52' r='2.5' fill='white' opacity='0.8'/><circle cx='50' cy='60' r='1.5' fill='white' opacity='0.8'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Genetic Basis",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "MCD is a localized manifestation of a systemic error in keratin sulfate metabolism.",
+          "Inheritance: Autosomal Recessive (AR) - The 'Odd One Out' among classic stromal dystrophies.",
+          "Gene Mutation: CHST6 (Carbohydrate Sulfotransferase 6) located on Chromosome 16q22.",
+          "Pathogenesis: Deficiency of corneal sulfotransferase enzyme results in non-sulfated Keratan Sulfate (KS) accumulation."
+        ]
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Prevalence (Iceland/Saudi)",
+              "value": 95
+            },
+            {
+              "label": "Prevalence (Western)",
+              "value": 15
+            },
+            {
+              "label": "Onset (1st Decade)",
+              "value": 80
+            },
+            {
+              "label": "Symptom Peak (Age 30+)",
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Symptoms",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "center": "MCD Presentation",
+          "branches": [
+            "Early onset bilateral progressive photophobia",
+            "Severe decrease in Visual Acuity by 2nd-3rd decade",
+            "Recurrent corneal erosions (less common than Lattice)",
+            "Diffuse stromal haze extending to the LIMBUS",
+            "Ill-defined gray-white opacities (cloud-like)",
+            "Corneal thinning (Central thickness decreased)"
+          ]
+        }
+      },
+      {
+        "title": "MCD vs. Granular Dystrophy (GCD)",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Macular (MCD)",
+            "Granular (GCD Type 1)"
+          ],
+          "rows": [
+            [
+              "Inheritance",
+              "Autosomal Recessive (AR)",
+              "Autosomal Dominant (AD)"
+            ],
+            [
+              "Clarity",
+              "Diffuse Haze (Limbus to Limbus)",
+              "Clear intervening stroma"
+            ],
+            [
+              "Limbus",
+              "Involved",
+              "Spared (Clear zone at periphery)"
+            ],
+            [
+              "Corneal Thickness",
+              "THINNING (pachymetry low)",
+              "Normal or Thickened"
+            ],
+            [
+              "Stain",
+              "Alcian Blue / Colloidal Iron",
+              "Masson Trichrome"
+            ],
+            [
+              "Deposits",
+              "Acid Glycosaminoglycans (GAGs)",
+              "Hyaline (keratoepithelin)"
+            ],
+            [
+              "Severity",
+              "Most severe/Earlier visual loss",
+              "Slow progression"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Histopathology Staining Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "Marilyn Monroe Always Gets Her Men",
+          "explanation": "MCD = Alcian Blue (GAGs); Granular = Masson Trichrome (Hyaline); Lattice = Congo Red (Amyloid)."
+        }
+      },
+      {
+        "title": "MCD Classification Subtypes",
+        "icon": "category",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Type",
+            "Serum Antigen (KS)",
+            "Corneal Antigen (KS)"
+          ],
+          "rows": [
+            [
+              "Type I",
+              "Absent",
+              "Absent"
+            ],
+            [
+              "Type IA",
+              "Absent",
+              "Present in Keratocytes"
+            ],
+            [
+              "Type II",
+              "Normal Levels",
+              "Present"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Slit-lamp: Superficial/Deep stromal opacities.",
+          "Ground-glass appearance of intervening stroma.",
+          "Descemet's Membrane: Guttata-like changes can be seen.",
+          "Endothelium: GAG deposits can be found even in the endothelium.",
+          "Pachymetry: Shows marked thinning early in the disease."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Clinical Slit-lamp Bio-microscopy",
+          "2. Anterior Segment OCT: Hyper-reflective deposits + thinning.",
+          "3. Confocal Microscopy: Deposits in keratocytes and extracellular matrix.",
+          "4. ELISA: For serum Keratan Sulfate (KS) levels (Type determination).",
+          "5. Genetic Testing: CHST6 mutation analysis."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis (Stromal Dystrophies)",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Stromal Haze Diffs",
+          "branches": [
+            "Granular Dystrophy (Clear stroma, AD)",
+            "Lattice Dystrophy (Branching lines, AD)",
+            "Schnyder Corneal Dystrophy (Crystals, Lipid, AD)",
+            "Congenital Hereditary Stromal Dystrophy (CHSD)",
+            "Mucopolysaccharidoses (Systemic involvement)",
+            "Corneal Farinata (Flour-like, deep stroma)"
+          ]
+        }
+      },
+      {
+        "title": "Management & Treatment Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Lubrication and Bandage Contact Lenses (BCL) for erosions.",
+          "Step 2: Phototherapeutic Keratectomy (PTK) - Only for very superficial deposits.",
+          "Step 3: Deep Anterior Lamellar Keratoplasty (DALK) - If endothelium is spared.",
+          "Step 4: Penetrating Keratoplasty (PKP) - Gold standard for full-thickness involvement.",
+          "Step 5: Post-operative Monitoring - Recurrence is possible in the graft (from host keratocytes)."
+        ]
+      },
+      {
+        "title": "Surgical Nuances",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "DALK is preferred to avoid rejection, but dissection is difficult due to stromal haze.",
+          "PKP has high success rates but carries long-term risk of graft failure/rejection.",
+          "Recurrence in MCD is generally slower than in Granular or Lattice dystrophies.",
+          "Deposits recur from host keratocytes migrating into the donor tissue."
+        ]
+      },
+      {
+        "title": "Red Flags & Clinical Warnings",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "MCD has the worst visual prognosis among the classic trio.",
+          "Corneal thinning: Be cautious of perforation risk during PKP/DALK.",
+          "Systemic symptoms? Unlike Mucopolysaccharidosis, MCD is limited to the eye.",
+          "Secondary Glaucoma: Possible post-PKP."
+        ]
+      },
+      {
+        "title": "Landmark Studies & Recent Advances",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "IC3D Classification (2015): Updated MCD to a Category 1 dystrophy (gene known, well-defined).",
+          "Gene Therapy: Research into AAV-mediated CHST6 replacement is ongoing in animal models.",
+          "Enzyme Replacement: Investigations into topical sulfotransferase mimics.",
+          "Large-scale cohort studies in South India (Tamil Nadu) show high prevalence due to consanguinity."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "If you see a haze that reaches the LIMBUS, think Macular Corneal Dystrophy.",
+          "If the cornea is THIN, think Macular. If it's normal/thick, think Granular.",
+          "MCD is the only AR stromal dystrophy; the rest are usually AD.",
+          "MCD deposits are Alcyan Blue positive (G-A-G: Macular, Alcian, GAGs)."
+        ]
+      }
+    ],
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044688581,
+  "communityId": "sub_1773775007769_bqwnyelpdvdd98",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.769Z"
+}

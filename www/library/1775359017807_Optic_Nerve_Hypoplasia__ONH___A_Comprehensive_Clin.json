@@ -1,0 +1,142 @@
+{
+  "id": 1775359017807,
+  "seqId": 652,
+  "title": "Optic Nerve Hypoplasia (ONH): A Comprehensive Clinical Atlas",
+  "summary": "Optic Nerve Hypoplasia is a congenital, non-progressive optic disc anomaly characterized by a subnormal number of optic nerve axons. It serves as a critical systemic marker often associated with midline brain defects and endocrine dysfunction.",
+  "date": "2026-04-05T03:16:57.807Z",
+  "data": {
+    "title": "Optic Nerve Hypoplasia (ONH): A Comprehensive Clinical Atlas",
+    "summary": "Optic Nerve Hypoplasia is a congenital, non-progressive optic disc anomaly characterized by a subnormal number of optic nerve axons. It serves as a critical systemic marker often associated with midline brain defects and endocrine dysfunction.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='#1e88e5' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='#1e88e5'/><path d='M30 50 Q 50 30 70 50' fill='none' stroke='#1565c0' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Pathophysiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "ONH results from a reduced number of retinal ganglion cell axons. It is thought to arise from an insult during the early second trimester (weeks 6-13 of gestation). Pathologically, there is an increase in fibrous astrocytes and connective tissue in the optic nerve head, leading to a small, pale neuroretinal rim and a variable peripheral halo."
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Dilated Fundus Exam: Evaluate for 'Double-ring sign' (peripapillary scleral ring).",
+          "Step 2: Pediatric Assessment: Evaluate for Nystagmus, Strabismus, and Refractive Errors (usually high hyperopia/astigmatism).",
+          "Step 3: MRI Brain/Orbit: Mandatory to rule out Septo-optic dysplasia (De Morsier syndrome) - check for absent septum pellucidum.",
+          "Step 4: Endocrine Panel: Serum GH, TSH, ACTH, and Cortisol levels to rule out hypopituitarism.",
+          "Step 5: Visual Field Testing: If patient age permits, look for generalized depression or cecocentral scotomas."
+        ]
+      },
+      {
+        "title": "Epidemiology & Associations",
+        "icon": "science",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Unilateral",
+              "value": 70
+            },
+            {
+              "label": "Bilateral",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Systemic Associations",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Septo-optic dysplasia (De Morsier Syndrome)",
+          "Pituitary hormone deficiencies (GH, TSH, ACTH)",
+          "Midline brain defects (Agenesis of Corpus Callosum)",
+          "Fetal Alcohol Syndrome (risk factor)",
+          "Maternal diabetes mellitus"
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Sign",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Double-ring sign",
+              "Inner ring marks the termination of retina; outer ring is the scleral canal"
+            ],
+            [
+              "Disc Size",
+              "Significantly reduced disc area; disc-to-macula ratio < 0.25"
+            ],
+            [
+              "Vascularity",
+              "Tortuous vessels; abnormal branching patterns"
+            ],
+            [
+              "Retina",
+              "Thinning of the retinal nerve fiber layer (RNFL)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Emergency Considerations",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Hypoglycemic seizures in infants (Adrenal crisis/GH deficiency)",
+          "Bilateral involvement associated with significant neurodevelopmental delay",
+          "Sudden deterioration of vision or unexplained nystagmus",
+          "Signs of increased intracranial pressure due to associated hydrocephalus"
+        ]
+      },
+      {
+        "title": "Remember the Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "ONH-Hormone",
+          "explanation": "O (Optic disc small), N (Nystagmus), H (Hyperopia/Hypopituitarism). Always check the hormones if ONH is found!"
+        }
+      },
+      {
+        "title": "Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "ONH is the most common congenital optic disc anomaly.",
+          "Visual acuity ranges from 20/20 to NLP; poor correlation with disc size.",
+          "Early MRI is diagnostic gold standard for systemic associations.",
+          "Management is multidisciplinary (Pediatric ophthalmology, Endocrinology, Neurology)."
+        ]
+      }
+    ],
+    "generationPrompt": "Optic nerve hypoplasia",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "read": true
+}

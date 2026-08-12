@@ -1,0 +1,159 @@
+{
+  "id": 1775234251899,
+  "seqId": 620,
+  "title": "Acute Dacryocystitis: Clinical Masterclass",
+  "summary": "A comprehensive, evidence-based guide to the diagnosis and management of acute lacrimal sac infection, focusing on anatomical nuances, causative pathogens, and stepwise therapeutic intervention.",
+  "date": "2026-04-03T16:37:31.899Z",
+  "data": {
+    "title": "Acute Dacryocystitis: Clinical Masterclass",
+    "summary": "A comprehensive, evidence-based guide to the diagnosis and management of acute lacrimal sac infection, focusing on anatomical nuances, causative pathogens, and stepwise therapeutic intervention.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M70 120 Q 100 80 130 120' stroke='hsl(215, 90%, 45%)' fill='none' stroke-width='6'/><circle cx='100' cy='60' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "medication",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Acute dacryocystitis is an infection of the lacrimal sac, usually secondary to obstruction of the nasolacrimal duct (NLD). Stasis of tears leads to bacterial overgrowth and subsequent inflammation, which can progress to abscess formation or orbital cellulitis."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Infants (Congenital)",
+              "value": 70
+            },
+            {
+              "label": "Females > 40y",
+              "value": 90
+            },
+            {
+              "label": "Adult Males",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathogens: Etiological Profile",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Patient Type",
+            "Common Organisms"
+          ],
+          "rows": [
+            [
+              "Adults",
+              "Staph. aureus, Strep. pneumoniae, H. influenzae"
+            ],
+            [
+              "Infants",
+              "Strep. pneumoniae, H. influenzae, Staph. aureus"
+            ],
+            [
+              "Chronic/Recurrent",
+              "Pseudomonas aeruginosa, Actinomyces"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Signs & Symptoms",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Painful, erythematous swelling over the medial canthal area (lacrimal sac region).",
+          "Epiphora (overflow tearing) due to NLD obstruction.",
+          "Purulent discharge expressed through the punctum (diagnostic maneuver).",
+          "Tenderness, warmth, and induration of the surrounding periocular tissues.",
+          "Potential for pre-septal cellulitis or frank abscess formation."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Medial Canthal Swelling",
+          "branches": [
+            "Preseptal Cellulitis",
+            "Dacryocystocele (infants)",
+            "Lacrimal sac tumor",
+            "Acute ethmoid sinusitis",
+            "Angular blepharitis"
+          ]
+        }
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Warm compresses to localize infection.",
+          "Step 2: Systemic antibiotics (e.g., Augmentin 875/125mg BID or Cephalexin).",
+          "Step 3: Incision and Drainage (I&D) IF fluctuation/abscess is present.",
+          "Step 4: Irrigation of the lacrimal system is CONTRAINDICATED during acute phase.",
+          "Step 5: Definitive Dacryocystorhinostomy (DCR) performed after inflammation resolves."
+        ]
+      },
+      {
+        "title": "Red Flags: When to Admit",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Signs of Orbital Cellulitis: Ophthalmoplegia, proptosis, vision loss, or relative afferent pupillary defect (RAPD).",
+          "Systemic sepsis: Fever > 38.5°C, altered mental status, tachycardia.",
+          "Extension of inflammation beyond the medial canthal area.",
+          "Failure to respond to outpatient oral antibiotics within 48 hours."
+        ]
+      },
+      {
+        "title": "Mnemonic: LACRIMAL",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "LACRIMAL",
+          "explanation": "L: Lacrimal sac swelling, A: Acute pain, C: Chronic epiphora, R: Redness, I: Infection (purulence), M: Medial location, A: Antibiotics needed, L: Likely NLD obstruction."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Do NOT probe or syringe the system during the acute phase (risk of sepsis spreading).",
+          "If recurrence occurs, suspect lacrimal sac malignancy (biopsy mandatory).",
+          "Always evaluate for concomitant sinusitis on clinical exam.",
+          "Augmentin is the drug of choice due to high beta-lactamase resistance."
+        ]
+      }
+    ],
+    "generationPrompt": "Acute dacryocystitis",
+    "chapterId": "lacrimal"
+  },
+  "chapterId": "lacrimal",
+  "read": true
+}

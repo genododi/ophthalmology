@@ -1,0 +1,244 @@
+{
+  "id": 1775498103256,
+  "seqId": 742,
+  "title": "Clinical Mastery: Resolving CRVO vs. Diabetic Retinopathy",
+  "summary": "A high-yield comparative analysis between a resolving Central Retinal Vein Occlusion (CRVO) and Diabetic Retinopathy (DR). Distinguishing these entities is critical for management, as CRVO requires ruling out underlying systemic vascular risk, while DR mandates glycemic control and metabolic optimization.",
+  "date": "2026-04-06T17:55:03.256Z",
+  "data": {
+    "title": "Clinical Mastery: Resolving CRVO vs. Diabetic Retinopathy",
+    "summary": "A high-yield comparative analysis between a resolving Central Retinal Vein Occlusion (CRVO) and Diabetic Retinopathy (DR). Distinguishing these entities is critical for management, as CRVO requires ruling out underlying systemic vascular risk, while DR mandates glycemic control and metabolic optimization.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='#1e40af' stroke-width='8'/><path d='M60 100 Q 100 60 140 100 T 60 100' fill='none' stroke='#dc2626' stroke-width='4'/><circle cx='100' cy='100' r='20' fill='#1e40af'/></svg>",
+    "sections": [
+      {
+        "title": "Pathophysiological Distinction",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Retinal Vascular Pathology",
+          "branches": [
+            "CRVO: Thrombus in central vein, high-pressure outflow block",
+            "DR: Chronic endothelial cell dysfunction, microaneurysms, basement membrane thickening",
+            "Resolving CRVO: Venous tortuosity improves, collaterals form, disc edema regresses",
+            "Proliferative DR: Neovascularization secondary to chronic ischemia"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Resolving CRVO",
+            "Diabetic Retinopathy"
+          ],
+          "rows": [
+            [
+              "Symmetry",
+              "Typically Unilateral",
+              "Typically Bilateral"
+            ],
+            [
+              "Hemorrhage Pattern",
+              "4-Quadrant 'Blood and Thunder' resolving",
+              "Dot-blot, flame-shaped, scattered"
+            ],
+            [
+              "Microaneurysms",
+              "Rarely the primary driver",
+              "Hallmark feature"
+            ],
+            [
+              "Cotton Wool Spots",
+              "Common (ischemic)",
+              "Common (in PDR)"
+            ],
+            [
+              "Collateral Vessels",
+              "Optociliary shunts common",
+              "Rare (unless post-CRVO)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Worry",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "NVI/NVA (Iris/Angle neovascularization) - 90-day glaucoma risk",
+          "RAPD in CRVO (indicates >10 disc area of ischemia)",
+          "Sudden drop in BCVA",
+          "Tractional Retinal Detachment in DR",
+          "Vitreous Hemorrhage precluding fundus exam"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Dilated Fundus Exam with 90D lens",
+          "Step 2: SD-OCT (Measure central subfield thickness)",
+          "Step 3: Fluorescein Angiography (Map non-perfusion areas)",
+          "Step 4: Systemic workup (BP, CBC, HbA1c, ESR/CRP for CRVO)"
+        ]
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "First-Line Therapy",
+            "Second-Line"
+          ],
+          "rows": [
+            [
+              "CRVO (ME)",
+              "Anti-VEGF (Aflibercept/Ranibizumab)",
+              "Dexamethasone Implant"
+            ],
+            [
+              "DR (PDR)",
+              "Panretinal Photocoagulation (PRP)",
+              "Anti-VEGF/Vitrectomy"
+            ],
+            [
+              "DR (DME)",
+              "Anti-VEGF",
+              "Steroids/Focal Laser"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Remember the Mnemonic: CRVO",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "C.R.V.O.",
+          "explanation": "C: Check Pressure (IOP), R: Rule out systemic disease (BP/DM), V: VEGF inhibitors, O: Observe for collaterals."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Resolving CRVO often exhibits optociliary shunts; these are distinct from neovascularization.",
+          "DR never presents as a sudden '4-quadrant' explosive change unless vitreal hemorrhage occurs.",
+          "Always perform gonioscopy in ischemic CRVO before Anti-VEGF injection.",
+          "HbA1c optimization is the most potent long-term treatment for DR."
+        ]
+      },
+      {
+        "title": "Epidemiological Data (Relative Prevalence)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Diabetic Retinopathy (General)",
+              "value": 90
+            },
+            {
+              "label": "CRVO (Incidence per 1k)",
+              "value": 15
+            },
+            {
+              "label": "Ischemic CRVO proportion",
+              "value": 20
+            }
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Left resolving CRVO vs diabetic retinopathy",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "bookmarked": true,
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 511,
+      "keywords": [
+        "retinopathy",
+        "diabetic retinopathy",
+        "diabetic",
+        "retina",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 512,
+      "keywords": [
+        "retinopathy",
+        "diabetic retinopathy",
+        "diabetic",
+        "retina",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 5,
+      "keywords": [
+        "retinopathy",
+        "diabetic retinopathy",
+        "crvo",
+        "diabetic",
+        "vein occlusion"
+      ]
+    },
+    {
+      "pageNum": 545,
+      "keywords": [
+        "retinopathy",
+        "diabetic retinopathy",
+        "crvo",
+        "diabetic",
+        "medical"
+      ]
+    },
+    {
+      "pageNum": 527,
+      "keywords": [
+        "retinopathy",
+        "diabetic retinopathy",
+        "rvo",
+        "diabetic",
+        "vein occlusion"
+      ]
+    },
+    {
+      "pageNum": 6,
+      "keywords": [
+        "retinopathy",
+        "diabetic retinopathy",
+        "diabetic",
+        "retina",
+        "retinal"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+{
+  "id": 1775128262515,
+  "seqId": 556,
+  "title": "Fuchs Endothelial Corneal Dystrophy (FECD): The Comprehensive Resident's Guide",
+  "summary": "Fuchs Endothelial Corneal Dystrophy is a progressive, bilateral condition characterized by the loss of corneal endothelial cells and the formation of Descemet membrane excrescences (guttae), leading to corneal edema and vision loss. It is the leading indication for corneal transplantation worldwide.",
+  "date": "2026-04-02T11:11:02.515Z",
+  "data": {
+    "title": "Fuchs Endothelial Corneal Dystrophy (FECD): The Comprehensive Resident's Guide",
+    "summary": "Fuchs Endothelial Corneal Dystrophy is a progressive, bilateral condition characterized by the loss of corneal endothelial cells and the formation of Descemet membrane excrescences (guttae), leading to corneal edema and vision loss. It is the leading indication for corneal transplantation worldwide.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 100 Q100 60 140 100 Q100 140 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='85' cy='100' r='2' fill='hsl(215, 90%, 45%)'/><circle cx='100' cy='100' r='2' fill='hsl(215, 90%, 45%)'/><circle cx='115' cy='100' r='2' fill='hsl(215, 90%, 45%)'/><circle cx='92' cy='90' r='2' fill='hsl(215, 90%, 45%)'/><circle cx='108' cy='90' r='2' fill='hsl(215, 90%, 45%)'/><circle cx='92' cy='110' r='2' fill='hsl(215, 90%, 45%)'/><circle cx='108' cy='110' r='2' fill='hsl(215, 90%, 45%)'/><text x='50%' y='165' text-anchor='middle' font-family='Arial' font-size='12' fill='hsl(215, 90%, 45%)' font-weight='bold'>CORNEAL GUTTAE</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "FECD is a primary dystrophy of the corneal endothelium. It is characterized by progressive cell depletion, basement membrane thickening, and the deposition of focal excrescences known as guttae. The condition eventually results in the failure of the endothelial pump-leak mechanism, leading to stromal and epithelial edema, pain from ruptured bullae, and significant visual impairment."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Female Predominance",
+              "value": 75
+            },
+            {
+              "label": "Prevalence >40yo",
+              "value": 4
+            },
+            {
+              "label": "Familial Association",
+              "value": 50
+            },
+            {
+              "label": "Risk with Smoking",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Genetics & Pathophysiology",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "FECD Pathogenesis",
+          "branches": [
+            "TCF4 Gene: CTG trinucleotide repeat expansion (>40 repeats)",
+            "COL8A2 Mutation: Early-onset variant (rare)",
+            "Endothelial-Mesenchymal Transition (EMT)",
+            "Oxidative Stress & Mitochondrial Dysfunction",
+            "Endoplasmic Reticulum (ER) Stress",
+            "Apoptosis of Endothelial Cells",
+            "Descemet's Membrane Thickening (Guttae formation)"
+          ]
+        }
+      },
+      {
+        "title": "The Krachmer Staging System",
+        "icon": "reorder",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Stage",
+            "Clinical Findings",
+            "Edema Presence"
+          ],
+          "rows": [
+            [
+              "Stage 1",
+              "Occasional central guttae (1-12)",
+              "None"
+            ],
+            [
+              "Stage 2",
+              "Moderate central guttae (>12) with confluence",
+              "None"
+            ],
+            [
+              "Stage 3",
+              "Confluent guttae (1-2mm zone)",
+              "Early stromal edema / Descemet's folds"
+            ],
+            [
+              "Stage 4",
+              "Confluent guttae >5mm",
+              "Stellate epithelial edema / bullae"
+            ],
+            [
+              "Stage 5",
+              "Subepithelial fibrosis / pannus",
+              "Chronic edema with scarring"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Presentation & Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Early: Asymptomatic or mild glare/halos at night",
+          "Morning Blur: Vision worse upon awakening (due to lack of evaporation overnight)",
+          "Diurnal Variation: Vision improves as the day progresses",
+          "Pain/Photophobia: Occurs with ruptured epithelial bullae",
+          "Reduced Contrast Sensitivity",
+          "Episodic 'foggy' vision during high humidity"
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Slit-Lamp: 'Beaten Metal' appearance of posterior cornea (Guttae)",
+          "Pigment dusting on the endothelium",
+          "Descemet's Membrane folds (Striae)",
+          "Stromal Thickening / Pachymetry >640 microns",
+          "Microcystic epithelial edema and bullae",
+          "Subepithelial haze or connective tissue scarring"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup & Imaging",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Ultrasound Pachymetry (Measure central corneal thickness; >640μm is suspicious)",
+          "Step 2: Specular Microscopy (Analyze Cell Density, Hexagonality, and Coefficient of Variation)",
+          "Step 3: Anterior Segment OCT (Assess for epithelial/stromal edema and Descemet's integrity)",
+          "Step 4: Scheimpflug Imaging (Pentacam) (Check posterior elevation and 'Pachy-map' for early thinning disappearance)",
+          "Step 5: Confocal Microscopy (Visualizes guttae and cell morphology when edema prevents specular microscopy)"
+        ]
+      },
+      {
+        "title": "Specular Microscopy Parameters",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Normal Value",
+            "FECD / Abnormal"
+          ],
+          "rows": [
+            [
+              "Cell Density (CD)",
+              "2000-3000 cells/mm²",
+              "<1000 cells/mm²"
+            ],
+            [
+              "Coeff. Variation (CV)",
+              "<30% (Polymegathism)",
+              ">40%"
+            ],
+            [
+              "Hexagonality (6-A)",
+              ">60% (Pleomorphism)",
+              "<50%"
+            ],
+            [
+              "Guttae",
+              "Absent",
+              "Dark areas / holes"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "PPMD",
+              "Vesicular/band-like lesions, iris adhesions"
+            ],
+            [
+              "CHED",
+              "Congenital, massive thickening (2-3x)"
+            ],
+            [
+              "Pseudophakic BK",
+              "History of cataract surgery, no guttae"
+            ],
+            [
+              "PPD (Pre-Descemet)",
+              "Deep stromal opacities, normal endothelium"
+            ],
+            [
+              "Hassall-Henle Bodies",
+              "Peripheral guttae (normal aging)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Medical Management Protocol",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Hypertonic Saline (Muro 128) 5% drops (4x/day) and ointment (qhs)",
+          "Warm air (hair dryer at arm's length) to increase tear evaporation",
+          "Lower IOP to reduce stromal hydrostatic pressure (Brimonidine/Timolol)",
+          "Bandage Contact Lenses (BCL) for pain management in ruptured bullae",
+          "Avoid Carbonic Anhydrase Inhibitors (CAIs) if possible (may inhibit endothelial pump)"
+        ]
+      },
+      {
+        "title": "Surgical Evolution: Keratoplasty",
+        "icon": "healing",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Surgical Options",
+          "branches": [
+            "DMEK (Descemet Membrane Endothelial Keratoplasty)",
+            "DSEK/DSAEK (Descemet Stripping Automated EK)",
+            "PKP (Penetrating Keratoplasty) - Reserved for scarring",
+            "DSO (Descemet Stripping Only) + ROCK inhibitors",
+            "Triple Procedure (Cataract + EK + IOL)"
+          ]
+        }
+      },
+      {
+        "title": "DMEK vs. DSAEK Comparison",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "DSAEK",
+            "DMEK"
+          ],
+          "rows": [
+            [
+              "Tissue",
+              "Endo + DM + Stroma",
+              "Endo + DM only"
+            ],
+            [
+              "Visual Recovery",
+              "Good (20/30-20/40)",
+              "Superior (20/20-20/25)"
+            ],
+            [
+              "Rejection Risk",
+              "Moderate (7-10%)",
+              "Very Low (<1%)"
+            ],
+            [
+              "Difficulty",
+              "Moderate",
+              "High (Tissue scrolling)"
+            ],
+            [
+              "Hyperopic Shift",
+              "Yes (~+1.00D)",
+              "Neutral"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Complications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Graft Detachment (Most common; requires rebubbling)",
+          "Primary Graft Failure",
+          "Secondary Glaucoma (Steroid-induced or Pupillary block)",
+          "Iatrogenic Iris Damage / Uveitis",
+          "Cystoid Macular Edema (CME) - higher risk in triple procedures"
+        ]
+      },
+      {
+        "title": "Mnemonic: Endothelial Evaluation",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PUMP",
+          "explanation": "P: Polymegathism (CV >40%); U: Under-count (CD <1000); M: Morphology change (Pleomorphism); P: Pump Failure (Edema)"
+        }
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "DSO (Descemet Stripping Only): Stripping 4mm central zone without graft; relies on peripheral cell migration.",
+          "ROCK Inhibitors (Ripasudil/Netarsudil): Enhance endothelial cell proliferation and migration post-DSO.",
+          "ZEB1 and TCF4 studies: Linking specific CTG repeat lengths to surgical prognosis.",
+          "Pre-loaded DMEK grafts: Reducing intraoperative manipulation and improving tissue viability.",
+          "Endothelial Cell Injections: Cultured cell therapy (pioneered by Kinoshita et al.) showing promise in trials."
+        ]
+      },
+      {
+        "title": "Emergency Signs & Red Flags",
+        "icon": "report_problem",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden ocular pain with redness (Ruptured Bulla / Infection)",
+          "Halos + Nausea + Fixed mid-dilated pupil (Acute IOP spike/Pupillary block)",
+          "Rapid drop in vision post-EK (Graft detachment/Rejection)",
+          "Stromal infiltrate (Secondary Microbial Keratitis)"
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "star",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Always perform Specular Microscopy before cataract surgery if guttae are present.",
+          "The 'Triple Procedure' is often preferred to avoid two separate surgeries.",
+          "In DMEK, the 'S-stamp' or 'F-mark' helps ensure proper orientation (Endo down).",
+          "Guttae are not always pathognomonic for Fuchs if they are purely peripheral (Hassall-Henle).",
+          "Post-op steroids must be tapered slowly to prevent rejection, especially in DSAEK."
+        ]
+      }
+    ],
+    "generationPrompt": "Fuchs endothelial dystrophy",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

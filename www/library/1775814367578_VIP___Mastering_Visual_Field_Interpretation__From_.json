@@ -1,0 +1,400 @@
+{
+  "id": 1775814367578,
+  "seqId": 776,
+  "title": "VIP:::Mastering Visual Field Interpretation: From Retinal Nerve Fiber to Occipital Cortex",
+  "summary": "A comprehensive guide to interpreting Automated Static Perimetry (SAP) and Kinetic Perimetry. This poster integrates the Hodapp-Parrish-Anderson criteria, neurological localization, and clinical pearls for diagnosing glaucoma and neuro-ophthalmic pathologies.",
+  "date": "2026-04-10T09:46:07.578Z",
+  "data": {
+    "title": "VIP:::Mastering Visual Field Interpretation: From Retinal Nerve Fiber to Occipital Cortex",
+    "summary": "A comprehensive guide to interpreting Automated Static Perimetry (SAP) and Kinetic Perimetry. This poster integrates the Hodapp-Parrish-Anderson criteria, neurological localization, and clinical pearls for diagnosing glaucoma and neuro-ophthalmic pathologies.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M20 50 Q 50 20 80 50 Q 50 80 20 50' fill='hsla(215, 90%, 45%, 0.2)'/><circle cx='35' cy='45' r='8' fill='black'/><path d='M60 30 L 60 70 M 50 40 L 70 40' stroke='hsl(215, 90%, 45%)' stroke-width='1'/><rect x='45' y='45' width='30' height='30' fill='none' stroke='hsl(215, 90%, 45%)' stroke-dasharray='2,2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Scope",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Visual Field (VF) testing is the quantitative assessment of the 'island of vision in a sea of blindness' (Traquair). It measures differential light sensitivity across the retina. In clinical practice, Automated Static Perimetry (SAP), primarily using the Humphrey Field Analyzer (HFA) or Octopus, is the gold standard for monitoring glaucoma and neurological vision loss."
+      },
+      {
+        "title": "Reliability Indices: The Gatekeepers",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Index",
+            "Threshold for Concern",
+            "Clinical Implication"
+          ],
+          "rows": [
+            [
+              "Fixation Losses (FL)",
+              "> 20%",
+              "Heijl-Krakau method: stimuli in blind spot. High FL suggests poor gaze tracking."
+            ],
+            [
+              "False Positives (FP)",
+              "> 15%",
+              "'Trigger happy' patient. Increases sensitivity abnormally; produces 'white scotomas'."
+            ],
+            [
+              "False Negatives (FN)",
+              "> 20-33%",
+              "Patient fails to respond to brighter stimuli where they previously saw dimmer ones. Common in advanced glaucoma."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Global Indices Explained",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "HFA Indices",
+          "branches": [
+            "Mean Deviation (MD): Overall depression or elevation compared to age-matched normals.",
+            "Pattern Standard Deviation (PSD): Measures focal loss; highlights 'hills and valleys' in the island of vision.",
+            "Visual Field Index (VFI): Percentage of normal age-corrected sensitivity; weighted toward the center.",
+            "Glaucoma Hemifield Test (GHT): Compares 5 mirror-image clusters in upper vs lower halves."
+          ]
+        }
+      },
+      {
+        "title": "Total vs. Pattern Deviation Maps",
+        "icon": "layers",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Total Deviation (TD): Highlights all points deviating from the norm. Includes media opacities (cataracts) and refractive errors.",
+          "Pattern Deviation (PD): Filters out generalized depression (like cataract) to reveal localized defects (like glaucoma).",
+          "Clinical Rule: If TD is worse than PD, consider cataract. If they look identical, the loss is likely purely focal."
+        ]
+      },
+      {
+        "title": "Common Glaucomatous Defects",
+        "icon": "format_list_bulleted",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "VFD Patterns",
+          "branches": [
+            "Nasal Step: Respects the horizontal raphe.",
+            "Arcuate (Bjerrum) Scotoma: Connects blind spot to nasal raphe, arching over fixation.",
+            "Paracentral Scotoma: Small focal island within 10 degrees of fixation.",
+            "Temporal Wedge: Rare; signifies damage to nasal fibers.",
+            "Altitudinal Defect: Loss of an entire upper or lower hemifield."
+          ]
+        }
+      },
+      {
+        "title": "Hodapp-Parrish-Anderson Staging",
+        "icon": "equalizer",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Stage",
+            "Mean Deviation (MD)",
+            "PD Map Requirements",
+            "Central Points (<5 deg)"
+          ],
+          "rows": [
+            [
+              "Early / Mild",
+              "> -6 dB",
+              "< 25% of points < 5%; < 15% of points < 1%",
+              "No points < 15 dB"
+            ],
+            [
+              "Moderate",
+              "-6 to -12 dB",
+              "< 50% of points < 5%; or any point < 1%",
+              "Only one hemifield involved"
+            ],
+            [
+              "Severe / Advanced",
+              "< -12 dB",
+              "> 50% of points < 5%; or MD < -12dB",
+              "Points with 0 dB sensitivity present"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Neurological Localization",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Lesion Site",
+            "Visual Field Defect Type",
+            "Key Characteristics"
+          ],
+          "rows": [
+            [
+              "Optic Nerve",
+              "Central, Cecocentral, or Altitudinal",
+              "Usually monocular; respects horizontal midline if vascular."
+            ],
+            [
+              "Optic Chiasm",
+              "Bitemporal Hemianopia",
+              "Respects the vertical midline; 'Crossing fibers' damaged."
+            ],
+            [
+              "Optic Tract",
+              "Incongruous Homonymous Hemianopia",
+              "Worse symmetry as you move posteriorly; Wernicke's pupil."
+            ],
+            [
+              "Temporal Lobe",
+              "Superior Quadrantanopia",
+              "'Pie in the Sky'; Meyer's Loop involvement."
+            ],
+            [
+              "Parietal Lobe",
+              "Inferior Quadrantanopia",
+              "'Pie on the Floor'; Baum's Loop involvement."
+            ],
+            [
+              "Occipital Cortex",
+              "Congruous Hemianopia",
+              "High symmetry; may have Macular Sparing (dual blood supply)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Step-by-Step Interpretation Protocol",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Verify Patient Data (Name, Age, Refractive correction - use +3.00D trial lens for presbyopes).",
+          "Step 2: Check Reliability (FL <20%, FP <15%, FN <20%).",
+          "Step 3: Analyze Global Indices (Look at MD for severity and VFI for rate of change).",
+          "Step 4: Examine the GHT (Normal, Borderline, or Outside Normal Limits).",
+          "Step 5: Review Deviation Maps (Identify patterns: Arcuate, Nasal Step, Hemianopia).",
+          "Step 6: Correlate with Clinical Findings (Disc cupping, IOP, neuro-imaging)."
+        ]
+      },
+      {
+        "title": "Memory Aid: Quadrantanopias",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "PITS",
+          "explanation": "Parietal = Inferior defect | Temporal = Superior defect."
+        }
+      },
+      {
+        "title": "Red Flags: When the Field is Unreliable",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Cloverleaf Pattern: Patient stops responding mid-test (Fatigue or Malingering).",
+          "High False Positives: 'White scotomas' on the grayscale; patient is over-eager.",
+          "Learning Effect: Significant improvement between the first and second test.",
+          "Rim Artifact: A ring of depression caused by the trial lens frame being too far from the eye."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of VF Loss",
+        "icon": "medication",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Non-Glaucomatous Loss",
+          "branches": [
+            "Ischemic Optic Neuropathy (AION): Usually altitudinal.",
+            "Optic Disc Drusen: Can mimic arcuate scotomas.",
+            "Retinal Branch Artery Occlusion: Sudden altitudinal loss.",
+            "Toxic/Nutritional Neuropathy: Cecocentral scotoma.",
+            "Pituitary Adenoma: Bitemporal hemianopia."
+          ]
+        }
+      },
+      {
+        "title": "Recent Advances in Perimetry",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "10-2 Testing in Glaucoma: Essential for 'Central Island' monitoring in advanced cases or early macular involvement.",
+          "SITA-Faster: Reduces test time by 50% compared to SITA-Standard without significant loss of data quality.",
+          "VR-Based Perimetry: Portable headsets (e.g., Olleyes, Heru) allowing for home-based monitoring.",
+          "AI/Deep Learning: Algorithms now predicting progression faster than traditional GPA (Guided Progression Analysis)."
+        ]
+      },
+      {
+        "title": "Comparative Sensitivity of Perimetry",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "SAP (White-on-White)",
+              "value": 90
+            },
+            {
+              "label": "FDT (Matrix)",
+              "value": 75
+            },
+            {
+              "label": "SWAP (Blue-on-Yellow)",
+              "value": 65
+            },
+            {
+              "label": "Kinetic (Goldmann)",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "Landmark Clinical Trials",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Study",
+            "Key Finding Regarding Visual Fields",
+            "Clinical Impact"
+          ],
+          "rows": [
+            [
+              "OHTS",
+              "VF conversion often occurs before disc changes in some, but vice versa in most.",
+              "Treat ocular hypertension if risk factors are high."
+            ],
+            [
+              "EMGT",
+              "Lowering IOP by 25% reduced progression from 62% to 45%.",
+              "Every 1 mmHg drop reduces progression risk by 10%."
+            ],
+            [
+              "CIGTS",
+              "Initial surgery vs. medicine had similar long-term VF outcomes for most.",
+              "Surgery may be better for advanced baseline VF loss."
+            ],
+            [
+              "AGIS",
+              "Low IOP (consistent <18mmHg) halted VF progression in advanced glaucoma.",
+              "Aggressive targets for advanced disease."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always check the 'Blind Spot' on the grayscale to ensure it's in the correct hemifield (Left vs Right eye).",
+          "A 'Nasal Step' of 10 degrees or more is highly suspicious for early glaucoma.",
+          "In neurological cases, 'Respecting the Vertical' is the most important feature.",
+          "Never diagnose based on one field; look for reproducibility across at least two sessions."
+        ]
+      },
+      {
+        "title": "Monitoring Progression (GPA)",
+        "icon": "trending_up",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "Guided Progression Analysis (GPA) uses a 'baseline' of two tests. It looks for consistent decreases at specific points (Probability symbols). Three triangles (filled) indicate 'Likely Progression,' while two open triangles indicate 'Possible Progression.' Always correlate the VFI slope to estimate the 'Rate of Loss' over time."
+      }
+    ],
+    "generationPrompt": "Visual field interpretation",
+    "chapterId": "investigations"
+  },
+  "chapterId": "investigations",
+  "read": true,
+  "bookmarked": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 807,
+      "keywords": [
+        "visual field",
+        "visual",
+        "retinal",
+        "occipital",
+        "cortex"
+      ]
+    },
+    {
+      "pageNum": 361,
+      "keywords": [
+        "visual field",
+        "visual",
+        "interpretation",
+        "retinal",
+        "nerve"
+      ]
+    },
+    {
+      "pageNum": 765,
+      "keywords": [
+        "visual field",
+        "visual",
+        "interpretation",
+        "retinal",
+        "nerve"
+      ]
+    },
+    {
+      "pageNum": 806,
+      "keywords": [
+        "visual field",
+        "visual",
+        "retinal",
+        "occipital",
+        "cortex"
+      ]
+    },
+    {
+      "pageNum": 717,
+      "keywords": [
+        "visual field",
+        "visual",
+        "interpretation",
+        "retinal",
+        "cortex"
+      ]
+    },
+    {
+      "pageNum": 541,
+      "keywords": [
+        "visual field",
+        "visual",
+        "retinal",
+        "nerve",
+        "total"
+      ]
+    }
+  ]
+}

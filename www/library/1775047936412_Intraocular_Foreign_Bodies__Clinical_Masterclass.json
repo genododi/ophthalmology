@@ -1,0 +1,312 @@
+{
+  "id": 1775047936412,
+  "seqId": 524,
+  "title": "Intraocular Foreign Bodies: Clinical Masterclass",
+  "summary": "A comprehensive guide to the management of Intraocular Foreign Bodies (IOFB), covering everything from high-velocity impact pathophysiology to advanced vitrectoretinal surgical techniques and toxicosis prevention.",
+  "date": "2026-04-01T12:52:16.413Z",
+  "data": {
+    "title": "Intraocular Foreign Bodies: Clinical Masterclass",
+    "summary": "A comprehensive guide to the management of Intraocular Foreign Bodies (IOFB), covering everything from high-velocity impact pathophysiology to advanced vitrectoretinal surgical techniques and toxicosis prevention.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/1999/xlink'><defs><radialGradient id='eyeGrad' cx='50%' cy='50%' r='50%'><stop offset='0%' style='stop-color:#ffffff'/><stop offset='100%' style='stop-color:#e0f2f1'/></radialGradient></defs><circle cx='100' cy='100' r='80' fill='url(#eyeGrad)' stroke='#0277bd' stroke-width='4'/><circle cx='100' cy='100' r='35' fill='#01579b'/><circle cx='100' cy='100' r='15' fill='#000000'/><path d='M140 60 L115 85' stroke='#f44336' stroke-width='4' stroke-linecap='round'/><path d='M145 55 L155 45' stroke='#f44336' stroke-width='2' stroke-linecap='round'/><circle cx='115' cy='85' r='5' fill='#757575'/><path d='M40 100 Q100 20 160 100 Q100 180 40 100' fill='none' stroke='#0277bd' stroke-width='2' opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "An Intraocular Foreign Body (IOFB) is any exogenous object that penetrates the ocular tunics and resides within the globe. It represents a subset of open-globe injuries (OGI) and requires urgent ophthalmic intervention. The severity is determined by the mechanism of injury, size, composition, and location of the object, as well as the presence of associated endophthalmitis or retinal detachment."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Male Predominance",
+              "value": 92
+            },
+            {
+              "label": "Workplace Related",
+              "value": 70
+            },
+            {
+              "label": "Hammering/Metal on Metal",
+              "value": 80
+            },
+            {
+              "label": "Protective Eyewear NOT Worn",
+              "value": 95
+            }
+          ]
+        }
+      },
+      {
+        "title": "IOFB Material Classification",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Classification",
+            "Materials",
+            "Ocular Reaction",
+            "Imaging Notes"
+          ],
+          "rows": [
+            [
+              "Metallic (Magnetic)",
+              "Iron, Steel",
+              "Siderosis (High Toxicity)",
+              "Visible on CT; NO MRI"
+            ],
+            [
+              "Metallic (Non-magnetic)",
+              "Copper, Brass, Aluminum",
+              "Chalcosis (Copper > 85%)",
+              "Visible on CT; MRI safe*"
+            ],
+            [
+              "Inert",
+              "Glass, Plastic, Gold, Stone",
+              "Minimal Inflammation",
+              "Glass may be difficult on CT"
+            ],
+            [
+              "Organic",
+              "Wood, Vegetable Matter",
+              "Severe Endophthalmitis/Fungal",
+              "Low density on CT; mimics air"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Siderosis Bulbi Cascade",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "1. Iron IOFB undergoes oxidation in ocular fluids.",
+          "2. Ferrous ions (Fe2+) release and diffuse through tissues.",
+          "3. Free radical production via Fenton reaction leads to lipid peroxidation.",
+          "4. Selective damage to RPE, photoreceptors, and ganglion cells.",
+          "5. Progressive ERG changes (Initial supernormal A-wave, then b-wave depression).",
+          "6. End-stage Ocular Siderosis: Glaucoma, retinal pigmentary degeneration, and blindness."
+        ]
+      },
+      {
+        "title": "Pathognomonic Signs of Siderosis",
+        "icon": "colorize",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Iris Heterochromia (affected eye becomes darker/rust-colored)",
+          "Fixed, dilated pupil (mydriasis due to iris sphincter damage)",
+          "Rusty anterior subcapsular lens opacities (Siderotic Cataract)",
+          "Pigmentary retinopathy (mimics Retinitis Pigmentosa)",
+          "Secondary Glaucoma (Iron deposition in Trabecular Meshwork)"
+        ]
+      },
+      {
+        "title": "Diagnostic Imaging Protocol",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Non-contrast Thin-Cut CT (1mm) of the Orbit - Gold Standard.",
+          "Step 2: X-Ray Orbits (Caldwell and Lateral views) - If CT is unavailable.",
+          "Step 3: B-Scan Ultrasonography - ONLY if globe is closed or intraoperatively; detects RD/VH.",
+          "Step 4: MRI - STRICTLY CONTRAINDICATED unless metallic IOFB is 100% ruled out."
+        ]
+      },
+      {
+        "title": "Emergency Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapidly worsening pain or hypopyon (Endophthalmitis)",
+          "Projecting metallic object (Do NOT remove in clinic)",
+          "Extruding intraocular contents (Uveal tissue/Vitreous)",
+          "Afferent Pupillary Defect (Optic nerve damage or massive RD)",
+          "Low Intraocular Pressure (Seidel positive or occult rupture)"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Post-Traumatic Vision Loss",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Vision Loss with Suspected IOFB",
+          "branches": [
+            "Traumatic Cataract",
+            "Vitreous Hemorrhage",
+            "Commotio Retinae",
+            "Retinal Detachment (Rhegmatogenous/Tractional)",
+            "Traumatic Optic Neuropathy",
+            "Choroidal Rupture",
+            "Post-Traumatic Endophthalmitis"
+          ]
+        }
+      },
+      {
+        "title": "Immediate Medical Management",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "NPO (Nothing by Mouth) for surgery.",
+          "Place a Rigid Fox Shield (No pressure on globe).",
+          "Update Tetanus prophylaxis.",
+          "Systemic Antibiotics: IV Vancomycin (1g Q12H) + Ceftazidime (2g Q8H) OR Oral Moxifloxacin (400mg Daily).",
+          "Antiemetics to prevent Valsalva (Ondansetron)."
+        ]
+      },
+      {
+        "title": "Mnemonic for IOFB Management",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STEEL",
+          "explanation": "S: Shield eye immediately; T: Tetanus & Toxins (Siderosis); E: Endophthalmitis prophylaxis; E: Imaging (CT); L: Localization & Laser/Ligation."
+        }
+      },
+      {
+        "title": "Surgical Removal Techniques",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Approach",
+            "Indication",
+            "Procedure Details"
+          ],
+          "rows": [
+            [
+              "Anterior Segment Removal",
+              "IOFB in AC or Iris",
+              "Limbal incision, use of viscoelastic, forceps removal."
+            ],
+            [
+              "External Magnet Removal",
+              "Large, highly magnetic IOFB",
+              "Rarely used now due to risk of uncontrolled retinal traction."
+            ],
+            [
+              "Pars Plana Vitrectomy (PPV)",
+              "Posterior segment IOFB (Gold Standard)",
+              "3-port PPV, induce PVD, stabilize retina, use IOFB forceps."
+            ],
+            [
+              "Limb-Based Delivery",
+              "Large IOFB (>5mm)",
+              "PPV performed, then IOFB brought through pupillary space/limbal wound."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Post-Operative Complications",
+        "icon": "warning",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Complications",
+          "branches": [
+            "Endophthalmitis (up to 15%)",
+            "Proliferative Vitreoretinopathy (PVR)",
+            "Tractional RD",
+            "Sympathetic Ophthalmia",
+            "Epiretinal Membrane",
+            "Corneal Scarring"
+          ]
+        }
+      },
+      {
+        "title": "Intravitreal Antibiotic Dosing",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Vancomycin: 1.0 mg in 0.1 mL (Gram-positive coverage)",
+          "Ceftazidime: 2.25 mg in 0.1 mL (Gram-negative coverage)",
+          "Amikacin: 0.4 mg in 0.1 mL (Alternative for Ceftazidime)",
+          "Amphotericin B: 0.005 mg in 0.1 mL (If fungal/organic suspected)"
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Resident",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Always look for an 'Entry Wound' — a self-sealing corneal track can be easily missed.",
+          "A 'Hole in the Iris' + 'Focal Lens Opacity' = IOFB until proven otherwise.",
+          "Siderosis can occur years after a forgotten injury; always ask about a history of metal-working.",
+          "If the IOFB is organic (wood), the risk of fungal endophthalmitis (Aspergillus/Fusarium) is extremely high.",
+          "In cases of multiple IOFBs (e.g., blast injury), prioritize the largest or most reactive ones."
+        ]
+      },
+      {
+        "title": "Landmark Studies & Evidence",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "The National Eye Trauma System (NETS) and the United States Eye Injury Registry (USEIR) provide the largest datasets on IOFB. Key findings include: 1) Early vitrectomy (within 24 hours) significantly reduces endophthalmitis risk. 2) Zone I injuries have better visual outcomes than Zone III. 3) The presence of a relative afferent pupillary defect (RAPD) is the strongest negative predictor of final visual acuity."
+      },
+      {
+        "title": "Prognostic Factors (OTI Score)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Initial VA > 20/200",
+              "value": 90
+            },
+            {
+              "label": "Zone I Injury (Cornea)",
+              "value": 75
+            },
+            {
+              "label": "Zone III Injury (Sclera)",
+              "value": 30
+            },
+            {
+              "label": "Presence of RD",
+              "value": 15
+            }
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "intra ocular foreign body",
+    "chapterId": "trauma"
+  },
+  "chapterId": "trauma",
+  "read": true
+}

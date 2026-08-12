@@ -1,0 +1,165 @@
+{
+  "id": 1775044655357,
+  "seqId": 79,
+  "title": "Ocular Stroke: Central Retinal Artery Occlusion (CRAO)",
+  "summary": "Central Retinal Artery Occlusion (CRAO) is a true ocular emergency characterized by sudden, painless monocular vision loss. It represents the ocular equivalent of a cerebral stroke and requires immediate neuro-ophthalmic triage.",
+  "date": "2026-04-01T11:57:35.357Z",
+  "data": {
+    "title": "Ocular Stroke: Central Retinal Artery Occlusion (CRAO)",
+    "summary": "Central Retinal Artery Occlusion (CRAO) is a true ocular emergency characterized by sudden, painless monocular vision loss. It represents the ocular equivalent of a cerebral stroke and requires immediate neuro-ophthalmic triage.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='hsl(215, 90%, 45%)' opacity='0.2'/><path d='M30 50h40M50 30v40' stroke='hsl(215, 90%, 45%)' stroke-width='5'/><circle cx='50' cy='50' r='10' fill='white' stroke='hsl(215, 90%, 45%)' stroke-width='3'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "CRAO is an infarction of the inner retinal layers due to blockage of the central retinal artery. The central retinal artery is an end-artery, meaning there is no collateral circulation. Retinal viability is lost after approximately 90-100 minutes of total occlusion."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Male/Female Ratio",
+              "value": 60
+            },
+            {
+              "label": "Mean Age (yrs)",
+              "value": 85
+            },
+            {
+              "label": "Bilateral Involvement %",
+              "value": 2
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The Mechanisms",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "CRAO Etiology",
+          "branches": [
+            "Embolism (Cholesterol/Hollenhorst, Calcific, Fibrin)",
+            "Thrombosis",
+            "Vasculitis (GCA)",
+            "Hypercoagulability"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Fundoscopy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Sudden, profound painless loss of vision (typically 'counting fingers' or 'hand motion').",
+          "Afferent Pupillary Defect (APD) — often profound.",
+          "Fundoscopy: 'Cherry-red spot' at the fovea (due to choroidal blood supply).",
+          "Retinal whitening: Edematous, necrotic inner retina.",
+          "Cattle-trucking (segmentation of blood flow in arterioles)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Differentiator"
+          ],
+          "rows": [
+            [
+              "Ophthalmic Artery Occlusion",
+              "No cherry-red spot, total blindness"
+            ],
+            [
+              "Acute Glaucoma",
+              "Painful, high IOP, corneal edema"
+            ],
+            [
+              "Retinal Vein Occlusion",
+              "Retinal hemorrhages, dilated tortuous veins"
+            ],
+            [
+              "Giant Cell Arteritis",
+              "Scalp tenderness, jaw claudication, ESR/CRP elevation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Emergency Protocols",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Rule out Giant Cell Arteritis (GCA) with STAT ESR, CRP, and Platelet count.",
+          "Immediate stroke workup (Carotid Doppler, EKG, Echo, MRI Brain) is mandatory.",
+          "Irreversible retinal damage occurs after 90-100 minutes of occlusion.",
+          "Rule out hypercoagulable states in patients under 50 years of age."
+        ]
+      },
+      {
+        "title": "Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Ocular massage (digital pressure to induce movement of embolus).",
+          "Step 2: Lower Intraocular Pressure (Topical timolol, acetazolamide 500mg IV).",
+          "Step 3: Paracentesis (if within 2-4 hours, though efficacy is debated).",
+          "Step 4: Hyperbaric oxygen therapy (if available within 8-24 hours).",
+          "Step 5: Systemic anticoagulation/thrombolytics (if indicated by neuro-consult)."
+        ]
+      },
+      {
+        "title": "The 'Remember' Mnemonic",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "STOKE",
+          "explanation": "S: Sudden vision loss, T: Thinning of vessels, O: Ocular massage, K: Kidney function check (for contrast), E: ESR/CRP for GCA."
+        }
+      },
+      {
+        "title": "Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Cilioretinal artery sparing: Occurs in 15-30% of eyes, preserving central visual acuity.",
+          "Always listen for carotid bruits.",
+          "Follow-up for NVI/NVA (Neovascularization) at 4-6 weeks.",
+          "Prognosis is generally poor; no randomized trial has proven superiority of a single treatment."
+        ]
+      }
+    ],
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "_newlyImported": 1775044655357,
+  "communityId": "sub_1773749930927_0r5tolo0k",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T12:18:50.927Z",
+  "read": true
+}

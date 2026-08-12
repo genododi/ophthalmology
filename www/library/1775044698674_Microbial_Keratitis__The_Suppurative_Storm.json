@@ -1,0 +1,310 @@
+{
+  "id": 1775044698674,
+  "seqId": 489,
+  "title": "Microbial Keratitis: The Suppurative Storm",
+  "summary": "Bacterial keratitis is a sight-threatening ocular emergency characterized by rapid corneal destruction and stromal suppuration. Management requires immediate identification of risk factors, grading of severity, and aggressive, broad-spectrum antimicrobial therapy to prevent perforation and permanent scarring.",
+  "date": "2026-04-01T11:58:18.674Z",
+  "data": {
+    "title": "Microbial Keratitis: The Suppurative Storm",
+    "summary": "Bacterial keratitis is a sight-threatening ocular emergency characterized by rapid corneal destruction and stromal suppuration. Management requires immediate identification of risk factors, grading of severity, and aggressive, broad-spectrum antimicrobial therapy to prevent perforation and permanent scarring.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 100 Q100 60 140 100 Q100 140 60 100' fill='hsl(215, 90%, 90%)' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='100' cy='105' r='20' fill='white' opacity='0.8'/><path d='M80 140 Q100 135 120 140 L120 150 Q100 145 80 150 Z' fill='yellow' opacity='0.6'/><path d='M95 100 L105 100 M100 95 L100 105' stroke='red' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Microbial (bacterial) keratitis is a serious infection of the corneal stroma. Unlike viral or sterile keratitis, it often presents with an epithelial defect overlying a dense, necrotic stromal infiltrate, often accompanied by significant anterior chamber inflammation (hypopyon). Most bacteria (except N. gonorrhoeae, N. meningitidis, C. diphtheriae, and H. influenzae) require a breach in the corneal epithelium to initiate infection."
+      },
+      {
+        "title": "Prevalent Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Contact Lens Wear",
+              "value": 45
+            },
+            {
+              "label": "Ocular Trauma",
+              "value": 25
+            },
+            {
+              "label": "Surface Disease",
+              "value": 15
+            },
+            {
+              "label": "Post-Surgical",
+              "value": 10
+            },
+            {
+              "label": "Immunosuppression",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Microbiology: Gram Stain & Pathogens",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Gram Reaction",
+            "Common Organisms",
+            "Clinical Clue"
+          ],
+          "rows": [
+            [
+              "Gram-Positive",
+              "Staph. aureus, Staph. epidermidis",
+              "Round, white, well-defined"
+            ],
+            [
+              "Gram-Positive",
+              "Strep. pneumoniae",
+              "Serpiginous, aggressive, hypopyon"
+            ],
+            [
+              "Gram-Negative",
+              "Pseudomonas aeruginosa",
+              "Rapid liquefaction, greenish discharge"
+            ],
+            [
+              "Gram-Negative",
+              "Moraxella lacunata",
+              "Diplobacilli, inferior cornea, indolent"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: The Cascade of Destruction",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Epithelial Breach: Trauma or contact lens-induced hypoxia creates an entry point.",
+          "2. Adherence: Bacteria utilize fimbriae or pili to bind to the exposed corneal stroma/extracellular matrix.",
+          "3. Invasion & Multiplication: Organisms replicate and release exotoxins (e.g., Exotoxin A in Pseudomonas).",
+          "4. Host Response: Neutrophil infiltration (chemotaxis) releases matrix metalloproteinases (MMPs).",
+          "5. Stromal Melting: Combination of bacterial toxins and host enzymes leads to keratomalacia (liquefactive necrosis)."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup: Scraping Protocol",
+        "icon": "menu_book",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Topical Anesthesia: Proparacaine is preferred (Benoxinate may be more bacteriostatic).",
+          "2. Sample Collection: Use a Kimura spatula, 25G needle, or sterile blade to scrape the leading edge and base.",
+          "3. C-Streaks: Transfer directly to agar plates using 'C-streaks' for semi-quantitative assessment.",
+          "4. Slide Prep: Gram and Giemsa/Diff-Quik stains for immediate visualization.",
+          "5. Culture: Blood Agar (aerobes), Chocolate Agar (fastidious), Sabouraud (fungi), Thioglycollate (anaerobes)."
+        ]
+      },
+      {
+        "title": "Clinical Severity Grading",
+        "icon": "school",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Mild",
+            "Moderate",
+            "Severe"
+          ],
+          "rows": [
+            [
+              "Infiltrate Size",
+              "< 2 mm",
+              "2 - 6 mm",
+              "> 6 mm"
+            ],
+            [
+              "Depth",
+              "< 20% stroma",
+              "20-50% stroma",
+              "> 50% / Perforation"
+            ],
+            [
+              "AC Reaction",
+              "Trace/1+",
+              "2-3+",
+              "4+ / Hypopyon"
+            ],
+            [
+              "Location",
+              "Peripheral",
+              "Mid-peripheral",
+              "Central / Visual Axis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Primary Medical Management",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Loading Dose: 1 drop every 5–15 minutes for the first hour, then every 30–60 minutes around the clock.",
+          "Monotherapy (Mild/Mod): 4th Generation Fluoroquinolones (Moxifloxacin 0.5%, Gatifloxacin 0.5%, Besifloxacin 0.6%).",
+          "Duo-therapy (Severe/Central): Fortified Tobramycin (14 mg/mL) AND Fortified Vancomycin (25-50 mg/mL).",
+          "Cycloplegia: Atropine 1% or Cyclopentolate 1% TID to reduce ciliary spasm and prevent synechiae.",
+          "Systemic Rx: Consider if scleral involvement (e.g., Ciprofloxacin 500mg BID) or N. gonorrhoeae (Ceftriaxone 1g IM/IV)."
+        ]
+      },
+      {
+        "title": "Steroid Use: The SCUT Trial (2011)",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "The Steroids for Corneal Ulcers Trial (SCUT) found no significant difference in 3-month visual outcomes between topical corticosteroids and placebo. However, a subgroup analysis showed benefit in vision for central, deep, and severe ulcers (excluding Nocardia). RULE: Start steroids only AFTER 48-72 hours of clinical improvement and negative cultures, and NEVER if fungus or Acanthamoeba is suspected."
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Corneal Infiltrate",
+          "branches": [
+            "Fungal Keratitis (Feathery, Satellite lesions)",
+            "Acanthamoeba (Ring infiltrate, Radial keratoneuritis)",
+            "HSV Keratitis (Dendritic, decreased sensation)",
+            "Marginal Keratitis (Sterile, lucid interval at limbus)",
+            "Staphylococcal Hypersensitivity"
+          ]
+        }
+      },
+      {
+        "title": "CRITICAL: Red Flags for Worsening",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Enlarging Infiltrate or Epithelial Defect despite 48h therapy.",
+          "Progressive Stromal Thinning (Descemetocele or Perforation).",
+          "Scleral involvement (Scleritis/Scleral melting).",
+          "Rise in Intraocular Pressure (Secondary Glaucoma).",
+          "Signs of Endophthalmitis (hypopyon increase, vitreous cells, loss of red reflex)."
+        ]
+      },
+      {
+        "title": "Memory Aid: The PEDAL Mnemonic",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-E-D-A-L",
+          "explanation": "P: Pain (is it increasing?); E: Epithelial defect size; D: Discharge (purulent?); A: Anterior chamber reaction/hypopyon; L: Location and Size of infiltrate."
+        }
+      },
+      {
+        "title": "Surgical Interventions",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Cyanoacrylate Tissue Adhesive: For small perforations (<2mm) or impending perforation.",
+          "Tectonic Penetrating Keratoplasty (PKP): For large perforations or uncontrolled infection.",
+          "Amniotic Membrane Graft (AMG): Promotes re-epithelialization in neurotrophic cases.",
+          "PACK-CXL: Photoactivated Chromophore for Keratitis (Cross-linking) as adjuvant therapy for resistant organisms."
+        ]
+      },
+      {
+        "title": "Investigation: Laboratory Media",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Media Type",
+            "Primary Target",
+            "Incubation Notes"
+          ],
+          "rows": [
+            [
+              "Blood Agar",
+              "Aerobic Bacteria, Fungi",
+              "Most common routine media"
+            ],
+            [
+              "Chocolate Agar",
+              "Neisseria, Haemophilus, Moraxella",
+              "Enriched with Factor V and X"
+            ],
+            [
+              "Sabouraud Dextrose",
+              "Fungi",
+              "Low pH, contains antibiotics to inhibit bacteria"
+            ],
+            [
+              "Thioglycollate Broth",
+              "Anaerobic Bacteria",
+              "Provides an oxygen gradient"
+            ],
+            [
+              "Non-Nutrient Agar + E.coli",
+              "Acanthamoeba",
+              "Look for 'tracks' on the surface"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Landmark Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Contact lens wearers with ulcers have Pseudomonas until proven otherwise.",
+          "Wessely Ring: An immune ring (antigen-antibody complex) often seen in Gram-negative infections.",
+          "Fortified drops are generally stable for 7-14 days if refrigerated.",
+          "Never use a 'taper' on antibiotics until the infection is sterilized; maintain 'therapeutic' levels."
+        ]
+      },
+      {
+        "title": "Prognosis & Complications",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Corneal Scarring/Leucoma (Permanent vision loss if central).",
+          "Irregular Astigmatism (Secondary to scarring).",
+          "Anterior Synechiae and Secondary Glaucoma.",
+          "Infectious Endophthalmitis (Rare unless perforation occurs).",
+          "Phthisis Bulbi (In severe, untreated cases)."
+        ]
+      }
+    ],
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "_newlyImported": 1775044698674,
+  "communityId": "sub_1774352254516_76qxlvj4hqeswz",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

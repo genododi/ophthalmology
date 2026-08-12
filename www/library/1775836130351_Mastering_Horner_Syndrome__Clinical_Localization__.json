@@ -1,0 +1,405 @@
+{
+  "id": 1775836130351,
+  "seqId": 788,
+  "title": "Mastering Horner Syndrome: Clinical Localization & Management",
+  "summary": "A comprehensive guide to oculosympathetic paresis, focusing on the neuro-anatomical 3-neuron pathway, pharmacological localization, and the critical 'leveling' of lesions from the hypothalamus to the orbit.",
+  "date": "2026-04-10T15:48:50.351Z",
+  "data": {
+    "title": "Mastering Horner Syndrome: Clinical Localization & Management",
+    "summary": "A comprehensive guide to oculosympathetic paresis, focusing on the neuro-anatomical 3-neuron pathway, pharmacological localization, and the critical 'leveling' of lesions from the hypothalamus to the orbit.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 85 Q100 65 140 85' stroke='hsl(215, 90%, 45%)' stroke-width='4' fill='none'/><path d='M60 88 Q100 75 140 88' stroke='hsl(215, 90%, 45%)' stroke-width='3' fill='none'/><circle cx='80' cy='110' r='8' fill='hsl(215, 90%, 45%)'/><circle cx='120' cy='110' r='18' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='120' cy='110' r='12' fill='hsl(215, 90%, 45%)'/><line x1='60' y1='140' x2='140' y2='140' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Horner syndrome, or oculosympathetic paresis, results from a lesion anywhere along the three-neuron sympathetic pathway supplying the eye and adnexa. It is classically characterized by the triad of miosis, partial ptosis, and facial anhidrosis. The severity of symptoms often depends on the chronicity and completeness of the sympathetic interruption."
+      },
+      {
+        "title": "The Three-Neuron Oculosympathetic Pathway",
+        "icon": "route",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Sympathetic Chain",
+          "branches": [
+            "1st Order (Central): Hypothalamus → Brainstem → Ciliospinal Center of Budge (C8-T2)",
+            "2nd Order (Preganglionic): C8-T2 → Over Lung Apex → Superior Cervical Ganglion (C2)",
+            "3rd Order (Postganglionic): SCG → Internal Carotid Artery → Cavernous Sinus → Orbit"
+          ]
+        }
+      },
+      {
+        "title": "Classic Clinical Features",
+        "icon": "clinical_notes",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Miosis: Anisocoria is greater in dim light (failure to dilate).",
+          "Ptosis: 1-2mm due to paralysis of Müller’s muscle (Superior tarsal).",
+          "Inverse Ptosis: Elevation of the lower lid ('upside-down ptosis').",
+          "Dilation Lag: Sluggish pupillary redilation after light removal (pathognomonic).",
+          "Anhidrosis: Reduced sweating; location depends on lesion level.",
+          "Iris Heterochromia: Affected iris is lighter (if congenital/longstanding)."
+        ]
+      },
+      {
+        "title": "Etiology: First-Order Neuron (Central)",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Cause",
+            "Associated Features"
+          ],
+          "rows": [
+            [
+              "Stroke",
+              "Lateral Medullary (Wallenberg) Syndrome"
+            ],
+            [
+              "Tumors",
+              "Gliomas of the brainstem or spinal cord"
+            ],
+            [
+              "Trauma",
+              "Cervical cord injury / Syringomyelia"
+            ],
+            [
+              "Inflammatory",
+              "Demyelinating disease (Multiple Sclerosis)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Etiology: Second-Order Neuron (Preganglionic)",
+        "icon": "air",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Cause",
+            "Anatomical Site"
+          ],
+          "rows": [
+            [
+              "Pancoast Tumor",
+              "Apex of the lung (Bronchogenic carcinoma)"
+            ],
+            [
+              "Aortic Aneurysm",
+              "Thoracic outlet / Aortic arch"
+            ],
+            [
+              "Surgical Trauma",
+              "Thyroidectomy, Neck dissection, Carotid endarterectomy"
+            ],
+            [
+              "Lymphadenopathy",
+              "Mediastinal or cervical nodes"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Etiology: Third-Order Neuron (Postganglionic)",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Cause",
+            "Key Characteristic"
+          ],
+          "rows": [
+            [
+              "Carotid Dissection",
+              "Painful Horner (Emergency!)"
+            ],
+            [
+              "Cavernous Sinus",
+              "CN III, IV, VI palsies often coexist"
+            ],
+            [
+              "Raeder Syndrome",
+              "Trigeminal nerve involvement (V1/V2 pain)"
+            ],
+            [
+              "Cluster Headache",
+              "Transient Horner during attacks"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pharmacological Testing Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Confirm Horner with Apraclonidine 0.5% (Reversal of anisocoria) or Cocaine 4-10% (No dilation). Wait 30-45 mins.",
+          "Step 2: Allow 48-72 hours for washout before localization testing.",
+          "Step 3: Localize with Hydroxyamphetamine 1% (Paredrine). Dilation = 1st or 2nd Order; No Dilation = 3rd Order.",
+          "Step 4: Alternative Localization: Phenylephrine 1%. Dilation of Horner pupil only = 3rd Order (Denervation supersensitivity)."
+        ]
+      },
+      {
+        "title": "Pharmacological Mechanism Summary",
+        "icon": "science",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Drug",
+            "Action",
+            "Normal Eye",
+            "Horner Eye"
+          ],
+          "rows": [
+            [
+              "Cocaine",
+              "Blocks NE reuptake",
+              "Dilates",
+              "Does NOT dilate"
+            ],
+            [
+              "Apraclonidine",
+              "Alpha-1 agonist (weak)",
+              "No effect",
+              "Dilates (Supersensitivity)"
+            ],
+            [
+              "Hydroxyamphet.",
+              "Releases stored NE",
+              "Dilates",
+              "Dilates (1st/2nd) / No (3rd)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Anhidrosis Distribution: The Map",
+        "icon": "water_drop",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Anhidrosis Level",
+          "branches": [
+            "1st Order: Entire ipsilateral half of body",
+            "2nd Order: Ipsilateral face and neck",
+            "3rd Order: Absent or very localized (brow only)"
+          ]
+        }
+      },
+      {
+        "title": "RED FLAGS: Immediate Emergency Workup",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "ACUTE PAINFUL HORNER: Suspect Internal Carotid Artery Dissection until proven otherwise.",
+          "Associated CN VI Palsy: Localization to the Cavernous Sinus (Parkinson’s Sign).",
+          "Hand Wasting / Weakness: Lower brachial plexus involvement (Klumpke's / Pancoast).",
+          "Thunderclap Headache: Possible SAH or vascular catastrophe.",
+          "New onset in Pediatrics: High risk for Neuroblastoma (Check urine VMA/HVA)."
+        ]
+      },
+      {
+        "title": "Diagnostic Sensitivity: Cocaine vs Apraclonidine",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Apraclonidine (Sensitivity)",
+              "value": 87
+            },
+            {
+              "label": "Cocaine (Sensitivity)",
+              "value": 95
+            },
+            {
+              "label": "Apraclonidine (Availability)",
+              "value": 90
+            },
+            {
+              "label": "Cocaine (Logistical Difficulty)",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: 3 Neurons - 3 Places",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "MAP (Mediastinum, Artery, Posterior-fossa)",
+          "explanation": "M: Mediastinum/Lung Apex (2nd Order). A: Artery/Carotid (3rd Order). P: Posterior Fossa/Brainstem (1st Order)."
+        }
+      },
+      {
+        "title": "Imaging Strategy by Level",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Suspected Level",
+            "Preferred Imaging Modality",
+            "Specific Target"
+          ],
+          "rows": [
+            [
+              "1st Order (Central)",
+              "MRI Brain & Cervical Cord",
+              "Brainstem, Medulla, Syrinx"
+            ],
+            [
+              "2nd Order (Preganglionic)",
+              "CT Chest/Neck or MRI",
+              "Lung Apex, Mediastinum, Thyroid"
+            ],
+            [
+              "3rd Order (Postganglionic)",
+              "MRA/CTA Head & Neck",
+              "Carotid Artery, Cavernous Sinus, Skull Base"
+            ],
+            [
+              "Undetermined",
+              "MRI Head/Neck/Chest + MRA Neck",
+              "Pan-pathway screening (Standard of care)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pediatric Considerations",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Neuroblastoma is the primary concern in non-traumatic pediatric Horner.",
+          "Workup includes MRI of entire sympathetic chain.",
+          "Urine catecholamines (VMA/HVA) have limited sensitivity but are part of the classic workup.",
+          "Congenital Horner often associated with birth trauma (brachial plexus injury)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Anisocoria",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Small Pupil",
+          "branches": [
+            "Physiologic Anisocoria (constant in light/dark)",
+            "Argyll Robertson Pupil (Light-near dissociation)",
+            "Pharmacologic Miosis (Pilocarpine)",
+            "Acute Uveitis (Posterior synechiae)"
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "The 'Harlequin' sign (unilateral facial flushing) may occur in first-order lesions.",
+          "Hydroxyamphetamine (Paredrine) testing is only valid if the 3rd order neuron is mature (wait >24 hours after injury).",
+          "Apraclonidine can produce a 'false negative' in acute cases (first 36-48 hours) before alpha-1 receptors upregulate.",
+          "In Horner syndrome, the anisocoria is most prominent in the first 5 seconds of darkness due to dilation lag."
+        ]
+      }
+    ],
+    "generationPrompt": "Horner causes & levelling",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 795,
+      "keywords": [
+        "horner syndrome",
+        "horner",
+        "syndrome",
+        "neuron",
+        "first"
+      ]
+    },
+    {
+      "pageNum": 796,
+      "keywords": [
+        "horner syndrome",
+        "horner",
+        "syndrome",
+        "anisocoria",
+        "neuro-ophthalmology"
+      ]
+    },
+    {
+      "pageNum": 816,
+      "keywords": [
+        "horner syndrome",
+        "horner",
+        "syndrome",
+        "neuro-ophthalmology",
+        "neuron"
+      ]
+    },
+    {
+      "pageNum": 840,
+      "keywords": [
+        "horner syndrome",
+        "horner",
+        "syndrome",
+        "neuro-ophthalmology",
+        "definition"
+      ]
+    },
+    {
+      "pageNum": 793,
+      "keywords": [
+        "horner syndrome",
+        "horner",
+        "syndrome",
+        "anisocoria",
+        "three"
+      ]
+    },
+    {
+      "pageNum": 451,
+      "keywords": [
+        "horner syndrome",
+        "horner",
+        "syndrome",
+        "three",
+        "first"
+      ]
+    }
+  ]
+}

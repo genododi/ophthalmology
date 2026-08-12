@@ -1,0 +1,291 @@
+{
+  "id": 1775201616100,
+  "seqId": 610,
+  "title": "Aniridia: The PAX6 Pan-Ocular Syndrome",
+  "summary": "Aniridia is a complex, bilateral pan-ocular disorder caused by a haploinsufficiency of the PAX6 gene (11p13). Beyond the striking absence of the iris, it involves progressive keratopathy, glaucoma, cataracts, and foveal hypoplasia, requiring lifelong multidisciplinary management.",
+  "date": "2026-04-03T07:33:36.100Z",
+  "data": {
+    "title": "Aniridia: The PAX6 Pan-Ocular Syndrome",
+    "summary": "Aniridia is a complex, bilateral pan-ocular disorder caused by a haploinsufficiency of the PAX6 gene (11p13). Beyond the striking absence of the iris, it involves progressive keratopathy, glaucoma, cataracts, and foveal hypoplasia, requiring lifelong multidisciplinary management.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' stroke='hsl(215, 90%, 45%)' stroke-width='2' fill='none'/><circle cx='50' cy='50' r='38' fill='black'/><path d='M50 15 L50 20 M50 80 L50 85 M15 50 L20 50 M80 50 L85 50' stroke='white' stroke-width='1'/><circle cx='50' cy='50' r='12' fill='none' stroke='rgba(255,255,255,0.3)' stroke-width='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Aniridia is a congenital, bilateral condition characterized by the partial or complete absence of the iris. However, the term 'aniridia' is a misnomer as it is a global pan-ocular developmental defect affecting the cornea, anterior chamber angle, lens, retina, and optic nerve. It is most commonly inherited in an autosomal dominant fashion (85%) with high penetrance but variable expressivity."
+      },
+      {
+        "title": "Genetics & Epidemiology",
+        "icon": "genetics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Details"
+          ],
+          "rows": [
+            [
+              "Incidence",
+              "1 in 64,000 to 1 in 100,000 live births"
+            ],
+            [
+              "Primary Gene",
+              "PAX6 (Paired Box Gene 6) located on 11p13"
+            ],
+            [
+              "Mutation Type",
+              "Nonsense (50%), Frameshift, C-terminal extension"
+            ],
+            [
+              "Inheritance",
+              "70-85% Autosomal Dominant; 15-30% Sporadic"
+            ],
+            [
+              "WAGR Risk",
+              "30% of sporadic cases involve WT1 gene deletions"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Subtypes & Syndromes",
+        "icon": "category",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Aniridia Types",
+          "branches": [
+            "AN-1: Isolated (AD, PAX6)",
+            "WAGR: (Wilms, Aniridia, Genitourinary, Retardation)",
+            "Gillespie Syndrome: (AR, Cerebellar Ataxia)",
+            "AN-2: Sporadic (De novo mutations)"
+          ]
+        }
+      },
+      {
+        "title": "Ocular Manifestations (Pan-Ocular)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Foveal Hypoplasia",
+              "value": 95
+            },
+            {
+              "label": "Nystagmus",
+              "value": 90
+            },
+            {
+              "label": "Cataract",
+              "value": 85
+            },
+            {
+              "label": "Glaucoma",
+              "value": 60
+            },
+            {
+              "label": "Keratopathy (AAK)",
+              "value": 75
+            },
+            {
+              "label": "Optic Nerve Hypoplasia",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Aniridia-Associated Keratopathy (AAK)",
+        "icon": "healing",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Stage",
+            "Clinical Findings",
+            "Pathophysiology"
+          ],
+          "rows": [
+            [
+              "Stage 0",
+              "Clear cornea, stable tear film",
+              "Normal limbal stem cell function"
+            ],
+            [
+              "Stage 1",
+              "Peripheral vascularization & thickening",
+              "Early Limbal Stem Cell Deficiency (LSCD)"
+            ],
+            [
+              "Stage 2",
+              "Advancing pannus toward central cornea",
+              "Conjunctivalization of the corneal surface"
+            ],
+            [
+              "Stage 3",
+              "Total corneal opacity & keratinization",
+              "Complete LSCD; severe visual impairment"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Secondary Glaucoma Mechanisms",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Glaucoma in Aniridia",
+          "branches": [
+            "Progressive synechial angle closure",
+            "Rudimentary iris stump rotation",
+            "Anomalous trabecular meshwork development",
+            "Post-surgical (pseudophakic) glaucoma"
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Iris Coloboma",
+              "Inferonasal defect; not circumferential"
+            ],
+            [
+              "Axenfeld-Rieger",
+              "Posterior embryotoxon; iris strands"
+            ],
+            [
+              "ICE Syndrome",
+              "Unilateral; corneal endothelial 'beaten bronze'"
+            ],
+            [
+              "Traumatic Iridodialysis",
+              "History of trauma; unilateral"
+            ],
+            [
+              "Congenital Mydriasis",
+              "Fixed dilated pupil; iris present"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mandatory Diagnostic Workup",
+        "icon": "process_chart",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Clinical Exam (Slit lamp for iris stump, Gonioscopy for angle)",
+          "Step 2: Pediatric Genetic Testing (PAX6 sequencing & FISH for 11p13 deletion)",
+          "Step 3: Imaging (OCT of macula for foveal hypoplasia; UBM for iris stump)",
+          "Step 4: Systemic Screening (Renal Ultrasound for Wilms Tumor)",
+          "Step 5: Functional Assessment (Visual acuity, Nystagmus evaluation)"
+        ]
+      },
+      {
+        "title": "Critical: WAGR Screening Protocol",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "MANDATORY: Renal Ultrasound every 3 months until age 8 in sporadic cases.",
+          "Risk of Wilms Tumor is 50% in WAGR (deletion of 11p13 including WT1).",
+          "Monitor for Nephropathy and Gonadoblastoma.",
+          "Developmental delays require early intervention services."
+        ]
+      },
+      {
+        "title": "Management Strategy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Optical: Tinted lenses/CL for photophobia.",
+          "Corneal: Preservative-free lubricants; Autologous serum.",
+          "LSCD: Limbal Stem Cell Transplant (KLAL or Cincinatti technique).",
+          "Glaucoma: Prostaglandins/Beta-blockers; Gonio-surgery early; GDD/Tube shunts for refractory cases.",
+          "Cataract: Careful MICS; specialized iris-prosthetic IOLs (e.g., Morcher/Ophtec)."
+        ]
+      },
+      {
+        "title": "Mnemonics for Recall",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "WAGR Syndrome",
+          "explanation": "W: Wilms Tumor, A: Aniridia, G: Genitourinary anomalies (cryptorchidism), R: Range of developmental delays (formerly Mental Retardation)."
+        }
+      },
+      {
+        "title": "Surgical Pearls: Cataract & Iris Prosthesis",
+        "icon": "cardiology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Zonular instability is common; use Capsule Tension Rings (CTR).",
+          "Artificial Iris Implants (HumanOptics) can be sutured or placed in-the-bag.",
+          "Avoid iris implants if glaucoma is uncontrolled.",
+          "High risk of Aniridic Fibrosis Syndrome (AFS) post-surgery."
+        ]
+      },
+      {
+        "title": "Prognosis & Red Flags",
+        "icon": "report_problem",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden vision loss: Rule out retinal detachment or acute glaucoma.",
+          "Progressive corneal whitening: Indicative of AAK progression.",
+          "Avoid routine use of Pilocarpine (may worsen angle crowding).",
+          "Guarded prognosis for penetrating keratoplasty (PK) due to LSC deficiency."
+        ]
+      },
+      {
+        "title": "Landmark Insights & Recent Advances",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Nonsense Suppression Therapy: Ataluren (PTC124) shows promise in restoring PAX6 function in PTC mutations.",
+          "Boston Keratoprosthesis (Type 1): Often preferred over standard PK for end-stage AAK.",
+          "Gene Therapy: Research into CRISPR/Cas9 to correct PAX6 haploinsufficiency is ongoing.",
+          "Epidemiology Note: Gillespie Syndrome is NOT associated with Wilms Tumor risk."
+        ]
+      }
+    ],
+    "generationPrompt": "Aniridia",
+    "chapterId": "conjunctiva"
+  },
+  "chapterId": "conjunctiva",
+  "read": true
+}

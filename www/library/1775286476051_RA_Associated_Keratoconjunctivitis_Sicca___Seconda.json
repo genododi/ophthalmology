@@ -1,0 +1,293 @@
+{
+  "id": 1775286476051,
+  "seqId": 635,
+  "title": "RA-Associated Keratoconjunctivitis Sicca & Secondary Sjögren Syndrome",
+  "summary": "A comprehensive clinical guide to the diagnosis and management of ocular surface disease in Rheumatoid Arthritis, focusing on the pathophysiology of secondary Sjögren Syndrome and the management of sight-threatening complications.",
+  "date": "2026-04-04T07:07:56.051Z",
+  "data": {
+    "title": "RA-Associated Keratoconjunctivitis Sicca & Secondary Sjögren Syndrome",
+    "summary": "A comprehensive clinical guide to the diagnosis and management of ocular surface disease in Rheumatoid Arthritis, focusing on the pathophysiology of secondary Sjögren Syndrome and the management of sight-threatening complications.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M10 50 Q50 10 90 50 Q50 90 10 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='15' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M35 50 L65 50 M50 35 L50 65' stroke='red' stroke-width='1.5'/><path d='M20 75 Q25 85 30 75' fill='none' stroke='hsl(190, 80%, 50%)' stroke-width='1'/><path d='M70 75 Q75 85 80 75' fill='none' stroke='hsl(190, 80%, 50%)' stroke-width='1'/><path d='M45 20 L55 20 M40 25 L60 25' stroke='hsl(25, 90%, 50%)' stroke-width='1'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Secondary Sjögren Syndrome (sSS) is defined as the presence of keratoconjunctivitis sicca (KCS) and xerostomia in patients with a pre-existing systemic autoimmune disease, most commonly Rheumatoid Arthritis (RA). Unlike Primary Sjögren, sSS occurs later in the disease course and is driven by the underlying connective tissue disease's inflammatory milieu, leading to progressive lymphocytic infiltration and destruction of the lacrimal and salivary glands."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "RA Patients with KCS",
+              "value": 25
+            },
+            {
+              "label": "RA Patients with sSS",
+              "value": 31
+            },
+            {
+              "label": "Female Predilection",
+              "value": 90
+            },
+            {
+              "label": "RF Positive Correlation",
+              "value": 75
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology of sSS",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Autoimmune Lacrimal Destruction",
+          "branches": [
+            "Type IV Hypersensitivity: T-cell mediated (CD4+)",
+            "Cytokine Cascade: IL-1, TNF-α, IFN-γ",
+            "Acinar Apoptosis: Loss of secretory function",
+            "Neural Signaling Interference: Lacrimal gland fatigue",
+            "Hyperosmolarity: Tear film instability"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Classification (ACR/EULAR)",
+        "icon": "school",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Criterion",
+            "Details",
+            "Weight/Score"
+          ],
+          "rows": [
+            [
+              "Anti-SSA/Ro Antibody",
+              "Serological marker",
+              "3"
+            ],
+            [
+              "Labial Salivary Gland",
+              "Focus score ≥1 foci/4mm²",
+              "3"
+            ],
+            [
+              "Ocular Surface Staining",
+              "OSS Score ≥5 (or van Bijsterveld ≥4)",
+              "1"
+            ],
+            [
+              "Schirmer Test",
+              "≤ 5 mm / 5 minutes in at least one eye",
+              "1"
+            ],
+            [
+              "Unstimulated Saliva",
+              "Flow rate ≤ 0.1 ml/minute",
+              "1"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Comprehensive Ocular Exam Findings",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Reduced Tear Meniscus Height: < 0.2mm is highly suggestive.",
+          "Tear Break-Up Time (TBUT): < 10 seconds (instability); < 5 seconds (severe).",
+          "Filamentary Keratitis: Muco-epithelial strands attached to corneal surface.",
+          "Mucus Plaquing: Large grey-white opacities in severe KCS.",
+          "Lid Margin Disease: Concurrent Meibomian Gland Dysfunction (MGD).",
+          "Corneal Neovascularization: Peripheral pannus from chronic inflammation."
+        ]
+      },
+      {
+        "title": "RED FLAGS: Sight-Threatening RA Complications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Peripheral Ulcerative Keratitis (PUK): Juxtalimbal thinning/ulceration with epithelial loss.",
+          "Necrotizing Scleritis: Severe pain, 'porcelain' white sclera (vasculitis-associated).",
+          "Corneal Melting: Sterile 'keratolysis' leading to rapid perforation.",
+          "Scleromalacia Perforans: Asymptomatic scleral thinning in long-standing RA."
+        ]
+      },
+      {
+        "title": "Ocular Surface Staining Systems",
+        "icon": "color_lens",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Stain Type",
+            "Primary Target",
+            "Indication"
+          ],
+          "rows": [
+            [
+              "Fluorescein",
+              "Epithelial defects/Tight junctions",
+              "Corneal assessment"
+            ],
+            [
+              "Lissamine Green",
+              "Devitalized cells / Mucin loss",
+              "Conjunctival assessment"
+            ],
+            [
+              "Rose Bengal",
+              "Dead/dying cells (Painful)",
+              "Severe dry eye/Sjögren"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis (The 'Sicca' Mimickers)",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Sicca Mimics",
+          "branches": [
+            "Primary Sjögren (No systemic RA)",
+            "Graft-vs-Host Disease (GVHD)",
+            "IgG4-Related Disease",
+            "Sarcoidosis (Granulomatous dacryoadenitis)",
+            "Cicatricial Pemphigoid",
+            "Drug-induced (Antihistamines, TCAs)"
+          ]
+        }
+      },
+      {
+        "title": "Stepped Management Protocol (TFOS DEWS II)",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Patient education, environmental modification, Preservative-Free (PF) artificial tears, lid hygiene.",
+          "Step 2: Punctal plugs, Topical Cyclosporine 0.05% or 0.1%, Lifitegrast 5%, Corticosteroid pulses, Oral secretagogues (Pilocarpine).",
+          "Step 3: Oral macrolides (for MGD), Autologous Serum Tears (20% or 50% concentration), Scleral lenses (PROSE).",
+          "Step 4: Long-term topical steroids, Amniotic membrane grafting, Surgical punctal occlusion, Tarsorrhaphy."
+        ]
+      },
+      {
+        "title": "Systemic Investigation Workup",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Rheumatoid Factor (RF): Elevated in 70-80% of RA.",
+          "Anti-Cyclic Citrullinated Peptide (Anti-CCP): More specific than RF (95%).",
+          "ANA: Often positive in sSS/RA overlap.",
+          "Anti-Ro (SS-A) and Anti-La (SS-B): Hallmarks of Sjögren's.",
+          "ESR/CRP: Markers of systemic inflammatory activity.",
+          "Salivary Gland Biopsy: If serology is equivocal but clinical suspicion is high."
+        ]
+      },
+      {
+        "title": "Mnemonic for Sjögren Evaluation",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "SICCA",
+          "explanation": "S: Surface staining (Oxford/SICCA), I: Infiltration (Minor salivary gland biopsy), C: CCP/RF antibodies positive, C: Clinical dry mouth/eye symptoms, A: Anti-SSA/SSB positive."
+        }
+      },
+      {
+        "title": "Surgical & Interventional Approaches",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Punctal Cautery: For definitive occlusion in recalcitrant sSS.",
+          "Lateral Tarsorrhaphy: Reduces evaporative surface area in severe exposure/melting.",
+          "Amniotic Membrane (ProKera/Cryopreserved): Promotes healing in persistent epithelial defects (PED).",
+          "Cyanoacrylate Glue: Emergency management of corneal microperforations in RA melts."
+        ]
+      },
+      {
+        "title": "Systemic Therapy: Ocular Implications",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Medication Class",
+            "Ocular Side Effects"
+          ],
+          "rows": [
+            [
+              "Hydroxychloroquine",
+              "Bulls-eye Maculopathy"
+            ],
+            [
+              "Methotrexate",
+              "Conjunctivitis, Photophobia"
+            ],
+            [
+              "Anti-TNF (Etanercept)",
+              "Drug-induced Uveitis (rare)"
+            ],
+            [
+              "Corticosteroids",
+              "Cataract, Ocular Hypertension"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Landmark Studies & Evidence",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "The TFOS DEWS II (2017) report revolutionized the definition of dry eye to include the role of neurosensory abnormalities. The DREAM Study (2018) questioned the efficacy of Omega-3 fatty acids over placebo for dry eye, highlighting the importance of the tear film's aqueous and lipid components in systemic diseases like RA."
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Never treat PUK with topical steroids alone; it usually signals active systemic necrotizing vasculitis and requires urgent systemic immunosuppression.",
+          "Secondary Sjögren patients often have more severe ocular surface disease than Primary Sjögren due to the additive effects of RA-related inflammation.",
+          "Always check for dental caries and oral health; xerostomia in sSS leads to rapid periodontal decline.",
+          "Filamentary keratitis is best treated by manual removal followed by 5% NaCl or topical N-acetylcysteine (10%)."
+        ]
+      }
+    ],
+    "generationPrompt": "Rheumatoid arthritis- dry eye- secondary sjögren",
+    "chapterId": "cornea"
+  },
+  "chapterId": "cornea",
+  "read": true
+}

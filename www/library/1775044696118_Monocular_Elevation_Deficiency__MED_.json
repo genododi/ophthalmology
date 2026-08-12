@@ -1,0 +1,289 @@
+{
+  "id": 1775044696118,
+  "seqId": 466,
+  "title": "Monocular Elevation Deficiency (MED)",
+  "summary": "A complex strabismus condition, historically termed 'Double Levator Palsy,' characterized by a unilateral limitation of elevation in all positions of horizontal gaze. It requires a precise distinction between restrictive and paretic etiologies for successful management.",
+  "date": "2026-04-01T11:58:16.118Z",
+  "data": {
+    "title": "Monocular Elevation Deficiency (MED)",
+    "summary": "A complex strabismus condition, historically termed 'Double Levator Palsy,' characterized by a unilateral limitation of elevation in all positions of horizontal gaze. It requires a precise distinction between restrictive and paretic etiologies for successful management.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/1998/Math/MathML'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='65' r='15' fill='hsl(215, 90%, 45%)'/><path d='M50 40 L50 15 M40 25 L50 15 L60 25' stroke='red' stroke-width='4' fill='none'/><line x1='35' y1='15' x2='65' y2='15' stroke='red' stroke-width='4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Pathophysiology",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Monocular Elevation Deficiency (MED) is defined as the deficiency of elevation of one eye from any position of horizontal gaze (abduction, adduction, and primary position). While the term 'Double Levator Palsy' suggests a combined palsy of the Superior Rectus (SR) and Inferior Oblique (IO), the pathophysiology is often supranuclear (near the pretectal nucleus) or restrictive (Inferior Rectus tightness). It is primarily a congenital condition but can be acquired."
+      },
+      {
+        "title": "Etiological Classification (Ziffer et al.)",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Description",
+            "FDT Result",
+            "Primary Defect"
+          ],
+          "rows": [
+            [
+              "Type I",
+              "Restrictive",
+              "Positive (Restricted)",
+              "Inferior Rectus (IR) fibrosis or contracture"
+            ],
+            [
+              "Type II",
+              "Paretic",
+              "Negative (Free)",
+              "Superior Rectus (SR) and Inferior Oblique (IO) weakness"
+            ],
+            [
+              "Type III",
+              "Combined",
+              "Positive",
+              "Both restriction (IR) and paretic (SR/IO) components"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Congenital Cases",
+              "value": 85
+            },
+            {
+              "label": "Acquired Cases",
+              "value": 15
+            },
+            {
+              "label": "Associated Ptosis",
+              "value": 50
+            },
+            {
+              "label": "Amblyopia Risk",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathogenesis Mindmap",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "MED Etiology",
+          "branches": [
+            "Supranuclear (Pretectal lesion)",
+            "Primary SR Palsy",
+            "Congenital IR Fibrosis",
+            "Orbital Floor Fracture (Acquired)",
+            "Marcus Gunn Jaw-Winking (25%)"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features Checklist",
+        "icon": "fact_check",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Hypotropia of the affected eye in primary gaze.",
+          "Limited elevation in abduction, adduction, and midline.",
+          "Chin-up head posture to maintain binocularity.",
+          "Ptosis or Pseudo-ptosis (check if lid follows eye down).",
+          "Bell's Phenomenon: Usually absent in supranuclear cases.",
+          "Normal horizontal excursions.",
+          "Potential amblyopia in the hypotropic eye."
+        ]
+      },
+      {
+        "title": "Diagnostic Workup Process",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Sensorimotor exam (9-position photos and prism measurements).",
+          "Step 2: Evaluate for Marcus Gunn Jaw-Winking phenomenon.",
+          "Step 3: Differentiate Ptosis vs. Pseudo-ptosis (cover the non-paretic eye).",
+          "Step 4: Forced Duction Test (FDT) - Crucial for surgical planning.",
+          "Step 5: Force Generation Test (FGT) to assess SR power.",
+          "Step 6: Neuro-imaging if acquired (MRI Brain/Orbit)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis (DDx)",
+        "icon": "find_in_page",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Differentiating Features"
+          ],
+          "rows": [
+            [
+              "Brown Syndrome",
+              "Elevation deficit worse in adduction; V-pattern; positive FDT in adduction."
+            ],
+            [
+              "Orbital Floor Fracture",
+              "History of trauma; positive FDT; 'trapdoor' signs on CT."
+            ],
+            [
+              "Thyroid Eye Disease",
+              "Eyelid retraction; IR thickening on imaging; positive FDT."
+            ],
+            [
+              "Congenital Fibrosis (CFEOM)",
+              "Usually bilateral; severe restriction in all directions; autosomal dominant."
+            ],
+            [
+              "CN III Palsy",
+              "Involves depression, adduction, and pupil involvement; severe ptosis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Surgical Management Algorithm",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Perform FDT under anesthesia.",
+          "If FDT Positive (Tight IR): Perform IR Recession (standard 4-5mm) first.",
+          "Wait 3-6 months; if elevation deficit persists, proceed to paretic correction.",
+          "If FDT Negative (Paretic): Perform Knapp Procedure (Full tendon transposition).",
+          "Knapp Procedure: MR and LR shifted to the SR insertion.",
+          "Address Ptosis ONLY after the ocular alignment is stabilized."
+        ]
+      },
+      {
+        "title": "The Knapp Procedure Details",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Indication: Negative FDT (paretic SR/IO).",
+          "Technique: Full-tendon transposition of Medial Rectus and Lateral Rectus to the Superior Rectus insertion.",
+          "Goal: Convert horizontal recti into elevators.",
+          "Modification: Scott and Wood recommend moving the tendons 2mm posterior to the SR insertion for better vector.",
+          "Success: Best for primary position hypotropia < 25-30 prism diopters."
+        ]
+      },
+      {
+        "title": "URGENT: Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset MED in an adult: Rule out midbrain stroke or Parinaud syndrome.",
+          "Presence of pupillary abnormalities: Suggests CN III involvement or midbrain lesion.",
+          "Proptosis or chemosis: Suggests orbital inflammatory disease or TED.",
+          "Pain on eye movement: Rule out orbital cellulitis or myositis."
+        ]
+      },
+      {
+        "title": "Mnemonic: MED Exam",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "F.L.A.T.S.",
+          "explanation": "F: Forced duction test (Primary step); L: Lid position (Ptosis vs Pseudo); A: Amblyopia check; T: Traumatic hx (exclude fracture); S: Supranuclear vs Infranuclear signs (Bell's phenomenon)."
+        }
+      },
+      {
+        "title": "Clinical Pearls & Exam Tips",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Pseudo-ptosis occurs because the upper lid follows the hypotropic eye. Always check lid height with the paretic eye fixing.",
+          "Never perform a Knapp procedure if the IR is tight; you must recess the IR first.",
+          "Knapp procedure can induce a 'rectus muscle' slackening effect, reducing horizontal range slightly.",
+          "A positive Bell's phenomenon in a patient with no elevation indicates a supranuclear lesion (Infranuclear/Nuclear pathways are intact)."
+        ]
+      },
+      {
+        "title": "Staging Post-Operative Outcomes",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Successful Alignment",
+              "value": 75
+            },
+            {
+              "label": "Residual Ptosis",
+              "value": 30
+            },
+            {
+              "label": "Overcorrection Risk",
+              "value": 10
+            },
+            {
+              "label": "Binocular Vision Gain",
+              "value": 55
+            }
+          ]
+        }
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "report_problem",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Anterior Segment Ischemia (ASI): Risk increased if 3 or more rectus muscles are operated on (caution during Knapp).",
+          "Persistent Diplopia: Especially in acquired adult cases.",
+          "Induced Astigmatism: Changes in corneal contour post-transposition.",
+          "Prognosis: Generally good for primary position alignment; full elevation recovery is rare."
+        ]
+      },
+      {
+        "title": "Landmark Studies & Recent Advances",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Recent literature highlights the use of 'Augmented Knapp' procedures using posterior fixation sutures (Faden) to enhance the elevation effect. Studies on the use of Botulinum Toxin in the IR as a temporary measure for acquired MED have shown utility in stroke-related cases to prevent contracture while waiting for spontaneous recovery."
+      }
+    ],
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "_newlyImported": 1775044696118,
+  "communityId": "sub_1774352254516_376lvi0022x7ff",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

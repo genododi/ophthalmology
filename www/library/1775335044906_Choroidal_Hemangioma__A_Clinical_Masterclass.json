@@ -1,0 +1,295 @@
+{
+  "id": 1775335044906,
+  "seqId": 650,
+  "title": "Choroidal Hemangioma: A Clinical Masterclass",
+  "summary": "A comprehensive guide to the diagnosis and management of circumscribed and diffuse choroidal hemangiomas, emphasizing the pathognomonic 'washout' sign on ICG and modern PDT protocols.",
+  "date": "2026-04-04T20:37:24.906Z",
+  "data": {
+    "title": "Choroidal Hemangioma: A Clinical Masterclass",
+    "summary": "A comprehensive guide to the diagnosis and management of circumscribed and diffuse choroidal hemangiomas, emphasizing the pathognomonic 'washout' sign on ICG and modern PDT protocols.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><path d='M60,140 Q100,100 140,140' stroke='hsl(0, 80%, 60%)' stroke-width='12' fill='none' stroke-linecap='round'/><circle cx='100' cy='120' r='15' fill='hsl(0, 80%, 60%)' opacity='0.8'/><line x1='100' y1='20' x2='100' y2='40' stroke='hsl(215, 90%, 45%)' stroke-width='4'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A choroidal hemangioma is a benign, vascular hamartoma of the choroid. It occurs in two distinct clinical forms: Circumscribed (CCH), which is typically a sporadic, solitary tumor in adults, and Diffuse (DCH), which is usually associated with Sturge-Weber Syndrome (SWS) and presents in childhood. While histologically benign, these tumors cause significant morbidity via exudative retinal detachment and macular edema."
+      },
+      {
+        "title": "Epidemiological Comparison",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "CCH: Sporadic",
+              "value": 95
+            },
+            {
+              "label": "DCH: SWS Linked",
+              "value": 50
+            },
+            {
+              "label": "CCH: Bilateral",
+              "value": 1
+            },
+            {
+              "label": "DCH: Bilateral",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "title": "Clinical Classification",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Choroidal Hemangioma",
+          "branches": [
+            "Circumscribed (CCH): Solitary, Orange-red, Posterior pole",
+            "Diffuse (DCH): Tomato-catsup fundus, Sturge-Weber assoc.",
+            "Mixed: Extremely rare variants"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Presentation",
+        "icon": "patient_list",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Metamorphopsia and micropsia due to subretinal fluid",
+          "Progressive hyperopic shift (tumor pushing retina forward)",
+          "Circumscribed: Orange-red, dome-shaped mass (mean 3-7mm thick)",
+          "Diffuse: Widespread thickening, 'Tomato Catsup' fundus appearance",
+          "Overlying RPE changes: Fibrous metaplasia or hyperplasia over time",
+          "Secondary Glaucoma (more common in Diffuse/SWS)"
+        ]
+      },
+      {
+        "title": "Pathophysiology & Genetics",
+        "icon": "genetics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Composed of large, thin-walled vascular channels (cavernous, capillary, or mixed). Endothelial lining is mature. Recent evidence suggests somatic GNAQ (Arg183) mutations in Sturge-Weber related DCH, similar to Port-wine stains, distinguishing them from GNAQ Q209 mutations found in Uveal Melanoma."
+      },
+      {
+        "title": "Diagnostic Imaging: The 'Washout' Pathognomonic",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: FFA - Early lacy filling of large choroidal vessels in the arterial phase.",
+          "Step 2: FFA - Intense late staining/pooling in cystic retinal spaces.",
+          "Step 3: ICG (Gold Standard) - Rapid, intense hyperfluorescence within seconds.",
+          "Step 4: ICG Washout - Late phase (20-30 min) shows 'washout' of dye, leaving the tumor hypofluorescent compared to normal choroid."
+        ]
+      },
+      {
+        "title": "Multimodal Imaging Characteristics",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Modality",
+            "Finding",
+            "Clinical Significance"
+          ],
+          "rows": [
+            [
+              "B-Scan USG",
+              "High Internal Reflectivity (100%)",
+              "Differentiates from Melanoma (low reflectivity)"
+            ],
+            [
+              "EDI-OCT",
+              "Smooth, dome-shaped elevation",
+              "Assesses Subretinal Fluid (SRF) and CME"
+            ],
+            [
+              "MRI T1-weighted",
+              "Hyperintense to Vitreous",
+              "Vascular nature of the lesion"
+            ],
+            [
+              "MRI T2-weighted",
+              "Hypointense/Isointense to Vitreous",
+              "Contrast with Melanoma (which is hypointense)"
+            ],
+            [
+              "A-Scan USG",
+              "High initial spike, high internal spikes",
+              "Solid, vascularized mass"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Don't Miss Melanoma",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Hemangioma",
+            "Amelanotic Melanoma",
+            "Metastasis"
+          ],
+          "rows": [
+            [
+              "Color",
+              "Orange-Red",
+              "Creamy Yellow/Tan",
+              "Pale Yellow/Mottled"
+            ],
+            [
+              "USG Reflectivity",
+              "High (>80%)",
+              "Low-Medium (60%)",
+              "Medium-High"
+            ],
+            [
+              "ICG Early",
+              "Hyperfluorescent",
+              "Hypofluorescent",
+              "Hypofluorescent"
+            ],
+            [
+              "Surface",
+              "Smooth",
+              "Irregular/Lipofuscin",
+              "Lumpy/Clumpy Pigment"
+            ],
+            [
+              "Shape",
+              "Dome-shaped",
+              "Mushroom/Dome",
+              "Multifocal/Placoid"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management Strategy for CCH",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Observation: If asymptomatic and no SRF.",
+          "2. Photodynamic Therapy (PDT): Gold standard for symptomatic CCH.",
+          "3. Plaque Brachytherapy: For thick tumors (>4mm) unresponsive to PDT.",
+          "4. Proton Beam Therapy: High success but increased risk of radiation retinopathy.",
+          "5. Anti-VEGF: Adjuvant for refractory edema (limited efficacy alone)."
+        ]
+      },
+      {
+        "title": "PDT Protocol (Standard of Care)",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Verteporfin Dose: 6 mg/m2 body surface area",
+          "Infusion: 10 minutes; Laser at 15 minutes",
+          "Laser Parameters: 689 nm, 50 J/cm2 intensity",
+          "Exposure Time: 83-100 seconds per spot",
+          "Goal: Selective vascular occlusion without RPE damage",
+          "Success: >90% SRF resolution in CCH"
+        ]
+      },
+      {
+        "title": "Sturge-Weber Syndrome (DCH) Management",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Systemic Beta-Blockers (Propranolol): Emerging therapy for DCH in infants",
+          "External Beam Radiotherapy (EBRT): 20-30 Gy for diffuse cases",
+          "Glaucoma Control: High risk of intraoperative suprachoroidal hemorrhage",
+          "Prophylaxis: Scleral thickening/stasis in SWS may require prophylactic sclerotomies during surgery"
+        ]
+      },
+      {
+        "title": "Critical Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapid growth (Suspect Melanoma or Metastasis)",
+          "Total Exudative RD (Leads to neovascular glaucoma)",
+          "Low Internal Reflectivity on B-Scan (Suggests Melanoma)",
+          "Lipofuscin pigment on surface (Suggests Melanoma)",
+          "Port-wine stain in children (Screen for glaucoma/DCH)"
+        ]
+      },
+      {
+        "title": "Mnemonics for Recall",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "HI-HO",
+          "explanation": "High Internal (Reflectivity), Hemangioma Orange. (A-Scan/B-Scan reflectivity is high; Fundus appearance is orange)."
+        }
+      },
+      {
+        "title": "Clinical Pearls & Exam High-Yields",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Unlike melanoma, choroidal hemangiomas NEVER transform into malignant tumors.",
+          "The 'washout' sign on ICG is the most specific test to differentiate from melanoma.",
+          "CCH usually occurs at the posterior pole (temporal to disc/macula).",
+          "DCH in Sturge-Weber can lead to 'Bupthalmos' due to early-onset glaucoma.",
+          "Cystoid Macular Edema (CME) can occur even without subretinal fluid."
+        ]
+      },
+      {
+        "title": "Landmark Studies & Recent Advances",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "The use of Photodynamic Therapy (PDT) revolutionized CCH treatment, as shown in multiple case series (e.g., Jurklies et al.), demonstrating high rates of tumor regression and fluid resolution with minimal collateral damage compared to historical Xenon arc or Argon laser photocoagulation. Recent studies explore Oral Propranolol for DCH in pediatric SWS patients with promising results in reducing tumor thickness and SRF."
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Exudative Retinal Detachment (Most common cause of vision loss)",
+          "RPE Atrophy and Fibrosis (Permanent vision loss even if fluid resolves)",
+          "Neovascular Glaucoma (NVG) in chronic total RD",
+          "Prognosis: Good for tumor control; Variable for vision depending on chronicity of foveal detachment"
+        ]
+      }
+    ],
+    "generationPrompt": "Choroidal hemangioma",
+    "chapterId": "tumours"
+  },
+  "chapterId": "tumours",
+  "read": true
+}

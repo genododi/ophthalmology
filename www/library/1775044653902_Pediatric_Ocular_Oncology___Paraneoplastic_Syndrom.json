@@ -1,0 +1,394 @@
+{
+  "id": 1775044653902,
+  "seqId": 65,
+  "title": "Pediatric Ocular Oncology & Paraneoplastic Syndromes: Neuroblastoma-OMS vs. Rhabdomyosarcoma",
+  "summary": "This comprehensive guide delves into two critical pediatric ophthalmic conditions: Neuroblastoma, particularly with its paraneoplastic Opsoclonus-Myoclonus Syndrome (OMS), and Orbital Rhabdomyosarcoma. It provides detailed insights into their epidemiology, pathophysiology, clinical presentation, diagnostic workup, and multimodal management, emphasizing key differentiators for the astute clinician.",
+  "date": "2026-04-01T11:57:33.902Z",
+  "data": {
+    "title": "Pediatric Ocular Oncology & Paraneoplastic Syndromes: Neuroblastoma-OMS vs. Rhabdomyosarcoma",
+    "summary": "This comprehensive guide delves into two critical pediatric ophthalmic conditions: Neuroblastoma, particularly with its paraneoplastic Opsoclonus-Myoclonus Syndrome (OMS), and Orbital Rhabdomyosarcoma. It provides detailed insights into their epidemiology, pathophysiology, clinical presentation, diagnostic workup, and multimodal management, emphasizing key differentiators for the astute clinician.",
+    "summary_illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><linearGradient id=\"a\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"hsl(215, 90%, 55%)\"/><stop offset=\"100%\" stop-color=\"hsl(215, 90%, 40%)\"/></linearGradient></defs><rect x=\"0\" y=\"0\" width=\"100\" height=\"100\" fill=\"#f0f8ff\"/><g transform=\"translate(50,50)\"><path d=\"M0 -35 C 10 -35 20 -25 20 -15 C 20 -5 10 5 0 5 C -10 5 -20 -5 -20 -15 C -20 -25 -10 -35 0 -35 Z\" fill=\"url(#a)\" stroke=\"#1f4e79\" stroke-width=\"2\"/><circle cx=\"0\" cy=\"-15\" r=\"8\" fill=\"#fff\"/><circle cx=\"0\" cy=\"-15\" r=\"3\" fill=\"#1f4e79\"/><path d=\"M-20 15 C-25 20 -28 25 -25 30 C-22 35 -15 35 -10 30 C-5 25 0 20 0 15\" fill=\"none\" stroke=\"#e74c3c\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M20 15 C25 20 28 25 25 30 C22 35 15 35 10 30 C5 25 0 20 0 15\" fill=\"none\" stroke=\"#e74c3c\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"0\" y=\"-15\" text-anchor=\"middle\" font-family=\"Arial, sans-serif\" font-size=\"12\" fill=\"#1f4e79\">👁</text><circle cx=\"-10\" cy=\"35\" r=\"4\" fill=\"#f39c12\"/><circle cx=\"10\" cy=\"35\" r=\"4\" fill=\"#f39c12\"/></g><text x=\"50\" y=\"90\" text-anchor=\"middle\" font-family=\"Arial, sans-serif\" font-size=\"8\" fill=\"#333\">Ocular Tumors & Neurology</text></svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Overview",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Neuroblastoma (NB) is the most common extracranial solid tumor in childhood, originating from neural crest cells of the sympathetic nervous system. It can manifest with paraneoplastic syndromes, notably Opsoclonus-Myoclonus Syndrome (OMS). Orbital Rhabdomyosarcoma (RMS) is the most common primary malignant orbital tumor in children, arising from primitive mesenchymal cells committed to skeletal muscle differentiation. Differentiation between these entities is crucial for timely and appropriate management."
+      },
+      {
+        "title": "2. Epidemiology",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Neuroblastoma Cases (US/yr)",
+              "value": 75
+            },
+            {
+              "label": "RMS Orbital Cases (US/yr)",
+              "value": 10
+            },
+            {
+              "label": "NB-OMS Prevalence",
+              "value": 2.5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology: Demographics & Incidence",
+        "icon": "group",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**Neuroblastoma:** Accounts for 7-10% of all pediatric cancers. Median age at diagnosis is <2 years. 70-80% of children present with metastatic disease.",
+          "**Opsoclonus-Myoclonus Syndrome (OMS):** Very rare, affects 1 in 10,000,000 children. Associated with neuroblastoma in 2-3% of cases (most common paraneoplastic cause). 50% are idiopathic.",
+          "**Rhabdomyosarcoma (RMS):** Accounts for 3-5% of all childhood cancers. Orbital RMS is the most common primary orbital malignancy in childhood (approx. 10% of all RMS). Median age at diagnosis 7-8 years, with a bimodal distribution (peaks at 1-5 years and 10-14 years). Slight male predominance."
+        ]
+      },
+      {
+        "title": "3. Etiology & Pathophysiology",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Etiology & Pathophysiology",
+          "branches": [
+            {
+              "name": "Neuroblastoma",
+              "sub_branches": [
+                "Neural crest cell origin (sympathetic nervous system)",
+                "Genetic aberrations: MYCN amplification (poor prognosis, 20-25% of cases), 1p deletion, 17q gain",
+                "Familial cases (ALK gene mutations) - rare"
+              ]
+            },
+            {
+              "name": "Opsoclonus-Myoclonus Syndrome (OMS)",
+              "sub_branches": [
+                "Paraneoplastic autoimmune response (most common in children: Neuroblastoma)",
+                "Antibody-mediated (anti-Ri/ANNA-2, anti-Hu, anti-CV2/CRMP5 - less specific for NB-OMS)",
+                "Cross-reactivity: Tumor antigens mimic neuronal antigens, causing immune attack on cerebellum/brainstem"
+              ]
+            },
+            {
+              "name": "Rhabdomyosarcoma",
+              "sub_branches": [
+                "Mesenchymal cell origin (skeletal muscle differentiation)",
+                "Chromosomal translocations: t(2;13)(q35;q14) PAX3-FOXO1, t(1;13)(q25;q14) PAX7-FOXO1 (alveolar RMS)",
+                "Associations: NF1, Li-Fraumeni syndrome, Beckwith-Wiedemann syndrome"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "4. Classification / Subtypes",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Classification System / Subtypes"
+          ],
+          "rows": [
+            [
+              "Neuroblastoma (NB)",
+              "**INSS (International Neuroblastoma Staging System):** Stage 1-4, 4S (special for infants). **INRGSS (International Neuroblastoma Risk Group Staging System):** Image-Defined Risk Factors (IDRFs), further refined into Low, Intermediate, High Risk groups based on stage, age, MYCN status, ploidy."
+            ],
+            [
+              "Opsoclonus-Myoclonus Syndrome (OMS)",
+              "**Etiology-based:** Paraneoplastic (e.g., NB), Post-infectious, Post-vaccination, Toxic/Metabolic, Idiopathic. Often referred to as 'dancing eyes, dancing feet'."
+            ],
+            [
+              "Rhabdomyosarcoma (RMS)",
+              "**Histologic Subtypes:** 1. Embryonal RMS (60%, most common in orbit, better prognosis). 2. Alveolar RMS (20%, aggressive, PAX-FOXO1 fusion). 3. Pleomorphic RMS (rare in children, adults). 4. Spindle Cell/Sclerosing RMS (rare). **IRS Clinical Grouping:** Group I (completely resected), Group II (microscopic residual/regional nodes), Group III (gross residual), Group IV (metastatic)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "5. Clinical Features & Symptoms",
+        "icon": "monitor_heart",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "**Neuroblastoma (Systemic):** Abdominal mass (most common), bone pain, fever, weight loss, constitutional symptoms. Paraneoplastic features: Diarrhea (VIPoma), Hypertension, Horner's syndrome (cervical sympathetic chain involvement).",
+          "**Neuroblastoma (Ocular/Orbital Metastasis):** Periorbital ecchymosis ('raccoon eyes') – pathognomonic, proptosis, lid edema, epibulbar mass, spontaneous orbital hemorrhage.",
+          "**Opsoclonus-Myoclonus Syndrome (OMS):** **Opsoclonus** (multidirectional, chaotic, conjugate, unpredictable, rapid saccades without intersaccadic pause – 'saccadomania'), Myoclonus (truncal, limb), Ataxia (cerebellar), Tremor, Encephalopathy (irritability, sleep disturbance, cognitive regression).",
+          "**Orbital Rhabdomyosarcoma:** Rapidly progressive, unilateral proptosis (weeks to months), ptosis, lid swelling, palpable mass (often superior-nasal), conjunctival injection/chemosis, globe displacement, ophthalmoplegia, pain (less common, suggests bony erosion)."
+        ]
+      },
+      {
+        "title": "6. Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Ocular Findings"
+          ],
+          "rows": [
+            [
+              "Neuroblastoma (Orbital)",
+              "**Periorbital Ecchymosis:** Bruising around the eyes (classic for orbital metastasis). **Proptosis:** Usually unilateral, can be bilateral. **Horner's Syndrome:** (If cervical sympathetic chain involved) Ptosis, miosis, anhidrosis (ipsilateral face). Fundoscopy typically normal unless optic nerve infiltration."
+            ],
+            [
+              "Opsoclonus-Myoclonus Syndrome",
+              "**Opsoclonus:** Involuntary, chaotic, multidirectional, high-amplitude, high-frequency, conjugate saccadic eye movements. Present during wakefulness and light sleep. Myoclonus of limbs/trunk. Ataxia on gait assessment. Nystagmus (less common, usually associated with intersaccadic oscillations)."
+            ],
+            [
+              "Orbital Rhabdomyosarcoma",
+              "**Rapid Onset Proptosis:** Hallmark feature. Unilateral, axial or non-axial globe displacement. **Palpable Mass:** Often firm, non-tender, in superior-nasal quadrant. **Lid Edema/Erythema:** Due to inflammation or tumor bulk. **Ophthalmoplegia:** Restricted ocular motility. **Vision Loss:** If optic nerve compressed/infiltrated. Slit-lamp exam usually normal anterior segment. Fundoscopy: Papilledema (rare), choroidal folds."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "7. Investigations & Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**Step 1: Clinical Suspicion & Detailed History/Exam** (Age, onset, associated symptoms).",
+          "**Step 2: Initial Ocular Imaging** (For proptosis/orbital mass): Orbital CT with contrast (bony detail) and/or MRI with contrast (soft tissue detail, intracranial extension). Typical RMS: well-circumscribed, infiltrative mass, often enhancing. NB: more diffuse infiltration, sometimes lytic bone lesions.",
+          "**Step 3: Biopsy (For Orbital Mass):** Incisional biopsy for RMS (definitive diagnosis, histology, immunohistochemistry for desmin, myogenin, PAX3/7-FOXO1 fusion). Neuroblastoma orbital metastasis often diagnosed via primary tumor biopsy.",
+          "**Step 4: Neuroblastoma Workup (if suspected):**\n    *   **Biochemical:** Urine catecholamines (VMA, HVA, dopamine) – elevated in >90% of NB.\n    *   **Imaging:** MIBG scan (iodine-123 metaiodobenzylguanidine) for uptake in tumor cells; whole-body MRI; skeletal survey/bone scan.\n    *   **Pathology:** Tumor biopsy (primary site or metastasis), bone marrow biopsy (iliac crest) for staging.\n    *   **Molecular Genetics:** MYCN amplification, 1p deletion, 17q gain from tumor tissue.",
+          "**Step 5: OMS Workup (if suspected):**\n    *   **Tumor Search:** Whole-body MRI, MIBG scan, abdominal ultrasound to rule out underlying neuroblastoma.\n    *   **Neurological:** Brain MRI (may show cerebellar atrophy/inflammation, but often normal). CSF analysis (mild pleocytosis, increased protein, oligoclonal bands possible). Paraneoplastic antibody panel (anti-Ri, anti-Hu, anti-CV2/CRMP5, although often negative in NB-OMS)."
+        ]
+      },
+      {
+        "title": "8. Differential Diagnosis",
+        "icon": "fingerprint",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Feature",
+            "Neuroblastoma (Orbital Metastasis)",
+            "Orbital Rhabdomyosarcoma",
+            "Other Orbital Lesions",
+            "Other Causes of Opsoclonus"
+          ],
+          "rows": [
+            [
+              "Age at Presentation",
+              "<2 years, median ~1 year",
+              "7-8 years (bimodal 1-5, 10-14)",
+              "Variable (e.g., cellulitis any age, hemangioma <1yr)",
+              "Variable (e.g., post-infectious, drug-induced)"
+            ],
+            [
+              "Onset of Proptosis",
+              "Acute to subacute (weeks-months), often with rapid progression of 'raccoon eyes'",
+              "Rapidly progressive (days-weeks), often dramatic",
+              "Cellulitis (hours-days), Hemangioma (slowly progressive)",
+              "N/A"
+            ],
+            [
+              "Periorbital Ecchymosis",
+              "CLASSIC ('raccoon eyes')",
+              "Rare",
+              "Trauma, Leukemia, Orbital varices",
+              "N/A"
+            ],
+            [
+              "Pain",
+              "Variable, sometimes none (unless bony involvement)",
+              "Less common, but possible if large/invasive",
+              "Orbital cellulitis (severe), optic neuritis",
+              "N/A"
+            ],
+            [
+              "Associated Symptoms",
+              "Systemic: fevers, weight loss, abdominal mass, diarrhea (VIPoma), Horner's, Opsoclonus-Myoclonus (OMS)",
+              "Conjunctival injection/chemosis",
+              "Fever/malaise (cellulitis), café-au-lait spots (NF1)",
+              "Myoclonus, ataxia, irritability, developmental regression"
+            ],
+            [
+              "Imaging",
+              "Diffuse infiltration, bony erosions; MIBG+; primary tumor elsewhere",
+              "Well-circumscribed or infiltrative mass, iso/hyperdense on CT, enhances. No MIBG uptake.",
+              "Orbital cellulitis (diffuse inflammation), Hemangioma (flow voids), Lymphoma (molding)",
+              "Brain MRI (often normal in NB-OMS), tumor search"
+            ],
+            [
+              "Biopsy",
+              "Neuroblastic cells (small round blue cells), Homer-Wright rosettes",
+              "Small round blue cells, rhabdomyoblasts, desmin/myogenin+",
+              "Specific to lesion",
+              "N/A"
+            ],
+            [
+              "Common Misdiagnosis",
+              "Orbital cellulitis, trauma, infantile hemangioma",
+              "Orbital cellulitis, idiopathic orbital inflammation, pseudotumor",
+              "N/A",
+              "Vertigo, nystagmus, drug reaction"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9. Staging / Grading",
+        "icon": "grid_view",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Staging & Grading",
+          "branches": [
+            {
+              "name": "Neuroblastoma",
+              "sub_branches": [
+                "INSS (International Neuroblastoma Staging System)",
+                "INRGSS (International Neuroblastoma Risk Group Staging System)"
+              ]
+            },
+            {
+              "name": "Rhabdomyosarcoma",
+              "sub_branches": [
+                "IRS Clinical Grouping System (I-IV)",
+                "TNM System (Tumor, Node, Metastasis)"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "10. Management & Treatment: Neuroblastoma",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Step 1: Risk Stratification:** Based on INRGSS (Low, Intermediate, High Risk).",
+          "**Step 2: Low-Risk Disease:** Observation, surgical resection (if amenable).",
+          "**Step 3: Intermediate-Risk Disease:** Chemotherapy (e.g., carboplatin, etoposide, cyclophosphamide, doxorubicin) ± surgery ± radiation.",
+          "**Step 4: High-Risk Disease:** Intensive multimodal therapy.\n    *   **Induction Chemotherapy:** High-dose (e.g., cyclophosphamide, vincristine, doxorubicin, cisplatin, etoposide) to shrink tumor.\n    *   **Surgery:** Maximal safe resection of primary tumor.\n    *   **Consolidation:** High-dose chemotherapy with autologous stem cell rescue.\n    *   **Radiation Therapy:** To primary site and/or metastatic sites.\n    *   **Maintenance Immunotherapy:** Dinutuximab (anti-GD2 monoclonal antibody) combined with GM-CSF, IL-2, and isotretinoin (13-cis-retinoic acid) for differentiation."
+        ]
+      },
+      {
+        "title": "11. Management & Treatment: OMS",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "**Primary Goal:** Identify and treat the underlying neuroblastoma (tumor resection is crucial).",
+          "**Immunomodulation:**\n    *   **Corticosteroids:** Prednisone (2 mg/kg/day initially, then taper). Often first-line.\n    *   **Intravenous Immunoglobulin (IVIG):** 1-2 g/kg/cycle, monthly.\n    *   **Rituximab:** (Anti-CD20) for refractory cases.\n    *   **Cyclophosphamide:** For severe, refractory cases.\n    *   **ACTH:** Alternative to steroids.",
+          "**Symptomatic Management:** Physical therapy, occupational therapy for ataxia and myoclonus."
+        ]
+      },
+      {
+        "title": "12. Management & Treatment: Rhabdomyosarcoma",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**Step 1: Multimodal Approach:** Surgery, chemotherapy, radiation therapy.",
+          "**Step 2: Surgery:** Biopsy is essential for diagnosis. Debulking if technically feasible without significant morbidity. Complete resection is often difficult in orbital RMS.",
+          "**Step 3: Chemotherapy:** Primary treatment modality. Standard regimen includes Vincristine, Dactinomycin, Cyclophosphamide (VAC regimen) or Ifosfamide, Etoposide (IE regimen). Duration typically 6-12 months.",
+          "**Step 4: Radiation Therapy:** Essential for local control, especially for incompletely resected tumors (Group II/III) or alveolar subtype. Proton beam therapy preferred to minimize damage to ocular structures."
+        ]
+      },
+      {
+        "title": "13. Complications & Prognosis",
+        "icon": "error",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "**Neuroblastoma:**\n    *   **Complications:** Metastasis (bone, bone marrow, liver, lymph nodes), spinal cord compression (neurological deficits), long-term effects of chemotherapy/radiation (cardiotoxicity, nephrotoxicity, secondary malignancies).\n    *   **Prognosis:** Highly variable. Low-risk NB has excellent prognosis (>90%). High-risk NB (especially with MYCN amplification) has poor prognosis (3-year EFS ~50%). Age <18 months is a favorable prognostic factor.",
+          "**Opsoclonus-Myoclonus Syndrome (OMS):**\n    *   **Complications:** Chronic neurological deficits (ataxia, cognitive impairment, developmental delay, behavioral problems) even after tumor resection and immunotherapy. Relapses are common (up to 50%).\n    *   **Prognosis:** Good for tumor survival, but significant morbidity from the neurological syndrome.",
+          "**Orbital Rhabdomyosarcoma:**\n    *   **Complications:** Local recurrence, metastasis (lungs, bone marrow, bone, brain), vision loss, strabismus, enophthalmos, ptosis, long-term effects of radiation (cataract, retinopathy, dry eye, optic neuropathy, bony hypoplasia).\n    *   **Prognosis:** Excellent for localized orbital RMS (5-year survival >90%) due to localizing symptoms allowing early diagnosis. Poorer for alveolar subtype or metastatic disease."
+        ]
+      },
+      {
+        "title": "14. Red Flags / Emergency Signs",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "**Rapidly progressive unilateral proptosis in a child:** ALWAYS rule out rhabdomyosarcoma (requires urgent referral for imaging and biopsy).",
+          "**New-onset opsoclonus with myoclonus/ataxia in a child:** IMMEDIATELY search for an underlying neuroblastoma (whole-body MRI, MIBG scan, urine catecholamines).",
+          "**Periorbital ecchymosis ('raccoon eyes') without preceding trauma:** Highly suspicious for metastatic neuroblastoma.",
+          "**Signs of spinal cord compression** (weakness, sensory changes, bladder/bowel dysfunction) in a child with known or suspected neuroblastoma.",
+          "**Vision loss or optic nerve compression** due to orbital mass."
+        ]
+      },
+      {
+        "title": "15. Mnemonics & Memory Aids",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "R-O-C-K-S for Orbital RMS",
+          "explanation": "**R**apid Proptosis, **O**ften Unilateral, **C**hemotherapy is Key, **K**ids are affected, **S**urgery for Biopsy/Debulking"
+        }
+      },
+      {
+        "title": "16. Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Orbital RMS is a true ophthalmic emergency requiring rapid diagnosis and treatment.",
+          "Neuroblastoma is the most common tumor associated with OMS in children. A thorough tumor search is mandatory for new-onset OMS.",
+          "'Raccoon eyes' in a child is almost pathognomonic for metastatic neuroblastoma.",
+          "Horner's syndrome in an infant/child warrants investigation for neuroblastoma or other sympathetic chain pathology.",
+          "While orbital RMS has an excellent prognosis with modern therapy, long-term ocular sequelae from radiation are common.",
+          "OMS often requires long-term immunomodulatory therapy and can lead to persistent neurological deficits despite tumor control."
+        ]
+      },
+      {
+        "title": "17. Recent Advances & Landmark Studies",
+        "icon": "history_edu",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "**Neuroblastoma:** The ANBL00P1 and ANBL0532 trials established the efficacy of anti-GD2 immunotherapy (dinutuximab) combined with GM-CSF, IL-2, and isotretinoin, significantly improving event-free survival and overall survival for high-risk neuroblastoma. Ongoing research explores MIBG-based radiation therapies and novel targeted agents (e.g., ALK inhibitors).\n\n**Opsoclonus-Myoclonus Syndrome (OMS):** While the exact immunopathogenesis is still being elucidated, advances in antibody detection and understanding the role of tumor antigens (e.g., REM2) continue. Emphasis is shifting towards earlier and more aggressive immunotherapies to minimize long-term neurological sequelae, with trials exploring combinations of steroids, IVIG, and rituximab.\n\n**Rhabdomyosarcoma:** The Intergroup Rhabdomyosarcoma Study (IRS) Group studies (I-V) have significantly advanced risk stratification and multimodal treatment protocols. Ongoing research focuses on identifying novel molecular targets (e.g., inhibitors of PAX-FOXO1 fusion proteins for alveolar RMS) and refining radiation techniques (e.g., proton therapy) to reduce long-term morbidity while maintaining efficacy."
+      },
+      {
+        "title": "18. Pediatric Considerations",
+        "icon": "child_care",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Age-Specific Presentation:** NB typically <2 years, RMS typically 7-8 years. This age difference is a key differentiator.",
+          "**Tolerance to Treatment:** Children tolerate chemotherapy and radiation differently than adults; dose modifications and monitoring for growth/developmental effects are critical.",
+          "**Long-term Sequelae:** High risk of neurocognitive, endocrine, cardiac, renal, and ocular complications from aggressive treatments. Long-term follow-up by multidisciplinary teams is essential.",
+          "**Family Support:** Diagnosis of a childhood malignancy is devastating for families. Comprehensive psychosocial support is crucial.",
+          "**Genetic Counseling:** For familial cases of NB (ALK mutations) or associations with RMS (NF1, Li-Fraumeni), genetic counseling is important."
+        ]
+      }
+    ],
+    "generationPrompt": "neuroblastoma - opsoclonus ; vs rhabdomyosarcoma",
+    "chapterId": "orbit"
+  },
+  "chapterId": "orbit",
+  "_newlyImported": 1775044653902,
+  "communityId": "sub_1774732228360_3eu55uglo",
+  "communityAuthor": "kiko",
+  "communityDate": "2026-03-28T21:10:28.360Z"
+}

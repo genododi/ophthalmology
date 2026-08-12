@@ -1,0 +1,523 @@
+{
+  "id": 1775759414296,
+  "seqId": 773,
+  "title": "Pars Plana Vitrectomy (PPV) in Diabetic Retinopathy & Retinal Detachment: A Comprehensive Guide",
+  "summary": "Pars Plana Vitrectomy (PPV) is a cornerstone surgical procedure for managing complex vitreoretinal diseases, particularly sight-threatening complications of diabetic retinopathy and various forms of retinal detachment. This infographic explores the indications, principles, techniques, and considerations for PPV, providing a detailed, resident-level overview of this vital ophthalmic intervention.",
+  "date": "2026-04-09T18:30:14.296Z",
+  "data": {
+    "title": "Pars Plana Vitrectomy (PPV) in Diabetic Retinopathy & Retinal Detachment: A Comprehensive Guide",
+    "summary": "Pars Plana Vitrectomy (PPV) is a cornerstone surgical procedure for managing complex vitreoretinal diseases, particularly sight-threatening complications of diabetic retinopathy and various forms of retinal detachment. This infographic explores the indications, principles, techniques, and considerations for PPV, providing a detailed, resident-level overview of this vital ophthalmic intervention.",
+    "summary_illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><linearGradient id=\"eyeGradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:hsl(215, 90%, 45%);stop-opacity:1\" /><stop offset=\"100%\" style=\"stop-color:hsl(215, 90%, 65%);stop-opacity:1\" /></linearGradient></defs><rect x=\"0\" y=\"0\" width=\"100\" height=\"100\" fill=\"#f0f8ff\"/><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"white\" stroke=\"hsl(215, 90%, 45%)\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"15\" fill=\"url(#eyeGradient)\"/><circle cx=\"50\" cy=\"50\" r=\"7\" fill=\"black\"/><path d=\"M20 50 Q35 30 50 25 T80 50\" fill=\"none\" stroke=\"#e74c3c\" stroke-width=\"2\" stroke-dasharray=\"3 2\"/><path d=\"M20 50 Q35 70 50 75 T80 50\" fill=\"none\" stroke=\"#e74c3c\" stroke-width=\"2\" stroke-dasharray=\"3 2\"/><path d=\"M60 40 L65 35 M65 40 L60 35\" stroke=\"#34495e\" stroke-width=\"2\"/><path d=\"M62 45 C65 50 65 50 62 55 L58 52 C55 47 55 47 58 42 Z\" fill=\"#34495e\"/><circle cx=\"75\" cy=\"45\" r=\"2\" fill=\"#34495e\"/><circle cx=\"75\" cy=\"55\" r=\"2\" fill=\"#34495e\"/><path d=\"M50 8 C40 0 60 0 50 8 Z\" fill=\"hsl(215, 90%, 45%)\"/></svg>",
+    "sections": [
+      {
+        "title": "1. Definition & Overview",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Pars Plana Vitrectomy (PPV) is a microscopic surgical procedure involving the removal of the vitreous gel from the posterior segment of the eye. This allows direct access to the retina and underlying structures for the treatment of various vitreoretinal pathologies. It is a critical intervention for complications of Diabetic Retinopathy (DR) and complex Retinal Detachments (RD). Diabetic Retinopathy is a microvascular complication of diabetes, leading to retinal ischemia, neovascularization, and potentially severe vision loss. Retinal Detachment is the separation of the neurosensory retina from the underlying retinal pigment epithelium (RPE), a sight-threatening emergency."
+      },
+      {
+        "title": "2. Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Diabetics with DR",
+              "value": 35
+            },
+            {
+              "label": "Diabetics with PDR",
+              "value": 7
+            },
+            {
+              "label": "General RD Incidence (per 10k)",
+              "value": 1
+            },
+            {
+              "label": "Diabetics with TRD (relative)",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Risk Factors for DR & RD",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**For Diabetic Retinopathy:** Duration of diabetes (most significant), poor glycemic control (HbA1c > 7%), hypertension, dyslipidemia, nephropathy, pregnancy.",
+          "**For Retinal Detachment:** Myopia (high axial length), previous cataract surgery (pseudophakia/aphakia), trauma, family history of RD, lattice degeneration, inflammation, Proliferative Diabetic Retinopathy (PDR)."
+        ]
+      },
+      {
+        "title": "3. Etiology & Pathophysiology of DR & TRD",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Diabetic Retinopathy Pathogenesis",
+          "branches": [
+            "Chronic Hyperglycemia",
+            "Retinal Microvascular Dysfunction",
+            "Pericyte Loss & Basement Membrane Thickening",
+            "Capillary Occlusion & Retinal Ischemia",
+            "Increased VEGF, IGF-1, other Growth Factors",
+            "Neovascularization (NVD, NVE, NVI/NVA)",
+            "Fibrovascular Proliferation & Vitreous Adherence",
+            "Vitreous Contraction & Tractional Retinal Detachment (TRD)"
+          ]
+        }
+      },
+      {
+        "title": "4. Classification of Diabetic Retinopathy (ETDRS)",
+        "icon": "list_alt",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Description",
+            "Key Findings"
+          ],
+          "rows": [
+            [
+              "No DR",
+              "No abnormalities",
+              "None"
+            ],
+            [
+              "Mild NPDR",
+              "Microaneurysms only",
+              "Microaneurysms"
+            ],
+            [
+              "Moderate NPDR",
+              "More than mild, less than severe",
+              "Microaneurysms, hemorrhages, hard exudates, cotton wool spots, venous beading"
+            ],
+            [
+              "Severe NPDR",
+              "One of the '4-2-1 rule'",
+              "4 quadrants of severe hemorrhages/MA, 2 quadrants of venous beading, 1 quadrant of prominent IRMA (intraretinal microvascular abnormalities)"
+            ],
+            [
+              "PDR (Early)",
+              "Any neovascularization",
+              "Neovascularization (NVD, NVE, NVI/NVA) without vitreous hemorrhage (VH) or tractional RD"
+            ],
+            [
+              "High-Risk PDR",
+              "Specific neovascularization features",
+              "NVD > 1/4-1/3 disc area, or NVD with VH, or NVE > 1/2 disc area with VH"
+            ],
+            [
+              "Advanced PDR",
+              "Complicated PDR",
+              "Dense vitreous hemorrhage, tractional retinal detachment (TRD), combined TRD/RRD, neovascular glaucoma"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "5. Types of Retinal Detachment",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Retinal Detachment",
+          "branches": [
+            "Rhegmatogenous RD (RRD): Caused by a full-thickness retinal break (hole/tear), allowing vitreous fluid into subretinal space.",
+            "Tractional RD (TRD): Caused by vitreoretinal membranes pulling on the retina, lifting it off the RPE (common in PDR).",
+            "Exudative (Serous) RD: Caused by subretinal fluid accumulation from RPE/choroidal pathology (e.g., inflammation, tumor), without a break or traction."
+          ]
+        }
+      },
+      {
+        "title": "6. Clinical Features & Symptoms (DR & RD)",
+        "icon": "sick",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "**Diabetic Retinopathy:** Often asymptomatic in early stages. Symptoms include blurred vision, vision fluctuation, metamorphopsia (from macular edema), floaters (from vitreous hemorrhage), sudden painless vision loss (VH or TRD involving macula).",
+          "**Retinal Detachment:** Acute onset of 'flashes' (photopsia) and 'floaters' (new PVD/hemorrhage), progressive 'curtain' or 'shadow' in peripheral vision, decreased central vision (if macula involved), metamorphopsia, sensation of 'cobwebs'."
+        ]
+      },
+      {
+        "title": "7. Ocular Examination Findings (DR & RD)",
+        "icon": "ophthalmology",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Findings in DR:** Microaneurysms, dot/blot hemorrhages, hard exudates, cotton wool spots, IRMA, venous beading, neovascularization (NVD, NVE, NVI/NVA), pre-retinal hemorrhage, vitreous hemorrhage, fibrovascular membranes, macular edema (CME), tractional retinal detachment.",
+          "**Findings in RD:** Reduced visual acuity, afferent pupillary defect (if severe/macula-off), reduced IOP (may be normal or high in chronic cases), loss of red reflex, Shafer's sign (tobacco dust in anterior vitreous - pathognomonic for RRD), undulating/bullous detached retina, pigment demarcation lines (chronic RD), retinal breaks (holes, tears, dialysis), PVR (proliferative vitreoretinopathy - fixed folds, starfolds), specific for TRD: concave retinal surface, fixed folds, vitreous membranes, often no associated breaks in primary TRD."
+        ]
+      },
+      {
+        "title": "8. Indications for Pars Plana Vitrectomy (PPV)",
+        "icon": "medical_services",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Category",
+            "Specific Indication",
+            "Rationale"
+          ],
+          "rows": [
+            [
+              "Diabetic Retinopathy",
+              "Non-clearing Vitreous Hemorrhage (VH)",
+              "Prevents fundus view for PRP, persistent vision loss. Typically >3 months wait for spontaneous clear."
+            ],
+            [
+              "Diabetic Retinopathy",
+              "Tractional Retinal Detachment (TRD)",
+              "To relieve vitreoretinal traction, prevent/repair macula-off RD, restore retinal anatomy."
+            ],
+            [
+              "Diabetic Retinopathy",
+              "Combined TRD/RRD",
+              "To relieve traction and close retinal breaks simultaneously."
+            ],
+            [
+              "Diabetic Retinopathy",
+              "Severe Proliferative DR unresponsive to PRP/Anti-VEGF",
+              "Persistent neovascularization, vitreous hemorrhage, or progressive traction."
+            ],
+            [
+              "Rhegmatogenous RD",
+              "Complex RRD (PVR C, inferior breaks, giant tears)",
+              "Unsuitable for scleral buckle or pneumatic retinopexy; extensive PVR requires membrane peeling."
+            ],
+            [
+              "Macular Pathology",
+              "Macular Hole (MH), Epiretinal Membrane (ERM), Vitreomacular Traction (VMT)",
+              "To release traction and improve/restore macular anatomy and function."
+            ],
+            [
+              "Infection/Inflammation",
+              "Endophthalmitis (diagnostic/therapeutic), chronic uveitis",
+              "Vitreous biopsy, intravitreal antibiotic delivery, clearing inflammatory debris."
+            ],
+            [
+              "Trauma",
+              "Intraocular Foreign Body (IOFB), traumatic VH, retained lens fragments",
+              "Removal of foreign bodies, clearing hemorrhage, managing associated RD."
+            ],
+            [
+              "Other",
+              "Retained lens fragments/dropped nucleus post-cataract surgery",
+              "Removal of fragments to prevent inflammation/glaucoma."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "9. Investigations & Diagnostic Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "**Step 1: Comprehensive Ophthalmic Examination**\n   - Visual acuity, IOP measurement, Slit-lamp biomicroscopy (anterior segment, NVI/NVA).\n   - Dilated fundus examination with indirect ophthalmoscopy and scleral depression (for full peripheral view, identifying breaks, extent of RD, traction).",
+          "**Step 2: Optical Coherence Tomography (OCT)**\n   - High-resolution cross-sectional imaging of the retina.\n   - Essential for diagnosing macular edema, ERM, VMT, subtle TRD, and assessing retinal attachment.",
+          "**Step 3: Fluorescein Angiography (FFA)**\n   - Identifies areas of capillary non-perfusion, microaneurysms, neovascularization (leakage), macular edema, and IRMA.\n   - Crucial for guiding PRP treatment.",
+          "**Step 4: B-scan Ultrasonography**\n   - Indispensable when media opacities (dense VH, mature cataract) preclude direct visualization of the fundus.\n   - Differentiates VH from RD, identifies choroidal detachment, IOFB, and assesses retinal configuration.",
+          "**Step 5: Systemic Workup (for DR patients)**\n   - HbA1c, fasting blood glucose, blood pressure, renal function tests (serum creatinine, urine albumin-to-creatinine ratio), lipid profile.\n   - Optimizing systemic health is paramount for surgical success and long-term prognosis."
+        ]
+      },
+      {
+        "title": "10. Differential Diagnosis for Retinal Detachment",
+        "icon": "difference",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Features (from RD)"
+          ],
+          "rows": [
+            [
+              "Retinoschisis",
+              "Splitting of neurosensory layers (not full separation). Immobile, typically smooth and dome-shaped. Absence of Shafer's sign. May be bilateral. Absolute scotoma corresponding to the schisis."
+            ],
+            [
+              "Choroidal Detachment",
+              "Smooth, bullous, dark brown-orange elevations. Usually posterior to ora serrata. Associated with hypotony. 'Kissing choroidals' configuration. Does not undulate with eye movement."
+            ],
+            [
+              "Exudative Retinal Detachment",
+              "Smooth, shifting subretinal fluid. No retinal breaks or traction. Associated with inflammatory conditions (e.g., Vogt-Koyanagi-Harada), tumors, severe hypertension, choroidal effusions."
+            ],
+            [
+              "Vitreous Hemorrhage (without RD)",
+              "Sudden vision loss/floaters. No 'curtain' unless settling. B-scan shows mobile echoes in vitreous, but retina attached. Red reflex may be dimmed/absent."
+            ],
+            [
+              "Retinal Folds / Macular Folds",
+              "Usually stable, congenital or post-surgical. Retinal tissue is attached. OCT confirms folds without detachment."
+            ],
+            [
+              "Optic Pit Maculopathy",
+              "Subretinal fluid/schisis in macula associated with congenital optic disc pit. Distinct fundus appearance of the optic nerve head."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "11. Principles of Vitrectomy for Diabetic TRD",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Step 1: Anesthesia & Trocar Placement**\n   - Peribulbar or general anesthesia. 23G, 25G, or 27G trocar-cannula system placed through pars plana (3.5-4mm posterior to limbus), creating self-sealing sclerotomies.",
+          "**Step 2: Core Vitrectomy**\n   - Removal of central clear vitreous with high-speed vitrectomy probe to gain access to posterior pole and release anterior traction.",
+          "**Step 3: Posterior Vitreous Detachment (PVD) Induction (if absent)**\n   - May use active aspiration (suction) with the vitrectomy probe or Tano-diamond dusted membrane scraper to induce PVD, if safely possible.",
+          "**Step 4: Membrane Segmentation & Delamination**\n   - **Segmentation:** Cutting fibrotic membranes into smaller pieces to reduce tangential traction, often using micro-scissors or cutter.\n   - **Delamination:** Peeling fibrovascular membranes off the retinal surface using intraocular forceps (e.g., Eckardt, serrated), picks, or MVR blades. Often requires bimanual technique (one hand for illumination, one for instruments) for counter-traction and stability. This is the most critical and challenging step.",
+          "**Step 5: Hemostasis**\n   - Control bleeding from fibrovascular tissue using intraocular diathermy, increased infusion pressure, or temporary application of perfluorocarbon liquid (PFCL).",
+          "**Step 6: Epiretinal Membrane (ERM) Peeling (if indicated)**\n   - Peeling of residual ERM or internal limiting membrane (ILM) for macular holes or severe macular edema using diamond-dusted membrane peel forceps, often aided by vital dyes (e.g., brilliant blue G, indocyanine green).",
+          "**Step 7: Endolaser Panretinal Photocoagulation (PRP)**\n   - Application of 532nm green laser to the entire retina (excluding macula) to ablate ischemic areas and suppress neovascularization. Critical for preventing recurrence.",
+          "**Step 8: Fluid-Air Exchange (FAE) & Drainage of Subretinal Fluid (SRF)**\n   - If a combined TRD/RRD or iatrogenic break occurs, FAE is performed to flatten the retina. SRF is drained through a retinal break (pre-existing or iatrogenic) using a soft-tipped cannula.",
+          "**Step 9: Vitreous Tamponade**\n   - Injection of a vitreous substitute (air, gas, or silicone oil) to provide internal tamponade, support the retina, and facilitate fluid absorption/scarring. Choice depends on retinal pathology and surgeon preference.",
+          "**Step 10: Sclerotomy Closure**\n    - Self-sealing sclerotomies with smaller gauges (23G, 25G, 27G) often require no sutures. 20G incisions always require suturing (e.g., 8-0 Vicryl)."
+        ]
+      },
+      {
+        "title": "12. Surgical Instruments & Techniques in PPV",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "**Vitrectomy Systems:** Modern high-speed systems (e.g., Alcon Constellation, Bausch & Lomb Stellaris Elite) with cutter speeds >10,000 cuts/minute and integrated laser/fluidics.",
+          "**Trocar-Cannula Systems:** 23-gauge (0.64mm), 25-gauge (0.50mm), 27-gauge (0.40mm) for micro-incisional vitrectomy (MIVS).",
+          "**Vitreous Cutters:** High-speed, dual-port cutters minimize vitreoretinal traction.",
+          "**Endo-illuminators:** Fiber optic light sources (standard, wide-angle, chandelier) for retinal visualization.",
+          "**Endo-laser Probes:** 532nm (green) diode lasers for PRP and focal photocoagulation.",
+          "**Membrane Forceps:** Delamination forceps (e.g., Eckardt, serrated), grasping forceps, micro-scissors for membrane dissection.",
+          "**Picks/Spatulas:** MVR blades, diamond-dusted scrapers, retinal picks for initiating membrane dissection or creating retinotomies.",
+          "**Visco-Dissection:** Use of viscoelastic agents (e.g., Healon, Viscoat) to hydro-dissect membranes off the retinal surface.",
+          "**Bimanual Surgery:** Using an instrument in each hand (e.g., light pipe in one, forceps in other) for optimal traction and dissection."
+        ]
+      },
+      {
+        "title": "13. Vitreous Substitutes after PPV",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Substitute",
+            "Properties",
+            "Indications",
+            "Advantages",
+            "Disadvantages"
+          ],
+          "rows": [
+            [
+              "Balanced Salt Solution (BSS)",
+              "Isotonic, clear liquid",
+              "Temporary fill during surgery, short-term support for uncomplicated cases",
+              "No specific complications, no patient positioning, no subsequent removal",
+              "No long-term tamponade effect, poor for active breaks/PVR"
+            ],
+            [
+              "Filtered Air",
+              "Gas, non-expanding",
+              "Simple RRDs (small/superior breaks), temporary tamponade, fluid-air exchange",
+              "No patient positioning post-op (if small fill), readily absorbed",
+              "Short tamponade (days), poor for inferior breaks, contraindicated for air travel (if large fill)"
+            ],
+            [
+              "Sulfur Hexafluoride (SF6)",
+              "Short-acting gas (2x expansion), lasts ~2 weeks",
+              "RRD (superior/mid-peripheral breaks), macular hole closure",
+              "Good tamponade duration, absorbed by eye",
+              "Patient positioning required, visual obscuration, contraindicated for air travel"
+            ],
+            [
+              "Perfluoropropane (C2F6)",
+              "Medium-acting gas (3.3x expansion), lasts ~4 weeks",
+              "More complex RRD, giant tears, PVR, macular hole closure",
+              "Longer tamponade than SF6",
+              "Patient positioning, visual obscuration, contraindicated for air travel"
+            ],
+            [
+              "Octafluoropropane (C3F8)",
+              "Long-acting gas (4x expansion), lasts ~6-8 weeks",
+              "Complex RRD (PVR), recurrent RD, TRD/RRD combined",
+              "Longest gas tamponade",
+              "Patient positioning, visual obscuration, contraindicated for air travel"
+            ],
+            [
+              "Silicone Oil (1000 cSt, 5000 cSt)",
+              "Clear, inert liquid, permanent tamponade",
+              "Complex/recurrent RD, PVR C/D, giant retinal tears, severe TRD, severe trauma, chronic macular holes",
+              "Long-term tamponade, good optical properties (can see through), allows air travel",
+              "Requires second surgery for removal (unless life-long indication), emulsification, glaucoma, cataract, corneal decompensation, migration to anterior chamber"
+            ],
+            [
+              "Heavy Silicone Oil (e.g., Densiron 68)",
+              "Specific gravity > water",
+              "Inferior retinal detachments (especially with PVR), choroidal detachment",
+              "Effectively tamponades inferior retina",
+              "Similar to standard silicone oil, but specific complications related to density (e.g., less prone to superior emulsification)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "14. Complications of PPV & Prognosis",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "**Intra-operative Complications:** Iatrogenic retinal breaks (most common, 5-10%), choroidal hemorrhage, suprachoroidal hemorrhage, lens touch/damage, dropped nucleus, subretinal hemorrhage.",
+          "**Early Post-operative Complications:** Acute endophthalmitis (rare, <0.1%), vitreous hemorrhage (recurrent or new), hypotony/hypertony, choroidal detachment, fibrin reaction.",
+          "**Late Post-operative Complications:** Nuclear sclerotic cataract (universal with gas/oil), glaucoma (neovascular, steroid-induced, silicone oil-induced), redetachment (due to PVR, missed breaks), silicone oil emulsification/migration, corneal decompensation, epiretinal membrane formation, cystoid macular edema."
+        ]
+      },
+      {
+        "title": "Prognosis after PPV for TRD",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "**Retinal Reattachment Rates:** Generally high (80-90%) for TRDs with macula-on. Lower for macula-off or combined TRD/RRD with extensive PVR.",
+          "**Visual Outcomes:** Highly variable. Dependent on preoperative VA, duration of macula-off RD, extent of retinal damage, control of systemic diabetes, development of post-operative complications (especially cataract and glaucoma). Many patients achieve functional vision, but pre-existing damage may limit best-corrected vision."
+        ]
+      },
+      {
+        "title": "15. Red Flags / Emergency Signs in DR/RD",
+        "icon": "emergency",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "**Acute onset of severe floaters and/or flashes:** Suggests acute PVD or new retinal break, potentially leading to RRD.",
+          "**Sudden, profound, painless vision loss:** May indicate dense vitreous hemorrhage (e.g., from PDR), macula-off retinal detachment, or central retinal artery occlusion.",
+          "**A 'curtain' or 'shadow' obscuring vision:** Classic symptom of progressive retinal detachment.",
+          "**Severe eye pain with vision loss in a diabetic patient:** Consider acute angle closure glaucoma (especially neovascular glaucoma in advanced DR) or endophthalmitis post-op.",
+          "**Persistent blurred vision or pain post-PPV:** Requires urgent evaluation for endophthalmitis, high IOP, or redetachment."
+        ]
+      },
+      {
+        "title": "16. Mnemonics & Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "4-2-1 Rule for Severe NPDR",
+          "explanation": "At least one of the following: 4 quadrants of severe intraretinal hemorrhages/microaneurysms; 2 quadrants of venous beading; 1 quadrant of prominent IRMA (intraretinal microvascular abnormalities). Crucial for determining progression to PDR."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "**Systemic Control is Key:** Tight glycemic control, blood pressure, and lipid management significantly impact DR progression and surgical outcomes.",
+          "**Pre-op Anti-VEGF:** Can reduce intraoperative bleeding and improve surgical planes in PDR/TRD by regressing fragile neovascularization.",
+          "**Always Examine Peripheral Retina:** After membrane peeling, always re-examine the peripheral retina thoroughly for iatrogenic breaks, especially near sclerotomy sites.",
+          "**Patient Positioning Post-op:** Crucial for gas tamponade (e.g., face down for macular hole, specific head position for superior breaks). Contraindicated for air travel with gas.",
+          "**Silicone Oil Removal:** Generally advised (typically 3-6 months post-op) due to potential long-term complications, unless a life-long tamponade is indicated.",
+          "**Pediatric Considerations:** While this infographic focuses on DR, PPV indications in children (e.g., ROP, FEVR, trauma) require specialized instruments, techniques, and anesthetic considerations due to smaller eyes and different vitreoretinal anatomy."
+        ]
+      },
+      {
+        "title": "17. Recent Advances & Landmark Studies",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": "**Micro-Incisional Vitrectomy Systems (MIVS):** Transition from 20-gauge to 23G, 25G, and 27G has revolutionized PPV, offering smaller incisions, reduced conjunctival scarring, less post-op astigmatism, faster visual recovery, and typically sutureless closure. \n\n**Anti-VEGF Therapy:** DRCR.net studies (e.g., Protocol S, T) have solidified the role of anti-VEGF agents (e.g., Ranibizumab, Aflibercept, Bevacizumab) not only for diabetic macular edema but also as an adjuvant therapy in PDR, both pre-operatively to reduce active neovascularization and intra-operatively to minimize bleeding and facilitate membrane peeling. \n\n**3D Heads-Up Display Surgery:** Systems like Ngenuity (Alcon) and Artevo (Zeiss) project magnified, high-resolution 3D images onto a large screen, improving surgeon ergonomics, depth perception, and allowing the entire surgical team to view the operative field simultaneously. \n\n**Intraoperative OCT (iOCT):** Provides real-time, cross-sectional imaging during surgery, aiding in delicate membrane peeling, identifying subtle macular pathology, and ensuring complete retinal reattachment."
+      }
+    ],
+    "generationPrompt": "Q1. Describe the photo? Q2. What are the indications of PPV for Patient with Retinal Detachment? Q3. What are the Principles of Vitrectomy for Diabetic Tractional Retinal Detachment? Q4. What are the Indications of Vitrectomy for Diabetic Retinopathy? Q5. What are the types of vitrectomy? Q6. What are the different Vitreous Substitutes after PPV?",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "kanskiMeta": [
+    {
+      "pageNum": 511,
+      "keywords": [
+        "retinal detachment",
+        "retinopathy",
+        "diabetic retinopathy",
+        "diabetic",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 509,
+      "keywords": [
+        "retinopathy",
+        "diabetic retinopathy",
+        "diabetic",
+        "retinal",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 660,
+      "keywords": [
+        "retinal detachment",
+        "vitrectomy",
+        "retinal",
+        "detachment",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 512,
+      "keywords": [
+        "retinopathy",
+        "diabetic retinopathy",
+        "diabetic",
+        "retinal",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 698,
+      "keywords": [
+        "retinal detachment",
+        "retinopathy",
+        "diabetic retinopathy",
+        "vitrectomy",
+        "diabetic"
+      ]
+    },
+    {
+      "pageNum": 510,
+      "keywords": [
+        "retinopathy",
+        "diabetic retinopathy",
+        "diabetic",
+        "retinal",
+        "risk"
+      ]
+    }
+  ]
+}

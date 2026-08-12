@@ -1,0 +1,321 @@
+{
+  "id": 1775044657314,
+  "seqId": 101,
+  "title": "Basal Cell Carcinoma (BCC) of the Eyelid",
+  "summary": "The most common malignant eyelid tumor worldwide, BCC is a slow-growing but locally invasive neoplasm derived from the basal layer of the epidermis. This guide provides a comprehensive clinical roadmap from molecular pathogenesis to advanced Mohs surgical techniques.",
+  "date": "2026-04-01T11:57:37.314Z",
+  "data": {
+    "title": "Basal Cell Carcinoma (BCC) of the Eyelid",
+    "summary": "The most common malignant eyelid tumor worldwide, BCC is a slow-growing but locally invasive neoplasm derived from the basal layer of the epidermis. This guide provides a comprehensive clinical roadmap from molecular pathogenesis to advanced Mohs surgical techniques.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><ellipse cx='50' cy='50' rx='25' ry='12' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='6' fill='hsl(215, 90%, 45%)'/><path d='M30 65 Q50 85 70 65' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='35' cy='72' r='4' fill='hsl(0, 70%, 60%)' opacity='0.8'/><path d='M33 72 L37 72 M35 70 L35 74' stroke='white' stroke-width='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Basal Cell Carcinoma (BCC) accounts for approximately 90% of all malignant eyelid tumors. While it rarely metastasizes (less than 0.1%), it is characterized by significant local destruction and invasion if left untreated. It arises from the pluripotential cells in the basal layer of the epidermis and is particularly common in the periocular region due to chronic ultraviolet (UV) exposure."
+      },
+      {
+        "title": "Epidemiological Distribution by Location",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Lower Eyelid",
+              "value": 60
+            },
+            {
+              "label": "Medial Canthus",
+              "value": 25
+            },
+            {
+              "label": "Upper Eyelid",
+              "value": 10
+            },
+            {
+              "label": "Lateral Canthus",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Risk Factors",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "UVB Exposure: Primary environmental driver (DNA damage).",
+          "Phenotype: Fitzpatrick Type I & II (fair skin, blue eyes, red hair).",
+          "Genetics: PTCH1 gene mutations (Hedgehog signaling pathway).",
+          "Syndromes: Gorlin-Goltz (Basal Cell Nevus Syndrome), Bazex, Xeroderma Pigmentosum.",
+          "Previous Radiation: History of radiotherapy for other conditions.",
+          "Immunosuppression: Post-transplant or HIV patients."
+        ]
+      },
+      {
+        "title": "Pathophysiology: The Hedgehog Pathway",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "BCC Molecular Genesis",
+          "branches": [
+            "PTCH1 Mutation: Loss of inhibition on SMO",
+            "SMO Activation: Triggers GLI transcription factors",
+            "GLI1/GLI2: Upregulate genes for cell proliferation/survival",
+            "TP53 Mutations: Found in 50% of sporadic cases",
+            "Peripheral Palisading: Typical histopathologic cell arrangement"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Subtypes & Morphology",
+        "icon": "microbiology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Subtype",
+            "Clinical Appearance",
+            "Behavior"
+          ],
+          "rows": [
+            [
+              "Nodular",
+              "Pearly, firm, telangiectatic nodule",
+              "Slow growing, classic type"
+            ],
+            [
+              "Nodulo-ulcerative",
+              "Rodent ulcer with central necrosis",
+              "Progressive tissue destruction"
+            ],
+            [
+              "Morpheaform",
+              "Indurated, pale, waxy plaque",
+              "Highly aggressive, subclinical spread"
+            ],
+            [
+              "Pigmented",
+              "Brown/Black pigment within nodule",
+              "Common in darker skin types"
+            ],
+            [
+              "Cystic",
+              "Blue-grey dome-shaped nodule",
+              "May mimic a benign cyst"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Pearly Border: Rolled, translucent edges.",
+          "Telangiectasia: Fine, branching vessels on the surface.",
+          "Madarosis: Localized loss of eyelashes (highly suspicious).",
+          "Meibomian Gland Distortion: Notched lid margin.",
+          "Fixation: Tumor attachment to underlying periosteum.",
+          "Canthal Involvement: Check for orbital extension/motility."
+        ]
+      },
+      {
+        "title": "Red Flags: High-Risk Features",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Medial Canthal Location: Higher risk of deep orbital invasion.",
+          "Morpheaform/Sclerosing Subtype: Invisible lateral spread.",
+          "Recurrent Lesions: Higher risk of perineural invasion.",
+          "Perineural Invasion: Patient reports pain or paresthesia.",
+          "Tumor Size >20mm: Increased risk of recurrence.",
+          "Immunocompromised State: Rapid growth and multiple lesions."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Entity",
+            "Distinguishing Feature from BCC"
+          ],
+          "rows": [
+            [
+              "SCC",
+              "Faster growth, more scaling, lacks pearly border"
+            ],
+            [
+              "Sebaceous Carcinoma",
+              "Yellowish hue, associated with blepharitis, pagetoid spread"
+            ],
+            [
+              "Keratoacanthoma",
+              "Central keratin plug, rapid onset then regression"
+            ],
+            [
+              "Amelanotic Melanoma",
+              "Lack of characteristic BCC features, rapid growth"
+            ],
+            [
+              "Chalazion",
+              "Non-telangiectatic, usually associated with inflammation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Biopsy",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Clinical Photography for documentation.",
+          "2. Incisional Biopsy (Punch or Shave): For large or suspicious lesions.",
+          "3. Histopathology: Look for peripheral palisading & retraction artifact.",
+          "4. Imaging (CT/MRI): Only if orbital or bone invasion is suspected.",
+          "5. Lymph Node Palpation: Check preauricular and submandibular nodes."
+        ]
+      },
+      {
+        "title": "The BCC Mnemonic",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "THE 5 P's of BCC",
+          "explanation": "Pearly nodules, Pink color, Peripheral palisading (path), Persistent ulcer, and Pre-cancerous UV exposure."
+        }
+      },
+      {
+        "title": "AJCC 8th Ed. T-Staging (Eyelid Carcinoma)",
+        "icon": "format_list_numbered",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Stage",
+            "Description"
+          ],
+          "rows": [
+            [
+              "T1",
+              "Tumor ≤ 20mm in greatest dimension"
+            ],
+            [
+              "T2",
+              "Tumor > 20mm OR involving tarsal plate/lid margin"
+            ],
+            [
+              "T3",
+              "Tumor involving full thickness eyelid OR ocular structures"
+            ],
+            [
+              "T4",
+              "Tumor involving orbit, sinuses, or brain"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Management & Treatment Protocols",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Surgical Excision with Frozen Section: 3-4mm clear margins standard.",
+          "Step 2: Mohs Micrographic Surgery (MMS): Gold standard for medial canthal or morpheaform types.",
+          "Step 3: Reconstruction: Direct closure, Tenzel flap, or Hughes tarsoconjunctival flap.",
+          "Step 4: Non-Surgical (Small/Superficial): Imiquimod 5% cream or Cryotherapy.",
+          "Step 5: Advanced/Metastatic Case: Vismodegib (Hedgehog inhibitor) or Radiotherapy."
+        ]
+      },
+      {
+        "title": "Surgical Reconstruction Pearls",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Primary Closure: Possible for <33% lid defect.",
+          "Tenzel Semicircular Flap: Best for 33-50% moderate defects.",
+          "Hughes Flap: For large (>50%) lower lid defects using upper lid tarsus.",
+          "Mustardé Flap: Large cheek rotation flap for total lower lid loss.",
+          "Cutler-Beard Flap: Full thickness upper lid reconstruction."
+        ]
+      },
+      {
+        "title": "Systemic Hedgehog Inhibitors",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Drug Name: Vismodegib (Erivedge) or Sonidegib.",
+          "Indication: Metastatic BCC or locally advanced BCC not amenable to surgery.",
+          "Mechanism: SMO (Smoothened) protein antagonist.",
+          "Common Side Effects: Muscle cramps (71%), alopecia (61%), dysgeusia (loss of taste).",
+          "Pregnancy Warning: Category X (highly teratogenic)."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Recurrence Rate: <5% with Mohs; higher with standard excision.",
+          "Canalicular Involvement: Requires intubation or dacryocystorhinostomy (DCR).",
+          "Orbital Invasion: May necessitate orbital exenteration in rare cases.",
+          "Cicatricial Ectropion: Potential post-operative complication.",
+          "Metastasis: Extremely rare, usually to regional lymph nodes or lungs."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Board Exam",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Medial canthal BCCs have 'silent' deep invasion along the periosteum.",
+          "A 'recurrent chalazion' is SCC or Sebaceous Carcinoma until proven otherwise (BCC is less likely to mimic a chalazion).",
+          "Cryotherapy is contraindicated for morpheaform BCC.",
+          "In Gorlin Syndrome, lesions appear at a young age; avoid radiation due to risk of secondary tumors."
+        ]
+      }
+    ],
+    "generationPrompt": "BCC",
+    "chapterId": "lids"
+  },
+  "chapterId": "lids",
+  "_newlyImported": 1775044657314,
+  "communityId": "sub_1774520384642_cdtemyg57",
+  "communityAuthor": "dodo",
+  "communityDate": "2026-03-26T10:19:44.642Z",
+  "read": true
+}

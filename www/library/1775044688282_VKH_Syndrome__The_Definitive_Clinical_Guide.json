@@ -1,0 +1,256 @@
+{
+  "id": 1775044688282,
+  "seqId": 415,
+  "title": "VKH Syndrome: The Definitive Clinical Guide",
+  "summary": "Vogt-Koyanagi-Harada (VKH) syndrome is a multisystemic autoimmune disorder characterized by bilateral granulomatous panuveitis involving the eyes, ears, meninges, and skin. It is driven by T-cell mediated destruction of melanocytes in genetically susceptible individuals.",
+  "date": "2026-04-01T11:58:08.282Z",
+  "data": {
+    "title": "VKH Syndrome: The Definitive Clinical Guide",
+    "summary": "Vogt-Koyanagi-Harada (VKH) syndrome is a multisystemic autoimmune disorder characterized by bilateral granulomatous panuveitis involving the eyes, ears, meninges, and skin. It is driven by T-cell mediated destruction of melanocytes in genetically susceptible individuals.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 100 Q100 60 140 100 Q100 140 60 100' fill='none' stroke='hsl(30, 90%, 50%)' stroke-width='3'/><circle cx='100' cy='100' r='15' fill='hsl(215, 90%, 45%)'/><path d='M40 80 L40 120 M160 80 L160 120' stroke='hsl(0, 70%, 50%)' stroke-width='2' stroke-dasharray='4 2'/><text x='100' y='160' text-anchor='middle' font-size='12' fill='hsl(215, 90%, 45%)' font-family='Arial'>Bilateral Panuveitis</text></svg>",
+    "sections": [
+      {
+        "title": "1. Clinical Definition & Scope",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Vogt-Koyanagi-Harada (VKH) syndrome is an idiopathic multisystem autoimmune disease directed against melanocyte-associated antigens (tyrosinase, TRP1, TRP2). It manifests as a bilateral, diffuse, granulomatous panuveitis often associated with exudative retinal detachments, neurological (meningismus), auditory (tinnitus/dysacusis), and integumentary (vitiligo/poliosis) signs."
+      },
+      {
+        "title": "2. Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Asian Ancestry",
+              "value": 95
+            },
+            {
+              "label": "Hispanic/Native Amer.",
+              "value": 85
+            },
+            {
+              "label": "Female Predilection",
+              "value": 66
+            },
+            {
+              "label": "Middle Eastern",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "title": "3. Pathophysiology: The T-Cell Attack",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Melanocyte Destruction",
+          "branches": [
+            "Type IV Hypersensitivity",
+            "HLA-DR4 / HLA-DRB1*0405",
+            "Target: Tyrosinase Family Proteins",
+            "Th1 and Th17 Cell Infiltration"
+          ]
+        }
+      },
+      {
+        "title": "4. The Four Clinical Stages",
+        "icon": "reorder",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Prodromal Stage (Days) — Mimics viral illness; headache, meningismus, tinnitus, CSF pleocytosis.",
+          "Step 2: Acute Uveitic Stage (Weeks) — Sudden bilateral vision loss; multifocal exudative RD, optic disc edema, thickened choroid.",
+          "Step 3: Convalescent Stage (Months) — Depigmentation; 'Sunset Glow Fundus', Sugiura sign (perilimbal vitiligo), integumentary vitiligo.",
+          "Step 4: Chronic Recurrent Stage — Smoldering granulomatous anterior uveitis; Mutton-fat KPs, Busacca nodules, Iris bombe/Glaucoma."
+        ]
+      },
+      {
+        "title": "5. Extraocular Manifestations",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Neurological: Headache, stiff neck, meningeal signs, CSF pleocytosis (>90% in acute stage).",
+          "Auditory: Tinnitus, dysacusis, vertigo, high-frequency hearing loss.",
+          "Integumentary: Vitiligo (patchy depigmentation), Poliosis (whitening of lashes/hair), Alopecia."
+        ]
+      },
+      {
+        "title": "6. Ocular Examination Findings",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Anterior Segment",
+            "Posterior Segment"
+          ],
+          "rows": [
+            [
+              "Mutton-fat KPs",
+              "Multifocal Exudative RD"
+            ],
+            [
+              "Busacca & Koeppe Nodules",
+              "Optic Disc Hyperemia/Edema"
+            ],
+            [
+              "Iris Bombé (Post. Synechiae)",
+              "Sunset Glow Fundus (Orange-Red)"
+            ],
+            [
+              "Sugiura Sign (Perilimbal)",
+              "Dalen-Fuchs-like Nodules"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "7. Revised Sugiura Diagnostic Criteria",
+        "icon": "fact_check",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Classification",
+            "Criteria Met"
+          ],
+          "rows": [
+            [
+              "Complete VKH",
+              "No hx trauma/surgery + Bilateral ocular involvement + Neurological/Auditory signs + Integumentary signs."
+            ],
+            [
+              "Incomplete VKH",
+              "No hx trauma/surgery + Bilateral ocular involvement + EITHER Neurological/Auditory OR Integumentary signs."
+            ],
+            [
+              "Probable VKH",
+              "No hx trauma/surgery + Bilateral ocular involvement ONLY (Isolated Ocular Disease)."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "8. Multimodal Imaging Pearls",
+        "icon": "photo_camera",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "FFA: Early pinpoint 'starry sky' leakage, late pooling in subretinal spaces (flower-petal pattern).",
+          "ICGA: Hypofluorescent dark spots (HDLs) representing granulomas; delayed choroidal filling.",
+          "EDI-OCT: Massive diffuse choroidal thickening (>600-800 microns) in acute stage.",
+          "B-Scan: Low-to-medium internal reflectivity choroidal thickening; absence of posterior scleritis signs."
+        ]
+      },
+      {
+        "title": "9. Critical Differential Diagnosis",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": {
+          "center": "VKH Mimics",
+          "branches": [
+            "Sympathetic Ophthalmia (History of Trauma)",
+            "Sarcoidosis (Hilar Adenopathy/ACE)",
+            "Central Serous Chorioretinopathy (No Inflammation)",
+            "Posterior Scleritis (T-Sign on B-scan)",
+            "Uveal Effusion Syndrome (Nanophthalmos)"
+          ]
+        }
+      },
+      {
+        "title": "10. Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Phase 1: Induction — IV Methylprednisolone (1g/day for 3 days) or high-dose oral Prednisone (1.0–1.5 mg/kg).",
+          "Phase 2: Slow Taper — Very gradual oral steroid reduction over 6-9 months; do NOT taper faster than 5-10mg/month.",
+          "Phase 3: IMT — Early introduction of Mycophenolate Mofetil (1g BID) or Azathioprine to reduce recurrence.",
+          "Phase 4: Biologics — Adalimumab or Infliximab for refractory cases failing traditional IMT."
+        ]
+      },
+      {
+        "title": "11. Red Flags & Emergencies",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapid tapering of steroids (Primary cause of recurrence)",
+          "Development of CNVM (Requires Anti-VEGF)",
+          "Secondary Glaucoma (Pupillary block or steroid-induced)",
+          "Neurological deterioration despite therapy"
+        ]
+      },
+      {
+        "title": "12. High-Yield Mnemonics",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "VKH-SKIN",
+          "explanation": "S: Sunset glow fundus, K: KPs (mutton-fat), I: Integumentary (Vitiligo/Poliosis), N: Neurological/Noise (Tinnitus)."
+        }
+      },
+      {
+        "title": "13. Ocular Complications",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Cataract: Most common complication (40-50%).",
+          "Glaucoma: Angle-closure (ciliary body edema) or Steroid-response.",
+          "Subretinal Fibrosis: Occurs in chronic phase; poor visual prognosis.",
+          "CNVM: Juxtafoveal choroidal neovascular membranes."
+        ]
+      },
+      {
+        "title": "14. Landmark Study: Steroids vs. IMT",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Recent evidence (e.g., studies by Abu El-Asrar et al.) suggests that early aggressive combined therapy (Steroids + Mycophenolate Mofetil) leads to better long-term visual outcomes and a lower rate of progression to the 'Sunset Glow' stage compared to steroid monotherapy."
+      },
+      {
+        "title": "15. Clinical Pearls for Rounds",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Sugiura Sign: Perilimbal vitiligo, the earliest depigmentation sign (often within 1 month).",
+          "The 3-Month Rule: Most recurrences happen when Prednisone is tapered below 20mg within the first 3 months.",
+          "CSF Pleocytosis: May be present even if the patient has no meningeal symptoms.",
+          "Dalen-Fuchs Nodules: Not pathognomonic; seen in VKH, Sarcoid, and Sympathetic Ophthalmia."
+        ]
+      }
+    ],
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "_newlyImported": 1775044688282,
+  "communityId": "sub_1773775007770_uzx5wsmh5nrnm0",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-17T19:16:47.770Z"
+}

@@ -1,0 +1,389 @@
+{
+  "id": 1775546440494,
+  "seqId": 750,
+  "title": "Endogenous Endophthalmitis: The Ocular Emergency from Within",
+  "summary": "Endogenous endophthalmitis (EE) is a vision-threatening intraocular infection resulting from the hematogenous seeding of the eye from a distant primary source. Unlike exogenous forms, EE requires a multidisciplinary approach to identify the systemic origin while managing aggressive ocular inflammation.",
+  "date": "2026-04-07T07:20:40.494Z",
+  "data": {
+    "title": "Endogenous Endophthalmitis: The Ocular Emergency from Within",
+    "summary": "Endogenous endophthalmitis (EE) is a vision-threatening intraocular infection resulting from the hematogenous seeding of the eye from a distant primary source. Unlike exogenous forms, EE requires a multidisciplinary approach to identify the systemic origin while managing aggressive ocular inflammation.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 100 Q100 60 140 100 Q100 140 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='100' cy='100' r='15' fill='hsl(0, 80%, 60%)' opacity='0.6'/><path d='M20 100 L50 100 M150 100 L180 100 M100 20 L100 50 M100 150 L100 180' stroke='hsl(0, 80%, 50%)' stroke-width='2'/><circle cx='85' cy='85' r='5' fill='white'/><circle cx='115' cy='115' r='5' fill='white'/><circle cx='90' cy='120' r='5' fill='white'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Endogenous Endophthalmitis (EE) occurs when microorganisms cross the blood-ocular barrier and proliferate within the vitreous or aqueous humor. It accounts for 2-8% of all endophthalmitis cases. It is often a harbinger of occult systemic disease and carries a significantly worse visual prognosis compared to exogenous endophthalmitis due to the virulence of the pathogens and the compromised health of the host."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Diabetes Mellitus Presence",
+              "value": 33
+            },
+            {
+              "label": "Bacterial Etiology (Western)",
+              "value": 60
+            },
+            {
+              "label": "Fungal Etiology (Western)",
+              "value": 40
+            },
+            {
+              "label": "Bilateral Involvement",
+              "value": 15
+            },
+            {
+              "label": "Culture Positivity (Blood)",
+              "value": 75
+            }
+          ]
+        }
+      },
+      {
+        "title": "Common Pathogens: Bacterial",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Bacterial EE",
+          "branches": [
+            "Gram (+) : Staph. aureus, Strep. pneumoniae, Group B Strep",
+            "Gram (-) : Klebsiella pneumoniae (Liver Abscess)",
+            "Gram (-) : Escherichia coli, Pseudomonas aeruginosa",
+            "Emerging: MRSA and Vancomycin-resistant Enterococci"
+          ]
+        }
+      },
+      {
+        "title": "Common Pathogens: Fungal",
+        "icon": "science",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Fungal EE",
+          "branches": [
+            "Yeast: Candida albicans (Most Common)",
+            "Molds: Aspergillus spp. (Aggressive, Macular focus)",
+            "Molds: Fusarium, Coccidioides",
+            "Risk: TPN, Prolonged antibiotics, IVDU"
+          ]
+        }
+      },
+      {
+        "title": "Risk Factors & Predisposing Conditions",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Diabetes Mellitus (Most common systemic association)",
+          "Intravenous Drug Use (IVDU) - often associated with fungal/Bacillus",
+          "Indwelling catheters (Port-a-cath, Hemodialysis)",
+          "Immunosuppression (Chemotherapy, AIDS, Organ transplant)",
+          "Recent major surgery (Abdominal/Cardiac)",
+          "Endocarditis and Valvular heart disease",
+          "Liver abscess (Highly associated with Klebsiella)",
+          "Urinary Tract Infection (UTI) or Meningitis"
+        ]
+      },
+      {
+        "title": "The Klebsiella Syndrome",
+        "icon": "biotech",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Emerging hypervirulent Klebsiella pneumoniae (K1/K2 serotypes)",
+          "Classic Triad: Liver abscess, Meningitis, and Endophthalmitis",
+          "Hypermucoviscosity phenotype allows escape from phagocytosis",
+          "Requires immediate Abdominal Imaging (CT/US) if EE is suspected without source"
+        ]
+      },
+      {
+        "title": "Clinical Features & Ocular Signs",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "Bacterial EE",
+            "Fungal (Candida)",
+            "Fungal (Aspergillus)"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "Acute (hours to days)",
+              "Subacute (weeks)",
+              "Rapidly Progressive"
+            ],
+            [
+              "Pain",
+              "Severe, constant",
+              "Minimal to moderate",
+              "Moderate to severe"
+            ],
+            [
+              "Anterior Segment",
+              "Hypopyon, heavy fibrin",
+              "Cells/Flare, small hypopyon",
+              "Moderate inflammation"
+            ],
+            [
+              "Vitreous",
+              "Diffuse vitritis, opaque",
+              "'String of Pearls' colonies",
+              "Large fluff-ball colonies"
+            ],
+            [
+              "Chorioretinitis",
+              "Ill-defined deep yellow lesions",
+              "White fluffy 'cotton ball' lesions",
+              "Large macular-based lesions"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup: The 'Seek the Source' Protocol",
+        "icon": "psychology",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Immediate Ocular Tap (Aqueous and Vitreous) for Gram/GMS/PAS stain and Culture",
+          "Step 2: Obtain Blood Cultures (Aerobic/Anaerobic) from two different sites",
+          "Step 3: Collect Urine Culture and Throat/Sputum culture if symptomatic",
+          "Step 4: Systematic Imaging: Chest X-ray (Pneumonia/Abscess), Abdominal US/CT (Liver/Renal Abscess)",
+          "Step 5: Transthoracic (TTE) or Transesophageal Echocardiogram (TEE) to rule out Endocarditis",
+          "Step 6: PCR for 16S/18S rRNA if cultures are negative but clinical suspicion remains high"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Acute Post-op Endophthalmitis",
+              "History of recent ocular surgery"
+            ],
+            [
+              "Non-infectious Uveitis",
+              "Lacks systemic septic foci; steroid response"
+            ],
+            [
+              "Masquerade (Lymphoma)",
+              "Older patient, 'leopard spot' fundus"
+            ],
+            [
+              "Sympathetic Ophthalmia",
+              "History of trauma to the other eye"
+            ],
+            [
+              "ARN / PORN",
+              "Necrotizing retinitis, minimal vitritis (PORN)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Medical Management: Intravitreal (IVT) Dosages",
+        "icon": "medication",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Agent",
+            "Standard Dose (in 0.1 mL)"
+          ],
+          "rows": [
+            [
+              "Vancomycin (Gram +)",
+              "1.0 mg"
+            ],
+            [
+              "Ceftazidime (Gram -)",
+              "2.25 mg"
+            ],
+            [
+              "Amphotericin B (Fungal)",
+              "5 - 10 μg"
+            ],
+            [
+              "Voriconazole (Fungal)",
+              "100 μg"
+            ],
+            [
+              "Dexamethasone",
+              "400 μg (Controversial in EE)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Systemic Antimicrobial Selection",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Bacterial: Third-generation cephalosporins (Ceftriaxone 2g IV q12h) or Fluoroquinolones (Moxifloxacin 400mg) for high vitreous penetration.",
+          "Fungal (Candida): Loading dose Fluconazole (400-800mg) or Voriconazole (6mg/kg IV q12h).",
+          "Fungal (Aspergillus): Voriconazole is the gold standard due to superior penetration and survival benefits.",
+          "Duration: Usually 4-6 weeks depending on clearing of systemic focus.",
+          "Coordination: Infectious Disease (ID) consult is mandatory for all EE patients."
+        ]
+      },
+      {
+        "title": "Surgical Intervention: Pars Plana Vitrectomy",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Indication: Severe vitritis preventing visualization, failure of IVT, or rapid progression.",
+          "Objective 1: Reduce microbial load and inflammatory cytokines.",
+          "Objective 2: Obtain large undiluted vitreous sample for diagnostics.",
+          "Objective 3: Clear media for better follow-up and monitoring.",
+          "Technique: 23/25G small-gauge PPV, core vitrectomy usually sufficient; avoid aggressive peripheral shave if retina is necrotic."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Phthisis Bulbi (high risk in Gram-negative cases)",
+          "Tractional or Rhegmatogenous Retinal Detachment",
+          "Secondary Glaucoma (neovascular or inflammatory)",
+          "Evisceration/Enucleation required in 25% of Klebsiella cases",
+          "Poor Visual Outcomes: < 20/200 in ~60% of bacterial EE",
+          "Mortality: Significant risk due to underlying sepsis or endocarditis"
+        ]
+      },
+      {
+        "title": "Remember: The 'PUMP' Mnemonic for Vitritis",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P U M P",
+          "explanation": "P: Primary Source (Find it!), U: Unilateral/Bilateral? (Bilateral favors EE), M: Microbiology (Blood + Vitreous), P: Penetration (Systemic drugs must cross blood-eye barrier)"
+        }
+      },
+      {
+        "title": "Clinical Pearls & High-Yield Facts",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Blood cultures are positive in up to 75% of EE, often higher than vitreous cultures.",
+          "In IVDU, think Bacillus cereus (explosive) or Candida (string of pearls).",
+          "Candida EE usually starts in the choroid and breaks into the vitreous.",
+          "Aspergillus EE often presents with a large subretinal abscess in the macula.",
+          "EVS (Endophthalmitis Vitrectomy Study) criteria DO NOT strictly apply to endogenous cases."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Studies",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Recent literature highlights the increasing role of Intravitreal Voriconazole as a first-line agent for fungal EE due to its safety profile and broad coverage. Genomic sequencing (mNGS) is proving superior to traditional culture in culture-negative cases. Furthermore, early PPV (within 24-48 hours) is increasingly advocated for endogenous Klebsiella cases to save the globe, even if vision remains poor."
+      }
+    ],
+    "generationPrompt": "Endogenous endophthalmitis",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "kanskiMeta": [
+    {
+      "pageNum": 493,
+      "keywords": [
+        "endophthalmitis",
+        "endogenous",
+        "ocular",
+        "within",
+        "uveitis"
+      ]
+    },
+    {
+      "pageNum": 489,
+      "keywords": [
+        "endophthalmitis",
+        "ocular",
+        "within",
+        "uveitis",
+        "bacterial"
+      ]
+    },
+    {
+      "pageNum": 487,
+      "keywords": [
+        "endophthalmitis",
+        "endogenous",
+        "ocular",
+        "uveitis",
+        "bacterial"
+      ]
+    },
+    {
+      "pageNum": 929,
+      "keywords": [
+        "endophthalmitis",
+        "ocular",
+        "emergency",
+        "pathogens",
+        "bacterial"
+      ]
+    },
+    {
+      "pageNum": 336,
+      "keywords": [
+        "endophthalmitis",
+        "within",
+        "uveitis",
+        "bacterial",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 434,
+      "keywords": [
+        "endophthalmitis",
+        "endogenous",
+        "ocular",
+        "uveitis",
+        "bacterial"
+      ]
+    }
+  ]
+}

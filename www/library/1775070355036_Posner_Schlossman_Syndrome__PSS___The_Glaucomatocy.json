@@ -1,0 +1,299 @@
+{
+  "id": 1775070355036,
+  "seqId": 532,
+  "title": "Posner–Schlossman Syndrome (PSS): The Glaucomatocyclitic Crisis",
+  "summary": "A textbook-grade overview of PSS, a rare inflammatory hypertensive condition characterized by unilateral, recurrent bouts of markedly elevated IOP and mild anterior uveitis. Essential for differentiating from acute angle-closure and managing CMV-related trabeculitis.",
+  "date": "2026-04-01T19:05:55.036Z",
+  "data": {
+    "title": "Posner–Schlossman Syndrome (PSS): The Glaucomatocyclitic Crisis",
+    "summary": "A textbook-grade overview of PSS, a rare inflammatory hypertensive condition characterized by unilateral, recurrent bouts of markedly elevated IOP and mild anterior uveitis. Essential for differentiating from acute angle-closure and managing CMV-related trabeculitis.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 100 Q100 40 140 100 Q100 160 60 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><circle cx='100' cy='100' r='10' fill='hsl(215, 90%, 45%)'/><path d='M100 50 L100 30 M150 100 L170 100 M100 150 L100 170 M50 100 L30 100' stroke='red' stroke-width='4'/><text x='110' y='60' fill='red' font-family='Arial' font-weight='bold' font-size='14'>IOP ↑↑↑</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Posner-Schlossman Syndrome (PSS), or Glaucomatocyclitic Crisis, is a clinical entity characterized by recurrent, unilateral episodes of mild non-granulomatous anterior chamber inflammation associated with disproportionately high intraocular pressure (often 40-60 mmHg). Between attacks, the IOP and the eye typically return to normal, though chronic damage can occur with frequent recurrences."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Typical Age (20-50y)",
+              "value": 90
+            },
+            {
+              "label": "Male Predominance",
+              "value": 60
+            },
+            {
+              "label": "Unilateral Presentation",
+              "value": 95
+            },
+            {
+              "label": "HLA-Bw54 Association",
+              "value": 40
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology & Pathophysiology",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "PSS Pathogenesis",
+          "branches": [
+            "Viral Trigger: CMV (most common DNA found in aqueous), HSV, VZV",
+            "Trabeculitis: Acute inflammation of the trabecular meshwork reducing outflow",
+            "Prostaglandin Release: High levels of PGE2 in aqueous during crises",
+            "Allergic/Vascular: History of migraine or vasomotor instability",
+            "Autoimmune: Association with HLA-Bw54 and HLA-Cw1"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features: Symptoms",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Mild ocular discomfort or 'fullness'",
+          "Blurred vision (due to corneal edema/Sattler's veil)",
+          "Colored halos around lights",
+          "Surprisingly white eye (despite high IOP)",
+          "Minimal photophobia compared to other uveitides",
+          "Self-limiting nature (hours to weeks)"
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Structure",
+            "Finding"
+          ],
+          "rows": [
+            [
+              "IOP",
+              "Acute elevation (40–60 mmHg); significantly higher than expected for AC reaction"
+            ],
+            [
+              "Cornea",
+              "Fine, white, 'stellate' KPs on the inferior endothelium; localized edema"
+            ],
+            [
+              "Anterior Chamber",
+              "Mild cells (1-2+), minimal flare; No synechiae (PAS or PS)"
+            ],
+            [
+              "Angle",
+              "Open on gonioscopy; No neovascularization or debris"
+            ],
+            [
+              "Pupil",
+              "May be slightly dilated or sluggish compared to contralateral eye"
+            ],
+            [
+              "Iris",
+              "Rare heterochromia; mild iris atrophy in long-standing cases"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Crucial Differential Diagnosis",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "PSS",
+            "Fuchs (FUS)",
+            "Acute Angle Closure",
+            "Herpetic Uveitis"
+          ],
+          "rows": [
+            [
+              "Angle Status",
+              "Open",
+              "Open",
+              "Closed",
+              "Open/Closed"
+            ],
+            [
+              "Pain Level",
+              "Mild/Discomfort",
+              "None",
+              "Severe/Nausea",
+              "Moderate"
+            ],
+            [
+              "KPs",
+              "Small, few, stellate",
+              "Diffuse, stellate",
+              "None",
+              "Large, greasy (mutton-fat)"
+            ],
+            [
+              "Iris",
+              "Normal/Mild Atrophy",
+              "Heterochromia/Loss of crypts",
+              "Mid-dilated, oval",
+              "Sectoral atrophy"
+            ],
+            [
+              "IOP",
+              "Very High (Episodic)",
+              "Mildly High (Chronic)",
+              "Very High (Acute)",
+              "High (Variable)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup & Investigations",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Goldmann Applanation Tonometry (Essential)",
+          "2. Gonioscopy (Mandatory to rule out angle closure)",
+          "3. Slit Lamp with dilated fundus exam (C:D ratio)",
+          "4. Aqueous humor PCR (Testing for CMV/HSV/VZV DNA)",
+          "5. Visual Fields (SITA-Standard 24-2) for chronic monitoring",
+          "6. OCT-RNFL to assess for glaucomatous damage"
+        ]
+      },
+      {
+        "title": "Acute Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Topical Beta-Blockers (Timolol 0.5% BID)",
+          "2. Alpha-Agonists (Brimonidine 0.2% TID)",
+          "3. Carbonic Anhydrase Inhibitors (Dorzolamide 2% TID)",
+          "4. Topical Steroids (Prednisolone Acetate 1% QID for inflammation)",
+          "5. Oral Acetazolamide (Diamox 250mg) for refractory high IOP",
+          "6. Cycloplegics (rarely needed unless photophobia is significant)"
+        ]
+      },
+      {
+        "title": "CMV-Specific Therapy (Advanced)",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Consider in recurrent/refractory cases with PCR+ results",
+          "Topical Ganciclovir 0.15% gel (5-6 times daily)",
+          "Oral Valganciclovir 900mg BID (loading) then 450-900mg QD",
+          "Long-term prophylaxis may be required to prevent recurrence",
+          "Monitor CBC and LFTs for systemic antiviral toxicity"
+        ]
+      },
+      {
+        "title": "Red Flags & Urgent Concerns",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Developing Posterior Synechiae (Suggests a different diagnosis)",
+          "Progressive Optic Nerve Cupping (Requires aggressive IOP control)",
+          "Ciliary Flush (Suggests more severe anterior uveitis or AACG)",
+          "Constricted Angles on Gonioscopy",
+          "Poor response to aqueous suppressants"
+        ]
+      },
+      {
+        "title": "Mnemonic: P-S-S Diagnosis",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P.S.S.",
+          "explanation": "P: Pressure is sky-high; S: Stellate KPs (minimal); S: Self-limiting & Solitary (unilateral)."
+        }
+      },
+      {
+        "title": "Surgical & Laser Considerations",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Surgical intervention is rarely needed for acute crisis",
+          "Trabeculectomy with Mitomycin-C: If optic nerve damage progresses despite meds",
+          "Glaucoma Drainage Devices (GDD): Secondary option if trabeculectomy fails",
+          "Note: LPI (Laser Peripheral Iridotomy) is NOT indicated as the angle is open"
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Chronic Secondary Open-Angle Glaucoma (25% of long-term cases)",
+          "Optic nerve atrophy/cupping from cumulative pressure spikes",
+          "Corneal endothelial cell loss over time",
+          "Prognosis is generally excellent if IOP is managed during spikes"
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "The IOP elevation in PSS is out of proportion to the mild AC reaction (1+ cell).",
+          "Avoid Pilocarpine: It can exacerbate inflammation and break the blood-aqueous barrier.",
+          "Prostaglandin Analogs (PGAs): Use with caution as they might theoretically worsen uveitis, though evidence in PSS is mixed.",
+          "Always check the fellow eye: While unilateral, patients may have asymmetric optic nerve susceptibility.",
+          "In between attacks, the KPs disappear completely, unlike Fuchs Uveitis Syndrome where they persist."
+        ]
+      },
+      {
+        "title": "Recent Advances: The CMV Connection",
+        "icon": "genetics",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Recent landmark studies using PCR analysis of aqueous humor have revolutionized our understanding of PSS. Cytomegalovirus (CMV) is now identified as the primary etiologic agent in many PSS cases. This has shifted the treatment paradigm for chronic or recurrent PSS toward the use of topical and systemic anti-virals (Ganciclovir/Valganciclovir), which have been shown to reduce the frequency of attacks and the need for glaucoma surgery."
+      }
+    ],
+    "generationPrompt": "Posner–Schlossman syndrome (PSS)",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true,
+  "read": true
+}

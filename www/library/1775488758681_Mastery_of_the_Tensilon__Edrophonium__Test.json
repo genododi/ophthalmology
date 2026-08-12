@@ -1,0 +1,188 @@
+{
+  "id": 1775488758681,
+  "seqId": 739,
+  "title": "Mastery of the Tensilon (Edrophonium) Test",
+  "summary": "The Tensilon test is a diagnostic procedure historically used to confirm Myasthenia Gravis (MG) by temporarily improving neuromuscular transmission. While largely superseded by serological and electrodiagnostic testing, understanding its execution and interpretation remains essential for every ophthalmologist.",
+  "date": "2026-04-06T15:19:18.681Z",
+  "data": {
+    "title": "Mastery of the Tensilon (Edrophonium) Test",
+    "summary": "The Tensilon test is a diagnostic procedure historically used to confirm Myasthenia Gravis (MG) by temporarily improving neuromuscular transmission. While largely superseded by serological and electrodiagnostic testing, understanding its execution and interpretation remains essential for every ophthalmologist.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q 50 30 70 50' stroke='hsl(215, 90%, 45%)' stroke-width='4' fill='none'/><circle cx='35' cy='50' r='5' fill='hsl(215, 90%, 45%)'/><circle cx='65' cy='50' r='5' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Mechanism",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Edrophonium chloride is a rapid-acting, short-lived acetylcholinesterase inhibitor. It prevents the degradation of acetylcholine (ACh) in the synaptic cleft, increasing the probability of binding to postsynaptic nicotinic ACh receptors. In patients with MG, this transiently overcomes the blockade caused by autoantibodies, resulting in objective improvement of ptosis or extraocular muscle (EOM) function."
+      },
+      {
+        "title": "Safety Protocols (RED FLAGS)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Atropine sulfate (0.5–1.0 mg) MUST be at the bedside in a syringe to counteract cholinergic crisis/bradycardia.",
+          "Cardiac monitoring and pulse oximetry are mandatory during the procedure.",
+          "Contraindicated in patients with asthma, COPD, and high-degree AV block.",
+          "The test is considered 'positive' only if an objective, quantifiable improvement (e.g., ptosis reversal) is observed."
+        ]
+      },
+      {
+        "title": "Procedure Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Baseline measurement of ptosis (palpebral fissure height) and EOM motility.",
+          "Step 2: Administer 2 mg IV over 15-30 seconds as a test dose.",
+          "Step 3: Wait 60 seconds. Monitor for side effects (fasciculations, bradycardia).",
+          "Step 4: If no side effects, administer the remaining 8 mg IV.",
+          "Step 5: Observe and record maximal improvement within 2-5 minutes of injection."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis for Ptosis/Diplopia",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Distinguishing Feature"
+          ],
+          "rows": [
+            [
+              "Myasthenia Gravis",
+              "Fatigability, diurnal variation"
+            ],
+            [
+              "Thyroid Eye Disease",
+              "Proptosis, lid lag, EOM restriction"
+            ],
+            [
+              "Chronic Progressive External Ophthalmoplegia",
+              "Symmetrical, slow progression"
+            ],
+            [
+              "Oculomotor Nerve Palsy",
+              "Pupillary involvement (if compressive)"
+            ],
+            [
+              "Lambert-Eaton Syndrome",
+              "Improvement with repetitive stimulation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic for Side Effects",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "SLUDGE",
+          "explanation": "Salivation, Lacrimation, Urination, Defecation, Gastric upset, Emesis (Muscarinic effects of cholinergic excess)."
+        }
+      },
+      {
+        "title": "Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "The test is highly sensitive for ocular MG but has low specificity (false positives in ALS, Eaton-Lambert, and brainstem lesions).",
+          "Place a cold pack over the ptotic eyelid for 2 minutes (Ice Pack Test) as a safe, non-pharmacological alternative.",
+          "Always document the objective measurement (e.g., 'Ptosis improved from 2mm to 7mm').",
+          "Sensitivity decreases as the duration of MG increases."
+        ]
+      },
+      {
+        "title": "Diagnostic Accuracy (Comparative)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "AChR Antibody",
+              "value": 85
+            },
+            {
+              "label": "Tensilon Test",
+              "value": 75
+            },
+            {
+              "label": "Ice Pack Test",
+              "value": 80
+            },
+            {
+              "label": "Single Fiber EMG",
+              "value": 95
+            }
+          ]
+        }
+      }
+    ],
+    "generationPrompt": "Edrophonium test / tensilon test",
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "read": true,
+  "bookmarked": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 552,
+      "keywords": [
+        "rop"
+      ]
+    },
+    {
+      "pageNum": 553,
+      "keywords": [
+        "rop"
+      ]
+    },
+    {
+      "pageNum": 831,
+      "keywords": [
+        "tensilon",
+        "edrophonium",
+        "neuromuscular",
+        "procedure",
+        "differential"
+      ]
+    },
+    {
+      "pageNum": 832,
+      "keywords": [
+        "edrophonium",
+        "test",
+        "myasthenia gravis",
+        "ptosis"
+      ]
+    },
+    {
+      "pageNum": 557,
+      "keywords": [
+        "rop",
+        "differential"
+      ]
+    },
+    {
+      "pageNum": 7,
+      "keywords": [
+        "rop",
+        "test"
+      ]
+    }
+  ]
+}

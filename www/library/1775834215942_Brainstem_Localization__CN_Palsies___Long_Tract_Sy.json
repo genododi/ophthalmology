@@ -1,0 +1,348 @@
+{
+  "id": 1775834215942,
+  "seqId": 786,
+  "title": "Brainstem Localization: CN Palsies & Long Tract Syndromes",
+  "summary": "A comprehensive clinical guide to localizing brainstem lesions by integrating cranial nerve deficits with motor and sensory 'long tract' signs. Essential for diagnosing strokes, tumors, and demyelinating lesions of the midbrain, pons, and medulla.",
+  "date": "2026-04-10T15:16:55.942Z",
+  "data": {
+    "title": "Brainstem Localization: CN Palsies & Long Tract Syndromes",
+    "summary": "A comprehensive clinical guide to localizing brainstem lesions by integrating cranial nerve deficits with motor and sensory 'long tract' signs. Essential for diagnosing strokes, tumors, and demyelinating lesions of the midbrain, pons, and medulla.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><path d='M100 20c-20 0-40 10-40 50 0 30 15 40 15 60 0 20-5 30-5 50h60c0-20-5-30-5-50 0-20 15-30 15-60 0-40-20-50-40-50z' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='85' cy='60' r='8' fill='hsl(215, 90%, 45%)'/><circle cx='115' cy='60' r='8' fill='hsl(215, 90%, 45%)'/><line x1='100' y1='100' x2='100' y2='180' stroke='hsl(0, 80%, 50%)' stroke-width='3' stroke-dasharray='4'/><text x='130' y='140' font-family='Arial' font-size='12' fill='hsl(215, 90%, 45%)'>Long Tracts</text></svg>",
+    "sections": [
+      {
+        "title": "Definition & Clinical Overview",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Long tract signs refer to neurological deficits resulting from damage to the major pathways traversing the brainstem: the Corticospinal (motor), Medial Lemniscus (fine touch/vibration), and Spinothalamic (pain/temp) tracts. When combined with ipsilateral Cranial Nerve (CN) palsies, they provide 'crossed signs'—the hallmark of brainstem localization."
+      },
+      {
+        "title": "The Big Three Long Tracts",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Long Tract",
+            "Function",
+            "Clinical Sign (Contralateral)"
+          ],
+          "rows": [
+            [
+              "Corticospinal",
+              "Motor movement",
+              "Hemiparesis / Hemiplegia"
+            ],
+            [
+              "Medial Lemniscus",
+              "Vibration/Proprioception",
+              "Loss of deep sensation"
+            ],
+            [
+              "Spinothalamic",
+              "Pain/Temperature",
+              "Loss of pain/temp sensation"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Midbrain Syndromes (CN III Focus)",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "CN III + Long Tracts",
+          "branches": [
+            "Weber (Ventral): Ipsilateral CN III + Contralateral Hemiparesis",
+            "Benedikt (Tegetum): Ipsilateral CN III + Contralateral Tremor/Chorea",
+            "Claude (Dorsal): Ipsilateral CN III + Contralateral Ataxia",
+            "Nothnagel: Ipsilateral CN III + Cerebellar Ataxia (Superior Cerebellar Peduncle)",
+            "Parinaud (Dorsal Midbrain): Vertical gaze palsy + Convergence-retraction nystagmus"
+          ]
+        }
+      },
+      {
+        "title": "Weber Syndrome: The Classic Ventral Lesion",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Etiology: Occlusion of paramedian branches of PCA or top-of-basilar artery.",
+          "Ipsilateral Finding: Complete CN III palsy (ptosis, 'down and out' eye, dilated pupil).",
+          "Contralateral Finding: Hemiparesis of face, arm, and leg (Corticospinal/Corticobulbar tracts).",
+          "Localization: Cerebral peduncle of the midbrain."
+        ]
+      },
+      {
+        "title": "Benedikt vs. Claude Syndromes",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Feature",
+            "Benedikt",
+            "Claude"
+          ],
+          "rows": [
+            [
+              "Nerve Involvement",
+              "Ipsilateral CN III",
+              "Ipsilateral CN III"
+            ],
+            [
+              "Tract Involvement",
+              "Red Nucleus / Substantia Nigra",
+              "Superior Cerebellar Peduncle"
+            ],
+            [
+              "Long Tract Sign",
+              "Contralateral Tremor/Chorea",
+              "Contralateral Hemi-ataxia"
+            ],
+            [
+              "Location",
+              "Ventral Tegmentum",
+              "Dorsal Tegmentum"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The Rule of 4s for Brainstem Anatomy",
+        "icon": "school",
+        "type": "remember",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "4-4-4 Rule",
+          "explanation": "4 CNs above pons (1,2,3,4); 4 CNs in pons (5,6,7,8); 4 CNs in medulla (9,10,11,12). 4 Medial structures (Motor nuclei, Motor tract/Corticospinal, MLF, Medial Lemniscus). 4 Lateral structures (Spinocerebellar, Spinothalamic, Sensory nucleus of CN 5, Sympathetic pathway)."
+        }
+      },
+      {
+        "title": "Pontine Syndromes (CN VI & VII Focus)",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "center": "Pontine Lesions",
+          "branches": [
+            "Millard-Gubler (Ventral): CN VI + VII + Hemiparesis",
+            "Foville (Dorsal): CN VI + VII + PPRF + Hemiparesis",
+            "Raymond: CN VI + Hemiparesis (spares CN VII)",
+            "Locked-In: Bilateral Ventral Pons (Bilateral paralysis except vertical gaze)"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Pupil Involvement & Emergencies",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden 'Worst Headache of Life' + CN III: Suspect PCom Aneurysm.",
+          "CN III + Long Tract Signs: Suspect acute Midbrain Infarct (Stroke).",
+          "Bilateral CN III involvement: High risk for dorsal midbrain compression/herniation.",
+          "Rapidly progressing vertical gaze palsy: Parinaud syndrome (Pinealoma)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Crossed Signs",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Onset",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Ischemic Stroke",
+              "Sudden/Acute",
+              "Vascular risk factors, discrete neurological deficits."
+            ],
+            [
+              "Brainstem Glioma",
+              "Subacute/Chronic",
+              "Progressive worsening, cranial nerve 'clumping'."
+            ],
+            [
+              "Multiple Sclerosis",
+              "Variable",
+              "Dissemination in time and space; INO is common."
+            ],
+            [
+              "Brainstem Hemorrhage",
+              "Hyperacute",
+              "Severe hypertension, rapid coma, 'pinpoint' pupils."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Clinical localization (Is the lesion in the Midbrain, Pons, or Medulla?).",
+          "Step 2: Emergency Non-Contrast CT to rule out hemorrhage.",
+          "Step 3: MRI Brain with DWI/ADC and gadolinium (Gold standard for infarct/tumor/demyelination).",
+          "Step 4: MRA or CTA of the head and neck to evaluate the vertebrobasilar system.",
+          "Step 5: Ancillary labs (Glucose, Lipids, HbA1c) and Cardiac echo/Holter if stroke is suspected."
+        ]
+      },
+      {
+        "title": "Incidence of Brainstem Syndromes",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Ischemic Stroke",
+              "value": 75
+            },
+            {
+              "label": "Hemorrhage",
+              "value": 15
+            },
+            {
+              "label": "Tumor/Demyelination",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Medullary Syndromes (Wallenberg)",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Classic Lateral Medullary Syndrome (PICA occlusion).",
+          "Nerve Signs: Ipsilateral CN IX, X (hoarseness, dysphagia), CN V (facial numbness), Horner Syndrome.",
+          "Long Tract Signs: Contralateral Spinothalamic (pain/temp loss) + Ipsilateral Cerebellar Ataxia.",
+          "Note: Does NOT involve CN III, IV, or VI, but crucial for 'long tract' differential."
+        ]
+      },
+      {
+        "title": "Surgical & Medical Management",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Acute Stroke: Consider IV Thrombolytics (Alteplase/Tenecteplase) within 4.5 hours or Endovascular Thrombectomy for large vessel occlusion.",
+          "Secondary Prevention: Antiplatelets (Aspirin/Clopidogrel), Statins, and Blood Pressure control.",
+          "Tumor: Neurosurgical consultation for biopsy or resection; Radiation/Chemotherapy as indicated.",
+          "Demyelination (MS): IV Methylprednisolone (1g/day for 3-5 days) for acute flares.",
+          "Diplopia Management: Patching, Prisms (Fresnel), or Strabismus surgery after 6-12 months of stability."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "If the pupil is involved in CN III palsy, imaging for aneurysm is mandatory, even if long tract signs are absent.",
+          "Weber syndrome involves the cerebral peduncle; if the lesion moves dorsally, it becomes Benedikt.",
+          "Pontine lesions involving the PPRF will cause an 'ipsilateral gaze palsy'—the patient looks AWAY from the lesion.",
+          "Skilled localization can often predict the specific artery involved (e.g., PICA vs. AICA vs. Basilar)."
+        ]
+      },
+      {
+        "title": "Landmark Study: TOPAS",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "The 'Top of the Basilar' Artery Syndrome (Caplan, 1980) remains a sentinel study, describing how distal basilar occlusion causes multi-level brainstem and thalamic ischemia, presenting with complex ocular motility disorders and behavioral changes."
+      }
+    ],
+    "generationPrompt": "Long tract signs / syndromes with 3rd nerve palsy & other cranial nerves",
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "bookmarked": true,
+  "read": true,
+  "kanskiMeta": [
+    {
+      "pageNum": 810,
+      "keywords": [
+        "brainstem",
+        "palsies",
+        "lesion",
+        "pupil",
+        "involvement"
+      ]
+    },
+    {
+      "pageNum": 816,
+      "keywords": [
+        "brainstem",
+        "syndrome",
+        "ventral",
+        "lesion",
+        "pontine"
+      ]
+    },
+    {
+      "pageNum": 809,
+      "keywords": [
+        "palsies",
+        "syndromes",
+        "midbrain",
+        "weber",
+        "syndrome"
+      ]
+    },
+    {
+      "pageNum": 86,
+      "keywords": [
+        "syndromes",
+        "syndrome",
+        "lesion",
+        "anatomy",
+        "ptosis"
+      ]
+    },
+    {
+      "pageNum": 895,
+      "keywords": [
+        "syndromes",
+        "syndrome",
+        "lesion",
+        "involvement",
+        "diagnostic"
+      ]
+    },
+    {
+      "pageNum": 813,
+      "keywords": [
+        "brainstem",
+        "lesion",
+        "anatomy",
+        "involvement",
+        "crossed"
+      ]
+    }
+  ]
+}

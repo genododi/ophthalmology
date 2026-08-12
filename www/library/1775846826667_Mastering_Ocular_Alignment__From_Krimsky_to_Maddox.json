@@ -1,0 +1,356 @@
+{
+  "id": 1775846826667,
+  "seqId": 792,
+  "title": "Mastering Ocular Alignment: From Krimsky to Maddox",
+  "summary": "A comprehensive guide to motor and sensory strabismus examination techniques. This poster details the gold-standard Prism Cover Test, corneal reflex methods, and subjective dissociation tests used by fellowship-trained pediatric ophthalmologists and strabismologists.",
+  "date": "2026-04-10T18:47:06.667Z",
+  "data": {
+    "title": "Mastering Ocular Alignment: From Krimsky to Maddox",
+    "summary": "A comprehensive guide to motor and sensory strabismus examination techniques. This poster details the gold-standard Prism Cover Test, corneal reflex methods, and subjective dissociation tests used by fellowship-trained pediatric ophthalmologists and strabismologists.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><path d='M100 20 L170 160 L30 160 Z' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='8'/><circle cx='100' cy='105' r='25' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><line x1='100' y1='20' x2='100' y2='180' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='5,5'/><path d='M60 105 Q100 60 140 105' fill='none' stroke='hsl(15, 90%, 55%)' stroke-width='4'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Overview & Physiology",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "Ocular Alignment Testing",
+          "branches": [
+            "Objective Motor Tests (PCT, Krimsky, Hirschberg)",
+            "Subjective Sensory Tests (Maddox Rod, Maddox Wing)",
+            "Physiology: Hering's Law of Equal Innervation",
+            "Physiology: Sherrington's Law of Reciprocal Innervation",
+            "Dissociation: Breaking fusion to reveal phorias"
+          ]
+        }
+      },
+      {
+        "title": "The Gold Standard: Prism Cover Test (PCT)",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Ensure patient has adequate visual acuity for fixation (ideally 6/60 or better).",
+          "Step 2: Perform Cover-Uncover test to differentiate Tropia (manifest) from Phoria (latent).",
+          "Step 3: Perform Alternate Cover Test (ACT) to dissociate the eyes and reveal total deviation.",
+          "Step 4: Introduce prisms over one eye (usually non-fixing) until all movement is neutralized.",
+          "Step 5: Over-correct slightly and then reduce to find the exact neutralization point."
+        ]
+      },
+      {
+        "title": "Krimsky vs. Modified Krimsky",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Krimsky Test",
+            "Modified Krimsky"
+          ],
+          "rows": [
+            [
+              "Prism Placement",
+              "Over the FIXATING eye",
+              "Over the DEVIATING eye"
+            ],
+            [
+              "Clinical Indication",
+              "Poor VA in deviating eye; fixating eye preferred",
+              "Commonly used when fixating eye has better VA"
+            ],
+            [
+              "Observation",
+              "Watch reflex in the deviating eye center",
+              "Watch reflex in the deviating eye center"
+            ],
+            [
+              "Mechanism",
+              "Uses Hering's Law: Prism induces version in both eyes",
+              "Directly shifts the light reflex in the deviating eye"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Maddox Rod: Subjective Dissociation",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Optical Principle: High-powered cylinders convert a point source of light into a streak.",
+          "Orientation: The streak is perceived 90 degrees to the axis of the cylinders.",
+          "Horizontal Deviation: Rods horizontal -> Vertical streak (measures Esophoria/Exophoria).",
+          "Vertical Deviation: Rods vertical -> Horizontal streak (measures Hyperphoria).",
+          "Cyclodeviation: Use two Maddox rods (Double Maddox Rod test) to measure degrees of torsion."
+        ]
+      },
+      {
+        "title": "Maddox Wing: Near Measurement",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Fixed Distance: Measured specifically at 33 cm (near).",
+          "Dissociation: Septum separates the two eyes visually.",
+          "Right Eye Sees: White arrow (horizontal) and Red arrow (vertical).",
+          "Left Eye Sees: Horizontal scale (numbers) and Vertical scale (numbers).",
+          "Measurement: Patient reports where the arrow points on the numbered scale.",
+          "Torsion: Includes a small adjustable lever for measuring cyclodeviation."
+        ]
+      },
+      {
+        "title": "Head-to-Head: Maddox Rod vs. Maddox Wing",
+        "icon": "compare",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Parameter",
+            "Maddox Rod",
+            "Maddox Wing"
+          ],
+          "rows": [
+            [
+              "Testing Distance",
+              "Distance (6m) and Near (33cm)",
+              "Near Only (33cm)"
+            ],
+            [
+              "Type of Deviation",
+              "Phoria and Tropia (if no suppression)",
+              "Heterophoria Only"
+            ],
+            [
+              "Nature of Test",
+              "Subjective dissociation by color/shape",
+              "Subjective dissociation by septum/spatial"
+            ],
+            [
+              "Convergence Stress",
+              "Minimal",
+              "Stimulates proximal convergence"
+            ],
+            [
+              "Clinical Use",
+              "Detection of small phorias/torsion",
+              "Rapid screening of near phorias"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Critical Prism Rules & Orientation",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Prism Orientation: Glass prisms MUST be held in the position of minimum deviation.",
+          "Plastic/Fresnel Prisms: Must be held in the Frontal Plane (Preston's position).",
+          "Apex vs. Base: Prisms always shift the image towards the APEX; Base goes opposite to the deviation.",
+          "Stacking Prisms: Do not stack two prisms of the same direction in one eye; additive error occurs.",
+          "Oblique Deviations: Do not tilt the prism; use two separate prisms for vertical and horizontal."
+        ]
+      },
+      {
+        "title": "Mnemonics for the Resident",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "MR. H-V & V-H",
+          "explanation": "Maddox Rod: Horizontal cylinders = Vertical streak (Horizontal dev). Vertical cylinders = Horizontal streak (Vertical dev)."
+        }
+      },
+      {
+        "title": "Hirschberg Test: The 1mm Rule",
+        "icon": "straighten",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Pupillary Margin (mm)",
+              "value": 15
+            },
+            {
+              "label": "Mid-Iris (mm)",
+              "value": 30
+            },
+            {
+              "label": "Limbus (mm)",
+              "value": 45
+            }
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis: Pseudo-Strabismus",
+        "icon": "fingerprint",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Pseudo-Strabismus",
+          "branches": [
+            "Epicanthal Folds (Pseudo-Esotropia)",
+            "Positive Angle Kappa (Pseudo-Exotropia)",
+            "Negative Angle Kappa (Pseudo-Esotropia)",
+            "Wide Interpupillary Distance (IPD)",
+            "Facial Asymmetry"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "school",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Hirschberg (Screening for gross deviation)",
+          "2. Cover-Uncover (Determine manifest vs latent)",
+          "3. Alternate Cover Test (Measure total deviation with PCT)",
+          "4. Extraocular Motility (Check for underactions/overactions)",
+          "5. Sensory Testing (Worth 4-Dot, Bagolini, Stereoacuity)",
+          "6. Cycloplegic Refraction (Essential for Accommodative Esotropia)"
+        ]
+      },
+      {
+        "title": "Landmark Concept: Prism Adaptation Test (PAT)",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "The Prism Adaptation Test (PAT) involves wearing prisms for hours or days to evaluate for 'prism adaptation' or 'eating the prism.' In the landmark PAT study, patients with acquired esotropia who responded to prisms with further deviation required larger surgical dosages for successful outcomes."
+      },
+      {
+        "title": "Clinical Pearls & Pitfalls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Bielschowsky Head Tilt Test: Mandatory for identifying the paretic muscle in vertical deviations (Superior Oblique palsy).",
+          "Monocular vs. Binocular: PCT is a binocular test; Hirschberg/Krimsky are technically binocular but used when binocularity is disrupted.",
+          "Prism Diopter (PD) vs. Degrees: 1 Degree ≈ 2 Prism Diopters.",
+          "Suppression: If a patient suppresses, Maddox Rod will only show one image; the test becomes invalid.",
+          "Latent Nystagmus: Use a high plus lens (e.g., +10.00D) instead of an opaque occluder to prevent inducing nystagmus during PCT."
+        ]
+      },
+      {
+        "title": "Pediatric Strabismus Grading",
+        "icon": "child_care",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Severity",
+            "Prism Diopters (PD)",
+            "Clinical Significance"
+          ],
+          "rows": [
+            [
+              "Microtropia",
+              "< 10 PD",
+              "Central suppression scotoma"
+            ],
+            [
+              "Small Angle",
+              "10 - 20 PD",
+              "Often managed with prisms/glasses"
+            ],
+            [
+              "Large Angle",
+              "> 30 PD",
+              "Usually requires surgical intervention"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Emergency Red Flags",
+        "icon": "report",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden Onset Diplopia: Rule out 3rd, 4th, or 6th Nerve Palsy.",
+          "Varying Deviation: Rule out Myasthenia Gravis (check for ptosis/fatigue).",
+          "New Onset Esotropia: Rule out intracranial pressure elevation (CN VI palsy).",
+          "Strabismus with Leukocoria: MUST rule out Retinoblastoma via dilated fundus exam.",
+          "Pupil Involving 3rd Nerve Palsy: Emergency! Neuro-imaging for Aneurysm."
+        ]
+      }
+    ],
+    "generationPrompt": "Krimsky vs modified krimsky\nPrism cover test\nMaddox rod vs maddox wing",
+    "chapterId": "strabismus"
+  },
+  "chapterId": "strabismus",
+  "kanskiMeta": [
+    {
+      "pageNum": 731,
+      "keywords": [
+        "maddox",
+        "strabismus",
+        "prism",
+        "cover",
+        "test"
+      ]
+    },
+    {
+      "pageNum": 454,
+      "keywords": [
+        "ocular",
+        "differential",
+        "nystagmus"
+      ]
+    },
+    {
+      "pageNum": 186,
+      "keywords": [
+        "ocular",
+        "pseudo"
+      ]
+    },
+    {
+      "pageNum": 830,
+      "keywords": [
+        "ocular",
+        "head",
+        "pseudo",
+        "ptosis",
+        "myasthenia gravis"
+      ]
+    },
+    {
+      "pageNum": 831,
+      "keywords": [
+        "ocular",
+        "test",
+        "measurement",
+        "rule",
+        "differential"
+      ]
+    },
+    {
+      "pageNum": 164,
+      "keywords": [
+        "ocular",
+        "physiology"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "id": 1775115679727,
+  "seqId": 545,
+  "title": "Post-Operative Visual Decline: The 4-Week Post-Cataract Crisis",
+  "summary": "Visual decline four weeks post-cataract surgery is a complex diagnostic challenge requiring immediate differentiation between infectious, inflammatory, and structural etiologies. This guide provides a systematic clinical framework for the evaluation and management of delayed-onset visual loss.",
+  "date": "2026-04-02T07:41:19.727Z",
+  "data": {
+    "title": "Post-Operative Visual Decline: The 4-Week Post-Cataract Crisis",
+    "summary": "Visual decline four weeks post-cataract surgery is a complex diagnostic challenge requiring immediate differentiation between infectious, inflammatory, and structural etiologies. This guide provides a systematic clinical framework for the evaluation and management of delayed-onset visual loss.",
+    "summary_illustration": "<svg viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q50 20 70 50 T50 80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Differential Diagnosis (V.O.M.I.T.S. Approach)",
+        "icon": "science",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Category",
+            "Diagnosis",
+            "Key Clinical Finding"
+          ],
+          "rows": [
+            [
+              "Infectious",
+              "Delayed-Onset Endophthalmitis",
+              "Propionibacterium acnes, white plaque on capsule"
+            ],
+            [
+              "Inflammatory",
+              "Cystoid Macular Edema (CME)",
+              "Irvine-Gass syndrome, OCT central macular thickness"
+            ],
+            [
+              "Structural",
+              "Posterior Capsular Opacification (PCO)",
+              "Elschnig pearls, Soemmering ring"
+            ],
+            [
+              "Retinal",
+              "Retinal Detachment",
+              "Peripheral break, vitreous hemorrhage"
+            ],
+            [
+              "Corneal",
+              "Late-onset bullous keratopathy",
+              "Pachymetry elevation, epithelial edema"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Immediate Referral Needed",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Painful eye (ciliary injection, photophobia)",
+          "Hypopyon (even if small)",
+          "Dense vitreous debris/haze",
+          "RAPD (Relative Afferent Pupillary Defect)",
+          "IOP > 30 mmHg unresponsive to topical therapy"
+        ]
+      },
+      {
+        "title": "Cystoid Macular Edema (CME) Diagnostic Protocol",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Perform dilated fundoscopy to assess macular contour.",
+          "Step 2: Obtain Spectral-Domain OCT (look for intraretinal fluid pockets).",
+          "Step 3: Consider FFA (Fundus Fluorescein Angiography) for late-phase petaloid staining.",
+          "Step 4: Initiate topical NSAIDs (Bromfenac 0.09% or Nepafenac 0.3%) + topical steroids.",
+          "Step 5: Follow-up at 2 weeks post-initiation."
+        ]
+      },
+      {
+        "title": "P. acnes Endophthalmitis: Clinical Pearls",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Often misdiagnosed as chronic uveitis.",
+          "Classic 'White Plaque' located in the lens capsular bag.",
+          "Fluctuating vision is characteristic.",
+          "Requires pars plana vitrectomy with capsular bag lavage.",
+          "Intravitreal vancomycin is the gold standard treatment."
+        ]
+      },
+      {
+        "title": "Mnemonic: Why is the vision dropping?",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "C.L.E.A.R.",
+          "explanation": "C: Cystoid Macular Edema, L: Lens/Capsule (PCO/IOL tilt), E: Endophthalmitis (Delayed), A: Ametropia (Residual refractive error), R: Retinal (RD or ERM)."
+        }
+      },
+      {
+        "title": "Incidence of Complications (Relative)",
+        "icon": "monitoring",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "PCO",
+              "value": 90
+            },
+            {
+              "label": "CME",
+              "value": 30
+            },
+            {
+              "label": "RD",
+              "value": 5
+            },
+            {
+              "label": "Endophthalmitis",
+              "value": 2
+            }
+          ]
+        }
+      },
+      {
+        "title": "Management of PCO",
+        "icon": "healing",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Nd:YAG laser capsulotomy is the definitive treatment for symptomatic PCO. Ensure the IOL is stable and no active inflammation is present. Typical energy levels: 0.8–2.0 mJ per shot. Complications include IOL pitting, transient IOP spikes, and retinal detachment (rare). Check IOP 1 hour post-procedure."
+      }
+    ],
+    "generationPrompt": "Decreased VA after 4 weeks of cataract surgery",
+    "chapterId": "lens"
+  },
+  "chapterId": "lens",
+  "communitySource": true,
+  "author": "dodi",
+  "citation": "Author: dodi",
+  "_serverSynced": true
+}

@@ -1,0 +1,289 @@
+{
+  "id": 1775201266749,
+  "seqId": 608,
+  "title": "LHON: The Mitochondrial Silent Thief of Sight",
+  "summary": "Leber Hereditary Optic Neuropathy (LHON) is the most common primary mitochondrial DNA (mtDNA) disorder, characterized by subacute, painless, bilateral central vision loss primarily affecting young males. It represents a paradigm of mitochondrial genetics and selective retinal ganglion cell (RGC) vulnerability.",
+  "date": "2026-04-03T07:27:46.749Z",
+  "data": {
+    "title": "LHON: The Mitochondrial Silent Thief of Sight",
+    "summary": "Leber Hereditary Optic Neuropathy (LHON) is the most common primary mitochondrial DNA (mtDNA) disorder, characterized by subacute, painless, bilateral central vision loss primarily affecting young males. It represents a paradigm of mitochondrial genetics and selective retinal ganglion cell (RGC) vulnerability.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M70 100 Q100 130 130 100' stroke='hsl(215, 90%, 45%)' stroke-width='4' fill='none'/><circle cx='100' cy='100' r='20' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M100 60 L100 140 M60 100 L140 100' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/><path d='M85 85 L115 115 M115 85 L85 115' stroke='red' stroke-width='3'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "LHON is a maternally inherited mitochondrial disease resulting from mutations in the ND genes (encoding subunits of Complex I of the respiratory chain). It causes selective apoptosis of Retinal Ganglion Cells (RGCs), specifically the parvocellular pathway, leading to severe optic atrophy and permanent central scotoma."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Male Predominance",
+              "value": 85
+            },
+            {
+              "label": "Age of Onset (15-35 yrs)",
+              "value": 70
+            },
+            {
+              "label": "Carrier Conversion Rate (Male)",
+              "value": 50
+            },
+            {
+              "label": "Carrier Conversion Rate (Female)",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "title": "Genetics: The 'Big Three' Mutations",
+        "icon": "genetics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Mutation",
+            "Prevalence",
+            "Prognosis",
+            "Spontaneous Recovery"
+          ],
+          "rows": [
+            [
+              "m.11778G>A (ND4)",
+              "60-90% (Most Common)",
+              "Poorest",
+              "< 4%"
+            ],
+            [
+              "m.14484T>C (ND6)",
+              "10-15%",
+              "Best",
+              "37-65%"
+            ],
+            [
+              "m.3460G>A (ND1)",
+              "8-15%",
+              "Intermediate",
+              "20%"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology Mindmap",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "RGC Death",
+          "branches": [
+            "Complex I Dysfunction",
+            "Reactive Oxygen Species (ROS) ↑",
+            "ATP Production ↓",
+            "Glutamate Excitotoxicity",
+            "Axonal Transport Stasis"
+          ]
+        }
+      },
+      {
+        "title": "Clinical Progression Stages",
+        "icon": "timeline",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Asymptomatic Carrier (Normal acuity, subclinical RNFL thickening)",
+          "Step 2: Subacute Phase (Weeks 0-6): Rapid painless vision loss, dyschromatopsia",
+          "Step 3: Dynamic Phase (Months 1-6): Fellow eye involved (sequential > simultaneous)",
+          "Step 4: Chronic Phase (>6-12 Months): Progressive RNFL loss, optic atrophy"
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Peripapillary telangiectatic microangiopathy",
+          "Pseudo-edema: Swelling of the nerve fiber layer (NFL) without leakage",
+          "Absence of Optic Disc Cupping (unlike glaucoma)",
+          "Tortuosity of retinal arterioles",
+          "Centrocecal scotoma on Visual Field testing",
+          "Pupillary light reflex is often DISPROPORTIONATELY spared"
+        ]
+      },
+      {
+        "title": "Diagnostic Investigation Workup",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Genetic Testing: Targeted screening for the 3 primary mutations",
+          "OCT RNFL/GCL: Shows temporal thinning followed by global atrophy",
+          "Fluorescein Angiography (FFA): CRITICAL to show NO disc leakage",
+          "Visual Field (Goldmann or HVF): Demonstrates central/centrocecal scotomas",
+          "Neuroimaging (MRI): To rule out compressive or demyelinating lesions"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis Table",
+        "icon": "psychology",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "LHON",
+            "Optic Neuritis (MS)",
+            "Toxic/Nutritional",
+            "DOA (OPA1)"
+          ],
+          "rows": [
+            [
+              "Pain",
+              "Absent",
+              "Present (90%)",
+              "Absent",
+              "Absent"
+            ],
+            [
+              "Onset",
+              "Subacute",
+              "Acute",
+              "Gradual",
+              "Insidious/Childhood"
+            ],
+            [
+              "Laterality",
+              "Sequential/Bilateral",
+              "Unilateral",
+              "Bilateral/Symmetric",
+              "Bilateral/Symmetric"
+            ],
+            [
+              "FFA Leak",
+              "No",
+              "Yes",
+              "No",
+              "No"
+            ],
+            [
+              "Genetics",
+              "Mitochondrial",
+              "None",
+              "None",
+              "Autosomal Dominant"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Red Flags & Contraindications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Smoking: Strongest environmental trigger for conversion",
+          "Excessive Alcohol: Synergistic effect with tobacco",
+          "Ethambutol/Linezolid: Avoid mitochondrial toxins",
+          "Rapid, Painful loss: Consider inflammatory etiology instead",
+          "Extraocular Signs: 'LHON Plus' (Dystonia, tremors, MS-like symptoms)"
+        ]
+      },
+      {
+        "title": "Mnemonics for the Clinic",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "THE THREE S's of LHON",
+          "explanation": "S: SYMMETRIC (eventually), S: SUBACUTE (painless), S: SMOKING (must stop!)"
+        }
+      },
+      {
+        "title": "Management & Treatment Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Lifestyle Modification: Immediate cessation of smoking and limited alcohol consumption.",
+          "Step 2: Idebenone (Raxone): 900mg/day (300mg TID). Start early for best results, continue for at least 1 year.",
+          "Step 3: Gene Therapy (Lumevoq/GS010): Intravitreal injection of rAAV2/2-ND4. Recent studies show bilateral benefit after unilateral injection.",
+          "Step 4: Supportive Care: Low vision aids and genetic counseling for maternal relatives."
+        ]
+      },
+      {
+        "title": "Prognosis: Spontaneous Recovery Potential",
+        "icon": "trending_up",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "14484 Recovery rate",
+              "value": 60
+            },
+            {
+              "label": "3460 Recovery rate",
+              "value": 20
+            },
+            {
+              "label": "11778 Recovery rate",
+              "value": 4
+            }
+          ]
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "LHON is often misdiagnosed as 'Retrobulbar Optic Neuritis' in the early phase.",
+          "Fenestration of the optic nerve sheath is CONTRAINDICATED.",
+          "The pseudo-edema corresponds to stasis of axoplasmic transport, NOT fluid.",
+          "Melanopsin-containing RGCs are spared, explaining the preserved pupillary reflex.",
+          "Wait at least 12-18 months before declaring no chance of spontaneous recovery."
+        ]
+      },
+      {
+        "title": "Landmark Studies & Recent Advances",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "RESCUE & REVERSE Trials: Evaluated Lumevoq gene therapy for ND4 mutations.",
+          "REFLECT Trial: Confirmed the efficacy of bilateral IVT gene therapy injections.",
+          "RHODOS Trial: Provided the evidence base for high-dose Idebenone (900mg/day).",
+          "The 'Bilateral Benefit' Phenomenon: Discovery of viral vector transfer via the optic chiasm."
+        ]
+      }
+    ],
+    "generationPrompt": "LHON",
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro"
+}

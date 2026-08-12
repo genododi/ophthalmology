@@ -1,0 +1,353 @@
+{
+  "id": 1782757248534,
+  "seqId": 861,
+  "title": "Painless Panuveitis: Clinical Differential Diagnosis & Workup",
+  "summary": "A comprehensive, high-yield clinical roadmap for identifying, investigating, and managing non-painful panuveitis. Designed for ophthalmology residents and retina/uveitis fellows to differentiate infectious, autoimmune, and malignant masquerades.",
+  "date": "2026-06-29T18:20:48.534Z",
+  "data": {
+    "title": "Painless Panuveitis: Clinical Differential Diagnosis & Workup",
+    "summary": "A comprehensive, high-yield clinical roadmap for identifying, investigating, and managing non-painful panuveitis. Designed for ophthalmology residents and retina/uveitis fellows to differentiate infectious, autoimmune, and malignant masquerades.",
+    "summary_illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 500\" width=\"100%\" height=\"100%\" style=\"background: #0f172a; border-radius: 12px;\"><defs><radialGradient id=\"glow\" cx=\"50%\" cy=\"50%\" r=\"50%\"><stop offset=\"0%\" stop-color=\"#38bdf8\" stop-opacity=\"0.4\"/><stop offset=\"100%\" stop-color=\"#0f172a\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"grad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#0ea5e9\"/><stop offset=\"100%\" stop-color=\"#2563eb\"/></linearGradient></defs><rect width=\"100%\" height=\"100%\" fill=\"#0f172a\"/><circle cx=\"400\" cy=\"250\" r=\"220\" fill=\"url(#glow)\"/><circle cx=\"400\" cy=\"250\" r=\"160\" fill=\"none\" stroke=\"#334155\" stroke-width=\"4\"/><circle cx=\"400\" cy=\"250\" r=\"180\" fill=\"none\" stroke=\"url(#grad)\" stroke-width=\"2\" stroke-dasharray=\"10 15\"/><path d=\"M 400 90 A 160 160 0 0 1 560 250 A 160 160 0 0 1 400 410 A 160 160 0 0 1 240 250 A 160 160 0 0 1 400 90 Z\" fill=\"none\" stroke=\"#38bdf8\" stroke-width=\"6\" stroke-linecap=\"round\"/><circle cx=\"400\" cy=\"250\" r=\"60\" fill=\"none\" stroke=\"#f59e0b\" stroke-width=\"4\"/><path d=\"M 400 130 C 370 180, 310 210, 240 250 M 400 370 C 430 320, 490 290, 560 250\" stroke=\"#e2e8f0\" stroke-width=\"2\" stroke-dasharray=\"5 5\"/><circle cx=\"310\" cy=\"210\" r=\"6\" fill=\"#ef4444\"/><circle cx=\"480\" cy=\"280\" r=\"8\" fill=\"#ef4444\"/><circle cx=\"350\" cy=\"290\" r=\"5\" fill=\"#ef4444\"/><circle cx=\"440\" cy=\"170\" r=\"7\" fill=\"#ef4444\"/><text x=\"400\" y=\"255\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#ffffff\" font-weight=\"bold\" text-anchor=\"middle\">PANUVEITIS</text><text x=\"400\" y=\"30\" font-family=\"sans-serif\" font-size=\"24\" fill=\"#f8fafc\" font-weight=\"900\" text-anchor=\"middle\" letter-spacing=\"2\">NO PAIN, GRAVE DANGER</text><text x=\"400\" y=\"470\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#94a3b8\" text-anchor=\"middle\">Chorioretinal lesions, vitritis, and anterior chamber activity without ciliary spasm.</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Pathophysiology of Painlessness",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Panuveitis is characterized by generalized inflammation of the entire uveal tract, simultaneously involving the anterior chamber, vitreous cavity, and the posterior segment (retina, choroid, or optic nerve head). While anterior uveitis typically presents with severe pain due to ciliary body spasm and trigeminal (CN V1) nerve irritation, posterior-dominant panuveitis can progress silently. The lack of pain stems from the absence of sensory nociceptive fibers in the retina and choroid. Patients usually present only with painless visual decline, dense floaters, and photopsia. Identifying these silent presentations early is critical to prevent irreversible structural damage, macular scarring, and optic nerve atrophy."
+      },
+      {
+        "title": "Epidemiology and Etiology Breakdown",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Infectious (Syphilis, TB, Toxoplasmosis)",
+              "value": 35
+            },
+            {
+              "label": "Non-Infectious Autoimmune (VKH, Sarcoidosis)",
+              "value": 40
+            },
+            {
+              "label": "Masquerade Syndromes (PVRL, Lymphoma)",
+              "value": 10
+            },
+            {
+              "label": "Idiopathic Panuveitis",
+              "value": 15
+            }
+          ]
+        }
+      },
+      {
+        "title": "Why is it Painless? Anatomical Correlates",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Posterior Segment Insensitivity: The retina and choroid lack sensory trigeminal nerve endings.",
+          "Absence of Ciliary Spasm: Minimal or sluggish anterior segment involvement preserves ciliary muscle tone, avoiding classic photophobia and deep ocular boring pain.",
+          "Intact Corneal Endothelium: Lack of high-grade keratic precipitates or corneal edema keeps corneal nociceptors silent.",
+          "Normotensive or Hypotensive State: Early uveitic eyes often display normal or low intraocular pressure (due to ciliary body hyposecretion) avoiding pain from acute ocular hypertension."
+        ]
+      },
+      {
+        "title": "Classification of Painless Panuveitis",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Painless Panuveitis",
+          "branches": [
+            "Infectious (Granulomatous): Syphilis, Tuberculosis, Toxocariasis, Endogenous Fungal Endophthalmitis",
+            "Non-Infectious Granulomatous: Sarcoidosis, Vogt-Koyanagi-Harada (VKH) Disease, Sympathetic Ophthalmia",
+            "Non-Infectious Non-Granulomatous: Behcet's Disease (can present painlessly early), White Dot Syndromes",
+            "Masquerade Malignancy: Primary Vitreoretinal Lymphoma (PVRL), Amelanotic Melanoma, Metastatic Lesions"
+          ]
+        }
+      },
+      {
+        "title": "Comprehensive Differential Diagnosis Matrix",
+        "icon": "table",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Condition",
+            "Key Ocular Features",
+            "Systemic Associations",
+            "Diagnostic Gold Standard / Biomarkers"
+          ],
+          "rows": [
+            [
+              "Ocular Sarcoidosis",
+              "Mutton-fat KPs, TM nodules, Snowballs/string of pearls vitritis, Candle-wax drippings (periphlebitis), Dalen-Fuchs-like nodules.",
+              "Bilateral hilar lymphadenopathy, erythema nodosum, lupus pernio.",
+              "Chest CT, Serum ACE (elevated), Serum Lysozyme (elevated), Conjunctival/Lymph node biopsy."
+            ],
+            [
+              "Syphilis (The Great Masquerader)",
+              "Pre-senile cataracts, iris roseola, acute syphilitic posterior placoid chorioretinitis (ASPPC), ground-glass vitritis.",
+              "Tabes dorsalis, Argyll Robertson pupil, maculopapular rash (palms/soles).",
+              "Treponemal tests (FTA-ABS, MHA-TP) are highly specific; non-treponemal (VDRL, RPR) reflect disease activity; Lumbar puncture for VDRL/protein."
+            ],
+            [
+              "Vogt-Koyanagi-Harada (VKH)",
+              "Bilateral diffuse choroidal thickening, exudative retinal detachments, sunset glow fundus (chronic stage), Sugiura sign.",
+              "Poliosis, vitiligo, alopecia, dysacusis, meningismus.",
+              "Lumbar puncture (pleocytosis), EDI-OCT (diffuse choroidal thickening), FFA (pinpoint leakage/pooling)."
+            ],
+            [
+              "Sympathetic Ophthalmia (SO)",
+              "Bilateral granulomatous panuveitis following penetrating trauma or intraocular surgery to the exciting eye.",
+              "History of trauma/surgery in exciting eye; sympathizing eye develops matching inflammation.",
+              "Clinical diagnosis; OCT showing Dalen-Fuchs nodules; History is absolute key."
+            ],
+            [
+              "Tuberculosis (TB) Uveitis",
+              "Broad-based posterior synechiae, serpiginous-like choroiditis, solitary choroidal tubercle.",
+              "Chronic cough, night sweats, weight loss, pulmonary cavitary lesions.",
+              "IGRA (QuantiFERON-TB Gold), Tuberculin Skin Test (TST), Chest CT, PCR of aqueous/vitreous."
+            ],
+            [
+              "Primary Vitreoretinal Lymphoma (PVRL)",
+              "Subretinal yellow-orange infiltrates (leopard-skin appearance), vitreous sheets/clumps unresponsive to steroids.",
+              "Central Nervous System (CNS) Lymphoma association.",
+              "Diagnostic vitrectomy with cytopathology, flow cytometry, IL-10 to IL-6 ratio (> 1.0), MYD88 L265P mutation analysis."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Clinical Features & Ocular Exam Findings",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Anterior Segment: Mutton-fat keratic precipitates (granulomatous), Koeppe (pupillary border) and Busacca (iris stroma) nodules, Berlin nodules in the angle.",
+          "Vitreous: Dense vitreous haze (NEI grading 1+ to 4+), 'string of pearls' or 'snowballs' (sarcoidosis), vitreous sheets/debris (lymphoma).",
+          "Retinal Vasculitis: Periphlebitis (sarcoidosis 'candle-wax drippings', MS) or periarteritis (acute retinal necrosis - though ARN is usually painful, early progressive outer retinal necrosis/PORN can be painless).",
+          "Choroidal Lesions: Multifocal choroidal nodules, placoid lesions, or diffuse creamy thickening (VKH)."
+        ]
+      },
+      {
+        "title": "Essential Diagnostic & Imaging Workup Flow",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Multimodal Ocular Imaging: Obtain EDI-OCT (for choroidal thickness), Fluorescein Angiography (FFA - to assess retinal vasculitis & macular edema), and Indocyanine Green Angiography (ICGA - for subclinical choroidal lesions).",
+          "Step 2: Core Serology Battery: Order FTA-ABS (Syphilis screening), QuantiFERON-TB Gold (Tuberculosis), and Serum ACE/Lysozyme (Sarcoidosis).",
+          "Step 3: Systemic Imaging: Chest CT (high-resolution) is vastly superior to Chest X-ray for identifying hilar lymphadenopathy or pulmonary granulomas.",
+          "Step 4: Target Autoimmune Markers: HLA-B27, HLA-B51 (Behcet's), HLA-A29 (Birdshot), and ANA/ANCA if connective tissue disease or vasculitis is suspected.",
+          "Step 5: Invasive Diagnostics: If masquerade or atypical infection is suspected, perform diagnostic anterior chamber tap or pars plana vitrectomy (PPV) for PCR, cytology, and IL-10/IL-6 ratios."
+        ]
+      },
+      {
+        "title": "CRITICAL WARNING: Primary Vitreoretinal Lymphoma (PVRL)",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Do NOT presume every panuveitis is inflammatory. Primary Vitreoretinal Lymphoma (PVRL) is a lethal masquerade that presents as painless, steroid-responsive vitritis.",
+          "Red Flag Sign: Creamy, yellow-subretinal infiltrates with overlying vitritis in an elderly patient (>60 years).",
+          "Contraindication: Initiating high-dose systemic corticosteroids prior to diagnostic vitrectomy when PVRL is suspected, as steroids cause tumor cell lysis, rendering cytopathology non-diagnostic.",
+          "Diagnostic Landmark: An aqueous or vitreous IL-10 to IL-6 ratio of > 1.0 strongly indicates PVRL (reactive uveitis typically has IL-6 > IL-10)."
+        ]
+      },
+      {
+        "title": "Mnemonic for Silent/Painless Panuveitis",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "S.I.L.E.N.T.",
+          "explanation": "S - Sarcoidosis (granulomatous mutton-fat KPs, candle-wax drippings)\nI - Intraocular Lymphoma (PVRL - lethal masquerader, IL-10 > IL-6)\nL - Lues (Syphilis - positive FTA-ABS, ASPPC placoid lesions)\nE - Endogenous infections (Tuberculosis, Fungal endophthalmitis)\nN - Neuromelanocytic autoimmune (VKH - bilateral exudative RDs, sunset glow)\nT - Trauma / Surgery history (Sympathetic Ophthalmia - bilateral presentation)"
+        }
+      },
+      {
+        "title": "Key Clinical Pearls for the Practicing Ophthalmologist",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Syphilis Rule: Always order a treponemal-specific test (FTA-ABS or MHA-TP). RPR and VDRL can yield false negatives in late/latent neurosyphilis.",
+          "The 'Sunset Glow' Sign: In VKH, aggressive early systemic corticosteroid therapy can prevent the depigmentation of the choroid (sunset glow fundus) and preserve long-term visual acuity.",
+          "Symmetric Paradox: In Sympathetic Ophthalmia, the 'exciting eye' (injured eye) and 'sympathizing eye' (non-injured eye) must both show signs of granulomatous uveitis.",
+          "Vitreous Tap Yield: For lymphoma diagnosis, ensure the pathology lab is ready for immediate processing (cytospin/flow cytometry) because lymphoma cells degrade within 1 hour."
+        ]
+      },
+      {
+        "title": "Step-by-Step Management & Treatment Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Absolute Rule-Out of Infection: Never start high-dose systemic corticosteroids or immunomodulatory therapy (IMT) until Syphilis and Tuberculosis are actively ruled out via serologies/imaging.",
+          "Step 2: Infectious Management: If Syphilis positive, treat as Neurosyphilis with IV Penicillin G (18-24 million units daily for 10-14 days). If TB positive, initiate standard four-drug anti-tubercular therapy (RIPE) in coordination with infectious disease.",
+          "Step 3: Induction Corticosteroids: For non-infectious panuveitis (e.g., VKH, Sarcoidosis), initiate high-dose oral Prednisone (1-1.5 mg/kg/day) or IV Methylprednisolone (1g/day for 3 days for severe VKH) with a slow taper over 6 months.",
+          "Step 4: Early Steroid-Sparing Immunomodulatory Therapy (IMT): For chronic or severe disease (Sympathetic Ophthalmia, Behcet's, Sarcoidosis), introduce Mycophenolate Mofetil (1-1.5g BID) or Methotrexate (15-25mg weekly) early to avoid steroid-related systemic side effects.",
+          "Step 5: Biologic Agents: For refractory non-infectious cases or severe Behcet's, introduce anti-TNF-alpha therapy (Adalimumab/Humira or Infliximab/Remicade) based on findings from the VISUAL trials."
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Clinical Trials",
+        "icon": "school",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Trial Name",
+            "Key Finding / Intervention",
+            "Clinical Application"
+          ],
+          "rows": [
+            [
+              "VISUAL-1 & VISUAL-2 Trials",
+              "Adalimumab significantly reduced the risk of uveitic flare or visual decline in non-infectious intermediate, posterior, and panuveitis.",
+              "Established Adalimumab as the first FDA-approved non-steroidal biologic agent for non-infectious uveitis."
+            ],
+            [
+              "MUST Trial (Follow-up)",
+              "Compared systemic corticosteroid/immunosuppression with the fluocinolone acetonide intravitreal implant (Retisert).",
+              "Long-term visual outcomes were similar, but systemic therapy had fewer ocular complications (glaucoma/cataract), while implants had fewer systemic side effects."
+            ],
+            [
+              "POINT Trial",
+              "Compared periocular triamcinolone, intravitreal triamcinolone, and intravitreal dexamethasone implant (Ozurdex) for uveitic macular edema.",
+              "Intravitreal treatments (both triamcinolone and dexamethasone implant) were superior to periocular injection in resolving macular edema, with acceptable safety profiles."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Complications & Long-Term Prognosis",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Cystoid Macular Edema (CME): The leading cause of permanent visual loss in chronic panuveitis; requires aggressive local or systemic control.",
+          "Secondary Cataract: Typically posterior subcapsular cataract (PSC) secondary to chronic intraocular inflammation and prolonged corticosteroid use.",
+          "Secondary Glaucoma: Can arise from trabeculitis, pupillary block (seclusio pupillae), or steroid-response; requires careful IOP monitoring and topical/systemic aqueous suppressants.",
+          "Choroidal Neovascularization (CNVM): Can develop at the margins of chronic inflammatory chorioretinal scars; managed with intravitreal anti-VEGF injections."
+        ]
+      },
+      {
+        "title": "Pediatric & Special Population Considerations",
+        "icon": "diversity_3",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Juvenile Idiopathic Arthritis (JIA): Classically presents as painless, quiet-looking anterior uveitis, but neglected cases can develop chronic, silent panuveitis with band keratopathy.",
+          "Toxocariasis: Presents as unilateral painless panuveitis or posterior pole granuloma in children with a history of puppy contact or pica (geophagia).",
+          "TINU Syndrome (Tubulointerstitial Nephritis and Uveitis): Typically bilateral, painless or painful, presenting in young females; monitor renal function (serum creatinine, urine beta-2 microglobulin).",
+          "Teratogenic Warning: Methotrexate and Mycophenolate Mofetil are highly teratogenic; absolute contraindication in pregnant/breastfeeding patients. Use safe alternatives like Cyclosporine if necessary."
+        ]
+      }
+    ],
+    "generationPrompt": "Non painful Pan uveitis differential diagnosis",
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "kanskiMeta": [
+    {
+      "pageNum": 434,
+      "keywords": [
+        "uveitis",
+        "retina",
+        "classification",
+        "ocular",
+        "anterior uveitis"
+      ]
+    },
+    {
+      "pageNum": 435,
+      "keywords": [
+        "uveitis",
+        "panuveitis",
+        "retina",
+        "anatomical",
+        "classification"
+      ]
+    },
+    {
+      "pageNum": 451,
+      "keywords": [
+        "uveitis",
+        "classification",
+        "ocular",
+        "recent",
+        "complications"
+      ]
+    },
+    {
+      "pageNum": 454,
+      "keywords": [
+        "uveitis",
+        "panuveitis",
+        "differential",
+        "ocular",
+        "primary"
+      ]
+    },
+    {
+      "pageNum": 441,
+      "keywords": [
+        "uveitis",
+        "differential",
+        "retina",
+        "ocular",
+        "imaging"
+      ]
+    },
+    {
+      "pageNum": 455,
+      "keywords": [
+        "uveitis",
+        "retina",
+        "findings",
+        "imaging",
+        "complications"
+      ]
+    },
+    {
+      "pageNum": 446,
+      "keywords": [
+        "uveitis",
+        "panuveitis",
+        "retina",
+        "ocular",
+        "complications"
+      ]
+    },
+    {
+      "pageNum": 489,
+      "keywords": [
+        "uveitis",
+        "aids",
+        "retina",
+        "ocular",
+        "critical"
+      ]
+    }
+  ],
+  "read": true
+}

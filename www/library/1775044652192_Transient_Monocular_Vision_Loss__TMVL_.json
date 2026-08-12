@@ -1,0 +1,290 @@
+{
+  "id": 1775044652192,
+  "seqId": 43,
+  "title": "Transient Monocular Vision Loss (TMVL)",
+  "summary": "TMVL is a critical neuro-ophthalmic emergency often serving as a 'warning shot' for impending stroke or permanent retinal infarction. This guide provides a comprehensive framework for the diagnosis, workup, and evidence-based management of amaurosis fugax.",
+  "date": "2026-04-01T11:57:32.192Z",
+  "data": {
+    "title": "Transient Monocular Vision Loss (TMVL)",
+    "summary": "TMVL is a critical neuro-ophthalmic emergency often serving as a 'warning shot' for impending stroke or permanent retinal infarction. This guide provides a comprehensive framework for the diagnosis, workup, and evidence-based management of amaurosis fugax.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M40 100 Q100 40 160 100 Q100 160 40 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='25' fill='hsl(215, 90%, 45%)' fill-opacity='0.3'/><rect x='40' y='40' width='120' height='60' fill='grey' fill-opacity='0.5'><animate attributeName='opacity' values='0;0.8;0' dur='3s' repeatCount='indefinite' /></rect><line x1='100' y1='100' x2='150' y2='100' stroke='red' stroke-width='3' stroke-linecap='round'><animate attributeName='x2' values='100;160;100' dur='2s' repeatCount='indefinite' /></line></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Transient Monocular Vision Loss (TMVL), traditionally termed 'Amaurosis Fugax,' is a sudden, temporary deficit in vision in one eye, typically lasting seconds to minutes, with complete recovery. It represents a Transient Ischemic Attack (TIA) of the retina, optic nerve, or choroid and demands immediate systemic investigation to prevent cerebrovascular accidents (CVA)."
+      },
+      {
+        "title": "Epidemiology & Risk Factors",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Hypertension",
+              "value": 75
+            },
+            {
+              "label": "Hyperlipidemia",
+              "value": 60
+            },
+            {
+              "label": "Diabetes Mellitus",
+              "value": 40
+            },
+            {
+              "label": "Carotid Stenosis >50%",
+              "value": 30
+            },
+            {
+              "label": "Smoking History",
+              "value": 55
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiological Classification",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "TMVL Mechanisms",
+          "branches": [
+            "Embolic (Carotid, Cardiac, Aortic Arch)",
+            "Hemodynamic (Carotid Stenosis, Ocular Ischemic Syndrome)",
+            "Vasospastic (Retinal Migraine, Raynaud's)",
+            "Neurological (Papilledema, Optic Disc Drusen)",
+            "Ocular (Gaze-evoked, Angle-closure, Hyphema)",
+            "Hematological (Hypercoagulability, Polycythemia)"
+          ]
+        }
+      },
+      {
+        "title": "Types of Retinal Emboli",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Composition",
+            "Source",
+            "Appearance"
+          ],
+          "rows": [
+            [
+              "Hollenhorst Plaque",
+              "Cholesterol",
+              "Carotid Bifurcation",
+              "Highly refractile, orange-yellow, at bifurcations"
+            ],
+            [
+              "Fisher Plaque",
+              "Platelet-Fibrin",
+              "Carotid or Cardiac",
+              "Dull, grey-white, long/plug-like, mobile"
+            ],
+            [
+              "Greatorex Plaque",
+              "Calcium",
+              "Heart Valves (Calcific)",
+              "Chalky white, non-refractile, usually proximal/large"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The GCA Red Flag Screen",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "New onset headache or scalp tenderness",
+          "Jaw claudication (highest predictive value)",
+          "Anorexia, weight loss, or night sweats",
+          "Proximal muscle aches (Polymyalgia Rheumatica)",
+          "Afferent Pupillary Defect (APD) with pale disc edema",
+          "Elevated ESR (>50 mm/hr), CRP, and Platelets"
+        ]
+      },
+      {
+        "title": "Diagnostic Investigation Workup",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Detailed History (Onset, duration, 'curtain' vs 'fog', triggers)",
+          "Step 2: Dilated Fundoscopy & BP measurement (urgent)",
+          "Step 3: Carotid Imaging (Duplex Ultrasound vs. CTA/MRA)",
+          "Step 4: Cardiac Workup (ECG, Holter monitor, Echocardiogram)",
+          "Step 5: Serology (CBC, PT/PTT, Lipid profile, A1c, ESR/CRP)",
+          "Step 6: Brain Imaging (MRI with DWI to rule out silent infarcts)"
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Timing is Key",
+        "icon": "timer",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Duration",
+            "Likely Diagnosis",
+            "Distinguishing Features"
+          ],
+          "rows": [
+            [
+              "Seconds",
+              "Transient Visual Obscurations (TVO)",
+              "Associated with Papilledema/Postural changes"
+            ],
+            [
+              "1-15 Minutes",
+              "Amaurosis Fugax (Embolic)",
+              "Sudden onset, altitudinal 'curtain' defect"
+            ],
+            [
+              "20-60 Minutes",
+              "Retinal Migraine",
+              "Spreading scotoma, positive symptoms (lights)"
+            ],
+            [
+              "Variable/Gaze",
+              "Gaze-Evoked Amaurosis",
+              "Orbital tumors (cavernous hemangioma), Optic nerve sheath meningioma"
+            ],
+            [
+              "Post-Bright Light",
+              "Ocular Ischemic Syndrome",
+              "Delayed photoreceptor recovery due to hypoperfusion"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The NASCET Criteria for Management",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Carotid Stenosis %",
+            "Symptomatic Patient (TMVL/TIA)",
+            "Asymptomatic Patient"
+          ],
+          "rows": [
+            [
+              "70 - 99%",
+              "Urgent Carotid Endarterectomy (CEA) recommended",
+              "CEA may be beneficial (ACAS study)"
+            ],
+            [
+              "50 - 69%",
+              "CEA beneficial (moderate reduction in stroke risk)",
+              "Medical management usually preferred"
+            ],
+            [
+              "< 50%",
+              "Medical management (Antiplatelets + Statins)",
+              "Medical management"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Evidence-Based Medical Therapy",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Antiplatelet Therapy: Aspirin (81-325mg) or Clopidogrel (Plavix) 75mg daily.",
+          "Dual Antiplatelet Therapy (DAPT): Often used for first 21-90 days post-symptom in high-risk patients.",
+          "High-Intensity Statins: Atorvastatin 80mg regardless of baseline LDL (SPARCL trial).",
+          "Blood Pressure Control: Target <130/80 mmHg (avoid aggressive drops in acute OIS).",
+          "Smoking Cessation: Essential to prevent plaque progression and rupture."
+        ]
+      },
+      {
+        "title": "Mnemonic for Evaluation: F.U.G.A.X.",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "F.U.G.A.X.",
+          "explanation": "F: Flow (Carotid/Hemodynamic); U: Unusual (Vasospasm/Migraine); G: Giant Cell Arteritis (Must exclude!); A: Arrhythmia (Afib/Cardiac emboli); X: X-plore Hematological (Hypercoagulability)."
+        }
+      },
+      {
+        "title": "Ocular Ischemic Syndrome (OIS)",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Caused by severe (>90%) carotid occlusion.",
+          "Mid-peripheral 'blossom' hemorrhages (dot-and-blot).",
+          "Dilated, non-tortuous retinal veins (distinct from CRVO).",
+          "Iridocyclitis & Neovascularization of the Iris (NVI).",
+          "Ocular Angina: Dull periocular ache from ischemia."
+        ]
+      },
+      {
+        "title": "Recent Advances: Landmark Studies",
+        "icon": "school",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "The **POINT** and **CHANCE** trials have revolutionized early TIA management, showing that short-term DAPT (Aspirin + Clopidogrel) significantly reduces early recurrent stroke risk compared to aspirin alone. In the ophthalmic world, OCT-Angiography is emerging as a non-invasive tool to detect focal areas of capillary non-perfusion in post-TMVL patients."
+      },
+      {
+        "title": "Surgical Techniques: CEA vs. CAS",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "CEA (Carotid Endarterectomy): Gold standard for most surgical candidates; removes the plaque directly.",
+          "CAS (Carotid Artery Stenting): Preferred in high-risk surgical anatomy (previous neck radiation, recurrent stenosis).",
+          "Crest Trial: Showed parity in outcomes between CEA and CAS for symptomatic patients in terms of stroke/death rates."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Resident Exams",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "TMVL in a young patient? Think Retinal Migraine, Cardiac Shunts (PFO), or Hypercoagulable states.",
+          "Bright light-induced amaurosis is pathognomonic for Ocular Ischemic Syndrome.",
+          "Always check for a carotid bruit, but remember: its absence does NOT rule out significant stenosis.",
+          "Venous stasis retinopathy (early OIS) is often mistaken for a mild CRVO; check the venous pulsation and tortuosity."
+        ]
+      }
+    ],
+    "generationPrompt": "transient monocular vision loss",
+    "chapterId": "aids"
+  },
+  "chapterId": "aids",
+  "_newlyImported": 1775044652192,
+  "communityId": "sub_1774706452837_gu6vman8l",
+  "communityAuthor": "nemo",
+  "communityDate": "2026-03-28T14:00:52.837Z",
+  "bookmarked": true,
+  "read": true
+}

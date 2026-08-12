@@ -1,0 +1,279 @@
+{
+  "id": 1775044697274,
+  "seqId": 476,
+  "title": "Internuclear Ophthalmoplegia (INO): The MLF Disconnect",
+  "summary": "Internuclear Ophthalmoplegia is a classic brainstem syndrome caused by a lesion in the Medial Longitudinal Fasciculus (MLF). It is characterized by impaired adduction on the side of the lesion and dissociated nystagmus of the contralateral abducting eye.",
+  "date": "2026-04-01T11:58:17.274Z",
+  "data": {
+    "title": "Internuclear Ophthalmoplegia (INO): The MLF Disconnect",
+    "summary": "Internuclear Ophthalmoplegia is a classic brainstem syndrome caused by a lesion in the Medial Longitudinal Fasciculus (MLF). It is characterized by impaired adduction on the side of the lesion and dissociated nystagmus of the contralateral abducting eye.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M30 45 A5 5 0 0 1 40 45 M60 45 A5 5 0 0 1 70 45' stroke='hsl(215, 90%, 45%)' stroke-width='3' fill='none'/><line x1='35' y1='48' x2='35' y2='52' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><path d='M65 48 L68 50 L65 52 L68 54 L65 56' fill='none' stroke='red' stroke-width='1.5'/><rect x='48' y='60' width='4' height='20' fill='red' rx='2'/><text x='50' y='90' font-size='6' text-anchor='middle' fill='hsl(215, 90%, 45%)' font-family='Arial'>MLF LESION</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Internuclear Ophthalmoplegia (INO) is a premotor ocular motility disorder resulting from a lesion in the Medial Longitudinal Fasciculus (MLF) in the pons or midbrain. The MLF is a heavily myelinated pathway that coordinates conjugate horizontal gaze by connecting the abducens nucleus (VI) on one side to the contralateral medial rectus subnucleus of the oculomotor nerve (III). The hallmark is an adduction deficit on the ipsilateral side of the lesion during horizontal version, accompanied by dissociated nystagmus of the contralateral abducting eye."
+      },
+      {
+        "title": "Epidemiology & Demographics",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Multiple Sclerosis (Younger)",
+              "value": 38
+            },
+            {
+              "label": "Infarction/Stroke (Older)",
+              "value": 33
+            },
+            {
+              "label": "Trauma/Infection",
+              "value": 15
+            },
+            {
+              "label": "Tumor/Other",
+              "value": 14
+            }
+          ]
+        }
+      },
+      {
+        "title": "Etiology: The Age Divide",
+        "icon": "group",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Feature",
+            "Younger Population",
+            "Older Population"
+          ],
+          "rows": [
+            [
+              "Primary Cause",
+              "Multiple Sclerosis (MS)",
+              "Ischemic Stroke (Small vessel)"
+            ],
+            [
+              "Laterality",
+              "Often Bilateral",
+              "Often Unilateral"
+            ],
+            [
+              "Associated Signs",
+              "Other demyelinating symptoms",
+              "Vascular risk factors, hemiparesis"
+            ],
+            [
+              "Prognosis",
+              "Varies with MS flares",
+              "Good recovery within 2-3 months"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "The MLF Circuitry (Pathophysiology)",
+        "icon": "account_tree",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "1. Horizontal Gaze Command: Initiated in the Frontal Eye Fields (FEF) or Superior Colliculus.",
+          "2. PPRF Activation: The Parapontine Reticular Formation (PPRF) triggers the ipsilateral Abducens (VI) Nucleus.",
+          "3. VI Nucleus Split: Some neurons exit as the VI Nerve to the Lateral Rectus; others (interneurons) cross the midline.",
+          "4. MLF Ascent: These interneurons travel upward via the Medial Longitudinal Fasciculus (MLF).",
+          "5. III Nucleus Synapse: The MLF fibers reach the contralateral Oculomotor (III) Nucleus (Medial Rectus subnucleus).",
+          "6. Medial Rectus Contraction: Resulting in coordinated adduction synchronous with the other eye's abduction."
+        ]
+      },
+      {
+        "title": "Classic Clinical Features",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Ipsilateral Adduction Deficit: Ranges from total paralysis to a mild 'adduction lag' (slower saccades).",
+          "Contralateral Abducting Nystagmus: Fast phase directed away from the lesion; thought to be Hering's Law compensation for weak adduction.",
+          "Diplopia: Horizontal diplopia, most pronounced when looking away from the side of the lesion.",
+          "Skew Deviation: Often present; the eye on the side of the lesion is typically hypertropic.",
+          "Preserved Convergence: Usually maintained if the lesion is in the pons (Posterior INO)."
+        ]
+      },
+      {
+        "title": "Ocular Examination Findings",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "INO Exam",
+          "branches": [
+            "Saccadic Velocity (Slowed adduction)",
+            "Optokinetic Tape (Nystagmus accentuation)",
+            "Lutz Sign (Pseudo-Graefe sign)",
+            "Prism Cover Test (Exotropia in away-gaze)",
+            "Hering's Law effects"
+          ]
+        }
+      },
+      {
+        "title": "Classification of INO",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Clinical Presentation",
+            "Lesion Location"
+          ],
+          "rows": [
+            [
+              "Unilateral INO",
+              "Adduction deficit in one eye; abduction nystagmus in the other.",
+              "Ipsilateral MLF"
+            ],
+            [
+              "Bilateral INO",
+              "Adduction deficit in BOTH eyes; large exotropia (sometimes).",
+              "Bilateral MLF (common in MS)"
+            ],
+            [
+              "WEBINO",
+              "Wall-Eyed Bilateral INO: Both eyes are exotropic in primary position.",
+              "Midbrain (C-INO involving both MR subnuclei)"
+            ],
+            [
+              "One-and-a-Half Syndrome",
+              "Only movement possible is abduction of one eye; all other horizontal movements gone.",
+              "MLF + PPRF (or VI Nucleus) on one side"
+            ],
+            [
+              "C-INO vs P-INO",
+              "C-INO (Anterior/Midbrain) lacks convergence; P-INO (Posterior/Pons) has convergence.",
+              "Midbrain vs Pons"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "rule",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Pseudo-INO",
+          "branches": [
+            "Myasthenia Gravis (Fatigable, no nystagmus)",
+            "Thyroid Eye Disease (Restrictive)",
+            "Orbital Myositis",
+            "Miller Fisher Syndrome",
+            "Partial III Nerve Palsy (Isolated MR)",
+            "Orbital Trauma (MR Entrapment)"
+          ]
+        }
+      },
+      {
+        "title": "Diagnostic Workup Protocol",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Neuro-Ophthalmic Exam: Confirm adduction lag via OKN tape or saccadic assessment.",
+          "2. MRI Brain + Brainstem: T2, FLAIR, and DWI sequences to identify MS plaques or small infarcts.",
+          "3. Lab Testing: If MS is suspected, consider CSF (Oligoclonal bands) and Serum (Neuromyelitis Optica IgG).",
+          "4. Rule out MG: Ice pack test, Tensilon (historical), or Acetylcholine Receptor Antibodies.",
+          "5. Syphilis/Lyme Serology: In atypical or chronic cases."
+        ]
+      },
+      {
+        "title": "One-and-a-Half Syndrome",
+        "icon": "link_off",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": "A specific variant where the lesion involves the PPRF (or VI nucleus) AND the ipsilateral MLF. This results in an absolute paralysis of all horizontal movements in the ipsilateral eye and an adduction deficit in the contralateral eye. The ONLY preserved horizontal movement is the abduction of the contralateral eye (often with nystagmus). This is the 'Half' that remains."
+      },
+      {
+        "title": "Red Flags: When to Worry",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Sudden onset INO with headache (Suspect Stroke/Dissection)",
+          "Associated Hemiparesis or Aphasia",
+          "Progressive worsening (Suspect Glioma or Tumor)",
+          "Presence of systemic signs of vasculitis or SLE",
+          "Bilateral INO in an older patient (Basilar Artery Ischemia)"
+        ]
+      },
+      {
+        "title": "Mnemonic: Identifying the Side",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "L-INO (Left-INO)",
+          "explanation": "L: Left Medial Rectus (MR) doesn't move. \nI: Ipsilateral to the lesion side. \nN: Nystagmus in the opposite (Right) eye during abduction. \nO: Often MS (Young) or Stroke (Old)."
+        }
+      },
+      {
+        "title": "Management & Treatment",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Treat Underlying Cause: Corticosteroids for MS flares; antiplatelets/risk factor control for stroke.",
+          "Diplopia Management: Fresnel Prisms (temporary) or patching one eye (alternate eyes to prevent suppression).",
+          "Observation: Ischemic INO often resolves spontaneously within 3-6 months.",
+          "Botulinum Toxin: Injection of the antagonist Lateral Rectus for transient relief of exotropia.",
+          "Surgical Options: If stable for >12 months, Medial Rectus resection or transposition procedures may be considered."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for Residents",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "The OKN Tape Trick: If adduction looks normal, use an OKN tape. The adduction saccades in INO will look 'slower' than the abduction saccades.",
+          "C-INO vs P-INO: If convergence is lost, the lesion is in the Midbrain (Ciliary/Anterior). If preserved, it's in the Pons (Posterior).",
+          "Skew Deviation: The eye on the side of the MLF lesion is usually the higher one (Hypertropic).",
+          "MS is the most common cause of BILATERAL INO in adults under 50."
+        ]
+      },
+      {
+        "title": "Landmark Concept: Hering's Law in INO",
+        "icon": "menu_book",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": "Why the abducting nystagmus? According to Hering's Law of Equal Innervation, when the brain sends a strong signal to the weak adductor (to overcome the MLF block), an equal signal is sent to its yoked muscle (the contralateral lateral rectus). This results in 'overshoot' and compensatory nystagmus in the abducting eye."
+      }
+    ],
+    "chapterId": "neuro"
+  },
+  "chapterId": "neuro",
+  "_newlyImported": 1775044697274,
+  "communityId": "sub_1774352254516_cpxbekye9p02l7",
+  "communityAuthor": "dodi",
+  "communityDate": "2026-03-24T11:37:34.516Z"
+}

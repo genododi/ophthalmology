@@ -1,0 +1,419 @@
+{
+  "id": 1775044692830,
+  "seqId": 431,
+  "title": "UVEITIS & CHORIORETINOPATHY MASTER CLINICAL COMPENDIUM",
+  "summary": "An exhaustive guide to the management of infectious uveitis (Toxo, CMV, ARN/PORN), systemic workups (TB, Syphilis), and the spectrum of idiopathic white dot syndromes. Designed for rapid clinical reference and deep-dive residency review.",
+  "date": "2026-04-01T11:58:12.830Z",
+  "data": {
+    "title": "UVEITIS & CHORIORETINOPATHY MASTER CLINICAL COMPENDIUM",
+    "summary": "An exhaustive guide to the management of infectious uveitis (Toxo, CMV, ARN/PORN), systemic workups (TB, Syphilis), and the spectrum of idiopathic white dot syndromes. Designed for rapid clinical reference and deep-dive residency review.",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='100' cy='100' r='30' fill='hsl(215, 90%, 45%)' opacity='0.3'/><path d='M60,100 Q100,20 140,100 Q100,180 60,100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2'/><circle cx='70' cy='80' r='5' fill='white' opacity='0.8'/><circle cx='130' cy='120' r='8' fill='white' opacity='0.6'/><circle cx='90' cy='140' r='4' fill='white' opacity='0.7'/><circle cx='150' cy='70' r='6' fill='white' opacity='0.5'/></svg>",
+    "sections": [
+      {
+        "title": "TOXOPLASMOSIS: Indications & Management",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "**Indications for Treatment:**",
+          "• Sight treating lesion involving macula, papillomacular bundle, optic disc, or major blood vessels",
+          "• Severe vitritis",
+          "• Active ocular toxoplasmosis in the immunocompromised",
+          "**Treatment Modalities:**",
+          "1. **Triple Therapy:** Prednisolone 1mg/kg + Pyrimethamine (75-100mg for 1-2 days, then 25-50mg daily for 4 weeks) + Folinic Acid (5mg 3x/week) + Sulphadiazine (1g 4x/day for 3-4 weeks). *Sometimes Clindamycin is added.*",
+          "2. **Intravitreal Therapy:** Clindamycin + Dexamethasone 400 microgram.",
+          "3. **Azithromycin Regimen:** Azithromycin 250-500mg daily + Pyrimethamine + Folinic Acid + Prednisolone.",
+          "4. **Quadruple Therapy:** Clindamycin 300mg 4x/day added to Triple Therapy.",
+          "5. **Co-trimoxazole:** (Bactrim/Septra) is an alternative option.",
+          "6. **Anterior Uveitis:** Topical steroids and mydriatics.",
+          "7. **Pregnancy:** Spiramycin or Azithromycin with steroids.",
+          "8. **Surgical:** Vitrectomy.",
+          "9. **Recurrence Prevention:** Co-trimoxazole 3x for 12 months."
+        ]
+      },
+      {
+        "title": "CMV RETINITIS: HIV & Immunocompromised Protocol",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "• **Interdisciplinary Care:** Liase with infectious disease specialist.",
+          "• **HAART:** Antiretroviral therapy is the mainstay; discontinue when CD4 count >100-150 cells/µl.",
+          "• **Systemic Induction:** Valganciclovir 900mg twice daily for up to 3 weeks.",
+          "• **Systemic Maintenance:** Valganciclovir 900mg/day.",
+          "• **Intravitreal Injections (High Risk Lesions):** For lesions near macula or optic nerve: Ganciclovir (2mg), Foscarnet (1.2mg), or Cidofovir (20mg).",
+          "• **Surgical/Adjunct:** Vitrectomy + endolaser demarcation + silicone oil tamponade; Steroids."
+        ]
+      },
+      {
+        "title": "CMV Screening Schedule (By CD4 Count)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "< 50 CD4 (Every 3m)",
+              "value": 100
+            },
+            {
+              "label": "50-100 CD4 (Every 6m)",
+              "value": 50
+            },
+            {
+              "label": "> 100 CD4 (Yearly)",
+              "value": 25
+            }
+          ]
+        }
+      },
+      {
+        "title": "DIFFERENTIAL DIAGNOSIS: ARN vs. PORN",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Feature",
+            "Acute Retinal Necrosis (ARN)",
+            "Progressive Outer Retinal Necrosis (PORN)"
+          ],
+          "rows": [
+            [
+              "Appearance",
+              "≥1 foci of full-thickness necrosis; discrete borders",
+              "Multiple foci of deep retinal opacifications; may be confluent"
+            ],
+            [
+              "Location",
+              "Peripheral retina outside temporal arcades",
+              "Peripheral retina + macular involvement"
+            ],
+            [
+              "Progression",
+              "Rapid (but responds to treatment)",
+              "Extremely rapid"
+            ],
+            [
+              "Direction",
+              "Circumferential",
+              "No consistent direction"
+            ],
+            [
+              "Vessels",
+              "Occlusive vasculopathy",
+              "No vascular inflammation; Perivenular clearing"
+            ],
+            [
+              "Inflammation",
+              "Prominent AC/Vitreous inflammation",
+              "Minimal or none"
+            ],
+            [
+              "Suggestive Features",
+              "Optic neuropathy/atrophy, scleritis, pain",
+              "Rapid macular involvement; 'Cherry red spot'"
+            ],
+            [
+              "Cause",
+              "VZV and other herpes viruses",
+              "HSV (young), VZV & others (adults)"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Stages of PORN",
+        "icon": "reorder",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Stage 1 (Early): Multifocal homogenous yellow-white deep retinal infiltrates; macular involvement (cherry red spot).",
+          "Stage 2 (Established): Rapid spread; full thickness necrosis and perivenular translucency.",
+          "Stage 3 (Late): Retinal atrophy, optic atrophy, rhegmatogenous retinal detachment."
+        ]
+      },
+      {
+        "title": "Treatment of Viral Retinitis & Uveitis",
+        "icon": "medication",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "**ARN Management:**",
+          "1. IV Acyclovir 15mg/kg for 10-14 days, followed by 800mg 5x/day for 6-12 weeks.",
+          "2. Oral Valaciclovir/Famciclovir: Induction 2g 3x/day; Maintenance 1g 3x/day.",
+          "3. Systemic Steroids: 24h after antiviral initiation (severe cases).",
+          "4. Surgery: Vitrectomy + silicone oil tamponade.",
+          "**HSV Anterior Uveitis:**",
+          "• Topical steroids 4x/day + cycloplegic.",
+          "• Oral Acyclovir 400mg 5x/day.",
+          "• Treat raised IOP as necessary.",
+          "**Recurrent VZO Uveitis:**",
+          "• Oral Acyclovir 800mg 5x/day."
+        ]
+      },
+      {
+        "title": "INVESTIGATION: Tuberculosis (TB)",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "• **Skin Test:** Positive Tuberculin test within 48h.",
+          "• **T-spot.TB:** Counts antimycobacterial effector T-cells (IFN-gamma); detects latent TB.",
+          "• **IGRA:** Interferon Gamma Release Assay.",
+          "• **Sputum:** Testing with PCR.",
+          "• **Imaging:** Chest X-ray, CT, PET scan.",
+          "• **Ocular Sampling:** Aqueous/Vitreous smear (Acid-fast bacilli, Ziehl-Neelsen stain) and culture (Lowenstein-Jensen medium).",
+          "• **Imaging (Ocular):** OCT (macula eval), FA (active choroiditis, ischemia, NV), FAF (lesion activity/healing staging).",
+          "• **Systemic:** HIV status MUST be determined."
+        ]
+      },
+      {
+        "title": "SYPHILIS: Systemic Manifestations",
+        "icon": "psychology",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Primary Syphilis: Painless ulcer (Chancre) on genitalia/anus.",
+          "Secondary Syphilis: Maculopapular rash + systemic manifestation.",
+          "Latent Syphilis: Asymptomatic period.",
+          "Tertiary Syphilis: Cardiovascular (Aortitis), Neurosyphilis, Gummatous infiltration of bone/viscera."
+        ]
+      },
+      {
+        "title": "Miscellaneous Idiopathic Chorioretinopathies",
+        "icon": "menu_book",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "White Dot Syndromes",
+          "branches": [
+            "MEWDS",
+            "AIBSE (Blind Spot Enlargement)",
+            "APMPPE",
+            "Serpiginous Choroidopathy",
+            "Relentless Placoid Chorioretinitis",
+            "Persistent Placoid Maculopathy",
+            "Idiopathic Multifocal Choroiditis (MFC)",
+            "Punctate Inner Choroidopathy (PIC)",
+            "Birdshot Retinochoroidopathy",
+            "Progressive Subretinal Fibrosis & Uveitis",
+            "Acute Macular Neuroretinopathy",
+            "AZOOR",
+            "Acute Idiopathic Maculopathy",
+            "Acute Multifocal Retinitis",
+            "Solitary Idiopathic Choroiditis",
+            "Frosted Branch Angiitis",
+            "IRVAN Syndrome"
+          ]
+        }
+      },
+      {
+        "title": "MEWDS (Multiple Evanescent White Dot Syndrome)",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "• **Demographics:** Young adult females; Acute onset; Monocular.",
+          "• **Cause:** Idiopathic; 25-50% viral prodrome/flu vaccine.",
+          "• **Symptoms:** Painless blurring, photopsia, dyschromatopsia, scotoma.",
+          "• **Signs:** Orange granular fovea (characteristic), deep grey-white patches sparing fovea, disc edema.",
+          "• **Imaging:** VF (enlarged blind spot), FA (early hyperfluorescence/late staining), FAF (hyper-AF spots), OCT (Ellipsoid zone disruption).",
+          "• **Prognosis:** Spontaneous improvement by 8-10 weeks."
+        ]
+      },
+      {
+        "title": "APMPPE: Placoid Pigment Epitheliopathy",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "• **Demographics:** Young/Middle age; M=F; Subacute bilateral.",
+          "• **Signs:** Large yellow-white placoid lesions; mild vitritis.",
+          "• **CNS Risk:** Cerebral vasculitis (Requires CNS imaging/LP if neuro symptoms present).",
+          "• **Imaging:** FA (Early 'Block', Late 'Stain'), ICGA (Early/Late Hypofluorescence).",
+          "• **Poor Prognosis Factors:** Age >60, Unilateral, Interval >6m between eyes, Recurrence, Choroidal vein leakage.",
+          "• **Treatment:** Steroids (macular involvement), Steroids + Ciclosporine (Cerebral vasculitis)."
+        ]
+      },
+      {
+        "title": "Serpiginous Choroidopathy",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "• **Demographics:** Middle age; Male > Female; Bilateral asymmetrical.",
+          "• **Symptoms:** Blurring, Metamorphopsia.",
+          "• **Signs:** Active grey-white lesions; chronic progression to scalloped atrophy; macular NV.",
+          "• **Workup:** MUST test for Syphilis and TB.",
+          "• **Imaging:** FAF (Hyper-AF edges in active disease; dark/hypo-AF if inactive).",
+          "• **Treatment:** Oral/IV Steroids, Immunosuppressants, Infliximab."
+        ]
+      },
+      {
+        "title": "Idiopathic Multifocal Choroiditis (MFC)",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "• **Demographics:** Young-middle aged women; Bilateral/Chronic recurrent.",
+          "• **Signs:** 50-350µm ovoid lesions; 'histoplasmosis-like' pigmented borders; Vitritis common; Linear clusters/streaks.",
+          "• **Complications:** Macular CNV (25-35%), CMO, Subretinal fibrosis.",
+          "• **Imaging:** ICGA (Hypofluorescent acute lesions), OCT (Sub-RPE material), VF (Enlarged blind spot).",
+          "• **Treatment:** Systemic/Local steroids, Immunosuppressants (MMF, Tacrolimus, Cyclosporine), Anti-VEGF for CNV."
+        ]
+      },
+      {
+        "title": "PIC (Punctate Inner Choroidopathy)",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "• **Demographics:** Young myopic women; 80% Bilateral/Asymmetrical.",
+          "• **Signs:** Small yellow-white macular spots; **NO VITRITIS** (or very mild). Atrophic scars with little pigment.",
+          "• **Imaging:** OCT (Acute hyperreflective material), ICGA (Midphase hypo-AF; choroidal vasculitis signs).",
+          "• **Treatment:** Treat CNV (Anti-VEGF/Steroids), Systemic immunosuppression for recurrence."
+        ]
+      },
+      {
+        "title": "Birdshot Retinochoroidopathy",
+        "icon": "genetics",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "• **Demographics:** Middle aged women; Chronic bilateral; HLA-A29 associated.",
+          "• **Symptoms:** Nyctalopia, floaters, dyschromatopsia.",
+          "• **Signs:** Cream-colored ovoid patches (<1 DD) in post-pole/mid-periphery; Vitritis; CMO.",
+          "• **Imaging:** FA (Vascular leakage, foveal sparing CMO), ERG (Rod/Cone abnormalities over time).",
+          "• **Treatment:** Subtenon steroids (40mg Triamcinolone), Systemic steroids + Immunomodulators (MMF, Infliximab)."
+        ]
+      },
+      {
+        "title": "AZOOR (Acute Zonal Occult Outer Retinopathy)",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "• **Demographics:** Young/Middle aged women.",
+          "• **Symptoms:** Acute onset photopsia and zone-like visual field loss.",
+          "• **Signs:** Fundus often normal initially; later RPE clumping, vessel attenuation, peripapillary atrophy.",
+          "• **Imaging:** ERG (Severely reduced light rise, delayed 30Hz flicker, Cone > Rod), OCT (Loss of outer retina zones).",
+          "• **Treatment:** No proven treatment; Favorable outcomes reported with systemic steroids."
+        ]
+      },
+      {
+        "title": "MASTER COMPARISON: Idiopathic White Dot Syndromes",
+        "icon": "table",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Condition",
+            "Laterality",
+            "Cause/Demographics",
+            "Onset",
+            "Inflammation/Signs",
+            "Key Imaging"
+          ],
+          "rows": [
+            [
+              "MEWDS",
+              "Monocular",
+              "Idiopathic; Young Female",
+              "Acute",
+              "Subtle vitritis; Orange granular fovea",
+              "Hyper-AF spots; Enlarged blind spot"
+            ],
+            [
+              "APMPPE",
+              "Bilateral",
+              "Viral prodrome; Young-Middle Age",
+              "Sub-acute",
+              "Large yellow-white placoid lesions; mild vitritis",
+              "FA: Early block, Late stain"
+            ],
+            [
+              "Serpiginous",
+              "Bilateral Asym.",
+              "Middle age; Male > Female",
+              "Chronic",
+              "Grey-white lesions; Scalloped atrophy",
+              "Test for Syphilis/TB; FAF monitoring"
+            ],
+            [
+              "Idiopathic MFC",
+              "Bilateral Asym.",
+              "Young-Middle Female",
+              "Chronic Recurrent",
+              "Ovoid lesions; Vitritis; Linear streaks",
+              "ICGA: Hypofluorescent acute lesions"
+            ],
+            [
+              "PIC",
+              "Bilateral 80%",
+              "Young Myopic Women",
+              "Subacute",
+              "Small macular spots; NO VITRITIS",
+              "OCT: CNV risk; ICGA: Midphase hypo-AF"
+            ],
+            [
+              "Birdshot",
+              "Bilateral",
+              "HLA-A29; Middle-aged Female",
+              "Chronic",
+              "Cream patches; Vitritis; CMO",
+              "ERG Rod/Cone delay; ICG: Numerous lesions"
+            ],
+            [
+              "AZOOR",
+              "Varies",
+              "Young/Middle Female",
+              "Acute",
+              "Photopsia; Outer retinal loss; Minimal vitritis",
+              "ERG: Severely reduced light rise"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "CLINICAL RED FLAGS: Immediate Action Required",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "NEUROSYPHILIS: Any ocular syphilis warrants consideration of neuro-involvement.",
+          "CEREBRAL VASCULITIS: APMPPE patients with headaches require immediate CNS imaging (MRI/LP).",
+          "TB-SAMPLING: Ocular TB requires Aqueous/Vitreous culture on Lowenstein-Jensen medium.",
+          "CMV CD4 COUNT: Screening every 3 months is mandatory if CD4 < 50 cells/µl.",
+          "TOXO IN PREGNANCY: Use Spiramycin or Azithromycin with steroids instead of standard triple therapy."
+        ]
+      }
+    ],
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis",
+  "_newlyImported": 1775044692830,
+  "communityId": "sub_1773827472650_wzyntcxfp",
+  "communityAuthor": "Dodi",
+  "communityDate": "2026-03-18T09:51:12.650Z",
+  "read": true
+}

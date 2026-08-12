@@ -1,0 +1,142 @@
+{
+  "id": 1775276872192,
+  "seqId": 630,
+  "title": "Trabeculectomy: The Gold Standard Filtration Surgery",
+  "summary": "Trabeculectomy remains the definitive glaucoma filtration procedure, establishing a controlled fistula between the anterior chamber and subconjunctival space. Mastering the balance between aqueous outflow and scarring is the cornerstone of successful long-term IOP control.",
+  "date": "2026-04-04T04:27:52.192Z",
+  "data": {
+    "title": "Trabeculectomy: The Gold Standard Filtration Surgery",
+    "summary": "Trabeculectomy remains the definitive glaucoma filtration procedure, establishing a controlled fistula between the anterior chamber and subconjunctival space. Mastering the balance between aqueous outflow and scarring is the cornerstone of successful long-term IOP control.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M30 50 Q 50 20 70 50' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='3'/><rect x='45' y='40' width='10' height='20' fill='hsl(215, 90%, 45%)'/></svg>",
+    "sections": [
+      {
+        "title": "Indications for Surgery",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Progression of glaucomatous optic neuropathy despite maximum tolerated medical therapy.",
+          "Inability to tolerate topical anti-glaucoma medications (e.g., ocular surface disease).",
+          "Target IOP not achieved despite selective laser trabeculoplasty (SLT).",
+          "Poor patient compliance with chronic drop regimen.",
+          "Need for low target IOP (e.g., advanced disease with narrow rim)."
+        ]
+      },
+      {
+        "title": "Absolute & Relative Contraindications",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Active external ocular infection (Blepharitis, Conjunctivitis).",
+          "Neovascular glaucoma (relative, often requires MIGS/tube first).",
+          "Severe conjunctival scarring (precludes successful bleb formation).",
+          "Patient unable to remain supine/cooperate during surgery.",
+          "Risk of profound hypotony (e.g., high myopia, underlying scleral pathology)."
+        ]
+      },
+      {
+        "title": "Epidemiology & Outcomes (Success Rates)",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "1-Year Success (%)",
+              "value": 85
+            },
+            {
+              "label": "3-Year Success (%)",
+              "value": 75
+            },
+            {
+              "label": "5-Year Success (%)",
+              "value": 65
+            }
+          ]
+        }
+      },
+      {
+        "title": "Surgical Technique: Step-by-Step",
+        "icon": "psychology",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Conjunctival peritomy (limbal-based or fornix-based).",
+          "Step 2: Mitomycin-C application (usually 0.2–0.4 mg/ml for 1–3 mins).",
+          "Step 3: Scleral flap creation (approx. 3x3 mm partial thickness).",
+          "Step 4: Paracentesis entry.",
+          "Step 5: Sclerostomy (punching the block) & peripheral iridectomy (PI).",
+          "Step 6: Scleral flap closure with releasable 10-0 nylon sutures.",
+          "Step 7: Water-tight conjunctival closure (running or interrupted sutures)."
+        ]
+      },
+      {
+        "title": "Classification of Complications",
+        "icon": "medication",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Timing",
+            "Early Complications",
+            "Late Complications"
+          ],
+          "rows": [
+            [
+              "IOP Issues",
+              "Hypotony, Shallow AC, Suprachoroidal Hemorrhage",
+              "Late Bleb Leak, Endophthalmitis"
+            ],
+            [
+              "Mechanical",
+              "Seidel (+) Leak, Wound Dehiscence",
+              "Encapsulated Bleb, Cataract Progression"
+            ],
+            [
+              "Other",
+              "Hyphaema, Uveitis",
+              "Bleb-related Scleritis"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: Post-Op Management",
+        "icon": "school",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "STAMP",
+          "explanation": "S: Steroids (frequent topical), T: Topical Antibiotics, A: Avoid pressure/rubbing, M: Monitor IOP/Seidel, P: Pupil dilation (if synechiae)."
+        }
+      },
+      {
+        "title": "Clinical Pearls for Success",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "A well-functioning bleb is diffuse, vascular, and non-cystic.",
+          "Always assess the bleb morphology using the 'Indiana Bleb Appearance Grading Scale'.",
+          "Early post-op: Use laser suture lysis if IOP remains elevated at 1-2 weeks.",
+          "If Seidel is positive, consider pressure patching or bandage contact lens.",
+          "Prophylactic antibiotic use should continue until the conjunctival wound is fully epithelized."
+        ]
+      }
+    ],
+    "generationPrompt": "Trabeculectomy ( indications, techniques, complications early vs late, contraindications )",
+    "chapterId": "glaucoma"
+  },
+  "chapterId": "glaucoma",
+  "read": true
+}

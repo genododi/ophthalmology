@@ -1,0 +1,150 @@
+{
+  "id": 1775236120881,
+  "seqId": 623,
+  "title": "Clinical Mastery: Ocular Toxocariasis (OT)",
+  "summary": "Ocular toxocariasis is a parasitic infection caused by the larval stage of the roundworm Toxocara canis or cati, typically resulting in unilateral granulomatous inflammation. This guide covers the spectrum from subclinical peripheral granulomas to severe endophthalmitis.",
+  "date": "2026-04-03T17:08:40.881Z",
+  "data": {
+    "title": "Clinical Mastery: Ocular Toxocariasis (OT)",
+    "summary": "Ocular toxocariasis is a parasitic infection caused by the larval stage of the roundworm Toxocara canis or cati, typically resulting in unilateral granulomatous inflammation. This guide covers the spectrum from subclinical peripheral granulomas to severe endophthalmitis.",
+    "summary_illustration": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='hsl(215, 90%, 45%)'/><path d='M50 20 L50 35 M80 50 L65 50 M50 80 L50 65 M20 50 L35 50' stroke='hsl(215, 90%, 45%)' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Definition & Epidemiology",
+        "icon": "biotech",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Ocular toxocariasis is the ocular manifestation of visceral larva migrans. It is caused by accidental ingestion of embryonated T. canis (most common) or T. cati eggs. Incidence is highest in children aged 5-10 years. Prevalence studies suggest up to 10-20% of the healthy population may be seropositive, though clinical disease is rare."
+      },
+      {
+        "title": "Clinical Presentations",
+        "icon": "psychology",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "OT Clinical Types",
+          "branches": [
+            "Peripheral Granuloma (Common)",
+            "Posterior Pole Granuloma",
+            "Chronic Endophthalmitis",
+            "Neuroretinitis/Papillitis"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: When to Suspect",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Unilateral leukocoria in a child",
+          "Unexplained unilateral uveitis",
+          "History of pica or contact with puppies",
+          "Peripheral retinal traction bands leading to drag of the macula",
+          "Evidence of subretinal abscess"
+        ]
+      },
+      {
+        "title": "Diagnostic Workup",
+        "icon": "analytics",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Step 1: Detailed history (puppy exposure/pica).",
+          "Step 2: Slit-lamp exam (check for anterior chamber cells).",
+          "Step 3: Indirect ophthalmoscopy (peripheral granuloma).",
+          "Step 4: Serology (ELISA for anti-Toxocara IgG).",
+          "Step 5: B-scan USG (r/o vitritis/traction)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Disease",
+            "Key Distinction"
+          ],
+          "rows": [
+            [
+              "Retinoblastoma",
+              "Calcification on CT"
+            ],
+            [
+              "Coats Disease",
+              "Exudative, vascular telangiectasias"
+            ],
+            [
+              "Retinopathy of Prematurity",
+              "History of O2, prematurity"
+            ],
+            [
+              "Toxoplasmosis",
+              "Chorioretinal scar, vitreous haze"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Mnemonic: Toxocara Clues",
+        "icon": "fingerprint",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-U-P-P-Y",
+          "explanation": "P: Peripheral Granuloma, U: Unilateral, P: Pica history, P: Parasitic etiology, Y: Young age (children)."
+        }
+      },
+      {
+        "title": "Treatment Protocol",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Systemic corticosteroids (mainstay to control inflammation).",
+          "Anti-helminthics (Albendazole 400mg BID for 5-14 days) - Controversial, may cause inflammation if larva dies in situ.",
+          "Pars plana vitrectomy for severe vitreous traction/epiretinal membrane.",
+          "Laser photocoagulation for localized peripheral granulomas."
+        ]
+      },
+      {
+        "title": "Complications",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Tractional retinal detachment (TRD) due to fibrous bands.",
+          "Permanent vision loss due to macular heterotopia/drag.",
+          "Chronic glaucoma from anterior segment inflammation.",
+          "Cataract formation from chronic uveitis."
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": [
+          "Peripheral granulomas are often misdiagnosed as 'pars planitis'.",
+          "Serology may be negative in Ocular Toxocariasis because the parasite burden is low; serum IgG titers are less sensitive than in Visceral Larva Migrans.",
+          "Always perform a baseline B-scan in patients with unilateral vitritis of unknown origin in children.",
+          "Avoid aggressive anti-parasitic treatment without concomitant corticosteroids."
+        ]
+      }
+    ],
+    "generationPrompt": "Ocular toxocara",
+    "chapterId": "uveitis"
+  },
+  "chapterId": "uveitis"
+}

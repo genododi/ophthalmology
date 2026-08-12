@@ -1,0 +1,352 @@
+{
+  "id": 1776501477599,
+  "seqId": 796,
+  "title": "CHRPE: The Definitive Clinical Guide",
+  "summary": "Congenital Hypertrophy of the Retinal Pigment Epithelium (CHRPE) is a benign but clinically significant pigmented fundus lesion. While usually solitary and harmless, specific phenotypic variations serve as a critical 'red flag' for life-threatening systemic malignancies like Familial Adenomatous Polyposis (FAP).",
+  "date": "2026-04-18T08:37:57.599Z",
+  "data": {
+    "title": "CHRPE: The Definitive Clinical Guide",
+    "summary": "Congenital Hypertrophy of the Retinal Pigment Epithelium (CHRPE) is a benign but clinically significant pigmented fundus lesion. While usually solitary and harmless, specific phenotypic variations serve as a critical 'red flag' for life-threatening systemic malignancies like Familial Adenomatous Polyposis (FAP).",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M60 80 Q 80 60, 140 100 Q 120 140, 60 120 Z' fill='#2c3e50' opacity='0.8'/><circle cx='80' cy='95' r='8' fill='white' opacity='0.6'/><circle cx='110' cy='105' r='12' fill='white' opacity='0.6'/><path d='M60 80 L 140 100' stroke='hsl(215, 90%, 45%)' stroke-width='1' opacity='0.3'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Core Concepts",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "CHRPE is a congenital hamartoma characterized by a localized increase in the size of RPE cells (hypertrophy) rather than an increase in the number of cells (hyperplasia). These cells are packed with large, spherical melanin granules known as macromelanosomes. Clinically, it presents as a flat, sharply demarcated, hyperpigmented lesion often containing characteristic depigmented lacunae."
+      },
+      {
+        "title": "Epidemiology & Prevalence",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "General Population Prevalence",
+              "value": 1.2
+            },
+            {
+              "label": "Bilateral Involvement (Solitary Type)",
+              "value": 2
+            },
+            {
+              "label": "Association with FAP (if Atypical)",
+              "value": 85
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pathophysiology: At the Cellular Level",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "RPE Hypertrophy",
+          "branches": [
+            "Macromelanosomes (Spherical)",
+            "Tall Columnar RPE Cells",
+            "Absent Lipofuscin",
+            "Photoreceptor Degeneration Overlying Lesion",
+            "Intact Choriocapillaris"
+          ]
+        }
+      },
+      {
+        "title": "Classification of CHRPE Subtypes",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Type",
+            "Laterality",
+            "Appearance",
+            "Systemic Association"
+          ],
+          "rows": [
+            [
+              "Solitary CHRPE",
+              "Unilateral",
+              "Large (1-6mm), round, lacunae present",
+              "None"
+            ],
+            [
+              "Grouped CHRPE",
+              "Unilateral",
+              "Small 'Bear Tracks' in one quadrant",
+              "None"
+            ],
+            [
+              "Atypical (FAP-associated)",
+              "Bilateral/Multifocal",
+              "Pisciform (fish-shaped), irregular borders",
+              "FAP / Gardner Syndrome"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Classic Clinical Features",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Color: Slate-gray to jet-black",
+          "Shape: Round or oval with crisp, sharp margins",
+          "Lacunae: Well-circumscribed areas of depigmentation (enlarge over time)",
+          "Halo: Hypopigmented rim often surrounds the lesion",
+          "Elevation: Always FLAT (cannot be detected by B-scan ultrasound)",
+          "Location: Usually mid-periphery or periphery"
+        ]
+      },
+      {
+        "title": "Multimodal Imaging Characteristics",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Modality",
+            "Finding / Appearance"
+          ],
+          "rows": [
+            [
+              "FAF (Autofluorescence)",
+              "Intense Hypo-autofluorescence (absence of lipofuscin)"
+            ],
+            [
+              "OCT",
+              "RPE thickening, overlying photoreceptor loss, posterior shadowing"
+            ],
+            [
+              "FFA",
+              "Silent (blocked fluorescence); Lacunae show 'Window Defect'"
+            ],
+            [
+              "B-Scan USG",
+              "Flat; No internal reflectivity; No thickness"
+            ],
+            [
+              "Red-Free Photos",
+              "Lesion remains dark and prominent"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "RED FLAG: Gardner Syndrome & FAP",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Atypical CHRPE is often the FIRST sign of Familial Adenomatous Polyposis (FAP).",
+          "Lesions are typically bilateral, multiple (>3), and spindle-shaped (Pisciform).",
+          "Associated with APC gene mutation on Chromosome 5q21.",
+          "100% risk of colon cancer by age 50 if untreated.",
+          "Gardner Syndrome Triad: FAP, Osteomas (mandible/skull), and Soft tissue tumors (Desmoid)."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Pigmented Fundus Lesions",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Feature",
+            "CHRPE",
+            "Choroidal Nevus",
+            "Melanoma",
+            "RPE Hyperplasia"
+          ],
+          "rows": [
+            [
+              "Elevation",
+              "Flat",
+              "Minimal (<2mm)",
+              "Elevated (>2mm)",
+              "Flat/Irregular"
+            ],
+            [
+              "Margins",
+              "Sharp",
+              "Indistinct/Feathered",
+              "Variable",
+              "Irregular/Spiculated"
+            ],
+            [
+              "Lacunae",
+              "Common",
+              "Rare (Drusen instead)",
+              "Absent",
+              "No"
+            ],
+            [
+              "Orange Pigment",
+              "Absent",
+              "Rare",
+              "Common (Lipofuscin)",
+              "Absent"
+            ],
+            [
+              "OCT",
+              "RPE Thickening",
+              "Sub-RPE lesion",
+              "Sub-retinal mass",
+              "RPE Disruption"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Symptomatology & Functional Deficits",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Usually asymptomatic (discovered on routine exam)",
+          "Absolute Scotoma corresponds exactly to the lesion area",
+          "Reduced contrast sensitivity (rarely noticed by patient)",
+          "No effect on visual acuity unless the lesion involves the fovea (extremely rare)"
+        ]
+      },
+      {
+        "title": "Management & Follow-up Protocol",
+        "icon": "healing",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Perform dilated fundus exam and baseline photography.",
+          "Step 2: Assess for 'Atypical' features (bilaterality, pisciform shape).",
+          "Step 3: If solitary/grouped: Annual monitoring for growth/change.",
+          "Step 4: If atypical: Immediate referral to Gastroenterology for Colonoscopy.",
+          "Step 5: Genetic counseling for APC gene mutations if FAP suspected."
+        ]
+      },
+      {
+        "title": "Mnemonic: CHRPE Diagnosis",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "F.L.A.T.",
+          "explanation": "F: Flat (no elevation on USG); L: Lacunae (depigmented windows); A: APC Gene (association with FAP); T: Tall RPE cells (hypertrophy)."
+        }
+      },
+      {
+        "title": "Key Clinical Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Lacunae tend to enlarge and coalesce over many years.",
+          "CHRPE is 'silent' on FFA except for the lacunae which show window defects.",
+          "Unlike nevi, CHRPE does not typically have overlying drusen.",
+          "Bear tracks (Grouped CHRPE) are NEVER associated with Gardner Syndrome."
+        ]
+      },
+      {
+        "title": "Complications & Prognosis",
+        "icon": "analytics",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "Prognosis for vision is excellent. While slow growth occurs in up to 25% of cases over decades, malignant transformation into an RPE Adenocarcinoma is extremely rare but documented. Such transformation presents as a nodular growth with associated exudation or hemorrhage."
+      },
+      {
+        "title": "Recent Landmark Insights",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Enhanced Depth Imaging (EDI-OCT) confirms CHRPE is confined to the RPE layer.",
+          "Studies show that even a single pisciform lesion should prompt FAP screening in the right clinical context.",
+          "FAP-associated lesions are found in approximately 70-90% of patients with the condition."
+        ]
+      }
+    ],
+    "generationPrompt": "CHRPE",
+    "chapterId": "medical_retina"
+  },
+  "chapterId": "medical_retina",
+  "kanskiMeta": [
+    {
+      "pageNum": 129,
+      "keywords": [
+        "definitive",
+        "ted",
+        "functional",
+        "follow",
+        "complications"
+      ]
+    },
+    {
+      "pageNum": 400,
+      "keywords": [
+        "definitive",
+        "iol",
+        "imaging",
+        "follow",
+        "complications"
+      ]
+    },
+    {
+      "pageNum": 343,
+      "keywords": [
+        "definitive",
+        "level",
+        "syndrome",
+        "differential",
+        "fundus"
+      ]
+    },
+    {
+      "pageNum": 537,
+      "keywords": [
+        "definitive",
+        "follow",
+        "protocol",
+        "prognosis",
+        "oct"
+      ]
+    },
+    {
+      "pageNum": 97,
+      "keywords": [
+        "definitive",
+        "level",
+        "syndrome",
+        "differential",
+        "follow"
+      ]
+    },
+    {
+      "pageNum": 772,
+      "keywords": [
+        "definitive",
+        "level",
+        "classification",
+        "syndrome",
+        "follow"
+      ]
+    }
+  ],
+  "read": true
+}

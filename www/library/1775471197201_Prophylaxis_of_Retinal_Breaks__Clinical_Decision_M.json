@@ -1,0 +1,313 @@
+{
+  "id": 1775471197201,
+  "seqId": 722,
+  "title": "Prophylaxis of Retinal Breaks: Clinical Decision Matrix",
+  "summary": "A comprehensive guide to identifying and managing peripheral retinal lesions. This poster delineates when to observe and when to intervene with laser photocoagulation or cryotherapy to prevent rhegmatogenous retinal detachment (RRD).",
+  "date": "2026-04-06T10:26:37.201Z",
+  "data": {
+    "title": "Prophylaxis of Retinal Breaks: Clinical Decision Matrix",
+    "summary": "A comprehensive guide to identifying and managing peripheral retinal lesions. This poster delineates when to observe and when to intervene with laser photocoagulation or cryotherapy to prevent rhegmatogenous retinal detachment (RRD).",
+    "summary_illustration": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='80' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='4'/><path d='M40 100 Q 100 20 160 100' fill='none' stroke='hsl(215, 90%, 45%)' stroke-width='2' stroke-dasharray='4'/><circle cx='150' cy='70' r='10' fill='none' stroke='red' stroke-width='2'/><line x1='30' y1='30' x2='145' y2='65' stroke='green' stroke-width='3'/><path d='M140 60 L 160 80' stroke='red' stroke-width='2'/></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Overview",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "A retinal break is a full-thickness continuity defect in the neurosensory retina. Prophylaxis aims to create a chorioretinal adhesion around the break using laser photocoagulation or cryopexy, preventing liquefied vitreous from entering the subretinal space and causing a Rhegmatogenous Retinal Detachment (RRD). The decision to treat is a risk-benefit calculation based on symptoms, morphology, and systemic risk factors."
+      },
+      {
+        "title": "The 'Big Three' Pathophysiological Factors",
+        "icon": "biotech",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "RRD Pathogenesis",
+          "branches": [
+            "Vitreoretinal Traction (VRT)",
+            "Retinal Break (The Portal)",
+            "Liquefied Vitreous (Synchysis)"
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Risk Stats",
+        "icon": "analytics",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Lattice in Gen Pop",
+              "value": 8
+            },
+            {
+              "label": "Lattice in RRD Pts",
+              "value": 30
+            },
+            {
+              "label": "Asympt. HST Risk",
+              "value": 5
+            },
+            {
+              "label": "Sympt. HST Risk",
+              "value": 50
+            }
+          ]
+        }
+      },
+      {
+        "title": "Classification of Retinal Breaks",
+        "icon": "menu_book",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Type",
+            "Morphology",
+            "Traction Level",
+            "RD Risk"
+          ],
+          "rows": [
+            [
+              "Horseshoe Tear (HST)",
+              "U-shaped, apex toward disc",
+              "High (persistent)",
+              "Very High"
+            ],
+            [
+              "Operculated Tear",
+              "Round plug of retina pulled off",
+              "Low (released)",
+              "Low"
+            ],
+            [
+              "Atrophic Hole",
+              "Round, no flap/operculum",
+              "Minimal",
+              "Very Low"
+            ],
+            [
+              "Retinal Dialysis",
+              "Disinsertion at Ora Serrata",
+              "Variable",
+              "High (Inferotemporal)"
+            ],
+            [
+              "Giant Retinal Tear",
+              "Break extending >90 degrees",
+              "Extreme",
+              "Emergency"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Treatment Indications: Symptomatic Lesions",
+        "icon": "healing",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Symptomatic Horseshoe Tears (HST): Mandatory treatment.",
+          "Symptomatic Dialysis: Mandatory treatment.",
+          "Symptomatic Operculated Tears: Treat if traction persists or large.",
+          "Symptomatic Lattice with Breaks: Treat holes/tears within lattice.",
+          "New Flashes/Floaters with Pigmented Cells (Shafer's Sign): Urgent intervention."
+        ]
+      },
+      {
+        "title": "Treatment Indications: Asymptomatic Lesions",
+        "icon": "psychology",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "HST in Fellow Eye of RD: Highly recommended.",
+          "Large Atrophic Holes in Myopes: Consider if >2DD.",
+          "Lattice Degeneration in Fellow Eye of RD: Strong consideration.",
+          "Subclinical RD (localized fluid >1DD): Usually treat.",
+          "Pre-Cataract/Refractive Surgery: Treat visible HST/high-risk lattice."
+        ]
+      },
+      {
+        "title": "High-Risk Systemic & Ocular Features",
+        "icon": "genetics",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Risk Modifiers",
+          "branches": [
+            "High Myopia (> -6.00D)",
+            "Aphakia / Pseudophakia",
+            "Family History of RRD",
+            "Stickler / Marfan Syndrome",
+            "Blunt Ocular Trauma history"
+          ]
+        }
+      },
+      {
+        "title": "Red Flags: Impending RD",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Shafer's Sign (Tobacco Dust in anterior vitreous)",
+          "Vitreous Hemorrhage (70% risk of associated tear)",
+          "New onset 'curtain' or 'veil' in vision",
+          "Macular involving subretinal fluid"
+        ]
+      },
+      {
+        "title": "Surgical Technique: Laser Photocoagulation",
+        "icon": "science",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "1. Topical anesthesia and Goldmann 3-Mirror or wide-field lens.",
+          "2. Argon/532nm Green Laser: 200-500 micron spot size.",
+          "3. Exposure: 0.1 to 0.2 seconds.",
+          "4. Power: Titrate to obtain 'grey-white' uptake.",
+          "5. Pattern: 3 concentric rows of confluent burns around the break.",
+          "6. Extension: Ensure the 'horns' of the HST are well-surrounded."
+        ]
+      },
+      {
+        "title": "Cryopexy: When to Use?",
+        "icon": "ac_unit",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Indications: Extreme periphery (Ora), hazy media (cataract/hemorrhage).",
+          "Mechanism: Freeze-thaw-freeze cycle to create adhesion.",
+          "Disadvantage: Increased risk of PVR due to RPE dispersion.",
+          "Procedure: Direct visualization with indirect ophthalmoscopy."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Peripheral Lesions",
+        "icon": "analytics",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Lesion",
+            "Clinical Appearance",
+            "Significance"
+          ],
+          "rows": [
+            [
+              "Pavingstone Degeneration",
+              "Yellow-white punched out areas",
+              "Benign - No treatment"
+            ],
+            [
+              "White Without Pressure",
+              "Milk-white retinal sheen",
+              "Monitor (rarely leads to GRT)"
+            ],
+            [
+              "Retinoschisis",
+              "Elevation, smooth surface, 'snowflakes'",
+              "Observe unless progressive/sympt."
+            ],
+            [
+              "Meridional Folds",
+              "Radial fold of redundant retina",
+              "Small risk of HST at posterior end"
+            ],
+            [
+              "Enclosed Oral Bay",
+              "Island of pars plana-like tissue",
+              "Higher risk of RRD"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Landmark Studies in Prophylaxis",
+        "icon": "school",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Study",
+            "Key Finding"
+          ],
+          "rows": [
+            [
+              "Byer (1989)",
+              "Asymptomatic lattice has very low progression to RD (~1%)."
+            ],
+            [
+              "Davis (1974)",
+              "Symptomatic HST carry a 50% risk of RD without treatment."
+            ],
+            [
+              "AAO PPP",
+              "Recommends against treating asymptomatic holes/lattice in low-risk eyes."
+            ],
+            [
+              "Pollak et al.",
+              "Fellow eyes of RD patients have a 10-15% cumulative risk of RD."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Remember the '3-2-1' Rule for Laser",
+        "icon": "lightbulb",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "3-2-1 Laser",
+          "explanation": "3 rows of burns, 200-500 micron size, 1 (one) goal: prevent fluid entry."
+        }
+      },
+      {
+        "title": "Complications of Prophylaxis",
+        "icon": "warning",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Epiretinal Membrane (ERM) formation (most common).",
+          "Iatrogenic retinal breaks.",
+          "Vitreous hemorrhage.",
+          "Subretinal neovascularization (rare).",
+          "Failure of prophylaxis: RD occurs despite laser."
+        ]
+      },
+      {
+        "title": "Clinical Pearls for the Exam",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Always perform scleral depression to rule out additional breaks before lasering.",
+          "Pigmented breaks are 'old' and usually stable, but symptoms override pigmentation.",
+          "If you find one break, look 180 degrees away; multiple breaks are common.",
+          "Wait 10-14 days for the laser scar to achieve maximal tensile strength.",
+          "Educate patients on the 'RD Warning Signs' even after successful laser."
+        ]
+      }
+    ],
+    "generationPrompt": "When prophylactic lasers for retinal breaks ?",
+    "chapterId": "vitreoretinal"
+  },
+  "chapterId": "vitreoretinal",
+  "read": true
+}

@@ -3133,6 +3133,30 @@ textarea:focus {
     line-height: 1.5;
 }
 
+/* Tables are measured after render and compact only as far as the canvas
+   requires. Fixed layout plus normal wrapping makes every word visible rather
+   than allowing a wide cell or an over-tall table to be cropped. */
+.presentation-mode .slide-table-wrap,
+.pptx-render-host .slide-table-wrap {
+    max-width: 100%;
+    overflow: visible !important;
+}
+
+.presentation-mode .slide-data-table,
+.pptx-render-host .slide-data-table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.presentation-mode .slide-data-table__cell,
+.pptx-render-host .slide-data-table__cell {
+    overflow-wrap: anywhere;
+    word-break: normal;
+    vertical-align: middle;
+}
+
 .home-notification-button { position: relative; }
 
 .today-infographic-count {

@@ -11823,17 +11823,17 @@ function renderSlideStructuredContent(slide, tpl, opts = {}) {
             return '<p style="font-size:1.4rem;line-height:1.8;color:#334155;">No table rows available.</p>';
         }
         return `
-            <div style="overflow:auto;width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,0.08);border:1px solid #e2e8f0;">
-                <table style="width:100%;border-collapse:collapse;text-align:left;font-size:${tableFont};">
+            <div class="slide-table-wrap" data-table-mode="${mode}" style="overflow:auto;width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,0.08);border:1px solid #e2e8f0;">
+                <table class="slide-data-table" style="width:100%;border-collapse:collapse;text-align:left;font-size:${tableFont};">
                     <thead>
                         <tr style="background:#f1f5f9;border-bottom:3px solid #cbd5e1;">
-                            ${headers.map(h => `<th style="padding:${tablePad};font-weight:700;color:#0f172a;">${escapeHtml(h)}</th>`).join('')}
+                            ${headers.map(h => `<th class="slide-data-table__cell" style="padding:${tablePad};font-weight:700;color:#0f172a;">${escapeHtml(h)}</th>`).join('')}
                         </tr>
                     </thead>
                     <tbody>
                         ${rows.map((row, idx) => `
                             <tr style="background:${idx % 2 === 0 ? 'white' : '#f8fafc'};border-bottom:1px solid #e2e8f0;">
-                                ${row.map(cell => `<td style="padding:${tablePad};color:#334155;">${escapeHtml(cell)}</td>`).join('')}
+                                ${row.map(cell => `<td class="slide-data-table__cell" style="padding:${tablePad};color:#334155;">${escapeHtml(cell)}</td>`).join('')}
                             </tr>
                         `).join('')}
                     </tbody>
@@ -11882,6 +11882,95 @@ function renderSlideStructuredContent(slide, tpl, opts = {}) {
     }
 
     return `<p style="font-size:${isPresentation ? '1.6rem' : '1.4rem'};line-height:1.8;color:#334155;white-space:pre-wrap;">${escapeHtml(displayText(content) || JSON.stringify(content, null, 2) || '')}</p>`;
+}
+
+/**
+ * Tables can be much denser than a normal content slide.  Keep every cell in
+ * the 16:9 canvas by stepping down the type and cell padding only when the
+ * rendered table needs it.  The content remains normal flowing HTML (not
+ * clipped or ellipsized), so it is also preserved in the PPTX rasterisation.
+ */
+function fitSlideTables(content) {
+    if (!content) return;
+
+    const tables = [...content.querySelectorAll('.slide-data-table')];
+    tables.forEach(table => {
+        const wrap = table.closest('.slide-table-wrap');
+        const tableArea = wrap?.parentElement;
+        if (!wrap || !tableArea) return;
+
+        const presentationTable = wrap.dataset.tableMode === 'presentation';
+        const sizes = presentationTable
+            ? [
+                [22.4, 24], [20, 18], [18, 14], [16, 10],
+                [14, 8], [12, 6], [10, 4], [9, 3]
+            ]
+            : [
+                [20, 19], [18, 15], [16, 12], [14, 9],
+                [12, 7], [10, 5], [9, 3]
+            ];
+        const cells = [...table.querySelectorAll('.slide-data-table__cell')];
+        const availableHeight = Math.max(1, tableArea.getBoundingClientRect().height - 4);
+        const availableWidth = Math.max(1, tableArea.getBoundingClientRect().width - 2);
+
+        table.style.tableLayout = 'fixed';
+        table.style.width = '100%';
+        table.style.lineHeight = '1.26';
+        wrap.style.overflow = 'visible';
+
+        let selected = sizes[sizes.length - 1];
+        for (const candidate of sizes) {
+            const [fontSize, padding] = candidate;
+            table.style.fontSize = `${fontSize}px`;
+            cells.forEach(cell => {
+                cell.style.padding = `${padding}px`;
+                cell.style.fontSize = `${fontSize}px`;
+                cell.style.lineHeight = '1.26';
+            });
+            const rect = table.getBoundingClientRect();
+            selected = candidate;
+            if (rect.height <= availableHeight && rect.width <= availableWidth) break;
+        }
+
+        table.dataset.fittedFontSize = String(selected[0]);
+        table.dataset.fittedCellPadding = String(selected[1]);
+    });
+}
+
+/**
+ * Very long tables cannot stay legible even at the minimum safe table type
+ * scale.  Split only those outliers into continuation slides; normal tables
+ * stay together and are handled by fitSlideTables above.
+ */
+function splitLargeTableForSlides(content) {
+    if (!content?.headers || !content?.rows) return [content];
+
+    const { headers, rows } = normalizeSlideTable(content);
+    const textLength = headers.join('').length + rows.reduce((total, row) =>
+        total + row.join('').length, 0);
+    if (rows.length <= 8 && textLength <= 2200) return [content];
+
+    const rowLimit = 6;
+    const characterBudget = 1500;
+    const chunks = [];
+    let currentRows = [];
+    let currentLength = headers.join('').length;
+
+    rows.forEach(row => {
+        const rowLength = row.join('').length;
+        const exceedsLimit = currentRows.length > 0 && (
+            currentRows.length >= rowLimit || currentLength + rowLength > characterBudget
+        );
+        if (exceedsLimit) {
+            chunks.push({ headers, rows: currentRows });
+            currentRows = [];
+            currentLength = headers.join('').length;
+        }
+        currentRows.push(row);
+        currentLength += rowLength;
+    });
+    if (currentRows.length) chunks.push({ headers, rows: currentRows });
+    return chunks.length ? chunks : [content];
 }
 
 function generateSlides() {
@@ -11956,6 +12045,32 @@ function generateSlides() {
         if (Array.isArray(content) && content.length > SLIDE_DECK_MAX_BULLETS_PER_SECTION) {
             content = content.slice(0, SLIDE_DECK_MAX_BULLETS_PER_SECTION);
             truncated = true;
+        }
+
+        // Dense tables receive continuation slides before we reach a font size
+        // that would compromise readability.  This prevents the final rows
+        // from being clipped in fullscreen preview or the exported PowerPoint.
+        if (content?.headers && content?.rows) {
+            const tableParts = splitLargeTableForSlides(content);
+            tableParts.forEach((part, partIndex) => {
+                if (slides.length >= slideBudget()) {
+                    truncated = true;
+                    return;
+                }
+                const suffix = tableParts.length > 1
+                    ? ` (${partIndex + 1}/${tableParts.length})`
+                    : '';
+                slides.push({
+                    type: 'content',
+                    title: sectionTitle + suffix,
+                    content: part,
+                    contentType: sectionType,
+                    icon: sectionIcon,
+                    colorTheme,
+                    template
+                });
+            });
+            return;
         }
 
         // Chunk array content so each slide stays readable
@@ -12157,7 +12272,10 @@ function renderSlide() {
     document.querySelectorAll('.slide-thumbnail').forEach((thumb, i) => {
         thumb.classList.toggle('active', i === currentSlideIndex);
     });
-    requestAnimationFrame(() => syncSlideCanvasScale(document.getElementById('slide-frame')));
+    requestAnimationFrame(() => {
+        fitSlideTables(slideContent);
+        syncSlideCanvasScale(document.getElementById('slide-frame'));
+    });
 }
 
 function buildSlideThumbnailHtml(slide, i, active) {
@@ -12478,7 +12596,10 @@ function renderPresentationSlide() {
             </div>
         `;
     }
-    requestAnimationFrame(() => syncSlideCanvasScale(content.closest('.slide-frame')));
+    requestAnimationFrame(() => {
+        fitSlideTables(content);
+        syncSlideCanvasScale(content.closest('.slide-frame'));
+    });
 }
 
 function handlePresentationKeydown(e) {
@@ -12679,6 +12800,7 @@ async function _captureSlideAsImage(slide, slideIndex) {
         // Wait a tick for fonts / images to settle
         await new Promise(r => setTimeout(r, 80));
         fitPptxSlideTypography(content);
+        fitSlideTables(content);
         await new Promise(r => setTimeout(r, 40));
 
         const canvas = await html2canvas(frame, {

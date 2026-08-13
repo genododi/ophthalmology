@@ -1112,9 +1112,20 @@ async function exportToPDF(element) {
             }
         }
 
-        // Save PDF - Content remains visible (no hiding)
+        // Save through a Blob URL rather than jsPDF's popup-based helper. This
+        // is considerably more reliable in iOS Safari and Capacitor's WKWebView.
         const filename = `${data.title || 'infographic'}-${orientation}.pdf`.replace(/[^a-zA-Z0-9-_.]/g, '_');
-        pdf.save(filename);
+        const pdfBlob = pdf.output('blob');
+        const downloadUrl = URL.createObjectURL(pdfBlob);
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.download = filename;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        // Give WebKit time to receive the Blob before releasing its URL.
+        setTimeout(() => URL.revokeObjectURL(downloadUrl), 1500);
 
     } catch (err) {
         console.error("PDF Export failed:", err);
@@ -1140,6 +1151,44 @@ const LIBRARY_IDB_VERSION = 1;
 const LIBRARY_IDB_STORE = 'library';
 let _libraryCache = null;
 
+const TODAY_INFOGRAPHIC_NOTICE_PREFIX = 'ophthalmic_infographic_notice_';
+
+function getLocalDateKey(value = new Date()) {
+    const date = value instanceof Date ? value : new Date(value);
+    if (Number.isNaN(date.getTime())) return '';
+    const offsetDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+    return offsetDate.toISOString().slice(0, 10);
+}
+
+function setInfographicCategory(item, chapterId, source = 'manual') {
+    if (!item) return item;
+    item.chapterId = chapterId || 'uncategorized';
+    item.categorySource = source;
+    // A user-approved suggestion is an intentional decision, just like a
+    // manually selected category. Automatic detection is deliberately mutable.
+    item.categoryLocked = source === 'manual' || source === 'suggested';
+    if (item.data) {
+        item.data.chapterId = item.chapterId;
+        item.data.categorySource = item.categorySource;
+        item.data.categoryLocked = item.categoryLocked;
+    }
+    return item;
+}
+
+function showTodayInfographicNotice(items) {
+    updateTodayInfographicBadge(items);
+}
+
+function updateTodayInfographicBadge(items = getLibraryCache()) {
+    const badge = document.getElementById('today-infographic-count');
+    if (!badge) return;
+    const today = getLocalDateKey();
+    const count = (items || []).filter(item => getLocalDateKey(item.date) === today).length;
+    badge.textContent = String(count);
+    badge.hidden = count === 0;
+    badge.setAttribute('aria-label', `${count} infographic${count === 1 ? '' : 's'} added today`);
+}
+
 function openLibraryIDB() {
     return new Promise((resolve, reject) => {
         const req = indexedDB.open(LIBRARY_IDB_NAME, LIBRARY_IDB_VERSION);
@@ -1155,7 +1204,10 @@ function openLibraryIDB() {
 }
 
 async function saveLibraryToIDB(library) {
+    healSavedInfographicLibrary(library);
     _libraryCache = library;
+    updateTodayInfographicBadge(library);
+    window.dispatchEvent(new CustomEvent('library:changed'));
     try {
         const db = await openLibraryIDB();
         const tx = db.transaction(LIBRARY_IDB_STORE, 'readwrite');
@@ -2696,13 +2748,20 @@ function setupKnowledgeBase() {
                         // Check for REAL differences that matter
                         const changes = [];
 
-                        // CHAPTER SYNC: Server is source of truth for chapters
-                        // BUT: We never revert a categorized item to 'uncategorized'
+                        // CHAPTER SYNC: accepted suggestions and manual choices are
+                        // local decisions. They must survive subsequent imports,
+                        // even when a remote copy still carries an old category.
                         const localChapter = normalizeStr(localItem.chapterId) || 'uncategorized';
                         let serverChapter = normalizeStr(serverItem.chapterId) || 'uncategorized';
+                        const localCategoryLocked = localItem.categoryLocked === true
+                            || localItem.categorySource === 'manual'
+                            || localItem.categorySource === 'suggested';
 
+                        if (localCategoryLocked) {
+                            serverChapter = localChapter;
+                            setInfographicCategory(serverItem, localChapter, localItem.categorySource || 'manual');
                         // If server is uncategorized but local ALREADY has a category, preserve the local one
-                        if (serverChapter === 'uncategorized' && localChapter !== 'uncategorized') {
+                        } else if (serverChapter === 'uncategorized' && localChapter !== 'uncategorized') {
                             serverChapter = localChapter;
                             serverItem.chapterId = localItem.chapterId;
                         } else if (serverChapter === 'uncategorized' && localChapter === 'uncategorized') {
@@ -2720,6 +2779,10 @@ function setupKnowledgeBase() {
                             const newChapterName = chapters.find(c => c.id === serverChapter)?.name || serverChapter;
                             changes.push(`chapter: ${oldChapterName} → ${newChapterName}`);
                             localItem.chapterId = serverItem.chapterId;
+                            if (serverItem.categorySource) {
+                                localItem.categorySource = serverItem.categorySource;
+                                localItem.categoryLocked = serverItem.categoryLocked === true;
+                            }
                             // Mark as recently updated for visual feedback
                             localItem._chapterUpdated = Date.now();
                         }
@@ -2753,6 +2816,14 @@ function setupKnowledgeBase() {
                                 localItem._serverSynced = true;
                             }
                             // If already synced, keep local version (Local First behavior)
+                        }
+
+                        // Keep the nested data and item metadata coherent after a
+                        // server-data replacement, especially for locked choices.
+                        if (localCategoryLocked) {
+                            setInfographicCategory(localItem, localChapter, localItem.categorySource || 'manual');
+                        } else if (localItem.data && localItem.chapterId) {
+                            localItem.data.chapterId = localItem.chapterId;
                         }
 
                         // Preserve local seqId if it exists, otherwise use server's or generate new
@@ -2814,6 +2885,7 @@ function setupKnowledgeBase() {
                     localLibrary.sort((a, b) => new Date(b.date) - new Date(a.date));
                     saveLibraryToIDB(localLibrary);
                     renderLibraryList();
+                    showTodayInfographicNotice(localLibrary.filter(item => item._newlyImported));
                     if (!silent) {
                         const msg = [];
                         if (addedCount) msg.push(`${addedCount} new`);
@@ -3300,7 +3372,7 @@ function setupKnowledgeBase() {
                     const detectedChapter = autoDetectChapter(item.title);
                     if (detectedChapter !== 'uncategorized') {
                         const oldChapter = item.chapterId || 'uncategorized';
-                        item.chapterId = detectedChapter;
+                        setInfographicCategory(item, detectedChapter, 'auto');
                         changedCount++;
 
                         // Get chapter name for display
@@ -3352,9 +3424,7 @@ function setupKnowledgeBase() {
             const autoChapter = autoDetectChapter(itemTitle);
 
             // Sync chapterId into the infographic data so the tag renders correctly
-            if (autoChapter !== 'uncategorized') {
-                currentInfographicData.chapterId = autoChapter;
-            }
+            if (autoChapter !== 'uncategorized') currentInfographicData.chapterId = autoChapter;
 
             const newItem = {
                 id: Date.now(),
@@ -3363,8 +3433,11 @@ function setupKnowledgeBase() {
                 summary: currentInfographicData.summary || "",
                 date: new Date().toISOString(),
                 data: currentInfographicData,
-                chapterId: autoChapter // Auto-assigned based on title keywords
+                chapterId: autoChapter, // Auto-assigned based on title keywords
+                categorySource: 'auto',
+                categoryLocked: false
             };
+            setInfographicCategory(newItem, autoChapter, 'auto');
 
             library.unshift(newItem);
 
@@ -4344,10 +4417,8 @@ function setupKnowledgeBase() {
                     const updatedLibrary = library.map(item => {
                         if (selectedItems.has(item.id)) {
                             // Update both the library item and the nested data chapterId
-                            const updated = { ...item, chapterId: newChapterId };
-                            if (updated.data) {
-                                updated.data = { ...updated.data, chapterId: newChapterId };
-                            }
+                            const updated = { ...item, data: item.data ? { ...item.data } : item.data };
+                            setInfographicCategory(updated, newChapterId, 'manual');
                             return updated;
                         }
                         return item;
@@ -4919,10 +4990,7 @@ function setupKnowledgeBase() {
                     if (!m) return;
                     const item = library.find(i => i.id === m.id);
                     if (item) {
-                        item.chapterId = m.suggested;
-                        if (item.data) {
-                            item.data.chapterId = m.suggested;
-                        }
+                        setInfographicCategory(item, m.suggested, 'suggested');
                         changedCount++;
                     }
                 });
@@ -5164,6 +5232,8 @@ function setupSyncStatus() {
     if (!syncStatusBtn || !syncStatusModal) return;
 
     let currentDifferences = { localOnly: [], serverOnly: [], deletedByAdmin: [] };
+    let comparisonInFlight = false;
+    let autoRefreshTimer = null;
 
     // Initialize preference toggle
     if (preferenceToggle) {
@@ -5206,6 +5276,8 @@ function setupSyncStatus() {
 
     async function comparLibraries() {
         if (!contentEl) return;
+        if (comparisonInFlight) return;
+        comparisonInFlight = true;
 
         contentEl.innerHTML = `
             <div class="sync-loading">
@@ -5303,10 +5375,19 @@ function setupSyncStatus() {
             contentEl.innerHTML = `
                 <div class="sync-error">
                     <span class="material-symbols-rounded">error</span>
-                    <p>Could not compare libraries: ${err.message}</p>
+                <p>Could not compare libraries: ${err.message}</p>
                 </div>
             `;
+        } finally {
+            comparisonInFlight = false;
         }
+    }
+
+    function scheduleStatusRefresh(delay = 250) {
+        clearTimeout(autoRefreshTimer);
+        autoRefreshTimer = setTimeout(() => {
+            if (syncStatusModal.classList.contains('active')) comparLibraries();
+        }, delay);
     }
 
     function renderDifferences(localOnly, serverOnly, deletedByAdmin, localCount, serverCount) {
@@ -5471,6 +5552,21 @@ function setupSyncStatus() {
     if (refreshBtn) {
         refreshBtn.addEventListener('click', comparLibraries);
     }
+
+    // Keep the dialog accurate without requiring the user to press Refresh:
+    // local saves, completed downloads, reconnects, and foregrounding all
+    // schedule a fresh comparison while the status dialog is open.
+    window.addEventListener('library:changed', () => scheduleStatusRefresh());
+    window.addEventListener('online', () => scheduleStatusRefresh(0));
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) scheduleStatusRefresh(0);
+    });
+    setInterval(() => {
+        if (syncStatusModal.classList.contains('active')) comparLibraries();
+    }, 30000);
+    window.refreshLibrarySyncStatus = () => {
+        if (syncStatusModal.classList.contains('active')) comparLibraries();
+    };
 
     // Download server-only infographs to local library
     if (downloadServerOnlyBtn) {
@@ -5773,6 +5869,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     initHuggingFaceToken();
     initTopicDefault();
     await initLibraryCache();
+    // Permanently repair older saved records once, so their next render,
+    // presentation, and export all use reliable symbols and clean text.
+    const initialLibrary = getLibraryCache();
+    if (healSavedInfographicLibrary(initialLibrary)) {
+        await saveLibraryToIDB(initialLibrary);
+        console.log('[Library Migration] Repaired legacy infographic symbols and display text.');
+    }
+    updateTodayInfographicBadge(initialLibrary);
     // Reconcile every saved local infographic when the app opens, and resume a
     // paused sync as soon as the connection returns.
     syncLibraryToServer({ immediate: true });
@@ -6939,7 +7043,10 @@ function buildPreservationBlock() {
 HOWEVER: You MAY supplement the user's text with additional medical/ophthalmology knowledge to enrich the infographic. Add relevant clinical pearls, differential diagnoses, investigation workups, management protocols, red flags, and mnemonics that are clinically accurate and pertinent to the topic, even if not explicitly stated in the input. The user's original text must still be preserved in full.`;
 }
 
-const GEMINI_FLASH_LATEST = 'gemini-3.6-flash';
+// Google's rolling Flash alias automatically follows the latest production
+// Flash release. Keep a specific 3.6 fallback below for API keys that cannot
+// yet access the alias.
+const GEMINI_FLASH_LATEST = 'gemini-flash-latest';
 
 /** Map retired preview model IDs to current API identifiers. */
 function normalizeGeminiModelId(id) {
@@ -7067,13 +7174,14 @@ async function generateInfographicDataWithKeyRotation(topic) {
 async function generateInfographicData(apiKey, topic) {
     const selectedModel = getSelectedGeminiModel();
     const fallbacks = [
+        GEMINI_FLASH_LATEST,
         'gemini-3.6-flash',
+        'gemini-3-flash-preview',
         'gemini-2.5-flash',
         'gemini-2.5-pro',
-        GEMINI_FLASH_LATEST,
         'gemini-2.0-flash-lite',
         'gemini-1.5-flash'
-    ].map(normalizeGeminiModelId).filter(m => m !== selectedModel);
+    ].map(normalizeGeminiModelId).filter((m, index, all) => m !== selectedModel && all.indexOf(m) === index);
     const modelsToTry = [selectedModel, ...fallbacks];
 
     let lastError = null;
@@ -7133,7 +7241,10 @@ User Topic/Text: "${topic}"`;
 
             const body = JSON.stringify({
                 contents: [{ role: 'user', parts: [{ text: systemPrompt }] }],
-                generationConfig: { temperature: 0.7, maxOutputTokens: 8192 }
+                // Gemini 3.6+ rejects legacy sampling controls such as
+                // temperature. The detailed system instruction supplies the
+                // required consistency; leave sampling to the model default.
+                generationConfig: { maxOutputTokens: 8192 }
             });
 
             const resp = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
@@ -7177,7 +7288,7 @@ User Topic/Text: "${topic}"`;
                             model: modelName,
                             messages: [{ role: 'user', content: systemPrompt }],
                             max_tokens: 8192,
-                            temperature: 0.7
+                            // Do not send deprecated sampling parameters.
                         })
                     });
                     if (oaiResp.ok) {
@@ -8245,7 +8356,7 @@ const ICON_FALLBACK_MAP = {
  * Falls back to a safe default if the icon is unknown.
  */
 function sanitizeMaterialIcon(iconName) {
-    if (!iconName || typeof iconName !== 'string') return 'circle';
+    if (!iconName || typeof iconName !== 'string') return 'auto_awesome';
 
     // Clean up the icon name by lowering case and replacing hyphens
     let cleaned = iconName.trim().toLowerCase().replace(/-/g, '_');
@@ -8260,17 +8371,122 @@ function sanitizeMaterialIcon(iconName) {
 
     // Check if it's in our fallback map (known invalid → valid mapping)
     if (ICON_FALLBACK_MAP[cleaned]) {
-        return ICON_FALLBACK_MAP[cleaned];
+        const mapped = ICON_FALLBACK_MAP[cleaned];
+        return SAFE_MATERIAL_ICONS.has(mapped) ? mapped : 'auto_awesome';
     }
 
-    // Return as-is if it looks like a valid Material Symbols name
-    // (lowercase with underscores, no spaces, no special chars)
-    if (/^[a-z][a-z0-9_]*$/.test(cleaned)) {
+    // Unknown ligatures render as their literal text in Material Symbols. Only
+    // allow the small, verified set used by this app; all other model output
+    // falls back to a reliable glyph instead of a broken/falsy symbol.
+    if (SAFE_MATERIAL_ICONS.has(cleaned)) {
         return cleaned;
     }
 
-    // Last resort: return a safe default
-    return 'circle';
+    return 'auto_awesome';
+}
+
+const SAFE_MATERIAL_ICONS = new Set([
+    'auto_awesome', 'visibility', 'visibility_off', 'warning', 'flag',
+    'priority_high', 'error', 'emergency', 'medical_services', 'biotech',
+    'science', 'genetics', 'local_hospital', 'medication', 'vaccines',
+    'healing', 'content_cut', 'build', 'surgical', 'stethoscope_check',
+    'clinical_notes', 'assignment', 'task_alt', 'check_circle', 'block',
+    'do_not_disturb_on', 'account_tree', 'compare_arrows', 'bar_chart',
+    'pie_chart', 'show_chart', 'analytics', 'query_stats', 'trending_up',
+    'lightbulb', 'psychology', 'menu_book', 'school', 'groups', 'person',
+    'child_care', 'elderly', 'back_hand', 'folder', 'category', 'inventory_2',
+    'description', 'summarize', 'list_alt', 'format_list_bulleted',
+    'format_list_numbered', 'dashboard', 'image', 'photo_library',
+    'photo_camera', 'videocam', 'play_arrow', 'schedule', 'calendar_today',
+    'notifications', 'search', 'filter_list', 'settings', 'sync', 'refresh',
+    'cloud', 'cloud_download', 'cloud_upload', 'download', 'upload', 'home',
+    'fullscreen', 'close_fullscreen', 'open_in_full', 'close', 'celebration',
+    'star', 'stars', 'favorite', 'public', 'explore', 'location_on',
+    'eyeglasses', 'center_focus_strong', 'speed', 'radiology', 'straighten',
+    'human_greeting_proximity', 'sick', 'report_problem', 'dangerous',
+    'masks', 'sanitizer', 'bloodtype', 'coronavirus', 'device_thermostat',
+    'accessibility_new', 'fitness_center', 'spa', 'fingerprint', 'help',
+    'help_outline', 'info', 'cancel', 'add_circle', 'remove_circle',
+    'arrow_forward', 'arrow_forward_ios', 'arrow_upward', 'arrow_downward',
+    'swap_horiz', 'call_split', 'merge', 'hub', 'autorenew', 'layers',
+    'crop_square', 'radio_button_unchecked', 'fiber_manual_record', 'hexagon',
+    'bookmark', 'timeline', 'table_chart', 'grid_view', 'apps', 'lab_profile',
+    'labs', 'monitor_heart', 'cardiology', 'pulmonology', 'gastroenterology',
+    'nephrology', 'hepatology', 'orthopedics', 'psychology', 'circle'
+]);
+
+function stripDisplayMarkdown(value) {
+    return String(value ?? '')
+        .replace(/\*\*|__/g, '')
+        .replace(/`([^`]+)`/g, '$1')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+}
+
+function healDisplayContent(value) {
+    let changed = false;
+    if (typeof value === 'string') return { value: stripDisplayMarkdown(value), changed: stripDisplayMarkdown(value) !== value };
+    if (Array.isArray(value)) {
+        value.forEach((entry, index) => {
+            const repaired = healDisplayContent(entry);
+            if (repaired.changed) { value[index] = repaired.value; changed = true; }
+        });
+        return { value, changed };
+    }
+    if (value && typeof value === 'object') {
+        Object.entries(value).forEach(([key, entry]) => {
+            // Keep image data and SVG/HTML markup intact.
+            if (/^(imgUrl|dataUrl|src|html|svg)$/i.test(key)) return;
+            const repaired = healDisplayContent(entry);
+            if (repaired.changed) { value[key] = repaired.value; changed = true; }
+        });
+    }
+    return { value, changed };
+}
+
+function fallbackIconForSection(section = {}) {
+    const topic = `${section.title || ''} ${section.type || ''}`.toLowerCase();
+    if (/red flag|warning|urgent|emerg/.test(topic)) return 'warning';
+    if (/surg|incision|vitrect|procedure/.test(topic)) return 'medical_services';
+    if (/investig|scan|imaging|test|lab/.test(topic)) return 'biotech';
+    if (/chart|data|stat|epidemiol/.test(topic)) return 'bar_chart';
+    if (/eye|retina|cornea|optic|vision|pupil|lens/.test(topic)) return 'visibility';
+    if (/management|treatment|therapy/.test(topic)) return 'medication';
+    return 'auto_awesome';
+}
+
+/** Repair historic local records before they are rendered or exported. */
+function healInfographicData(data) {
+    if (!data || typeof data !== 'object') return false;
+    let changed = false;
+    ['title', 'summary'].forEach(key => {
+        if (typeof data[key] === 'string') {
+            const clean = stripDisplayMarkdown(data[key]);
+            if (clean !== data[key]) { data[key] = clean; changed = true; }
+        }
+    });
+    if (!Array.isArray(data.sections)) return changed;
+    data.sections.forEach(section => {
+        if (!section || typeof section !== 'object') return;
+        if (typeof section.title === 'string') {
+            const clean = stripDisplayMarkdown(section.title);
+            if (clean !== section.title) { section.title = clean; changed = true; }
+        }
+        const safeIcon = sanitizeMaterialIcon(section.icon);
+        const icon = safeIcon === 'auto_awesome' ? fallbackIconForSection(section) : safeIcon;
+        if (section.icon !== icon) { section.icon = icon; changed = true; }
+        const repairedContent = healDisplayContent(section.content);
+        if (repairedContent.changed) { section.content = repairedContent.value; changed = true; }
+    });
+    return changed;
+}
+
+function healSavedInfographicLibrary(library = getLibraryCache()) {
+    let changed = false;
+    (library || []).forEach(item => {
+        if (healInfographicData(item?.data)) changed = true;
+    });
+    return changed;
 }
 
 function renderInfographic(data) {
@@ -8321,6 +8537,10 @@ function renderInfographic(data) {
             return;
         }
     }
+
+    // Repair saved/local content as it is opened. This catches records created
+    // before the icon validator was introduced as well as malformed API data.
+    healInfographicData(data);
 
     // Provide fallbacks for missing required fields
     data.title = data.title || 'Untitled Infographic';
@@ -8683,7 +8903,7 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
                 console.log(`Studio Tool: Trying model ${modelName}`);
                 const body = JSON.stringify({
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
-                    generationConfig: { temperature: 0.7, maxOutputTokens: 4096 }
+                    generationConfig: { maxOutputTokens: 4096 }
                 });
                 const resp = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
                     method: 'POST',
@@ -8715,7 +8935,7 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
                             model: modelName,
                             messages: [{ role: 'user', content: prompt }],
                             max_tokens: 4096,
-                            temperature: 0.7
+                            // Do not send deprecated sampling parameters.
                         })
                     });
                     if (oaiResp.ok) {
@@ -11044,7 +11264,7 @@ function safeStripReferences(val, depth = 0, seen = null) {
         return typeof val === 'string' ? val : (Array.isArray(val) ? [] : '');
     }
     if (typeof val === 'string') {
-        return val.replace(/\[\d+(?:\s*,\s*\d+)*\]/g, '').trim();
+        return stripDisplayMarkdown(val.replace(/\[\d+(?:\s*,\s*\d+)*\]/g, ''));
     }
     if (Array.isArray(val)) {
         const cap = val.length > 600 ? val.slice(0, 600) : val;
@@ -12420,6 +12640,7 @@ ${slides.map(slide => {
 async function _captureSlideAsImage(slide, slideIndex) {
     // Create offscreen rendering host
     const host = document.createElement('div');
+    host.className = 'pptx-render-host';
     host.style.cssText = `
         position: fixed; left: -9999px; top: -9999px;
         width: ${SLIDE_CANVAS_WIDTH}px; height: ${SLIDE_CANVAS_HEIGHT}px;
@@ -12457,6 +12678,8 @@ async function _captureSlideAsImage(slide, slideIndex) {
 
         // Wait a tick for fonts / images to settle
         await new Promise(r => setTimeout(r, 80));
+        fitPptxSlideTypography(content);
+        await new Promise(r => setTimeout(r, 40));
 
         const canvas = await html2canvas(frame, {
             width: SLIDE_CANVAS_WIDTH,
@@ -12474,6 +12697,45 @@ async function _captureSlideAsImage(slide, slideIndex) {
     } finally {
         host.remove();
     }
+}
+
+/**
+ * Gives each exported slide its own readable type scale. Sparse slides expand
+ * to use their available space; dense ones step down only as far as needed to
+ * avoid clipping. This operates before rasterisation, so the PowerPoint image
+ * and its preview keep the same visual hierarchy.
+ */
+function fitPptxSlideTypography(content) {
+    if (!content) return;
+    const textElements = [...content.querySelectorAll('h1,h2,h3,p,li,span,td,th,.slide-topic-card__body')];
+    if (!textElements.length) return;
+
+    const baseSizes = textElements.map(element => ({
+        element,
+        size: Number.parseFloat(getComputedStyle(element).fontSize) || 16
+    }));
+    const minScale = 0.68;
+    const maxScale = 1.22;
+    let scale = 1;
+
+    for (let attempt = 0; attempt < 4; attempt += 1) {
+        baseSizes.forEach(({ element, size }) => {
+            element.style.fontSize = `${Math.max(10, size * scale)}px`;
+        });
+        const style = getComputedStyle(content);
+        const available = Math.max(1, content.clientHeight
+            - (Number.parseFloat(style.paddingTop) || 0)
+            - (Number.parseFloat(style.paddingBottom) || 0));
+        const children = [...content.children];
+        const childRects = children.map(child => child.getBoundingClientRect());
+        const required = childRects.length
+            ? Math.max(...childRects.map(rect => rect.bottom)) - Math.min(...childRects.map(rect => rect.top))
+            : content.scrollHeight;
+        const target = Math.min(maxScale, Math.max(minScale, scale * (available / required) * 0.97));
+        if (Math.abs(target - scale) < 0.015) break;
+        scale = target;
+    }
+    content.dataset.pptxTypographyScale = scale.toFixed(2);
 }
 
 /**
@@ -12639,7 +12901,7 @@ async function exportSlidesAsPPTX() {
                 s.background = { color: '1E293B' };
                 s.addText(String(slides[i].title || slides[i].type || 'Slide ' + (i + 1)), {
                     x: 0.65, y: 2.5, w: 12.03, h: 2.0,
-                    fontSize: 32, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
+                    fontSize: 32, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fit: 'shrink'
                 });
             }
         }
@@ -16288,7 +16550,7 @@ async function findMatchingNotes(infographicTitle, sections) {
                 headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
                 body: JSON.stringify({
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
-                    generationConfig: { temperature: 0.3, maxOutputTokens: 1024 }
+                    generationConfig: { maxOutputTokens: 1024 }
                 })
             });
             let responseText = '';
@@ -16300,7 +16562,7 @@ async function findMatchingNotes(infographicTitle, sections) {
                         model: modelName,
                         messages: [{ role: 'user', content: prompt }],
                         max_tokens: 1024,
-                        temperature: 0.3
+                        // Do not send deprecated sampling parameters.
                     })
                 });
                 if (oaiResp.ok) {

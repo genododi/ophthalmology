@@ -5563,14 +5563,20 @@ textarea:focus {
 
     .top-controls {
         position: fixed;
-        top: calc(0.75rem + env(safe-area-inset-top));
+        top: max(0.75rem, env(safe-area-inset-top));
+        left: 0.75rem;
         right: 4.25rem;
-        max-width: calc(100vw - 5.5rem);
+        max-width: none;
         gap: 0.4rem;
         overflow-x: auto;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
         padding-bottom: 0.2rem;
         z-index: 110;
     }
+
+    .top-controls::-webkit-scrollbar { display: none; }
 
     .action-group { gap: 0.4rem; }
     .icon-btn { width: 44px; height: 44px; flex: 0 0 44px; }
@@ -5615,6 +5621,53 @@ textarea:focus {
     .flashcard-status { text-align: left; }
     .quiz-option { min-height: 52px; padding: 0.8rem; }
     .music-player { bottom: calc(1rem + env(safe-area-inset-bottom)); right: 1rem; }
+}
+
+/* Homepage notice for infographics first seen today. */
+.today-infographic-notice {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 1000;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    max-width: min(360px, calc(100vw - 2rem));
+    padding: 0.7rem 0.85rem 0.7rem 0.7rem;
+    border: 1px solid #bfdbfe;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #1e3a8a;
+    box-shadow: 0 12px 30px rgba(30, 64, 175, 0.2);
+    font: 700 0.9rem/1.2 var(--font-body, Inter, sans-serif);
+    cursor: pointer;
+    animation: today-notice-in 0.25s ease-out;
+}
+
+.today-infographic-notice__count {
+    display: grid;
+    place-items: center;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    padding: 0 0.35rem;
+    border-radius: 999px;
+    background: #2563eb;
+    color: #fff;
+    font-weight: 800;
+}
+
+.today-infographic-notice .material-symbols-rounded { font-size: 1.05rem; }
+
+@keyframes today-notice-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .today-infographic-notice {
+        right: 0.75rem;
+        bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    }
 }
 /* ========================================
    PROMPT TOGGLE & PANEL

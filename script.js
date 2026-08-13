@@ -1112,9 +1112,20 @@ async function exportToPDF(element) {
             }
         }
 
-        // Save PDF - Content remains visible (no hiding)
+        // Save through a Blob URL rather than jsPDF's popup-based helper. This
+        // is considerably more reliable in iOS Safari and Capacitor's WKWebView.
         const filename = `${data.title || 'infographic'}-${orientation}.pdf`.replace(/[^a-zA-Z0-9-_.]/g, '_');
-        pdf.save(filename);
+        const pdfBlob = pdf.output('blob');
+        const downloadUrl = URL.createObjectURL(pdfBlob);
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.download = filename;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        // Give WebKit time to receive the Blob before releasing its URL.
+        setTimeout(() => URL.revokeObjectURL(downloadUrl), 1500);
 
     } catch (err) {
         console.error("PDF Export failed:", err);
@@ -1139,6 +1150,56 @@ const LIBRARY_IDB_NAME = 'OphthalmoLibraryDB';
 const LIBRARY_IDB_VERSION = 1;
 const LIBRARY_IDB_STORE = 'library';
 let _libraryCache = null;
+
+const TODAY_INFOGRAPHIC_NOTICE_PREFIX = 'ophthalmic_infographic_notice_';
+
+function getLocalDateKey(value = new Date()) {
+    const date = value instanceof Date ? value : new Date(value);
+    if (Number.isNaN(date.getTime())) return '';
+    const offsetDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+    return offsetDate.toISOString().slice(0, 10);
+}
+
+function setInfographicCategory(item, chapterId, source = 'manual') {
+    if (!item) return item;
+    item.chapterId = chapterId || 'uncategorized';
+    item.categorySource = source;
+    // A user-approved suggestion is an intentional decision, just like a
+    // manually selected category. Automatic detection is deliberately mutable.
+    item.categoryLocked = source === 'manual' || source === 'suggested';
+    if (item.data) {
+        item.data.chapterId = item.chapterId;
+        item.data.categorySource = item.categorySource;
+        item.data.categoryLocked = item.categoryLocked;
+    }
+    return item;
+}
+
+function showTodayInfographicNotice(items) {
+    const today = getLocalDateKey();
+    const todaysItems = (items || []).filter(item => getLocalDateKey(item.date) === today);
+    if (!todaysItems.length) return;
+
+    const storageKey = `${TODAY_INFOGRAPHIC_NOTICE_PREFIX}${today}`;
+    let seenIds = [];
+    try { seenIds = JSON.parse(localStorage.getItem(storageKey) || '[]'); } catch (_) { seenIds = []; }
+    const unseen = todaysItems.filter(item => !seenIds.includes(String(item.id)));
+    if (!unseen.length) return;
+    try {
+        localStorage.setItem(storageKey, JSON.stringify([...new Set([...seenIds, ...unseen.map(item => String(item.id))])]));
+    } catch (_) { /* A notice is optional when browser storage is unavailable. */ }
+
+    const existing = document.getElementById('today-infographic-notice');
+    if (existing) existing.remove();
+    const notice = document.createElement('button');
+    notice.id = 'today-infographic-notice';
+    notice.type = 'button';
+    notice.className = 'today-infographic-notice';
+    notice.setAttribute('aria-label', `${unseen.length} new infographics added today`);
+    notice.innerHTML = `<span class="today-infographic-notice__count">${unseen.length}</span><span>${unseen.length === 1 ? 'new infographic' : 'new infographics'} today</span><span class="material-symbols-rounded">close</span>`;
+    notice.addEventListener('click', () => notice.remove());
+    document.body.appendChild(notice);
+}
 
 function openLibraryIDB() {
     return new Promise((resolve, reject) => {
@@ -2696,13 +2757,20 @@ function setupKnowledgeBase() {
                         // Check for REAL differences that matter
                         const changes = [];
 
-                        // CHAPTER SYNC: Server is source of truth for chapters
-                        // BUT: We never revert a categorized item to 'uncategorized'
+                        // CHAPTER SYNC: accepted suggestions and manual choices are
+                        // local decisions. They must survive subsequent imports,
+                        // even when a remote copy still carries an old category.
                         const localChapter = normalizeStr(localItem.chapterId) || 'uncategorized';
                         let serverChapter = normalizeStr(serverItem.chapterId) || 'uncategorized';
+                        const localCategoryLocked = localItem.categoryLocked === true
+                            || localItem.categorySource === 'manual'
+                            || localItem.categorySource === 'suggested';
 
+                        if (localCategoryLocked) {
+                            serverChapter = localChapter;
+                            setInfographicCategory(serverItem, localChapter, localItem.categorySource || 'manual');
                         // If server is uncategorized but local ALREADY has a category, preserve the local one
-                        if (serverChapter === 'uncategorized' && localChapter !== 'uncategorized') {
+                        } else if (serverChapter === 'uncategorized' && localChapter !== 'uncategorized') {
                             serverChapter = localChapter;
                             serverItem.chapterId = localItem.chapterId;
                         } else if (serverChapter === 'uncategorized' && localChapter === 'uncategorized') {
@@ -2720,6 +2788,10 @@ function setupKnowledgeBase() {
                             const newChapterName = chapters.find(c => c.id === serverChapter)?.name || serverChapter;
                             changes.push(`chapter: ${oldChapterName} → ${newChapterName}`);
                             localItem.chapterId = serverItem.chapterId;
+                            if (serverItem.categorySource) {
+                                localItem.categorySource = serverItem.categorySource;
+                                localItem.categoryLocked = serverItem.categoryLocked === true;
+                            }
                             // Mark as recently updated for visual feedback
                             localItem._chapterUpdated = Date.now();
                         }
@@ -2753,6 +2825,14 @@ function setupKnowledgeBase() {
                                 localItem._serverSynced = true;
                             }
                             // If already synced, keep local version (Local First behavior)
+                        }
+
+                        // Keep the nested data and item metadata coherent after a
+                        // server-data replacement, especially for locked choices.
+                        if (localCategoryLocked) {
+                            setInfographicCategory(localItem, localChapter, localItem.categorySource || 'manual');
+                        } else if (localItem.data && localItem.chapterId) {
+                            localItem.data.chapterId = localItem.chapterId;
                         }
 
                         // Preserve local seqId if it exists, otherwise use server's or generate new
@@ -2814,6 +2894,7 @@ function setupKnowledgeBase() {
                     localLibrary.sort((a, b) => new Date(b.date) - new Date(a.date));
                     saveLibraryToIDB(localLibrary);
                     renderLibraryList();
+                    showTodayInfographicNotice(localLibrary.filter(item => item._newlyImported));
                     if (!silent) {
                         const msg = [];
                         if (addedCount) msg.push(`${addedCount} new`);
@@ -3300,7 +3381,7 @@ function setupKnowledgeBase() {
                     const detectedChapter = autoDetectChapter(item.title);
                     if (detectedChapter !== 'uncategorized') {
                         const oldChapter = item.chapterId || 'uncategorized';
-                        item.chapterId = detectedChapter;
+                        setInfographicCategory(item, detectedChapter, 'auto');
                         changedCount++;
 
                         // Get chapter name for display
@@ -3352,9 +3433,7 @@ function setupKnowledgeBase() {
             const autoChapter = autoDetectChapter(itemTitle);
 
             // Sync chapterId into the infographic data so the tag renders correctly
-            if (autoChapter !== 'uncategorized') {
-                currentInfographicData.chapterId = autoChapter;
-            }
+            if (autoChapter !== 'uncategorized') currentInfographicData.chapterId = autoChapter;
 
             const newItem = {
                 id: Date.now(),
@@ -3363,8 +3442,11 @@ function setupKnowledgeBase() {
                 summary: currentInfographicData.summary || "",
                 date: new Date().toISOString(),
                 data: currentInfographicData,
-                chapterId: autoChapter // Auto-assigned based on title keywords
+                chapterId: autoChapter, // Auto-assigned based on title keywords
+                categorySource: 'auto',
+                categoryLocked: false
             };
+            setInfographicCategory(newItem, autoChapter, 'auto');
 
             library.unshift(newItem);
 
@@ -4344,10 +4426,8 @@ function setupKnowledgeBase() {
                     const updatedLibrary = library.map(item => {
                         if (selectedItems.has(item.id)) {
                             // Update both the library item and the nested data chapterId
-                            const updated = { ...item, chapterId: newChapterId };
-                            if (updated.data) {
-                                updated.data = { ...updated.data, chapterId: newChapterId };
-                            }
+                            const updated = { ...item, data: item.data ? { ...item.data } : item.data };
+                            setInfographicCategory(updated, newChapterId, 'manual');
                             return updated;
                         }
                         return item;
@@ -4919,10 +4999,7 @@ function setupKnowledgeBase() {
                     if (!m) return;
                     const item = library.find(i => i.id === m.id);
                     if (item) {
-                        item.chapterId = m.suggested;
-                        if (item.data) {
-                            item.data.chapterId = m.suggested;
-                        }
+                        setInfographicCategory(item, m.suggested, 'suggested');
                         changedCount++;
                     }
                 });
@@ -6939,7 +7016,10 @@ function buildPreservationBlock() {
 HOWEVER: You MAY supplement the user's text with additional medical/ophthalmology knowledge to enrich the infographic. Add relevant clinical pearls, differential diagnoses, investigation workups, management protocols, red flags, and mnemonics that are clinically accurate and pertinent to the topic, even if not explicitly stated in the input. The user's original text must still be preserved in full.`;
 }
 
-const GEMINI_FLASH_LATEST = 'gemini-3.6-flash';
+// Google's rolling Flash alias automatically follows the latest production
+// Flash release. Keep a specific 3.6 fallback below for API keys that cannot
+// yet access the alias.
+const GEMINI_FLASH_LATEST = 'gemini-flash-latest';
 
 /** Map retired preview model IDs to current API identifiers. */
 function normalizeGeminiModelId(id) {
@@ -7067,13 +7147,14 @@ async function generateInfographicDataWithKeyRotation(topic) {
 async function generateInfographicData(apiKey, topic) {
     const selectedModel = getSelectedGeminiModel();
     const fallbacks = [
+        GEMINI_FLASH_LATEST,
         'gemini-3.6-flash',
+        'gemini-3-flash-preview',
         'gemini-2.5-flash',
         'gemini-2.5-pro',
-        GEMINI_FLASH_LATEST,
         'gemini-2.0-flash-lite',
         'gemini-1.5-flash'
-    ].map(normalizeGeminiModelId).filter(m => m !== selectedModel);
+    ].map(normalizeGeminiModelId).filter((m, index, all) => m !== selectedModel && all.indexOf(m) === index);
     const modelsToTry = [selectedModel, ...fallbacks];
 
     let lastError = null;
@@ -7133,7 +7214,10 @@ User Topic/Text: "${topic}"`;
 
             const body = JSON.stringify({
                 contents: [{ role: 'user', parts: [{ text: systemPrompt }] }],
-                generationConfig: { temperature: 0.7, maxOutputTokens: 8192 }
+                // Gemini 3.6+ rejects legacy sampling controls such as
+                // temperature. The detailed system instruction supplies the
+                // required consistency; leave sampling to the model default.
+                generationConfig: { maxOutputTokens: 8192 }
             });
 
             const resp = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
@@ -7177,7 +7261,7 @@ User Topic/Text: "${topic}"`;
                             model: modelName,
                             messages: [{ role: 'user', content: systemPrompt }],
                             max_tokens: 8192,
-                            temperature: 0.7
+                            // Do not send deprecated sampling parameters.
                         })
                     });
                     if (oaiResp.ok) {
@@ -8683,7 +8767,7 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
                 console.log(`Studio Tool: Trying model ${modelName}`);
                 const body = JSON.stringify({
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
-                    generationConfig: { temperature: 0.7, maxOutputTokens: 4096 }
+                    generationConfig: { maxOutputTokens: 4096 }
                 });
                 const resp = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
                     method: 'POST',
@@ -8715,7 +8799,7 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
                             model: modelName,
                             messages: [{ role: 'user', content: prompt }],
                             max_tokens: 4096,
-                            temperature: 0.7
+                            // Do not send deprecated sampling parameters.
                         })
                     });
                     if (oaiResp.ok) {
@@ -12457,6 +12541,8 @@ async function _captureSlideAsImage(slide, slideIndex) {
 
         // Wait a tick for fonts / images to settle
         await new Promise(r => setTimeout(r, 80));
+        fitPptxSlideTypography(content);
+        await new Promise(r => setTimeout(r, 40));
 
         const canvas = await html2canvas(frame, {
             width: SLIDE_CANVAS_WIDTH,
@@ -12474,6 +12560,45 @@ async function _captureSlideAsImage(slide, slideIndex) {
     } finally {
         host.remove();
     }
+}
+
+/**
+ * Gives each exported slide its own readable type scale. Sparse slides expand
+ * to use their available space; dense ones step down only as far as needed to
+ * avoid clipping. This operates before rasterisation, so the PowerPoint image
+ * and its preview keep the same visual hierarchy.
+ */
+function fitPptxSlideTypography(content) {
+    if (!content) return;
+    const textElements = [...content.querySelectorAll('h1,h2,h3,p,li,span,td,th,.slide-topic-card__body')];
+    if (!textElements.length) return;
+
+    const baseSizes = textElements.map(element => ({
+        element,
+        size: Number.parseFloat(getComputedStyle(element).fontSize) || 16
+    }));
+    const minScale = 0.68;
+    const maxScale = 1.22;
+    let scale = 1;
+
+    for (let attempt = 0; attempt < 4; attempt += 1) {
+        baseSizes.forEach(({ element, size }) => {
+            element.style.fontSize = `${Math.max(10, size * scale)}px`;
+        });
+        const style = getComputedStyle(content);
+        const available = Math.max(1, content.clientHeight
+            - (Number.parseFloat(style.paddingTop) || 0)
+            - (Number.parseFloat(style.paddingBottom) || 0));
+        const children = [...content.children];
+        const childRects = children.map(child => child.getBoundingClientRect());
+        const required = childRects.length
+            ? Math.max(...childRects.map(rect => rect.bottom)) - Math.min(...childRects.map(rect => rect.top))
+            : content.scrollHeight;
+        const target = Math.min(maxScale, Math.max(minScale, scale * (available / required) * 0.97));
+        if (Math.abs(target - scale) < 0.015) break;
+        scale = target;
+    }
+    content.dataset.pptxTypographyScale = scale.toFixed(2);
 }
 
 /**
@@ -12639,7 +12764,7 @@ async function exportSlidesAsPPTX() {
                 s.background = { color: '1E293B' };
                 s.addText(String(slides[i].title || slides[i].type || 'Slide ' + (i + 1)), {
                     x: 0.65, y: 2.5, w: 12.03, h: 2.0,
-                    fontSize: 32, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
+                    fontSize: 32, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fit: 'shrink'
                 });
             }
         }
@@ -16288,7 +16413,7 @@ async function findMatchingNotes(infographicTitle, sections) {
                 headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
                 body: JSON.stringify({
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
-                    generationConfig: { temperature: 0.3, maxOutputTokens: 1024 }
+                    generationConfig: { maxOutputTokens: 1024 }
                 })
             });
             let responseText = '';
@@ -16300,7 +16425,7 @@ async function findMatchingNotes(infographicTitle, sections) {
                         model: modelName,
                         messages: [{ role: 'user', content: prompt }],
                         max_tokens: 1024,
-                        temperature: 0.3
+                        // Do not send deprecated sampling parameters.
                     })
                 });
                 if (oaiResp.ok) {

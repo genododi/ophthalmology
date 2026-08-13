@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" />
-    <link rel="stylesheet" href="style.css?v=2026073102">
+    <link rel="stylesheet" href="style.css?v=2026081301">
     <link rel="stylesheet" href="mobile-iap.css?v=2026061701">
     <!-- Import map for ES modules - works on hosted servers -->
     <script type="importmap">
@@ -131,7 +131,7 @@
                 <label>Gemini Model</label>
                 <div style="display:flex;gap:8px;flex-wrap:wrap;">
                     <label class="model-radio">
-                        <input type="radio" name="gemini-model" value="gemini-3.6-flash" checked style="accent-color:#2563eb;"> 3.6 Flash
+                        <input type="radio" name="gemini-model" value="gemini-flash-latest" checked style="accent-color:#2563eb;"> Flash (Latest)
                     </label>
                     <label class="model-radio">
                         <input type="radio" name="gemini-model" value="gemini-3.5-flash" style="accent-color:#2563eb;"> 3.5 Flash
@@ -143,7 +143,7 @@
                         <input type="radio" name="gemini-model" value="gemini-2.5-flash" style="accent-color:#2563eb;"> 2.5 Flash
                     </label>
                     <label class="model-radio">
-                        <input type="radio" name="gemini-model" value="gemini-flash-latest" style="accent-color:#2563eb;"> Flash (Latest)
+                        <input type="radio" name="gemini-model" value="gemini-3.6-flash" style="accent-color:#2563eb;"> 3.6 Flash
                     </label>
                 </div>
                 <small class="hint">Pro = most detailed, Flash = faster generation</small>
@@ -1092,8 +1092,8 @@
             console.warn('Running locally via file:// protocol. ES modules may not work. Please use a local server (e.g., npx serve) or access via GitHub Pages.');
         }
     </script>
-    <script type="module" src="script.js?v=2026081201"></script>
-    <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.08.12.01</div>
+    <script type="module" src="script.js?v=2026081301"></script>
+    <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.08.13.01</div>
 </body>
 
 </html>

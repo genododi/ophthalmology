@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" />
-    <link rel="stylesheet" href="style.css?v=2026081301">
+    <link rel="stylesheet" href="style.css?v=2026081302">
     <link rel="stylesheet" href="mobile-iap.css?v=2026061701">
     <!-- Import map for ES modules - works on hosted servers -->
     <script type="importmap">
@@ -258,8 +258,9 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
                 <div class="action-group" id="global-actions">
-                    <button class="icon-btn" id="home-btn" title="Home / Reset">
+                    <button class="icon-btn home-notification-button" id="home-btn" title="Home / Reset">
                         <span class="material-symbols-rounded">home</span>
+                        <span id="today-infographic-count" class="today-infographic-count" hidden aria-label="New infographics today">0</span>
                     </button>
                     <button class="icon-btn" id="sync-btn" title="Sync with Server">
                         <span class="material-symbols-rounded">sync</span>
@@ -1092,8 +1093,8 @@
             console.warn('Running locally via file:// protocol. ES modules may not work. Please use a local server (e.g., npx serve) or access via GitHub Pages.');
         }
     </script>
-    <script type="module" src="script.js?v=2026081301"></script>
-    <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.08.13.01</div>
+    <script type="module" src="script.js?v=2026081302"></script>
+    <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.08.13.02</div>
 </body>
 
 </html>

@@ -3079,6 +3079,83 @@ textarea:focus {
     box-shadow: none;
 }
 
+/* Full-screen slides should use the whole 16:9 canvas. Content is centred
+   vertically and card grids stretch into the available space rather than
+   leaving the lower half of a presentation blank. The export host shares the
+   same layout so the PowerPoint file matches the preview. */
+.presentation-mode .slide-content.content-slide,
+.pptx-render-host .slide-content.content-slide {
+    padding: 3rem 4.5rem;
+    justify-content: center;
+}
+
+.presentation-mode .slide-content.content-slide > h3,
+.pptx-render-host .slide-content.content-slide > h3 {
+    flex: 0 0 auto;
+    margin-bottom: 1.4rem !important;
+}
+
+.presentation-mode .slide-content.content-slide > div:last-child,
+.pptx-render-host .slide-content.content-slide > div:last-child {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 0;
+}
+
+.presentation-mode .slide-topic-cards,
+.pptx-render-host .slide-topic-cards {
+    flex: 1 1 auto;
+    height: 100%;
+    grid-auto-rows: minmax(0, 1fr);
+    align-content: stretch;
+}
+
+.presentation-mode .slide-topic-card,
+.pptx-render-host .slide-topic-card {
+    min-height: 0;
+}
+
+.presentation-mode .slide-topic-card__label,
+.pptx-render-host .slide-topic-card__label {
+    padding: 1rem 1.2rem;
+    font-size: 1.05rem;
+}
+
+.presentation-mode .slide-topic-card__body,
+.pptx-render-host .slide-topic-card__body {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding: 1.25rem;
+    line-height: 1.5;
+}
+
+.home-notification-button { position: relative; }
+
+.today-infographic-count {
+    position: absolute;
+    top: -0.38rem;
+    right: -0.38rem;
+    display: grid;
+    place-items: center;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    padding: 0 0.22rem;
+    border: 2px solid #fff;
+    border-radius: 999px;
+    background: #dc2626;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 2px 7px rgba(127, 29, 29, 0.42);
+}
+
+.today-infographic-count[hidden] { display: none; }
+
 /* Progress bar along the bottom */
 .presentation-progress {
     position: absolute;

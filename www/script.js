@@ -1176,29 +1176,17 @@ function setInfographicCategory(item, chapterId, source = 'manual') {
 }
 
 function showTodayInfographicNotice(items) {
+    updateTodayInfographicBadge(items);
+}
+
+function updateTodayInfographicBadge(items = getLibraryCache()) {
+    const badge = document.getElementById('today-infographic-count');
+    if (!badge) return;
     const today = getLocalDateKey();
-    const todaysItems = (items || []).filter(item => getLocalDateKey(item.date) === today);
-    if (!todaysItems.length) return;
-
-    const storageKey = `${TODAY_INFOGRAPHIC_NOTICE_PREFIX}${today}`;
-    let seenIds = [];
-    try { seenIds = JSON.parse(localStorage.getItem(storageKey) || '[]'); } catch (_) { seenIds = []; }
-    const unseen = todaysItems.filter(item => !seenIds.includes(String(item.id)));
-    if (!unseen.length) return;
-    try {
-        localStorage.setItem(storageKey, JSON.stringify([...new Set([...seenIds, ...unseen.map(item => String(item.id))])]));
-    } catch (_) { /* A notice is optional when browser storage is unavailable. */ }
-
-    const existing = document.getElementById('today-infographic-notice');
-    if (existing) existing.remove();
-    const notice = document.createElement('button');
-    notice.id = 'today-infographic-notice';
-    notice.type = 'button';
-    notice.className = 'today-infographic-notice';
-    notice.setAttribute('aria-label', `${unseen.length} new infographics added today`);
-    notice.innerHTML = `<span class="today-infographic-notice__count">${unseen.length}</span><span>${unseen.length === 1 ? 'new infographic' : 'new infographics'} today</span><span class="material-symbols-rounded">close</span>`;
-    notice.addEventListener('click', () => notice.remove());
-    document.body.appendChild(notice);
+    const count = (items || []).filter(item => getLocalDateKey(item.date) === today).length;
+    badge.textContent = String(count);
+    badge.hidden = count === 0;
+    badge.setAttribute('aria-label', `${count} infographic${count === 1 ? '' : 's'} added today`);
 }
 
 function openLibraryIDB() {
@@ -1216,7 +1204,10 @@ function openLibraryIDB() {
 }
 
 async function saveLibraryToIDB(library) {
+    healSavedInfographicLibrary(library);
     _libraryCache = library;
+    updateTodayInfographicBadge(library);
+    window.dispatchEvent(new CustomEvent('library:changed'));
     try {
         const db = await openLibraryIDB();
         const tx = db.transaction(LIBRARY_IDB_STORE, 'readwrite');
@@ -5241,6 +5232,8 @@ function setupSyncStatus() {
     if (!syncStatusBtn || !syncStatusModal) return;
 
     let currentDifferences = { localOnly: [], serverOnly: [], deletedByAdmin: [] };
+    let comparisonInFlight = false;
+    let autoRefreshTimer = null;
 
     // Initialize preference toggle
     if (preferenceToggle) {
@@ -5283,6 +5276,8 @@ function setupSyncStatus() {
 
     async function comparLibraries() {
         if (!contentEl) return;
+        if (comparisonInFlight) return;
+        comparisonInFlight = true;
 
         contentEl.innerHTML = `
             <div class="sync-loading">
@@ -5380,10 +5375,19 @@ function setupSyncStatus() {
             contentEl.innerHTML = `
                 <div class="sync-error">
                     <span class="material-symbols-rounded">error</span>
-                    <p>Could not compare libraries: ${err.message}</p>
+                <p>Could not compare libraries: ${err.message}</p>
                 </div>
             `;
+        } finally {
+            comparisonInFlight = false;
         }
+    }
+
+    function scheduleStatusRefresh(delay = 250) {
+        clearTimeout(autoRefreshTimer);
+        autoRefreshTimer = setTimeout(() => {
+            if (syncStatusModal.classList.contains('active')) comparLibraries();
+        }, delay);
     }
 
     function renderDifferences(localOnly, serverOnly, deletedByAdmin, localCount, serverCount) {
@@ -5548,6 +5552,21 @@ function setupSyncStatus() {
     if (refreshBtn) {
         refreshBtn.addEventListener('click', comparLibraries);
     }
+
+    // Keep the dialog accurate without requiring the user to press Refresh:
+    // local saves, completed downloads, reconnects, and foregrounding all
+    // schedule a fresh comparison while the status dialog is open.
+    window.addEventListener('library:changed', () => scheduleStatusRefresh());
+    window.addEventListener('online', () => scheduleStatusRefresh(0));
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) scheduleStatusRefresh(0);
+    });
+    setInterval(() => {
+        if (syncStatusModal.classList.contains('active')) comparLibraries();
+    }, 30000);
+    window.refreshLibrarySyncStatus = () => {
+        if (syncStatusModal.classList.contains('active')) comparLibraries();
+    };
 
     // Download server-only infographs to local library
     if (downloadServerOnlyBtn) {
@@ -5850,6 +5869,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     initHuggingFaceToken();
     initTopicDefault();
     await initLibraryCache();
+    // Permanently repair older saved records once, so their next render,
+    // presentation, and export all use reliable symbols and clean text.
+    const initialLibrary = getLibraryCache();
+    if (healSavedInfographicLibrary(initialLibrary)) {
+        await saveLibraryToIDB(initialLibrary);
+        console.log('[Library Migration] Repaired legacy infographic symbols and display text.');
+    }
+    updateTodayInfographicBadge(initialLibrary);
     // Reconcile every saved local infographic when the app opens, and resume a
     // paused sync as soon as the connection returns.
     syncLibraryToServer({ immediate: true });
@@ -8329,7 +8356,7 @@ const ICON_FALLBACK_MAP = {
  * Falls back to a safe default if the icon is unknown.
  */
 function sanitizeMaterialIcon(iconName) {
-    if (!iconName || typeof iconName !== 'string') return 'circle';
+    if (!iconName || typeof iconName !== 'string') return 'auto_awesome';
 
     // Clean up the icon name by lowering case and replacing hyphens
     let cleaned = iconName.trim().toLowerCase().replace(/-/g, '_');
@@ -8344,17 +8371,122 @@ function sanitizeMaterialIcon(iconName) {
 
     // Check if it's in our fallback map (known invalid → valid mapping)
     if (ICON_FALLBACK_MAP[cleaned]) {
-        return ICON_FALLBACK_MAP[cleaned];
+        const mapped = ICON_FALLBACK_MAP[cleaned];
+        return SAFE_MATERIAL_ICONS.has(mapped) ? mapped : 'auto_awesome';
     }
 
-    // Return as-is if it looks like a valid Material Symbols name
-    // (lowercase with underscores, no spaces, no special chars)
-    if (/^[a-z][a-z0-9_]*$/.test(cleaned)) {
+    // Unknown ligatures render as their literal text in Material Symbols. Only
+    // allow the small, verified set used by this app; all other model output
+    // falls back to a reliable glyph instead of a broken/falsy symbol.
+    if (SAFE_MATERIAL_ICONS.has(cleaned)) {
         return cleaned;
     }
 
-    // Last resort: return a safe default
-    return 'circle';
+    return 'auto_awesome';
+}
+
+const SAFE_MATERIAL_ICONS = new Set([
+    'auto_awesome', 'visibility', 'visibility_off', 'warning', 'flag',
+    'priority_high', 'error', 'emergency', 'medical_services', 'biotech',
+    'science', 'genetics', 'local_hospital', 'medication', 'vaccines',
+    'healing', 'content_cut', 'build', 'surgical', 'stethoscope_check',
+    'clinical_notes', 'assignment', 'task_alt', 'check_circle', 'block',
+    'do_not_disturb_on', 'account_tree', 'compare_arrows', 'bar_chart',
+    'pie_chart', 'show_chart', 'analytics', 'query_stats', 'trending_up',
+    'lightbulb', 'psychology', 'menu_book', 'school', 'groups', 'person',
+    'child_care', 'elderly', 'back_hand', 'folder', 'category', 'inventory_2',
+    'description', 'summarize', 'list_alt', 'format_list_bulleted',
+    'format_list_numbered', 'dashboard', 'image', 'photo_library',
+    'photo_camera', 'videocam', 'play_arrow', 'schedule', 'calendar_today',
+    'notifications', 'search', 'filter_list', 'settings', 'sync', 'refresh',
+    'cloud', 'cloud_download', 'cloud_upload', 'download', 'upload', 'home',
+    'fullscreen', 'close_fullscreen', 'open_in_full', 'close', 'celebration',
+    'star', 'stars', 'favorite', 'public', 'explore', 'location_on',
+    'eyeglasses', 'center_focus_strong', 'speed', 'radiology', 'straighten',
+    'human_greeting_proximity', 'sick', 'report_problem', 'dangerous',
+    'masks', 'sanitizer', 'bloodtype', 'coronavirus', 'device_thermostat',
+    'accessibility_new', 'fitness_center', 'spa', 'fingerprint', 'help',
+    'help_outline', 'info', 'cancel', 'add_circle', 'remove_circle',
+    'arrow_forward', 'arrow_forward_ios', 'arrow_upward', 'arrow_downward',
+    'swap_horiz', 'call_split', 'merge', 'hub', 'autorenew', 'layers',
+    'crop_square', 'radio_button_unchecked', 'fiber_manual_record', 'hexagon',
+    'bookmark', 'timeline', 'table_chart', 'grid_view', 'apps', 'lab_profile',
+    'labs', 'monitor_heart', 'cardiology', 'pulmonology', 'gastroenterology',
+    'nephrology', 'hepatology', 'orthopedics', 'psychology', 'circle'
+]);
+
+function stripDisplayMarkdown(value) {
+    return String(value ?? '')
+        .replace(/\*\*|__/g, '')
+        .replace(/`([^`]+)`/g, '$1')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+}
+
+function healDisplayContent(value) {
+    let changed = false;
+    if (typeof value === 'string') return { value: stripDisplayMarkdown(value), changed: stripDisplayMarkdown(value) !== value };
+    if (Array.isArray(value)) {
+        value.forEach((entry, index) => {
+            const repaired = healDisplayContent(entry);
+            if (repaired.changed) { value[index] = repaired.value; changed = true; }
+        });
+        return { value, changed };
+    }
+    if (value && typeof value === 'object') {
+        Object.entries(value).forEach(([key, entry]) => {
+            // Keep image data and SVG/HTML markup intact.
+            if (/^(imgUrl|dataUrl|src|html|svg)$/i.test(key)) return;
+            const repaired = healDisplayContent(entry);
+            if (repaired.changed) { value[key] = repaired.value; changed = true; }
+        });
+    }
+    return { value, changed };
+}
+
+function fallbackIconForSection(section = {}) {
+    const topic = `${section.title || ''} ${section.type || ''}`.toLowerCase();
+    if (/red flag|warning|urgent|emerg/.test(topic)) return 'warning';
+    if (/surg|incision|vitrect|procedure/.test(topic)) return 'medical_services';
+    if (/investig|scan|imaging|test|lab/.test(topic)) return 'biotech';
+    if (/chart|data|stat|epidemiol/.test(topic)) return 'bar_chart';
+    if (/eye|retina|cornea|optic|vision|pupil|lens/.test(topic)) return 'visibility';
+    if (/management|treatment|therapy/.test(topic)) return 'medication';
+    return 'auto_awesome';
+}
+
+/** Repair historic local records before they are rendered or exported. */
+function healInfographicData(data) {
+    if (!data || typeof data !== 'object') return false;
+    let changed = false;
+    ['title', 'summary'].forEach(key => {
+        if (typeof data[key] === 'string') {
+            const clean = stripDisplayMarkdown(data[key]);
+            if (clean !== data[key]) { data[key] = clean; changed = true; }
+        }
+    });
+    if (!Array.isArray(data.sections)) return changed;
+    data.sections.forEach(section => {
+        if (!section || typeof section !== 'object') return;
+        if (typeof section.title === 'string') {
+            const clean = stripDisplayMarkdown(section.title);
+            if (clean !== section.title) { section.title = clean; changed = true; }
+        }
+        const safeIcon = sanitizeMaterialIcon(section.icon);
+        const icon = safeIcon === 'auto_awesome' ? fallbackIconForSection(section) : safeIcon;
+        if (section.icon !== icon) { section.icon = icon; changed = true; }
+        const repairedContent = healDisplayContent(section.content);
+        if (repairedContent.changed) { section.content = repairedContent.value; changed = true; }
+    });
+    return changed;
+}
+
+function healSavedInfographicLibrary(library = getLibraryCache()) {
+    let changed = false;
+    (library || []).forEach(item => {
+        if (healInfographicData(item?.data)) changed = true;
+    });
+    return changed;
 }
 
 function renderInfographic(data) {
@@ -8405,6 +8537,10 @@ function renderInfographic(data) {
             return;
         }
     }
+
+    // Repair saved/local content as it is opened. This catches records created
+    // before the icon validator was introduced as well as malformed API data.
+    healInfographicData(data);
 
     // Provide fallbacks for missing required fields
     data.title = data.title || 'Untitled Infographic';
@@ -11128,7 +11264,7 @@ function safeStripReferences(val, depth = 0, seen = null) {
         return typeof val === 'string' ? val : (Array.isArray(val) ? [] : '');
     }
     if (typeof val === 'string') {
-        return val.replace(/\[\d+(?:\s*,\s*\d+)*\]/g, '').trim();
+        return stripDisplayMarkdown(val.replace(/\[\d+(?:\s*,\s*\d+)*\]/g, ''));
     }
     if (Array.isArray(val)) {
         const cap = val.length > 600 ? val.slice(0, 600) : val;
@@ -12504,6 +12640,7 @@ ${slides.map(slide => {
 async function _captureSlideAsImage(slide, slideIndex) {
     // Create offscreen rendering host
     const host = document.createElement('div');
+    host.className = 'pptx-render-host';
     host.style.cssText = `
         position: fixed; left: -9999px; top: -9999px;
         width: ${SLIDE_CANVAS_WIDTH}px; height: ${SLIDE_CANVAS_HEIGHT}px;

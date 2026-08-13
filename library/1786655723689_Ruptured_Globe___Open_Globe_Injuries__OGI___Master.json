@@ -1,0 +1,491 @@
+{
+  "id": 1786655723689,
+  "seqId": 893,
+  "title": "Ruptured Globe & Open Globe Injuries (OGI): Master Clinical Infographic",
+  "summary": "A ruptured globe represents a sight-threatening ophthalmologic emergency defined as a full-thickness breach of the cornea, sclera, or both caused by blunt trauma. Immediate structural preservation, rigid eye shielding, urgent CT orbit, broad-spectrum endophthalmitis prophylaxis, and meticulous primary surgical exploration are essential to salvage visual potential.",
+  "date": "2026-08-13T21:15:23.689Z",
+  "data": {
+    "title": "Ruptured Globe & Open Globe Injuries (OGI): Master Clinical Infographic",
+    "summary": "A ruptured globe represents a sight-threatening ophthalmologic emergency defined as a full-thickness breach of the cornea, sclera, or both caused by blunt trauma. Immediate structural preservation, rigid eye shielding, urgent CT orbit, broad-spectrum endophthalmitis prophylaxis, and meticulous primary surgical exploration are essential to salvage visual potential.",
+    "summary_illustration": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500' width='100%' height='100%' style='background:#0a0f1d; border-radius:12px;'><defs><linearGradient id='scleraGrad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='#e2e8f0'/><stop offset='100%' stop-color='#94a3b8'/></linearGradient><radialGradient id='irisGrad' cx='50%' cy='50%' r='50%'><stop offset='0%' stop-color='#0284c7'/><stop offset='70%' stop-color='#0369a1'/><stop offset='100%' stop-color='#0c4a6e'/></radialGradient><filter id='glow' x='-20%' y='-20%' width='140%' height='140%'><feGaussianBlur stdDeviation='6' result='blur'/><feComposite in='SourceGraphic' in2='blur' operator='over'/></filter></defs><g transform='translate(400,250)'><circle cx='0' cy='0' r='180' fill='none' stroke='#334155' stroke-width='2'/><path d='M -140,-100 A 175 175 0 0 1 140,-100 A 175 175 0 0 1 160,60 L 130,70 L 165,110 A 175 175 0 0 1 -140,100 Z' fill='url(#scleraGrad)' stroke='#64748b' stroke-width='3'/><path d='M 120,40 Q 150,55 185,45 Q 165,85 130,70 Z' fill='#ef4444' opacity='0.85' filter='url(#glow)'/><path d='M 130,70 L 165,110 L 125,95 Z' fill='#b91c1c'/><path d='M -80,-145 C -20,-175 20,-175 80,-145 C 50,-105 -50,-105 -80,-145 Z' fill='#38bdf8' opacity='0.35'/><ellipse cx='0' cy='-130' rx='80' ry='25' fill='none' stroke='#38bdf8' stroke-width='3'/><ellipse cx='10' cy='-115' rx='60' ry='22' fill='url(#irisGrad)'/><path d='M 0,-115 Q 25,-110 40,-95 Q 10,-100 -5,-115 Z' fill='#0f172a'/><ellipse cx='20' cy='-105' rx='18' ry='12' fill='#020617'/><path d='M 15,-100 Q 60,-80 135,55' fill='none' stroke='#dc2626' stroke-width='3' stroke-dasharray='4,4'/><circle cx='145' cy='75' r='8' fill='#ef4444' filter='url(#glow)'/><text x='160' y='80' fill='#fca5a5' font-family='sans-serif' font-size='14' font-weight='bold'>Full-Thickness Scleral Rupture</text><text x='-260' y='-130' fill='#93c5fd' font-family='sans-serif' font-size='14'>Peaked Pupil toward Wound</text><path d='M -100,-130 L -10,-115' stroke='#93c5fd' stroke-width='1.5' marker-end='url(#arrow)'/><text x='-280' y='140' fill='#f87171' font-family='sans-serif' font-size='14'>Uveal Prolapse / Incarceration</text><path d='M -100,135 L 125,80' stroke='#f87171' stroke-width='1.5'/><text x='0' y='210' fill='#94a3b8' font-family='sans-serif' font-size='16' text-anchor='middle' font-weight='600'>Globe Rupture Anatomy: Scleral Dehiscence Behind Rectus Muscle Insertion</text></g></svg>",
+    "sections": [
+      {
+        "title": "BETT Classification & Terminology Matrix",
+        "icon": "category",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Injury Classification",
+            "Definition / Mechanism",
+            "Wound Characteristics",
+            "Key Pathological Feature"
+          ],
+          "rows": [
+            [
+              "Rupture (Open Globe)",
+              "Inside-out full-thickness defect caused by high-energy blunt impact",
+              "Irregular, ragged edges at weakest anatomical sites",
+              "Massive instantaneous IOP surge causes scleral blow-out"
+            ],
+            [
+              "Penetrating (Open Globe)",
+              "Outside-in full-thickness defect from sharp object",
+              "Single entry wound without exit point",
+              "Tissue disruption localized to entrance track"
+            ],
+            [
+              "Perforating (Open Globe)",
+              "Through-and-through entrance and exit wound from single projectile",
+              "Two distinct full-thickness wounds (anterior entry, posterior exit)",
+              "High kinetic energy; high risk of severe posterior segment trauma"
+            ],
+            [
+              "Intraocular Foreign Body (IOFB)",
+              "Retained projectile inside the eye post-penetrating insult",
+              "Entry wound present with retained metallic/organic material",
+              "Risk of siderosis, chalcosis, or aggressive endophthalmitis"
+            ],
+            [
+              "Contusion (Closed Globe)",
+              "Blunt trauma without full-thickness eyewall disruption",
+              "Intact corneoscleral structural integrity",
+              "Angle recession, hyphema, commotio retinae, traumatic cataract"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Epidemiology & Etiological Risk Profiles",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Young Males (Occupational/Assault)",
+              "value": 55
+            },
+            {
+              "label": "Elderly Falls (Prior Incisions/PKP)",
+              "value": 25
+            },
+            {
+              "label": "Sports & Recreational Impacts",
+              "value": 12
+            },
+            {
+              "label": "Motor Vehicle Collisions (MVC)",
+              "value": 8
+            }
+          ]
+        }
+      },
+      {
+        "title": "Anatomical Predilection Sites for Blunt Rupture",
+        "icon": "auto_awesome",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Weakest Scleral Zones",
+          "branches": [
+            "Behind Rectus Insertions (Thinnest sclera: ~0.3 mm)",
+            "Corneoscleral Limbus (Abrupt transition in tissue architecture)",
+            "Equatorial Sclera (Between rectus muscle bellies)",
+            "Prior Surgical Scars (PKP graft margin, Cataract incision, Trabeculectomy)",
+            "Lamina Cribrosa (Rare posterior blow-outs)"
+          ]
+        }
+      },
+      {
+        "title": "Pathognomonic & Subtle Clinical Signs",
+        "icon": "visibility",
+        "type": "mindmap",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "center": "Clinical Features of Globe Rupture",
+          "branches": [
+            "Anterior Segment: Corectopia pointing to wound, peaked pupil, shallow/flat or abnormally deep AC, iris prolapse",
+            "Subconjunctival Signs: 360° elevated chemosis, bullous subconjunctival hemorrhage ('bull's eye')",
+            "IOP Discrepancy: Marked ocular hypotony (IOP < 5 mmHg), though normal/high IOP does NOT rule out rupture",
+            "Posterior Segment: Vitreous hemorrhage, lack of red reflex, commotio retinae, avulsion of optic nerve",
+            "Vision & Motility: Profound drop in visual acuity (often Light Perception or Hand Motion), marked duction deficits"
+          ]
+        }
+      },
+      {
+        "title": "Ocular Trauma Score (OTS) Prognostic Calculator",
+        "icon": "auto_awesome",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Predictor Variable",
+            "Raw Point Conversion",
+            "OTS Category",
+            "Point Range",
+            "NLP (%)",
+            "LP / HM (%)",
+            "1/200 - 19/200 (%)",
+            "20/200 - 20/50 (%)",
+            "≥ 20/40 (%)"
+          ],
+          "rows": [
+            [
+              "Initial VA: NLP",
+              "60 points",
+              "OTS 1",
+              "0 - 44",
+              "73%",
+              "17%",
+              "7%",
+              "2%",
+              "1%"
+            ],
+            [
+              "Initial VA: LP / HM",
+              "70 points",
+              "OTS 2",
+              "45 - 65",
+              "27%",
+              "26%",
+              "18%",
+              "15%",
+              "15%"
+            ],
+            [
+              "Initial VA: 1/200 - 19/200",
+              "80 points",
+              "OTS 3",
+              "66 - 80",
+              "2%",
+              "11%",
+              "15%",
+              "28%",
+              "44%"
+            ],
+            [
+              "Initial VA: 20/200 - 20/50",
+              "90 points",
+              "OTS 4",
+              "81 - 91",
+              "1%",
+              "2%",
+              "3%",
+              "22%",
+              "73%"
+            ],
+            [
+              "Initial VA: ≥ 20/40",
+              "100 points",
+              "OTS 5",
+              "92 - 100",
+              "0%",
+              "1%",
+              "1%",
+              "5%",
+              "94%"
+            ],
+            [
+              "Rupture Globe",
+              "Subtract 23 points",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--"
+            ],
+            [
+              "Endophthalmitis",
+              "Subtract 17 points",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--"
+            ],
+            [
+              "Perforating Injury",
+              "Subtract 14 points",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--"
+            ],
+            [
+              "Retinal Detachment",
+              "Subtract 11 points",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--"
+            ],
+            [
+              "Afferent Pupillary Defect",
+              "Subtract 10 points",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--",
+              "--"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Emergency Room Initial Stabilization Protocol",
+        "icon": "emergency",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Immediate Fox Shield: Place rigid eye shield resting on orbital bones; zero external pressure on the globe.",
+          "Strict NPO & Tetanus: Keep patient strictly NPO for urgent surgical exploration; update tetanus toxoid.",
+          "Antiemetics & Analgesia: IV Ondansetron (4-8 mg) to prevent vomiting/Valsalva; IV analgesia as needed.",
+          "Systemic Prophylactic Antibiotics: IV Vancomycin (1 g q12h) + IV Ceftazidime (2 g q8h) OR Oral Moxifloxacin (400 mg daily).",
+          "Non-Contrast CT Orbits: Thin axial/coronal cuts (1.0 mm) to detect IOFBs, scleral step-offs, and orbital fractures.",
+          "Transfer to OR: Urgent primary wound closure within 12-24 hours to reduce endophthalmitis and PVR risks."
+        ]
+      },
+      {
+        "title": "Absolute Contraindications & Red Flags",
+        "icon": "dangerous",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "NEVER apply direct external pressure on the globe or place a pressure patch.",
+          "NEVER perform Goldmann applanation tonometry, gonioscopy, or scleral depression.",
+          "NEVER instill preservative-containing, viscous, or irritating topical drops (e.g., cyclopentolate/phenylephrine).",
+          "NEVER order an MRI if a metallic foreign body has not been definitively ruled out by CT.",
+          "NEVER perform contact B-scan ultrasonography with excessive probe force over an open eye."
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Severe Ocular Trauma",
+        "icon": "auto_awesome",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Condition",
+            "Anterior Chamber Depth",
+            "Intraocular Pressure (IOP)",
+            "Key Slit-Lamp / CT Discriminator"
+          ],
+          "rows": [
+            [
+              "Ruptured Globe",
+              "Asymmetric (Very shallow or deep)",
+              "Typically severely decreased (< 5 mmHg)",
+              "Peaked pupil, scleral contour disruption, collapsed globe ('flat tire' sign) on CT"
+            ],
+            [
+              "Retrobulbar Hematoma",
+              "Normal to shallow",
+              "Markedly elevated (> 40 mmHg)",
+              "Severe proptosis, tight orbit/eyelids, optic nerve compromise, tenting of posterior globe"
+            ],
+            [
+              "Traumatic Iridocyclitis / Hyphema",
+              "Normal depth",
+              "Variable (Normal, elevated, or low)",
+              "Intact corneoscleral shell, erythrocyte layering in AC, round reactive pupil"
+            ],
+            [
+              "Carotid-Cavernous Fistula (CCF)",
+              "Normal",
+              "Elevated secondary to episcleral venous pressure",
+              "Pulsatile proptosis, corkscrew episcleral vessels, orbital bruit, enlarged SOV on CT"
+            ],
+            [
+              "Angle Recession / Iridodialysis",
+              "Deepened locally",
+              "Variable (Late elevation)",
+              "Disinsertion of iris root from ciliary body, widened ciliary body band, intact eyewall"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Step-by-Step Surgical Repair Technique",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "1. Anesthesia Induction: General anesthesia with rapid-sequence intubation avoiding depolarizing agents (e.g., succinylcholine) to prevent extrusion of intraocular contents.",
+          "2. Conjunctival Peritomy & Exploration: Perform a 360° limbal peritomy with relaxing radial incisions; gently isolate the four rectus muscles using vessel loops without traction.",
+          "3. Corneal & Limbal Restoration: Re-approximate the limbus first using 9-0 or 10-0 nylon cardinal sutures to restore primary anatomical landmarks.",
+          "4. Cornea Wound Closure: Suture clear corneal lacerations with 10-0 nylon using short, deep (90% thickness) interrupted sutures, burying all knots towards the wound.",
+          "5. Management of Prolapsed Uvea: Reposit viable, clean iris/ciliary tissue if presenting within 24 hours; excise necrotic, non-viable, or grossly contaminated uveal tissue.",
+          "6. Scleral Laceration Repair: Repair sclera moving 'anterior-to-posterior' ('close-as-you-go' technique) using 8-0 or 9-0 nylon/vicryl interrupted sutures.",
+          "7. Exploration Under Rectus Muscles: Carefully inspect underneath all muscle insertions where rupture commonly extends; avoid excessive globe manipulation."
+        ]
+      },
+      {
+        "title": "Critical Mnemonic: 'P-R-O-T-E-C-T'",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "P-R-O-T-E-C-T",
+          "explanation": "P: Protect with rigid Fox shield (NO patch) | R: Radiographic CT orbits (thin cuts, NO MRI initially) | O: Operative primary closure within 24 hours | T: Tetanus update & broad-spectrum IV antibiotics | E: Examine pupil for corectopia/peaking | C: Control emesis and pain to prevent Valsalva | T: Tonometry/gonioscopy are strictly CONTRAINDICATED."
+        }
+      },
+      {
+        "title": "Postoperative Complications & Long-Term Prognosis",
+        "icon": "warning",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Post-Trauma Sequelae",
+          "branches": [
+            "Endophthalmitis (3-10% incidence; highest with soil contamination/IOFB)",
+            "Proliferative Vitreoretinopathy (PVR) & Tractional Retinal Detachment",
+            "Sympathetic Ophthalmia (Bilateral granulomatous panuveitis; peak at 2-12 weeks)",
+            "Traumatic Glaucoma (Angle recession, hemolytic, or epithelial downgrowth)",
+            "Corneal Scarring & High Irregular Astigmatism",
+            "Phthisis Bulbi & Loss of Eye Architecture"
+          ]
+        }
+      },
+      {
+        "title": "Sympathetic Ophthalmia (SO): High-Yield Facts",
+        "icon": "auto_awesome",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Pathophysiology: Cell-mediated autoimmune response directed against retinal pigment epithelium (RPE) and uveal melanocytes unmasked by trauma.",
+          "Incidence & Timing: Rare (< 0.5% of open globe trauma); 80% occur within 3 months, 90% within 1 year of inciting injury (rarely before 2 weeks).",
+          "Hallmark Histopathology: Diffuse non-necrotizing granulomatous inflammation of the uveal tract with Dalén-Fuchs nodules (epithelioid cells under RPE); choriocapillaris is classically spared.",
+          "Clinical Presentation: Bilateral mutton-fat keratic precipitates, vitritis, choroidal thickening, exudative retinal detachments, papillitis.",
+          "Prevention & Enucleation: Primary enucleation/evisceration of a blind, severely traumatized eye within 14 days eliminates the risk of SO in the fellow eye."
+        ]
+      },
+      {
+        "title": "Landmark Trials & Evidence-Based Guidelines",
+        "icon": "menu_book",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Ocular Trauma Score (OTS Study - Kuhn et al.): Established the gold-standard predictive model for final visual outcome based on initial VA, presence of rupture, RD, APD, and endophthalmitis.",
+          "Timing of Vitrectomy for Post-Traumatic Vitreoretinal Pathology: Delayed secondary vitrectomy at 7-14 days allows posterior vitreous detachment to develop and reduces intraoperative bleeding risk, compared to immediate vitrectomy.",
+          "Endophthalmitis Prophylaxis in Trauma (Essex et al.): Prophylactic systemic fluoroquinolones or IV Vancomycin/Ceftazidime significantly lowers infectious endophthalmitis rates, especially when administered < 24 hours from injury."
+        ]
+      }
+    ],
+    "generationPrompt": "Rupture globe",
+    "chapterId": "trauma",
+    "categorySource": "auto",
+    "categoryLocked": false
+  },
+  "chapterId": "trauma",
+  "categorySource": "auto",
+  "categoryLocked": false,
+  "kanskiMeta": [
+    {
+      "pageNum": 929,
+      "keywords": [
+        "injuries",
+        "endophthalmitis",
+        "cornea",
+        "risk",
+        "signs"
+      ]
+    },
+    {
+      "pageNum": 930,
+      "keywords": [
+        "injuries",
+        "cornea",
+        "classification",
+        "ocular",
+        "prognostic"
+      ]
+    },
+    {
+      "pageNum": 924,
+      "keywords": [
+        "ruptured",
+        "injuries",
+        "endophthalmitis",
+        "cornea",
+        "sclera"
+      ]
+    },
+    {
+      "pageNum": 914,
+      "keywords": [
+        "injuries",
+        "cornea",
+        "blunt",
+        "rupture",
+        "ocular"
+      ]
+    },
+    {
+      "pageNum": 923,
+      "keywords": [
+        "injuries",
+        "risk",
+        "signs",
+        "ocular",
+        "trauma"
+      ]
+    },
+    {
+      "pageNum": 920,
+      "keywords": [
+        "ruptured",
+        "injuries",
+        "sclera",
+        "blunt",
+        "rupture"
+      ]
+    },
+    {
+      "pageNum": 919,
+      "keywords": [
+        "ruptured",
+        "cornea",
+        "rupture",
+        "trauma",
+        "complications"
+      ]
+    },
+    {
+      "pageNum": 333,
+      "keywords": [
+        "ruptured",
+        "iol",
+        "endophthalmitis",
+        "cornea",
+        "risk"
+      ]
+    }
+  ]
+}

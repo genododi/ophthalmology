@@ -1179,14 +1179,63 @@ function showTodayInfographicNotice(items) {
     updateTodayInfographicBadge(items);
 }
 
-function updateTodayInfographicBadge(items = getLibraryCache()) {
+function getTodayInfographicBadgeStorageKey(dateKey = getLocalDateKey()) {
+    return `${TODAY_INFOGRAPHIC_NOTICE_PREFIX}${dateKey}`;
+}
+
+function getInfographicAddedDateKey(item) {
+    if (!item || typeof item !== 'object') return '';
+    // `date` is the canonical library timestamp. The fallbacks preserve the
+    // badge for older locally saved records that used a different field name.
+    return getLocalDateKey(
+        item.date
+        || item.createdAt
+        || item.created_at
+        || item.savedAt
+        || item.saved_at
+        || item._newlyImported
+    );
+}
+
+function renderTodayInfographicBadge(count) {
     const badge = document.getElementById('today-infographic-count');
     if (!badge) return;
-    const today = getLocalDateKey();
-    const count = (items || []).filter(item => getLocalDateKey(item.date) === today).length;
     badge.textContent = String(count);
     badge.hidden = count === 0;
     badge.setAttribute('aria-label', `${count} infographic${count === 1 ? '' : 's'} added today`);
+}
+
+function restoreTodayInfographicBadge() {
+    const today = getLocalDateKey();
+    try {
+        const saved = JSON.parse(localStorage.getItem(getTodayInfographicBadgeStorageKey(today)) || 'null');
+        const count = Number(saved?.count);
+        if (Number.isFinite(count) && count > 0) {
+            renderTodayInfographicBadge(count);
+            return count;
+        }
+    } catch (err) {
+        console.warn('Could not restore today infographic badge:', err);
+    }
+    renderTodayInfographicBadge(0);
+    return 0;
+}
+
+function updateTodayInfographicBadge(items = getLibraryCache()) {
+    const today = getLocalDateKey();
+    const count = (items || []).filter(item => getInfographicAddedDateKey(item) === today).length;
+    renderTodayInfographicBadge(count);
+    try {
+        // Keep a compact, day-scoped snapshot so the Home button can show its
+        // red count immediately after a reload, before IndexedDB finishes.
+        localStorage.setItem(getTodayInfographicBadgeStorageKey(today), JSON.stringify({
+            count,
+            updatedAt: new Date().toISOString()
+        }));
+    } catch (err) {
+        console.warn('Could not persist today infographic badge:', err);
+    }
+    return count;
 }
 
 function openLibraryIDB() {
@@ -2885,7 +2934,10 @@ function setupKnowledgeBase() {
                     localLibrary.sort((a, b) => new Date(b.date) - new Date(a.date));
                     saveLibraryToIDB(localLibrary);
                     renderLibraryList();
-                    showTodayInfographicNotice(localLibrary.filter(item => item._newlyImported));
+                    // The Home badge is a day-wide count, not just this sync's
+                    // transient import subset. Recompute from the full saved
+                    // library so it survives later refreshes unchanged.
+                    showTodayInfographicNotice(localLibrary);
                     if (!silent) {
                         const msg = [];
                         if (addedCount) msg.push(`${addedCount} new`);
@@ -5864,6 +5916,9 @@ function setupFTPServer() {
 let currentInfographicData = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
+    // Render the durable day-scoped count immediately; the IndexedDB-backed
+    // library load below reconciles it with the authoritative saved records.
+    restoreTodayInfographicBadge();
     await initGeminiApiKeys();
     initGenerationSourceSelector();
     initHuggingFaceToken();

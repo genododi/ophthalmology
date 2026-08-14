@@ -2717,6 +2717,9 @@ textarea:focus {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    max-width: 88%;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
 }
 
 .slide-content.title-slide p,
@@ -2755,6 +2758,9 @@ textarea:focus {
     font-weight: 700;
     letter-spacing: -0.02em;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 88%;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
 }
 
 .slide-content.content-slide {
@@ -3095,6 +3101,16 @@ textarea:focus {
     margin-bottom: 1.4rem !important;
 }
 
+/* Flex children otherwise retain their intrinsic width, so a long clinical
+   heading or a missing icon ligature can push the title and badge beyond the
+   16:9 canvas. Allow the title column to wrap inside its available width. */
+.presentation-mode .slide-content.content-slide > h3 > span:nth-child(2),
+.pptx-render-host .slide-content.content-slide > h3 > span:nth-child(2) {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+}
+
 .presentation-mode .slide-content.content-slide > div:last-child,
 .pptx-render-host .slide-content.content-slide > div:last-child {
     display: flex;
@@ -3155,6 +3171,7 @@ textarea:focus {
     overflow-wrap: anywhere;
     word-break: normal;
     vertical-align: middle;
+    hyphens: auto;
 }
 
 .home-notification-button { position: relative; }

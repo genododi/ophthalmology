@@ -683,13 +683,18 @@ async function exportToPDF(element) {
             unit: 'mm',
             format: 'a4'
         });
+        // Reset spacing explicitly for every export.  jsPDF keeps this state
+        // on the document, and a non-zero value makes measured lines wider
+        // than their cells, producing the uneven letter spacing seen in PDFs.
+        pdf.setCharSpace(0);
+        pdf.setLineHeightFactor(1.15);
 
         const pageWidth = pdf.internal.pageSize.getWidth();
         const pageHeight = pdf.internal.pageSize.getHeight();
-        // All export coordinates are derived from this printable area. Keeping the
-        // margin modest prevents unnecessarily narrow columns on A4 while ensuring
-        // every element remains inside the page.
-        const margin = 12;
+        // Keep all text and borders well inside the physical printable area.
+        // This produces a consistent visual relationship between the content
+        // and A4 side margins without making table columns unduly narrow.
+        const margin = 14;
         const contentWidth = pageWidth - (margin * 2);
         let yPos = margin;
 
@@ -989,16 +994,31 @@ async function exportToPDF(element) {
                                 break;
                             }
 
-                            // Columns must always add up to the printable table width.
-                            // The former 25mm minimum let later columns overflow the
-                            // page whenever a table had more than a few columns.
+                            // Allocate space by the amount of text in each column,
+                            // while retaining a usable minimum for every cell. Equal
+                            // columns make narrative fields needlessly tiny and force
+                            // the PDF into unreadably small type.
                             const tableWidth = contentWidth;
-                            const colWidth = tableWidth / numCols;
+                            const columnWeights = headers.map((header, colIndex) => {
+                                const samples = [header, ...rows.map(row => Array.isArray(row) ? row[colIndex] : '')];
+                                const averageLength = samples.reduce((total, value) =>
+                                    total + String(value ?? '').replace(/\s+/g, ' ').length, 0) / Math.max(1, samples.length);
+                                return Math.max(1, Math.min(3.2, Math.sqrt(averageLength || 1)));
+                            });
+                            const totalWeight = columnWeights.reduce((total, weight) => total + weight, 0);
+                            const minColumnWidth = Math.min(26, tableWidth / numCols * 0.72);
+                            const rawWidths = columnWeights.map(weight => Math.max(minColumnWidth, tableWidth * weight / totalWeight));
+                            const rawWidthTotal = rawWidths.reduce((total, width) => total + width, 0);
+                            const colWidths = rawWidths.map(width => width * tableWidth / rawWidthTotal);
+                            const colX = colWidths.reduce((positions, width) => {
+                                positions.push(positions[positions.length - 1] + width);
+                                return positions;
+                            }, [margin]);
                             const actualTableWidth = tableWidth;
 
                             // Helper: Auto-size text to fit in cell
                             // Returns { fontSize, lines, lineHeight }
-                            const autoFitText = (text, maxWidth, maxFontSize = 8, minFontSize = 5) => {
+                            const autoFitText = (text, maxWidth, maxFontSize = 8.5, minFontSize = 6) => {
                                 const cellText = String(text || '');
                                 let fontSize = maxFontSize;
                                 let lines;
@@ -1009,8 +1029,10 @@ async function exportToPDF(element) {
                                     lineHeight = fontSize * 0.52; // comfortable line height for cells
                                     lines = pdf.splitTextToSize(cellText, maxWidth);
 
-                                    // If text fits in a reasonable number of lines (max 6), accept it
-                                    if (lines.length <= 6) {
+                                    // Keep body type legible. Rows that are taller than
+                                    // a page are continued below instead of being clipped
+                                    // or reduced to microscopic text.
+                                    if (lines.length <= 10) {
                                         return { fontSize, lines, lineHeight };
                                     }
                                     fontSize -= 0.5;
@@ -1025,8 +1047,8 @@ async function exportToPDF(element) {
 
                             // Calculate header row with auto-fitting
                             let headerHeight = 8;
-                            const fittedHeaders = headers.map(h => {
-                                const fit = autoFitText(h, colWidth - 4, 8, 6);
+                            const fittedHeaders = headers.map((h, i) => {
+                                const fit = autoFitText(h, colWidths[i] - 4, 8.5, 6.5);
                                 const cellHeight = fit.lines.length * fit.lineHeight + 4;
                                 headerHeight = Math.max(headerHeight, cellHeight);
                                 return fit;
@@ -1042,10 +1064,10 @@ async function exportToPDF(element) {
                                 fittedHeaders.forEach((fit, i) => {
                                     pdf.setFontSize(fit.fontSize);
                                     fit.lines.forEach((line, lineIdx) => {
-                                        writeText(line, margin + i * colWidth + 2, yPos + 3.5 + lineIdx * fit.lineHeight);
+                                        writeText(line, colX[i] + 2, yPos + 3.5 + lineIdx * fit.lineHeight);
                                     });
                                     if (i < numCols - 1) {
-                                        pdf.line(margin + (i + 1) * colWidth, yPos, margin + (i + 1) * colWidth, yPos + headerHeight);
+                                        pdf.line(colX[i + 1], yPos, colX[i + 1], yPos + headerHeight);
                                     }
                                 });
                                 yPos += headerHeight;
@@ -1062,35 +1084,55 @@ async function exportToPDF(element) {
                                 const normalizedRow = Array.isArray(row) ? row : [row];
                                 const paddedRow = headers.map((_, i) => normalizedRow[i] ?? '');
                                 const fittedCells = paddedRow.map((cell, i) => {
-                                    const fit = autoFitText(cell, colWidth - 4, 8, 5);
-                                    const cellHeight = fit.lines.length * fit.lineHeight + 3;
+                                    const fit = autoFitText(cell, colWidths[i] - 4, 8.5, 6);
+                                    const cellHeight = fit.lines.length * fit.lineHeight + 4;
                                     rowHeight = Math.max(rowHeight, cellHeight);
                                     return fit;
                                 });
 
-                                if (yPos + rowHeight > pageHeight - margin) {
+                                const fullPageRowHeight = pageHeight - (margin * 2) - headerHeight;
+                                if (rowHeight <= fullPageRowHeight && yPos + rowHeight > pageHeight - margin) {
                                     pdf.addPage();
                                     yPos = margin;
                                     drawTableHeader();
                                 }
 
-                                // Draw bottom border
-                                pdf.setDrawColor(...colors.border);
-                                pdf.line(margin, yPos + rowHeight, margin + actualTableWidth, yPos + rowHeight);
-
-                                // Draw cell content with individual font sizes
-                                fittedCells.forEach((fit, i) => {
-                                    pdf.setFontSize(fit.fontSize);
-                                    fit.lines.forEach((line, lineIdx) => {
-                                        writeText(line, margin + i * colWidth + 2, yPos + 3 + lineIdx * fit.lineHeight);
-                                    });
-                                    // Draw vertical separator
-                                    if (i < numCols - 1) {
-                                        pdf.line(margin + (i + 1) * colWidth, yPos, margin + (i + 1) * colWidth, yPos + rowHeight);
+                                // Keep a pathological, very tall row intact by
+                                // continuing its remaining lines onto the next page.
+                                // The table header is redrawn on continuations so the
+                                // column meaning never becomes ambiguous.
+                                const totalLines = Math.max(...fittedCells.map(fit => fit.lines.length), 1);
+                                const maxLineHeight = Math.max(...fittedCells.map(fit => fit.lineHeight));
+                                let lineStart = 0;
+                                while (lineStart < totalLines) {
+                                    let availableHeight = pageHeight - margin - yPos;
+                                    let lineCapacity = Math.floor((availableHeight - 4) / maxLineHeight);
+                                    if (lineCapacity < 1) {
+                                        pdf.addPage();
+                                        yPos = margin;
+                                        drawTableHeader();
+                                        availableHeight = pageHeight - margin - yPos;
+                                        lineCapacity = Math.max(1, Math.floor((availableHeight - 4) / maxLineHeight));
                                     }
-                                });
+                                    const lineEnd = Math.min(totalLines, lineStart + lineCapacity);
+                                    const fragmentHeight = Math.max(6, ...fittedCells.map(fit =>
+                                        Math.max(0, Math.min(fit.lines.length, lineEnd) - lineStart) * fit.lineHeight + 4
+                                    ));
 
-                                yPos += rowHeight;
+                                    pdf.setDrawColor(...colors.border);
+                                    pdf.line(margin, yPos + fragmentHeight, margin + actualTableWidth, yPos + fragmentHeight);
+                                    fittedCells.forEach((fit, i) => {
+                                        pdf.setFontSize(fit.fontSize);
+                                        fit.lines.slice(lineStart, lineEnd).forEach((line, localIndex) => {
+                                            writeText(line, colX[i] + 2, yPos + 3.5 + localIndex * fit.lineHeight);
+                                        });
+                                        if (i < numCols - 1) {
+                                            pdf.line(colX[i + 1], yPos, colX[i + 1], yPos + fragmentHeight);
+                                        }
+                                    });
+                                    yPos += fragmentHeight;
+                                    lineStart = lineEnd;
+                                }
                             }
                         }
                         yPos += 6;
@@ -11442,7 +11484,7 @@ const SLIDE_TEMPLATES = {
     pathophysiology:  { key: 'pathophysiology',  label: 'Pathophysiology',   icon: 'genetics',          accent: '#7c3aed', bg: 'linear-gradient(135deg,#faf5ff 0%,#e9d5ff 100%)', border: '#7c3aed', bullet: 'bubble_chart' },
     symptoms:         { key: 'symptoms',         label: 'Symptoms',          icon: 'sick',              accent: '#f59e0b', bg: 'linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%)', border: '#f59e0b', bullet: 'thermostat' },
     signs:            { key: 'signs',            label: 'Clinical Signs',    icon: 'visibility',        accent: '#2563eb', bg: 'linear-gradient(135deg,#eff6ff 0%,#dbeafe 100%)', border: '#2563eb', bullet: 'search' },
-    anatomy:          { key: 'anatomy',          label: 'Anatomy',           icon: 'human_greeting_proximity', accent: '#0d9488', bg: 'linear-gradient(135deg,#f0fdfa 0%,#ccfbf1 100%)', border: '#0d9488', bullet: 'category' },
+    anatomy:          { key: 'anatomy',          label: 'Anatomy',           icon: 'category', accent: '#0d9488', bg: 'linear-gradient(135deg,#f0fdfa 0%,#ccfbf1 100%)', border: '#0d9488', bullet: 'category' },
     prognosis:        { key: 'prognosis',        label: 'Prognosis',         icon: 'trending_up',       accent: '#059669', bg: 'linear-gradient(135deg,#ecfdf5 0%,#a7f3d0 100%)', border: '#059669', bullet: 'timeline' },
     framework:        { key: 'framework',        label: 'Framework',         icon: 'dashboard',         accent: '#6366f1', bg: 'linear-gradient(135deg,#eef2ff 0%,#e0e7ff 100%)', border: '#6366f1', bullet: 'hexagon' },
     mnemonic:         { key: 'mnemonic',         label: 'Mnemonic',          icon: 'psychology',        accent: '#8b5cf6', bg: 'linear-gradient(135deg,#f5f3ff 0%,#ede9fe 100%)', border: '#8b5cf6', bullet: 'bookmark' },

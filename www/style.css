@@ -712,6 +712,145 @@ textarea:focus {
     color: #b45309;
 }
 
+.section-references--missing .section-reference-retry {
+    margin-left: auto;
+    padding: 0.25rem 0.55rem;
+    border: 1px solid #f59e0b;
+    border-radius: 999px;
+    color: #92400e;
+    background: #fffbeb;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.web-photo-consent {
+    margin: 1rem 0 0;
+    padding: 0.9rem 1rem;
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #eff6ff, #ffffff);
+}
+
+.web-photo-consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    color: #1e293b;
+    cursor: pointer;
+}
+
+.web-photo-consent-label > input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.web-photo-consent-check {
+    display: inline-flex;
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #60a5fa;
+    border-radius: 6px;
+    color: transparent;
+    background: #fff;
+    transition: 0.16s ease;
+}
+
+.web-photo-consent-check .material-symbols-rounded {
+    font-size: 18px;
+}
+
+.web-photo-consent-label > input:checked + .web-photo-consent-check {
+    border-color: #2563eb;
+    color: #fff;
+    background: #2563eb;
+}
+
+.web-photo-consent-label > input:focus-visible + .web-photo-consent-check {
+    outline: 3px solid rgba(37, 99, 235, 0.25);
+    outline-offset: 2px;
+}
+
+.web-photo-consent-label strong,
+.web-photo-consent-label small {
+    display: block;
+}
+
+.web-photo-consent-label strong {
+    font-size: 0.86rem;
+}
+
+.web-photo-consent-label small {
+    margin-top: 0.15rem;
+    color: #64748b;
+    font-size: 0.72rem;
+    line-height: 1.4;
+}
+
+.web-photo-consent-status {
+    display: block;
+    margin: 0.5rem 0 0 2.7rem;
+    color: #64748b;
+    font-size: 0.7rem;
+}
+
+.web-photo-consent-status[data-status="success"] { color: #047857; }
+.web-photo-consent-status[data-status="warning"] { color: #b45309; }
+.web-photo-consent-status[data-status="error"] { color: #b91c1c; }
+.web-photo-consent-status[data-status="loading"] { color: #1d4ed8; }
+
+.section-clinical-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.55rem;
+    margin-top: 0.9rem;
+}
+
+.section-clinical-photo {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    color: #334155;
+    text-decoration: none;
+    background: #f8fafc;
+}
+
+.section-clinical-photo img {
+    display: block;
+    width: 100%;
+    height: 132px;
+    object-fit: cover;
+    background: #e2e8f0;
+}
+
+.section-clinical-photo span,
+.section-clinical-photo small {
+    display: block;
+    padding: 0 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.section-clinical-photo span {
+    padding-top: 0.4rem;
+    color: #1e293b;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.section-clinical-photo small {
+    padding-top: 0.12rem;
+    padding-bottom: 0.45rem;
+    color: #64748b;
+    font-size: 0.62rem;
+}
+
 .web-clinical-images-section {
     margin-top: 1.5rem;
     padding: 1.25rem;

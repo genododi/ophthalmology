@@ -6859,11 +6859,6 @@ function setLoading(isLoading) {
 function showGeneratedInfographic(data) {
     currentInfographicData = data;
     renderInfographic(data);
-    // Clinical photos are an enhancement: render the medical content first,
-    // then retrieve credited web images without blocking the result.
-    attachRelevantWebClinicalImages(data).catch(error => {
-        console.warn('[ClinicalImages] Automatic web-image lookup failed:', error?.message || error);
-    });
 }
 
 generateBtn.addEventListener('click', async () => {
@@ -7057,12 +7052,17 @@ function normalizeSectionReferences(references) {
     return entries.map(entry => {
         if (typeof entry === 'string') {
             const doi = entry.match(/10\.\d{4,9}\/[\w.()/:;-]+/i)?.[0] || '';
-            return { citation: entry.trim(), url: normalizeCitationUrl(doi) };
+            const citation = entry.trim();
+            return { citation, url: normalizeCitationUrl(doi), isEvidenceSearch: /^PubMed evidence search:/i.test(citation) };
         }
         if (!entry || typeof entry !== 'object') return null;
         const citation = String(entry.citation || entry.reference || entry.text || entry.title || entry.name || '').trim();
         const url = normalizeCitationUrl(entry.url || entry.link || entry.doi || entry.pmid || '');
-        return citation ? { citation, url } : null;
+        return citation ? {
+            citation,
+            url,
+            isEvidenceSearch: Boolean(entry.isEvidenceSearch) || /^PubMed evidence search:/i.test(citation)
+        } : null;
     }).filter(reference => {
         if (!reference) return false;
         const key = `${reference.citation.toLowerCase()}|${reference.url.toLowerCase()}`;
@@ -7072,26 +7072,37 @@ function normalizeSectionReferences(references) {
     }).slice(0, 3);
 }
 
-function buildPubMedEvidenceSearchReference(topic, sectionTitle) {
-    const query = `${topic || 'ophthalmology'} ${sectionTitle || ''}`.replace(/\s+/g, ' ').trim();
-    return {
-        citation: `PubMed evidence search: ${sectionTitle || topic || 'Ophthalmology'}`,
-        url: `https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(query)}`,
-        isEvidenceSearch: true
-    };
+function getVerifiedSectionReferences(section) {
+    return normalizeSectionReferences(section?.references || section?.citations || section?.sources)
+        .filter(reference => reference.url && !reference.isEvidenceSearch);
+}
+
+function buildCitationSearchQuery(topic, sectionTitle, includeSection = true) {
+    const noise = new Set(['the', 'and', 'with', 'from', 'master', 'masterclass', 'clinical', 'complete', 'comprehensive', 'infographic', 'guide', 'overview', 'essentials', 'section']);
+    const tokens = value => String(value || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, ' ')
+        .split(/\s+/)
+        .filter(token => token.length > 2 && !noise.has(token));
+    const topicTokens = [...new Set(tokens(topic))].slice(0, 7);
+    const sectionTokens = includeSection ? [...new Set(tokens(sectionTitle))].filter(token => !topicTokens.includes(token)).slice(0, 2) : [];
+    return [...topicTokens, ...sectionTokens].join(' ').trim();
 }
 
 async function findOpenAlexReference(topic, sectionTitle) {
-    const query = `${topic || ''} ${sectionTitle || ''}`.replace(/\s+/g, ' ').trim().slice(0, 220);
+    const query = buildCitationSearchQuery(topic, sectionTitle);
     if (!query || typeof fetch !== 'function') return null;
     const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
-    const timeout = controller ? setTimeout(() => controller.abort(), 7000) : null;
+    const timeout = controller ? setTimeout(() => controller.abort(), 5500) : null;
     try {
         const response = await fetch(
             `https://api.openalex.org/works?search=${encodeURIComponent(query)}&per-page=1&select=title,publication_year,authorships,doi,ids,primary_location`,
             controller ? { signal: controller.signal } : undefined
         );
-        if (!response.ok) return null;
+        if (!response.ok) {
+            console.warn(`[Citations] OpenAlex returned ${response.status}`);
+            return null;
+        }
         const work = (await response.json())?.results?.[0];
         if (!work?.title) return null;
         const authorNames = (work.authorships || []).map(a => a?.author?.display_name).filter(Boolean);
@@ -7108,6 +7119,75 @@ async function findOpenAlexReference(topic, sectionTitle) {
     }
 }
 
+async function findEuropePmcReference(topic, sectionTitle) {
+    const query = buildCitationSearchQuery(topic, sectionTitle);
+    if (!query || typeof fetch !== 'function') return null;
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timeout = controller ? setTimeout(() => controller.abort(), 7000) : null;
+    try {
+        const fetchResult = async searchQuery => {
+            const params = new URLSearchParams({ query: searchQuery, format: 'json', pageSize: '1', resultType: 'core' });
+            const response = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/search?${params.toString()}`, controller ? { signal: controller.signal } : undefined);
+            if (!response.ok) {
+                console.warn(`[Citations] Europe PMC returned ${response.status}`);
+                return null;
+            }
+            return (await response.json())?.resultList?.result?.[0] || null;
+        };
+        const work = (await fetchResult(query)) || (await fetchResult(buildCitationSearchQuery(topic, '', false)));
+        if (!work?.title) {
+            console.warn('[Citations] Europe PMC returned no matching paper.');
+            return null;
+        }
+        const citation = [work.authorString, work.title, work.journalTitle, work.pubYear].filter(Boolean).join('. ');
+        const url = normalizeCitationUrl(work.doi)
+            || (work.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${work.pmid}/` : '')
+            || (work.id && work.source ? `https://europepmc.org/article/${encodeURIComponent(work.source)}/${encodeURIComponent(work.id)}` : '');
+        return citation && url ? { citation, url } : null;
+    } catch (error) {
+        console.warn('[Citations] Europe PMC lookup failed:', error?.message || error);
+        return null;
+    } finally {
+        if (timeout) clearTimeout(timeout);
+    }
+}
+
+async function findCrossrefReference(topic, sectionTitle) {
+    const query = buildCitationSearchQuery(topic, sectionTitle);
+    if (!query || typeof fetch !== 'function') return null;
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timeout = controller ? setTimeout(() => controller.abort(), 5500) : null;
+    try {
+        const params = new URLSearchParams({
+            'query.bibliographic': query,
+            rows: '1',
+            select: 'DOI,title,author,published,container-title,URL'
+        });
+        const response = await fetch(`https://api.crossref.org/works?${params.toString()}`, controller ? { signal: controller.signal } : undefined);
+        if (!response.ok) return null;
+        const work = (await response.json())?.message?.items?.[0];
+        const title = Array.isArray(work?.title) ? work.title[0] : work?.title;
+        if (!title || !work?.DOI) return null;
+        const authors = (work.author || []).map(author => [author.given, author.family].filter(Boolean).join(' ')).filter(Boolean);
+        const authorText = authors.length > 3 ? `${authors.slice(0, 3).join(', ')}, et al.` : authors.join(', ');
+        const journal = Array.isArray(work['container-title']) ? work['container-title'][0] : work['container-title'];
+        const year = work.published?.['date-parts']?.[0]?.[0] || '';
+        const citation = [authorText, title, journal, year].filter(Boolean).join('. ');
+        return { citation, url: `https://doi.org/${work.DOI}` };
+    } catch (error) {
+        console.warn('[Citations] Crossref lookup failed:', error?.message || error);
+        return null;
+    } finally {
+        if (timeout) clearTimeout(timeout);
+    }
+}
+
+async function findScholarlyReference(topic, sectionTitle) {
+    return (await findEuropePmcReference(topic, sectionTitle))
+        || (await findOpenAlexReference(topic, sectionTitle))
+        || (await findCrossrefReference(topic, sectionTitle));
+}
+
 /** Ensure every generated section visibly carries a source, with live evidence lookup as a fallback. */
 async function ensureSectionCitations(data, topic) {
     if (!data || !Array.isArray(data.sections)) return data;
@@ -7115,35 +7195,62 @@ async function ensureSectionCitations(data, topic) {
     const unresolved = [];
     data.sections.forEach(section => {
         if (!section || typeof section !== 'object') return;
-        section.references = normalizeSectionReferences(section.references || section.citations || section.sources);
+        section.references = getVerifiedSectionReferences(section);
         if (!section.references.length) unresolved.push(section);
     });
 
-    // OpenAlex provides a real paper and direct DOI/record for models that omit
-    // references. Keep lookup concurrency low so a large poster remains polite.
-    const lookupDeadline = Date.now() + 9000;
+    // Resolve only to a real paper or record. A generic search page is not a
+    // citation and must never be presented as one.
+    const lookupDeadline = Date.now() + 14000;
     for (let start = 0; start < unresolved.length; start += 4) {
-        if (Date.now() >= lookupDeadline) {
-            unresolved.slice(start).forEach(section => {
-                section.references = [buildPubMedEvidenceSearchReference(evidenceTopic, section.title)];
-            });
-            break;
-        }
+        if (Date.now() >= lookupDeadline) break;
         const batch = unresolved.slice(start, start + 4);
         await Promise.all(batch.map(async section => {
-            const reference = await findOpenAlexReference(evidenceTopic, section.title);
-            section.references = reference
-                ? [reference]
-                : [buildPubMedEvidenceSearchReference(evidenceTopic, section.title)];
+            const reference = await findScholarlyReference(evidenceTopic, section.title);
+            section.references = reference ? [reference] : [];
         }));
     }
     return data;
 }
 
-function renderSectionReferences(references) {
-    const normalized = normalizeSectionReferences(references);
+const citationHydrationInFlight = new WeakMap();
+const citationLookupFailures = new WeakSet();
+
+async function persistInfographicEnhancementsLocally(data) {
+    const library = getLibraryCache();
+    if (!data || !Array.isArray(library) || !library.length) return false;
+    const normalizeTitle = value => String(value || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+    const titleKey = normalizeTitle(data.title);
+    const item = library.find(entry => entry?.data === data)
+        || library.find(entry => normalizeTitle(entry?.title || entry?.data?.title) === titleKey);
+    if (!item) return false;
+    item.data = data;
+    _libraryCache = library;
+    let db;
+    try {
+        db = await openLibraryIDB();
+        const tx = db.transaction(LIBRARY_IDB_STORE, 'readwrite');
+        tx.objectStore(LIBRARY_IDB_STORE).put({ key: 'main', data: library });
+        await new Promise((resolve, reject) => {
+            tx.oncomplete = resolve;
+            tx.onerror = () => reject(tx.error);
+            tx.onabort = () => reject(tx.error);
+        });
+        window.dispatchEvent(new CustomEvent('library:changed'));
+        return true;
+    } catch (error) {
+        console.warn('[Infographic] Could not persist enrichment locally:', error);
+        return false;
+    } finally {
+        db?.close();
+    }
+}
+
+function renderSectionReferences(section) {
+    const normalized = getVerifiedSectionReferences(section);
     if (!normalized.length) {
-        return '<div class="section-references section-references--missing"><span class="material-symbols-rounded">info</span><span>Citation pending</span></div>';
+        const failed = section && citationLookupFailures.has(section);
+        return `<div class="section-references section-references--missing"><span class="material-symbols-rounded">${failed ? 'cloud_off' : 'progress_activity'}</span><span>${failed ? 'Source lookup unavailable' : 'Finding a verified source…'}</span>${failed ? '<button type="button" class="section-reference-retry">Retry</button>' : ''}</div>`;
     }
     return `<div class="section-references" aria-label="References">\n        <div class="section-references-label"><span class="material-symbols-rounded">menu_book</span>Sources</div>\n        <ol>${normalized.map(reference => {
             const label = escapeHtml(reference.citation);
@@ -8948,6 +9055,8 @@ function renderInfographic(data) {
         }
     }
 
+    posterSheet.appendChild(createWebPhotoConsentControl(data));
+
     // Grid (Inside the sheet)
     const grid = document.createElement('div');
     grid.className = 'poster-grid';
@@ -8957,6 +9066,7 @@ function renderInfographic(data) {
         const layoutClass = section.layout === 'full_width' ? 'col-span-2' : '';
         const colorClass = `theme-${section.color_theme || 'blue'}`;
         card.className = `poster-card card-${section.type} ${layoutClass} ${colorClass}`;
+        card.dataset.sectionIndex = String(index);
 
         card.style.animationDelay = `${index * 100}ms`;
 
@@ -9068,13 +9178,14 @@ function renderInfographic(data) {
                 <div class="icon-box"><span class="material-symbols-rounded">${iconName}</span></div>
                 ${escapeHtml(section.title)}
             </h3>`;
-        const referencesHtml = renderSectionReferences(section.references || section.citations || section.sources);
+        const referencesHtml = renderSectionReferences(section);
 
         card.innerHTML = `
             ${titleHtml}
             <div class="card-content">
                 ${contentHtml}
             </div>
+            <div class="section-clinical-photos-host">${renderSectionClinicalPhotos(data, index)}</div>
             ${referencesHtml}
         `;
         grid.appendChild(card);
@@ -9083,6 +9194,23 @@ function renderInfographic(data) {
     posterSheet.appendChild(grid);
     outputContainer.appendChild(posterSheet);
     renderWebClinicalImages(data);
+    wireCitationRetryButtons(data);
+    hydrateRenderedInfographicCitations(data).catch(error => {
+        console.warn('[Citations] Background citation enrichment failed:', error?.message || error);
+    });
+    if (data.webPhotoConsent === true) {
+        attachRelevantWebClinicalImages(data, { onProgress: updateWebPhotoConsentProgress })
+            .then(() => {
+                const total = getSectionWebClinicalImagesCount(data);
+                updateWebPhotoConsentStatus(total
+                    ? `${total} credited photo${total === 1 ? '' : 's'} attached to relevant sections.`
+                    : 'No suitable ophthalmic photos were found. Uncheck and check again to retry.', total ? 'success' : 'warning');
+            })
+            .catch(error => {
+                updateWebPhotoConsentStatus('Could not retrieve web photos. You can retry by toggling the checkbox.', 'error');
+                console.warn('[ClinicalImages] Approved web-image lookup failed:', error?.message || error);
+            });
+    }
 
     // Enable Studio Tools when infographic is generated
     enableStudioTools();
@@ -11785,6 +11913,7 @@ function showToast(message, type) {
 let clinicalImages = [];
 
 const WEB_CLINICAL_IMAGE_LIMIT = 6;
+const webPhotoFetchInFlight = new WeakSet();
 
 function cleanWebImageMetadata(value) {
     const source = String(value || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -11801,9 +11930,9 @@ function getClinicalImageSearchTopic(data) {
     return (conciseTopic || title || 'ophthalmology').replace(/\s+/g, ' ').slice(0, 180);
 }
 
-async function searchWikimediaClinicalImages(topic) {
+async function searchWikimediaClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
     const retinalTopic = /retina|retinal|macula|macular|fundus|optic disc|papill|choroid|vitre/i.test(topic);
-    const query = `${topic} ${retinalTopic ? 'fundus' : 'eye photo'}`.trim();
+    const query = `${topic} ${retinalTopic ? 'fundus' : 'eye'}`.trim();
     const params = new URLSearchParams({
         action: 'query',
         format: 'json',
@@ -11811,7 +11940,7 @@ async function searchWikimediaClinicalImages(topic) {
         generator: 'search',
         gsrsearch: query,
         gsrnamespace: '6',
-        gsrlimit: String(WEB_CLINICAL_IMAGE_LIMIT * 3),
+        gsrlimit: String(Math.min(50, Math.max(12, limit * 4))),
         prop: 'imageinfo|info',
         inprop: 'url',
         iiprop: 'url|extmetadata|mime',
@@ -11844,14 +11973,97 @@ async function searchWikimediaClinicalImages(topic) {
         if (seen.has(image.id)) return false;
         seen.add(image.id);
         return true;
-    }).slice(0, WEB_CLINICAL_IMAGE_LIMIT);
+    }).slice(0, limit);
+}
+
+function getSectionWebClinicalImages(data, sectionIndex) {
+    return (data?.clinicalImages || []).filter(image => image?.webSource && image.sectionIndex !== undefined && image.sectionIndex !== null && Number(image.sectionIndex) === sectionIndex && image?.dataUrl);
+}
+
+function renderSectionClinicalPhotos(data, sectionIndex) {
+    const images = getSectionWebClinicalImages(data, sectionIndex);
+    if (!images.length) return '';
+    return `<div class="section-clinical-photos" aria-label="Clinical photos for this section">
+        ${images.map(image => {
+            const credit = [image.source, image.license].filter(Boolean).join(' · ');
+            return `<a class="section-clinical-photo" href="${escapeHtml(image.sourceUrl)}" target="_blank" rel="noopener noreferrer">
+                <img src="${escapeHtml(image.dataUrl)}" alt="${escapeHtml(image.alt)}" loading="lazy">
+                <span>${escapeHtml(image.alt)}</span>
+                <small>${escapeHtml(credit || 'View source and licence')}</small>
+            </a>`;
+        }).join('')}
+    </div>`;
+}
+
+function updateRenderedSectionClinicalPhotos(data) {
+    const poster = outputContainer.querySelector('.poster-sheet');
+    if (!poster || !Array.isArray(data?.sections)) return;
+    data.sections.forEach((_, index) => {
+        const host = poster.querySelector(`.poster-card[data-section-index="${index}"] .section-clinical-photos-host`);
+        if (host) host.innerHTML = renderSectionClinicalPhotos(data, index);
+    });
+}
+
+function updateWebPhotoConsentStatus(message, type = 'info') {
+    const status = outputContainer.querySelector('#web-photo-consent-status');
+    if (!status) return;
+    status.textContent = message;
+    status.dataset.status = type;
+}
+
+function updateWebPhotoConsentProgress(completed, total, found) {
+    updateWebPhotoConsentStatus(`Searched ${completed} of ${total} sections… ${found} photo${found === 1 ? '' : 's'} found.`, 'loading');
+}
+
+function createWebPhotoConsentControl(data) {
+    const control = document.createElement('section');
+    control.className = 'web-photo-consent';
+    const sectionPhotoCount = (data?.clinicalImages || []).filter(image => image?.webSource && image.sectionIndex !== undefined && image.sectionIndex !== null && Number.isInteger(Number(image.sectionIndex))).length;
+    control.innerHTML = `
+        <label class="web-photo-consent-label" for="web-photo-consent-checkbox">
+            <input type="checkbox" id="web-photo-consent-checkbox" ${data?.webPhotoConsent === true ? 'checked' : ''}>
+            <span class="web-photo-consent-check"><span class="material-symbols-rounded">check</span></span>
+            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches Wikimedia Commons only after you approve, and keeps source and licence links with every photo.</small></span>
+        </label>
+        <span id="web-photo-consent-status" class="web-photo-consent-status" data-status="info">${sectionPhotoCount ? `${sectionPhotoCount} credited section photo${sectionPhotoCount === 1 ? '' : 's'} attached.` : 'Photo fetching is off.'}</span>`;
+    const checkbox = control.querySelector('#web-photo-consent-checkbox');
+    checkbox?.addEventListener('change', async () => {
+        data.webPhotoConsent = checkbox.checked;
+        await persistInfographicEnhancementsLocally(data);
+        if (!checkbox.checked) {
+            updateWebPhotoConsentStatus('Photo fetching is off. Already attached photos remain available.', 'info');
+            return;
+        }
+        checkbox.disabled = true;
+        updateWebPhotoConsentStatus('Starting section-by-section photo search…', 'loading');
+        try {
+            const images = await attachRelevantWebClinicalImages(data, { onProgress: updateWebPhotoConsentProgress });
+            const total = getSectionWebClinicalImagesCount(data);
+            updateWebPhotoConsentStatus(total
+                ? `${total} credited photo${total === 1 ? '' : 's'} attached to relevant sections.`
+                : 'No suitable ophthalmic photos were found. Uncheck and check again to retry.', total ? 'success' : 'warning');
+            if (images.length) showToast(`${images.length} new credited section photo${images.length === 1 ? '' : 's'} added.`, 'success');
+        } catch (error) {
+            updateWebPhotoConsentStatus('Could not retrieve web photos. Uncheck and check again to retry.', 'error');
+            showToast('Could not retrieve web clinical photos. Please try again.', 'error');
+        } finally {
+            checkbox.disabled = false;
+        }
+    });
+    return control;
+}
+
+function getSectionWebClinicalImagesCount(data) {
+    return (data?.clinicalImages || []).filter(image => image?.webSource && image.sectionIndex !== undefined && image.sectionIndex !== null && Number.isInteger(Number(image.sectionIndex))).length;
 }
 
 function renderWebClinicalImages(data) {
     const poster = outputContainer.querySelector('.poster-sheet');
     if (!poster) return;
     poster.querySelector('#web-clinical-images-section')?.remove();
-    const images = (data?.clinicalImages || []).filter(image => image?.webSource && image?.dataUrl);
+    // Preserve older topic-level web photos in their original gallery. New
+    // photos are rendered inside the section they were fetched for.
+    const images = (data?.clinicalImages || []).filter(image => image?.webSource && (image.sectionIndex === undefined || image.sectionIndex === null || !Number.isInteger(Number(image.sectionIndex))) && image?.dataUrl);
     if (!images.length) return;
 
     const section = document.createElement('section');
@@ -11875,29 +12087,54 @@ function renderWebClinicalImages(data) {
     poster.appendChild(section);
 }
 
-async function attachRelevantWebClinicalImages(data, { force = false } = {}) {
-    if (!data || data._webClinicalImagesLoading) return [];
-    const existing = (data.clinicalImages || []).filter(image => image?.webSource);
-    if (existing.length && !force) {
-        renderWebClinicalImages(data);
-        return existing;
-    }
-    data._webClinicalImagesLoading = true;
+async function attachRelevantWebClinicalImages(data, { force = false, onProgress = null } = {}) {
+    if (!data || !Array.isArray(data.sections) || webPhotoFetchInFlight.has(data)) return [];
+    if (data.webPhotoConsent !== true) return [];
+    webPhotoFetchInFlight.add(data);
     try {
-        const images = await searchWikimediaClinicalImages(getClinicalImageSearchTopic(data));
-        if (!images.length) return [];
-        const known = new Set((data.clinicalImages || []).map(image => image?.id || image?.sourceUrl).filter(Boolean));
-        const newImages = images.filter(image => !known.has(image.id) && !known.has(image.sourceUrl));
-        if (!newImages.length) return existing;
+        const baseTopic = getClinicalImageSearchTopic(data);
+        const topicCore = buildCitationSearchQuery(baseTopic, '', false).split(/\s+/).slice(0, 2).join(' ');
+        const known = new Set((data.clinicalImages || []).flatMap(image => [image?.id, image?.sourceUrl]).filter(Boolean));
+        const targets = data.sections.map((section, sectionIndex) => ({ section, sectionIndex }))
+            .filter(({ sectionIndex }) => force || !getSectionWebClinicalImages(data, sectionIndex).length);
+        const newImages = [];
+        let completed = 0;
+        for (let start = 0; start < targets.length; start += 3) {
+            const batch = targets.slice(start, start + 3);
+            const results = await Promise.all(batch.map(async ({ section, sectionIndex }) => {
+                const sectionCore = buildCitationSearchQuery('', section?.title).split(/\s+/).slice(0, 1).join(' ');
+                const query = `${topicCore || baseTopic} ${sectionCore}`.replace(/\s+/g, ' ').trim().slice(0, 120);
+                try {
+                    let candidates = await searchWikimediaClinicalImages(query, 18);
+                    let image = candidates.find(candidate => !known.has(candidate.id) && !known.has(candidate.sourceUrl));
+                    if (!image && sectionCore) {
+                        candidates = await searchWikimediaClinicalImages(topicCore || baseTopic, 24);
+                        image = candidates.find(candidate => !known.has(candidate.id) && !known.has(candidate.sourceUrl));
+                    }
+                    if (!image) return null;
+                    known.add(image.id);
+                    known.add(image.sourceUrl);
+                    return { ...image, sectionIndex, sectionTitle: String(section?.title || ''), searchQuery: query };
+                } catch (error) {
+                    console.warn(`[ClinicalImages] Section lookup failed for "${section?.title || sectionIndex}":`, error?.message || error);
+                    return null;
+                }
+            }));
+            results.filter(Boolean).forEach(image => newImages.push(image));
+            completed += batch.length;
+            if (typeof onProgress === 'function') onProgress(completed, targets.length, newImages.length);
+        }
+        if (!newImages.length) return [];
         data.clinicalImages = [...(data.clinicalImages || []), ...newImages];
         if (currentInfographicData === data) clinicalImages = data.clinicalImages;
         await saveClinicalImagesToIDB(data.title, data.clinicalImages);
+        await persistInfographicEnhancementsLocally(data);
+        updateRenderedSectionClinicalPhotos(data);
         renderWebClinicalImages(data);
         updateClinicalImagesGallery();
-        showToast(`${newImages.length} credited clinical photo${newImages.length === 1 ? '' : 's'} added from Wikimedia Commons.`, 'success');
         return newImages;
     } finally {
-        delete data._webClinicalImagesLoading;
+        webPhotoFetchInFlight.delete(data);
     }
 }
 
@@ -11954,12 +12191,16 @@ function setupClinicalImages() {
     if (webSearchBtn) {
         webSearchBtn.onclick = async () => {
             if (!currentInfographicData) return;
+            currentInfographicData.webPhotoConsent = true;
+            const consentCheckbox = outputContainer.querySelector('#web-photo-consent-checkbox');
+            if (consentCheckbox) consentCheckbox.checked = true;
+            await persistInfographicEnhancementsLocally(currentInfographicData);
             const originalLabel = webSearchBtn.innerHTML;
             webSearchBtn.disabled = true;
             webSearchBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size:0.9rem;">progress_activity</span> Searching…';
             try {
-                const images = await attachRelevantWebClinicalImages(currentInfographicData, { force: true });
-                if (!images.length) showToast('No additional suitable clinical photos were found for this topic.', 'warning');
+                const images = await attachRelevantWebClinicalImages(currentInfographicData, { force: true, onProgress: updateWebPhotoConsentProgress });
+                if (!images.length) showToast('No additional suitable section photos were found.', 'warning');
             } catch (error) {
                 showToast('Could not retrieve web clinical photos. Please try again.', 'error');
             } finally {
@@ -12155,6 +12396,44 @@ function renderSlideTopicCards(items, tpl, opts = {}) {
             </div>`;
         }).join('')}
     </div>`;
+}
+
+function wireCitationRetryButtons(data) {
+    outputContainer.querySelectorAll('.section-reference-retry').forEach(button => {
+        button.addEventListener('click', () => hydrateRenderedInfographicCitations(data, { force: true }));
+    });
+}
+
+function updateRenderedSectionReferences(data) {
+    const poster = outputContainer.querySelector('.poster-sheet');
+    if (!poster || !Array.isArray(data?.sections)) return;
+    data.sections.forEach((section, index) => {
+        const card = poster.querySelector(`.poster-card[data-section-index="${index}"]`);
+        const current = card?.querySelector('.section-references');
+        if (current) current.outerHTML = renderSectionReferences(section);
+    });
+    wireCitationRetryButtons(data);
+}
+
+async function hydrateRenderedInfographicCitations(data, { force = false } = {}) {
+    if (!data || !Array.isArray(data.sections)) return data;
+    const missing = data.sections.filter(section => !getVerifiedSectionReferences(section).length);
+    if (!missing.length) return data;
+    const active = citationHydrationInFlight.get(data);
+    if (active && !force) return active;
+    missing.forEach(section => citationLookupFailures.delete(section));
+    updateRenderedSectionReferences(data);
+    const task = (async () => {
+        await ensureSectionCitations(data, data.title);
+        data.sections.forEach(section => {
+            if (!getVerifiedSectionReferences(section).length) citationLookupFailures.add(section);
+        });
+        updateRenderedSectionReferences(data);
+        await persistInfographicEnhancementsLocally(data);
+        return data;
+    })().finally(() => citationHydrationInFlight.delete(data));
+    citationHydrationInFlight.set(data, task);
+    return task;
 }
 
 // Produce a themed bullet list given an array of strings and a template.

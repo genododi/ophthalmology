@@ -655,7 +655,7 @@ function fitContentToLandscape(sheet) {
 }
 
 // TEXT-RENDERED PDF EXPORT (NOT IMAGE-BASED)
-async function exportToPDF(element) {
+async function exportToPDFLegacy(element) {
     try {
         if (downloadBtn) {
             downloadBtn.disabled = true;
@@ -1186,6 +1186,416 @@ async function exportToPDF(element) {
     } catch (err) {
         console.error("PDF Export failed:", err);
         alert("Failed to export PDF: " + err.message);
+    } finally {
+        if (downloadBtn) {
+            downloadBtn.disabled = false;
+            downloadBtn.innerHTML = '<span class="material-symbols-rounded">download</span>';
+            document.body.style.cursor = 'default';
+        }
+    }
+}
+
+// PAGINATED PDF EXPORT - readable text, repeating table headers and stable margins
+async function exportToPDF(element) {
+    try {
+        if (downloadBtn) {
+            downloadBtn.disabled = true;
+            downloadBtn.innerHTML = '<span class="material-symbols-rounded" style="margin-right:0;">hourglass_top</span>';
+            document.body.style.cursor = 'wait';
+        }
+        if (!currentInfographicData) throw new Error('No infographic data available for export.');
+        if (!window.jspdf?.jsPDF) throw new Error('The PDF library is not available. Refresh and try again.');
+
+        const data = currentInfographicData;
+        const orientation = element?.classList?.contains('landscape') ? 'landscape' : 'portrait';
+        const pdf = new window.jspdf.jsPDF({ orientation, unit: 'mm', format: 'a4', compress: true });
+        pdf.setCharSpace(0);
+        pdf.setLineHeightFactor(1.25);
+
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        const sideMargin = orientation === 'landscape' ? 18 : 16;
+        const topMargin = 19;
+        const bottomMargin = 18;
+        const contentWidth = pageWidth - sideMargin * 2;
+        const contentBottom = pageHeight - bottomMargin;
+        const colors = {
+            primary: [37, 99, 235],
+            cyan: [8, 145, 178],
+            dark: [15, 23, 42],
+            text: [31, 41, 55],
+            muted: [100, 116, 139],
+            pale: [248, 250, 252],
+            border: [203, 213, 225],
+            red: [185, 28, 28],
+            green: [5, 150, 105],
+            purple: [124, 58, 237],
+            yellow: [217, 119, 6]
+        };
+        const themeColors = {
+            blue: colors.primary,
+            red: colors.red,
+            green: colors.green,
+            yellow: colors.yellow,
+            purple: colors.purple
+        };
+        let yPos = topMargin;
+
+        const normalizePdfText = value => String(value ?? '')
+            .replace(/[\u2010-\u2015]/g, '-')
+            .replace(/[\u2018\u2019]/g, "'")
+            .replace(/[\u201c\u201d]/g, '"')
+            .replace(/\u2022/g, '-')
+            .replace(/\u00a0/g, ' ')
+            .replace(/≥/g, '>=')
+            .replace(/≤/g, '<=')
+            .replace(/≈/g, '~')
+            .replace(/\s+/g, ' ')
+            .trim();
+        const setTextStyle = (fontSize = 10.5, fontStyle = 'normal', color = colors.text) => {
+            pdf.setFont('helvetica', fontStyle);
+            pdf.setFontSize(fontSize);
+            pdf.setTextColor(...color);
+        };
+        const lineHeight = fontSize => Math.max(3.6, fontSize * 0.3528 * 1.34);
+        const addPage = () => {
+            pdf.addPage();
+            yPos = topMargin;
+        };
+        const ensureSpace = neededHeight => {
+            if (yPos + neededHeight > contentBottom) {
+                addPage();
+                return true;
+            }
+            return false;
+        };
+        const splitLines = (text, width, fontSize = 10.5, fontStyle = 'normal') => {
+            setTextStyle(fontSize, fontStyle);
+            return pdf.splitTextToSize(normalizePdfText(text), Math.max(8, width));
+        };
+        const writeLines = (lines, x, options = {}) => {
+            const fontSize = options.fontSize || 10.5;
+            const fontStyle = options.fontStyle || 'normal';
+            const color = options.color || colors.text;
+            const height = options.lineHeight || lineHeight(fontSize);
+            const bulletColor = options.bulletColor || colors.primary;
+            let firstLine = true;
+            setTextStyle(fontSize, fontStyle, color);
+            for (const line of lines) {
+                ensureSpace(height + 0.8);
+                setTextStyle(fontSize, fontStyle, color);
+                if (options.bullet && firstLine) {
+                    pdf.setFillColor(...bulletColor);
+                    pdf.circle(x - 3.4, yPos + height * 0.56, 1.05, 'F');
+                }
+                pdf.text(normalizePdfText(line), x, yPos + height * 0.78);
+                yPos += height;
+                firstLine = false;
+            }
+            yPos += options.spacingAfter ?? 2.2;
+        };
+        const writeWrapped = (text, x = sideMargin, width = contentWidth, options = {}) => {
+            const fontSize = options.fontSize || 10.5;
+            const fontStyle = options.fontStyle || 'normal';
+            const lines = splitLines(text, width, fontSize, fontStyle);
+            writeLines(lines, x, { ...options, fontSize, fontStyle });
+            return lines;
+        };
+        const writeList = (items, options = {}) => {
+            const color = options.color || colors.text;
+            const bulletColor = options.bulletColor || colors.primary;
+            const fontSize = options.fontSize || 10.5;
+            (items || []).forEach(item => {
+                const text = normalizePdfText(displayText(item));
+                if (!text) return;
+                const lines = splitLines(text, contentWidth - 10, fontSize);
+                const itemHeight = lines.length * lineHeight(fontSize) + 2;
+                if (itemHeight < contentBottom - topMargin) ensureSpace(itemHeight);
+                writeLines(lines, sideMargin + 8, { fontSize, color, bullet: true, bulletColor, spacingAfter: 2.5 });
+            });
+        };
+        const drawSectionHeading = section => {
+            const title = normalizePdfText(section?.title || 'Section');
+            const accent = themeColors[section?.color_theme] || colors.primary;
+            const titleLines = splitLines(title, contentWidth - 13, 14.5, 'bold');
+            const height = Math.max(13, titleLines.length * lineHeight(14.5) + 6);
+            ensureSpace(height + 9);
+            pdf.setFillColor(...colors.pale);
+            pdf.roundedRect(sideMargin, yPos, contentWidth, height, 2.5, 2.5, 'F');
+            pdf.setFillColor(...accent);
+            pdf.roundedRect(sideMargin, yPos, 3.5, height, 1.5, 1.5, 'F');
+            setTextStyle(14.5, 'bold', colors.dark);
+            titleLines.forEach((line, index) => {
+                pdf.text(line, sideMargin + 8, yPos + 5.2 + index * lineHeight(14.5));
+            });
+            yPos += height + 6;
+            return accent;
+        };
+        const drawReferences = section => {
+            const references = getVerifiedSectionReferences(section);
+            if (!references.length) return;
+            ensureSpace(13);
+            pdf.setDrawColor(...colors.border);
+            pdf.setLineWidth(0.25);
+            pdf.line(sideMargin, yPos, sideMargin + contentWidth, yPos);
+            yPos += 4;
+            setTextStyle(8.2, 'bold', colors.muted);
+            pdf.text('SOURCES', sideMargin, yPos + 2.8);
+            yPos += 5;
+            references.forEach(reference => {
+                writeWrapped(reference.citation, sideMargin, contentWidth, {
+                    fontSize: 7.8,
+                    color: colors.muted,
+                    spacingAfter: 0.8
+                });
+                const url = normalizeCitationUrl(reference.url);
+                if (url) {
+                    ensureSpace(4.5);
+                    setTextStyle(7.4, 'normal', colors.primary);
+                    const label = 'Open source record';
+                    if (typeof pdf.textWithLink === 'function') pdf.textWithLink(label, sideMargin, yPos + 2.7, { url });
+                    else pdf.text(label, sideMargin, yPos + 2.7);
+                    yPos += 5;
+                }
+            });
+        };
+        const estimateReferencesHeight = section => {
+            const references = getVerifiedSectionReferences(section);
+            if (!references.length) return 0;
+            return 9 + references.reduce((height, reference) => {
+                const citationLines = splitLines(reference.citation, contentWidth, 7.8);
+                return height + citationLines.length * lineHeight(7.8) + 0.8
+                    + (normalizeCitationUrl(reference.url) ? 5 : 0);
+            }, 0);
+        };
+        const estimateCompactSectionHeight = section => {
+            if (section?.type === 'table') return Number.POSITIVE_INFINITY;
+            const headingLines = splitLines(section?.title || 'Section', contentWidth - 13, 14.5, 'bold');
+            const headingHeight = Math.max(13, headingLines.length * lineHeight(14.5) + 6) + 6;
+            const content = section?.content;
+            let bodyHeight = 0;
+            if (['red_flag', 'key_point', 'process'].includes(section?.type)) {
+                const items = Array.isArray(content) ? content : [content];
+                bodyHeight = items.reduce((height, item) => {
+                    const lines = splitLines(displayText(item), contentWidth - 10, 10.7);
+                    return height + lines.length * lineHeight(10.7) + 2.5;
+                }, 0);
+            } else if (section?.type === 'chart') {
+                bodyHeight = (content?.data || []).reduce((height, item) => {
+                    const label = displayText(item?.label ?? item?.name ?? item?.title ?? '');
+                    return height + splitLines(label, contentWidth - 24, 10.2, 'bold').length * lineHeight(10.2) + 11;
+                }, 0);
+            } else if (section?.type === 'remember') {
+                bodyHeight = 18 + splitLines(content?.explanation || '', contentWidth, 10.7).length * 5.15 + 2;
+            } else if (section?.type === 'mindmap') {
+                return Number.POSITIVE_INFINITY;
+            } else {
+                bodyHeight = splitLines(displayText(content || ''), contentWidth, 10.7).length * 5.15 + 2;
+            }
+            return headingHeight + bodyHeight + estimateReferencesHeight(section) + 8;
+        };
+        const drawTableFallback = (headers, rows, accent) => {
+            rows.forEach((row, rowIndex) => {
+                ensureSpace(14);
+                setTextStyle(9, 'bold', accent);
+                pdf.text(`Row ${rowIndex + 1}`, sideMargin, yPos + 3);
+                yPos += 6;
+                headers.forEach((header, columnIndex) => {
+                    const value = row[columnIndex] ?? '';
+                    writeWrapped(`${header}: ${value}`, sideMargin + 4, contentWidth - 4, { fontSize: 9, spacingAfter: 1.2 });
+                });
+                yPos += 2;
+            });
+        };
+
+        // First-page identity block
+        pdf.setFillColor(...colors.primary);
+        pdf.rect(0, 0, pageWidth, 6, 'F');
+        const titleSize = orientation === 'landscape' ? 25 : 22;
+        const titleLines = splitLines(data.title || 'Infographic', contentWidth, titleSize, 'bold');
+        setTextStyle(titleSize, 'bold', colors.dark);
+        titleLines.forEach((line, index) => pdf.text(line, sideMargin, yPos + 7 + index * lineHeight(titleSize)));
+        yPos += 8 + titleLines.length * lineHeight(titleSize);
+        if (data.summary) {
+            writeWrapped(data.summary, sideMargin, contentWidth, {
+                fontSize: 10.8,
+                color: colors.muted,
+                lineHeight: 5.25,
+                spacingAfter: 5
+            });
+        }
+        pdf.setDrawColor(...colors.border);
+        pdf.setLineWidth(0.35);
+        pdf.line(sideMargin, yPos, sideMargin + contentWidth, yPos);
+        yPos += 8;
+
+        for (const section of (Array.isArray(data.sections) ? data.sections : [])) {
+            // Keep compact sections and their citations together when they fit
+            // on a fresh page. This prevents orphaned headings or source-only
+            // final pages without shrinking the clinical text.
+            const estimatedHeight = estimateCompactSectionHeight(section);
+            if (Number.isFinite(estimatedHeight)
+                && estimatedHeight <= contentBottom - topMargin
+                && yPos + estimatedHeight > contentBottom) {
+                addPage();
+            }
+            const accent = drawSectionHeading(section);
+            const content = section?.content;
+            switch (section?.type) {
+                case 'red_flag':
+                    writeList(Array.isArray(content) ? content : [content], { color: colors.red, bulletColor: colors.red, fontSize: 10.7 });
+                    break;
+                case 'key_point':
+                case 'process':
+                    writeList(Array.isArray(content) ? content : [content], { bulletColor: accent, fontSize: 10.7 });
+                    break;
+                case 'chart': {
+                    const chartData = content?.data || [];
+                    chartData.forEach(item => {
+                        const label = displayText(item?.label ?? item?.name ?? item?.title ?? '');
+                        const value = clampPercent(item?.value ?? item);
+                        const lines = splitLines(label, contentWidth - 24, 10.2, 'bold');
+                        ensureSpace(lines.length * lineHeight(10.2) + 11);
+                        writeLines(lines, sideMargin, { fontSize: 10.2, fontStyle: 'bold', spacingAfter: 1.5 });
+                        pdf.setFillColor(226, 232, 240);
+                        pdf.roundedRect(sideMargin, yPos, contentWidth - 20, 5, 2.5, 2.5, 'F');
+                        pdf.setFillColor(...accent);
+                        pdf.roundedRect(sideMargin, yPos, (contentWidth - 20) * value / 100, 5, 2.5, 2.5, 'F');
+                        setTextStyle(9, 'bold', colors.dark);
+                        pdf.text(`${value}%`, sideMargin + contentWidth - 2, yPos + 4, { align: 'right' });
+                        yPos += 10;
+                    });
+                    break;
+                }
+                case 'remember': {
+                    const mnemonic = normalizePdfText(content?.mnemonic || 'Remember');
+                    ensureSpace(18);
+                    pdf.setFillColor(245, 243, 255);
+                    pdf.setDrawColor(...colors.purple);
+                    pdf.roundedRect(sideMargin, yPos, contentWidth, 13, 2.5, 2.5, 'FD');
+                    setTextStyle(16, 'bold', colors.purple);
+                    pdf.text(mnemonic, sideMargin + contentWidth / 2, yPos + 8.5, { align: 'center' });
+                    yPos += 18;
+                    writeWrapped(content?.explanation || '', sideMargin, contentWidth, { fontSize: 10.7, spacingAfter: 2 });
+                    break;
+                }
+                case 'mindmap': {
+                    const center = normalizePdfText(content?.center || 'Central concept');
+                    const branches = Array.isArray(content?.branches) ? content.branches : [];
+                    ensureSpace(16);
+                    pdf.setFillColor(...colors.dark);
+                    pdf.roundedRect(sideMargin + contentWidth * 0.18, yPos, contentWidth * 0.64, 10, 3, 3, 'F');
+                    setTextStyle(11, 'bold', [255, 255, 255]);
+                    pdf.text(pdf.splitTextToSize(center, contentWidth * 0.58)[0] || center, sideMargin + contentWidth / 2, yPos + 6.5, { align: 'center' });
+                    yPos += 15;
+                    const gap = 4;
+                    const branchWidth = (contentWidth - gap) / 2;
+                    for (let index = 0; index < branches.length; index += 2) {
+                        const pair = branches.slice(index, index + 2);
+                        const fitted = pair.map(branch => splitLines(displayText(branch), branchWidth - 8, 9.7));
+                        const height = Math.max(...fitted.map(lines => lines.length * lineHeight(9.7) + 7), 12);
+                        ensureSpace(height + 4);
+                        pair.forEach((_, pairIndex) => {
+                            const x = sideMargin + pairIndex * (branchWidth + gap);
+                            pdf.setFillColor(...colors.pale);
+                            pdf.setDrawColor(...colors.border);
+                            pdf.roundedRect(x, yPos, branchWidth, height, 2, 2, 'FD');
+                            setTextStyle(9.7, 'normal', colors.text);
+                            fitted[pairIndex].forEach((line, lineIndex) => pdf.text(line, x + 4, yPos + 4.8 + lineIndex * lineHeight(9.7)));
+                        });
+                        yPos += height + 4;
+                    }
+                    break;
+                }
+                case 'table': {
+                    if (content?.headers && content?.rows) {
+                        const { headers, rows } = normalizeSlideTable(content);
+                        const paddedRows = rows.map(row => headers.map((_, index) => normalizePdfText(row[index] ?? '')));
+                        if (headers.length && typeof pdf.autoTable === 'function') {
+                            ensureSpace(22);
+                            const manyColumns = headers.length > 6;
+                            pdf.autoTable({
+                                startY: yPos,
+                                head: [headers.map(normalizePdfText)],
+                                body: paddedRows,
+                                theme: 'grid',
+                                showHead: 'everyPage',
+                                pageBreak: 'auto',
+                                rowPageBreak: 'auto',
+                                horizontalPageBreak: manyColumns,
+                                horizontalPageBreakRepeat: manyColumns ? 0 : undefined,
+                                horizontalPageBreakBehaviour: 'afterAllRows',
+                                margin: { top: topMargin, right: sideMargin, bottom: bottomMargin, left: sideMargin },
+                                styles: {
+                                    font: 'helvetica',
+                                    fontSize: headers.length <= 4 ? 9.4 : (headers.length <= 6 ? 8.7 : 8.2),
+                                    cellPadding: { top: 2.2, right: 2.1, bottom: 2.2, left: 2.1 },
+                                    overflow: 'linebreak',
+                                    valign: 'top',
+                                    textColor: colors.text,
+                                    lineColor: colors.border,
+                                    lineWidth: 0.15,
+                                    minCellHeight: 7
+                                },
+                                headStyles: {
+                                    fillColor: accent,
+                                    textColor: [255, 255, 255],
+                                    fontStyle: 'bold',
+                                    fontSize: headers.length <= 6 ? 9.2 : 8.5,
+                                    valign: 'middle'
+                                },
+                                alternateRowStyles: { fillColor: colors.pale }
+                            });
+                            yPos = Math.min(contentBottom, (pdf.lastAutoTable?.finalY || yPos) + 6);
+                        } else {
+                            drawTableFallback(headers.map(normalizePdfText), paddedRows, accent);
+                        }
+                    }
+                    break;
+                }
+                default:
+                    writeWrapped(displayText(content || ''), sideMargin, contentWidth, { fontSize: 10.7, lineHeight: 5.15, spacingAfter: 2 });
+                    break;
+            }
+            drawReferences(section);
+            yPos += 8;
+        }
+
+        // Consistent running furniture is added after content so total page
+        // count is known and no footer can collide with a table continuation.
+        const totalPages = pdf.getNumberOfPages();
+        for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
+            pdf.setPage(pageNumber);
+            pdf.setFillColor(...colors.primary);
+            pdf.rect(0, 0, pageWidth, 4, 'F');
+            if (pageNumber > 1) {
+                setTextStyle(7.8, 'bold', colors.muted);
+                const runningTitle = normalizePdfText(data.title || 'Ophthalmic infographic');
+                const shortTitle = runningTitle.length > 105 ? `${runningTitle.slice(0, 102)}...` : runningTitle;
+                pdf.text(shortTitle, sideMargin, 11.5);
+            }
+            pdf.setDrawColor(...colors.border);
+            pdf.setLineWidth(0.2);
+            pdf.line(sideMargin, pageHeight - 11, pageWidth - sideMargin, pageHeight - 11);
+            setTextStyle(7.5, 'normal', colors.muted);
+            pdf.text('Ophthalmic Infographic Creator', sideMargin, pageHeight - 6.5);
+            pdf.text(`Page ${pageNumber} of ${totalPages}`, pageWidth - sideMargin, pageHeight - 6.5, { align: 'right' });
+        }
+
+        const filename = `${data.title || 'infographic'}-${orientation}.pdf`.replace(/[^a-zA-Z0-9-_.]/g, '_');
+        const pdfBlob = pdf.output('blob');
+        const downloadUrl = URL.createObjectURL(pdfBlob);
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.download = filename;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(downloadUrl), 2000);
+    } catch (error) {
+        console.error('PDF export failed:', error);
+        alert(`Failed to export PDF: ${error.message || error}`);
     } finally {
         if (downloadBtn) {
             downloadBtn.disabled = false;
@@ -11976,6 +12386,71 @@ async function searchWikimediaClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
     }).slice(0, limit);
 }
 
+function formatOpenverseLicense(result) {
+    const code = String(result?.license || '').trim().toUpperCase();
+    const version = String(result?.license_version || '').trim();
+    return [code ? `CC ${code}` : '', version].filter(Boolean).join(' ').trim();
+}
+
+function formatOpenverseSource(value) {
+    return String(value || 'Openverse collection')
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
+async function searchOpenverseClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
+    const retinalTopic = /retina|retinal|macula|macular|fundus|optic disc|papill|choroid|vitre/i.test(topic);
+    const query = `${topic} ${retinalTopic ? 'fundus' : 'eye'}`.trim();
+    const params = new URLSearchParams({
+        q: query,
+        page_size: String(Math.min(50, Math.max(12, limit * 2))),
+        mature: 'false',
+        excluded_source: 'wikimedia'
+    });
+    const response = await fetch(`https://api.openverse.org/v1/images/?${params.toString()}`);
+    if (!response.ok) throw new Error(`Openverse returned ${response.status}`);
+    const results = (await response.json())?.results || [];
+    const rejected = /\b(canine|dog|cat|veterinary|icon|logo|flag|map|diagram|chart|schematic|illustration|simulation|alien|pocket atlas|book plate|page \d+)\b/i;
+    const seen = new Set();
+    return results.map(result => {
+        const imageUrl = normalizeCitationUrl(result.thumbnail || result.url);
+        const sourceUrl = normalizeCitationUrl(result.foreign_landing_url || result.detail_url);
+        const alt = cleanWebImageMetadata(result.title || 'Clinical ophthalmic image');
+        const sourceName = formatOpenverseSource(result.source || result.provider);
+        return {
+            id: `openverse_${result.id || sourceUrl || alt}`,
+            alt,
+            dataUrl: imageUrl,
+            sourceUrl,
+            source: `${sourceName} via Openverse`,
+            provider: 'Openverse',
+            license: formatOpenverseLicense(result),
+            licenseUrl: normalizeCitationUrl(result.license_url),
+            attribution: cleanWebImageMetadata(result.creator),
+            webSource: true
+        };
+    }).filter(image => {
+        if (!image.dataUrl || !image.sourceUrl || rejected.test(image.alt)) return false;
+        if (seen.has(image.id)) return false;
+        seen.add(image.id);
+        return true;
+    }).slice(0, limit);
+}
+
+async function searchCreditedClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
+    const results = await Promise.allSettled([
+        searchOpenverseClinicalImages(topic, limit),
+        searchWikimediaClinicalImages(topic, limit)
+    ]);
+    const images = results.flatMap(result => result.status === 'fulfilled' ? result.value : []);
+    const unique = new Map();
+    images.forEach(image => {
+        const key = image.sourceUrl || image.id;
+        if (key && !unique.has(key)) unique.set(key, image);
+    });
+    return [...unique.values()];
+}
+
 function getSectionWebClinicalImages(data, sectionIndex) {
     return (data?.clinicalImages || []).filter(image => image?.webSource && image.sectionIndex !== undefined && image.sectionIndex !== null && Number(image.sectionIndex) === sectionIndex && image?.dataUrl);
 }
@@ -11985,12 +12460,14 @@ function renderSectionClinicalPhotos(data, sectionIndex) {
     if (!images.length) return '';
     return `<div class="section-clinical-photos" aria-label="Clinical photos for this section">
         ${images.map(image => {
-            const credit = [image.source, image.license].filter(Boolean).join(' · ');
-            return `<a class="section-clinical-photo" href="${escapeHtml(image.sourceUrl)}" target="_blank" rel="noopener noreferrer">
-                <img src="${escapeHtml(image.dataUrl)}" alt="${escapeHtml(image.alt)}" loading="lazy">
-                <span>${escapeHtml(image.alt)}</span>
-                <small>${escapeHtml(credit || 'View source and licence')}</small>
-            </a>`;
+            const creator = image.attribution ? ` · ${escapeHtml(image.attribution)}` : '';
+            const licenseLabel = escapeHtml(image.license || 'Licence details');
+            return `<figure class="section-clinical-photo">
+                <a href="${escapeHtml(image.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Open image source">
+                    <img src="${escapeHtml(image.dataUrl)}" alt="${escapeHtml(image.alt)}" loading="lazy" crossorigin="anonymous">
+                </a>
+                <figcaption><span>${escapeHtml(image.alt)}</span><small><a href="${escapeHtml(image.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(image.source || 'View source')}</a>${creator}${image.licenseUrl ? ` · <a href="${escapeHtml(image.licenseUrl)}" target="_blank" rel="noopener noreferrer">${licenseLabel}</a>` : ` · ${licenseLabel}`}</small></figcaption>
+            </figure>`;
         }).join('')}
     </div>`;
 }
@@ -12023,7 +12500,7 @@ function createWebPhotoConsentControl(data) {
         <label class="web-photo-consent-label" for="web-photo-consent-checkbox">
             <input type="checkbox" id="web-photo-consent-checkbox" ${data?.webPhotoConsent === true ? 'checked' : ''}>
             <span class="web-photo-consent-check"><span class="material-symbols-rounded">check</span></span>
-            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches Wikimedia Commons only after you approve, and keeps source and licence links with every photo.</small></span>
+            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches Openverse collections and Wikimedia Commons only after you approve, with source, creator, and licence links kept beside every photo.</small></span>
         </label>
         <span id="web-photo-consent-status" class="web-photo-consent-status" data-status="info">${sectionPhotoCount ? `${sectionPhotoCount} credited section photo${sectionPhotoCount === 1 ? '' : 's'} attached.` : 'Photo fetching is off.'}</span>`;
     const checkbox = control.querySelector('#web-photo-consent-checkbox');
@@ -12072,7 +12549,7 @@ function renderWebClinicalImages(data) {
     section.innerHTML = `
         <div class="web-clinical-images-heading">
             <span class="material-symbols-rounded">photo_library</span>
-            <div><h2>Relevant clinical photos</h2><p>Images found on Wikimedia Commons for this topic. Select an image to view its source and licence.</p></div>
+            <div><h2>Relevant clinical photos</h2><p>Credited images found through Openverse collections and Wikimedia Commons. Select an image to view its source and licence.</p></div>
         </div>
         <div class="web-clinical-images-grid">
             ${images.map(image => {
@@ -12105,10 +12582,10 @@ async function attachRelevantWebClinicalImages(data, { force = false, onProgress
                 const sectionCore = buildCitationSearchQuery('', section?.title).split(/\s+/).slice(0, 1).join(' ');
                 const query = `${topicCore || baseTopic} ${sectionCore}`.replace(/\s+/g, ' ').trim().slice(0, 120);
                 try {
-                    let candidates = await searchWikimediaClinicalImages(query, 18);
+                    let candidates = await searchCreditedClinicalImages(query, 12);
                     let image = candidates.find(candidate => !known.has(candidate.id) && !known.has(candidate.sourceUrl));
                     if (!image && sectionCore) {
-                        candidates = await searchWikimediaClinicalImages(topicCore || baseTopic, 24);
+                        candidates = await searchCreditedClinicalImages(topicCore || baseTopic, 18);
                         image = candidates.find(candidate => !known.has(candidate.id) && !known.has(candidate.sourceUrl));
                     }
                     if (!image) return null;
@@ -12441,21 +12918,14 @@ function renderTemplatedBullets(items, tpl, opts = {}) {
     const fontSize = opts.fontSize || '1.25rem';
     const numbered = !!opts.numbered;
     const bulletEmoji = SLIDE_TYPE_EMOJI[tpl.key] || '';
-    return `<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.85rem;width:100%;">
+    return `<ul class="slide-flat-list" style="--slide-list-accent:${tpl.accent};">
         ${items.map((it, i) => {
             const { topic, body } = parseSlideContentItem(it);
             const displayBody = body || topic || displayText(it);
             const topicLabel = topic && body ? topic : '';
-            return `
-            <li style="display:flex;align-items:stretch;gap:0;padding:0;background:${tpl.bg};border-left:5px solid ${tpl.border};border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.04);overflow:hidden;">
-                ${topicLabel ? `
-                    <span class="slide-topic-card__label slide-topic-card__label--inline" style="background:${tpl.accent};color:white;font-weight:700;font-size:0.95rem;padding:0.85rem 1rem;display:inline-flex;align-items:center;flex-shrink:0;white-space:nowrap;">${escapeHtml(topicLabel)}</span>
-                ` : `
-                    <span ${numbered ? '' : 'class="material-symbols-rounded"'} style="${numbered
-                        ? `min-width:36px;padding:0.85rem 0;display:inline-flex;align-items:center;justify-content:center;background:${tpl.accent};color:white;font-weight:700;font-size:0.95rem;flex-shrink:0;`
-                        : `color:${tpl.accent};font-size:1.5rem;flex-shrink:0;margin:0.85rem 0 0 1rem;`}">${numbered ? (i + 1) : tpl.bullet}</span>
-                `}
-                <span style="flex:1;font-size:${fontSize};line-height:1.6;color:#0f172a;padding:0.85rem 1.15rem;min-width:0;">${!numbered && bulletEmoji && i === 0 && !topicLabel ? bulletEmoji + ' ' : ''}${escapeHtml(displayBody)}</span>
+            return `<li>
+                <span class="slide-flat-list__marker" style="background:${tpl.accent};">${numbered ? (i + 1) : '<span class="material-symbols-rounded">' + escapeHtml(tpl.bullet) + '</span>'}</span>
+                <span class="slide-flat-list__text" style="font-size:${fontSize};">${topicLabel ? `<strong style="color:${tpl.accent};">${escapeHtml(topicLabel)}</strong><br>` : ''}${!numbered && bulletEmoji && i === 0 && !topicLabel ? bulletEmoji + ' ' : ''}${escapeHtml(displayBody)}</span>
             </li>`;
         }).join('')}
     </ul>`;
@@ -12482,8 +12952,8 @@ function renderSlideStructuredContent(slide, tpl, opts = {}) {
     const mode = opts.mode || 'preview';
     const content = slide?.content;
     const isPresentation = mode === 'presentation';
-    const tableFont = isPresentation ? '1.4rem' : '1.25rem';
-    const tablePad = isPresentation ? '1.5rem' : '1.2rem';
+    const tableFont = isPresentation ? '1.65rem' : '1.4rem';
+    const tablePad = isPresentation ? '1rem' : '0.85rem';
     const mnemonicTitleSize = isPresentation ? '4.5rem' : '3rem';
     const mnemonicBodySize = isPresentation ? '1.8rem' : '1.5rem';
     const centerSize = isPresentation ? '2rem' : '1.5rem';
@@ -12575,12 +13045,10 @@ function fitSlideTables(content) {
         const presentationTable = wrap.dataset.tableMode === 'presentation';
         const sizes = presentationTable
             ? [
-                [22.4, 24], [20, 18], [18, 14], [16, 10],
-                [14, 8], [12, 6], [10, 4], [9, 3]
+                [28, 14], [26, 12], [24, 10], [22, 8]
             ]
             : [
-                [20, 19], [18, 15], [16, 12], [14, 9],
-                [12, 7], [10, 5], [9, 3]
+                [26, 12], [24, 10], [22, 8], [20, 6]
             ];
         const cells = [...table.querySelectorAll('.slide-data-table__cell')];
         const availableHeight = Math.max(1, tableArea.getBoundingClientRect().height - 4);
@@ -12621,10 +13089,10 @@ function splitLargeTableForSlides(content) {
     const { headers, rows } = normalizeSlideTable(content);
     const textLength = headers.join('').length + rows.reduce((total, row) =>
         total + row.join('').length, 0);
-    if (rows.length <= 8 && textLength <= 2200) return [content];
+    if (rows.length <= 4 && textLength <= 950) return [content];
 
-    const rowLimit = 6;
-    const characterBudget = 1500;
+    const rowLimit = 4;
+    const characterBudget = 900;
     const chunks = [];
     let currentRows = [];
     let currentLength = headers.join('').length;
@@ -12644,6 +13112,68 @@ function splitLargeTableForSlides(content) {
     });
     if (currentRows.length) chunks.push({ headers, rows: currentRows });
     return chunks.length ? chunks : [content];
+}
+
+function splitSlideItems(items, maxItems = 6, characterBudget = 900) {
+    const chunks = [];
+    let current = [];
+    let length = 0;
+    (items || []).forEach(item => {
+        const itemLength = displayText(item).length;
+        if (current.length && (current.length >= maxItems || length + itemLength > characterBudget)) {
+            chunks.push(current);
+            current = [];
+            length = 0;
+        }
+        current.push(item);
+        length += itemLength;
+    });
+    if (current.length) chunks.push(current);
+    return chunks.length ? chunks : [[]];
+}
+
+function splitTextForSlides(value, characterBudget = 850) {
+    const text = String(value || '').replace(/\s+/g, ' ').trim();
+    if (!text) return [''];
+    const sentences = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
+    const chunks = [];
+    let current = '';
+    sentences.forEach(sentence => {
+        const clean = sentence.trim();
+        if (!clean) return;
+        if (current && current.length + clean.length + 1 > characterBudget) {
+            chunks.push(current);
+            current = '';
+        }
+        if (clean.length > characterBudget && !current) {
+            const words = clean.split(/\s+/);
+            let part = '';
+            words.forEach(word => {
+                if (part && part.length + word.length + 1 > characterBudget) {
+                    chunks.push(part);
+                    part = '';
+                }
+                part += `${part ? ' ' : ''}${word}`;
+            });
+            current = part;
+        } else {
+            current += `${current ? ' ' : ''}${clean}`;
+        }
+    });
+    if (current) chunks.push(current);
+    return chunks.length ? chunks : [text];
+}
+
+function getSlideSourceNotes(slide) {
+    const sourceLines = (slide?.references || []).map(reference => {
+        const url = normalizeCitationUrl(reference.url);
+        return `- ${reference.citation}${url ? ` (${url})` : ''}`;
+    });
+    (slide?.images || []).forEach(image => {
+        const credit = [image.alt, image.attribution, image.source, image.license, image.sourceUrl].filter(Boolean).join(' | ');
+        if (credit) sourceLines.push(`- Image: ${credit}`);
+    });
+    return sourceLines.length ? `[Sources]\n${sourceLines.join('\n')}` : '[Sources]\n- Generated from the loaded infographic; no external asset on this slide.';
 }
 
 function generateSlides() {
@@ -12667,9 +13197,9 @@ function generateSlides() {
     if (rawSections.length > SLIDE_DECK_MAX_SECTIONS) truncated = true;
 
     // Optional agenda slide(s) summarizing the section titles
-    const MAX_AGENDA_ITEMS_PER_SLIDE = 12;
+    const MAX_AGENDA_ITEMS_PER_SLIDE = 8;
     if (sections.length > 1) {
-        const allItems = sections.map(s => safeStripReferences(s.title || '')).filter(Boolean).slice(0, 24);
+        const allItems = sections.map(s => safeStripReferences(s.title || '')).filter(Boolean);
         for (let i = 0; i < allItems.length; i += MAX_AGENDA_ITEMS_PER_SLIDE) {
             const chunk = allItems.slice(i, i + MAX_AGENDA_ITEMS_PER_SLIDE);
             const suffix = allItems.length > MAX_AGENDA_ITEMS_PER_SLIDE ? ' (' + (Math.floor(i / MAX_AGENDA_ITEMS_PER_SLIDE) + 1) + '/' + Math.ceil(allItems.length / MAX_AGENDA_ITEMS_PER_SLIDE) + ')' : '';
@@ -12681,9 +13211,6 @@ function generateSlides() {
             });
         }
     }
-
-    // Split long array content into chunks so no slide gets overstuffed
-    const MAX_BULLETS_PER_SLIDE = 10;
 
     const slideBudget = () => SLIDE_DECK_MAX_SLIDES - 2; // reserve end slide (+ title already added)
 
@@ -12705,15 +13232,6 @@ function generateSlides() {
             : template.icon;
         const colorTheme = section.color_theme || 'blue';
 
-        // Section divider slide
-        slides.push({
-            type: 'section',
-            title: sectionTitle,
-            icon: sectionIcon,
-            colorTheme,
-            template
-        });
-
         let content = safeStripReferences(section.content);
         if (Array.isArray(content) && content.length > SLIDE_DECK_MAX_BULLETS_PER_SECTION) {
             content = content.slice(0, SLIDE_DECK_MAX_BULLETS_PER_SECTION);
@@ -12725,6 +13243,7 @@ function generateSlides() {
         // from being clipped in fullscreen preview or the exported PowerPoint.
         if (content?.headers && content?.rows) {
             const tableParts = splitLargeTableForSlides(content);
+            const references = getVerifiedSectionReferences(section);
             tableParts.forEach((part, partIndex) => {
                 if (slides.length >= slideBudget()) {
                     truncated = true;
@@ -12740,22 +13259,27 @@ function generateSlides() {
                     contentType: sectionType,
                     icon: sectionIcon,
                     colorTheme,
-                    template
+                    template,
+                    references
                 });
             });
             return;
         }
 
-        // Chunk array content so each slide stays readable
-        if (Array.isArray(content) && content.length > MAX_BULLETS_PER_SLIDE) {
-            for (let i = 0; i < content.length; i += MAX_BULLETS_PER_SLIDE) {
+        const references = getVerifiedSectionReferences(section);
+
+        // Use a content and character budget so body text stays at teaching-deck
+        // scale instead of being squeezed into a dashboard-like slide.
+        if (Array.isArray(content)) {
+            const chunks = splitSlideItems(content, 6, 900);
+            for (let i = 0; i < chunks.length; i++) {
                 if (slides.length >= slideBudget()) {
                     truncated = true;
                     break;
                 }
-                const chunk = content.slice(i, i + MAX_BULLETS_PER_SLIDE);
-                const suffix = content.length > MAX_BULLETS_PER_SLIDE
-                    ? ` (${Math.floor(i / MAX_BULLETS_PER_SLIDE) + 1}/${Math.ceil(content.length / MAX_BULLETS_PER_SLIDE)})`
+                const chunk = chunks[i];
+                const suffix = chunks.length > 1
+                    ? ` (${i + 1}/${chunks.length})`
                     : '';
                 slides.push({
                     type: 'content',
@@ -12764,9 +13288,28 @@ function generateSlides() {
                     contentType: sectionType,
                     icon: sectionIcon,
                     colorTheme,
-                    template
+                    template,
+                    references
                 });
             }
+        } else if (typeof content === 'string') {
+            const textParts = splitTextForSlides(content, 850);
+            textParts.forEach((part, partIndex) => {
+                if (slides.length >= slideBudget()) {
+                    truncated = true;
+                    return;
+                }
+                slides.push({
+                    type: 'content',
+                    title: sectionTitle + (textParts.length > 1 ? ` (${partIndex + 1}/${textParts.length})` : ''),
+                    content: part,
+                    contentType: sectionType,
+                    icon: sectionIcon,
+                    colorTheme,
+                    template,
+                    references
+                });
+            });
         } else {
             slides.push({
                 type: 'content',
@@ -12775,13 +13318,14 @@ function generateSlides() {
                 contentType: sectionType,
                 icon: sectionIcon,
                 colorTheme,
-                template
+                template,
+                references
             });
         }
     });
 
     // Clinical image slides (max 4 images)
-    const ci = (data.clinicalImages || clinicalImages || []).slice(0, 4);
+    const ci = (data.clinicalImages || clinicalImages || []).slice(0, 6);
     if (ci.length > 0) {
         slides.push({
             type: 'clinical_image',
@@ -12789,7 +13333,7 @@ function generateSlides() {
             subtitle: ci.length + ' image(s) attached',
             images: ci
         });
-        ci.slice(0, 3).forEach(img => {
+        ci.slice(0, 5).forEach(img => {
             slides.push({
                 type: 'clinical_image',
                 title: img.alt || 'Clinical Image',
@@ -12798,11 +13342,16 @@ function generateSlides() {
         });
     }
 
-    // Thank you slide
+    // Resolve the teaching sequence instead of ending on an unframed detail.
     slides.push({
         type: 'end',
-        title: 'Thank You',
-        subtitle: data.title || 'Questions?'
+        title: 'Clinical review complete',
+        subtitle: data.title || 'Apply the key findings to diagnosis and management.'
+    });
+
+    slides.forEach((slide, index) => {
+        slide.slideNumber = index + 1;
+        slide.totalSlides = slides.length;
     });
 
     currentSlideIndex = 0;
@@ -12819,7 +13368,7 @@ function generateSlides() {
     }
 }
 
-function renderSlide() {
+function renderSlideLegacy() {
     if (slides.length === 0) return;
 
     const slideContent = document.getElementById('slide-content');
@@ -12947,6 +13496,22 @@ function renderSlide() {
     });
     requestAnimationFrame(() => {
         fitSlideTables(slideContent);
+        syncSlideCanvasScale(document.getElementById('slide-frame'));
+    });
+}
+
+function renderSlide() {
+    if (slides.length === 0) return;
+    const slideContent = document.getElementById('slide-content');
+    const slide = slides[currentSlideIndex];
+    if (!slideContent || !slide) return;
+    _renderSlideIntoElement(slideContent, slide);
+    document.querySelectorAll('.slide-thumbnail').forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === currentSlideIndex);
+    });
+    requestAnimationFrame(() => {
+        fitSlideTables(slideContent);
+        fitPptxSlideTypography(slideContent);
         syncSlideCanvasScale(document.getElementById('slide-frame'));
     });
 }
@@ -13240,9 +13805,9 @@ function renderPresentationSlide() {
         if (Array.isArray(slide.content)) {
             const numbered = tpl.key === 'framework' || tpl.key === 'management';
             if (shouldRenderSlideTopicCards(slide.content)) {
-                contentHtml = renderSlideTopicCards(slide.content, tpl, { fontSize: '1.15rem' });
+                contentHtml = renderSlideTopicCards(slide.content, tpl, { fontSize: '1.65rem' });
             } else {
-                contentHtml = renderTemplatedBullets(slide.content, tpl, { fontSize: '1.6rem', numbered });
+                contentHtml = renderTemplatedBullets(slide.content, tpl, { fontSize: '1.75rem', numbered });
             }
         } else if (typeof slide.content === 'object' && slide.content !== null) {
             contentHtml = renderSlideStructuredContent(slide, tpl, { mode: 'presentation' });
@@ -13502,20 +14067,20 @@ async function _captureSlideAsImage(slide, slideIndex) {
  */
 function fitPptxSlideTypography(content) {
     if (!content) return;
-    const textElements = [...content.querySelectorAll('h1,h2,h3,p,li,span,td,th,.slide-topic-card__body')];
+    const textElements = [...content.querySelectorAll('h1,h2,h3,p,li,td,th,.slide-topic-card__body,.slide-topic-card__label,.slide-flat-list__text')];
     if (!textElements.length) return;
 
     const baseSizes = textElements.map(element => ({
         element,
         size: Number.parseFloat(getComputedStyle(element).fontSize) || 16
     }));
-    const minScale = 0.68;
-    const maxScale = 1.22;
+    const minScale = 0.86;
+    const maxScale = 1.08;
     let scale = 1;
 
     for (let attempt = 0; attempt < 4; attempt += 1) {
         baseSizes.forEach(({ element, size }) => {
-            element.style.fontSize = `${Math.max(10, size * scale)}px`;
+            element.style.fontSize = `${Math.max(20, size * scale)}px`;
         });
         const style = getComputedStyle(content);
         const available = Math.max(1, content.clientHeight
@@ -13567,9 +14132,9 @@ function _renderSlideIntoElement(el, slide) {
                 <span class="material-symbols-rounded" style="color:#2563eb;font-size:2.2rem;">list_alt</span>
                 ${escapeHtml(withSlideEmoji(slide.title, slide))}
             </h3>
-            <ol style="list-style:none;padding-left:0;width:100%;">
+            <ol class="slide-agenda-list">
                 ${(slide.items || []).map((item, i) => `
-                    <li style="margin-bottom:0.6rem;display:flex;align-items:center;gap:10px;color:#334155;padding:0.5rem 0.9rem;background:#f8fafc;border-radius:10px;border-left:4px solid #3b82f6;font-size:1.35rem;">
+                    <li>
                         <span style="display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;font-weight:700;font-size:0.85rem;">${String((slide.startIndex || 1) + i).padStart(2, '0')}</span>
                         <span style="flex:1;">${escapeHtml(item)}</span>
                     </li>
@@ -13586,8 +14151,9 @@ function _renderSlideIntoElement(el, slide) {
                     <span class="material-symbols-rounded" style="color:#0891b2;font-size:2.2rem;">image</span>
                     ${escapeHtml(slide.title)}
                 </h3>
-                <div style="flex:1;display:flex;align-items:center;justify-content:center;width:100%;overflow:hidden;">
-                    <img src="${single.dataUrl}" alt="${escapeHtml(single.alt)}" style="max-width:100%;max-height:calc(100% - 10px);object-fit:contain;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,0.12);" crossorigin="anonymous">
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;overflow:hidden;">
+                    <img src="${single.dataUrl}" alt="${escapeHtml(single.alt)}" style="max-width:100%;max-height:calc(100% - 54px);object-fit:contain;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,0.12);" crossorigin="anonymous">
+                    <div class="slide-image-credit">${escapeHtml([single.source, single.attribution, single.license].filter(Boolean).join(' · ') || single.alt || '')}</div>
                 </div>
             `;
         } else {
@@ -13601,7 +14167,7 @@ function _renderSlideIntoElement(el, slide) {
                     ${imgs.map(img => `
                         <div style="border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;background:#fff;">
                             <img src="${img.dataUrl}" alt="${escapeHtml(img.alt)}" style="width:100%;height:220px;object-fit:cover;display:block;" crossorigin="anonymous">
-                            <div style="padding:6px 10px;font-size:0.85rem;color:#64748b;background:#f8fafc;border-top:1px solid #e2e8f0;">${escapeHtml(img.alt)}</div>
+                            <div style="padding:8px 10px;font-size:0.95rem;color:#475569;background:#f8fafc;border-top:1px solid #e2e8f0;">${escapeHtml(img.alt)}${img.source ? `<br><small>${escapeHtml([img.source, img.license].filter(Boolean).join(' · '))}</small>` : ''}</div>
                         </div>
                     `).join('')}
                 </div>
@@ -13630,21 +14196,24 @@ function _renderSlideIntoElement(el, slide) {
         }
 
         const headerBadge = tpl.key === 'default' ? '' : `
-            <span style="display:inline-flex;align-items:center;gap:8px;margin-left:auto;background:${tpl.accent};color:white;padding:6px 18px;border-radius:999px;font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
-                <span class="material-symbols-rounded" style="font-size:1.3rem;">${escapeHtml(tpl.icon)}</span>
-                ${escapeHtml(tpl.label)}
-            </span>`;
+            <span class="slide-section-label" style="color:${tpl.accent};">${escapeHtml(tpl.label)}</span>`;
         el.innerHTML = `
-            <h3 style="display:flex;align-items:center;gap:16px;border-bottom:4px solid ${tpl.accent}33;padding-bottom:1rem;font-size:2.6rem;color:#0f172a;margin-bottom:1.75rem;width:100%;">
+            <h3 class="slide-content-title" style="--slide-accent:${tpl.accent};">
                 <span class="material-symbols-rounded" style="color:${tpl.accent};font-size:2.8rem;">${escapeHtml(slide.icon || tpl.icon)}</span>
-                <span style="flex:1;">${escapeHtml(withSlideEmoji(slide.title, slide))}</span>
+                <span style="flex:1;">${escapeHtml(slide.title)}</span>
                 ${headerBadge}
             </h3>
-            <div style="margin-top:0.5rem;width:100%;">
+            <div class="slide-body">
                 ${contentHtml}
             </div>
         `;
     }
+
+    el.insertAdjacentHTML('beforeend', `
+        <div class="slide-footer" aria-hidden="true">
+            <span>Ophthalmic clinical teaching deck</span>
+            <span>${Number(slide.slideNumber) || 1} / ${Number(slide.totalSlides) || 1}</span>
+        </div>`);
 }
 
 async function exportSlidesAsPPTX() {
@@ -13689,6 +14258,7 @@ async function exportSlidesAsPPTX() {
                     w: 13.33, h: 7.5,
                     sizing: { type: 'cover', w: 13.33, h: 7.5 }
                 });
+                if (typeof s.addNotes === 'function') s.addNotes(getSlideSourceNotes(slides[i]));
             } catch (slideErr) {
                 console.warn('[PPTX] Slide #' + (i + 1) + ' capture failed, using fallback:', slideErr);
                 // Fallback: add a simple text slide
@@ -13696,8 +14266,9 @@ async function exportSlidesAsPPTX() {
                 s.background = { color: '1E293B' };
                 s.addText(String(slides[i].title || slides[i].type || 'Slide ' + (i + 1)), {
                     x: 0.65, y: 2.5, w: 12.03, h: 2.0,
-                    fontSize: 32, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fit: 'shrink'
+                    fontSize: 36, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fit: 'shrink'
                 });
+                if (typeof s.addNotes === 'function') s.addNotes(getSlideSourceNotes(slides[i]));
             }
         }
 
@@ -13731,12 +14302,13 @@ async function exportSlidesAsPPTX() {
                 titleSlide.background = { color: '0E7490' };
                 titleSlide.addText('\uD83D\uDCF7  Kanski Clinical Photos', {
                     x: 0.85, y: 2.5, w: 11.63, h: 1.2,
-                    fontSize: 34, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle'
+                    fontSize: 46, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fit: 'shrink'
                 });
                 titleSlide.addText(selected.length + ' matched image(s)  \u00b7  p.' + selected.map(i => i.pageNum).join(', p.'), {
                     x: 0.85, y: 3.9, w: 11.63, h: 0.8,
                     fontSize: 16, color: 'BAE6FD', align: 'center'
                 });
+                if (typeof titleSlide.addNotes === 'function') titleSlide.addNotes('[Sources]\n- Kanski clinical images attached to the loaded infographic.');
 
                 // Image slides (2 per slide)
                 const chunkSize = 2;
@@ -13747,7 +14319,7 @@ async function exportSlidesAsPPTX() {
 
                     ks.addText('\uD83D\uDCF7  Kanski Clinical Photos', {
                         x: 0.65, y: 0.3, w: 12.03, h: 0.65,
-                        fontSize: 22, bold: true, color: photoAccent
+                        fontSize: 35, bold: true, color: photoAccent, fit: 'shrink'
                     });
 
                     const imgAreaW = 5.5, imgAreaH = 4.5;
@@ -13785,6 +14357,7 @@ async function exportSlidesAsPPTX() {
                             fontSize: 10, color: '64748B', align: 'center'
                         });
                     }
+                    if (typeof ks.addNotes === 'function') ks.addNotes('[Sources]\n' + chunk.map(img => `- Kanski p.${img.pageNum || ''}: ${(img.keywords || []).join(', ')}`).join('\n'));
                 }
             }
         } catch (kanskiErr) {

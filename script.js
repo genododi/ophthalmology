@@ -12340,6 +12340,116 @@ function getClinicalImageSearchTopic(data) {
     return (conciseTopic || title || 'ophthalmology').replace(/\s+/g, ' ').slice(0, 180);
 }
 
+// Metadata gate for web photos. Search-engine rank alone is not sufficient:
+// words such as "globe", "disc", "lens", or "eye" frequently return maps,
+// book scans, animals, cosmetics, and unrelated artwork.
+const OPHTHALMIC_IMAGE_STRONG_PATTERN = /\b(ophthalm\w*|retina\w*|fundus|fundoscopy|macula\w*|fovea\w*|cornea\w*|sclera\w*|conjunctiv\w*|uvea\w*|uveitis|choroid\w*|vitre\w*|kerat\w*|cataract\w*|glaucoma\w*|retinopath\w*|optic\s+(disc|disk|nerve)|papill(edema|oedema|itis)|strabismus|amblyopia|nystagmus|anisocoria|hyphema|hyphaema|endophthalmitis|proptosis|exophthalmos|pterygium|chalazion|blepharitis|dacry\w*|ophthalmoplegia|open\s+globe|globe\s+rupture|ruptured\s+globe|intraocular|gonioscop\w*|tonometr\w*|slit[ -]?lamp|optical\s+coherence\s+tomography)\b/gi;
+const OPHTHALMIC_IMAGE_CONTEXT_PATTERN = /\b(eye|eyes|eyelid|eyelids|ocular|orbital|orbit|lacrimal|pupil|pupillary|iris|visual\s+field|vision)\b/gi;
+const CLINICAL_IMAGE_PATTERN = /\b(clinical|patient|disease|disorder|pathology|lesion|infection|inflammation|ulcer|trauma|injury|rupture|laceration|hemorrhage|haemorrhage|edema|oedema|detachment|surgery|surgical|procedure|examination|imaging|scan|radiograph|ultrasound|histology|microscopy|angiography)\b/gi;
+const NON_PHOTO_IMAGE_PATTERN = /\b(icon|logo|flag|map|diagram|chart|schematic|illustration|drawing|painting|artwork|cartoon|anime|simulation|statue|sculpture|book|bookplate|book plate|page\s+\d+|plate\s+\d+|treatise|atlas|manuscript|poster|infographic|blausen)\b/i;
+const NON_HUMAN_IMAGE_PATTERN = /\b(canine|dog|dogs|feline|cat|cats|horse|horses|cow|cattle|rabbit|rabbits|mouse|mice|rat|rats|bird|birds|fish|animal|animals|veterinary|zoolog\w*)\b/i;
+const GENERIC_EYE_NOISE_PATTERN = /\b(eye\s+of\s+(the\s+)?storm|eye\s+of\s+horus|evil\s+eye|makeup|mascara|eyelash|eyelashes|eyebrow|fashion|beauty|beautiful|portrait|selfie|stock\s+photo|cosplay|toy|doll|jewelry|jewellery)\b/i;
+const CLINICAL_IMAGE_TOPIC_STOPWORDS = new Set([
+    'about', 'absolute', 'approach', 'assessment', 'based', 'classification', 'clinical',
+    'complication', 'complications', 'critical', 'diagnosis', 'differential', 'disease',
+    'emergency', 'epidemiology', 'etiological', 'etiology', 'evidence', 'facts', 'feature',
+    'features', 'guide', 'guideline', 'guidelines', 'high', 'infographic', 'investigation',
+    'investigations', 'landmark', 'management', 'master', 'matrix', 'ocular', 'ophthalmic',
+    'ophthalmology', 'overview', 'pathognomonic', 'photo', 'photograph', 'profile', 'profiles',
+    'prognosis', 'protocol', 'recent', 'risk', 'risks', 'section', 'sign', 'signs', 'step',
+    'studies', 'study', 'subtle', 'technique', 'terminology', 'treatment', 'trial', 'trials'
+]);
+
+function normalizeClinicalImageSearchText(value) {
+    return cleanWebImageMetadata(value)
+        .replace(/([a-z])([A-Z])/g, '$1 $2')
+        .replace(/[_/\\-]+/g, ' ')
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function stemClinicalImageToken(value) {
+    let token = String(value || '').toLowerCase();
+    if (token.endsWith('ies') && token.length > 5) token = `${token.slice(0, -3)}y`;
+    else if (token.endsWith('ing') && token.length > 6) token = token.slice(0, -3);
+    else if (token.endsWith('ed') && token.length > 5) token = token.slice(0, -2);
+    else if (token.endsWith('es') && token.length > 5) token = token.slice(0, -2);
+    else if (token.endsWith('s') && token.length > 4) token = token.slice(0, -1);
+    if (token.endsWith('e') && token.length > 5) token = token.slice(0, -1);
+    return token;
+}
+
+function getClinicalImageTopicTokens(topic) {
+    const normalized = normalizeClinicalImageSearchText(topic);
+    return [...new Set(normalized.split(/\s+/)
+        .filter(token => token.length >= 3 && !CLINICAL_IMAGE_TOPIC_STOPWORDS.has(token))
+        .map(stemClinicalImageToken)
+        .filter(token => token.length >= 3))];
+}
+
+function scoreClinicalImageRelevance(image, topic) {
+    const metadata = normalizeClinicalImageSearchText([
+        image?.alt,
+        image?.searchMetadata,
+        image?.description,
+        image?.categories
+    ].filter(Boolean).join(' '));
+    const hardRejected = !metadata || NON_PHOTO_IMAGE_PATTERN.test(metadata) || NON_HUMAN_IMAGE_PATTERN.test(metadata);
+    const strongMatches = new Set(metadata.match(OPHTHALMIC_IMAGE_STRONG_PATTERN) || []).size;
+    const contextMatches = new Set(metadata.match(OPHTHALMIC_IMAGE_CONTEXT_PATTERN) || []).size;
+    const clinicalMatches = new Set(metadata.match(CLINICAL_IMAGE_PATTERN) || []).size;
+    const topicTokens = getClinicalImageTopicTokens(topic);
+    const candidateTokenList = metadata.split(/\s+/).map(stemClinicalImageToken).filter(Boolean);
+    const candidateTokens = new Set(candidateTokenList);
+    const topicMatches = topicTokens.filter(topicToken => [...candidateTokens].some(candidateToken =>
+        candidateToken === topicToken
+        || (topicToken.length >= 4 && candidateToken.startsWith(topicToken))
+        || (candidateToken.length >= 4 && topicToken.startsWith(candidateToken))
+    ));
+    const hasOphthalmicAnchor = strongMatches > 0 || (contextMatches > 0 && clinicalMatches > 0);
+    const hasTopicMatch = topicTokens.length === 0 || topicMatches.length > 0;
+    const negatedTopicMatch = topicTokens.some(topicToken => candidateTokenList.some((candidateToken, index) => {
+        const tokenMatches = candidateToken === topicToken
+            || (topicToken.length >= 4 && candidateToken.startsWith(topicToken))
+            || (candidateToken.length >= 4 && topicToken.startsWith(candidateToken));
+        if (!tokenMatches) return false;
+        const prefix = candidateTokenList.slice(Math.max(0, index - 4), index);
+        return prefix.includes('without')
+            || prefix.includes('absenc')
+            || prefix.includes('negative')
+            || prefix.includes('no');
+    }));
+    const genericNoise = GENERIC_EYE_NOISE_PATTERN.test(metadata) && !(strongMatches > 0 && clinicalMatches > 0);
+    const score = strongMatches * 5 + contextMatches * 2 + clinicalMatches * 2 + topicMatches.length * 4;
+    const minimumScore = topicTokens.length ? 7 : 5;
+    return {
+        accepted: !hardRejected && !genericNoise && !negatedTopicMatch && hasOphthalmicAnchor && hasTopicMatch && score >= minimumScore,
+        score,
+        topicMatches,
+        topicTokenCount: topicTokens.length,
+        strongMatches,
+        contextMatches,
+        clinicalMatches
+    };
+}
+
+function isRelevantOphthalmicImage(image, topic) {
+    return scoreClinicalImageRelevance(image, topic).accepted;
+}
+
+function isRelevantOphthalmicStoredImage(image, data) {
+    if (!image?.webSource) return true;
+    const topic = [data?.title, image?.sectionTitle, image?.searchQuery].filter(Boolean).join(' ');
+    return isRelevantOphthalmicImage(image, topic);
+}
+
+function isImageRelevantToSection(image, sectionTitle) {
+    const sectionScore = scoreClinicalImageRelevance(image, sectionTitle || '');
+    return sectionScore.topicTokenCount === 0 || sectionScore.topicMatches.length > 0;
+}
+
 async function searchWikimediaClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
     const retinalTopic = /retina|retinal|macula|macular|fundus|optic disc|papill|choroid|vitre/i.test(topic);
     const query = `${topic} ${retinalTopic ? 'fundus' : 'eye'}`.trim();
@@ -12350,16 +12460,15 @@ async function searchWikimediaClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
         generator: 'search',
         gsrsearch: query,
         gsrnamespace: '6',
-        gsrlimit: String(Math.min(50, Math.max(12, limit * 4))),
+        gsrlimit: String(Math.min(50, Math.max(20, limit * 5))),
         prop: 'imageinfo|info',
         inprop: 'url',
-        iiprop: 'url|extmetadata|mime',
+        iiprop: 'url|extmetadata|mime|size',
         iiurlwidth: '1000'
     });
     const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params.toString()}`);
     if (!response.ok) throw new Error(`Wikimedia Commons returned ${response.status}`);
     const pages = Object.values((await response.json())?.query?.pages || {});
-    const rejected = /\b(icon|logo|flag|map|diagram|chart|schematic|illustration|simulation|coat of arms)\b/i;
     const seen = new Set();
     return pages.map(page => {
         const info = page?.imageinfo?.[0] || {};
@@ -12367,7 +12476,7 @@ async function searchWikimediaClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
         const pageUrl = normalizeCitationUrl(page.fullurl || info.descriptionurl);
         const alt = String(page.title || 'Clinical ophthalmic image').replace(/^File:/i, '').replace(/[_-]+/g, ' ').trim();
         const metadata = info.extmetadata || {};
-        return {
+        const image = {
             id: `wikimedia_${page.pageid || alt}`,
             alt,
             dataUrl: imageUrl,
@@ -12376,14 +12485,23 @@ async function searchWikimediaClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
             mimeType: info.mime || '',
             license: cleanWebImageMetadata(metadata.LicenseShortName?.value || metadata.UsageTerms?.value),
             attribution: cleanWebImageMetadata(metadata.Artist?.value),
+            searchMetadata: [metadata.ImageDescription?.value, metadata.ObjectName?.value, metadata.Categories?.value]
+                .map(cleanWebImageMetadata).filter(Boolean).join(' '),
+            width: Number(info.width) || 0,
+            height: Number(info.height) || 0,
             webSource: true
         };
+        const relevance = scoreClinicalImageRelevance(image, topic);
+        return { ...image, relevanceScore: relevance.score, relevanceSignals: relevance.topicMatches };
     }).filter(image => {
-        if (!image.dataUrl || !image.sourceUrl || !/^image\/(jpeg|png|webp)$/i.test(image.mimeType) || rejected.test(image.alt)) return false;
+        const ratio = image.width && image.height ? image.width / image.height : 1;
+        if (!image.dataUrl || !image.sourceUrl || !/^image\/(jpeg|png|webp)$/i.test(image.mimeType)) return false;
+        if ((image.width && image.height && Math.min(image.width, image.height) < 240) || ratio < 0.4 || ratio > 2.8) return false;
+        if (!isRelevantOphthalmicImage(image, topic)) return false;
         if (seen.has(image.id)) return false;
         seen.add(image.id);
         return true;
-    }).slice(0, limit);
+    }).sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0)).slice(0, limit);
 }
 
 function formatOpenverseLicense(result) {
@@ -12400,24 +12518,25 @@ function formatOpenverseSource(value) {
 
 async function searchOpenverseClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
     const retinalTopic = /retina|retinal|macula|macular|fundus|optic disc|papill|choroid|vitre/i.test(topic);
-    const query = `${topic} ${retinalTopic ? 'fundus' : 'eye'}`.trim();
+    const query = `${topic} ${retinalTopic ? 'fundus' : 'ophthalmology'}`.trim();
     const params = new URLSearchParams({
         q: query,
-        page_size: String(Math.min(50, Math.max(12, limit * 2))),
+        page_size: String(Math.min(50, Math.max(24, limit * 5))),
         mature: 'false',
         excluded_source: 'wikimedia'
     });
     const response = await fetch(`https://api.openverse.org/v1/images/?${params.toString()}`);
     if (!response.ok) throw new Error(`Openverse returned ${response.status}`);
     const results = (await response.json())?.results || [];
-    const rejected = /\b(canine|dog|cat|veterinary|icon|logo|flag|map|diagram|chart|schematic|illustration|simulation|alien|pocket atlas|book plate|page \d+)\b/i;
     const seen = new Set();
     return results.map(result => {
         const imageUrl = normalizeCitationUrl(result.thumbnail || result.url);
         const sourceUrl = normalizeCitationUrl(result.foreign_landing_url || result.detail_url);
         const alt = cleanWebImageMetadata(result.title || 'Clinical ophthalmic image');
         const sourceName = formatOpenverseSource(result.source || result.provider);
-        return {
+        const tags = (Array.isArray(result.tags) ? result.tags : [])
+            .map(tag => cleanWebImageMetadata(tag?.name || tag)).filter(Boolean).join(' ');
+        const image = {
             id: `openverse_${result.id || sourceUrl || alt}`,
             alt,
             dataUrl: imageUrl,
@@ -12427,14 +12546,22 @@ async function searchOpenverseClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
             license: formatOpenverseLicense(result),
             licenseUrl: normalizeCitationUrl(result.license_url),
             attribution: cleanWebImageMetadata(result.creator),
+            searchMetadata: [result.description, result.category, tags].map(cleanWebImageMetadata).filter(Boolean).join(' '),
+            width: Number(result.width) || 0,
+            height: Number(result.height) || 0,
             webSource: true
         };
+        const relevance = scoreClinicalImageRelevance(image, topic);
+        return { ...image, relevanceScore: relevance.score, relevanceSignals: relevance.topicMatches };
     }).filter(image => {
-        if (!image.dataUrl || !image.sourceUrl || rejected.test(image.alt)) return false;
+        const ratio = image.width && image.height ? image.width / image.height : 1;
+        if (!image.dataUrl || !image.sourceUrl || /\.(svg|gif)(?:$|\?)/i.test(image.dataUrl)) return false;
+        if ((image.width && image.height && Math.min(image.width, image.height) < 240) || ratio < 0.4 || ratio > 2.8) return false;
+        if (!isRelevantOphthalmicImage(image, topic)) return false;
         if (seen.has(image.id)) return false;
         seen.add(image.id);
         return true;
-    }).slice(0, limit);
+    }).sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0)).slice(0, limit);
 }
 
 async function searchCreditedClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
@@ -12448,11 +12575,19 @@ async function searchCreditedClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LI
         const key = image.sourceUrl || image.id;
         if (key && !unique.has(key)) unique.set(key, image);
     });
-    return [...unique.values()];
+    return [...unique.values()]
+        .filter(image => isRelevantOphthalmicImage(image, topic))
+        .sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0))
+        .slice(0, limit);
 }
 
 function getSectionWebClinicalImages(data, sectionIndex) {
-    return (data?.clinicalImages || []).filter(image => image?.webSource && image.sectionIndex !== undefined && image.sectionIndex !== null && Number(image.sectionIndex) === sectionIndex && image?.dataUrl);
+    return (data?.clinicalImages || []).filter(image => image?.webSource
+        && image.sectionIndex !== undefined
+        && image.sectionIndex !== null
+        && Number(image.sectionIndex) === sectionIndex
+        && image?.dataUrl
+        && isRelevantOphthalmicStoredImage(image, data));
 }
 
 function renderSectionClinicalPhotos(data, sectionIndex) {
@@ -12495,12 +12630,12 @@ function updateWebPhotoConsentProgress(completed, total, found) {
 function createWebPhotoConsentControl(data) {
     const control = document.createElement('section');
     control.className = 'web-photo-consent';
-    const sectionPhotoCount = (data?.clinicalImages || []).filter(image => image?.webSource && image.sectionIndex !== undefined && image.sectionIndex !== null && Number.isInteger(Number(image.sectionIndex))).length;
+    const sectionPhotoCount = getSectionWebClinicalImagesCount(data);
     control.innerHTML = `
         <label class="web-photo-consent-label" for="web-photo-consent-checkbox">
             <input type="checkbox" id="web-photo-consent-checkbox" ${data?.webPhotoConsent === true ? 'checked' : ''}>
             <span class="web-photo-consent-check"><span class="material-symbols-rounded">check</span></span>
-            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches Openverse collections and Wikimedia Commons only after you approve, with source, creator, and licence links kept beside every photo.</small></span>
+            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches Openverse and Wikimedia after approval, then requires human ophthalmic anatomy or clinical-disease metadata and excludes animals, artwork, diagrams, book scans, and cosmetic imagery.</small></span>
         </label>
         <span id="web-photo-consent-status" class="web-photo-consent-status" data-status="info">${sectionPhotoCount ? `${sectionPhotoCount} credited section photo${sectionPhotoCount === 1 ? '' : 's'} attached.` : 'Photo fetching is off.'}</span>`;
     const checkbox = control.querySelector('#web-photo-consent-checkbox');
@@ -12531,7 +12666,11 @@ function createWebPhotoConsentControl(data) {
 }
 
 function getSectionWebClinicalImagesCount(data) {
-    return (data?.clinicalImages || []).filter(image => image?.webSource && image.sectionIndex !== undefined && image.sectionIndex !== null && Number.isInteger(Number(image.sectionIndex))).length;
+    return (data?.clinicalImages || []).filter(image => image?.webSource
+        && image.sectionIndex !== undefined
+        && image.sectionIndex !== null
+        && Number.isInteger(Number(image.sectionIndex))
+        && isRelevantOphthalmicStoredImage(image, data)).length;
 }
 
 function renderWebClinicalImages(data) {
@@ -12540,7 +12679,10 @@ function renderWebClinicalImages(data) {
     poster.querySelector('#web-clinical-images-section')?.remove();
     // Preserve older topic-level web photos in their original gallery. New
     // photos are rendered inside the section they were fetched for.
-    const images = (data?.clinicalImages || []).filter(image => image?.webSource && (image.sectionIndex === undefined || image.sectionIndex === null || !Number.isInteger(Number(image.sectionIndex))) && image?.dataUrl);
+    const images = (data?.clinicalImages || []).filter(image => image?.webSource
+        && (image.sectionIndex === undefined || image.sectionIndex === null || !Number.isInteger(Number(image.sectionIndex)))
+        && image?.dataUrl
+        && isRelevantOphthalmicStoredImage(image, data));
     if (!images.length) return;
 
     const section = document.createElement('section');
@@ -12549,7 +12691,7 @@ function renderWebClinicalImages(data) {
     section.innerHTML = `
         <div class="web-clinical-images-heading">
             <span class="material-symbols-rounded">photo_library</span>
-            <div><h2>Relevant clinical photos</h2><p>Credited images found through Openverse collections and Wikimedia Commons. Select an image to view its source and licence.</p></div>
+            <div><h2>Relevant ophthalmic photos</h2><p>Credited Openverse and Wikimedia images that passed ocular anatomy, clinical context, topic-match, and non-photo exclusion checks.</p></div>
         </div>
         <div class="web-clinical-images-grid">
             ${images.map(image => {
@@ -12570,8 +12712,14 @@ async function attachRelevantWebClinicalImages(data, { force = false, onProgress
     webPhotoFetchInFlight.add(data);
     try {
         const baseTopic = getClinicalImageSearchTopic(data);
-        const topicCore = buildCitationSearchQuery(baseTopic, '', false).split(/\s+/).slice(0, 2).join(' ');
-        const known = new Set((data.clinicalImages || []).flatMap(image => [image?.id, image?.sourceUrl]).filter(Boolean));
+        const topicCore = buildCitationSearchQuery(baseTopic, '', false).split(/\s+/).slice(0, 6).join(' ');
+        // Remove previously fetched web images that fail the stricter ocular
+        // metadata gate. Non-web and user-imported clinical images are never
+        // touched.
+        const previousImages = data.clinicalImages || [];
+        data.clinicalImages = previousImages.filter(image => !image?.webSource || isRelevantOphthalmicStoredImage(image, data));
+        const prunedImageCount = previousImages.length - data.clinicalImages.length;
+        const known = new Set(data.clinicalImages.flatMap(image => [image?.id, image?.sourceUrl]).filter(Boolean));
         const targets = data.sections.map((section, sectionIndex) => ({ section, sectionIndex }))
             .filter(({ sectionIndex }) => force || !getSectionWebClinicalImages(data, sectionIndex).length);
         const newImages = [];
@@ -12579,14 +12727,18 @@ async function attachRelevantWebClinicalImages(data, { force = false, onProgress
         for (let start = 0; start < targets.length; start += 3) {
             const batch = targets.slice(start, start + 3);
             const results = await Promise.all(batch.map(async ({ section, sectionIndex }) => {
-                const sectionCore = buildCitationSearchQuery('', section?.title).split(/\s+/).slice(0, 1).join(' ');
-                const query = `${topicCore || baseTopic} ${sectionCore}`.replace(/\s+/g, ' ').trim().slice(0, 120);
+                const sectionCore = buildCitationSearchQuery('', section?.title).split(/\s+/).slice(0, 4).join(' ');
+                const query = `${topicCore || baseTopic} ${sectionCore}`.replace(/\s+/g, ' ').trim().slice(0, 160);
                 try {
                     let candidates = await searchCreditedClinicalImages(query, 12);
-                    let image = candidates.find(candidate => !known.has(candidate.id) && !known.has(candidate.sourceUrl));
+                    let image = candidates.find(candidate => !known.has(candidate.id)
+                        && !known.has(candidate.sourceUrl)
+                        && isImageRelevantToSection(candidate, section?.title));
                     if (!image && sectionCore) {
                         candidates = await searchCreditedClinicalImages(topicCore || baseTopic, 18);
-                        image = candidates.find(candidate => !known.has(candidate.id) && !known.has(candidate.sourceUrl));
+                        image = candidates.find(candidate => !known.has(candidate.id)
+                            && !known.has(candidate.sourceUrl)
+                            && isImageRelevantToSection(candidate, section?.title));
                     }
                     if (!image) return null;
                     known.add(image.id);
@@ -12601,7 +12753,17 @@ async function attachRelevantWebClinicalImages(data, { force = false, onProgress
             completed += batch.length;
             if (typeof onProgress === 'function') onProgress(completed, targets.length, newImages.length);
         }
-        if (!newImages.length) return [];
+        if (!newImages.length) {
+            if (prunedImageCount) {
+                if (currentInfographicData === data) clinicalImages = data.clinicalImages;
+                await saveClinicalImagesToIDB(data.title, data.clinicalImages);
+                await persistInfographicEnhancementsLocally(data);
+                updateRenderedSectionClinicalPhotos(data);
+                renderWebClinicalImages(data);
+                updateClinicalImagesGallery();
+            }
+            return [];
+        }
         data.clinicalImages = [...(data.clinicalImages || []), ...newImages];
         if (currentInfographicData === data) clinicalImages = data.clinicalImages;
         await saveClinicalImagesToIDB(data.title, data.clinicalImages);

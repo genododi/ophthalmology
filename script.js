@@ -7797,33 +7797,12 @@ function buildPreservationBlock() {
 HOWEVER: You MAY supplement the user's text with additional medical/ophthalmology knowledge to enrich the infographic. Add relevant clinical pearls, differential diagnoses, investigation workups, management protocols, red flags, and mnemonics that are clinically accurate and pertinent to the topic, even if not explicitly stated in the input. The user's original text must still be preserved in full.`;
 }
 
-// Google's rolling Flash alias automatically follows the latest production
-// Flash release. Keep a specific 3.6 fallback below for API keys that cannot
-// yet access the alias.
-const GEMINI_FLASH_LATEST = 'gemini-flash-latest';
-
-/** Map retired preview model IDs to current API identifiers. */
-function normalizeGeminiModelId(id) {
-    const legacy = {
-        // old preview aliases
-        'gemini-3-flash-preview': GEMINI_FLASH_LATEST,
-        'gemini-3.1-flash-preview': GEMINI_FLASH_LATEST,
-        'gemini-3.1-flash-lite-preview': 'gemini-2.0-flash-lite',
-        'gemini-3.5-flash-preview': 'gemini-2.5-flash',
-        // fictional / symbolic model names → real equivalents
-        'gemini-flash-latest': GEMINI_FLASH_LATEST,
-        'gemini-3.5-flash': 'gemini-2.5-flash',
-        'gemini-3.1-pro': 'gemini-2.5-pro',
-        'gemini-3.1-flash-lite': 'gemini-2.0-flash-lite',
-        'gemini-3.1-flash': GEMINI_FLASH_LATEST,
-    };
-    return legacy[id] || id;
-}
+// Google lists this exact stable model as its latest Flash release and
+// currently makes standard input/output available on the Gemini API free tier.
+const GEMINI_FLASH_MODEL = 'gemini-3.7-flash';
 
 function getSelectedGeminiModel() {
-    const checked = document.querySelector('input[name="gemini-model"]:checked');
-    const modelId = checked ? checked.value : GEMINI_FLASH_LATEST;
-    return normalizeGeminiModelId(modelId);
+    return GEMINI_FLASH_MODEL;
 }
 
 function parseInfographicJsonResponse(text) {
@@ -7927,16 +7906,7 @@ async function generateInfographicDataWithKeyRotation(topic) {
 
 async function generateInfographicData(apiKey, topic) {
     const selectedModel = getSelectedGeminiModel();
-    const fallbacks = [
-        GEMINI_FLASH_LATEST,
-        'gemini-3.6-flash',
-        'gemini-3-flash-preview',
-        'gemini-2.5-flash',
-        'gemini-2.5-pro',
-        'gemini-2.0-flash-lite',
-        'gemini-1.5-flash'
-    ].map(normalizeGeminiModelId).filter((m, index, all) => m !== selectedModel && all.indexOf(m) === index);
-    const modelsToTry = [selectedModel, ...fallbacks];
+    const modelsToTry = [selectedModel];
 
     let lastError = null;
     const topicMode = isTopicMode(topic);
@@ -9678,14 +9648,7 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
     }
 
     try {
-        const modelsToTry = [
-            GEMINI_FLASH_LATEST,
-            'gemini-3.6-flash',
-            'gemini-2.5-flash',
-            'gemini-2.5-pro',
-            'gemini-2.0-flash-lite',
-            'gemini-1.5-flash'
-        ].map(normalizeGeminiModelId);
+        const modelsToTry = [GEMINI_FLASH_MODEL];
 
         let lastError = null;
 
@@ -12323,16 +12286,14 @@ function showToast(message, type) {
 let clinicalImages = [];
 
 const WEB_CLINICAL_IMAGE_LIMIT = 6;
-const WEB_PHOTO_SOURCE_PIPELINE_VERSION = 2;
+const WEB_PHOTO_SOURCE_PIPELINE_VERSION = 3;
 const webPhotoFetchInFlight = new WeakSet();
 const TRUSTED_OPHTHALMIC_YOUTUBE_CHANNELS = Object.freeze([
     { id: 'UCZ20vVCRAsGioM8EQ1SwshQ', name: 'National Eye Institute, NIH' },
     { id: 'UCy0K_Rd-grmLTT7dVGfF1Sg', name: 'American Academy of Ophthalmology' },
     { id: 'UCnzk0O-y6yrJkTwi3N4QXLQ', name: 'University of Iowa EyeRounds' }
 ]);
-const TRUSTED_INSTITUTIONAL_MEDIA_PROFILES = Object.freeze([
-    { profilePattern: /flickr\.com\/(?:photos|people)\/132318516@N08(?:\/|$)/i, name: 'NIH Image Gallery' }
-]);
+const TRUSTED_INSTITUTIONAL_MEDIA_PATTERN = /\b(National\s+Eye\s+Institute|National\s+Institutes\s+of\s+Health|NIH\s+Image\s+Gallery)\b/i;
 const JOURNAL_FIGURE_MAX_BYTES = 3 * 1024 * 1024;
 
 function cleanWebImageMetadata(value) {
@@ -12517,113 +12478,64 @@ async function searchWikimediaClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
     }).sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0)).slice(0, limit);
 }
 
-function formatOpenverseLicense(result) {
-    const code = String(result?.license || '').trim().toUpperCase();
-    const version = String(result?.license_version || '').trim();
-    return [code ? `CC ${code}` : '', version].filter(Boolean).join(' ').trim();
-}
-
-function formatOpenverseSource(value) {
-    return String(value || 'Openverse collection')
-        .replace(/_/g, ' ')
-        .replace(/\b\w/g, letter => letter.toUpperCase());
-}
-
-async function searchOpenverseClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
-    const retinalTopic = /retina|retinal|macula|macular|fundus|optic disc|papill|choroid|vitre/i.test(topic);
-    const query = `${topic} ${retinalTopic ? 'fundus' : 'ophthalmology'}`.trim();
-    const params = new URLSearchParams({
-        q: query,
-        page_size: String(Math.min(20, Math.max(12, limit * 3))),
-        mature: 'false',
-        excluded_source: 'wikimedia'
-    });
-    const response = await fetch(`https://api.openverse.org/v1/images/?${params.toString()}`);
-    if (!response.ok) throw new Error(`Openverse returned ${response.status}`);
-    const results = (await response.json())?.results || [];
-    const seen = new Set();
-    return results.map(result => {
-        const imageUrl = normalizeCitationUrl(result.thumbnail || result.url);
-        const sourceUrl = normalizeCitationUrl(result.foreign_landing_url || result.detail_url);
-        const alt = cleanWebImageMetadata(result.title || 'Clinical ophthalmic image');
-        const sourceName = formatOpenverseSource(result.source || result.provider);
-        const tags = (Array.isArray(result.tags) ? result.tags : [])
-            .map(tag => cleanWebImageMetadata(tag?.name || tag)).filter(Boolean).join(' ');
-        const image = {
-            id: `openverse_${result.id || sourceUrl || alt}`,
-            alt,
-            dataUrl: imageUrl,
-            sourceUrl,
-            source: `${sourceName} via Openverse`,
-            provider: 'Openverse',
-            license: formatOpenverseLicense(result),
-            licenseUrl: normalizeCitationUrl(result.license_url),
-            attribution: cleanWebImageMetadata(result.creator),
-            searchMetadata: [result.description, result.category, tags].map(cleanWebImageMetadata).filter(Boolean).join(' '),
-            width: Number(result.width) || 0,
-            height: Number(result.height) || 0,
-            webSource: true
-        };
-        const relevance = scoreClinicalImageRelevance(image, topic);
-        return { ...image, relevanceScore: relevance.score, relevanceSignals: relevance.topicMatches };
-    }).filter(image => {
-        const ratio = image.width && image.height ? image.width / image.height : 1;
-        if (!image.dataUrl || !image.sourceUrl || /\.(svg|gif)(?:$|\?)/i.test(image.dataUrl)) return false;
-        if ((image.width && image.height && Math.min(image.width, image.height) < 240) || ratio < 0.4 || ratio > 2.8) return false;
-        if (!isRelevantOphthalmicImage(image, topic)) return false;
-        if (seen.has(image.id)) return false;
-        seen.add(image.id);
-        return true;
-    }).sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0)).slice(0, limit);
-}
-
-function getTrustedInstitutionalMediaSource(result) {
-    const creatorUrl = normalizeCitationUrl(result?.creator_url);
-    const landingUrl = normalizeCitationUrl(result?.foreign_landing_url);
-    return TRUSTED_INSTITUTIONAL_MEDIA_PROFILES.find(profile =>
-        profile.profilePattern.test(creatorUrl) || profile.profilePattern.test(landingUrl)
-    ) || null;
-}
-
 async function searchTrustedInstitutionalClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
     const params = new URLSearchParams({
-        q: `${topic} National Eye Institute`.replace(/\s+/g, ' ').trim().slice(0, 200),
-        page_size: String(Math.min(20, Math.max(12, limit * 3))),
-        mature: 'false',
-        source: 'flickr'
+        action: 'query',
+        format: 'json',
+        origin: '*',
+        generator: 'search',
+        gsrsearch: `${topic} National Eye Institute`.replace(/\s+/g, ' ').trim().slice(0, 200),
+        gsrnamespace: '6',
+        gsrlimit: String(Math.min(50, Math.max(20, limit * 5))),
+        prop: 'imageinfo|info',
+        inprop: 'url',
+        iiprop: 'url|extmetadata|mime|size',
+        iiurlwidth: '1000'
     });
-    const response = await fetch(`https://api.openverse.org/v1/images/?${params.toString()}`);
-    if (!response.ok) throw new Error(`Openverse institutional search returned ${response.status}`);
-    const results = (await response.json())?.results || [];
-    return results.map(result => {
-        const trustedSource = getTrustedInstitutionalMediaSource(result);
-        if (!trustedSource) return null;
-        const tags = (Array.isArray(result.tags) ? result.tags : [])
-            .map(tag => cleanWebImageMetadata(tag?.name || tag)).filter(Boolean).join(' ');
+    const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params.toString()}`);
+    if (!response.ok) throw new Error(`Wikimedia institutional search returned ${response.status}`);
+    const pages = Object.values((await response.json())?.query?.pages || {});
+    const seen = new Set();
+    return pages.map(page => {
+        const info = page?.imageinfo?.[0] || {};
+        const metadata = info.extmetadata || {};
+        const institutionalMetadata = [
+            metadata.Artist?.value,
+            metadata.Credit?.value,
+            metadata.Attribution?.value,
+            metadata.Institution?.value,
+            metadata.ImageDescription?.value
+        ].map(cleanWebImageMetadata).filter(Boolean).join(' ');
+        if (!TRUSTED_INSTITUTIONAL_MEDIA_PATTERN.test(institutionalMetadata)) return null;
+        const alt = String(page.title || 'Institutional ophthalmic image').replace(/^File:/i, '').replace(/[_-]+/g, ' ').trim();
         const image = {
-            id: `institution_${result.id || result.foreign_landing_url}`,
-            alt: cleanWebImageMetadata(result.title || 'Institutional ophthalmic image'),
-            dataUrl: normalizeCitationUrl(result.thumbnail || result.url),
-            sourceUrl: normalizeCitationUrl(result.foreign_landing_url || result.detail_url),
-            source: `${trustedSource.name} via Openverse`,
+            id: `institution_wikimedia_${page.pageid || alt}`,
+            alt,
+            dataUrl: normalizeCitationUrl(info.thumburl || info.url),
+            sourceUrl: normalizeCitationUrl(page.fullurl || info.descriptionurl),
+            source: 'NIH/NEI media via Wikimedia Commons',
             provider: 'Trusted ophthalmic institution',
-            license: formatOpenverseLicense(result),
-            licenseUrl: normalizeCitationUrl(result.license_url),
-            attribution: cleanWebImageMetadata(result.creator || trustedSource.name),
-            searchMetadata: [result.title, result.description, result.category, tags, trustedSource.name]
+            mimeType: info.mime || '',
+            license: cleanWebImageMetadata(metadata.LicenseShortName?.value || metadata.UsageTerms?.value),
+            licenseUrl: normalizeCitationUrl(metadata.LicenseUrl?.value),
+            attribution: cleanWebImageMetadata(metadata.Artist?.value || metadata.Credit?.value || 'National Eye Institute'),
+            searchMetadata: [metadata.ImageDescription?.value, metadata.ObjectName?.value, metadata.Categories?.value, institutionalMetadata]
                 .map(cleanWebImageMetadata).filter(Boolean).join(' '),
-            width: Number(result.width) || 0,
-            height: Number(result.height) || 0,
+            width: Number(info.width) || 0,
+            height: Number(info.height) || 0,
             verifiedInstitutionalSource: true,
             webSource: true
         };
         const relevance = scoreClinicalImageRelevance(image, topic);
         return { ...image, relevanceScore: relevance.score + 2, relevanceSignals: relevance.topicMatches };
     }).filter(image => {
-        if (!image?.dataUrl || !image?.sourceUrl || /\.(svg|gif)(?:$|\?)/i.test(image.dataUrl)) return false;
+        if (!image?.dataUrl || !image?.sourceUrl || !/^image\/(jpeg|png|webp)$/i.test(image.mimeType)) return false;
         const ratio = image.width && image.height ? image.width / image.height : 1;
         if ((image.width && image.height && Math.min(image.width, image.height) < 240) || ratio < 0.4 || ratio > 2.8) return false;
-        return isRelevantOphthalmicImage(image, topic);
+        if (!isRelevantOphthalmicImage(image, topic)) return false;
+        if (seen.has(image.id)) return false;
+        seen.add(image.id);
+        return true;
     }).sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0)).slice(0, limit);
 }
 
@@ -12812,7 +12724,6 @@ async function searchTrustedYouTubeClinicalImages(topic, limit = WEB_CLINICAL_IM
 
 async function searchCreditedClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
     const results = await Promise.allSettled([
-        searchOpenverseClinicalImages(topic, limit),
         searchWikimediaClinicalImages(topic, limit),
         searchTrustedInstitutionalClinicalImages(topic, limit),
         searchEuropePmcClinicalFigures(topic, limit),
@@ -12884,7 +12795,7 @@ function createWebPhotoConsentControl(data) {
         <label class="web-photo-consent-label" for="web-photo-consent-checkbox">
             <input type="checkbox" id="web-photo-consent-checkbox" ${data?.webPhotoConsent === true ? 'checked' : ''}>
             <span class="web-photo-consent-check"><span class="material-symbols-rounded">check</span></span>
-            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches open-access journal figures, verified NIH/NEI media, official ophthalmology YouTube channels, Openverse, and Wikimedia. Every result must pass strict human ophthalmic, clinical, and section-topic checks; animals, artwork, diagrams, book scans, and cosmetic imagery are excluded. YouTube is used when the selected Google key has YouTube Data API access.</small></span>
+            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches open-access journal figures, verified NIH/NEI media, official ophthalmology YouTube channels, and Wikimedia Commons. Every result must pass strict human ophthalmic, clinical, and section-topic checks; animals, artwork, diagrams, book scans, and cosmetic imagery are excluded. YouTube is used when the selected Google key has YouTube Data API access.</small></span>
         </label>
         <span id="web-photo-consent-status" class="web-photo-consent-status" data-status="info">${sectionPhotoCount ? `${sectionPhotoCount} credited section photo${sectionPhotoCount === 1 ? '' : 's'} attached.` : 'Photo fetching is off.'}</span>`;
     const checkbox = control.querySelector('#web-photo-consent-checkbox');
@@ -12940,7 +12851,7 @@ function renderWebClinicalImages(data) {
     section.innerHTML = `
         <div class="web-clinical-images-heading">
             <span class="material-symbols-rounded">photo_library</span>
-            <div><h2>Relevant ophthalmic photos</h2><p>Credited open-access journal, verified institutional and channel, Openverse, and Wikimedia media that passed ocular anatomy, clinical context, topic-match, and non-photo exclusion checks.</p></div>
+            <div><h2>Relevant ophthalmic photos</h2><p>Credited open-access journal, verified institutional and channel, and Wikimedia media that passed ocular anatomy, clinical context, topic-match, and non-photo exclusion checks.</p></div>
         </div>
         <div class="web-clinical-images-grid">
             ${images.map(image => {
@@ -18329,7 +18240,7 @@ async function findMatchingNotes(infographicTitle, sections) {
 
             const prompt = `Given an ophthalmology infographic titled "${infographicTitle}", rank these notes by relevance (most relevant first). Return ONLY a JSON array of note indices (1-based), e.g. [3,1,5,2,4]. Notes:\n${notesSummary}`;
 
-            const modelName = GEMINI_FLASH_LATEST;
+            const modelName = GEMINI_FLASH_MODEL;
             const resp = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },

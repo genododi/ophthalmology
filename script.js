@@ -1150,6 +1150,20 @@ async function exportToPDF(element) {
                         break;
                 }
 
+                const sectionReferences = normalizeSectionReferences(section.references || section.citations || section.sources);
+                if (sectionReferences.length) {
+                    const sourceText = `Sources: ${sectionReferences.map(reference => reference.citation).join(' · ')}`;
+                    const sourceFit = autoFitTextBlock(sourceText, contentWidth, 7.5, 6);
+                    checkPageBreak(sourceFit.lines.length * sourceFit.lineHeight + 5);
+                    pdf.setFont('helvetica', 'italic');
+                    pdf.setFontSize(sourceFit.fontSize);
+                    pdf.setTextColor(...colors.textSecondary);
+                    sourceFit.lines.forEach((line, index) => writeText(line, margin, yPos + index * sourceFit.lineHeight));
+                    yPos += sourceFit.lines.length * sourceFit.lineHeight + 4;
+                    pdf.setFont('helvetica', 'normal');
+                    pdf.setTextColor(...colors.text);
+                }
+
                 yPos += 14; // Space between sections
             }
         }
@@ -6842,6 +6856,16 @@ function setLoading(isLoading) {
     }
 }
 
+function showGeneratedInfographic(data) {
+    currentInfographicData = data;
+    renderInfographic(data);
+    // Clinical photos are an enhancement: render the medical content first,
+    // then retrieve credited web images without blocking the result.
+    attachRelevantWebClinicalImages(data).catch(error => {
+        console.warn('[ClinicalImages] Automatic web-image lookup failed:', error?.message || error);
+    });
+}
+
 generateBtn.addEventListener('click', async () => {
     if (window.OphthalmicMobileBilling && !window.OphthalmicMobileBilling.requireAccess('generate')) {
         return;
@@ -6883,16 +6907,14 @@ generateBtn.addEventListener('click', async () => {
         setLoading(true);
         try {
             const hfData = await generateInfographicWithHuggingFace(combinedInput);
-            currentInfographicData = hfData;
-            renderInfographic(hfData);
+            showGeneratedInfographic(hfData);
         } catch (hfError) {
             console.error('Hugging Face generation error:', hfError);
             try {
                 if (!getGeminiApiKeyRotation().length) throw hfError;
                 showToast('HF MED LLM is unavailable. Automatically trying the Gemini key pool…', 'warning');
                 const data = await generateInfographicDataWithKeyRotation(combinedInput);
-                currentInfographicData = data;
-                renderInfographic(data);
+                showGeneratedInfographic(data);
             } catch (fallbackError) {
                 const message = fallbackError?.message || hfError?.message || 'No configured model could generate this infographic.';
                 outputContainer.classList.remove('empty-state');
@@ -6934,8 +6956,7 @@ generateBtn.addEventListener('click', async () => {
         if (data && !data.generationPrompt) {
             data.generationPrompt = combinedInput;
         }
-        currentInfographicData = data;
-        renderInfographic(data);
+        showGeneratedInfographic(data);
     } catch (error) {
         console.error('Generation Error:', error);
         const errMsg = generationSource === 'gemini'
@@ -6984,7 +7005,13 @@ JSON Schema (strict):
       "type": "chart | red_flag | mindmap | remember | key_point | process | plain_text | table",
       "layout": "full_width | half_width",
       "color_theme": "blue | red | green | yellow | purple",
-      "content": {}
+      "content": {},
+      "references": [
+        {
+          "citation": "Author(s). Article or guideline title. Journal/Publisher. Year.",
+          "url": "https://doi.org/... or a direct PubMed/guideline URL"
+        }
+      ]
     }
   ]
 }
@@ -6998,6 +7025,7 @@ Content rules:
 6. "process": [ "Step 1: ...", "Step 2: ..." ].
 7. "plain_text": "Content string...".
 8. "table": { "headers": [ "Col 1", "Col 2" ], "rows": [ [ "Row 1 Col 1", "Row 1 Col 2" ] ] }.
+9. EVERY section, without exception, MUST include a non-empty "references" array with 1-3 real, directly relevant sources. This includes causes, complications, differential diagnosis, investigations, management, treatment, and recent studies. Cite guidelines, peer-reviewed articles, AAO resources, or PubMed records. Use a direct DOI, PubMed, or guideline URL. Never invent a citation or URL.
 
 summary_illustration rules:
 - Generate a valid, minimal SVG string representing the core ophthalmic topic.
@@ -7013,6 +7041,117 @@ ${topicMode ? '- Include epidemiological data as chart sections where applicable
 
 User Topic/Text:
 ${topic}`;
+}
+
+function normalizeCitationUrl(value) {
+    const url = String(value || '').trim();
+    if (!url) return '';
+    if (/^doi:\s*/i.test(url)) return `https://doi.org/${url.replace(/^doi:\s*/i, '')}`;
+    if (/^10\.\d{4,9}\//i.test(url)) return `https://doi.org/${url}`;
+    return /^https?:\/\//i.test(url) ? url : '';
+}
+
+function normalizeSectionReferences(references) {
+    const entries = Array.isArray(references) ? references : (references ? [references] : []);
+    const seen = new Set();
+    return entries.map(entry => {
+        if (typeof entry === 'string') {
+            const doi = entry.match(/10\.\d{4,9}\/[\w.()/:;-]+/i)?.[0] || '';
+            return { citation: entry.trim(), url: normalizeCitationUrl(doi) };
+        }
+        if (!entry || typeof entry !== 'object') return null;
+        const citation = String(entry.citation || entry.reference || entry.text || entry.title || entry.name || '').trim();
+        const url = normalizeCitationUrl(entry.url || entry.link || entry.doi || entry.pmid || '');
+        return citation ? { citation, url } : null;
+    }).filter(reference => {
+        if (!reference) return false;
+        const key = `${reference.citation.toLowerCase()}|${reference.url.toLowerCase()}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    }).slice(0, 3);
+}
+
+function buildPubMedEvidenceSearchReference(topic, sectionTitle) {
+    const query = `${topic || 'ophthalmology'} ${sectionTitle || ''}`.replace(/\s+/g, ' ').trim();
+    return {
+        citation: `PubMed evidence search: ${sectionTitle || topic || 'Ophthalmology'}`,
+        url: `https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(query)}`,
+        isEvidenceSearch: true
+    };
+}
+
+async function findOpenAlexReference(topic, sectionTitle) {
+    const query = `${topic || ''} ${sectionTitle || ''}`.replace(/\s+/g, ' ').trim().slice(0, 220);
+    if (!query || typeof fetch !== 'function') return null;
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timeout = controller ? setTimeout(() => controller.abort(), 7000) : null;
+    try {
+        const response = await fetch(
+            `https://api.openalex.org/works?search=${encodeURIComponent(query)}&per-page=1&select=title,publication_year,authorships,doi,ids,primary_location`,
+            controller ? { signal: controller.signal } : undefined
+        );
+        if (!response.ok) return null;
+        const work = (await response.json())?.results?.[0];
+        if (!work?.title) return null;
+        const authorNames = (work.authorships || []).map(a => a?.author?.display_name).filter(Boolean);
+        const authorText = authorNames.length > 3 ? `${authorNames.slice(0, 3).join(', ')}, et al.` : authorNames.join(', ');
+        const journal = work.primary_location?.source?.display_name || '';
+        const citation = [authorText, work.title, journal, work.publication_year].filter(Boolean).join('. ');
+        const url = normalizeCitationUrl(work.doi) || work.ids?.pmid || work.ids?.openalex || '';
+        return citation && url ? { citation, url } : null;
+    } catch (error) {
+        console.warn('[Citations] Evidence lookup failed:', error?.message || error);
+        return null;
+    } finally {
+        if (timeout) clearTimeout(timeout);
+    }
+}
+
+/** Ensure every generated section visibly carries a source, with live evidence lookup as a fallback. */
+async function ensureSectionCitations(data, topic) {
+    if (!data || !Array.isArray(data.sections)) return data;
+    const evidenceTopic = String(data.title || topic || 'ophthalmology').replace(/\s+/g, ' ').trim();
+    const unresolved = [];
+    data.sections.forEach(section => {
+        if (!section || typeof section !== 'object') return;
+        section.references = normalizeSectionReferences(section.references || section.citations || section.sources);
+        if (!section.references.length) unresolved.push(section);
+    });
+
+    // OpenAlex provides a real paper and direct DOI/record for models that omit
+    // references. Keep lookup concurrency low so a large poster remains polite.
+    const lookupDeadline = Date.now() + 9000;
+    for (let start = 0; start < unresolved.length; start += 4) {
+        if (Date.now() >= lookupDeadline) {
+            unresolved.slice(start).forEach(section => {
+                section.references = [buildPubMedEvidenceSearchReference(evidenceTopic, section.title)];
+            });
+            break;
+        }
+        const batch = unresolved.slice(start, start + 4);
+        await Promise.all(batch.map(async section => {
+            const reference = await findOpenAlexReference(evidenceTopic, section.title);
+            section.references = reference
+                ? [reference]
+                : [buildPubMedEvidenceSearchReference(evidenceTopic, section.title)];
+        }));
+    }
+    return data;
+}
+
+function renderSectionReferences(references) {
+    const normalized = normalizeSectionReferences(references);
+    if (!normalized.length) {
+        return '<div class="section-references section-references--missing"><span class="material-symbols-rounded">info</span><span>Citation pending</span></div>';
+    }
+    return `<div class="section-references" aria-label="References">\n        <div class="section-references-label"><span class="material-symbols-rounded">menu_book</span>Sources</div>\n        <ol>${normalized.map(reference => {
+            const label = escapeHtml(reference.citation);
+            const url = normalizeCitationUrl(reference.url);
+            return `<li>${url
+                ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${label}<span class="material-symbols-rounded section-reference-link">open_in_new</span></a>`
+                : `<span>${label}</span>`}</li>`;
+        }).join('')}</ol>\n    </div>`;
 }
 
 async function copyTextToClipboard(text) {
@@ -7079,6 +7218,7 @@ async function generateInfographicWithHuggingFace(topic) {
             const parsed = parseInfographicJsonResponse(text);
             parsed.generationPrompt = topic;
             parsed.generatedWith = `Hugging Face ${model.name} (${model.id})`;
+            await ensureSectionCitations(parsed, topic);
             console.log(`Hugging Face: ${model.name} generated successfully`);
             return parsed;
         } catch (err) {
@@ -7297,6 +7437,7 @@ Guidelines:
 3. **Tone**: Educational yet highly engaging. Suitable for ophthalmology residents and fellows.
 4. **Completeness**: Create as many sections as needed. ${topicMode ? 'Aim for 12-20+ sections for comprehensive coverage.' : 'Cover 100% of the input text.'}
 5. **Medical Accuracy**: All medical content must be evidence-based and clinically accurate.
+6. **Citations are mandatory**: Every section MUST include 1-3 real, directly relevant references in its "references" array, including etiologies, complications, differential diagnoses, investigations, management/treatment, and recent studies. Give a complete short citation plus a direct DOI, PubMed, or guideline URL. Never invent a source.
 
 JSON Schema (Strict):
 {
@@ -7310,7 +7451,10 @@ JSON Schema (Strict):
             "type": "layout_type",
             "layout": "full_width" | "half_width",
             "color_theme": "blue" | "red" | "green" | "yellow" | "purple",
-            "content": ...
+            "content": ...,
+            "references": [
+                { "citation": "Author(s). Article or guideline title. Journal/Publisher. Year.", "url": "https://doi.org/... or direct PubMed/guideline URL" }
+            ]
         }
     ]
 }
@@ -7324,6 +7468,7 @@ Layout Types & Content Rules:
 6. "process": [ "Step 1: ...", "Step 2: ..." ]
 7. "plain_text": "Content string..."
 8. "table": { "headers": ["Col 1", "Col 2"], "rows": [ ["Row 1 Col 1", ...] ] }
+9. Every section MUST contain a non-empty "references" array with 1-3 real, directly relevant sources. This includes causes, complications, DDx, investigations, management/treatment, and recent studies. Use a concise complete citation and a direct DOI, PubMed, or guideline URL. Never invent a source.
 
 Design Focus:
 - Cover ALL items in the input text. Do not pick "top 5" if there are 20 items.
@@ -7367,6 +7512,7 @@ User Topic/Text: "${topic}"`;
 
             const parsed = parseInfographicJsonResponse(text);
             parsed.generationPrompt = topic;
+            await ensureSectionCitations(parsed, topic);
             return parsed;
 
         } catch (error) {
@@ -7394,6 +7540,7 @@ User Topic/Text: "${topic}"`;
                         if (text) {
                             const parsed = parseInfographicJsonResponse(text);
                             parsed.generationPrompt = topic;
+                            await ensureSectionCitations(parsed, topic);
                             return parsed;
                         }
                     }
@@ -7423,6 +7570,7 @@ Guidelines:
 3. Tone: Educational yet highly engaging. Suitable for ophthalmology residents and fellows.
 4. Completeness: ${topicMode ? 'Create 12-20+ sections for comprehensive coverage.' : 'Cover 100% of the input text context.'}
 5. Medical Accuracy: All content must be evidence-based and clinically accurate.
+6. Citations: EVERY section must contain a non-empty "references" array with 1-3 real, directly relevant sources. This applies to causes, complications, differential diagnoses, investigations, management/treatment, and recent studies. Use a concise complete citation and a direct DOI, PubMed, or guideline URL. Never invent a source.
 
 You MUST respond with ONLY valid JSON (no markdown fences). JSON Schema:
 {
@@ -7436,7 +7584,10 @@ You MUST respond with ONLY valid JSON (no markdown fences). JSON Schema:
             "type": "layout_type",
             "layout": "full_width" | "half_width",
             "color_theme": "blue" | "red" | "green" | "yellow" | "purple",
-            "content": ...
+            "content": ...,
+            "references": [
+                { "citation": "Author(s). Article or guideline title. Journal/Publisher. Year.", "url": "https://doi.org/... or direct PubMed/guideline URL" }
+            ]
         }
     ]
 }
@@ -7450,6 +7601,7 @@ Layout Types & Content Rules:
 6. "process": [ "Step 1: ...", "Step 2: ..." ]
 7. "plain_text": "Content string..."
 8. "table": { "headers": ["Col 1", "Col 2"], "rows": [ ["R1C1", "R1C2"] ] }
+9. Every section MUST contain a non-empty "references" array with 1-3 real, directly relevant sources. This includes causes, complications, DDx, investigations, management/treatment, and recent studies. Use a concise complete citation and a direct DOI, PubMed, or guideline URL. Never invent a source.
 
 summary_illustration: Generate a valid, minimal SVG (flat, modern, vector art, iconic, viewBox set, primary color hsl(215, 90%, 45%)).
 
@@ -7495,6 +7647,7 @@ ${topicMode ? 'Include epidemiological data as charts. Include at least one mnem
             let text = result.choices?.[0]?.message?.content || '';
             const parsed = parseInfographicJsonResponse(text);
             parsed.generationPrompt = topic;
+            await ensureSectionCitations(parsed, topic);
             return parsed;
 
         } catch (error) {
@@ -8915,18 +9068,21 @@ function renderInfographic(data) {
                 <div class="icon-box"><span class="material-symbols-rounded">${iconName}</span></div>
                 ${escapeHtml(section.title)}
             </h3>`;
+        const referencesHtml = renderSectionReferences(section.references || section.citations || section.sources);
 
         card.innerHTML = `
             ${titleHtml}
             <div class="card-content">
                 ${contentHtml}
             </div>
+            ${referencesHtml}
         `;
         grid.appendChild(card);
     });
 
     posterSheet.appendChild(grid);
     outputContainer.appendChild(posterSheet);
+    renderWebClinicalImages(data);
 
     // Enable Studio Tools when infographic is generated
     enableStudioTools();
@@ -11628,18 +11784,132 @@ function showToast(message, type) {
 // ── Clinical Images ──────────────────────────────────────────
 let clinicalImages = [];
 
-async function openClinicalDB() {
-    return new Promise((resolve, reject) => {
-        const req = indexedDB.open('KanskiImagesDB');
-        req.onsuccess = () => resolve(req.result);
-        req.onerror = () => reject(req.error);
+const WEB_CLINICAL_IMAGE_LIMIT = 6;
+
+function cleanWebImageMetadata(value) {
+    const source = String(value || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (typeof document === 'undefined') return source;
+    const node = document.createElement('textarea');
+    node.innerHTML = source;
+    return (node.value || source).trim();
+}
+
+function getClinicalImageSearchTopic(data) {
+    const title = String(data?.title || '').trim();
+    const originalTopic = String(data?.generationPrompt || '').split(/===\s*REFERENCE MATERIALS\s*===/i)[0].trim();
+    const conciseTopic = originalTopic.length <= 220 && originalTopic.split(/\n/).length <= 4 ? originalTopic : '';
+    return (conciseTopic || title || 'ophthalmology').replace(/\s+/g, ' ').slice(0, 180);
+}
+
+async function searchWikimediaClinicalImages(topic) {
+    const retinalTopic = /retina|retinal|macula|macular|fundus|optic disc|papill|choroid|vitre/i.test(topic);
+    const query = `${topic} ${retinalTopic ? 'fundus' : 'eye photo'}`.trim();
+    const params = new URLSearchParams({
+        action: 'query',
+        format: 'json',
+        origin: '*',
+        generator: 'search',
+        gsrsearch: query,
+        gsrnamespace: '6',
+        gsrlimit: String(WEB_CLINICAL_IMAGE_LIMIT * 3),
+        prop: 'imageinfo|info',
+        inprop: 'url',
+        iiprop: 'url|extmetadata|mime',
+        iiurlwidth: '1000'
     });
+    const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params.toString()}`);
+    if (!response.ok) throw new Error(`Wikimedia Commons returned ${response.status}`);
+    const pages = Object.values((await response.json())?.query?.pages || {});
+    const rejected = /\b(icon|logo|flag|map|diagram|chart|schematic|illustration|simulation|coat of arms)\b/i;
+    const seen = new Set();
+    return pages.map(page => {
+        const info = page?.imageinfo?.[0] || {};
+        const imageUrl = normalizeCitationUrl(info.thumburl || info.url);
+        const pageUrl = normalizeCitationUrl(page.fullurl || info.descriptionurl);
+        const alt = String(page.title || 'Clinical ophthalmic image').replace(/^File:/i, '').replace(/[_-]+/g, ' ').trim();
+        const metadata = info.extmetadata || {};
+        return {
+            id: `wikimedia_${page.pageid || alt}`,
+            alt,
+            dataUrl: imageUrl,
+            sourceUrl: pageUrl,
+            source: 'Wikimedia Commons',
+            mimeType: info.mime || '',
+            license: cleanWebImageMetadata(metadata.LicenseShortName?.value || metadata.UsageTerms?.value),
+            attribution: cleanWebImageMetadata(metadata.Artist?.value),
+            webSource: true
+        };
+    }).filter(image => {
+        if (!image.dataUrl || !image.sourceUrl || !/^image\/(jpeg|png|webp)$/i.test(image.mimeType) || rejected.test(image.alt)) return false;
+        if (seen.has(image.id)) return false;
+        seen.add(image.id);
+        return true;
+    }).slice(0, WEB_CLINICAL_IMAGE_LIMIT);
+}
+
+function renderWebClinicalImages(data) {
+    const poster = outputContainer.querySelector('.poster-sheet');
+    if (!poster) return;
+    poster.querySelector('#web-clinical-images-section')?.remove();
+    const images = (data?.clinicalImages || []).filter(image => image?.webSource && image?.dataUrl);
+    if (!images.length) return;
+
+    const section = document.createElement('section');
+    section.id = 'web-clinical-images-section';
+    section.className = 'web-clinical-images-section';
+    section.innerHTML = `
+        <div class="web-clinical-images-heading">
+            <span class="material-symbols-rounded">photo_library</span>
+            <div><h2>Relevant clinical photos</h2><p>Images found on Wikimedia Commons for this topic. Select an image to view its source and licence.</p></div>
+        </div>
+        <div class="web-clinical-images-grid">
+            ${images.map(image => {
+                const credit = [image.source, image.license].filter(Boolean).join(' · ');
+                return `<a class="web-clinical-image" href="${escapeHtml(image.sourceUrl)}" target="_blank" rel="noopener noreferrer">
+                    <img src="${escapeHtml(image.dataUrl)}" alt="${escapeHtml(image.alt)}" loading="lazy">
+                    <span>${escapeHtml(image.alt)}</span>
+                    <small>${escapeHtml(credit || 'View source')}</small>
+                </a>`;
+            }).join('')}
+        </div>`;
+    poster.appendChild(section);
+}
+
+async function attachRelevantWebClinicalImages(data, { force = false } = {}) {
+    if (!data || data._webClinicalImagesLoading) return [];
+    const existing = (data.clinicalImages || []).filter(image => image?.webSource);
+    if (existing.length && !force) {
+        renderWebClinicalImages(data);
+        return existing;
+    }
+    data._webClinicalImagesLoading = true;
+    try {
+        const images = await searchWikimediaClinicalImages(getClinicalImageSearchTopic(data));
+        if (!images.length) return [];
+        const known = new Set((data.clinicalImages || []).map(image => image?.id || image?.sourceUrl).filter(Boolean));
+        const newImages = images.filter(image => !known.has(image.id) && !known.has(image.sourceUrl));
+        if (!newImages.length) return existing;
+        data.clinicalImages = [...(data.clinicalImages || []), ...newImages];
+        if (currentInfographicData === data) clinicalImages = data.clinicalImages;
+        await saveClinicalImagesToIDB(data.title, data.clinicalImages);
+        renderWebClinicalImages(data);
+        updateClinicalImagesGallery();
+        showToast(`${newImages.length} credited clinical photo${newImages.length === 1 ? '' : 's'} added from Wikimedia Commons.`, 'success');
+        return newImages;
+    } finally {
+        delete data._webClinicalImagesLoading;
+    }
+}
+
+async function openClinicalDB() {
+    return openKanskiDB();
 }
 
 async function saveClinicalImagesToIDB(title, images) {
     if (!title || !images) return;
+    let db = null;
     try {
-        const db = await openClinicalDB();
+        db = await openClinicalDB();
         const tx = db.transaction('images', 'readwrite');
         const store = tx.objectStore('images');
         const data = { id: '__clinical_' + title, title, clinicalImages: images, savedAt: Date.now() };
@@ -11648,13 +11918,18 @@ async function saveClinicalImagesToIDB(title, images) {
             r.onsuccess = () => resolve();
             r.onerror = () => reject(r.error);
         });
-    } catch (e) { console.warn('[ClinicalImages] IDB save error:', e); }
+    } catch (e) {
+        console.warn('[ClinicalImages] IDB save error:', e);
+    } finally {
+        db?.close();
+    }
 }
 
 async function loadClinicalImagesFromIDB(title) {
     if (!title) return [];
+    let db = null;
     try {
-        const db = await openClinicalDB();
+        db = await openClinicalDB();
         const tx = db.transaction('images', 'readonly');
         const store = tx.objectStore('images');
         const data = await new Promise((resolve) => {
@@ -11663,14 +11938,36 @@ async function loadClinicalImagesFromIDB(title) {
             r.onerror = () => resolve(null);
         });
         return data?.clinicalImages || [];
-    } catch (e) { return []; }
+    } catch (e) {
+        return [];
+    } finally {
+        db?.close();
+    }
 }
 
 function setupClinicalImages() {
     const importBtn = document.getElementById('import-clinical-images-btn');
+    const webSearchBtn = document.getElementById('find-web-clinical-images-btn');
     const input = document.getElementById('clinical-image-input');
     if (!importBtn || !input) return;
     importBtn.onclick = () => input.click();
+    if (webSearchBtn) {
+        webSearchBtn.onclick = async () => {
+            if (!currentInfographicData) return;
+            const originalLabel = webSearchBtn.innerHTML;
+            webSearchBtn.disabled = true;
+            webSearchBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size:0.9rem;">progress_activity</span> Searching…';
+            try {
+                const images = await attachRelevantWebClinicalImages(currentInfographicData, { force: true });
+                if (!images.length) showToast('No additional suitable clinical photos were found for this topic.', 'warning');
+            } catch (error) {
+                showToast('Could not retrieve web clinical photos. Please try again.', 'error');
+            } finally {
+                webSearchBtn.disabled = false;
+                webSearchBtn.innerHTML = originalLabel;
+            }
+        };
+    }
     input.onchange = async (e) => {
         const files = Array.from(e.target.files || []);
         if (!files.length) return;
@@ -14109,7 +14406,9 @@ function setupMusicPlayer() {
    ======================================== */
 
 const KANSKI_DB_NAME = 'KanskiImagesDB';
-const KANSKI_DB_VERSION = 1;
+// Version 2 repairs browsers where the earlier clinical-image opener created
+// the database before its shared `images` store existed.
+const KANSKI_DB_VERSION = 2;
 const KANSKI_STORE_NAME = 'images';
 
 function openKanskiDB() {

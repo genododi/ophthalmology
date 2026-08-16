@@ -12323,7 +12323,17 @@ function showToast(message, type) {
 let clinicalImages = [];
 
 const WEB_CLINICAL_IMAGE_LIMIT = 6;
+const WEB_PHOTO_SOURCE_PIPELINE_VERSION = 2;
 const webPhotoFetchInFlight = new WeakSet();
+const TRUSTED_OPHTHALMIC_YOUTUBE_CHANNELS = Object.freeze([
+    { id: 'UCZ20vVCRAsGioM8EQ1SwshQ', name: 'National Eye Institute, NIH' },
+    { id: 'UCy0K_Rd-grmLTT7dVGfF1Sg', name: 'American Academy of Ophthalmology' },
+    { id: 'UCnzk0O-y6yrJkTwi3N4QXLQ', name: 'University of Iowa EyeRounds' }
+]);
+const TRUSTED_INSTITUTIONAL_MEDIA_PROFILES = Object.freeze([
+    { profilePattern: /flickr\.com\/(?:photos|people)\/132318516@N08(?:\/|$)/i, name: 'NIH Image Gallery' }
+]);
+const JOURNAL_FIGURE_MAX_BYTES = 3 * 1024 * 1024;
 
 function cleanWebImageMetadata(value) {
     const source = String(value || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -12346,17 +12356,20 @@ function getClinicalImageSearchTopic(data) {
 const OPHTHALMIC_IMAGE_STRONG_PATTERN = /\b(ophthalm\w*|retina\w*|fundus|fundoscopy|macula\w*|fovea\w*|cornea\w*|sclera\w*|conjunctiv\w*|uvea\w*|uveitis|choroid\w*|vitre\w*|kerat\w*|cataract\w*|glaucoma\w*|retinopath\w*|optic\s+(disc|disk|nerve)|papill(edema|oedema|itis)|strabismus|amblyopia|nystagmus|anisocoria|hyphema|hyphaema|endophthalmitis|proptosis|exophthalmos|pterygium|chalazion|blepharitis|dacry\w*|ophthalmoplegia|open\s+globe|globe\s+rupture|ruptured\s+globe|intraocular|gonioscop\w*|tonometr\w*|slit[ -]?lamp|optical\s+coherence\s+tomography)\b/gi;
 const OPHTHALMIC_IMAGE_CONTEXT_PATTERN = /\b(eye|eyes|eyelid|eyelids|ocular|orbital|orbit|lacrimal|pupil|pupillary|iris|visual\s+field|vision)\b/gi;
 const CLINICAL_IMAGE_PATTERN = /\b(clinical|patient|disease|disorder|pathology|lesion|infection|inflammation|ulcer|trauma|injury|rupture|laceration|hemorrhage|haemorrhage|edema|oedema|detachment|surgery|surgical|procedure|examination|imaging|scan|radiograph|ultrasound|histology|microscopy|angiography)\b/gi;
-const NON_PHOTO_IMAGE_PATTERN = /\b(icon|logo|flag|map|diagram|chart|schematic|illustration|drawing|painting|artwork|cartoon|anime|simulation|statue|sculpture|book|bookplate|book plate|page\s+\d+|plate\s+\d+|treatise|atlas|manuscript|poster|infographic|blausen)\b/i;
+const NON_PHOTO_IMAGE_PATTERN = /\b(icon|logo|flag|map|diagram|chart|graph|plot|flowchart|flow\s+diagram|forest\s+plot|kaplan[ -]?meier|confusion\s+matrix|receiver\s+operating|schematic|illustration|drawing|painting|artwork|cartoon|anime|simulation|statue|sculpture|book|bookplate|book plate|page\s+\d+|plate\s+\d+|treatise|atlas|manuscript|poster|infographic|blausen)\b/i;
 const NON_HUMAN_IMAGE_PATTERN = /\b(canine|dog|dogs|feline|cat|cats|horse|horses|cow|cattle|rabbit|rabbits|mouse|mice|rat|rats|bird|birds|fish|animal|animals|veterinary|zoolog\w*)\b/i;
 const GENERIC_EYE_NOISE_PATTERN = /\b(eye\s+of\s+(the\s+)?storm|eye\s+of\s+horus|evil\s+eye|makeup|mascara|eyelash|eyelashes|eyebrow|fashion|beauty|beautiful|portrait|selfie|stock\s+photo|cosplay|toy|doll|jewelry|jewellery)\b/i;
+const JOURNAL_CLINICAL_FIGURE_PATTERN = /\b(photograph|photo|image|imaging|fundus|fundoscopy|ophthalmoscop\w*|slit[ -]?lamp|optical\s+coherence\s+tomography|\bOCT\b|angiograph\w*|microscop\w*|histolog\w*|ultrasound|ultrasonograph\w*|biomicroscop\w*|topograph\w*|tomograph\w*|visual\s+field|perimetr\w*|gonioscop\w*|surgery|surgical|procedure|examination|clinical\s+appearance|preoperative|postoperative)\b/i;
+const THIRD_PARTY_FIGURE_RIGHTS_PATTERN = /\b(reproduced|adapted|reprinted|copyright(?:ed)?|all\s+rights\s+reserved|used\s+with\s+permission|courtesy\s+of)\b/i;
+const YOUTUBE_NON_VISUAL_PATTERN = /\b(podcast|interview|webinar|lecture|panel|conference|meeting|keynote|journal\s+club|question\s+and\s+answer|Q&A)\b/i;
 const CLINICAL_IMAGE_TOPIC_STOPWORDS = new Set([
-    'about', 'absolute', 'approach', 'assessment', 'based', 'classification', 'clinical',
+    'about', 'absolute', 'approach', 'assessment', 'based', 'cause', 'causes', 'classification', 'clinical',
     'complication', 'complications', 'critical', 'diagnosis', 'differential', 'disease',
     'emergency', 'epidemiology', 'etiological', 'etiology', 'evidence', 'facts', 'feature',
     'features', 'guide', 'guideline', 'guidelines', 'high', 'infographic', 'investigation',
-    'investigations', 'landmark', 'management', 'master', 'matrix', 'ocular', 'ophthalmic',
+    'investigations', 'landmark', 'management', 'master', 'matrix', 'mechanism', 'mechanisms', 'ocular', 'ophthalmic',
     'ophthalmology', 'overview', 'pathognomonic', 'photo', 'photograph', 'profile', 'profiles',
-    'prognosis', 'protocol', 'recent', 'risk', 'risks', 'section', 'sign', 'signs', 'step',
+    'pathophysiology', 'prognosis', 'protocol', 'recent', 'risk', 'risks', 'section', 'sign', 'signs', 'step',
     'studies', 'study', 'subtle', 'technique', 'terminology', 'treatment', 'trial', 'trials'
 ]);
 
@@ -12521,7 +12534,7 @@ async function searchOpenverseClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
     const query = `${topic} ${retinalTopic ? 'fundus' : 'ophthalmology'}`.trim();
     const params = new URLSearchParams({
         q: query,
-        page_size: String(Math.min(50, Math.max(24, limit * 5))),
+        page_size: String(Math.min(20, Math.max(12, limit * 3))),
         mature: 'false',
         excluded_source: 'wikimedia'
     });
@@ -12564,10 +12577,246 @@ async function searchOpenverseClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
     }).sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0)).slice(0, limit);
 }
 
+function getTrustedInstitutionalMediaSource(result) {
+    const creatorUrl = normalizeCitationUrl(result?.creator_url);
+    const landingUrl = normalizeCitationUrl(result?.foreign_landing_url);
+    return TRUSTED_INSTITUTIONAL_MEDIA_PROFILES.find(profile =>
+        profile.profilePattern.test(creatorUrl) || profile.profilePattern.test(landingUrl)
+    ) || null;
+}
+
+async function searchTrustedInstitutionalClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
+    const params = new URLSearchParams({
+        q: `${topic} National Eye Institute`.replace(/\s+/g, ' ').trim().slice(0, 200),
+        page_size: String(Math.min(20, Math.max(12, limit * 3))),
+        mature: 'false',
+        source: 'flickr'
+    });
+    const response = await fetch(`https://api.openverse.org/v1/images/?${params.toString()}`);
+    if (!response.ok) throw new Error(`Openverse institutional search returned ${response.status}`);
+    const results = (await response.json())?.results || [];
+    return results.map(result => {
+        const trustedSource = getTrustedInstitutionalMediaSource(result);
+        if (!trustedSource) return null;
+        const tags = (Array.isArray(result.tags) ? result.tags : [])
+            .map(tag => cleanWebImageMetadata(tag?.name || tag)).filter(Boolean).join(' ');
+        const image = {
+            id: `institution_${result.id || result.foreign_landing_url}`,
+            alt: cleanWebImageMetadata(result.title || 'Institutional ophthalmic image'),
+            dataUrl: normalizeCitationUrl(result.thumbnail || result.url),
+            sourceUrl: normalizeCitationUrl(result.foreign_landing_url || result.detail_url),
+            source: `${trustedSource.name} via Openverse`,
+            provider: 'Trusted ophthalmic institution',
+            license: formatOpenverseLicense(result),
+            licenseUrl: normalizeCitationUrl(result.license_url),
+            attribution: cleanWebImageMetadata(result.creator || trustedSource.name),
+            searchMetadata: [result.title, result.description, result.category, tags, trustedSource.name]
+                .map(cleanWebImageMetadata).filter(Boolean).join(' '),
+            width: Number(result.width) || 0,
+            height: Number(result.height) || 0,
+            verifiedInstitutionalSource: true,
+            webSource: true
+        };
+        const relevance = scoreClinicalImageRelevance(image, topic);
+        return { ...image, relevanceScore: relevance.score + 2, relevanceSignals: relevance.topicMatches };
+    }).filter(image => {
+        if (!image?.dataUrl || !image?.sourceUrl || /\.(svg|gif)(?:$|\?)/i.test(image.dataUrl)) return false;
+        const ratio = image.width && image.height ? image.width / image.height : 1;
+        if ((image.width && image.height && Math.min(image.width, image.height) < 240) || ratio < 0.4 || ratio > 2.8) return false;
+        return isRelevantOphthalmicImage(image, topic);
+    }).sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0)).slice(0, limit);
+}
+
+function getXmlElementTextByLocalName(root, localName) {
+    return [...(root?.getElementsByTagName('*') || [])]
+        .filter(node => node.localName === localName)
+        .map(node => cleanWebImageMetadata(node.textContent))
+        .find(Boolean) || '';
+}
+
+function getEuropePmcFigureLicense(xml) {
+    const licenseNode = xml.querySelector('license');
+    if (!licenseNode) return null;
+    const licenseText = cleanWebImageMetadata(licenseNode.textContent);
+    const licenseUrl = [...licenseNode.getElementsByTagName('*')]
+        .filter(node => node.localName === 'license_ref' || node.localName === 'ext-link')
+        .map(node => normalizeCitationUrl(node.getAttribute('xlink:href') || node.getAttribute('href') || node.textContent))
+        .find(url => /creativecommons\.org\/(?:licenses|publicdomain)\//i.test(url)) || '';
+    const normalized = `${licenseUrl} ${licenseText}`.toLowerCase();
+    const prohibited = /(?:by-nc|by-nd|noncommercial|non-commercial|no derivatives|no-derivatives)/i.test(normalized);
+    const reusable = /creativecommons\.org\/publicdomain\/(?:zero|mark)\//i.test(normalized)
+        || /creativecommons\.org\/licenses\/by\/(?:[0-9.]+\/)?/i.test(normalized)
+        || /creativecommons\.org\/licenses\/by-sa\/(?:[0-9.]+\/)?/i.test(normalized)
+        || /creative\s+commons\s+(?:cc0|zero|public\s+domain)/i.test(normalized)
+        || /creative\s+commons\s+attribution(?:[ -]sharealike)?\s+(?:licen[cs]e\s*)?[0-9.]*\s*(?:international)?/i.test(normalized);
+    if (!reusable || prohibited) return null;
+    let label = 'Open-access journal licence';
+    if (/publicdomain\/(?:zero|mark)/i.test(normalized)) label = 'CC0 / Public Domain';
+    else if (/licenses\/by-sa\/|attribution[ -]sharealike/i.test(normalized)) label = 'CC BY-SA';
+    else if (/licenses\/by\/|creative\s+commons\s+attribution/i.test(normalized)) label = 'CC BY';
+    const version = licenseUrl.match(/\/(\d+(?:\.\d+)?)\/?$/)?.[1]
+        || licenseText.match(/\b(\d+(?:\.\d+)?)\s+(?:international\s+)?licen[cs]e\b/i)?.[1];
+    return { label: version ? `${label} ${version}` : label, url: licenseUrl };
+}
+
+function getEuropePmcFigureFileName(fig) {
+    const graphic = [...(fig?.getElementsByTagName('*') || [])].find(node => node.localName === 'graphic');
+    return cleanWebImageMetadata(graphic?.getAttribute('xlink:href')
+        || graphic?.getAttributeNS('http://www.w3.org/1999/xlink', 'href')
+        || graphic?.getAttribute('href'));
+}
+
+function blobToClinicalImageDataUrl(blob) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(String(reader.result || ''));
+        reader.onerror = () => reject(reader.error || new Error('Could not read journal figure'));
+        reader.readAsDataURL(blob);
+    });
+}
+
+async function searchEuropePmcClinicalFigures(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
+    if (!window.JSZip) return [];
+    const searchParams = new URLSearchParams({
+        query: `(${topic}) AND OPEN_ACCESS:Y AND HAS_FT:Y`,
+        format: 'json',
+        pageSize: '4',
+        resultType: 'core'
+    });
+    const searchResponse = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/search?${searchParams.toString()}`);
+    if (!searchResponse.ok) throw new Error(`Europe PMC search returned ${searchResponse.status}`);
+    const articles = (await searchResponse.json())?.resultList?.result || [];
+    const candidatesByArticle = [];
+    for (const article of articles.filter(item => item?.pmcid).slice(0, 3)) {
+        try {
+            const xmlResponse = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/${encodeURIComponent(article.pmcid)}/fullTextXML`);
+            if (!xmlResponse.ok) continue;
+            const xml = new DOMParser().parseFromString(await xmlResponse.text(), 'application/xml');
+            if (xml.querySelector('parsererror')) continue;
+            const licence = getEuropePmcFigureLicense(xml);
+            if (!licence) continue;
+            const articleTitle = cleanWebImageMetadata(article.title || getXmlElementTextByLocalName(xml, 'article-title'));
+            const figures = [...xml.querySelectorAll('fig')].map((fig, figureIndex) => {
+                const filename = getEuropePmcFigureFileName(fig);
+                const label = getXmlElementTextByLocalName(fig, 'label');
+                const caption = getXmlElementTextByLocalName(fig, 'caption');
+                const image = {
+                    id: `europepmc_${article.pmcid}_${filename || figureIndex}`,
+                    alt: cleanWebImageMetadata([label, caption].filter(Boolean).join(': ')).slice(0, 320) || `Figure from ${articleTitle}`,
+                    description: caption,
+                    searchMetadata: [articleTitle, caption, article.journalTitle, 'peer reviewed ophthalmology journal clinical figure']
+                        .map(cleanWebImageMetadata).filter(Boolean).join(' '),
+                    sourceUrl: `https://europepmc.org/articles/${encodeURIComponent(article.pmcid)}`,
+                    source: `${cleanWebImageMetadata(article.journalTitle || 'Peer-reviewed journal')} via Europe PMC`,
+                    provider: 'Europe PMC open-access journal',
+                    license: licence.label,
+                    licenseUrl: licence.url,
+                    attribution: cleanWebImageMetadata(article.authorString),
+                    journalFigure: true,
+                    webSource: true,
+                    filename
+                };
+                const relevance = scoreClinicalImageRelevance(image, topic);
+                return { ...image, relevanceScore: relevance.score + 3, relevanceSignals: relevance.topicMatches };
+            }).filter(image => image.filename
+                && /\.(?:jpe?g|png|webp)$/i.test(image.filename)
+                && JOURNAL_CLINICAL_FIGURE_PATTERN.test(`${image.alt} ${image.description}`)
+                && !THIRD_PARTY_FIGURE_RIGHTS_PATTERN.test(`${image.alt} ${image.description}`)
+                && isRelevantOphthalmicImage(image, topic))
+                .sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0));
+            if (figures.length) candidatesByArticle.push({ article, figures });
+        } catch (error) {
+            console.warn(`[ClinicalImages] Europe PMC metadata failed for ${article.pmcid}:`, error?.message || error);
+        }
+    }
+    const images = [];
+    for (const entry of candidatesByArticle) {
+        if (images.length >= Math.min(limit, 2)) break;
+        try {
+            const zipResponse = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/${encodeURIComponent(entry.article.pmcid)}/supplementaryFiles`);
+            if (!zipResponse.ok) continue;
+            const archive = await window.JSZip.loadAsync(await zipResponse.arrayBuffer());
+            for (const candidate of entry.figures) {
+                if (images.length >= Math.min(limit, 2)) break;
+                const archiveFile = archive.file(candidate.filename)
+                    || Object.values(archive.files).find(file => file.name.toLowerCase().endsWith(`/${candidate.filename.toLowerCase()}`));
+                if (!archiveFile || archiveFile.dir) continue;
+                const mimeType = /\.png$/i.test(candidate.filename) ? 'image/png'
+                    : (/\.webp$/i.test(candidate.filename) ? 'image/webp' : 'image/jpeg');
+                const blob = await archiveFile.async('blob');
+                if (!blob.size || blob.size > JOURNAL_FIGURE_MAX_BYTES) continue;
+                images.push({ ...candidate, dataUrl: await blobToClinicalImageDataUrl(blob.slice(0, blob.size, mimeType)), mimeType });
+            }
+        } catch (error) {
+            console.warn(`[ClinicalImages] Europe PMC figures failed for ${entry.article.pmcid}:`, error?.message || error);
+        }
+    }
+    return images;
+}
+
+function getYouTubeClinicalImageApiKey() {
+    const key = String(getSelectedGeminiKeyRecord()?.key || '').trim();
+    return /^AIza[\w-]{20,}$/i.test(key) ? key : '';
+}
+
+async function searchTrustedYouTubeClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
+    const apiKey = getYouTubeClinicalImageApiKey();
+    if (!apiKey) return [];
+    const channelSearches = TRUSTED_OPHTHALMIC_YOUTUBE_CHANNELS.map(async channel => {
+        const params = new URLSearchParams({
+            part: 'snippet',
+            type: 'video',
+            channelId: channel.id,
+            maxResults: String(Math.min(8, Math.max(3, limit))),
+            safeSearch: 'strict',
+            q: `${topic} clinical ophthalmology`.replace(/\s+/g, ' ').trim().slice(0, 180),
+            key: apiKey
+        });
+        const response = await fetch(`https://www.googleapis.com/youtube/v3/search?${params.toString()}`);
+        if (!response.ok) throw new Error(`YouTube search returned ${response.status}`);
+        const items = (await response.json())?.items || [];
+        return items.map(item => {
+            const snippet = item?.snippet || {};
+            const videoId = item?.id?.videoId;
+            const title = cleanWebImageMetadata(snippet.title);
+            const image = {
+                id: `youtube_${videoId}`,
+                alt: title || `Clinical ophthalmology video from ${channel.name}`,
+                dataUrl: normalizeCitationUrl(snippet.thumbnails?.high?.url || snippet.thumbnails?.medium?.url),
+                sourceUrl: videoId ? `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}` : '',
+                source: `YouTube · ${channel.name}`,
+                provider: 'Verified ophthalmic YouTube channel',
+                license: 'Linked video thumbnail',
+                attribution: channel.name,
+                searchMetadata: [title, snippet.description, channel.name, 'clinical ophthalmology video']
+                    .map(cleanWebImageMetadata).filter(Boolean).join(' '),
+                verifiedChannelId: channel.id,
+                videoThumbnail: true,
+                width: 480,
+                height: 360,
+                webSource: true
+            };
+            const relevance = scoreClinicalImageRelevance(image, topic);
+            return { ...image, relevanceScore: relevance.score + 1, relevanceSignals: relevance.topicMatches };
+        }).filter(image => image.dataUrl
+            && image.sourceUrl
+            && !YOUTUBE_NON_VISUAL_PATTERN.test(`${image.alt} ${image.searchMetadata}`)
+            && JOURNAL_CLINICAL_FIGURE_PATTERN.test(`${image.alt} ${image.searchMetadata}`)
+            && isRelevantOphthalmicImage(image, topic));
+    });
+    const results = await Promise.allSettled(channelSearches);
+    return results.flatMap(result => result.status === 'fulfilled' ? result.value : [])
+        .sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0))
+        .slice(0, limit);
+}
+
 async function searchCreditedClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
     const results = await Promise.allSettled([
         searchOpenverseClinicalImages(topic, limit),
-        searchWikimediaClinicalImages(topic, limit)
+        searchWikimediaClinicalImages(topic, limit),
+        searchTrustedInstitutionalClinicalImages(topic, limit),
+        searchEuropePmcClinicalFigures(topic, limit),
+        searchTrustedYouTubeClinicalImages(topic, limit)
     ]);
     const images = results.flatMap(result => result.status === 'fulfilled' ? result.value : []);
     const unique = new Map();
@@ -12635,7 +12884,7 @@ function createWebPhotoConsentControl(data) {
         <label class="web-photo-consent-label" for="web-photo-consent-checkbox">
             <input type="checkbox" id="web-photo-consent-checkbox" ${data?.webPhotoConsent === true ? 'checked' : ''}>
             <span class="web-photo-consent-check"><span class="material-symbols-rounded">check</span></span>
-            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches Openverse and Wikimedia after approval, then requires human ophthalmic anatomy or clinical-disease metadata and excludes animals, artwork, diagrams, book scans, and cosmetic imagery.</small></span>
+            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches open-access journal figures, verified NIH/NEI media, official ophthalmology YouTube channels, Openverse, and Wikimedia. Every result must pass strict human ophthalmic, clinical, and section-topic checks; animals, artwork, diagrams, book scans, and cosmetic imagery are excluded. YouTube is used when the selected Google key has YouTube Data API access.</small></span>
         </label>
         <span id="web-photo-consent-status" class="web-photo-consent-status" data-status="info">${sectionPhotoCount ? `${sectionPhotoCount} credited section photo${sectionPhotoCount === 1 ? '' : 's'} attached.` : 'Photo fetching is off.'}</span>`;
     const checkbox = control.querySelector('#web-photo-consent-checkbox');
@@ -12691,7 +12940,7 @@ function renderWebClinicalImages(data) {
     section.innerHTML = `
         <div class="web-clinical-images-heading">
             <span class="material-symbols-rounded">photo_library</span>
-            <div><h2>Relevant ophthalmic photos</h2><p>Credited Openverse and Wikimedia images that passed ocular anatomy, clinical context, topic-match, and non-photo exclusion checks.</p></div>
+            <div><h2>Relevant ophthalmic photos</h2><p>Credited open-access journal, verified institutional and channel, Openverse, and Wikimedia media that passed ocular anatomy, clinical context, topic-match, and non-photo exclusion checks.</p></div>
         </div>
         <div class="web-clinical-images-grid">
             ${images.map(image => {
@@ -12720,8 +12969,11 @@ async function attachRelevantWebClinicalImages(data, { force = false, onProgress
         data.clinicalImages = previousImages.filter(image => !image?.webSource || isRelevantOphthalmicStoredImage(image, data));
         const prunedImageCount = previousImages.length - data.clinicalImages.length;
         const known = new Set(data.clinicalImages.flatMap(image => [image?.id, image?.sourceUrl]).filter(Boolean));
+        const sourcePipelineUpgradeNeeded = Number(data.webPhotoSourcePipelineVersion || 0) < WEB_PHOTO_SOURCE_PIPELINE_VERSION;
         const targets = data.sections.map((section, sectionIndex) => ({ section, sectionIndex }))
-            .filter(({ sectionIndex }) => force || !getSectionWebClinicalImages(data, sectionIndex).length);
+            .filter(({ sectionIndex }) => force
+                || sourcePipelineUpgradeNeeded
+                || !getSectionWebClinicalImages(data, sectionIndex).length);
         const newImages = [];
         let completed = 0;
         for (let start = 0; start < targets.length; start += 3) {
@@ -12753,8 +13005,9 @@ async function attachRelevantWebClinicalImages(data, { force = false, onProgress
             completed += batch.length;
             if (typeof onProgress === 'function') onProgress(completed, targets.length, newImages.length);
         }
+        data.webPhotoSourcePipelineVersion = WEB_PHOTO_SOURCE_PIPELINE_VERSION;
         if (!newImages.length) {
-            if (prunedImageCount) {
+            if (prunedImageCount || sourcePipelineUpgradeNeeded) {
                 if (currentInfographicData === data) clinicalImages = data.clinicalImages;
                 await saveClinicalImagesToIDB(data.title, data.clinicalImages);
                 await persistInfographicEnhancementsLocally(data);

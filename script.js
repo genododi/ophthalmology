@@ -7363,13 +7363,21 @@ generateBtn.addEventListener('click', async () => {
         }
         showGeneratedInfographic(data);
     } catch (error) {
-        console.error('Generation Error:', error);
+        if (generationSource === 'gemini' && isGeminiRateLimitError(error)) {
+            console.info('Gemini generation paused by the project quota:', getGeminiErrorMessage(error));
+        } else {
+            console.error('Generation Error:', error);
+        }
         const errMsg = generationSource === 'gemini'
             ? getGeminiGenerationErrorMessage(error)
             : (error.message || 'Something went wrong.');
-        const isQuota = errMsg.toLowerCase().includes('quota') || errMsg.toLowerCase().includes('rate_limit') || errMsg.includes('429');
+        const isQuota = generationSource === 'gemini' && isGeminiRateLimitError(error);
+        const retrySeconds = Math.ceil((Number(error?.retryAfterMs) || 0) / 1000);
         const hint = isQuota
-            ? 'Your API key has exceeded its quota or billing is not active. Please check your plan at <a href="https://platform.openai.com/settings/organization/billing" target="_blank" style="color:#3b82f6;">OpenAI Billing</a>, or use a Gemini API key instead.'
+            ? `${error?.dailyQuota
+                ? 'This Gemini project has reached its daily quota. Try again after Google resets the quota.'
+                : `Gemini's free-tier request limit is temporarily exhausted.${retrySeconds ? ` Google requested a wait of about ${retrySeconds} seconds.` : ' Please wait briefly before retrying.'}`}
+               <br><a href="https://ai.dev/rate-limit" target="_blank" rel="noopener noreferrer" style="color:#3b82f6;">View Gemini API usage and limits</a>`
             : escapeHtml(errMsg);
         outputContainer.innerHTML = `
             <div class="empty-state">
@@ -7529,6 +7537,14 @@ async function findOpenAlexReference(topic, sectionTitle) {
     }
 }
 
+function getEuropePmcJournalTitle(article) {
+    return cleanWebImageMetadata(article?.journalTitle
+        || article?.journalInfo?.journal?.title
+        || article?.journalInfo?.journal?.medlineAbbreviation
+        || article?.journalInfo?.journal?.isoabbreviation
+        || '');
+}
+
 async function findEuropePmcReference(topic, sectionTitle) {
     const query = buildCitationSearchQuery(topic, sectionTitle);
     if (!query || typeof fetch !== 'function') return null;
@@ -7549,7 +7565,7 @@ async function findEuropePmcReference(topic, sectionTitle) {
             console.warn('[Citations] Europe PMC returned no matching paper.');
             return null;
         }
-        const citation = [work.authorString, work.title, work.journalTitle, work.pubYear].filter(Boolean).join('. ');
+        const citation = [work.authorString, work.title, getEuropePmcJournalTitle(work), work.pubYear].filter(Boolean).join('. ');
         const url = normalizeCitationUrl(work.doi)
             || (work.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${work.pmid}/` : '')
             || (work.id && work.source ? `https://europepmc.org/article/${encodeURIComponent(work.source)}/${encodeURIComponent(work.id)}` : '');
@@ -7800,6 +7816,12 @@ HOWEVER: You MAY supplement the user's text with additional medical/ophthalmolog
 // Google lists this exact stable model as its latest Flash release and
 // currently makes standard input/output available on the Gemini API free tier.
 const GEMINI_FLASH_MODEL = 'gemini-3.7-flash';
+const GEMINI_RATE_LIMIT_UNTIL_STORAGE = 'geminiRateLimitUntil';
+const GEMINI_REQUEST_TIMESTAMPS_STORAGE = 'geminiRequestTimestamps';
+const GEMINI_REQUEST_WINDOW_MS = 60 * 1000;
+const GEMINI_SAFE_REQUESTS_PER_WINDOW = 18;
+const GEMINI_MAX_AUTOMATIC_RATE_LIMIT_WAIT_MS = 65 * 1000;
+let geminiRequestQueue = Promise.resolve();
 
 function getSelectedGeminiModel() {
     return GEMINI_FLASH_MODEL;
@@ -7828,16 +7850,126 @@ function getGeminiErrorMessage(error) {
     return String(error?.message || error || 'Unknown Gemini error').replace(/\s+/g, ' ').trim();
 }
 
+function isGeminiRateLimitError(error) {
+    const message = getGeminiErrorMessage(error).toLowerCase();
+    return Number(error?.status) === 429
+        || message.includes('resource_exhausted')
+        || message.includes('quota exceeded')
+        || message.includes('rate limit')
+        || message.includes('rate_limit');
+}
+
+function parseDurationMs(value) {
+    if (value && typeof value === 'object') {
+        const seconds = Number(value.seconds) || 0;
+        const nanos = Number(value.nanos) || 0;
+        return Math.max(0, (seconds * 1000) + (nanos / 1e6));
+    }
+    const match = String(value || '').trim().match(/^([\d.]+)\s*(ms|s)?$/i);
+    if (!match) return 0;
+    const amount = Number(match[1]);
+    return Number.isFinite(amount) ? amount * (match[2]?.toLowerCase() === 'ms' ? 1 : 1000) : 0;
+}
+
+function getGeminiRetryDelayMs(response, payload) {
+    const retryAfter = response?.headers?.get?.('Retry-After') || '';
+    let delayMs = parseDurationMs(retryAfter);
+    if (!delayMs && retryAfter) {
+        const retryDate = Date.parse(retryAfter);
+        if (Number.isFinite(retryDate)) delayMs = Math.max(0, retryDate - Date.now());
+    }
+
+    const details = Array.isArray(payload?.error?.details) ? payload.error.details : [];
+    const retryInfo = details.find(detail => /google\.rpc\.RetryInfo$/i.test(String(detail?.['@type'] || '')));
+    delayMs = delayMs || parseDurationMs(retryInfo?.retryDelay);
+
+    if (!delayMs) {
+        const message = String(payload?.error?.message || '');
+        const messageMatch = message.match(/(?:please\s+)?retry\s+in\s+([\d.]+)\s*(ms|s)/i);
+        if (messageMatch) delayMs = parseDurationMs(`${messageMatch[1]}${messageMatch[2]}`);
+    }
+    return Math.ceil(delayMs);
+}
+
+function isGeminiDailyQuotaPayload(payload) {
+    const details = Array.isArray(payload?.error?.details) ? payload.error.details : [];
+    return details.some(detail => (detail?.violations || []).some(violation =>
+        /(?:perday|requestsperday|tokensperday)/i.test(String(violation?.quotaId || violation?.quotaMetric || ''))
+    ));
+}
+
+function getStoredGeminiCooldownMs() {
+    try {
+        const until = Number(localStorage.getItem(GEMINI_RATE_LIMIT_UNTIL_STORAGE)) || 0;
+        if (until <= Date.now()) {
+            localStorage.removeItem(GEMINI_RATE_LIMIT_UNTIL_STORAGE);
+            return 0;
+        }
+        return until - Date.now();
+    } catch (_) {
+        return 0;
+    }
+}
+
+function setStoredGeminiCooldown(delayMs) {
+    if (!Number.isFinite(delayMs) || delayMs <= 0) return;
+    try {
+        const currentUntil = Number(localStorage.getItem(GEMINI_RATE_LIMIT_UNTIL_STORAGE)) || 0;
+        const nextUntil = Date.now() + delayMs;
+        localStorage.setItem(GEMINI_RATE_LIMIT_UNTIL_STORAGE, String(Math.max(currentUntil, nextUntil)));
+    } catch (_) { /* private mode */ }
+}
+
+function readRecentGeminiRequestTimestamps() {
+    try {
+        const cutoff = Date.now() - GEMINI_REQUEST_WINDOW_MS;
+        const stored = JSON.parse(localStorage.getItem(GEMINI_REQUEST_TIMESTAMPS_STORAGE) || '[]');
+        return Array.isArray(stored) ? stored.map(Number).filter(timestamp => Number.isFinite(timestamp) && timestamp > cutoff) : [];
+    } catch (_) {
+        return [];
+    }
+}
+
+function recordGeminiRequestTimestamp(timestamps) {
+    const updated = [...timestamps, Date.now()].slice(-GEMINI_SAFE_REQUESTS_PER_WINDOW);
+    try {
+        localStorage.setItem(GEMINI_REQUEST_TIMESTAMPS_STORAGE, JSON.stringify(updated));
+    } catch (_) { /* private mode */ }
+}
+
+function waitMs(delayMs) {
+    return new Promise(resolve => setTimeout(resolve, Math.max(0, delayMs)));
+}
+
+async function waitForGeminiRequestSlot(onWait) {
+    let delayMs = getStoredGeminiCooldownMs();
+    const timestamps = readRecentGeminiRequestTimestamps();
+    if (timestamps.length >= GEMINI_SAFE_REQUESTS_PER_WINDOW) {
+        delayMs = Math.max(delayMs, timestamps[0] + GEMINI_REQUEST_WINDOW_MS - Date.now() + 250);
+    }
+    if (delayMs > 0) {
+        if (typeof onWait === 'function') onWait(delayMs);
+        await waitMs(delayMs);
+    }
+    recordGeminiRequestTimestamp(readRecentGeminiRequestTimestamps());
+}
+
+function queueGeminiRequest(task) {
+    const result = geminiRequestQueue.then(task, task);
+    geminiRequestQueue = result.then(() => undefined, () => undefined);
+    return result;
+}
+
 function isGeminiCredentialError(error) {
     const message = getGeminiErrorMessage(error).toLowerCase();
-    // Only treat as a true credential/key error — NOT 404 model-not-found or generic 429 rate limits
-    // (those should continue to cycle through fallback models, not abort the key)
+    // Quota and billing-plan text are not credential failures. Retrying the
+    // same key through another Gemini endpoint only consumes more quota.
     const credentialMarkers = [
         '401', 'api key', 'api_key', 'unauthorized',
-        'authentication', 'credential', 'billing', 'expired', 'leaked',
+        'authentication', 'credential', 'expired', 'leaked',
         'permission denied', 'permission_denied'
     ];
-    return credentialMarkers.some(marker => message.includes(marker));
+    return !isGeminiRateLimitError(error) && credentialMarkers.some(marker => message.includes(marker));
 }
 
 function getGeminiGenerationErrorMessage(error) {
@@ -7852,31 +7984,95 @@ function getGeminiGenerationErrorMessage(error) {
 }
 
 /**
- * Fetch with automatic retry on transient Gemini overload errors.
- * A 503 "request queue is full" (and 429 rate limiting) means Google's inference
- * servers are busy right now - retrying the same request with exponential backoff
- * lets it self-heal instead of instantly failing the generation.
+ * Fetch with automatic retry on transient overload errors. A Gemini 429 carries
+ * a server-directed RetryInfo delay; honor it once instead of sending the old
+ * 2s/4s/8s burst that compounded free-tier quota exhaustion.
  * @returns {Promise<Response>} the last non-retryable response
  */
-async function fetchWithRetry(url, options, { retries = 3, baseDelayMs = 2000, onRetry } = {}) {
+async function fetchWithRetry(url, options, { retries = 3, baseDelayMs = 2000, maxRateLimitRetries = 1, onRetry, beforeAttempt, isGeminiRequest = false } = {}) {
     let lastResponse = null;
-    for (let attempt = 0; attempt <= retries; attempt++) {
+    let transientRetries = 0;
+    let rateLimitRetries = 0;
+    while (true) {
+        if (typeof beforeAttempt === 'function') await beforeAttempt();
         const res = await fetch(url, options);
         if (res.ok) return res;
 
-        // Only 503/429 are transient overload; everything else falls through as-is
-        const retriable = res.status === 503 || res.status === 429;
-        if (retriable && attempt < retries) {
-            const delayMs = baseDelayMs * Math.pow(2, attempt);
-            if (typeof onRetry === 'function') onRetry(res.status, attempt + 1, retries);
-            console.warn(`Gemini API busy (${res.status}); retrying in ${delayMs / 1000}s (${attempt + 1}/${retries})`);
+        if (res.status === 429 && !isGeminiRequest) {
+            if (transientRetries >= retries) return res;
+            const delayMs = baseDelayMs * Math.pow(2, transientRetries) + Math.floor(Math.random() * 250);
+            transientRetries += 1;
+            if (typeof onRetry === 'function') onRetry({ status: res.status, delayMs, attempt: transientRetries, maxRetries: retries });
+            await waitMs(delayMs);
+            continue;
+        }
+
+        if (res.status === 429) {
+            const payload = await res.clone().json().catch(() => ({}));
+            const serverDelayMs = getGeminiRetryDelayMs(res, payload);
+            const dailyQuota = isGeminiDailyQuotaPayload(payload);
+            const delayMs = Math.min(
+                GEMINI_MAX_AUTOMATIC_RATE_LIMIT_WAIT_MS,
+                Math.max(serverDelayMs || GEMINI_REQUEST_WINDOW_MS, 1000) + 350
+            );
+            const canRetry = !dailyQuota
+                && rateLimitRetries < maxRateLimitRetries
+                && (serverDelayMs || delayMs) <= GEMINI_MAX_AUTOMATIC_RATE_LIMIT_WAIT_MS;
+            if (!dailyQuota) setStoredGeminiCooldown(delayMs);
+            if (!canRetry) return res;
+            rateLimitRetries += 1;
+            if (typeof onRetry === 'function') onRetry({ status: res.status, delayMs, attempt: rateLimitRetries, maxRetries: maxRateLimitRetries });
+            console.info(`Gemini rate limit reached; honoring Google's retry delay (${Math.ceil(delayMs / 1000)}s).`);
             await new Promise(resolve => setTimeout(resolve, delayMs));
+            continue;
+        }
+
+        if (res.status === 503 && transientRetries < retries) {
+            const delayMs = baseDelayMs * Math.pow(2, transientRetries) + Math.floor(Math.random() * 250);
+            transientRetries += 1;
+            if (typeof onRetry === 'function') onRetry({ status: res.status, delayMs, attempt: transientRetries, maxRetries: retries });
+            console.info(`Gemini service temporarily unavailable; retrying in ${(delayMs / 1000).toFixed(1)}s (${transientRetries}/${retries}).`);
+            await waitMs(delayMs);
             continue;
         }
         lastResponse = res;
         break;
     }
     return lastResponse;
+}
+
+function notifyGeminiWait(delayMs, reason = 'Free-tier request limit reached') {
+    const seconds = Math.max(1, Math.ceil(delayMs / 1000));
+    const message = `${reason}. Waiting ${seconds}s before one automatic retry…`;
+    const loadingText = outputContainer?.querySelector?.('.loading-text');
+    if (loadingText) loadingText.textContent = message;
+    showToast(message, 'warning');
+}
+
+function fetchGeminiWithRetry(url, options, retryOptions = {}) {
+    const suppliedOnRetry = retryOptions.onRetry;
+    const suppliedOnWait = retryOptions.onWait;
+    return queueGeminiRequest(() => fetchWithRetry(url, options, {
+        ...retryOptions,
+        isGeminiRequest: true,
+        beforeAttempt: () => waitForGeminiRequestSlot(delayMs => {
+            if (typeof suppliedOnWait === 'function') suppliedOnWait(delayMs);
+            else notifyGeminiWait(delayMs, 'Gemini request pacing is active');
+        }),
+        onRetry: context => {
+            if (typeof suppliedOnRetry === 'function') suppliedOnRetry(context);
+            else if (context.status === 429) notifyGeminiWait(context.delayMs);
+        }
+    }));
+}
+
+async function createGeminiHttpError(response) {
+    const payload = await response.json().catch(() => ({}));
+    const error = new Error(payload?.error?.message || `HTTP ${response.status}`);
+    error.status = response.status;
+    error.retryAfterMs = getGeminiRetryDelayMs(response, payload);
+    error.dailyQuota = isGeminiDailyQuotaPayload(payload);
+    return error;
 }
 
 async function generateInfographicDataWithKeyRotation(topic) {
@@ -7895,6 +8091,15 @@ async function generateInfographicDataWithKeyRotation(topic) {
         } catch (error) {
             lastError = error;
             const message = getGeminiErrorMessage(error);
+            if (isGeminiRateLimitError(error)) {
+                const retrySeconds = Math.max(1, Math.ceil((Number(error?.retryAfterMs) || GEMINI_REQUEST_WINDOW_MS) / 1000));
+                setGeminiApiKeyStatus(keyRecord.id, 'cooldown', error?.dailyQuota
+                    ? 'Daily project quota reached'
+                    : `Rate limited · retry in about ${retrySeconds}s`);
+                // Gemini quotas are applied per project rather than per API key.
+                // Do not hammer another saved key that may belong to the same project.
+                throw error;
+            }
             recordGeminiKeyOutcome(keyRecord.id, false, message.slice(0, 180));
             if (index < rotation.length - 1) {
                 showToast(`Gemini Key ${geminiApiKeys.indexOf(keyRecord) + 1} failed. Trying the next saved key...`, 'warning');
@@ -7976,7 +8181,7 @@ User Topic/Text: "${topic}"`;
                 generationConfig: { maxOutputTokens: 8192 }
             });
 
-            const resp = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
+            const resp = await fetchGeminiWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -7986,11 +8191,7 @@ User Topic/Text: "${topic}"`;
             });
 
             if (!resp.ok) {
-                const errBody = await resp.json().catch(() => ({}));
-                const errMsg = errBody?.error?.message || `HTTP ${resp.status}`;
-                const err = new Error(errMsg);
-                err.status = resp.status;
-                throw err;
+                throw await createGeminiHttpError(resp);
             }
 
             const data = await resp.json();
@@ -8003,37 +8204,10 @@ User Topic/Text: "${topic}"`;
             return parsed;
 
         } catch (error) {
-            console.warn(`Failed with model ${modelName}:`, error);
+            if (isGeminiRateLimitError(error)) console.info(`Model ${modelName} reached its project quota.`);
+            else console.warn(`Failed with model ${modelName}:`, error);
             lastError = error;
-            if (isGeminiCredentialError(error)) {
-                try {
-                    console.log(`Trying OpenAI-compatible endpoint for ${modelName}...`);
-                    const oaiResp = await fetch('https://generativelanguage.googleapis.com/v1beta/openai/chat/completions', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Bearer ' + apiKey
-                        },
-                        body: JSON.stringify({
-                            model: modelName,
-                            messages: [{ role: 'user', content: systemPrompt }],
-                            max_tokens: 8192,
-                            // Do not send deprecated sampling parameters.
-                        })
-                    });
-                    if (oaiResp.ok) {
-                        const oaiData = await oaiResp.json();
-                        const text = oaiData?.choices?.[0]?.message?.content || '';
-                        if (text) {
-                            const parsed = parseInfographicJsonResponse(text);
-                            parsed.generationPrompt = topic;
-                            await ensureSectionCitations(parsed, topic);
-                            return parsed;
-                        }
-                    }
-                } catch (_) {}
-                throw error;
-            }
+            if (isGeminiCredentialError(error) || isGeminiRateLimitError(error)) throw error;
         }
     }
     throw lastError || new Error("All models failed.");
@@ -9659,7 +9833,7 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
                     generationConfig: { maxOutputTokens: 4096 }
                 });
-                const resp = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
+                const resp = await fetchGeminiWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -9668,8 +9842,7 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
                     body
                 });
                 if (!resp.ok) {
-                    const errBody = await resp.json().catch(() => ({}));
-                    throw new Error(errBody?.error?.message || `HTTP ${resp.status}`);
+                    throw await createGeminiHttpError(resp);
                 }
                 const data = await resp.json();
                 const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text).filter(Boolean).join('') || '';
@@ -9678,32 +9851,14 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
             } catch (err) {
                 console.log(`Model ${modelName} failed:`, err.message);
                 lastError = err;
-                try {
-                    const oaiResp = await fetch('https://generativelanguage.googleapis.com/v1beta/openai/chat/completions', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Bearer ' + apiKey
-                        },
-                        body: JSON.stringify({
-                            model: modelName,
-                            messages: [{ role: 'user', content: prompt }],
-                            max_tokens: 4096,
-                            // Do not send deprecated sampling parameters.
-                        })
-                    });
-                    if (oaiResp.ok) {
-                        const oaiData = await oaiResp.json();
-                        const text = oaiData?.choices?.[0]?.message?.content || '';
-                        if (text) return text;
-                    }
-                } catch (_) {}
+                if (isGeminiRateLimitError(err)) break;
             }
         }
 
         throw lastError || new Error('All models failed');
     } catch (error) {
-        console.error('Gemini API call failed:', error);
+        if (isGeminiRateLimitError(error)) console.info('Gemini Studio tool paused by the project quota.');
+        else console.error('Gemini API call failed:', error);
         return fallbackFn ? fallbackFn() : null;
     }
 }
@@ -12286,8 +12441,13 @@ function showToast(message, type) {
 let clinicalImages = [];
 
 const WEB_CLINICAL_IMAGE_LIMIT = 6;
-const WEB_PHOTO_SOURCE_PIPELINE_VERSION = 3;
+const WEB_PHOTO_SOURCE_PIPELINE_VERSION = 4;
 const webPhotoFetchInFlight = new WeakSet();
+const wikimediaClinicalSearchCache = new Map();
+const institutionalClinicalSearchCache = new Map();
+const europePmcArticleSearchCache = new Map();
+const europePmcFullTextXmlCache = new Map();
+const europePmcSupplementaryArchiveCache = new Map();
 const TRUSTED_OPHTHALMIC_YOUTUBE_CHANNELS = Object.freeze([
     { id: 'UCZ20vVCRAsGioM8EQ1SwshQ', name: 'National Eye Institute, NIH' },
     { id: 'UCy0K_Rd-grmLTT7dVGfF1Sg', name: 'American Academy of Ophthalmology' },
@@ -12295,6 +12455,58 @@ const TRUSTED_OPHTHALMIC_YOUTUBE_CHANNELS = Object.freeze([
 ]);
 const TRUSTED_INSTITUTIONAL_MEDIA_PATTERN = /\b(National\s+Eye\s+Institute|National\s+Institutes\s+of\s+Health|NIH\s+Image\s+Gallery)\b/i;
 const JOURNAL_FIGURE_MAX_BYTES = 3 * 1024 * 1024;
+const TRUSTED_OPHTHALMIC_JOURNALS = Object.freeze([
+    { name: 'American Journal of Ophthalmology', pattern: /\bAmerican Journal of Ophthalmology\b/i },
+    { name: 'Ophthalmology', pattern: /^Ophthalmology$/i },
+    { name: 'Ophthalmology Retina', pattern: /\bOphthalmology Retina\b/i },
+    { name: 'Ophthalmology Glaucoma', pattern: /\bOphthalmology Glaucoma\b/i },
+    { name: 'Ophthalmology Science', pattern: /\bOphthalmology Science\b/i },
+    { name: 'JAMA Ophthalmology', pattern: /\bJAMA Ophthalmology\b/i },
+    { name: 'Journal of Cataract and Refractive Surgery', pattern: /\bJournal of Cataract (?:and|&) Refractive Surgery\b/i },
+    { name: 'British Journal of Ophthalmology', pattern: /\bBritish Journal of Ophthalmology\b/i },
+    { name: 'Investigative Ophthalmology & Visual Science', pattern: /\bInvestigative Ophthalmology (?:and|&) Visual Science\b/i },
+    { name: 'Retina', pattern: /^Retina$/i },
+    { name: 'Cornea', pattern: /^Cornea$/i },
+    { name: 'Journal of Glaucoma', pattern: /\bJournal of Glaucoma\b/i },
+    { name: 'Eye', pattern: /^Eye(?: \(London, England\))?$/i }
+]);
+const OPHTHALMIC_IMAGING_MODALITIES = Object.freeze([
+    {
+        id: 'oct-macula',
+        label: 'Macular OCT',
+        suitability: /\b(macula\w*|fovea\w*|retina\w*|diabet\w*|amd|armd|edema|oedema|epiretinal|macular hole|central serous|cscr|vein occlusion|rvo|uveitis|choroid\w*)\b/i,
+        detection: /\b((?:spectral|swept)[ -]?source\s+oct|macular\s+oct|optical coherence tomography|oct\s+(?:scan|image|b[ -]?scan))\b/i,
+        query: '("optical coherence tomography" OR "macular OCT" OR "OCT scan")'
+    },
+    {
+        id: 'oct-optic-nerve',
+        label: 'Optic nerve OCT',
+        suitability: /\b(glaucoma\w*|optic\s+(?:nerve|disc|disk|neuropath\w*)|papill\w*|aion|naion|neuritis|rnfl|ganglion cell|chiasm\w*)\b/i,
+        detection: /\b(optic\s+(?:nerve|disc|disk).{0,30}(?:oct|tomograph)|rnfl|retinal nerve fiber layer|ganglion cell (?:complex|layer)|gcc)\b/i,
+        query: '("optic nerve OCT" OR RNFL OR "ganglion cell complex")'
+    },
+    {
+        id: 'octa',
+        label: 'OCT angiography',
+        suitability: /\b(octa|angiograph\w*|vascular|ischemi\w*|ischaemi\w*|neovascular\w*|cnv|diabet\w*|vein occlusion|artery occlusion|amd|glaucoma\w*|optic neuropath\w*)\b/i,
+        detection: /\b(optical coherence tomography angiograph\w*|oct[ -]?a|octa)\b/i,
+        query: '("optical coherence tomography angiography" OR OCTA)'
+    },
+    {
+        id: 'ffa',
+        label: 'Fluorescein angiography',
+        suitability: /\b(fluorescein|ffa|angiograph\w*|retina\w*|diabet\w*|vascular|occlusion|neovascular\w*|cnv|uveitis|vasculitis|leak\w*|ischemi\w*|ischaemi\w*)\b/i,
+        detection: /\b(fundus fluorescein angiograph\w*|fluorescein angiograph\w*|ffa\b|fa\s+(?:image|phase|frame))\b/i,
+        query: '("fluorescein angiography" OR "fundus fluorescein angiography" OR FFA)'
+    },
+    {
+        id: 'faf',
+        label: 'Fundus autofluorescence',
+        suitability: /\b(autofluorescen\w*|faf|retinal dystroph\w*|retinitis pigmentosa|stargardt|best disease|pattern dystrophy|amd|armd|geographic atrophy|rpe|choroid\w*|white dot|uveitis|macula\w*)\b/i,
+        detection: /\b(fundus autofluorescen\w*|blue[ -]?light autofluorescen\w*|faf\b)\b/i,
+        query: '("fundus autofluorescence" OR FAF)'
+    }
+]);
 
 function cleanWebImageMetadata(value) {
     const source = String(value || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -12317,10 +12529,10 @@ function getClinicalImageSearchTopic(data) {
 const OPHTHALMIC_IMAGE_STRONG_PATTERN = /\b(ophthalm\w*|retina\w*|fundus|fundoscopy|macula\w*|fovea\w*|cornea\w*|sclera\w*|conjunctiv\w*|uvea\w*|uveitis|choroid\w*|vitre\w*|kerat\w*|cataract\w*|glaucoma\w*|retinopath\w*|optic\s+(disc|disk|nerve)|papill(edema|oedema|itis)|strabismus|amblyopia|nystagmus|anisocoria|hyphema|hyphaema|endophthalmitis|proptosis|exophthalmos|pterygium|chalazion|blepharitis|dacry\w*|ophthalmoplegia|open\s+globe|globe\s+rupture|ruptured\s+globe|intraocular|gonioscop\w*|tonometr\w*|slit[ -]?lamp|optical\s+coherence\s+tomography)\b/gi;
 const OPHTHALMIC_IMAGE_CONTEXT_PATTERN = /\b(eye|eyes|eyelid|eyelids|ocular|orbital|orbit|lacrimal|pupil|pupillary|iris|visual\s+field|vision)\b/gi;
 const CLINICAL_IMAGE_PATTERN = /\b(clinical|patient|disease|disorder|pathology|lesion|infection|inflammation|ulcer|trauma|injury|rupture|laceration|hemorrhage|haemorrhage|edema|oedema|detachment|surgery|surgical|procedure|examination|imaging|scan|radiograph|ultrasound|histology|microscopy|angiography)\b/gi;
-const NON_PHOTO_IMAGE_PATTERN = /\b(icon|logo|flag|map|diagram|chart|graph|plot|flowchart|flow\s+diagram|forest\s+plot|kaplan[ -]?meier|confusion\s+matrix|receiver\s+operating|schematic|illustration|drawing|painting|artwork|cartoon|anime|simulation|statue|sculpture|book|bookplate|book plate|page\s+\d+|plate\s+\d+|treatise|atlas|manuscript|poster|infographic|blausen)\b/i;
+const NON_PHOTO_IMAGE_PATTERN = /\b(icon|logo|flag|map|diagram|chart|graph|plot|box[ -]?plot|box\s+represents\s+the\s+iqr|error\s+bar|algorithm|decision\s+tree|flowchart|flow\s+diagram|forest\s+plot|kaplan[ -]?meier|confusion\s+matrix|receiver\s+operating|schematic|illustration|drawing|painting|artwork|cartoon|anime|simulation|statue|sculpture|book|bookplate|book plate|page\s+\d+|plate\s+\d+|treatise|atlas|manuscript|poster|infographic|blausen)\b/i;
 const NON_HUMAN_IMAGE_PATTERN = /\b(canine|dog|dogs|feline|cat|cats|horse|horses|cow|cattle|rabbit|rabbits|mouse|mice|rat|rats|bird|birds|fish|animal|animals|veterinary|zoolog\w*)\b/i;
 const GENERIC_EYE_NOISE_PATTERN = /\b(eye\s+of\s+(the\s+)?storm|eye\s+of\s+horus|evil\s+eye|makeup|mascara|eyelash|eyelashes|eyebrow|fashion|beauty|beautiful|portrait|selfie|stock\s+photo|cosplay|toy|doll|jewelry|jewellery)\b/i;
-const JOURNAL_CLINICAL_FIGURE_PATTERN = /\b(photograph|photo|image|imaging|fundus|fundoscopy|ophthalmoscop\w*|slit[ -]?lamp|optical\s+coherence\s+tomography|\bOCT\b|angiograph\w*|microscop\w*|histolog\w*|ultrasound|ultrasonograph\w*|biomicroscop\w*|topograph\w*|tomograph\w*|visual\s+field|perimetr\w*|gonioscop\w*|surgery|surgical|procedure|examination|clinical\s+appearance|preoperative|postoperative)\b/i;
+const JOURNAL_CLINICAL_FIGURE_PATTERN = /\b(photograph|photo|image|imaging|fundus|fundoscopy|ophthalmoscop\w*|slit[ -]?lamp|optical\s+coherence\s+tomography|oct[ -]?a|\bOCT\b|angiograph\w*|fluorescein|fundus\s+autofluorescen\w*|\bFAF\b|microscop\w*|histolog\w*|ultrasound|ultrasonograph\w*|biomicroscop\w*|topograph\w*|tomograph\w*|visual\s+field|perimetr\w*|gonioscop\w*|surgery|surgical|procedure|examination|clinical\s+appearance|preoperative|postoperative)\b/i;
 const THIRD_PARTY_FIGURE_RIGHTS_PATTERN = /\b(reproduced|adapted|reprinted|copyright(?:ed)?|all\s+rights\s+reserved|used\s+with\s+permission|courtesy\s+of)\b/i;
 const YOUTUBE_NON_VISUAL_PATTERN = /\b(podcast|interview|webinar|lecture|panel|conference|meeting|keynote|journal\s+club|question\s+and\s+answer|Q&A)\b/i;
 const CLINICAL_IMAGE_TOPIC_STOPWORDS = new Set([
@@ -12363,6 +12575,49 @@ function getClinicalImageTopicTokens(topic) {
         .filter(token => token.length >= 3))];
 }
 
+function getTrustedOphthalmicJournal(journalTitle) {
+    const title = cleanWebImageMetadata(journalTitle);
+    return TRUSTED_OPHTHALMIC_JOURNALS.find(journal => journal.pattern.test(title)) || null;
+}
+
+function getSuitableOphthalmicImagingModalities(topic) {
+    const normalized = cleanWebImageMetadata(topic);
+    return OPHTHALMIC_IMAGING_MODALITIES.filter(modality =>
+        modality.suitability.test(normalized) || modality.detection.test(normalized)
+    );
+}
+
+function detectOphthalmicImagingModalities(value) {
+    const metadata = cleanWebImageMetadata(value);
+    return OPHTHALMIC_IMAGING_MODALITIES
+        .filter(modality => modality.detection.test(metadata))
+        .map(modality => modality.label);
+}
+
+function buildTrustedJournalEuropePmcClause() {
+    return TRUSTED_OPHTHALMIC_JOURNALS
+        .map(journal => `JOURNAL:"${journal.name.replace(/"/g, '')}"`)
+        .join(' OR ');
+}
+
+function buildEuropePmcClinicalFigureQueries(topic) {
+    const normalizedTopic = cleanWebImageMetadata(topic).replace(/[()]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 180);
+    const modalities = getSuitableOphthalmicImagingModalities(normalizedTopic);
+    const imagingClause = modalities.map(modality => modality.query).join(' OR ');
+    const journalClause = buildTrustedJournalEuropePmcClause();
+    const filters = 'OPEN_ACCESS:Y AND HAS_FT:Y';
+    const topicClause = `(${normalizedTopic || 'ophthalmology'})`;
+    return {
+        modalities,
+        queries: [
+            `${topicClause}${imagingClause ? ` AND (${imagingClause})` : ''} AND (${journalClause}) AND ${filters}`,
+            `${topicClause}${imagingClause ? ` AND (${imagingClause})` : ''} AND ${filters}`,
+            `${topicClause} AND (${journalClause}) AND ${filters}`,
+            `${topicClause} AND ${filters}`
+        ]
+    };
+}
+
 function scoreClinicalImageRelevance(image, topic) {
     const metadata = normalizeClinicalImageSearchText([
         image?.alt,
@@ -12396,7 +12651,14 @@ function scoreClinicalImageRelevance(image, topic) {
             || prefix.includes('no');
     }));
     const genericNoise = GENERIC_EYE_NOISE_PATTERN.test(metadata) && !(strongMatches > 0 && clinicalMatches > 0);
-    const score = strongMatches * 5 + contextMatches * 2 + clinicalMatches * 2 + topicMatches.length * 4;
+    const requestedModalities = getSuitableOphthalmicImagingModalities(topic).map(modality => modality.label);
+    const detectedModalities = image?.imagingModalities || detectOphthalmicImagingModalities(metadata);
+    const modalityMatches = detectedModalities.filter(modality => requestedModalities.includes(modality));
+    const trustedJournalBoost = image?.trustedJournal ? 10 : 0;
+    const journalFigureBoost = image?.journalFigure ? 4 : 0;
+    const modalityBoost = modalityMatches.length * 6;
+    const score = strongMatches * 5 + contextMatches * 2 + clinicalMatches * 2 + topicMatches.length * 4
+        + trustedJournalBoost + journalFigureBoost + modalityBoost;
     const minimumScore = topicTokens.length ? 7 : 5;
     return {
         accepted: !hardRejected && !genericNoise && !negatedTopicMatch && hasOphthalmicAnchor && hasTopicMatch && score >= minimumScore,
@@ -12405,7 +12667,8 @@ function scoreClinicalImageRelevance(image, topic) {
         topicTokenCount: topicTokens.length,
         strongMatches,
         contextMatches,
-        clinicalMatches
+        clinicalMatches,
+        modalityMatches
     };
 }
 
@@ -12440,9 +12703,12 @@ async function searchWikimediaClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
         iiprop: 'url|extmetadata|mime|size',
         iiurlwidth: '1000'
     });
-    const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params.toString()}`);
-    if (!response.ok) throw new Error(`Wikimedia Commons returned ${response.status}`);
-    const pages = Object.values((await response.json())?.query?.pages || {});
+    const searchResult = await getCachedClinicalImageResource(wikimediaClinicalSearchCache, params.toString(), 40, async () => {
+        const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params.toString()}`);
+        if (!response.ok) throw new Error(`Wikimedia Commons returned ${response.status}`);
+        return response.json();
+    });
+    const pages = Object.values(searchResult?.query?.pages || {});
     const seen = new Set();
     return pages.map(page => {
         const info = page?.imageinfo?.[0] || {};
@@ -12492,9 +12758,12 @@ async function searchTrustedInstitutionalClinicalImages(topic, limit = WEB_CLINI
         iiprop: 'url|extmetadata|mime|size',
         iiurlwidth: '1000'
     });
-    const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params.toString()}`);
-    if (!response.ok) throw new Error(`Wikimedia institutional search returned ${response.status}`);
-    const pages = Object.values((await response.json())?.query?.pages || {});
+    const searchResult = await getCachedClinicalImageResource(institutionalClinicalSearchCache, params.toString(), 40, async () => {
+        const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params.toString()}`);
+        if (!response.ok) throw new Error(`Wikimedia institutional search returned ${response.status}`);
+        return response.json();
+    });
+    const pages = Object.values(searchResult?.query?.pages || {});
     const seen = new Set();
     return pages.map(page => {
         const info = page?.imageinfo?.[0] || {};
@@ -12578,6 +12847,48 @@ function getEuropePmcFigureFileName(fig) {
         || graphic?.getAttribute('href'));
 }
 
+function getCachedClinicalImageResource(cache, key, maxEntries, factory) {
+    if (cache.has(key)) return cache.get(key);
+    const request = Promise.resolve().then(factory).catch(error => {
+        if (cache.get(key) === request) cache.delete(key);
+        throw error;
+    });
+    cache.set(key, request);
+    while (cache.size > maxEntries) {
+        const oldestKey = cache.keys().next().value;
+        if (oldestKey === undefined) break;
+        cache.delete(oldestKey);
+    }
+    return request;
+}
+
+function searchEuropePmcArticlesCached(query) {
+    return getCachedClinicalImageResource(europePmcArticleSearchCache, query, 30, async () => {
+        const searchParams = new URLSearchParams({ query, format: 'json', pageSize: '6', resultType: 'core' });
+        const response = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/search?${searchParams.toString()}`);
+        if (!response.ok) throw new Error(`Europe PMC search returned ${response.status}`);
+        return (await response.json())?.resultList?.result || [];
+    });
+}
+
+function getEuropePmcFullTextXmlCached(pmcid) {
+    return getCachedClinicalImageResource(europePmcFullTextXmlCache, pmcid, 24, async () => {
+        const response = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/${encodeURIComponent(pmcid)}/fullTextXML`);
+        if (!response.ok) throw new Error(`Europe PMC full text returned ${response.status}`);
+        const xml = new DOMParser().parseFromString(await response.text(), 'application/xml');
+        if (xml.querySelector('parsererror')) throw new Error('Europe PMC returned invalid article XML');
+        return xml;
+    });
+}
+
+function getEuropePmcSupplementaryArchiveCached(pmcid) {
+    return getCachedClinicalImageResource(europePmcSupplementaryArchiveCache, pmcid, 8, async () => {
+        const response = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/${encodeURIComponent(pmcid)}/supplementaryFiles`);
+        if (!response.ok) throw new Error(`Europe PMC figure archive returned ${response.status}`);
+        return window.JSZip.loadAsync(await response.arrayBuffer());
+    });
+}
+
 function blobToClinicalImageDataUrl(blob) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -12589,41 +12900,63 @@ function blobToClinicalImageDataUrl(blob) {
 
 async function searchEuropePmcClinicalFigures(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
     if (!window.JSZip) return [];
-    const searchParams = new URLSearchParams({
-        query: `(${topic}) AND OPEN_ACCESS:Y AND HAS_FT:Y`,
-        format: 'json',
-        pageSize: '4',
-        resultType: 'core'
-    });
-    const searchResponse = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/search?${searchParams.toString()}`);
-    if (!searchResponse.ok) throw new Error(`Europe PMC search returned ${searchResponse.status}`);
-    const articles = (await searchResponse.json())?.resultList?.result || [];
-    const candidatesByArticle = [];
-    for (const article of articles.filter(item => item?.pmcid).slice(0, 3)) {
+    const { modalities: requestedModalities, queries } = buildEuropePmcClinicalFigureQueries(topic);
+    const articleMap = new Map();
+    let completedSearch = false;
+    for (const query of [...new Set(queries)]) {
         try {
-            const xmlResponse = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/${encodeURIComponent(article.pmcid)}/fullTextXML`);
-            if (!xmlResponse.ok) continue;
-            const xml = new DOMParser().parseFromString(await xmlResponse.text(), 'application/xml');
-            if (xml.querySelector('parsererror')) continue;
+            const results = await searchEuropePmcArticlesCached(query);
+            completedSearch = true;
+            results.filter(article => article?.pmcid).forEach(article => {
+                if (!articleMap.has(article.pmcid)) articleMap.set(article.pmcid, article);
+            });
+            if (articleMap.size >= 6) break;
+        } catch (error) {
+            console.info('[ClinicalImages] Europe PMC search unavailable; trying the next query.', error?.message || error);
+        }
+    }
+    if (!completedSearch) throw new Error('Europe PMC searches were unavailable');
+    const requestedModalityLabels = requestedModalities.map(modality => modality.label);
+    const articles = [...articleMap.values()].sort((a, b) => {
+        const aJournal = getTrustedOphthalmicJournal(getEuropePmcJournalTitle(a));
+        const bJournal = getTrustedOphthalmicJournal(getEuropePmcJournalTitle(b));
+        const aModalities = detectOphthalmicImagingModalities(`${a.title || ''} ${a.abstractText || ''}`)
+            .filter(modality => requestedModalityLabels.includes(modality)).length;
+        const bModalities = detectOphthalmicImagingModalities(`${b.title || ''} ${b.abstractText || ''}`)
+            .filter(modality => requestedModalityLabels.includes(modality)).length;
+        return Number(Boolean(bJournal)) - Number(Boolean(aJournal))
+            || bModalities - aModalities
+            || (Number(b.citedByCount) || 0) - (Number(a.citedByCount) || 0);
+    });
+    const candidatesByArticle = [];
+    for (const article of articles.slice(0, 5)) {
+        try {
+            const xml = await getEuropePmcFullTextXmlCached(article.pmcid);
             const licence = getEuropePmcFigureLicense(xml);
             if (!licence) continue;
             const articleTitle = cleanWebImageMetadata(article.title || getXmlElementTextByLocalName(xml, 'article-title'));
+            const journalTitle = getEuropePmcJournalTitle(article) || getXmlElementTextByLocalName(xml, 'journal-title');
+            const trustedJournal = getTrustedOphthalmicJournal(journalTitle);
             const figures = [...xml.querySelectorAll('fig')].map((fig, figureIndex) => {
                 const filename = getEuropePmcFigureFileName(fig);
                 const label = getXmlElementTextByLocalName(fig, 'label');
                 const caption = getXmlElementTextByLocalName(fig, 'caption');
+                const imagingModalities = detectOphthalmicImagingModalities(`${articleTitle} ${caption}`);
                 const image = {
                     id: `europepmc_${article.pmcid}_${filename || figureIndex}`,
                     alt: cleanWebImageMetadata([label, caption].filter(Boolean).join(': ')).slice(0, 320) || `Figure from ${articleTitle}`,
                     description: caption,
-                    searchMetadata: [articleTitle, caption, article.journalTitle, 'peer reviewed ophthalmology journal clinical figure']
+                    searchMetadata: [articleTitle, caption, journalTitle, imagingModalities.join(' '), 'peer reviewed ophthalmology journal clinical figure']
                         .map(cleanWebImageMetadata).filter(Boolean).join(' '),
                     sourceUrl: `https://europepmc.org/articles/${encodeURIComponent(article.pmcid)}`,
-                    source: `${cleanWebImageMetadata(article.journalTitle || 'Peer-reviewed journal')} via Europe PMC`,
-                    provider: 'Europe PMC open-access journal',
+                    source: `${journalTitle || 'Peer-reviewed journal'} via Europe PMC`,
+                    provider: trustedJournal ? 'High-impact ophthalmology journal via Europe PMC' : 'Europe PMC open-access journal',
                     license: licence.label,
                     licenseUrl: licence.url,
                     attribution: cleanWebImageMetadata(article.authorString),
+                    journalTitle,
+                    trustedJournal: trustedJournal?.name || '',
+                    imagingModalities,
                     journalFigure: true,
                     webSource: true,
                     filename
@@ -12645,9 +12978,7 @@ async function searchEuropePmcClinicalFigures(topic, limit = WEB_CLINICAL_IMAGE_
     for (const entry of candidatesByArticle) {
         if (images.length >= Math.min(limit, 2)) break;
         try {
-            const zipResponse = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/${encodeURIComponent(entry.article.pmcid)}/supplementaryFiles`);
-            if (!zipResponse.ok) continue;
-            const archive = await window.JSZip.loadAsync(await zipResponse.arrayBuffer());
+            const archive = await getEuropePmcSupplementaryArchiveCached(entry.article.pmcid);
             for (const candidate of entry.figures) {
                 if (images.length >= Math.min(limit, 2)) break;
                 const archiveFile = archive.file(candidate.filename)
@@ -12756,12 +13087,15 @@ function renderSectionClinicalPhotos(data, sectionIndex) {
     return `<div class="section-clinical-photos" aria-label="Clinical photos for this section">
         ${images.map(image => {
             const creator = image.attribution ? ` · ${escapeHtml(image.attribution)}` : '';
+            const modalities = Array.isArray(image.imagingModalities) && image.imagingModalities.length
+                ? ` · ${escapeHtml(image.imagingModalities.join(', '))}`
+                : '';
             const licenseLabel = escapeHtml(image.license || 'Licence details');
             return `<figure class="section-clinical-photo">
                 <a href="${escapeHtml(image.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Open image source">
                     <img src="${escapeHtml(image.dataUrl)}" alt="${escapeHtml(image.alt)}" loading="lazy" crossorigin="anonymous">
                 </a>
-                <figcaption><span>${escapeHtml(image.alt)}</span><small><a href="${escapeHtml(image.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(image.source || 'View source')}</a>${creator}${image.licenseUrl ? ` · <a href="${escapeHtml(image.licenseUrl)}" target="_blank" rel="noopener noreferrer">${licenseLabel}</a>` : ` · ${licenseLabel}`}</small></figcaption>
+                <figcaption><span>${escapeHtml(image.alt)}</span><small><a href="${escapeHtml(image.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(image.source || 'View source')}</a>${modalities}${creator}${image.licenseUrl ? ` · <a href="${escapeHtml(image.licenseUrl)}" target="_blank" rel="noopener noreferrer">${licenseLabel}</a>` : ` · ${licenseLabel}`}</small></figcaption>
             </figure>`;
         }).join('')}
     </div>`;
@@ -12795,7 +13129,7 @@ function createWebPhotoConsentControl(data) {
         <label class="web-photo-consent-label" for="web-photo-consent-checkbox">
             <input type="checkbox" id="web-photo-consent-checkbox" ${data?.webPhotoConsent === true ? 'checked' : ''}>
             <span class="web-photo-consent-check"><span class="material-symbols-rounded">check</span></span>
-            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches open-access journal figures, verified NIH/NEI media, official ophthalmology YouTube channels, and Wikimedia Commons. Every result must pass strict human ophthalmic, clinical, and section-topic checks; animals, artwork, diagrams, book scans, and cosmetic imagery are excluded. YouTube is used when the selected Google key has YouTube Data API access.</small></span>
+            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Prioritizes reusable figures from leading journals (AJO, AAO Ophthalmology titles, JCRS, JAMA Ophthalmology, BJO, IOVS, Retina, Cornea and Eye), then verified NIH/NEI media, official ophthalmology channels and Wikimedia Commons. When appropriate, it specifically searches macular/optic-nerve OCT, OCTA, FFA and FAF. Every result must pass strict ophthalmic, clinical, section-topic and licence checks.</small></span>
         </label>
         <span id="web-photo-consent-status" class="web-photo-consent-status" data-status="info">${sectionPhotoCount ? `${sectionPhotoCount} credited section photo${sectionPhotoCount === 1 ? '' : 's'} attached.` : 'Photo fetching is off.'}</span>`;
     const checkbox = control.querySelector('#web-photo-consent-checkbox');
@@ -12851,7 +13185,7 @@ function renderWebClinicalImages(data) {
     section.innerHTML = `
         <div class="web-clinical-images-heading">
             <span class="material-symbols-rounded">photo_library</span>
-            <div><h2>Relevant ophthalmic photos</h2><p>Credited open-access journal, verified institutional and channel, and Wikimedia media that passed ocular anatomy, clinical context, topic-match, and non-photo exclusion checks.</p></div>
+            <div><h2>Relevant ophthalmic photos</h2><p>Credited, reusable figures prioritized from leading ophthalmology journals—including suitable OCT, OCTA, FFA and FAF—plus verified institutional, channel and Wikimedia media that passed ocular anatomy, clinical context, topic-match and non-photo exclusion checks.</p></div>
         </div>
         <div class="web-clinical-images-grid">
             ${images.map(image => {
@@ -16462,17 +16796,29 @@ function setupKanskiPics() {
         /\blaser\s+(scar|spot|photocoagulation)\b/i,
         /\bcryotherap\b/i
     ];
+    const KANSKI_STRONG_FIGURE_PATTERNS = [
+        /\bfig(?:ure|\.)?\s*\d/i,
+        /\b(?:clinical|external|slit[-\s]?lamp|surgical)\s+photo(?:graph)?/i,
+        /\bfundus(?:copy|copic| photograph| image)?\b/i,
+        /\boptical coherence tomography\b|\b(?:macular|optic nerve)?\s*oct(?:a| scan| image| b[-\s]?scan)?\b/i,
+        /\bfluorescein angiograph\w*\b|\bfundus autofluorescen\w*\b|\bffa\b|\bfaf\b/i,
+        /\bangiograph\w*\b|\bgonioscop\w*\b|\bcorneal topograph\w*\b/i,
+        /\bultrasound\b|\bb[-\s]?scan\b|\bultrasound biomicroscop\w*\b|\bubm\b/i,
+        /\bct scan\b|\bmri\b|\bcoronal\b|\bsagittal\b|\baxial\b/i,
+        /\bhistopatholog\w*\b|\bhistolog\w*\b|\bimmunohistochem\w*\b/i,
+        /\bvisual field\b|\bperimetr\w*\b|\bhumphrey\b|\bgoldmann\b/i,
+        /\bwidefield\b|\bred[-\s]?free\b|\bmontage\b/i
+    ];
+    const KANSKI_PAGE_NOISE_PATTERN = /\b(table of contents|contents|bibliography|references|subject index|index of terms|acknowledgements|contributors)\b/i;
 
     function scoreKanskiPages(weightedKeywords, primaryTopicTerms, options = {}) {
-        const primarySet = new Set(primaryTopicTerms.map(t => t.toLowerCase()));
+        const fallbackPrimaryTerms = weightedKeywords
+            .filter(keyword => keyword.weight >= 20 && keyword.term.split(/\s+/).length <= 6)
+            .slice(0, 4)
+            .map(keyword => keyword.term);
+        const scopedPrimaryTerms = primaryTopicTerms.length ? primaryTopicTerms : fallbackPrimaryTerms;
+        const primarySet = new Set(scopedPrimaryTerms.map(term => term.toLowerCase()));
         const scored = [];
-
-        // Build relaxed primary word set — individual meaningful words from the topic terms
-        const primaryWords = new Set();
-        for (const pt of primaryTopicTerms) {
-            const words = pt.toLowerCase().split(/[\s\-_]+/).filter(w => w.length >= 4);
-            for (const w of words) primaryWords.add(w);
-        }
 
         // Synonym map for common abbreviations/synonyms
         const SYNONYM_MAP = {
@@ -16513,27 +16859,50 @@ function setupKanskiPics() {
             'optic atrophy': ['optic nerve pallor', 'disc pallor', 'pale disc']
         };
 
-        for (const { pageNum, text } of kanskiPageTexts) {
-            if (!text || text.length < 50) continue;
-            const textLower = text.toLowerCase();
+        const pageTextByNumber = new Map(kanskiPageTexts.map(page => [Number(page.pageNum), String(page.text || '')]));
 
-            // ── Determine if page contains a primary topic term ──
-            let hasPrimary = primaryTopicTerms.length === 0;
-            if (!hasPrimary) {
-                for (const pt of primaryTopicTerms) {
-                    const ptLower = pt.toLowerCase();
-                    if (textLower.includes(ptLower)) { hasPrimary = true; break; }
-                    const synonyms = SYNONYM_MAP[ptLower];
-                    if (synonyms && synonyms.some(syn => textLower.includes(syn))) { hasPrimary = true; break; }
-                    for (const word of primaryWords) {
-                        if (word.length >= 4 && textLower.includes(word)) { hasPrimary = true; break; }
-                    }
-                    if (hasPrimary) break;
+        for (const { pageNum, text: rawText } of kanskiPageTexts) {
+            const text = String(rawText || '');
+            const previousText = pageTextByNumber.get(Number(pageNum) - 1) || '';
+            const nextText = pageTextByNumber.get(Number(pageNum) + 1) || '';
+            const neighbourText = `${previousText.slice(-800)} ${nextText.slice(0, 800)}`;
+            if (text.length < 20 && neighbourText.length < 80) continue;
+            const textLower = text.toLowerCase();
+            const contextLower = `${text} ${neighbourText}`.toLowerCase();
+
+            // Exact topic phrases and synonyms outrank loose component words.
+            // Neighbouring-page context can rescue an image-only page, but only
+            // when the current page has a strong figure/caption signal.
+            let primaryMatchStrength = scopedPrimaryTerms.length ? 0 : 1;
+            const matchedPrimaryTerms = [];
+            for (const pt of scopedPrimaryTerms) {
+                const ptLower = pt.toLowerCase();
+                const synonyms = SYNONYM_MAP[ptLower] || [];
+                if (textLower.includes(ptLower)) {
+                    primaryMatchStrength = Math.max(primaryMatchStrength, 4);
+                    matchedPrimaryTerms.push(ptLower);
+                    continue;
+                }
+                if (synonyms.some(synonym => textLower.includes(synonym))) {
+                    primaryMatchStrength = Math.max(primaryMatchStrength, 3);
+                    matchedPrimaryTerms.push(ptLower);
+                    continue;
+                }
+                const phraseWords = ptLower.split(/[\s\-_]+/).filter(word => word.length >= 4);
+                const currentWordHits = phraseWords.filter(word => textLower.includes(word)).length;
+                const requiredWordHits = phraseWords.length <= 2 ? phraseWords.length : Math.max(2, Math.ceil(phraseWords.length * 0.67));
+                if (phraseWords.length && currentWordHits >= requiredWordHits) {
+                    primaryMatchStrength = Math.max(primaryMatchStrength, 2);
+                    matchedPrimaryTerms.push(ptLower);
+                } else if (contextLower.includes(ptLower) || synonyms.some(synonym => contextLower.includes(synonym))) {
+                    primaryMatchStrength = Math.max(primaryMatchStrength, 1);
+                    matchedPrimaryTerms.push(ptLower);
                 }
             }
+            if (!primaryMatchStrength) continue;
 
-            // ── Weighted keyword counting ──
-            let score = 0, primaryHits = 0;
+            let score = 0;
+            let primaryHits = 0;
             const matchedKeywords = [];
             for (const { term, weight } of weightedKeywords) {
                 const kwLower = term.toLowerCase();
@@ -16541,48 +16910,52 @@ function setupKanskiPics() {
                 const regex = kwLower.length < 5
                     ? new RegExp(`\\b${escaped}\\b`, 'gi')
                     : new RegExp(`\\b${escaped}`, 'gi');
-                const matches = text.match(regex);
-                if (matches) {
-                    score += matches.length * weight;
-                    if (weight >= 20) primaryHits += matches.length;
+                const currentMatches = text.match(regex) || [];
+                const neighbourMatches = currentMatches.length ? [] : (neighbourText.match(regex) || []);
+                if (currentMatches.length || neighbourMatches.length) {
+                    const boundedCurrentHits = Math.min(currentMatches.length, 6);
+                    const boundedNeighbourHits = Math.min(neighbourMatches.length, 2);
+                    score += boundedCurrentHits * weight + boundedNeighbourHits * weight * 0.25;
+                    if (weight >= 20) primaryHits += boundedCurrentHits;
                     if (!matchedKeywords.includes(term)) matchedKeywords.push(term);
                 }
             }
-            if (score === 0) continue;
 
-            // ── Relaxed gate: skip only if NO primary topic AND low keyword score ──
-            if (!hasPrimary && score < 25) continue;
+            const strongFigureHits = KANSKI_STRONG_FIGURE_PATTERNS.filter(pattern => pattern.test(text)).length;
+            const broadFigureHits = FIGURE_HINT_PATTERNS.filter(pattern => pattern.test(text)).length;
+            if (primaryMatchStrength === 1 && strongFigureHits === 0) continue;
+            if (KANSKI_PAGE_NOISE_PATTERN.test(text) && strongFigureHits === 0) continue;
 
-            // ── Figure/caption boost: pages that LOOK like image pages get a bump ──
-            let figureBoost = 0;
-            for (const pat of FIGURE_HINT_PATTERNS) {
-                if (pat.test(text)) figureBoost += 15;
-            }
-            // Cap the boost so short-text figure pages don't drown out real content pages
-            if (figureBoost > 60) figureBoost = 60;
-            score += figureBoost;
+            const figureBoost = Math.min(85, strongFigureHits * 22 + Math.max(0, broadFigureHits - strongFigureHits) * 3);
+            const detectedModalities = detectOphthalmicImagingModalities(text);
+            const modalityBoost = Math.min(50, detectedModalities.length * 25);
+            const imageHeavyBoost = text.length < 700 && strongFigureHits > 0 ? 30 : 0;
+            const longTextPenalty = strongFigureHits === 0 && text.length > 1800 ? Math.min(45, Math.round((text.length - 1800) / 120)) : 0;
+            score += primaryMatchStrength * 70 + figureBoost + modalityBoost + imageHeavyBoost - longTextPenalty;
 
-            // ── Short-text (image-heavy) pages get a small bump proportional to primary hits ──
-            if (text.length < 600 && primaryHits > 0) {
-                score += 20 + primaryHits * 5;
-            }
-
-            // ── Proximity bonus: primary topic mentioned near a figure keyword ──
-            if (primaryHits > 0) {
-                for (const pt of primarySet) {
-                    const idx = textLower.indexOf(pt);
-                    if (idx === -1) continue;
-                    const window = textLower.slice(Math.max(0, idx - 80), idx + 80);
-                    if (/\bfig(?:ure|\.)?\s*\d/.test(window) || /\barrow/.test(window)) {
-                        score += 25;
-                    }
-                }
+            for (const pt of new Set([...primarySet, ...matchedPrimaryTerms])) {
+                const idx = textLower.indexOf(pt);
+                if (idx === -1) continue;
+                const proximityWindow = textLower.slice(Math.max(0, idx - 220), idx + pt.length + 220);
+                if (KANSKI_STRONG_FIGURE_PATTERNS.some(pattern => pattern.test(proximityWindow))) score += 35;
             }
 
-            scored.push({ pageNum, score, primaryHits, matchedKeywords, textLen: text.length, figureBoost });
+            if (score < 90) continue;
+            scored.push({
+                pageNum,
+                score: Math.round(score),
+                primaryHits,
+                primaryMatchStrength,
+                matchedKeywords: [...new Set([...matchedPrimaryTerms, ...detectedModalities, ...matchedKeywords])],
+                imagingModalities: detectedModalities,
+                textLen: text.length,
+                figureBoost
+            });
         }
 
-        scored.sort((a, b) => (b.primaryHits - a.primaryHits) || (b.score - a.score));
+        scored.sort((a, b) => (b.score - a.score)
+            || (b.primaryMatchStrength - a.primaryMatchStrength)
+            || (b.figureBoost - a.figureBoost));
         return scored;
     }
 
@@ -18241,7 +18614,7 @@ async function findMatchingNotes(infographicTitle, sections) {
             const prompt = `Given an ophthalmology infographic titled "${infographicTitle}", rank these notes by relevance (most relevant first). Return ONLY a JSON array of note indices (1-based), e.g. [3,1,5,2,4]. Notes:\n${notesSummary}`;
 
             const modelName = GEMINI_FLASH_MODEL;
-            const resp = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
+            const resp = await fetchGeminiWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
                 body: JSON.stringify({
@@ -18251,20 +18624,7 @@ async function findMatchingNotes(infographicTitle, sections) {
             });
             let responseText = '';
             if (!resp.ok) {
-                const oaiResp = await fetch('https://generativelanguage.googleapis.com/v1beta/openai/chat/completions', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
-                    body: JSON.stringify({
-                        model: modelName,
-                        messages: [{ role: 'user', content: prompt }],
-                        max_tokens: 1024,
-                        // Do not send deprecated sampling parameters.
-                    })
-                });
-                if (oaiResp.ok) {
-                    const oaiData = await oaiResp.json();
-                    responseText = (oaiData?.choices?.[0]?.message?.content || '').trim();
-                }
+                throw await createGeminiHttpError(resp);
             } else {
                 const data = await resp.json();
                 responseText = (data?.candidates?.[0]?.content?.parts?.map(p => p.text).filter(Boolean).join('') || '').trim();

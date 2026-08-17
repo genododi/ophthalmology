@@ -5808,6 +5808,7 @@ textarea:focus {
 
 .gemini-key-item.status-trying { border-left-color: #d97706; }
 .gemini-key-item.status-success { border-left-color: #16a34a; }
+.gemini-key-item.status-cooldown { border-left-color: #2563eb; }
 .gemini-key-item.status-failed { border-left-color: #dc2626; }
 
 .gemini-key-select {
@@ -5981,6 +5982,7 @@ textarea:focus {
 
 .status-trying .gemini-key-status { background: #fef3c7; color: #92400e; }
 .status-success .gemini-key-status { background: #dcfce7; color: #166534; }
+.status-cooldown .gemini-key-status { background: #dbeafe; color: #1d4ed8; }
 .status-failed .gemini-key-status { background: #fee2e2; color: #991b1b; }
 
 .gemini-key-item .gemini-key-remove,

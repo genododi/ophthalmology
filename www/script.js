@@ -88,6 +88,7 @@ function createGeminiKeyRecord(key) {
         attempts: 0,
         successes: 0,
         failures: 0,
+        blocked: false,
         cooldownUntil: 0
     };
 }
@@ -103,11 +104,14 @@ function getGeminiKeyScore(item) {
 
 function getRecommendedGeminiKeyRecord() {
     return geminiApiKeys.slice().sort((a, b) => {
+        const aBlocked = Boolean(a?.blocked);
+        const bBlocked = Boolean(b?.blocked);
         const aCoolingDown = getGeminiKeyCooldownMs(a) > 0;
         const bCoolingDown = getGeminiKeyCooldownMs(b) > 0;
         const aScore = getGeminiKeyScore(a);
         const bScore = getGeminiKeyScore(b);
-        return Number(aCoolingDown) - Number(bCoolingDown) ||
+        return Number(aBlocked) - Number(bBlocked) ||
+            Number(aCoolingDown) - Number(bCoolingDown) ||
             (bScore ?? -1) - (aScore ?? -1) ||
             (Number(b.successes) || 0) - (Number(a.successes) || 0) ||
             (Number(a.failures) || 0) - (Number(b.failures) || 0);
@@ -132,7 +136,12 @@ function getSelectedGeminiKeyId() {
 
 function getSelectedGeminiKeyRecord() {
     const selectedId = getSelectedGeminiKeyId();
-    return geminiApiKeys.find(item => item.id === selectedId) || geminiApiKeys[0] || null;
+    const selected = geminiApiKeys.find(item => item.id === selectedId) || null;
+    return (selected && !selected.blocked ? selected : null)
+        || geminiApiKeys.find(item => !item.blocked)
+        || selected
+        || geminiApiKeys[0]
+        || null;
 }
 
 function selectGeminiApiKey(id) {
@@ -160,7 +169,7 @@ function splitGeminiApiKeys(raw) {
     return String(raw || '')
         .split(/[\s,;]+/)
         .map(key => key.trim())
-        .filter(isValidGeminiApiKey);
+        .filter(key => isValidGeminiApiKey(key) && !isLegacyBundledGeminiApiKey(key));
 }
 
 function maskGeminiApiKey(key) {
@@ -182,7 +191,7 @@ function renderGeminiKeyPool() {
             return `
             <div class="gemini-key-item status-${escapeHtml(item.status)}" title="${escapeHtml(item.message || 'Ready to use')}">
                 <label class="gemini-key-select">
-                    <input type="radio" name="gemini-api-key-choice" value="${escapeHtml(item.id)}" ${selected?.id === item.id ? 'checked' : ''}>
+                    <input type="radio" name="gemini-api-key-choice" value="${escapeHtml(item.id)}" ${selected?.id === item.id ? 'checked' : ''} ${item.blocked ? 'disabled' : ''}>
                     <span class="gemini-key-name">Key ${index + 1}${recommended?.id === item.id ? ' · Recommended' : ''}</span>
                     <code>${escapeHtml(maskGeminiApiKey(item.key))}</code>
                     <small class="gemini-key-score">${escapeHtml(stats)}</small>
@@ -197,9 +206,10 @@ function renderGeminiKeyPool() {
 
     if (geminiKeySummary) {
         const failed = geminiApiKeys.filter(item => item.status === 'failed').length;
+        const blocked = geminiApiKeys.filter(item => item.blocked).length;
         const recommended = getRecommendedGeminiKeyRecord();
         const score = getGeminiKeyScore(recommended);
-        geminiKeySummary.textContent = `${geminiApiKeys.length} saved${failed ? `, ${failed} failed` : ''}${recommended ? ` · Key ${geminiApiKeys.indexOf(recommended) + 1} recommended${score === null ? '' : ` (${score}%)`}` : ''}`;
+        geminiKeySummary.textContent = `${geminiApiKeys.length} saved${blocked ? `, ${blocked} blocked` : ''}${failed ? `, ${failed} failed` : ''}${recommended && !recommended.blocked ? ` · Key ${geminiApiKeys.indexOf(recommended) + 1} recommended${score === null ? '' : ` (${score}%)`}` : ''}`;
     }
     if (geminiKeyVisibilityBtn) {
         geminiKeyVisibilityBtn.innerHTML = `<span class="material-symbols-rounded">${revealGeminiApiKeys ? 'visibility_off' : 'visibility'}</span>`;
@@ -218,7 +228,17 @@ function addGeminiApiKeys(raw) {
     const keys = splitGeminiApiKeys(raw);
     const addedRecords = [];
     keys.forEach(key => {
-        if (geminiApiKeys.some(item => item.key === key)) return;
+        const existing = geminiApiKeys.find(item => item.key === key);
+        if (existing) {
+            if (existing.blocked || existing.status === 'failed' || existing.status === 'cooldown') {
+                existing.blocked = false;
+                existing.status = 'ready';
+                existing.message = '';
+                existing.cooldownUntil = 0;
+                addedRecords.push(existing);
+            }
+            return;
+        }
         const record = createGeminiKeyRecord(key);
         geminiApiKeys.push(record);
         addedRecords.push(record);
@@ -255,7 +275,10 @@ function recordGeminiKeyOutcome(id, succeeded, message = '') {
     else item.failures = (Number(item.failures) || 0) + 1;
     item.status = succeeded ? 'success' : 'failed';
     item.message = message;
-    if (succeeded) item.cooldownUntil = 0;
+    if (succeeded) {
+        item.blocked = false;
+        item.cooldownUntil = 0;
+    }
     persistGeminiApiKeys();
     renderGeminiKeyPool();
 }
@@ -274,6 +297,19 @@ function recordGeminiKeyRateLimit(id, error) {
     item.message = error?.dailyQuota
         ? 'Daily project quota reached'
         : `Rate limited · retry in about ${Math.max(1, Math.ceil(cooldownMs / 1000))}s`;
+    persistGeminiApiKeys();
+    renderGeminiKeyPool();
+}
+
+function recordGeminiKeyBlocked(id) {
+    const item = geminiApiKeys.find(keyItem => keyItem.id === id);
+    if (!item) return;
+    item.attempts = (Number(item.attempts) || 0) + 1;
+    item.failures = (Number(item.failures) || 0) + 1;
+    item.blocked = true;
+    item.cooldownUntil = 0;
+    item.status = 'blocked';
+    item.message = 'Google denied this project access. Resolve the restriction in Google Cloud before retrying this key.';
     persistGeminiApiKeys();
     renderGeminiKeyPool();
 }
@@ -297,15 +333,21 @@ async function initGeminiApiKeys() {
         if (Array.isArray(stored)) {
             geminiApiKeys = stored
                 .filter(item => isValidGeminiApiKey(item?.key) && !isLegacyBundledGeminiApiKey(item.key))
-                .map(item => ({
-                    ...createGeminiKeyRecord(item.key),
-                    ...item,
-                    attempts: Number(item.attempts) || 0,
-                    successes: Number(item.successes) || 0,
-                    failures: Number(item.failures) || 0,
-                    cooldownUntil: Number(item.cooldownUntil) || 0,
-                    status: item.status === 'trying' ? 'ready' : (item.status || 'ready')
-                }));
+                .map(item => {
+                    const blocked = Boolean(item.blocked)
+                        || item.status === 'blocked'
+                        || /project has been denied access|access restricted/i.test(String(item.message || ''));
+                    return {
+                        ...createGeminiKeyRecord(item.key),
+                        ...item,
+                        attempts: Number(item.attempts) || 0,
+                        successes: Number(item.successes) || 0,
+                        failures: Number(item.failures) || 0,
+                        blocked,
+                        cooldownUntil: Number(item.cooldownUntil) || 0,
+                        status: blocked ? 'blocked' : (item.status === 'trying' ? 'ready' : (item.status || 'ready'))
+                    };
+                });
         }
         const legacyKey = localStorage.getItem(GEMINI_API_KEY_STORAGE) || '';
         if (isValidGeminiApiKey(legacyKey) && !isLegacyBundledGeminiApiKey(legacyKey) && !geminiApiKeys.some(item => item.key === legacyKey)) {
@@ -7412,6 +7454,8 @@ generateBtn.addEventListener('click', async () => {
     } catch (error) {
         if (generationSource === 'gemini' && isGeminiRateLimitError(error)) {
             console.info('Gemini generation paused by the project quota:', getGeminiErrorMessage(error));
+        } else if (generationSource === 'gemini' && isGeminiProjectAccessDeniedError(error)) {
+            console.info('Gemini generation stopped because Google denied this project access.');
         } else {
             console.error('Generation Error:', error);
         }
@@ -7860,9 +7904,10 @@ function buildPreservationBlock() {
 HOWEVER: You MAY supplement the user's text with additional medical/ophthalmology knowledge to enrich the infographic. Add relevant clinical pearls, differential diagnoses, investigation workups, management protocols, red flags, and mnemonics that are clinically accurate and pertinent to the topic, even if not explicitly stated in the input. The user's original text must still be preserved in full.`;
 }
 
-// Google lists this exact stable model as its latest Flash release and
-// currently makes standard input/output available on the Gemini API free tier.
-const GEMINI_FLASH_MODEL = 'gemini-3.7-flash';
+// Use Google's documented stable Flash models. Quotas are model-specific, so
+// the secondary stable model can still work when the primary model is cooling down.
+const GEMINI_FLASH_MODELS = Object.freeze(['gemini-3.6-flash', 'gemini-3.5-flash']);
+const GEMINI_FLASH_MODEL = GEMINI_FLASH_MODELS[0];
 const GEMINI_REQUEST_TIMESTAMPS_STORAGE = 'geminiRequestTimestamps';
 const GEMINI_REQUEST_WINDOW_MS = 60 * 1000;
 const GEMINI_SAFE_REQUESTS_PER_WINDOW = 18;
@@ -7903,6 +7948,14 @@ function isGeminiRateLimitError(error) {
         || message.includes('quota exceeded')
         || message.includes('rate limit')
         || message.includes('rate_limit');
+}
+
+function isGeminiProjectAccessDeniedError(error) {
+    const message = getGeminiErrorMessage(error).toLowerCase();
+    return Number(error?.status) === 403
+        || message.includes('project has been denied access')
+        || message.includes('access restricted')
+        || message.includes('permission_denied');
 }
 
 function parseDurationMs(value) {
@@ -7993,10 +8046,15 @@ function isGeminiCredentialError(error) {
         'authentication', 'credential', 'expired', 'leaked',
         'permission denied', 'permission_denied'
     ];
-    return !isGeminiRateLimitError(error) && credentialMarkers.some(marker => message.includes(marker));
+    return !isGeminiRateLimitError(error)
+        && !isGeminiProjectAccessDeniedError(error)
+        && credentialMarkers.some(marker => message.includes(marker));
 }
 
 function getGeminiGenerationErrorMessage(error) {
+    if (isGeminiProjectAccessDeniedError(error)) {
+        return 'Google denied this Cloud project access to Gemini. Resolve or appeal the project restriction in Google Cloud, or add a key from a different accessible project.';
+    }
     if (isGeminiCredentialError(error)) {
         const message = getGeminiErrorMessage(error).toLowerCase();
         if (message.includes('quota') || message.includes('billing') || message.includes('429')) {
@@ -8102,9 +8160,17 @@ async function generateInfographicDataWithKeyRotation(topic) {
     const rotation = getGeminiApiKeyRotation();
     if (!rotation.length) throw new Error('No Gemini API keys are available.');
 
-    const availableKeys = rotation.filter(keyRecord => getGeminiKeyCooldownMs(keyRecord) <= 0);
+    const unblockedKeys = rotation.filter(keyRecord => !keyRecord.blocked);
+    if (!unblockedKeys.length) {
+        const error = new Error('All saved Gemini keys belong to projects that Google denied access. Resolve the restriction in Google Cloud or add a key from an accessible project.');
+        error.status = 403;
+        error.projectAccessDenied = true;
+        throw error;
+    }
+
+    const availableKeys = unblockedKeys.filter(keyRecord => getGeminiKeyCooldownMs(keyRecord) <= 0);
     if (!availableKeys.length) {
-        const retryAfterMs = Math.min(...rotation.map(getGeminiKeyCooldownMs).filter(Boolean));
+        const retryAfterMs = Math.min(...unblockedKeys.map(getGeminiKeyCooldownMs).filter(Boolean));
         const error = new Error(`All saved Gemini keys are cooling down. Retry in about ${Math.max(1, Math.ceil(retryAfterMs / 1000))} seconds, or add a key from another Google Cloud project.`);
         error.status = 429;
         error.retryAfterMs = retryAfterMs;
@@ -8127,6 +8193,14 @@ async function generateInfographicDataWithKeyRotation(topic) {
         } catch (error) {
             lastError = error;
             const message = getGeminiErrorMessage(error);
+            if (isGeminiProjectAccessDeniedError(error)) {
+                recordGeminiKeyBlocked(keyRecord.id);
+                if (index < availableKeys.length - 1) {
+                    showToast(`Gemini Key ${geminiApiKeys.indexOf(keyRecord) + 1} belongs to a denied project. Trying the next saved key…`, 'warning');
+                    continue;
+                }
+                throw error;
+            }
             if (isGeminiRateLimitError(error)) {
                 recordGeminiKeyRateLimit(keyRecord.id, error);
                 if (index < availableKeys.length - 1) {
@@ -8145,8 +8219,7 @@ async function generateInfographicDataWithKeyRotation(topic) {
 }
 
 async function generateInfographicData(apiKey, topic, requestOptions = {}) {
-    const selectedModel = getSelectedGeminiModel();
-    const modelsToTry = [selectedModel];
+    const modelsToTry = [...GEMINI_FLASH_MODELS];
 
     let lastError = null;
     const topicMode = isTopicMode(topic);
@@ -8204,7 +8277,8 @@ ${topicMode ? '- Include epidemiological data as "chart" sections.\n- Include at
 
 User Topic/Text: "${topic}"`;
 
-    for (const modelName of modelsToTry) {
+    for (let modelIndex = 0; modelIndex < modelsToTry.length; modelIndex += 1) {
+        const modelName = modelsToTry[modelIndex];
         try {
             console.log(`Attempting to generate with model: ${modelName} (mode: ${topicMode ? 'TOPIC EXPANSION' : 'TEXT PRESERVATION'})`);
 
@@ -8224,7 +8298,9 @@ User Topic/Text: "${topic}"`;
                 },
                 body
             }, {
-                maxRateLimitRetries: requestOptions.maxRateLimitRetries ?? 1
+                maxRateLimitRetries: modelIndex < modelsToTry.length - 1
+                    ? 0
+                    : (requestOptions.maxRateLimitRetries ?? 1)
             });
 
             if (!resp.ok) {
@@ -8242,9 +8318,15 @@ User Topic/Text: "${topic}"`;
 
         } catch (error) {
             if (isGeminiRateLimitError(error)) console.info(`Model ${modelName} reached its project quota.`);
+            else if (isGeminiProjectAccessDeniedError(error)) console.info(`Model ${modelName} is unavailable because Google denied this project access.`);
             else console.warn(`Failed with model ${modelName}:`, error);
             lastError = error;
-            if (isGeminiCredentialError(error) || isGeminiRateLimitError(error)) throw error;
+            if (isGeminiCredentialError(error) || isGeminiProjectAccessDeniedError(error)) throw error;
+            if (isGeminiRateLimitError(error) && modelIndex < modelsToTry.length - 1) {
+                showToast(`${modelName} reached its quota. Trying ${modelsToTry[modelIndex + 1]}…`, 'warning');
+                continue;
+            }
+            if (isGeminiRateLimitError(error)) throw error;
         }
     }
     throw lastError || new Error("All models failed.");
@@ -9859,11 +9941,12 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
     }
 
     try {
-        const modelsToTry = [GEMINI_FLASH_MODEL];
+        const modelsToTry = [...GEMINI_FLASH_MODELS];
 
         let lastError = null;
 
-        for (const modelName of modelsToTry) {
+        for (let modelIndex = 0; modelIndex < modelsToTry.length; modelIndex += 1) {
+            const modelName = modelsToTry[modelIndex];
             try {
                 console.log(`Studio Tool: Trying model ${modelName}`);
                 const body = JSON.stringify({
@@ -9877,6 +9960,8 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
                         'x-goog-api-key': apiKey
                     },
                     body
+                }, {
+                    maxRateLimitRetries: modelIndex < modelsToTry.length - 1 ? 0 : 1
                 });
                 if (!resp.ok) {
                     throw await createGeminiHttpError(resp);
@@ -9888,6 +9973,8 @@ async function callGeminiForStudioTool(prompt, fallbackFn = null) {
             } catch (err) {
                 console.log(`Model ${modelName} failed:`, err.message);
                 lastError = err;
+                if (isGeminiCredentialError(err) || isGeminiProjectAccessDeniedError(err)) break;
+                if (isGeminiRateLimitError(err) && modelIndex < modelsToTry.length - 1) continue;
                 if (isGeminiRateLimitError(err)) break;
             }
         }

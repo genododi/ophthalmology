@@ -14,4 +14,4 @@ chmod +x scripts/store-gemini-keychain.sh scripts/seed-local-config.sh scripts/r
 echo ""
 echo "Next: run python3 server.py and open http://localhost:8000"
 echo "The app will load the key from local config into localStorage (this browser only)."
-echo "GitHub Pages uses the bundled default seed when localStorage is empty (see script.js)."
+echo "Hosted builds require adding a key in the app; no shared API key is bundled."

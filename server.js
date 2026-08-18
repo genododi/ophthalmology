@@ -49,6 +49,18 @@ function getPublicIP() {
 
 // Library storage directory
 const LIBRARY_DIR = path.join(__dirname, 'library');
+const LOCAL_GEMINI_KEY_PATH = path.join(__dirname, 'config', 'gemini-api-key.local');
+const LEGACY_GEMINI_KEY_FINGERPRINT = 'AQ.Ab8:IxR9Q';
+
+function isLoopbackAddress(address) {
+    const normalized = String(address || '').split('%')[0];
+    return normalized === '127.0.0.1' || normalized === '::1' || normalized === '::ffff:127.0.0.1';
+}
+
+function isLegacyGeminiKey(key) {
+    const value = String(key || '').trim();
+    return `${value.slice(0, 6)}:${value.slice(-5)}` === LEGACY_GEMINI_KEY_FINGERPRINT;
+}
 
 // Ensure library directory exists
 if (!fs.existsSync(LIBRARY_DIR)) {
@@ -183,6 +195,8 @@ const MIME_TYPES = {
 
 // HTTP Server
 const server = http.createServer(async (req, res) => {
+    const requestPath = new URL(req.url, `http://${req.headers.host || 'localhost'}`).pathname;
+
     // CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -191,6 +205,34 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'OPTIONS') {
         res.writeHead(200);
         res.end();
+        return;
+    }
+
+    // Same-origin localhost-only key handoff. Never expose the local config
+    // through the public static-file handler or a permissive CORS response.
+    if (requestPath === '/local-dev/gemini-api-key') {
+        res.removeHeader('Access-Control-Allow-Origin');
+        if (req.method !== 'GET') {
+            res.writeHead(405, { 'Cache-Control': 'no-store' });
+            res.end('Method not allowed');
+            return;
+        }
+        if (!isLoopbackAddress(req.socket?.remoteAddress)) {
+            res.writeHead(403, { 'Cache-Control': 'no-store' });
+            res.end('Forbidden');
+            return;
+        }
+        try {
+            const key = fs.readFileSync(LOCAL_GEMINI_KEY_PATH, 'utf8').trim();
+            if (!key || key === 'SMILE' || isLegacyGeminiKey(key)) {
+                throw Object.assign(new Error('No current local key'), { code: 'ENOENT' });
+            }
+            res.writeHead(200, { 'Content-Type': 'text/plain', 'Cache-Control': 'no-store' });
+            res.end(key);
+        } catch (error) {
+            res.writeHead(error.code === 'ENOENT' ? 204 : 500, { 'Cache-Control': 'no-store' });
+            res.end();
+        }
         return;
     }
 
@@ -274,7 +316,11 @@ const server = http.createServer(async (req, res) => {
     }
 
     // Static file serving
-    const requestPath = new URL(req.url, `http://${req.headers.host || 'localhost'}`).pathname;
+    if (requestPath.startsWith('/config/') || requestPath.endsWith('.local')) {
+        res.writeHead(404);
+        res.end('File not found');
+        return;
+    }
     let filePath = requestPath === '/' ? '/index.html' : requestPath;
     filePath = path.join(__dirname, filePath);
 

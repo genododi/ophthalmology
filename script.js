@@ -44,6 +44,8 @@ const HF_MEDICAL_MODELS = Object.freeze([
 const GEMINI_API_KEY_STORAGE = 'geminiApiKey';
 const GEMINI_API_KEYS_STORAGE = 'geminiApiKeys';
 const GEMINI_API_KEY_SELECTED_STORAGE = 'geminiApiKeySelected';
+const GEMINI_LEGACY_RATE_LIMIT_UNTIL_STORAGE = 'geminiRateLimitUntil';
+const GEMINI_LEGACY_BUNDLED_KEY_FINGERPRINT = 'AQ.Ab8:IxR9Q';
 const LOCAL_DEV_KEY_ENDPOINT = '/local-dev/gemini-api-key';
 const KEYCHAIN_ACCOUNT_LABEL = 'SMILE';
 
@@ -72,6 +74,11 @@ function isValidGeminiApiKey(key) {
     return (v.startsWith('AIza') || v.startsWith('AQ.')) && v.length >= 30 && v !== KEYCHAIN_ACCOUNT_LABEL;
 }
 
+function isLegacyBundledGeminiApiKey(key) {
+    const value = String(key || '').trim();
+    return `${value.slice(0, 6)}:${value.slice(-5)}` === GEMINI_LEGACY_BUNDLED_KEY_FINGERPRINT;
+}
+
 function createGeminiKeyRecord(key) {
     return {
         id: `gemini-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -80,8 +87,13 @@ function createGeminiKeyRecord(key) {
         message: '',
         attempts: 0,
         successes: 0,
-        failures: 0
+        failures: 0,
+        cooldownUntil: 0
     };
+}
+
+function getGeminiKeyCooldownMs(item) {
+    return Math.max(0, (Number(item?.cooldownUntil) || 0) - Date.now());
 }
 
 function getGeminiKeyScore(item) {
@@ -91,9 +103,12 @@ function getGeminiKeyScore(item) {
 
 function getRecommendedGeminiKeyRecord() {
     return geminiApiKeys.slice().sort((a, b) => {
+        const aCoolingDown = getGeminiKeyCooldownMs(a) > 0;
+        const bCoolingDown = getGeminiKeyCooldownMs(b) > 0;
         const aScore = getGeminiKeyScore(a);
         const bScore = getGeminiKeyScore(b);
-        return (bScore ?? -1) - (aScore ?? -1) ||
+        return Number(aCoolingDown) - Number(bCoolingDown) ||
+            (bScore ?? -1) - (aScore ?? -1) ||
             (Number(b.successes) || 0) - (Number(a.successes) || 0) ||
             (Number(a.failures) || 0) - (Number(b.failures) || 0);
     })[0] || null;
@@ -201,17 +216,20 @@ function renderGeminiKeyPool() {
 
 function addGeminiApiKeys(raw) {
     const keys = splitGeminiApiKeys(raw);
-    let added = 0;
+    const addedRecords = [];
     keys.forEach(key => {
         if (geminiApiKeys.some(item => item.key === key)) return;
-        geminiApiKeys.push(createGeminiKeyRecord(key));
-        added += 1;
+        const record = createGeminiKeyRecord(key);
+        geminiApiKeys.push(record);
+        addedRecords.push(record);
     });
-    if (!added) return 0;
+    if (!addedRecords.length) return 0;
+    // A newly entered key is normally intended to replace a quota-exhausted
+    // selection. Select it immediately instead of retrying the stale key first.
+    try { localStorage.removeItem(GEMINI_LEGACY_RATE_LIMIT_UNTIL_STORAGE); } catch (_) { /* private mode */ }
     persistGeminiApiKeys();
-    if (!getSelectedGeminiKeyId()) selectGeminiApiKey(geminiApiKeys[0].id);
-    else renderGeminiKeyPool();
-    return added;
+    selectGeminiApiKey(addedRecords[0].id);
+    return addedRecords.length;
 }
 
 function removeGeminiApiKey(id) {
@@ -237,6 +255,25 @@ function recordGeminiKeyOutcome(id, succeeded, message = '') {
     else item.failures = (Number(item.failures) || 0) + 1;
     item.status = succeeded ? 'success' : 'failed';
     item.message = message;
+    if (succeeded) item.cooldownUntil = 0;
+    persistGeminiApiKeys();
+    renderGeminiKeyPool();
+}
+
+function recordGeminiKeyRateLimit(id, error) {
+    const item = geminiApiKeys.find(keyItem => keyItem.id === id);
+    if (!item) return;
+    const requestedDelayMs = Number(error?.retryAfterMs) || GEMINI_REQUEST_WINDOW_MS;
+    const cooldownMs = error?.dailyQuota
+        ? Math.max(requestedDelayMs, 24 * 60 * 60 * 1000)
+        : Math.max(requestedDelayMs, 1000);
+    item.attempts = (Number(item.attempts) || 0) + 1;
+    item.failures = (Number(item.failures) || 0) + 1;
+    item.cooldownUntil = Date.now() + cooldownMs;
+    item.status = 'cooldown';
+    item.message = error?.dailyQuota
+        ? 'Daily project quota reached'
+        : `Rate limited · retry in about ${Math.max(1, Math.ceil(cooldownMs / 1000))}s`;
     persistGeminiApiKeys();
     renderGeminiKeyPool();
 }
@@ -259,27 +296,37 @@ async function initGeminiApiKeys() {
         const stored = JSON.parse(localStorage.getItem(GEMINI_API_KEYS_STORAGE) || '[]');
         if (Array.isArray(stored)) {
             geminiApiKeys = stored
-                .filter(item => isValidGeminiApiKey(item?.key))
-                .map(item => ({ ...createGeminiKeyRecord(item.key), ...item, attempts: Number(item.attempts) || 0, successes: Number(item.successes) || 0, failures: Number(item.failures) || 0, status: item.status === 'trying' ? 'ready' : (item.status || 'ready') }));
+                .filter(item => isValidGeminiApiKey(item?.key) && !isLegacyBundledGeminiApiKey(item.key))
+                .map(item => ({
+                    ...createGeminiKeyRecord(item.key),
+                    ...item,
+                    attempts: Number(item.attempts) || 0,
+                    successes: Number(item.successes) || 0,
+                    failures: Number(item.failures) || 0,
+                    cooldownUntil: Number(item.cooldownUntil) || 0,
+                    status: item.status === 'trying' ? 'ready' : (item.status || 'ready')
+                }));
         }
         const legacyKey = localStorage.getItem(GEMINI_API_KEY_STORAGE) || '';
-        if (isValidGeminiApiKey(legacyKey) && !geminiApiKeys.some(item => item.key === legacyKey)) {
+        if (isValidGeminiApiKey(legacyKey) && !isLegacyBundledGeminiApiKey(legacyKey) && !geminiApiKeys.some(item => item.key === legacyKey)) {
             geminiApiKeys.unshift(createGeminiKeyRecord(legacyKey));
         }
         localStorage.removeItem(GEMINI_API_KEY_STORAGE);
+        // Older builds stored one quota cooldown for every key. That prevented
+        // a new key from a different project from being used until the old
+        // project's delay expired.
+        localStorage.removeItem(GEMINI_LEGACY_RATE_LIMIT_UNTIL_STORAGE);
     } catch (_) {
         geminiApiKeys = [];
     }
 
-    if (!geminiApiKeys.length) {
-        let seedKey = null;
-        if (isLocalDevHost()) {
-            seedKey = await fetchLocalDevGeminiKey();
+    // Local Keychain/config is authoritative for local development. Check it
+    // on every load so a rotated key is not hidden behind stale localStorage.
+    if (isLocalDevHost()) {
+        const localDevKey = await fetchLocalDevGeminiKey();
+        if (localDevKey && !isLegacyBundledGeminiApiKey(localDevKey) && !geminiApiKeys.some(item => item.key === localDevKey)) {
+            addGeminiApiKeys(localDevKey);
         }
-        if (!seedKey) {
-            seedKey = ['AQ.Ab8RN6JQjz9_3l0mNlH7U', 'f9gne9UFEZEjhWXCpbibRZUPIxR9Q'].join('');
-        }
-        if (seedKey) addGeminiApiKeys(seedKey);
     }
     persistGeminiApiKeys();
     selectGeminiApiKey(getSelectedGeminiKeyRecord()?.id || '');
@@ -7816,7 +7863,6 @@ HOWEVER: You MAY supplement the user's text with additional medical/ophthalmolog
 // Google lists this exact stable model as its latest Flash release and
 // currently makes standard input/output available on the Gemini API free tier.
 const GEMINI_FLASH_MODEL = 'gemini-3.7-flash';
-const GEMINI_RATE_LIMIT_UNTIL_STORAGE = 'geminiRateLimitUntil';
 const GEMINI_REQUEST_TIMESTAMPS_STORAGE = 'geminiRequestTimestamps';
 const GEMINI_REQUEST_WINDOW_MS = 60 * 1000;
 const GEMINI_SAFE_REQUESTS_PER_WINDOW = 18;
@@ -7898,28 +7944,6 @@ function isGeminiDailyQuotaPayload(payload) {
     ));
 }
 
-function getStoredGeminiCooldownMs() {
-    try {
-        const until = Number(localStorage.getItem(GEMINI_RATE_LIMIT_UNTIL_STORAGE)) || 0;
-        if (until <= Date.now()) {
-            localStorage.removeItem(GEMINI_RATE_LIMIT_UNTIL_STORAGE);
-            return 0;
-        }
-        return until - Date.now();
-    } catch (_) {
-        return 0;
-    }
-}
-
-function setStoredGeminiCooldown(delayMs) {
-    if (!Number.isFinite(delayMs) || delayMs <= 0) return;
-    try {
-        const currentUntil = Number(localStorage.getItem(GEMINI_RATE_LIMIT_UNTIL_STORAGE)) || 0;
-        const nextUntil = Date.now() + delayMs;
-        localStorage.setItem(GEMINI_RATE_LIMIT_UNTIL_STORAGE, String(Math.max(currentUntil, nextUntil)));
-    } catch (_) { /* private mode */ }
-}
-
 function readRecentGeminiRequestTimestamps() {
     try {
         const cutoff = Date.now() - GEMINI_REQUEST_WINDOW_MS;
@@ -7942,7 +7966,7 @@ function waitMs(delayMs) {
 }
 
 async function waitForGeminiRequestSlot(onWait) {
-    let delayMs = getStoredGeminiCooldownMs();
+    let delayMs = 0;
     const timestamps = readRecentGeminiRequestTimestamps();
     if (timestamps.length >= GEMINI_SAFE_REQUESTS_PER_WINDOW) {
         delayMs = Math.max(delayMs, timestamps[0] + GEMINI_REQUEST_WINDOW_MS - Date.now() + 250);
@@ -8018,7 +8042,6 @@ async function fetchWithRetry(url, options, { retries = 3, baseDelayMs = 2000, m
             const canRetry = !dailyQuota
                 && rateLimitRetries < maxRateLimitRetries
                 && (serverDelayMs || delayMs) <= GEMINI_MAX_AUTOMATIC_RATE_LIMIT_WAIT_MS;
-            if (!dailyQuota) setStoredGeminiCooldown(delayMs);
             if (!canRetry) return res;
             rateLimitRetries += 1;
             if (typeof onRetry === 'function') onRetry({ status: res.status, delayMs, attempt: rateLimitRetries, maxRetries: maxRateLimitRetries });
@@ -8079,12 +8102,25 @@ async function generateInfographicDataWithKeyRotation(topic) {
     const rotation = getGeminiApiKeyRotation();
     if (!rotation.length) throw new Error('No Gemini API keys are available.');
 
+    const availableKeys = rotation.filter(keyRecord => getGeminiKeyCooldownMs(keyRecord) <= 0);
+    if (!availableKeys.length) {
+        const retryAfterMs = Math.min(...rotation.map(getGeminiKeyCooldownMs).filter(Boolean));
+        const error = new Error(`All saved Gemini keys are cooling down. Retry in about ${Math.max(1, Math.ceil(retryAfterMs / 1000))} seconds, or add a key from another Google Cloud project.`);
+        error.status = 429;
+        error.retryAfterMs = retryAfterMs;
+        throw error;
+    }
+
     let lastError = null;
-    for (let index = 0; index < rotation.length; index += 1) {
-        const keyRecord = rotation[index];
-        setGeminiApiKeyStatus(keyRecord.id, 'trying', `Attempt ${index + 1} of ${rotation.length}`);
+    for (let index = 0; index < availableKeys.length; index += 1) {
+        const keyRecord = availableKeys[index];
+        setGeminiApiKeyStatus(keyRecord.id, 'trying', `Attempt ${index + 1} of ${availableKeys.length}`);
         try {
-            const data = await generateInfographicData(keyRecord.key, topic);
+            const data = await generateInfographicData(keyRecord.key, topic, {
+                // With another key available, rotate immediately instead of
+                // waiting up to a minute to retry the exhausted project.
+                maxRateLimitRetries: availableKeys.length > 1 ? 0 : 1
+            });
             selectGeminiApiKey(keyRecord.id);
             recordGeminiKeyOutcome(keyRecord.id, true, 'Last generation succeeded');
             return data;
@@ -8092,16 +8128,15 @@ async function generateInfographicDataWithKeyRotation(topic) {
             lastError = error;
             const message = getGeminiErrorMessage(error);
             if (isGeminiRateLimitError(error)) {
-                const retrySeconds = Math.max(1, Math.ceil((Number(error?.retryAfterMs) || GEMINI_REQUEST_WINDOW_MS) / 1000));
-                setGeminiApiKeyStatus(keyRecord.id, 'cooldown', error?.dailyQuota
-                    ? 'Daily project quota reached'
-                    : `Rate limited · retry in about ${retrySeconds}s`);
-                // Gemini quotas are applied per project rather than per API key.
-                // Do not hammer another saved key that may belong to the same project.
+                recordGeminiKeyRateLimit(keyRecord.id, error);
+                if (index < availableKeys.length - 1) {
+                    showToast(`Gemini Key ${geminiApiKeys.indexOf(keyRecord) + 1} reached its project quota. Trying the next saved key…`, 'warning');
+                    continue;
+                }
                 throw error;
             }
             recordGeminiKeyOutcome(keyRecord.id, false, message.slice(0, 180));
-            if (index < rotation.length - 1) {
+            if (index < availableKeys.length - 1) {
                 showToast(`Gemini Key ${geminiApiKeys.indexOf(keyRecord) + 1} failed. Trying the next saved key...`, 'warning');
             }
         }
@@ -8109,7 +8144,7 @@ async function generateInfographicDataWithKeyRotation(topic) {
     throw lastError || new Error('All saved Gemini API keys failed.');
 }
 
-async function generateInfographicData(apiKey, topic) {
+async function generateInfographicData(apiKey, topic, requestOptions = {}) {
     const selectedModel = getSelectedGeminiModel();
     const modelsToTry = [selectedModel];
 
@@ -8188,6 +8223,8 @@ User Topic/Text: "${topic}"`;
                     'x-goog-api-key': apiKey
                 },
                 body
+            }, {
+                maxRateLimitRetries: requestOptions.maxRateLimitRetries ?? 1
             });
 
             if (!resp.ok) {

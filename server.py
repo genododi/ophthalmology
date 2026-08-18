@@ -23,7 +23,14 @@ from pathlib import Path
 DEFAULT_PORT = 8000
 HOST = 'localhost'
 KEYCHAIN_ACCOUNT_LABEL = 'SMILE'
+LEGACY_GEMINI_KEY_FINGERPRINT = 'AQ.Ab8:IxR9Q'
 SCRIPT_DIR = Path(__file__).resolve().parent
+
+
+def is_legacy_gemini_key(key):
+    """Identify the retired bundled key without retaining it in source."""
+    value = (key or '').strip()
+    return f'{value[:6]}:{value[-5:]}' == LEGACY_GEMINI_KEY_FINGERPRINT
 
 
 def read_gemini_key_from_keychain():
@@ -44,7 +51,7 @@ def read_gemini_key_from_keychain():
     if result.returncode != 0:
         return None
     key = (result.stdout or '').strip()
-    if not key or key == KEYCHAIN_ACCOUNT_LABEL:
+    if not key or key == KEYCHAIN_ACCOUNT_LABEL or is_legacy_gemini_key(key):
         return None
     return key
 
@@ -53,9 +60,12 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     
     def end_headers(self):
         # Add CORS headers
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', '*')
+        # Keep the localhost key response same-origin; otherwise an unrelated
+        # website could read it through this server's permissive CORS policy.
+        if self.path != '/local-dev/gemini-api-key':
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+            self.send_header('Access-Control-Allow-Headers', '*')
         super().end_headers()
 
     def do_OPTIONS(self):
@@ -133,7 +143,7 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
                 key_path = SCRIPT_DIR / 'config' / 'gemini-api-key.local'
                 if key_path.is_file():
                     key = key_path.read_text(encoding='utf-8').strip()
-                    if key == KEYCHAIN_ACCOUNT_LABEL:
+                    if key == KEYCHAIN_ACCOUNT_LABEL or is_legacy_gemini_key(key):
                         key = ''
             body = key.encode('utf-8') if key else b''
             self.send_response(200 if body else 204)
@@ -418,4 +428,4 @@ def main():
             sys.exit(1)
 
 if __name__ == "__main__":
-    main() 
+    main()

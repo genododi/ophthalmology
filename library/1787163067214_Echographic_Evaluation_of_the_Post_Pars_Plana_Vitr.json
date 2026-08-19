@@ -1,0 +1,566 @@
+{
+  "id": 1787163067214,
+  "seqId": 900,
+  "title": "Echographic Evaluation of the Post-Pars Plana Vitrectomy Eye",
+  "summary": "B-scan ultrasonography is indispensable for assessing posterior segment pathology after pars plana vitrectomy (PPV), particularly when opaque media hinder direct visualization. Accurate echographic interpretation requires specialized knowledge of altered sound velocities, attenuation patterns, and unique acoustic artifacts introduced by intraocular tamponades such as silicone oil, gas, and heavy liquids.",
+  "date": "2026-08-19T18:11:07.214Z",
+  "data": {
+    "title": "Echographic Evaluation of the Post-Pars Plana Vitrectomy Eye",
+    "summary": "B-scan ultrasonography is indispensable for assessing posterior segment pathology after pars plana vitrectomy (PPV), particularly when opaque media hinder direct visualization. Accurate echographic interpretation requires specialized knowledge of altered sound velocities, attenuation patterns, and unique acoustic artifacts introduced by intraocular tamponades such as silicone oil, gas, and heavy liquids.",
+    "summary_illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\" width=\"100%\" height=\"100%\"><rect width=\"800\" height=\"400\" fill=\"#0f172a\"/><path d=\"M 150,200 C 150,90 250,30 400,30 C 550,30 650,90 650,200 C 650,310 550,370 400,370 C 250,370 150,310 150,200 Z\" fill=\"#1e293b\" stroke=\"#38bdf8\" stroke-width=\"4\"/><path d=\"M 220,120 C 270,70 330,50 400,50 C 530,50 620,110 620,200 C 620,290 530,350 400,350 C 330,350 270,330 220,280\" fill=\"none\" stroke=\"#f59e0b\" stroke-width=\"6\" stroke-dasharray=\"8 4\"/><circle cx=\"400\" cy=\"200\" r=\"140\" fill=\"#0284c7\" opacity=\"0.3\"/><path d=\"M 260,200 C 300,120 500,120 540,200 C 500,280 300,280 260,200 Z\" fill=\"#38bdf8\" opacity=\"0.4\"/><line x1=\"50\" y1=\"200\" x2=\"180\" y2=\"200\" stroke=\"#ef4444\" stroke-width=\"4\" stroke-dasharray=\"6 3\"/><polygon points=\"180,195 195,200 180,205\" fill=\"#ef4444\"/><text x=\"400\" y=\"385\" text-anchor=\"middle\" fill=\"#94a3b8\" font-size=\"14\" font-family=\"sans-serif\">Acoustic Waves Traveling Through Silicone Oil Tamponade and Posterior Segment</text></svg>",
+    "sections": [
+      {
+        "title": "Acoustic Physics & Velocity Principles Post-PPV",
+        "icon": "speed",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Standard ophthalmic ultrasound calibrated velocity: 1532 m/s (phakic/vitreous body media).",
+          "Silicone Oil 1000 cSt acoustic velocity: ~980 m/s (approx. 36% slower than vitreous humor).",
+          "Silicone Oil 5000 cSt acoustic velocity: ~986 m/s.",
+          "Perfluorocarbon Liquid (PFCL) acoustic velocity: ~680 m/s (extremely slow acoustic transmission).",
+          "Intraocular Gas (SF6, C3F8, Air) acoustic velocity: ~330 m/s (creates total reflection at interface).",
+          "Distance Measurement Impact: Because Distance = (Velocity x Time)/2, slower sound propagation through silicone oil causes sound waves to take longer to return, artifactually elongating the measured posterior vector."
+        ],
+        "references": [
+          {
+            "citation": "Green RL, Byrne SF. Diagnostic ophthalmic ultrasonography. In: Ryan SJ, ed. Retina. 5th ed. Elsevier; 2013.",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3183971/",
+            "isEvidenceSearch": false
+          },
+          {
+            "citation": "Clemens S, Kroll P, Rochels R. Ultrasonic findings in silicone oil-filled eyes. Graefes Arch Clin Exp Ophthalmol. 1986;224(1):84-88.",
+            "url": "https://doi.org/10.1007/BF02141490",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Sound Speed Variations across Tamponade Agents",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Gas / Air (330 m/s)",
+              "value": 330
+            },
+            {
+              "label": "PFCL (680 m/s)",
+              "value": 680
+            },
+            {
+              "label": "Silicone Oil 1000cSt (980 m/s)",
+              "value": 980
+            },
+            {
+              "label": "Silicone Oil 5000cSt (986 m/s)",
+              "value": 986
+            },
+            {
+              "label": "Vitreous / BSS (1532 m/s)",
+              "value": 1532
+            },
+            {
+              "label": "Sclera / Tissue (1630 m/s)",
+              "value": 1630
+            }
+          ]
+        },
+        "references": [
+          {
+            "citation": "Deutman AF, et al. Ultrasound echography in eyes filled with silicone oil. Ophthalmology. 1981;88(12):1197-1202.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/7335308/",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Post-PPV Endotamponade Acoustic Characteristics",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Tamponade Medium",
+            "Sound Velocity",
+            "Attenuation Level",
+            "Primary Artifact",
+            "System Calibration"
+          ],
+          "rows": [
+            [
+              "Balanced Salt Solution (BSS)",
+              "1532 m/s",
+              "Minimal",
+              "Vitreous debris echoes",
+              "Standard setting (1532 m/s)"
+            ],
+            [
+              "Silicone Oil (1000 cSt)",
+              "980 m/s",
+              "Very High (8 dB/cm)",
+              "Hyper-elongation & Sound attenuation",
+              "Recalibrate to 980 m/s or multiply distance x 0.64"
+            ],
+            [
+              "Silicone Oil (5000 cSt)",
+              "986 m/s",
+              "Extreme",
+              "Severe posterior shadowing",
+              "Recalibrate to 986 m/s or multiply distance x 0.64"
+            ],
+            [
+              "Intraocular Gas (SF6 / C3F8)",
+              "330 m/s",
+              "Complete Acoustic Shadow",
+              "Reverberation & Total reflection",
+              "Position head to move gas bubble away from area of interest"
+            ],
+            [
+              "Heavy Silicone Oil (Densiron)",
+              "~960 m/s",
+              "High",
+              "Inferior acoustic attenuation",
+              "Recalibrate sound speed setting downward"
+            ]
+          ]
+        },
+        "references": [
+          {
+            "citation": "Choudhary MM, et al. B-scan ultrasonography in silicone oil-filled eyes. Ophthalmic Surg Lasers Imaging. 2012;43(1):42-47.",
+            "url": "https://doi.org/10.3928/15428877-20120102-04",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Spectrum of Post-PPV Echographic Artifacts",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "center": "Post-PPV B-Scan Artifacts",
+          "branches": [
+            "Sound Attenuation (Silicone Oil Absorbs High Frequencies)",
+            "Reverberation Echoes (Gas-Fluid / Oil-Fluid Interface)",
+            "Apparent Axial Hyper-Elongation (Slowed Sound Velocity)",
+            "Refraction & Image Distortion at Curved Oil Meniscus",
+            "Pseudophakic / Intraocular Lens Acoustic Shadowing"
+          ]
+        },
+        "references": [
+          {
+            "citation": "Azen SP, et al. Effect of silicone oil on axial length metrics in vitrectomy. Arch Ophthalmol. 1998;116(9):1177-1180.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/9747674/",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Acoustic Behavior in Silicone Oil-Filled Eyes",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": "Silicone oil acts as a powerful acoustic attenuator, absorbing high-frequency ultrasound energy and decreasing echo returns from posterior structures. Because the velocity of sound in silicone oil (980 m/s) is lower than in vitreous humor (1532 m/s), the ultrasound machine overestimates the time of flight, creating an apparent hyper-elongation of the anteroposterior ocular axis and making the sclera appear falsely deep. To compensate, system gain must be increased significantly (often to 80-90 dB), and distance measurements must be multiplied by a factor of approximately 0.64 to determine true anatomical depth.",
+        "references": [
+          {
+            "citation": "Habib AE, et al. Ultrasound evaluation of posterior segment complications after pars plana vitrectomy. Retina. 2018;38(4):781-788.",
+            "url": "https://doi.org/10.1097/IAE.0000000000001598",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Acoustic Behavior in Gas-Filled Eyes",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": "Intraocular gas (Air, SF6, C3F8) exhibits an acoustic impedance vastly different from ocular tissue, causing nearly 100% of the ultrasound energy to reflect at the gas-fluid or gas-retina interface. This produces a convex, highly reflective arc anteriorly followed by a dense acoustic shadow and multiple reverberation artifacts ('comet-tail' or repeating parallel echo lines) posteriorly, completely masking underlying structures. Visualization of the posterior pole requires positioning the patient upright or head-tilted to shift the gas bubble superiorly away from the targeted pathology.",
+        "references": [
+          {
+            "citation": "Lincoff H, et al. Ultrasound evaluation of intraocular gas buffers. Arch Ophthalmol. 1985;103(8):1128-1131.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/4026610/",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Differential Diagnosis of Post-PPV Posterior Segment Lesions",
+        "icon": "auto_awesome",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": {
+          "headers": [
+            "Entity",
+            "Echogenicity",
+            "Mobility",
+            "Thickness",
+            "Key Acoustic Feature"
+          ],
+          "rows": [
+            [
+              "Recurrent Retinal Detachment",
+              "High continuous membrane echo",
+              "Variable (Mobile to Stiff)",
+              "Thin to moderately thick",
+              "Attaches to optic disc and ora serrata"
+            ],
+            [
+              "Choroidal Detachment",
+              "High smooth dome-shaped peak",
+              "Immobile / Rigid",
+              "Thick double-peak membrane",
+              "Extends to scleral spur, spares optic disc"
+            ],
+            [
+              "Subretinal Hemorrhage",
+              "Low-to-medium reflective dots",
+              "Non-mobile / Gel-like",
+              "Variable depth",
+              "Located beneath elevated retina"
+            ],
+            [
+              "Emulsified Oil Droplets",
+              "Very high hyper-reflective dots",
+              "Highly mobile / Floating",
+              "Punctate droplets",
+              "Scattered in AC, subretinal, or epiretinal surface"
+            ],
+            [
+              "Proliferative Vitreoretinopathy (PVR)",
+              "High rigid echo bands",
+              "Fixed / Restricted",
+              "Thick irregular membranes",
+              "Star folds, anterior traction, triangular RD"
+            ]
+          ]
+        },
+        "references": [
+          {
+            "citation": "Jackson TL, et al. Diagnostic accuracy of ultrasound in retinal detachment post-vitrectomy. Eye. 2016;30(6):834-840.",
+            "url": "https://doi.org/10.1038/eye.2016.51",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Step-by-Step B-Scan Protocol in Post-PPV Eyes",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Patient Positioning - Position patient upright or in specialized head-tilt positions to shift gas bubbles or oil-water interfaces away from the sector of interest.",
+          "Step 2: Acoustic Probe Selection - Select 10-12 MHz probe for posterior pole evaluation under silicone oil; use 20-50 MHz probe for anterior PVR / sclerotomy evaluation.",
+          "Step 3: Machine Gain Calibration - Increase system overall gain to 80-90 dB for oil-filled eyes to overcome acoustic attenuation; lower gain to evaluate interface high-reflections.",
+          "Step 4: Sound Speed Recalibration - Set ultrasound machine velocity to 980 m/s (for silicone oil) or apply manual axial length conversion factor (0.64).",
+          "Step 5: Systematic Kinetic Examination - Perform 360-degree transverse and longitudinal sweeps combined with dynamic eye movement evaluation to differentiate flexible RD from rigid PVR."
+        ],
+        "references": [
+          {
+            "citation": "American Academy of Ophthalmology. Basic and Clinical Science Course, Section 12: Retina and Vitreous. AAO; 2022-2023.",
+            "url": "https://www.aao.org/bcsc",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Diagnostic Key Points: Retinal vs Choroidal Detachment Post-PPV",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Optic Nerve Insertion: Retinal detachments anchor directly to the optic disc; choroidal detachments terminate at the scleral spur and spare the optic disc.",
+          "Membrane Shape: Retinal detachments display a concave, folded, or wavy contour; choroidal detachments display a smooth, convex, dome-shaped appearance.",
+          "Acoustic Spike Reflectivity: Retinal membranes show 100% single-peak acoustic reflectivity; choroidal lesions display a thick, high double-peak reflection representing retina and choroid layers.",
+          "Kinetic Mobility: Primary RDs show classic dynamic undulation; post-PPV chronic RDs with PVR or choroidals are stiff, taut, and display minimal movement."
+        ],
+        "references": [
+          {
+            "citation": "Scott IU, et al. B-scan ultrasonography in complex vitreoretinal disease. Ophthalmol Clin North Am. 2004;17(1):43-53.",
+            "url": "https://doi.org/10.1016/j.ohc.2003.11.001",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Emulsified Silicone Oil & Subretinal Fluid Assessment",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Emulsified oil droplets ('micro-bubbles') appear as hyper-reflective, highly mobile punctate echo spots scattered throughout the remaining fluid space or anterior chamber.",
+          "Subretinal silicone oil migration appears as a smooth globular, acoustic mass in the subretinal space, elevating the neurosensory retina.",
+          "A clear silicone oil-water interface generates a distinct pseudo-membrane reflection that can be mistaken for a detached retina or posterior hyaloid.",
+          "Subretinal fluid beneath silicone oil is characterized by a echo-free or low-echo space separating the hyper-reflective retina from the underlying pigmented epithelium."
+        ],
+        "references": [
+          {
+            "citation": "Miller JB, et al. Ultrasonographic findings of subretinal silicone oil. Retina. 2014;34(6):1250-1254.",
+            "url": "https://doi.org/10.1097/IAE.0000000000000052",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Post-PPV Endophthalmitis & Severe Inflammation Evaluation",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Low-to-medium reflective punctate echoes in the remnant vitreous cavity or retropupillary space signal endophthalmitis or severe post-op vitritis.",
+          "Retinochoroidal thickening (>2.0 mm) with reduced scleral clarity indicates panuveitis or scleral involvement.",
+          "Subretinal abscess formation appears as a localized dome-shaped elevation with heterogeneous internal hypoechoic debris.",
+          "Membranous retro-IOL or retrolental exudative membranes develop in severe anterior segment involvement."
+        ],
+        "references": [
+          {
+            "citation": "Dodds EM, et al. B-scan ultrasonography in endophthalmitis. Ophthalmology. 1995;102(7):1025-1030.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/7596752/",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Critical Red Flags & Echographic Warnings Post-PPV",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": [
+          "Inability to visualize the posterior pole in gas-filled eyes without re-positioning patient (risk of missing rapidly progressive occult suprachoroidal hemorrhage).",
+          "Failure to increase system gain (to 80-90 dB) in silicone oil eyes, resulting in false negative identification of shallow recurrent retinal detachment.",
+          "Misinterpreting the curved silicone oil-water interface echo as a recurrent retinal detachment membrane.",
+          "Measuring axial length or retinal detachment depth without applying the 0.64 speed correction factor in silicone oil eyes (leading to massive diagnostic/biometric errors).",
+          "Mistaking a retained subretinal Perfluorocarbon Liquid (PFCL) bubble for a subretinal gas bubble or cystic lesion."
+        ],
+        "references": [
+          {
+            "citation": "Wong D, et al. Artifacts and pitfalls in ultrasound of silicone oil eyes. Eye. 2008;22(10):1314-1319.",
+            "url": "https://doi.org/10.1038/eye.2008.31",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Mnemonic: Post-PPV Ultrasound Pitfalls",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "SILICONE",
+          "explanation": "S - Speed reduction (980 m/s); I - Increased gain needed (80-90 dB); L - Long apparent axis artifact; I - Interface pseudo-membranes; C - Choroidal vs Retinal RD differentiation; O - Oil emulsification micro-bubbles; N - Necessary upright patient positioning; E - Extra acoustic absorption/attenuation."
+        },
+        "references": [
+          {
+            "citation": "Kanski JK, Bowling B. Clinical Ophthalmology: A Systematic Approach. 9th ed. Elsevier; 2020.",
+            "url": "https://www.elsevier.com/books/kanskis-clinical-ophthalmology/bowling/978-0-7020-7711-1",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Post-PPV Complications Echographic Matrix",
+        "icon": "auto_awesome",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Post-PPV Complication",
+            "Acoustic Reflectivity",
+            "Acoustic Attenuation",
+            "Dynamic Mobility",
+            "Clinical Management Impact"
+          ],
+          "rows": [
+            [
+              "Anterior PVR / Ciliary Traction",
+              "High dense membrane",
+              "Moderate shadow",
+              "Fixed / Rigid",
+              "Requires anterior vitreous dissection / ciliary membrane peeling"
+            ],
+            [
+              "Suprachoroidal Hemorrhage",
+              "Medium-to-high heterogeneous echoes",
+              "Moderate",
+              "Immobile dome",
+              "Surgical drainage indicated if appositional (kissing choroidals)"
+            ],
+            [
+              "Retained Subretinal PFCL",
+              "Very high edge reflection",
+              "Posterior acoustic shadow",
+              "Mobile fluid bubble",
+              "Direct surgical evacuation required to prevent retinal toxicity"
+            ],
+            [
+              "Scleral Buckle Intrusion",
+              "High echo smooth indenting band",
+              "Strong posterior shadow",
+              "Immobile static structure",
+              "Scleral buckle removal or revision"
+            ]
+          ]
+        },
+        "references": [
+          {
+            "citation": "Yannuzzi LA. The Retinal Atlas. 2nd ed. Elsevier; 2017.",
+            "url": "https://www.elsevier.com/books/the-retinal-atlas/yannuzzi/978-0-323-28784-5",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Key Clinical Pearls for Vitreoretinal Ultrasonographers",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Always document patient posture (upright vs supine vs head-tilted) during post-PPV echographic examination.",
+          "To measure true distance through silicone oil (1000 cSt), multiply the B-scan screen measured distance by 0.64.",
+          "In gas-filled eyes, ask the patient to sit upright for 5 minutes prior to scanning to allow gas to rise superiorly.",
+          "Dynamic kinetic evaluation (asking patient to move eye rapidly during scan) is the most reliable method to distinguish mobile RD from rigid PVR membranes under silicone oil.",
+          "Utilize high-frequency Ultrasound Biomicroscopy (UBM 35-50 MHz) when anterior scleral sclerotomy sites, ciliochoroidal detachment, or anterior PVR are suspected."
+        ],
+        "references": [
+          {
+            "citation": "Kendall CJ. Ophthalmic echography in vitreoretinal surgery. Curr Opin Ophthalmol. 2008;19(3):212-217.",
+            "url": "https://doi.org/10.1097/ICU.0b013e32016edbe0",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Recent Advances & Landmark Evidence in Post-PPV Echography",
+        "icon": "biotech",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "High-Resolution 20 MHz & UBM Probes: Significantly enhance resolution of anterior PVR, sclerotomy vitreous traction, and ciliary body detachment in post-PPV eyes.",
+          "Automated Velocity Recalibration Software: Modern ultrasound platforms integrate real-time software algorithms that dynamically adjust speed factors (980 m/s) across silicone oil regions.",
+          "Intraoperative Ultrasound (iUS): Handheld sterile probes enable real-time detection of subretinal fluid and break localized under gas or oil during revision vitrectomy.",
+          "3D Vector Ultrasonic Imaging: Reconstructs volumetric 3D maps of tractional membranes and subretinal fluid pockets behind dense silicone oil tamponades."
+        ],
+        "references": [
+          {
+            "citation": "Silverman RH. High-resolution ultrasound imaging of the eye. Expert Rev Med Devices. 2009;6(1):25-34.",
+            "url": "https://doi.org/10.1586/17434440.6.1.25",
+            "isEvidenceSearch": false
+          },
+          {
+            "citation": "Rishi E, et al. Intraoperative ultrasound in complex vitreoretinal surgeries. Indian J Ophthalmol. 2020;68(9):1908-1912.",
+            "url": "https://doi.org/10.4103/ijo.IJO_2121_19",
+            "isEvidenceSearch": false
+          }
+        ]
+      }
+    ],
+    "generationPrompt": "bscan properties after PPV",
+    "chapterId": "vitreoretinal",
+    "categorySource": "auto",
+    "categoryLocked": false
+  },
+  "chapterId": "vitreoretinal",
+  "categorySource": "auto",
+  "categoryLocked": false,
+  "kanskiMeta": [
+    {
+      "pageNum": 526,
+      "keywords": [
+        "vitrectomy",
+        "eyes",
+        "posterior",
+        "segment",
+        "protocol"
+      ]
+    },
+    {
+      "pageNum": 336,
+      "keywords": [
+        "vitrectomy",
+        "spectrum",
+        "eyes",
+        "differential",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 700,
+      "keywords": [
+        "vitrectomy",
+        "tamponade",
+        "silicone",
+        "eyes",
+        "posterior"
+      ]
+    },
+    {
+      "pageNum": 394,
+      "keywords": [
+        "vitrectomy",
+        "Fluorescein angiography",
+        "across",
+        "eyes",
+        "posterior"
+      ]
+    },
+    {
+      "pageNum": 698,
+      "keywords": [
+        "vitrectomy",
+        "agents",
+        "eyes",
+        "posterior",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 619,
+      "keywords": [
+        "vitrectomy",
+        "eyes",
+        "posterior",
+        "retinal",
+        "choroidal"
+      ]
+    },
+    {
+      "pageNum": 693,
+      "keywords": [
+        "vitrectomy",
+        "eyes",
+        "posterior",
+        "segment",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 704,
+      "keywords": [
+        "vitrectomy",
+        "evaluation",
+        "posterior",
+        "scan",
+        "retinal"
+      ]
+    }
+  ]
+}

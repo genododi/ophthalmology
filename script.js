@@ -7638,33 +7638,56 @@ function getEuropePmcJournalTitle(article) {
         || '');
 }
 
+const EUROPE_PMC_PROXY_PATH = '/api/europe-pmc';
+const EUROPE_PMC_UNAVAILABLE_COOLDOWN_MS = 10 * 60 * 1000;
+let europePmcUnavailableUntil = 0;
+
+function canUseEuropePmcProxy() {
+    if (Date.now() < europePmcUnavailableUntil) return false;
+    if (typeof window === 'undefined') return false;
+    return /^(?:https?:)$/.test(window.location.protocol) && window.location.port === '3000';
+}
+
+function markEuropePmcUnavailable() {
+    europePmcUnavailableUntil = Date.now() + EUROPE_PMC_UNAVAILABLE_COOLDOWN_MS;
+}
+
+async function fetchEuropePmcProxy(resource, params = {}, options = {}) {
+    if (!canUseEuropePmcProxy()) return null;
+    const searchParams = new URLSearchParams({ resource });
+    Object.entries(params).forEach(([key, value]) => {
+        if (value !== undefined && value !== null && value !== '') searchParams.set(key, String(value));
+    });
+    const response = await fetch(`${EUROPE_PMC_PROXY_PATH}?${searchParams.toString()}`, options);
+    if (response.status === 204) {
+        markEuropePmcUnavailable();
+        return null;
+    }
+    if (!response.ok) throw new Error(`Europe PMC proxy returned ${response.status}`);
+    return response;
+}
+
 async function findEuropePmcReference(topic, sectionTitle) {
     const query = buildCitationSearchQuery(topic, sectionTitle);
-    if (!query || typeof fetch !== 'function') return null;
+    if (!query || typeof fetch !== 'function' || !canUseEuropePmcProxy()) return null;
     const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
     const timeout = controller ? setTimeout(() => controller.abort(), 7000) : null;
     try {
         const fetchResult = async searchQuery => {
-            const params = new URLSearchParams({ query: searchQuery, format: 'json', pageSize: '1', resultType: 'core' });
-            const response = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/search?${params.toString()}`, controller ? { signal: controller.signal } : undefined);
-            if (!response.ok) {
-                console.warn(`[Citations] Europe PMC returned ${response.status}`);
-                return null;
-            }
+            const response = await fetchEuropePmcProxy('search', { query: searchQuery, pageSize: 1 }, controller ? { signal: controller.signal } : undefined);
+            if (!response) return null;
             return (await response.json())?.resultList?.result?.[0] || null;
         };
-        const work = (await fetchResult(query)) || (await fetchResult(buildCitationSearchQuery(topic, '', false)));
-        if (!work?.title) {
-            console.warn('[Citations] Europe PMC returned no matching paper.');
-            return null;
-        }
+        const firstResult = await fetchResult(query);
+        const work = firstResult || (canUseEuropePmcProxy() ? await fetchResult(buildCitationSearchQuery(topic, '', false)) : null);
+        if (!work?.title) return null;
         const citation = [work.authorString, work.title, getEuropePmcJournalTitle(work), work.pubYear].filter(Boolean).join('. ');
         const url = normalizeCitationUrl(work.doi)
             || (work.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${work.pmid}/` : '')
             || (work.id && work.source ? `https://europepmc.org/article/${encodeURIComponent(work.source)}/${encodeURIComponent(work.id)}` : '');
         return citation && url ? { citation, url } : null;
     } catch (error) {
-        console.warn('[Citations] Europe PMC lookup failed:', error?.message || error);
+        markEuropePmcUnavailable();
         return null;
     } finally {
         if (timeout) clearTimeout(timeout);
@@ -7702,7 +7725,7 @@ async function findCrossrefReference(topic, sectionTitle) {
 }
 
 async function findScholarlyReference(topic, sectionTitle) {
-    return (await findEuropePmcReference(topic, sectionTitle))
+    return (canUseEuropePmcProxy() ? await findEuropePmcReference(topic, sectionTitle) : null)
         || (await findOpenAlexReference(topic, sectionTitle))
         || (await findCrossrefReference(topic, sectionTitle));
 }
@@ -12703,7 +12726,7 @@ function showToast(message, type) {
 let clinicalImages = [];
 
 const WEB_CLINICAL_IMAGE_LIMIT = 6;
-const WEB_PHOTO_SOURCE_PIPELINE_VERSION = 4;
+const WEB_PHOTO_SOURCE_PIPELINE_VERSION = 5;
 const webPhotoFetchInFlight = new WeakSet();
 const wikimediaClinicalSearchCache = new Map();
 const institutionalClinicalSearchCache = new Map();
@@ -13126,17 +13149,16 @@ function getCachedClinicalImageResource(cache, key, maxEntries, factory) {
 
 function searchEuropePmcArticlesCached(query) {
     return getCachedClinicalImageResource(europePmcArticleSearchCache, query, 30, async () => {
-        const searchParams = new URLSearchParams({ query, format: 'json', pageSize: '6', resultType: 'core' });
-        const response = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/search?${searchParams.toString()}`);
-        if (!response.ok) throw new Error(`Europe PMC search returned ${response.status}`);
+        const response = await fetchEuropePmcProxy('search', { query, pageSize: 6 });
+        if (!response) return null;
         return (await response.json())?.resultList?.result || [];
     });
 }
 
 function getEuropePmcFullTextXmlCached(pmcid) {
     return getCachedClinicalImageResource(europePmcFullTextXmlCache, pmcid, 24, async () => {
-        const response = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/${encodeURIComponent(pmcid)}/fullTextXML`);
-        if (!response.ok) throw new Error(`Europe PMC full text returned ${response.status}`);
+        const response = await fetchEuropePmcProxy('fullTextXML', { pmcid });
+        if (!response) return null;
         const xml = new DOMParser().parseFromString(await response.text(), 'application/xml');
         if (xml.querySelector('parsererror')) throw new Error('Europe PMC returned invalid article XML');
         return xml;
@@ -13145,8 +13167,8 @@ function getEuropePmcFullTextXmlCached(pmcid) {
 
 function getEuropePmcSupplementaryArchiveCached(pmcid) {
     return getCachedClinicalImageResource(europePmcSupplementaryArchiveCache, pmcid, 8, async () => {
-        const response = await fetch(`https://www.ebi.ac.uk/europepmc/webservices/rest/${encodeURIComponent(pmcid)}/supplementaryFiles`);
-        if (!response.ok) throw new Error(`Europe PMC figure archive returned ${response.status}`);
+        const response = await fetchEuropePmcProxy('supplementaryFiles', { pmcid });
+        if (!response) return null;
         return window.JSZip.loadAsync(await response.arrayBuffer());
     });
 }
@@ -13161,23 +13183,25 @@ function blobToClinicalImageDataUrl(blob) {
 }
 
 async function searchEuropePmcClinicalFigures(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
-    if (!window.JSZip) return [];
+    if (!window.JSZip || !canUseEuropePmcProxy()) return [];
     const { modalities: requestedModalities, queries } = buildEuropePmcClinicalFigureQueries(topic);
     const articleMap = new Map();
     let completedSearch = false;
     for (const query of [...new Set(queries)]) {
         try {
             const results = await searchEuropePmcArticlesCached(query);
+            if (!results) break;
             completedSearch = true;
             results.filter(article => article?.pmcid).forEach(article => {
                 if (!articleMap.has(article.pmcid)) articleMap.set(article.pmcid, article);
             });
             if (articleMap.size >= 6) break;
         } catch (error) {
-            console.info('[ClinicalImages] Europe PMC search unavailable; trying the next query.', error?.message || error);
+            markEuropePmcUnavailable();
+            break;
         }
     }
-    if (!completedSearch) throw new Error('Europe PMC searches were unavailable');
+    if (!completedSearch) return [];
     const requestedModalityLabels = requestedModalities.map(modality => modality.label);
     const articles = [...articleMap.values()].sort((a, b) => {
         const aJournal = getTrustedOphthalmicJournal(getEuropePmcJournalTitle(a));
@@ -13194,6 +13218,7 @@ async function searchEuropePmcClinicalFigures(topic, limit = WEB_CLINICAL_IMAGE_
     for (const article of articles.slice(0, 5)) {
         try {
             const xml = await getEuropePmcFullTextXmlCached(article.pmcid);
+            if (!xml) break;
             const licence = getEuropePmcFigureLicense(xml);
             if (!licence) continue;
             const articleTitle = cleanWebImageMetadata(article.title || getXmlElementTextByLocalName(xml, 'article-title'));
@@ -13233,7 +13258,8 @@ async function searchEuropePmcClinicalFigures(topic, limit = WEB_CLINICAL_IMAGE_
                 .sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0));
             if (figures.length) candidatesByArticle.push({ article, figures });
         } catch (error) {
-            console.warn(`[ClinicalImages] Europe PMC metadata failed for ${article.pmcid}:`, error?.message || error);
+            markEuropePmcUnavailable();
+            break;
         }
     }
     const images = [];
@@ -13241,6 +13267,7 @@ async function searchEuropePmcClinicalFigures(topic, limit = WEB_CLINICAL_IMAGE_
         if (images.length >= Math.min(limit, 2)) break;
         try {
             const archive = await getEuropePmcSupplementaryArchiveCached(entry.article.pmcid);
+            if (!archive) break;
             for (const candidate of entry.figures) {
                 if (images.length >= Math.min(limit, 2)) break;
                 const archiveFile = archive.file(candidate.filename)
@@ -13253,7 +13280,8 @@ async function searchEuropePmcClinicalFigures(topic, limit = WEB_CLINICAL_IMAGE_
                 images.push({ ...candidate, dataUrl: await blobToClinicalImageDataUrl(blob.slice(0, blob.size, mimeType)), mimeType });
             }
         } catch (error) {
-            console.warn(`[ClinicalImages] Europe PMC figures failed for ${entry.article.pmcid}:`, error?.message || error);
+            markEuropePmcUnavailable();
+            break;
         }
     }
     return images;
@@ -13316,12 +13344,13 @@ async function searchTrustedYouTubeClinicalImages(topic, limit = WEB_CLINICAL_IM
 }
 
 async function searchCreditedClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LIMIT) {
-    const results = await Promise.allSettled([
+    const providers = [
         searchWikimediaClinicalImages(topic, limit),
         searchTrustedInstitutionalClinicalImages(topic, limit),
-        searchEuropePmcClinicalFigures(topic, limit),
         searchTrustedYouTubeClinicalImages(topic, limit)
-    ]);
+    ];
+    if (canUseEuropePmcProxy()) providers.push(searchEuropePmcClinicalFigures(topic, limit));
+    const results = await Promise.allSettled(providers);
     const images = results.flatMap(result => result.status === 'fulfilled' ? result.value : []);
     const unique = new Map();
     images.forEach(image => {
@@ -13391,7 +13420,7 @@ function createWebPhotoConsentControl(data) {
         <label class="web-photo-consent-label" for="web-photo-consent-checkbox">
             <input type="checkbox" id="web-photo-consent-checkbox" ${data?.webPhotoConsent === true ? 'checked' : ''}>
             <span class="web-photo-consent-check"><span class="material-symbols-rounded">check</span></span>
-            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Prioritizes reusable figures from leading journals (AJO, AAO Ophthalmology titles, JCRS, JAMA Ophthalmology, BJO, IOVS, Retina, Cornea and Eye), then verified NIH/NEI media, official ophthalmology channels and Wikimedia Commons. When appropriate, it specifically searches macular/optic-nerve OCT, OCTA, FFA and FAF. Every result must pass strict ophthalmic, clinical, section-topic and licence checks.</small></span>
+            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Uses verified NIH/NEI media, official ophthalmology channels and Wikimedia Commons. Local-server mode can additionally retrieve reusable open-access figures from leading journals through a protected same-origin service. Every result must pass strict ophthalmic, clinical, section-topic and licence checks.</small></span>
         </label>
         <span id="web-photo-consent-status" class="web-photo-consent-status" data-status="info">${sectionPhotoCount ? `${sectionPhotoCount} credited section photo${sectionPhotoCount === 1 ? '' : 's'} attached.` : 'Photo fetching is off.'}</span>`;
     const checkbox = control.querySelector('#web-photo-consent-checkbox');
@@ -13447,7 +13476,7 @@ function renderWebClinicalImages(data) {
     section.innerHTML = `
         <div class="web-clinical-images-heading">
             <span class="material-symbols-rounded">photo_library</span>
-            <div><h2>Relevant ophthalmic photos</h2><p>Credited, reusable figures prioritized from leading ophthalmology journals—including suitable OCT, OCTA, FFA and FAF—plus verified institutional, channel and Wikimedia media that passed ocular anatomy, clinical context, topic-match and non-photo exclusion checks.</p></div>
+            <div><h2>Relevant ophthalmic photos</h2><p>Credited clinical media from verified institutional, official channel and Wikimedia sources. When the protected journal service is available, reusable open-access journal figures are included too.</p></div>
         </div>
         <div class="web-clinical-images-grid">
             ${images.map(image => {

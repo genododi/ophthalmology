@@ -11,7 +11,7 @@ const os = require('os');
 const https = require('https');
 
 // Configuration
-const HTTP_PORT = 3000;
+const HTTP_PORT = Math.max(1, Math.min(65535, Number(process.env.OPHTHALMIC_HTTP_PORT) || 3000));
 const FTP_PORT = 2121;
 const FTP_USER = 'ophthalmics';
 const FTP_PASS = '157108';
@@ -51,6 +51,9 @@ function getPublicIP() {
 const LIBRARY_DIR = path.join(__dirname, 'library');
 const LOCAL_GEMINI_KEY_PATH = path.join(__dirname, 'config', 'gemini-api-key.local');
 const LEGACY_GEMINI_KEY_FINGERPRINT = 'AQ.Ab8:IxR9Q';
+const EUROPE_PMC_API_ORIGIN = 'https://www.ebi.ac.uk';
+const EUROPE_PMC_PROXY_TIMEOUT_MS = 12000;
+const EUROPE_PMC_PROXY_MAX_BYTES = 48 * 1024 * 1024;
 
 function isLoopbackAddress(address) {
     const normalized = String(address || '').split('%')[0];
@@ -60,6 +63,107 @@ function isLoopbackAddress(address) {
 function isLegacyGeminiKey(key) {
     const value = String(key || '').trim();
     return `${value.slice(0, 6)}:${value.slice(-5)}` === LEGACY_GEMINI_KEY_FINGERPRINT;
+}
+
+function buildEuropePmcUpstreamUrl(requestUrl) {
+    const resource = requestUrl.searchParams.get('resource');
+    if (resource === 'search') {
+        const query = String(requestUrl.searchParams.get('query') || '').trim();
+        if (!query || query.length > 5000) return null;
+        const upstream = new URL('/europepmc/webservices/rest/search', EUROPE_PMC_API_ORIGIN);
+        upstream.searchParams.set('query', query);
+        upstream.searchParams.set('format', 'json');
+        upstream.searchParams.set('pageSize', String(Math.min(10, Math.max(1, Number(requestUrl.searchParams.get('pageSize')) || 6))));
+        upstream.searchParams.set('resultType', 'core');
+        return upstream;
+    }
+
+    const pmcid = String(requestUrl.searchParams.get('pmcid') || '').trim().toUpperCase();
+    if (!/^PMC\d+$/.test(pmcid)) return null;
+    if (resource === 'fullTextXML') {
+        return new URL(`/europepmc/webservices/rest/${encodeURIComponent(pmcid)}/fullTextXML`, EUROPE_PMC_API_ORIGIN);
+    }
+    if (resource === 'supplementaryFiles') {
+        return new URL(`/europepmc/webservices/rest/${encodeURIComponent(pmcid)}/supplementaryFiles`, EUROPE_PMC_API_ORIGIN);
+    }
+    return null;
+}
+
+function proxyEuropePmcResource(requestUrl, res) {
+    const upstreamUrl = buildEuropePmcUpstreamUrl(requestUrl);
+    if (!upstreamUrl) {
+        res.writeHead(400, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+        res.end(JSON.stringify({ error: 'Invalid Europe PMC proxy request' }));
+        return Promise.resolve();
+    }
+
+    return new Promise(resolve => {
+        let finished = false;
+        let upstreamRequest = null;
+        const unavailable = status => {
+            if (finished) return;
+            finished = true;
+            // Translate upstream failures to a successful empty response. This
+            // lets the browser use its other providers without logging a failed
+            // same-origin resource for a temporary Europe PMC outage.
+            if (!res.destroyed && !res.writableEnded) {
+                res.writeHead(204, {
+                    'Cache-Control': 'no-store',
+                    'X-Europe-PMC-Status': String(status || 'unavailable')
+                });
+                res.end();
+            }
+            resolve();
+        };
+
+        upstreamRequest = https.get(upstreamUrl, {
+            headers: {
+                'Accept': '*/*',
+                'User-Agent': 'Ophthalmic-Infographic-Creator/2.0'
+            }
+        }, upstreamResponse => {
+            const status = Number(upstreamResponse.statusCode) || 502;
+            if (status < 200 || status >= 300) {
+                upstreamResponse.resume();
+                unavailable(status);
+                return;
+            }
+
+            const chunks = [];
+            let totalBytes = 0;
+            upstreamResponse.on('data', chunk => {
+                if (finished) return;
+                totalBytes += chunk.length;
+                if (totalBytes > EUROPE_PMC_PROXY_MAX_BYTES) {
+                    upstreamResponse.destroy();
+                    unavailable('response-too-large');
+                    return;
+                }
+                chunks.push(chunk);
+            });
+            upstreamResponse.on('end', () => {
+                if (finished) return;
+                finished = true;
+                if (!res.destroyed && !res.writableEnded) {
+                    res.writeHead(200, {
+                        'Content-Type': upstreamResponse.headers['content-type'] || 'application/octet-stream',
+                        'Cache-Control': 'public, max-age=300'
+                    });
+                    res.end(Buffer.concat(chunks));
+                }
+                resolve();
+            });
+            upstreamResponse.on('error', () => unavailable('upstream-error'));
+        });
+        res.once('close', () => {
+            if (finished) return;
+            finished = true;
+            upstreamRequest?.destroy();
+            resolve();
+        });
+        upstreamRequest.setTimeout(EUROPE_PMC_PROXY_TIMEOUT_MS, () => upstreamRequest.destroy(new Error('Europe PMC timeout')));
+        upstreamRequest.on('error', () => unavailable('network-error'));
+    });
 }
 
 // Ensure library directory exists
@@ -195,7 +299,8 @@ const MIME_TYPES = {
 
 // HTTP Server
 const server = http.createServer(async (req, res) => {
-    const requestPath = new URL(req.url, `http://${req.headers.host || 'localhost'}`).pathname;
+    const requestUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+    const requestPath = requestUrl.pathname;
 
     // CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -233,6 +338,16 @@ const server = http.createServer(async (req, res) => {
             res.writeHead(error.code === 'ENOENT' ? 204 : 500, { 'Cache-Control': 'no-store' });
             res.end();
         }
+        return;
+    }
+
+    if (requestPath === '/api/europe-pmc') {
+        if (req.method !== 'GET') {
+            res.writeHead(405, { 'Cache-Control': 'no-store' });
+            res.end('Method not allowed');
+            return;
+        }
+        await proxyEuropePmcResource(requestUrl, res);
         return;
     }
 

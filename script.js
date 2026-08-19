@@ -7456,6 +7456,8 @@ generateBtn.addEventListener('click', async () => {
             console.info('Gemini generation paused by the project quota:', getGeminiErrorMessage(error));
         } else if (generationSource === 'gemini' && isGeminiProjectAccessDeniedError(error)) {
             console.info('Gemini generation stopped because Google denied this project access.');
+        } else if (generationSource === 'gemini' && isGeminiResponseFormatError(error)) {
+            console.info('Gemini generation stopped because the model returned incomplete JSON.');
         } else {
             console.error('Generation Error:', error);
         }
@@ -7908,6 +7910,54 @@ HOWEVER: You MAY supplement the user's text with additional medical/ophthalmolog
 // the secondary stable model can still work when the primary model is cooling down.
 const GEMINI_FLASH_MODELS = Object.freeze(['gemini-3.6-flash', 'gemini-3.5-flash']);
 const GEMINI_FLASH_MODEL = GEMINI_FLASH_MODELS[0];
+const GEMINI_MAX_OUTPUT_TOKENS = 65535;
+const INFOGRAPHIC_RESPONSE_JSON_SCHEMA = Object.freeze({
+    type: 'object',
+    properties: {
+        title: { type: 'string' },
+        summary: { type: 'string' },
+        summary_illustration: { type: 'string' },
+        sections: {
+            type: 'array',
+            minItems: 1,
+            items: {
+                type: 'object',
+                properties: {
+                    title: { type: 'string' },
+                    icon: { type: 'string' },
+                    type: { type: 'string', enum: ['chart', 'red_flag', 'remember', 'mindmap', 'key_point', 'process', 'plain_text', 'table'] },
+                    layout: { type: 'string', enum: ['full_width', 'half_width'] },
+                    color_theme: { type: 'string', enum: ['blue', 'red', 'green', 'yellow', 'purple'] },
+                    content: {
+                        anyOf: [
+                            { type: 'string' },
+                            { type: 'array', items: { type: 'string' } },
+                            { type: 'object', additionalProperties: true }
+                        ]
+                    },
+                    references: {
+                        type: 'array',
+                        minItems: 1,
+                        maxItems: 3,
+                        items: {
+                            type: 'object',
+                            properties: {
+                                citation: { type: 'string' },
+                                url: { type: 'string' }
+                            },
+                            required: ['citation', 'url'],
+                            additionalProperties: false
+                        }
+                    }
+                },
+                required: ['title', 'icon', 'type', 'layout', 'color_theme', 'content', 'references'],
+                additionalProperties: false
+            }
+        }
+    },
+    required: ['title', 'summary', 'summary_illustration', 'sections'],
+    additionalProperties: false
+});
 const GEMINI_REQUEST_TIMESTAMPS_STORAGE = 'geminiRequestTimestamps';
 const GEMINI_REQUEST_WINDOW_MS = 60 * 1000;
 const GEMINI_SAFE_REQUESTS_PER_WINDOW = 18;
@@ -7918,7 +7968,67 @@ function getSelectedGeminiModel() {
     return GEMINI_FLASH_MODEL;
 }
 
-function parseInfographicJsonResponse(text) {
+function createInfographicResponseFormatError(cause, finishReason = '') {
+    const truncated = String(finishReason).toUpperCase() === 'MAX_TOKENS';
+    const error = new Error(truncated
+        ? 'The model reached its output limit before completing the infographic. Please retry with a shorter topic or source document.'
+        : 'The model returned incomplete infographic data. Please retry generation.');
+    error.name = 'InfographicResponseFormatError';
+    error.responseFormatError = true;
+    error.finishReason = finishReason;
+    error.cause = cause;
+    return error;
+}
+
+function isGeminiResponseFormatError(error) {
+    return Boolean(error?.responseFormatError || error?.name === 'InfographicResponseFormatError');
+}
+
+function repairUnclosedJsonStructure(value) {
+    const source = String(value || '').trim();
+    if (!source) return '';
+
+    let repaired = '';
+    const expectedClosers = [];
+    let inString = false;
+    let escaped = false;
+
+    for (const character of source) {
+        if (inString) {
+            repaired += character;
+            if (escaped) escaped = false;
+            else if (character === '\\') escaped = true;
+            else if (character === '"') inString = false;
+            continue;
+        }
+
+        if (character === '"') {
+            inString = true;
+            repaired += character;
+            continue;
+        }
+        if (character === '{') expectedClosers.push('}');
+        else if (character === '[') expectedClosers.push(']');
+        else if (character === '}' || character === ']') {
+            while (expectedClosers.length && expectedClosers[expectedClosers.length - 1] !== character) {
+                repaired += expectedClosers.pop();
+            }
+            if (!expectedClosers.length) return '';
+            expectedClosers.pop();
+        }
+        repaired += character;
+    }
+
+    if (inString) {
+        if (escaped) repaired = repaired.slice(0, -1);
+        repaired += '"';
+    }
+    repaired = repaired.replace(/,\s*$/, '').replace(/:\s*$/, ': null');
+    while (expectedClosers.length) repaired += expectedClosers.pop();
+    return repaired;
+}
+
+function parseInfographicJsonResponse(text, { finishReason = '' } = {}) {
     let cleaned = String(text || '')
         .replace(/```json/gi, '')
         .replace(/```/g, '')
@@ -7929,11 +8039,22 @@ function parseInfographicJsonResponse(text) {
     } catch (directError) {
         const start = cleaned.indexOf('{');
         const end = cleaned.lastIndexOf('}');
-        if (start >= 0 && end > start) {
-            cleaned = cleaned.slice(start, end + 1);
-            return JSON.parse(cleaned);
+        const objectText = start >= 0 ? cleaned.slice(start) : cleaned;
+        const boundedObjectText = start >= 0 && end > start ? cleaned.slice(start, end + 1) : '';
+        if (boundedObjectText && boundedObjectText !== cleaned) {
+            try {
+                return JSON.parse(boundedObjectText);
+            } catch (_) { /* try conservative structural repair below */ }
         }
-        throw directError;
+        const repaired = repairUnclosedJsonStructure(objectText);
+        if (repaired && repaired !== objectText) {
+            try {
+                const parsed = JSON.parse(repaired);
+                console.info('The model JSON response had unclosed brackets and was repaired locally.');
+                return parsed;
+            } catch (_) { /* use the actionable format error below */ }
+        }
+        throw createInfographicResponseFormatError(directError, finishReason);
     }
 }
 
@@ -8052,6 +8173,9 @@ function isGeminiCredentialError(error) {
 }
 
 function getGeminiGenerationErrorMessage(error) {
+    if (isGeminiResponseFormatError(error)) {
+        return getGeminiErrorMessage(error);
+    }
     if (isGeminiProjectAccessDeniedError(error)) {
         return 'Google denied this Cloud project access to Gemini. Resolve or appeal the project restriction in Google Cloud, or add a key from a different accessible project.';
     }
@@ -8209,6 +8333,10 @@ async function generateInfographicDataWithKeyRotation(topic) {
                 }
                 throw error;
             }
+            if (isGeminiResponseFormatError(error)) {
+                setGeminiApiKeyStatus(keyRecord.id, 'ready', 'Key is valid; Gemini returned incomplete JSON');
+                throw error;
+            }
             recordGeminiKeyOutcome(keyRecord.id, false, message.slice(0, 180));
             if (index < availableKeys.length - 1) {
                 showToast(`Gemini Key ${geminiApiKeys.indexOf(keyRecord) + 1} failed. Trying the next saved key...`, 'warning');
@@ -8287,7 +8415,11 @@ User Topic/Text: "${topic}"`;
                 // Gemini 3.6+ rejects legacy sampling controls such as
                 // temperature. The detailed system instruction supplies the
                 // required consistency; leave sampling to the model default.
-                generationConfig: { maxOutputTokens: 8192 }
+                generationConfig: {
+                    maxOutputTokens: GEMINI_MAX_OUTPUT_TOKENS,
+                    responseMimeType: 'application/json',
+                    responseJsonSchema: INFOGRAPHIC_RESPONSE_JSON_SCHEMA
+                }
             });
 
             const resp = await fetchGeminiWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`, {
@@ -8308,10 +8440,15 @@ User Topic/Text: "${topic}"`;
             }
 
             const data = await resp.json();
-            const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text).filter(Boolean).join('') || '';
+            const candidate = data?.candidates?.[0];
+            const finishReason = String(candidate?.finishReason || '');
+            const text = candidate?.content?.parts?.map(p => p.text).filter(Boolean).join('') || '';
             if (!text) throw new Error('Empty response from model');
+            if (finishReason === 'MAX_TOKENS' || finishReason === 'MALFORMED_RESPONSE') {
+                throw createInfographicResponseFormatError(new Error(candidate?.finishMessage || finishReason), finishReason);
+            }
 
-            const parsed = parseInfographicJsonResponse(text);
+            const parsed = parseInfographicJsonResponse(text, { finishReason });
             parsed.generationPrompt = topic;
             await ensureSectionCitations(parsed, topic);
             return parsed;
@@ -8319,6 +8456,7 @@ User Topic/Text: "${topic}"`;
         } catch (error) {
             if (isGeminiRateLimitError(error)) console.info(`Model ${modelName} reached its project quota.`);
             else if (isGeminiProjectAccessDeniedError(error)) console.info(`Model ${modelName} is unavailable because Google denied this project access.`);
+            else if (isGeminiResponseFormatError(error)) console.info(`Model ${modelName} returned incomplete JSON; trying the next stable model if available.`);
             else console.warn(`Failed with model ${modelName}:`, error);
             lastError = error;
             if (isGeminiCredentialError(error) || isGeminiProjectAccessDeniedError(error)) throw error;

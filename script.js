@@ -7530,7 +7530,7 @@ Content rules:
 5. "key_point": [ "Point 1", "Point 2" ].
 6. "process": [ "Step 1: ...", "Step 2: ..." ].
 7. "plain_text": "Content string...".
-8. "table": { "headers": [ "Col 1", "Col 2" ], "rows": [ [ "Row 1 Col 1", "Row 1 Col 2" ] ] }.
+8. "table": { "headers": [ "Col 1", "Col 2" ], "rows": [ [ "Row 1 Col 1", "Row 1 Col 2" ] ] }. Every row MUST be an array of cell strings with exactly one cell per header. Never use row objects, numeric row indexes, or empty placeholder cells.
 9. EVERY section, without exception, MUST include a non-empty "references" array with 1-3 real, directly relevant sources. This includes causes, complications, differential diagnosis, investigations, management, treatment, and recent studies. Cite guidelines, peer-reviewed articles, AAO resources, or PubMed records. Use a direct DOI, PubMed, or guideline URL. Never invent a citation or URL.
 
 summary_illustration rules:
@@ -7865,6 +7865,7 @@ async function generateInfographicWithHuggingFace(topic) {
             }
 
             const parsed = parseInfographicJsonResponse(text);
+            normalizeInfographicTables(parsed, { rejectIndexOnly: true });
             parsed.generationPrompt = topic;
             parsed.generatedWith = `Hugging Face ${model.name} (${model.id})`;
             await ensureSectionCitations(parsed, topic);
@@ -7955,7 +7956,61 @@ const INFOGRAPHIC_RESPONSE_JSON_SCHEMA = Object.freeze({
                         anyOf: [
                             { type: 'string' },
                             { type: 'array', items: { type: 'string' } },
-                            { type: 'object', additionalProperties: true }
+                            {
+                                type: 'object',
+                                properties: {
+                                    type: { type: 'string' },
+                                    data: {
+                                        type: 'array',
+                                        items: {
+                                            type: 'object',
+                                            properties: {
+                                                label: { type: 'string' },
+                                                value: { type: 'number' }
+                                            },
+                                            required: ['label', 'value'],
+                                            additionalProperties: false
+                                        }
+                                    }
+                                },
+                                required: ['type', 'data'],
+                                additionalProperties: false
+                            },
+                            {
+                                type: 'object',
+                                properties: {
+                                    mnemonic: { type: 'string' },
+                                    explanation: { type: 'string' }
+                                },
+                                required: ['mnemonic', 'explanation'],
+                                additionalProperties: false
+                            },
+                            {
+                                type: 'object',
+                                properties: {
+                                    center: { type: 'string' },
+                                    branches: { type: 'array', items: { type: 'string' } }
+                                },
+                                required: ['center', 'branches'],
+                                additionalProperties: false
+                            },
+                            {
+                                type: 'object',
+                                properties: {
+                                    headers: { type: 'array', minItems: 1, items: { type: 'string' } },
+                                    rows: {
+                                        type: 'array',
+                                        minItems: 1,
+                                        items: {
+                                            type: 'array',
+                                            minItems: 1,
+                                            items: { type: 'string' }
+                                        }
+                                    }
+                                },
+                                required: ['headers', 'rows'],
+                                additionalProperties: false
+                            }
                         ]
                     },
                     references: {
@@ -8418,7 +8473,7 @@ Layout Types & Content Rules:
 5. "key_point": [ "Point 1", "Point 2" ]
 6. "process": [ "Step 1: ...", "Step 2: ..." ]
 7. "plain_text": "Content string..."
-8. "table": { "headers": ["Col 1", "Col 2"], "rows": [ ["Row 1 Col 1", ...] ] }
+8. "table": { "headers": ["Col 1", "Col 2"], "rows": [ ["Row 1 Col 1", "Row 1 Col 2"] ] }. Every row MUST be an array of cell strings with exactly one cell per header. Never use row objects, numeric row indexes, or empty placeholder cells.
 9. Every section MUST contain a non-empty "references" array with 1-3 real, directly relevant sources. This includes causes, complications, DDx, investigations, management/treatment, and recent studies. Use a concise complete citation and a direct DOI, PubMed, or guideline URL. Never invent a source.
 
 Design Focus:
@@ -8472,6 +8527,7 @@ User Topic/Text: "${topic}"`;
             }
 
             const parsed = parseInfographicJsonResponse(text, { finishReason });
+            normalizeInfographicTables(parsed, { rejectIndexOnly: true });
             parsed.generationPrompt = topic;
             await ensureSectionCitations(parsed, topic);
             return parsed;
@@ -8541,7 +8597,7 @@ Layout Types & Content Rules:
 5. "key_point": [ "Point 1", "Point 2" ]
 6. "process": [ "Step 1: ...", "Step 2: ..." ]
 7. "plain_text": "Content string..."
-8. "table": { "headers": ["Col 1", "Col 2"], "rows": [ ["R1C1", "R1C2"] ] }
+8. "table": { "headers": ["Col 1", "Col 2"], "rows": [ ["R1C1", "R1C2"] ] }. Every row MUST be an array of cell strings with exactly one cell per header. Never use row objects, numeric row indexes, or empty placeholder cells.
 9. Every section MUST contain a non-empty "references" array with 1-3 real, directly relevant sources. This includes causes, complications, DDx, investigations, management/treatment, and recent studies. Use a concise complete citation and a direct DOI, PubMed, or guideline URL. Never invent a source.
 
 summary_illustration: Generate a valid, minimal SVG (flat, modern, vector art, iconic, viewBox set, primary color hsl(215, 90%, 45%)).
@@ -8587,6 +8643,7 @@ ${topicMode ? 'Include epidemiological data as charts. Include at least one mnem
             const result = await response.json();
             let text = result.choices?.[0]?.message?.content || '';
             const parsed = parseInfographicJsonResponse(text);
+            normalizeInfographicTables(parsed, { rejectIndexOnly: true });
             parsed.generationPrompt = topic;
             await ensureSectionCitations(parsed, topic);
             return parsed;
@@ -9657,6 +9714,7 @@ function healInfographicData(data) {
         }
     });
     if (!Array.isArray(data.sections)) return changed;
+    if (normalizeInfographicTables(data)) changed = true;
     data.sections.forEach(section => {
         if (!section || typeof section !== 'object') return;
         if (typeof section.title === 'string') {
@@ -13882,21 +13940,209 @@ function renderTemplatedBullets(items, tpl, opts = {}) {
     </ul>`;
 }
 
-function normalizeSlideTable(content) {
-    const headers = Array.isArray(content?.headers)
-        ? content.headers.map(displayText)
-        : [];
-    const rawRows = Array.isArray(content?.rows) ? content.rows : [];
-    const objectKeys = headers.length ? headers : Array.from(new Set(rawRows.flatMap(row =>
-        row && typeof row === 'object' && !Array.isArray(row) ? Object.keys(row) : []
-    )));
-    const finalHeaders = objectKeys.length ? objectKeys : headers;
-    const rows = rawRows.map(row => {
-        if (Array.isArray(row)) return row.map(displayText);
-        if (row && typeof row === 'object') return finalHeaders.map(key => displayText(row[key]));
-        return [displayText(row)];
+function isPlainTableObject(value) {
+    return Boolean(value && typeof value === 'object' && !Array.isArray(value));
+}
+
+function normalizeTableKey(value) {
+    return String(value ?? '')
+        .normalize('NFKD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/&/g, 'and')
+        .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '');
+}
+
+function tableObjectEntries(value) {
+    const entries = isPlainTableObject(value) ? Object.entries(value) : [];
+    if (entries.length && entries.every(([key]) => /^\d+$/.test(key))) {
+        return entries.sort((a, b) => Number(a[0]) - Number(b[0]));
+    }
+    return entries;
+}
+
+function tableCollectionValues(value) {
+    if (Array.isArray(value)) return value.slice();
+    return tableObjectEntries(value).map(([, entry]) => entry);
+}
+
+function prettifyTableHeader(value) {
+    const text = displayText(value).trim();
+    if (!text) return '';
+    return text
+        .replace(/[_-]+/g, ' ')
+        .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
+function extractTableRows(rowsValue, headerKeys) {
+    if (Array.isArray(rowsValue)) return rowsValue.slice();
+    if (!isPlainTableObject(rowsValue)) return [];
+
+    const entries = tableObjectEntries(rowsValue);
+    const normalizedHeaders = new Set(headerKeys.map(normalizeTableKey).filter(Boolean));
+    const looksLikeOneRow = entries.some(([key]) => normalizedHeaders.has(normalizeTableKey(key)))
+        || (entries.length > 0 && entries.every(([, value]) => !isPlainTableObject(value) && !Array.isArray(value)));
+    if (looksLikeOneRow) return [rowsValue];
+
+    return entries.map(([rowLabel, rowValue]) => {
+        if (/^\d+$/.test(rowLabel)) return rowValue;
+        if (Array.isArray(rowValue)) return [rowLabel, ...rowValue];
+        if (isPlainTableObject(rowValue)) {
+            const firstHeader = headerKeys[0] || 'label';
+            const firstHeaderKey = normalizeTableKey(firstHeader);
+            const alreadyHasLabel = Object.keys(rowValue)
+                .some(key => normalizeTableKey(key) === firstHeaderKey);
+            return alreadyHasLabel ? rowValue : { [firstHeader]: rowLabel, ...rowValue };
+        }
+        return [rowLabel, rowValue];
     });
-    return { headers: finalHeaders.map(displayText), rows };
+}
+
+function normalizeTableObjectRow(row, headerKeys) {
+    const wrapperKey = ['cells', 'values', 'columns', 'row', 'data']
+        .find(key => row[key] != null && (Array.isArray(row[key]) || isPlainTableObject(row[key])));
+    const nonMetadataKeys = Object.keys(row).filter(key => !/^(index|rowIndex|id)$/i.test(key));
+    if (wrapperKey && nonMetadataKeys.every(key => key === wrapperKey)) {
+        return normalizeTableRow(row[wrapperKey], headerKeys, -1);
+    }
+
+    const entries = tableObjectEntries(row);
+    const entryByKey = new Map();
+    entries.forEach(([key, value]) => {
+        const normalized = normalizeTableKey(key);
+        if (normalized && !entryByKey.has(normalized)) entryByKey.set(normalized, { key, value });
+    });
+
+    const usedKeys = new Set();
+    const cells = headerKeys.map(header => {
+        const match = entryByKey.get(normalizeTableKey(header));
+        if (!match) return '';
+        usedKeys.add(match.key);
+        return displayText(match.value);
+    });
+
+    // If some labels matched, fill only the remaining cells from unused values.
+    // This recovers mixed rows such as { subtype: "Acute", "1": "Immediate", ... }.
+    if (cells.some(Boolean)) {
+        const remaining = entries
+            .filter(([key]) => !usedKeys.has(key) && !/^(index|rowIndex|id)$/i.test(key))
+            .map(([, value]) => displayText(value));
+        cells.forEach((cell, index) => {
+            if (!cell && remaining.length) cells[index] = remaining.shift();
+        });
+        return cells;
+    }
+
+    // Positional fallback for arbitrary model-generated keys. Object insertion
+    // order is preserved by JSON.parse, including numeric keys after sorting.
+    return entries
+        .filter(([key]) => !/^(index|rowIndex|id)$/i.test(key))
+        .map(([, value]) => displayText(value));
+}
+
+function normalizeTableRow(row, headerKeys, rowIndex) {
+    if (isPlainTableObject(row)) {
+        const entries = tableObjectEntries(row);
+        if (entries.length === 1 && /^\d+$/.test(entries[0][0])
+            && (Array.isArray(entries[0][1]) || isPlainTableObject(entries[0][1]))) {
+            return normalizeTableRow(entries[0][1], headerKeys, rowIndex);
+        }
+        return normalizeTableObjectRow(row, headerKeys);
+    }
+
+    if (!Array.isArray(row)) return [displayText(row)];
+
+    // Some structured-output responses wrap a row as [rowIndex, {cells...}]
+    // or [rowIndex, cell1, cell2, ...]. The index is metadata, not table data.
+    if (row.length === 2 && Number(row[0]) === rowIndex
+        && (Array.isArray(row[1]) || isPlainTableObject(row[1]))) {
+        return normalizeTableRow(row[1], headerKeys, rowIndex);
+    }
+    if (headerKeys.length && row.length === headerKeys.length + 1 && Number(row[0]) === rowIndex) {
+        row = row.slice(1);
+    }
+    if (row.length === 1 && (Array.isArray(row[0]) || isPlainTableObject(row[0]))) {
+        return normalizeTableRow(row[0], headerKeys, rowIndex);
+    }
+    return row.map(displayText);
+}
+
+function normalizeSlideTable(content) {
+    const explicitHeaders = tableCollectionValues(content?.headers).map(displayText).filter(Boolean);
+    let headerKeys = explicitHeaders.slice();
+    let rawRows = extractTableRows(content?.rows, headerKeys);
+
+    if (!headerKeys.length) {
+        const inferredKeys = [];
+        rawRows.forEach(row => {
+            let candidate = row;
+            if (Array.isArray(candidate) && candidate.length === 1 && isPlainTableObject(candidate[0])) {
+                candidate = candidate[0];
+            }
+            if (!isPlainTableObject(candidate)) return;
+            tableObjectEntries(candidate).forEach(([key]) => {
+                if (/^\d+$/.test(key) || /^(index|rowIndex|id|cells|values|columns|row|data)$/i.test(key)) return;
+                if (!inferredKeys.some(existing => normalizeTableKey(existing) === normalizeTableKey(key))) {
+                    inferredKeys.push(key);
+                }
+            });
+        });
+        headerKeys = inferredKeys;
+    }
+
+    let rows = rawRows.map((row, index) => normalizeTableRow(row, headerKeys, index));
+
+    if (!headerKeys.length) {
+        const widestRow = rows.reduce((max, row) => Math.max(max, row.length), 0);
+        headerKeys = Array.from({ length: widestRow }, (_, index) => `Column ${index + 1}`);
+    }
+
+    rows = rows.map(row => {
+        const cells = row.map(displayText);
+        if (cells.length < headerKeys.length) {
+            cells.push(...Array(headerKeys.length - cells.length).fill(''));
+        }
+        return cells.slice(0, headerKeys.length || cells.length);
+    });
+
+    return {
+        headers: headerKeys.map((header, index) => explicitHeaders[index] || prettifyTableHeader(header)),
+        rows
+    };
+}
+
+function isIndexOnlyTable(content) {
+    const { headers, rows } = normalizeSlideTable(content);
+    if (headers.length < 2 || rows.length < 2) return false;
+    return rows.every((row, index) => {
+        const populated = row.map((cell, columnIndex) => ({ cell: String(cell).trim(), columnIndex }))
+            .filter(entry => entry.cell);
+        if (populated.length !== 1 || populated[0].columnIndex !== 0) return false;
+        const numeric = Number(populated[0].cell);
+        return Number.isInteger(numeric) && (numeric === index || numeric === index + 1);
+    });
+}
+
+function normalizeInfographicTables(data, { rejectIndexOnly = false } = {}) {
+    if (!data || !Array.isArray(data.sections)) return false;
+    let changed = false;
+    data.sections.forEach(section => {
+        const content = section?.content;
+        if (!content || !content.headers || !content.rows) return;
+        if (rejectIndexOnly && isIndexOnlyTable(content)) {
+            throw createInfographicResponseFormatError(new Error(`Table "${section.title || 'Untitled'}" contains row indexes but no cell content.`));
+        }
+        const normalized = normalizeSlideTable(content);
+        if (JSON.stringify(normalized) !== JSON.stringify(content)) {
+            section.content = normalized;
+            changed = true;
+        }
+    });
+    return changed;
 }
 
 function renderSlideStructuredContent(slide, tpl, opts = {}) {

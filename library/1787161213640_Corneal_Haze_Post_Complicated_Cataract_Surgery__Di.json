@@ -1,0 +1,521 @@
+{
+  "id": 1787161213640,
+  "seqId": 898,
+  "title": "Corneal Haze Post-Complicated Cataract Surgery: Diagnostic & Therapeutic Framework",
+  "summary": "Corneal haze following complicated cataract surgery spans a clinical spectrum from transient stromal edema to permanent endothelial decompensation, Descemet membrane detachment (DMD), and Toxic Anterior Segment Syndrome (TASS). Early diagnostic differentiation using Anterior Segment OCT and specular microscopy combined with targeted medical or surgical intervention is essential to restore corneal clarity.",
+  "date": "2026-08-19T17:40:13.640Z",
+  "data": {
+    "title": "Corneal Haze Post-Complicated Cataract Surgery: Diagnostic & Therapeutic Framework",
+    "summary": "Corneal haze following complicated cataract surgery spans a clinical spectrum from transient stromal edema to permanent endothelial decompensation, Descemet membrane detachment (DMD), and Toxic Anterior Segment Syndrome (TASS). Early diagnostic differentiation using Anterior Segment OCT and specular microscopy combined with targeted medical or surgical intervention is essential to restore corneal clarity.",
+    "summary_illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\" width=\"100%\" height=\"100%\"><defs><linearGradient id=\"bg\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#0f172a\"/><stop offset=\"100%\" stop-color=\"#1e293b\"/></linearGradient><linearGradient id=\"corneaGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"#38bdf8\" stop-opacity=\"0.8\"/><stop offset=\"50%\" stop-color=\"#93c5fd\" stop-opacity=\"0.4\"/><stop offset=\"100%\" stop-color=\"#38bdf8\" stop-opacity=\"0.8\"/></linearGradient><linearGradient id=\"hazeGrad\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#ffffff\" stop-opacity=\"0.7\"/><stop offset=\"50%\" stop-color=\"#cbd5e1\" stop-opacity=\"0.8\"/><stop offset=\"100%\" stop-color=\"#ffffff\" stop-opacity=\"0.3\"/></linearGradient><filter id=\"glow\"><feGaussianBlur stdDeviation=\"3\" result=\"coloredBlur\"/><feMerge><feMergeNode in=\"coloredBlur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge></filter></defs><rect width=\"800\" height=\"400\" fill=\"url(#bg)\" rx=\"12\"/><path d=\"M 150,200 C 150,90 650,90 650,200 C 650,215 150,215 150,200 Z\" fill=\"url(#corneaGrad)\" stroke=\"#0284c7\" stroke-width=\"3\"/><path d=\"M 250,180 C 300,120 500,120 550,180 C 500,195 300,195 250,180 Z\" fill=\"url(#hazeGrad)\" filter=\"url(#glow)\"/><path d=\"M 220,205 C 320,218 480,218 580,205\" fill=\"none\" stroke=\"#f43f5e\" stroke-width=\"4\" stroke-dasharray=\"6,6\"/><path d=\"M 320,206 C 350,225 380,225 410,207\" fill=\"none\" stroke=\"#f43f5e\" stroke-width=\"4\"/><circle cx=\"400\" cy=\"270\" r=\"50\" fill=\"none\" stroke=\"#38bdf8\" stroke-width=\"4\" opacity=\"0.6\"/><polygon points=\"350,270 330,260 330,280\" fill=\"#38bdf8\"/><polygon points=\"450,270 470,260 470,280\" fill=\"#38bdf8\"/><text x=\"400\" y=\"50\" text-anchor=\"middle\" fill=\"#f8fafc\" font-family=\"sans-serif\" font-size=\"20\" font-weight=\"bold\">Corneal Microarchitecture in Post-Surgical Haze</text><text x=\"400\" y=\"150\" text-anchor=\"middle\" fill=\"#0284c7\" font-family=\"sans-serif\" font-size=\"14\" font-weight=\"bold\">Epithelial &amp; Stromal Edema</text><text x=\"400\" y=\"235\" text-anchor=\"middle\" fill=\"#f43f5e\" font-family=\"sans-serif\" font-size=\"12\" font-weight=\"bold\">Descemet Membrane Detachment (DMD)</text><text x=\"400\" y=\"275\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"sans-serif\" font-size=\"13\">Pseudophakic IOL in Capsular Bag</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Overview & Pathophysiology",
+        "icon": "visibility",
+        "type": "plain_text",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": "Corneal haze post-cataract surgery results from fluid accumulation within the corneal stroma and epithelium following endothelial pump dysfunction or anatomical disruption. During complicated phacoemulsification—such as cases involving posterior capsule rupture (PCR), vitreous loss, prolonged ultrasound runtime, or nuclear fragment dislocation—the corneal endothelium suffers acoustic, mechanical, thermal, and inflammatory damage. When endothelial cell density drops below the critical threshold (approx. 400-500 cells/mm²), stromal deturgescence fails, leading to microcystic epithelial edema, Descemet membrane folding, and progressive loss of transparency.",
+        "references": [
+          {
+            "citation": "Takahashi H, et al. Risk factors for corneal endothelial cell loss 1 year after phacoemulsification. J Cataract Refract Surg. 2021.",
+            "url": "https://doi.org/10.1097/j.jcrs.0000000000000542",
+            "isEvidenceSearch": false
+          },
+          {
+            "citation": "American Academy of Ophthalmology. Basic and Clinical Science Course, Section 8: External Disease and Cornea. AAO 2022-2023.",
+            "url": "https://www.aao.org/bcsc",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Etiology Breakdown",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "center": "Etiologies of Post-op Corneal Haze",
+          "branches": [
+            "Mechanical & Thermal Trauma (CDE, Phaco tip, IOL touch)",
+            "Anatomical Disruption (Descemet Membrane Detachment)",
+            "Toxic & Inflammatory (TASS, Preservatives, Intracameral Drugs)",
+            "Elevated Intraocular Pressure (Retained Viscoelastic, Vitreous Block)",
+            "Pre-existing Vulnerability (Fuchs Dystrophy, Low Baseline ECD)"
+          ]
+        },
+        "references": [
+          {
+            "citation": "Mamalis N, et al. Toxic anterior segment syndrome. J Cataract Refract Surg. 2006.",
+            "url": "https://doi.org/10.1016/j.jcrs.2006.01.082",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Risk Factor Distribution in Persistent Corneal Edema",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "High Phaco Energy (CDE > 30)",
+              "value": 35
+            },
+            {
+              "label": "Pre-existing Fuchs / Guttata",
+              "value": 25
+            },
+            {
+              "label": "Intraoperative Vitreous Loss",
+              "value": 20
+            },
+            {
+              "label": "AC-IOL / Secondary IOL Touch",
+              "value": 12
+            },
+            {
+              "label": "TASS / Toxic Insult",
+              "value": 8
+            }
+          ]
+        },
+        "references": [
+          {
+            "citation": "Yamazoe K, et al. Longitudinal endothelial cell loss after complicated phacoemulsification. Cornea. 2019.",
+            "url": "https://doi.org/10.1097/ICO.0000000000001880",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Clinical Grading Scale of Postoperative Corneal Edema",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "yellow",
+        "content": {
+          "headers": [
+            "Edema Grade",
+            "Biomicroscopic Findings",
+            "Central Corneal Thickness (CCT)",
+            "Reversibility Potential"
+          ],
+          "rows": [
+            [
+              "Grade 1 (Mild)",
+              "Mild central stromal haze, localized Descemet folds (<5 folds), no epithelial edema",
+              "580 - 640 µm",
+              "High; resolves within 1-2 weeks with topical steroids"
+            ],
+            [
+              "Grade 2 (Moderate)",
+              "Moderate diffuse stromal edema, multiple Descemet folds, focal epithelial microcysts",
+              "641 - 720 µm",
+              "Moderate; responds to hypertonic saline and intensive steroids over 2-6 weeks"
+            ],
+            [
+              "Grade 3 (Severe)",
+              "Marked stromal swelling, compact Descemet folds, confluent epithelial microcysts/bullae",
+              "721 - 850 µm",
+              "Guarded; prolonged resolution (1-3 months), risk of permanent scarring"
+            ],
+            [
+              "Grade 4 (Decompensated)",
+              "Bullous keratopathy, stromal opacification, subepithelial fibrosis, neovascularization",
+              "> 850 µm",
+              "Irreversible; requires Endothelial Keratoplasty (DMEK/DSAEK) or PKP"
+            ]
+          ]
+        },
+        "references": [
+          {
+            "citation": "Kruse FE, et al. Classification and management of corneal edema following cataract surgery. Curr Opin Ophthalmol. 2018.",
+            "url": "https://doi.org/10.1097/ICU.0000000000000441",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Descemet's Membrane Detachment (DMD) Subtypes",
+        "icon": "layers",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Planar DMD: Separation < 1 mm from stroma; high rate of spontaneous reattachment.",
+          "Non-Planar DMD: Separation > 1 mm from stroma; rolls or scrolls inward, requiring prompt intervention.",
+          "Peripheral DMD: Spares visual axis; often asymptomatic and self-limiting.",
+          "Central/Extensive DMD: Involves visual axis; causes immediate post-op corneal haze and sharp drop in vision."
+        ],
+        "references": [
+          {
+            "citation": "Mackool RJ, Holtz SJ. Descemet membrane detachment. Arch Ophthalmol. 1977.",
+            "url": "https://doi.org/10.1001/archopht.1977.01010020601004",
+            "isEvidenceSearch": false
+          },
+          {
+            "citation": "Kumar DA, et al. Anterior segment optical coherence tomography staging for Descemet membrane detachment. Ophthalmology. 2014.",
+            "url": "https://doi.org/10.1016/j.ophtha.2013.08.027",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Differential Diagnosis: Post-Cataract Corneal Clouding",
+        "icon": "visibility",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Feature",
+            "Toxic Anterior Segment Syndrome (TASS)",
+            "Infectious Endophthalmitis",
+            "Descemet Membrane Detachment (DMD)",
+            "Pseudophakic Bullous Keratopathy (PBK)"
+          ],
+          "rows": [
+            [
+              "Onset",
+              "12 - 24 hours post-op",
+              "3 - 7 days post-op (typical)",
+              "Day 1 post-op",
+              "Weeks to months post-op"
+            ],
+            [
+              "Pain Level",
+              "Mild to moderate; painless hypopyon possible",
+              "Severe, unrelenting ocular pain",
+              "Minimal pain unless bullae rupture",
+              "Foreign body sensation, episodic sharp pain"
+            ],
+            [
+              "Anterior Chamber",
+              "Limbal-to-limbal edema, sterile hypopyon, no vitritis",
+              "Dense hypopyon, fibrinous exudate, severe vitritis",
+              "Clear AC or mild cell; visible unattached membrane",
+              "Deep AC, variable cell, bullous epithelial change"
+            ],
+            [
+              "IOP Profile",
+              "Marked early spike (trabeculitis)",
+              "Variable (low, normal, or secondary spike)",
+              "Normal unless concurrent viscoelastic retention",
+              "Normal to elevated"
+            ],
+            [
+              "Key Diagnostic",
+              "Specular microscopy showing widespread endothelial loss",
+              "Vitreous tap & culture, B-scan ultrasound",
+              "AS-OCT confirming detached Descemet layer",
+              "CCT > 700 µm, specular cell count < 500/mm²"
+            ]
+          ]
+        },
+        "references": [
+          {
+            "citation": "Bodnar Z, et al. Toxic anterior segment syndrome: Update on pathogenesis and management. Curr Opin Ophthalmol. 2012.",
+            "url": "https://doi.org/10.1097/ICU.0b013e32025801c8",
+            "isEvidenceSearch": false
+          },
+          {
+            "citation": "Durand ML. Bacterial Endophthalmitis. N Engl J Med. 2017.",
+            "url": "https://doi.org/10.1056/NEJMra1602884",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Comprehensive Diagnostic & Imaging Workup",
+        "icon": "fingerprint",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Anterior Segment OCT (AS-OCT): Gold standard to distinguish Descemet detachment from stromal swelling and measure separation gap.",
+          "Ultrasound Pachymetry: Quantitative CCT tracking to assess response to hyperosmotic therapy.",
+          "Specular Microscopy: Evaluates Endothelial Cell Density (ECD), pleomorphism (hexagonal pattern loss), and polymegathism (coefficient of variation).",
+          "Gonioscopy: Identifies vitreous incarceration in the surgical wound, retained lens fragments in the angle, or misaligned IOL haptics.",
+          "Goldmann Applanation / Tonopen: Monitors for steroid response or viscoelastic-induced IOP elevation."
+        ],
+        "references": [
+          {
+            "citation": "Sharma N, et al. Anterior segment optical coherence tomography in corneal pathologies. Indian J Ophthalmol. 2018.",
+            "url": "https://doi.org/10.4103/ijo.IJO_1223_17",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Emergency Signs & Red Flags",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Rapidly expanding corneal opacification with dense AC hypopyon within 24 hours (Suspect TASS or hyperacute infection).",
+          "Decreased vision accompanied by severe vitritis and loss of red reflex (Suspect Infectious Endophthalmitis).",
+          "Postoperative IOP spike > 35 mmHg causing acute microcystic edema and ischemic optic neuropathy risk.",
+          "Planar or scrolled Descemet detachment crossing the visual axis with clear separation > 1 mm on AS-OCT.",
+          "Vitreous strand incarceration in wound creating continuous traction and pupil distraction (risk of CME and retinal detachment)."
+        ],
+        "references": [
+          {
+            "citation": "Relhan N, et al. Endophthalmitis: Clinical features, etiology, and management updates. Asia Pac J Ophthalmol. 2018.",
+            "url": "https://doi.org/10.22608/APO.2017511",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Step-by-Step Clinical Management Protocol",
+        "icon": "medication",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "green",
+        "content": [
+          "Step 1: Immediate Post-op Assessment — Perform AS-OCT and high-magnification slit-lamp exam on Day 1 to rule out DMD, vitreous contact, or intraocular pressure spikes.",
+          "Step 2: Medical Anti-Edema Therapy — Initiate hypertonic Sodium Chloride 5% drops (Muro 128) 4 times daily and Sodium Chloride 5% ointment at bedtime to create an osmotic gradient.",
+          "Step 3: Anti-Inflammatory Modulation — Apply topical Prednisolone Acetate 1% or Difluprednate 0.05% q2h to qID to suppress iridocyclitis and endothelial pump suppression.",
+          "Step 4: IOP Control — If IOP > 21 mmHg, add topical beta-blockers (Timolol 0.5%) or alpha-agonists (Brimonidine 0.1%). Avoid carbonic anhydrase inhibitors if corneal decompensation is fragile.",
+          "Step 5: Intervention Evaluation — Re-assess at 2-4 weeks. If non-planar DMD is present, proceed to Pneumodescemetopexy. If bullous decompensation persists at 3 months, list for Endothelial Keratoplasty."
+        ],
+        "references": [
+          {
+            "citation": "Farahi B, et al. Management of postoperative corneal edema and Descemet's membrane detachment. J Ophthalmic Vis Res. 2020.",
+            "url": "https://doi.org/10.18502/jovr.v15i2.6738",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Pneumodescemetopexy Surgical Technique",
+        "icon": "medical_services",
+        "type": "process",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: Paracentesis & AC Decompression — Perform a clear corneal paracentesis away from the detachment site; gently drain aqueous humor to lower IOP.",
+          "Step 2: Gas/Air Injection — Inject sterile 100% room air or an iso-volumetric gas mixture (20% SF6 or 14% C3F8) into the anterior chamber using a 30-gauge cannula.",
+          "Step 3: Membrane Unrolling — Direct the gas bubble beneath the detached Descemet layer to unfold and appose it against the posterior corneal stroma.",
+          "Step 4: Tamponade Fill — Achieve an 80-90% anterior chamber fill; check for pupillary block and adjust IOP.",
+          "Step 5: Postoperative Positioning — Maintain strict supine positioning for 24-48 hours to ensure continuous gas contact with the central corneal endothelium."
+        ],
+        "references": [
+          {
+            "citation": "Shah CP, et al. Pneumodescemetopexy for Descemet membrane detachment after cataract surgery. Ophthalmology. 2006.",
+            "url": "https://doi.org/10.1016/j.ophtha.2006.01.061",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Memory Mnemonic: D-E-N-S-E Etiology Focus",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": {
+          "mnemonic": "D - E - N - S - E",
+          "explanation": "D: Descemet Detachment (scrolled/planar membrane break) | E: Endothelial Decompensation (Fuchs dystrophy/low baseline count) | N: Non-sterile / Toxic Insult (TASS, intracameral drugs, irrigation solution) | S: Surgical Trauma (high CDE ultrasound energy, phaco tip contact) | E: Elevated IOP (retained viscoelastic, vitreous pupillary block)"
+        },
+        "references": [
+          {
+            "citation": "Singh R, et al. Etiology and prevention of pseudophakic corneal edema. Indian J Ophthalmol. 2020.",
+            "url": "https://doi.org/10.4103/ijo.IJO_1830_19",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Surgical Options for Irreversible Endothelial Failure",
+        "icon": "table_chart",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": {
+          "headers": [
+            "Technique",
+            "Anatomic Replacement",
+            "Visual Recovery",
+            "Rejection Risk",
+            "Ideal Candidate"
+          ],
+          "rows": [
+            [
+              "DMEK (Descemet Membrane Endothelial Keratoplasty)",
+              "Isolated donor Descemet membrane + Endothelium (~10-15 µm)",
+              "Rapid (2-4 weeks); near 20/20 potential",
+              "Lowest (< 1-2%)",
+              "Clear stroma, intact anterior capsule, uncomplicated iris anatomy"
+            ],
+            [
+              "DSAEK (Descemet Stripping Automated EK)",
+              "Donor stroma + Descemet + Endothelium (~70-120 µm)",
+              "Moderate (1-3 months); 20/25 - 20/40 potential",
+              "Low (5-8%)",
+              "Complex anterior segments, glaucoma tubes, anterior chamber IOLs"
+            ],
+            [
+              "PKP (Penetrating Keratoplasty)",
+              "Full-thickness corneal trephination & graft graft",
+              "Slow (6-12 months); astigmatism common",
+              "Moderate to High (10-20%)",
+              "Concomitant deep stromal scarring, severe disorganization"
+            ]
+          ]
+        },
+        "references": [
+          {
+            "citation": "Deng SX, et al. Descemet membrane endothelial keratoplasty: A report by the American Academy of Ophthalmology. Ophthalmology. 2018.",
+            "url": "https://doi.org/10.1016/j.ophtha.2017.08.026",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "High-Yield Clinical Pearls for Practice",
+        "icon": "lightbulb",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "Avoid intracameral cefuroxime dilution errors: Excessive concentration is a leading cause of localized endothelial toxicity and TASS.",
+          "Always evaluate the pupil before pneumodescemetopexy: Perform a peripheral iridotomy if a complete air/gas fill is planned to prevent pupillary block glaucoma.",
+          "Differentiate TASS from Endophthalmitis: TASS responds dramatically to high-dose topical steroids within 24-48 hours; endophthalmitis worsens.",
+          "Do not clear vitreous from the wound with phaco ultrasound: Use dedicated anterior vitrectomy cutters with low vacuum and high cut rates to prevent corneal endothelial direct contact."
+        ],
+        "references": [
+          {
+            "citation": "Arshinoff SA. Intraocular medications and toxic anterior segment syndrome. J Cataract Refract Surg. 2006.",
+            "url": "https://doi.org/10.1016/j.jcrs.2006.01.079",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Landmark Studies & Emerging Advances",
+        "icon": "science",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Rho-Kinase (ROCK) Inhibitors: Topical Ripasudil 0.4% accelerates endothelial cell migration and pump recovery in post-op stromal edema.",
+          "Endothelial Cell Injection Therapy: Cultured human corneal endothelial cells combined with ROCK inhibitors (Y-27632) show promising regenerative capacity without organ donor tissue constraints.",
+          "Descemetorhexis Without Endothelial Keratoplasty (DSO): Selective central Descemet stripping for localized paracentral loss, utilizing ROCK inhibitors to promote peripheral cell migration.",
+          "Ultra-High Resolution AS-OCT: Provides sub-micron stromal mapping to predict spontaneous resolution of Descemet membrane detachments."
+        ],
+        "references": [
+          {
+            "citation": "Kinoshita S, et al. Injection of cultured human corneal endothelial cells with a ROCK inhibitor for bullous keratopathy. N Engl J Med. 2018.",
+            "url": "https://doi.org/10.1056/NEJMoa1712770",
+            "isEvidenceSearch": false
+          },
+          {
+            "citation": "Macsai MS, Shiloach M. Use of topical Rho-kinase inhibitor in Descemet stripping only. Cornea. 2019.",
+            "url": "https://doi.org/10.1097/ICO.0000000000001962",
+            "isEvidenceSearch": false
+          }
+        ]
+      }
+    ],
+    "generationPrompt": "corneal haze post complicated cataract",
+    "chapterId": "lens",
+    "categorySource": "auto",
+    "categoryLocked": false,
+    "webPhotoConsent": false,
+    "clinicalImages": [],
+    "webPhotoSourcePipelineVersion": 5
+  },
+  "chapterId": "lens",
+  "categorySource": "auto",
+  "categoryLocked": false,
+  "kanskiMeta": [
+    {
+      "pageNum": 321,
+      "keywords": [
+        "cataract",
+        "corneal",
+        "surgery",
+        "iol",
+        "lens"
+      ]
+    },
+    {
+      "pageNum": 342,
+      "keywords": [
+        "cataract",
+        "corneal",
+        "surgery",
+        "iol",
+        "lens"
+      ]
+    },
+    {
+      "pageNum": 326,
+      "keywords": [
+        "cataract",
+        "corneal",
+        "surgery",
+        "iol",
+        "lens"
+      ]
+    },
+    {
+      "pageNum": 319,
+      "keywords": [
+        "cataract",
+        "corneal",
+        "surgery",
+        "therapeutic",
+        "iol"
+      ]
+    },
+    {
+      "pageNum": 266,
+      "keywords": [
+        "cataract",
+        "corneal",
+        "surgery",
+        "lens",
+        "persistent"
+      ]
+    },
+    {
+      "pageNum": 345,
+      "keywords": [
+        "cataract",
+        "surgery",
+        "iol",
+        "lens",
+        "risk"
+      ]
+    },
+    {
+      "pageNum": 339,
+      "keywords": [
+        "cataract",
+        "complicated",
+        "surgery",
+        "iol",
+        "lens"
+      ]
+    },
+    {
+      "pageNum": 337,
+      "keywords": [
+        "cataract",
+        "surgery",
+        "iol",
+        "lens",
+        "risk"
+      ]
+    }
+  ],
+  "read": true
+}

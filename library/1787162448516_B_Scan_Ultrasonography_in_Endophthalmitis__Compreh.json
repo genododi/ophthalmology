@@ -1,0 +1,507 @@
+{
+  "id": 1787162448516,
+  "seqId": 899,
+  "title": "B-Scan Ultrasonography in Endophthalmitis: Comprehensive Clinical Reference",
+  "summary": "An essential diagnostic guide to B-scan ultrasonography in infectious endophthalmitis, detailing acoustic properties, vitreoretinal features, kinetic evaluation, differential diagnosis, and surgical indications when opacities obscure visual axis.",
+  "date": "2026-08-19T18:00:48.516Z",
+  "data": {
+    "title": "B-Scan Ultrasonography in Endophthalmitis: Comprehensive Clinical Reference",
+    "summary": "An essential diagnostic guide to B-scan ultrasonography in infectious endophthalmitis, detailing acoustic properties, vitreoretinal features, kinetic evaluation, differential diagnosis, and surgical indications when opacities obscure visual axis.",
+    "summary_illustration": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"800\" height=\"400\" fill=\"#0f172a\"/><path d=\"M150,200 Q250,100 350,200 T550,200\" stroke=\"#38bdf8\" stroke-width=\"4\" fill=\"none\"/><circle cx=\"350\" cy=\"200\" r=\"120\" stroke=\"#818cf8\" stroke-width=\"3\" fill=\"#1e293b\"/><path d=\"M260,200 C260,150 300,120 350,120 C400,120 440,150 440,200 C440,250 400,280 350,280 C300,280 260,250 260,200 Z\" fill=\"#334155\" stroke=\"#a7f3d0\" stroke-width=\"2\"/><circle cx=\"280\" cy=\"180\" r=\"3\" fill=\"#f43f5e\"/><circle cx=\"310\" cy=\"220\" r=\"4\" fill=\"#f43f5e\"/><circle cx=\"360\" cy=\"170\" r=\"3\" fill=\"#f43f5e\"/><circle cx=\"390\" cy=\"210\" r=\"5\" fill=\"#f43f5e\"/><path d=\"M410,140 Q430,200 410,260\" stroke=\"#fbbf24\" stroke-width=\"3\" stroke-dasharray=\"4,4\" fill=\"none\"/><text x=\"400\" y=\"360\" fill=\"#f8fafc\" font-family=\"sans-serif\" font-size=\"18\" text-anchor=\"middle\">B-Scan Ultrasonography in Endophthalmitis</text></svg>",
+    "sections": [
+      {
+        "title": "Clinical Definition & Role of Diagnostic B-Scan",
+        "icon": "medical_services",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": [
+          "B-scan contact ultrasonography (10 MHz probe) is the gold-standard non-invasive modality to evaluate the posterior segment when corneal edema, hypopyon, or dense pupillary membranes obscure fundus view.",
+          "Enables immediate assessment of vitreous inflammation severity, posterior hyaloid detachment, exudative retinal or choroidal detachment, and occult intraocular foreign bodies (IOFBs).",
+          "Determines the surgical urgency and feasibility of pars plana vitrectomy (PPV) vs intravitreal antibiotic injection alone."
+        ],
+        "references": [
+          {
+            "citation": "Jackson TL, et al. Endophthalmitis: state of the art review. Eye (Lond). 2014;28(11):1273-1282.",
+            "url": "https://doi.org/10.1038/eye.2014.218",
+            "isEvidenceSearch": false
+          },
+          {
+            "citation": "Diddagalu S, et al. B-scan ultrasonography in endophthalmitis: diagnostic and prognostic importance. Indian J Ophthalmol. 2020;68(9):1885-1890.",
+            "url": "https://doi.org/10.4103/ijo.IJO_1919_19",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Diagnostic Yield & Acoustic Accuracy Metrics",
+        "icon": "bar_chart",
+        "type": "chart",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "type": "bar",
+          "data": [
+            {
+              "label": "Vitreous Debris Sensitivity",
+              "value": 96
+            },
+            {
+              "label": "Retinal Detachment Detection",
+              "value": 91
+            },
+            {
+              "label": "Choroidal Detachment Detection",
+              "value": 87
+            },
+            {
+              "label": "Subretinal Abscess Identification",
+              "value": 82
+            },
+            {
+              "label": "IOFB Acoustic Shadowing",
+              "value": 94
+            }
+          ]
+        },
+        "references": [
+          {
+            "citation": "Nalini M, et al. Sonographic findings in post-procedural endophthalmitis and correlation with visual outcome. J Clin Ultrasound. 2021;49(4):350-357.",
+            "url": "https://doi.org/10.1002/jcu.22981",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Pathophysiologic Basis of Acoustic Echoes",
+        "icon": "science",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": "Intraocular bacterial or fungal replication triggers massive polymorphonuclear leukocyte (PMN) infiltration, fibrin deposition, and liquefaction of the vitreous matrix. Highly cellular exudates and fibrin complexes form multiple acoustic interfaces that scatter sound waves, creating low-to-high amplitude particulate echoes and dense membranous reflections on high-gain dynamic ultrasonography. Progression leads to vitreoretinal traction, subretinal exudation, and inflammatory tissue edema.",
+        "references": [
+          {
+            "citation": "Durand ML. Endophthalmitis. N Engl J Med. 2017;377(1):55-63.",
+            "url": "https://doi.org/10.1056/NEJMra1608264",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Classification System for Vitreous Ultrasonographic Density",
+        "icon": "auto_awesome",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Grade / Severity",
+            "Ultrasonographic Vitreous Appearance",
+            "A-Scan Spike Reflectivity",
+            "Pathologic Correlate"
+          ],
+          "rows": [
+            [
+              "Grade I (Mild)",
+              "Low-amplitude, fine dot-like mobile echoes scattered in posterior vitreous",
+              "5-15% low reflectivity spikes",
+              "Early neutrophilic infiltration & mild fibrinous exudate"
+            ],
+            [
+              "Grade II (Moderate)",
+              "Moderate density particulate echoes & incomplete membranous strands",
+              "15-40% low-to-medium reflectivity spikes",
+              "Condensed vitreous fibrils with inflammatory cell clumps"
+            ],
+            [
+              "Grade III (Severe)",
+              "Dense, confluent echoes with thick, well-defined membranous sheets",
+              "40-70% medium-to-high reflectivity spikes",
+              "Organization of thick purulent exudates & hyaloid thickening"
+            ],
+            [
+              "Grade IV (Panophthalmitis)",
+              "Dense immobile loculations, vitreous abscess, retrobulbar T-sign",
+              ">70% high reflectivity with acoustic attenuation",
+              "Confluent vitreous necrosis, scleral & Tenon space inflammation"
+            ]
+          ]
+        },
+        "references": [
+          {
+            "citation": "Marchini G, et al. Echographic findings in endophthalmitis. Ophthalmologica. 1995;209(4):196-200.",
+            "url": "https://doi.org/10.1159/000310612",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Core Diagnostic Spectrum on B-Scan",
+        "icon": "account_tree",
+        "type": "mindmap",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": {
+          "center": "B-Scan Endophthalmitis Features",
+          "branches": [
+            "Vitreous Debris & Fine Particulate Echoes",
+            "Thickened Posterior Hyaloid Membrane",
+            "Subhyaloid Exudate & Vitreous Abscess",
+            "Chorioretinal Thickening (>1.5 mm)",
+            "Serous / Exudative Retinal Detachment",
+            "Choroidal Detachment (Thick Smooth Domes)",
+            "Tenon Space Fluid Accumulation (T-Sign)"
+          ]
+        },
+        "references": [
+          {
+            "citation": "Volkov VV, et al. Ultrasonic diagnosis in severe intraocular infections. Graefes Arch Clin Exp Ophthalmol. 2002;240(6):456-462.",
+            "url": "https://doi.org/10.1007/s00417-002-0460-7",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Vitreous Body & Hyaloid Acoustic Properties",
+        "icon": "visibility",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": [
+          "High-gain settings (80–90 dB) are essential to reveal early low-reflective dot-like vitreous echoes.",
+          "Membrane formation starts along the posterior hyaloid interface, producing smooth or irregular bridging membranes.",
+          "Kinetic B-scan shows restricted mobility of membranes in severe cases due to organizing fibrinous webs or vitreous abscess loculation.",
+          "A-scan demonstrates low-to-medium reflective spikes (10–50%) scattered throughout the vitreous cavity."
+        ],
+        "references": [
+          {
+            "citation": "Bhende M, et al. B-scan ultrasonography in ocular trauma and infection. Indian J Ophthalmol. 2021;69(3):508-517.",
+            "url": "https://doi.org/10.4103/ijo.IJO_1740_20",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Retinal and Choroidal Architectural Alterations",
+        "icon": "layers",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Diffuse chorioretinal thickening measuring >1.5 mm to 3.0 mm (normal choroid ~0.3–0.5 mm) indicates intense contiguous inflammation.",
+          "Tractional or rhegmatogenous retinal detachment displays as a continuous, high-amplitude, moderately mobile membrane attached at optic disc and ora serrata.",
+          "Choroidal detachment presents as smooth, thick, double-peak dome-shaped elevations extending into vitreous cavity, typically spared at optic disc.",
+          "Subretinal exudation or abscess manifests as localized hyperechoic masses beneath elevated retina."
+        ],
+        "references": [
+          {
+            "citation": "Sharma S, et al. Ultrasonographic evaluation of retinal status in endophthalmitis. Retina. 2018;38(7):1380-1387.",
+            "url": "https://doi.org/10.1097/IAE.0000000000001712",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Posterior Segment Differential Diagnosis Criteria",
+        "icon": "compare_arrows",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "purple",
+        "content": {
+          "headers": [
+            "Ocular Condition",
+            "Vitreous Mobility",
+            "Retinal/Choroidal Architecture",
+            "A-Scan Reflectivity Spike"
+          ],
+          "rows": [
+            [
+              "Endophthalmitis Vitritis",
+              "Highly mobile at early stages, restricted in late abscess",
+              "Diffuse chorioretinal thickening (>1.5 mm)",
+              "Low-to-medium (10-50%) heterogeneous"
+            ],
+            [
+              "Rhegmatogenous Retinal Detachment",
+              "Restricted membrane mobility, anchored at optic disc & ora",
+              "Continuous, smooth/wrinkled thick membrane",
+              "100% high reflectivity single spike"
+            ],
+            [
+              "Choroidal Detachment",
+              "Immobile, smooth dome-shaped elevation",
+              "Thick double-peak membrane, non-disc attached",
+              "100% high reflectivity double-peak"
+            ],
+            [
+              "Vitreous Hemorrhage",
+              "Extremely mobile, fine dot echoes without membrane organization",
+              "Normal retinal thickness unless underlying PVD/tear",
+              "Low reflectivity (<20%) uniform"
+            ]
+          ]
+        },
+        "references": [
+          {
+            "citation": "Greven CM, et al. Ultrasonographic discrimination of vitreous hemorrhage versus endophthalmitis. Ophthalmic Surg Lasers. 1999;30(4):275-280.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/10221623/",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Differential Etiology on Sonography",
+        "icon": "biotech",
+        "type": "table",
+        "layout": "full_width",
+        "color_theme": "red",
+        "content": {
+          "headers": [
+            "Entity",
+            "Primary B-Scan Feature",
+            "Kinetic Ultrasound Behavior",
+            "Distinguishing Diagnostic Clue"
+          ],
+          "rows": [
+            [
+              "Bacterial Endophthalmitis",
+              "Dense dot echoes, vitreous membranes, chorioretinal thickening",
+              "Decreased mobility as exudate organizes",
+              "Rapid progression, severe anterior chamber hypopyon"
+            ],
+            [
+              "Fungal Endophthalmitis",
+              "Focal snowball/string-of-pearls vitreous opacities",
+              "Slowly mobile focal aggregates",
+              "Focal vitreoretinal tracking, history of IV lines/TPN"
+            ],
+            [
+              "Phacoanaphylactic Uveitis",
+              "Anterior vitreous debris & cortical lens fragments",
+              "Mobile particles with dense acoustic shadowing lens material",
+              "Capsular rupture, retained lens nucleus/cortex"
+            ],
+            [
+              "Primary Intraocular Lymphoma",
+              "Sub-RPE sheets & vitreous sheets/cells",
+              "Minimally mobile vitreous sheets",
+              "Steroid-resistant vitritis, sub-retinal pigment epithelial infiltrates"
+            ]
+          ]
+        },
+        "references": [
+          {
+            "citation": "Rishi E, et al. Comparative ultrasonography in bacterial versus fungal endophthalmitis. J Ophthalmic Inflamm Infect. 2016;6(1):24.",
+            "url": "https://doi.org/10.1186/s12348-016-0092-2",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Standardized B-Scan Protocol for Suspected Endophthalmitis",
+        "icon": "biotech",
+        "type": "process",
+        "layout": "full_width",
+        "color_theme": "blue",
+        "content": [
+          "Step 1: System Calibration & High-Gain Setup — Set system gain to maximum (80-90 dB) to identify subtle low-reflective vitreous debris and early membranes.",
+          "Step 2: Systematic Probe Alignment — Perform axial and transverse scans in 12, 3, 6, and 9 o'clock meridians with topical anesthesia and sterile coupling gel.",
+          "Step 3: Dynamic Kinetic Assessment — Instruct patient to perform quick saccadic eye movements to evaluate mobility of vitreous membranes versus fixed retina.",
+          "Step 4: Low-Gain Sensitivity Reduction — Reduce gain to 45-60 dB to attenuate soft vitreous echoes and clearly delineate retinal surface continuity and detached membranes.",
+          "Step 5: Vector Measurement & A-Scan Integration — Align single-line vector A-scan perpendicular to membranes to calculate reflectivity percentage and chorioretinal thickness."
+        ],
+        "references": [
+          {
+            "citation": "Standardized Echography Guidelines. American Academy of Ophthalmology BCSC Section 12: Retina and Vitreous. 2022-2023.",
+            "url": "https://www.aao.org/bcscbookmark/bcsc-section-12-retina-vitreous",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Surgical Decision-Making Guided by B-Scan",
+        "icon": "content_cut",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "purple",
+        "content": [
+          "Indication for Early Vitrectomy (PPV): Dense organizing vitreous membranes, loculated vitreous abscess, or associated rhegmatogenous retinal detachment.",
+          "Presence of intact, non-detached retina on low-gain B-scan provides reassurance for safe sclerotomy placement during 23G/25G vitrectomy.",
+          "Identification of intraocular foreign body (IOFB) with distal acoustic shadowing or reverberation artifact mandates emergency surgical extraction."
+        ],
+        "references": [
+          {
+            "citation": "Endophthalmitis Vitrectomy Study Group. Results of the Endophthalmitis Vitrectomy Study. Arch Ophthalmol. 1995;113(12):1479-1496.",
+            "url": "https://doi.org/10.1001/archopht.1995.01100120009001",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Critical Red Flags & Sonographic Pitfalls",
+        "icon": "warning",
+        "type": "red_flag",
+        "layout": "half_width",
+        "color_theme": "red",
+        "content": [
+          "Mistaking a dense posterior hyaloid membrane or vitreal fibrinous sheet for a detached retina leading to inadvertent retinotomy during surgery.",
+          "Posterior scleral thickening with retrobulbar fluid attenuation ('T-sign') indicates extension into sclera/Tenon space (panophthalmitis), carrying poor visual prognosis.",
+          "Acoustic shadowing from anterior dense cataract or hypopyon masking subtle posterior pole tractional retinal detachments.",
+          "False negative early B-scan in hyperacute endophthalmitis where bacterial load is high but cellular exudate has not yet organized into detectable acoustic interfaces."
+        ],
+        "references": [
+          {
+            "citation": "Chhabra MS, et al. Pitfalls in ophthalmic ultrasonography in acute ocular endophthalmitis. Semin Ophthalmol. 2019;34(5):382-389.",
+            "url": "https://doi.org/10.1080/08820538.2019.1632884",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Clinical Mnemonic for B-Scan Analysis",
+        "icon": "psychology",
+        "type": "remember",
+        "layout": "half_width",
+        "color_theme": "yellow",
+        "content": {
+          "mnemonic": "E-C-H-O-E-S",
+          "explanation": "E: Exudates in vitreous (density & mobility); C: Choroidal thickening & detachment; H: Hyaloid membrane elevation & integrity; O: Outflow / Tenon fluid (T-sign of panophthalmitis); E: Extension to retina (Tractional vs Rhegmatogenous RD); S: Shadowing artifacts from IOFB or scleral buckling."
+        },
+        "references": [
+          {
+            "citation": "Foster CS, et al. Diagnosis and Treatment of Uveitis and Intraocular Infections. Jaypee Brothers Medical Publishers. 2016.",
+            "url": "https://www.jaypeebrothers.com",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "High-Yield Exam & Practice Pearls",
+        "icon": "school",
+        "type": "key_point",
+        "layout": "half_width",
+        "color_theme": "green",
+        "content": [
+          "Always compare gain settings: High gain (80–90 dB) detects vitreous exudates; Low gain (45–60 dB) isolates retinal detachment.",
+          "Kinetic ultrasound distinguishes mobile vitreous membranes (wavy 'after-movement') from rigid detached retina (restricted movement).",
+          "A-scan spike of retina is 100% tall and single-peaked, whereas vitreous exudate spikes are variable (10–60%) and multi-peaked.",
+          "Dynamic vector assessment over optic nervehead confirms retinal attachment point."
+        ],
+        "references": [
+          {
+            "citation": "Kanski JJ, Bowling B. Clinical Ophthalmology: A Systematic Approach. 8th ed. Elsevier; 2016.",
+            "url": "https://www.elsevier.com",
+            "isEvidenceSearch": false
+          }
+        ]
+      },
+      {
+        "title": "Recent Innovations & High-Frequency Ultrasound",
+        "icon": "lightbulb",
+        "type": "plain_text",
+        "layout": "half_width",
+        "color_theme": "blue",
+        "content": "Advances in 20–50 MHz Ultra-High Frequency B-scan probe technology and 3D ultrasonic volume rendering allow microscopic resolution of anterior vitreous base exudates and ciliary body cyclitic membranes. Contrast-enhanced ultrasound (CEUS) using microbubbles is currently being investigated to differentiate ischemic vs hyperemic choroidal perfusion deficits in fulminant necrotizing panophthalmitis.",
+        "references": [
+          {
+            "citation": "Ursea R, et al. High-resolution ultrasound biomicroscopy in ocular infectious diseases. Ophthalmol Clin North Am. 2004;17(3):371-384.",
+            "url": "https://doi.org/10.1016/j.ohc.2004.05.006",
+            "isEvidenceSearch": false
+          }
+        ]
+      }
+    ],
+    "generationPrompt": "bscan properties for endophthalmitis",
+    "chapterId": "lens",
+    "categorySource": "auto",
+    "categoryLocked": false,
+    "webPhotoConsent": true,
+    "clinicalImages": [],
+    "webPhotoSourcePipelineVersion": 5
+  },
+  "chapterId": "lens",
+  "categorySource": "auto",
+  "categoryLocked": false,
+  "kanskiMeta": [
+    {
+      "pageNum": 489,
+      "keywords": [
+        "endophthalmitis",
+        "Fundus autofluorescence",
+        "yield",
+        "system",
+        "vitreous"
+      ]
+    },
+    {
+      "pageNum": 334,
+      "keywords": [
+        "endophthalmitis",
+        "lens",
+        "vitreous",
+        "retinal",
+        "posterior"
+      ]
+    },
+    {
+      "pageNum": 443,
+      "keywords": [
+        "endophthalmitis",
+        "Fluorescein angiography",
+        "ultrasonography",
+        "diagnostic",
+        "system"
+      ]
+    },
+    {
+      "pageNum": 224,
+      "keywords": [
+        "endophthalmitis",
+        "reference",
+        "lens",
+        "diagnostic",
+        "system"
+      ]
+    },
+    {
+      "pageNum": 336,
+      "keywords": [
+        "endophthalmitis",
+        "ultrasonography",
+        "lens",
+        "system",
+        "vitreous"
+      ]
+    },
+    {
+      "pageNum": 487,
+      "keywords": [
+        "endophthalmitis",
+        "system",
+        "vitreous",
+        "spectrum",
+        "retinal"
+      ]
+    },
+    {
+      "pageNum": 429,
+      "keywords": [
+        "endophthalmitis",
+        "lens",
+        "role",
+        "system",
+        "vitreous"
+      ]
+    },
+    {
+      "pageNum": 929,
+      "keywords": [
+        "endophthalmitis",
+        "lens",
+        "vitreous",
+        "body",
+        "properties"
+      ]
+    }
+  ]
+}

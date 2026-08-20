@@ -2934,6 +2934,26 @@ function setupKnowledgeBase() {
     const importBtn = document.getElementById('import-server-btn');
     const exportBtn = document.getElementById('export-server-btn');
     const emptyMsg = document.getElementById('empty-library-msg');
+    const manageServerBtn = document.getElementById('manage-server-library-btn');
+    const serverManagerModal = document.getElementById('server-library-manager-modal');
+    const closeServerManagerBtn = document.getElementById('close-server-library-manager-btn');
+    const refreshServerManagerBtn = document.getElementById('refresh-server-library-btn');
+    const selectAllServerBtn = document.getElementById('select-all-server-library-btn');
+    const serverSearchInput = document.getElementById('server-library-search');
+    const serverItemsContainer = document.getElementById('server-library-items');
+    const serverLibraryCount = document.getElementById('server-library-count');
+    const serverSelectionCount = document.getElementById('server-library-selection-count');
+    const serverEditBtn = document.getElementById('edit-server-library-btn');
+    const serverDeleteBtn = document.getElementById('delete-server-library-btn');
+    const serverStatus = document.getElementById('server-library-status');
+    const serverEditForm = document.getElementById('server-library-edit-form');
+    const serverEditTitle = document.getElementById('server-edit-title');
+    const serverEditSummary = document.getElementById('server-edit-summary');
+    const serverEditChapter = document.getElementById('server-edit-chapter');
+    const serverEditSections = document.getElementById('server-edit-sections');
+    const cancelServerEditBtn = document.getElementById('cancel-server-library-edit-btn');
+    const cancelServerEditFooterBtn = document.getElementById('cancel-server-library-edit-footer-btn');
+    const saveServerEditBtn = document.getElementById('save-server-library-edit-btn');
 
     let currentChapterFilter = 'all';
     let currentSearchTerm = ''; // NEW: Search state
@@ -2942,6 +2962,327 @@ function setupKnowledgeBase() {
     let currentContentFilter = 'all'; // Content-type filter: tables, causes, etc.
     let selectionMode = false;
     let selectedItems = new Set();
+    let serverItems = [];
+    let serverSelectedIds = new Set();
+    let serverSearchTerm = '';
+    let serverEditingItem = null;
+    let serverManagerPin = '';
+
+    function getServerItemId(item) {
+        return String(item?.id ?? item?.serverId ?? '');
+    }
+
+    function setServerManagerStatus(message, status = 'info') {
+        if (!serverStatus) return;
+        serverStatus.textContent = message;
+        serverStatus.dataset.status = status;
+    }
+
+    function getFilteredServerItems() {
+        const term = serverSearchTerm.trim().toLowerCase();
+        if (!term) return serverItems;
+        return serverItems.filter(item => [item?.title, item?.summary, item?.id]
+            .some(value => String(value || '').toLowerCase().includes(term)));
+    }
+
+    function formatServerSectionContent(content) {
+        if (typeof content === 'string') return content;
+        if (Array.isArray(content) && content.every(value => typeof value === 'string')) return content.join('\n');
+        if (content === undefined || content === null) return '';
+        return JSON.stringify(content, null, 2);
+    }
+
+    function parseServerSectionContent(text, originalContent, sectionTitle) {
+        const value = String(text || '').trim();
+        if (typeof originalContent === 'string' || originalContent === undefined || originalContent === null) return value;
+        if (Array.isArray(originalContent) && originalContent.every(item => typeof item === 'string')) {
+            return value.split(/\n+/).map(item => item.trim()).filter(Boolean);
+        }
+        try {
+            return JSON.parse(value);
+        } catch {
+            throw new Error(`“${sectionTitle || 'Untitled section'}” contains structured content. Keep its brackets, quotes and commas valid.`);
+        }
+    }
+
+    function updateServerManagerActions() {
+        const count = serverSelectedIds.size;
+        if (serverSelectionCount) {
+            serverSelectionCount.textContent = count
+                ? `${count} infographic${count === 1 ? '' : 's'} selected`
+                : 'No infographics selected';
+        }
+        if (serverEditBtn) serverEditBtn.disabled = count !== 1;
+        if (serverDeleteBtn) serverDeleteBtn.disabled = count === 0;
+        const visible = getFilteredServerItems().map(getServerItemId).filter(Boolean);
+        if (selectAllServerBtn) {
+            const allVisibleSelected = visible.length > 0 && visible.every(id => serverSelectedIds.has(id));
+            selectAllServerBtn.innerHTML = `<span class="material-symbols-rounded">${allVisibleSelected ? 'deselect' : 'select_all'}</span>${allVisibleSelected ? 'Clear visible' : 'Select visible'}`;
+            selectAllServerBtn.disabled = visible.length === 0;
+        }
+    }
+
+    function renderServerLibraryManager() {
+        if (!serverItemsContainer) return;
+        const chapters = getChapters();
+        const filtered = getFilteredServerItems();
+        if (serverLibraryCount) serverLibraryCount.textContent = String(serverItems.length);
+        if (!filtered.length) {
+            serverItemsContainer.innerHTML = `<div class="server-library-empty"><span class="material-symbols-rounded">${serverSearchTerm ? 'search_off' : 'cloud_off'}</span><p>${serverSearchTerm ? 'No server infographics match this search.' : 'No infographics are currently stored on the server.'}</p></div>`;
+        } else {
+            serverItemsContainer.innerHTML = filtered.map(item => {
+                const id = getServerItemId(item);
+                const selected = serverSelectedIds.has(id);
+                const chapter = chapters.find(entry => entry.id === (item.chapterId || item.data?.chapterId)) || chapters[0];
+                const sectionCount = Array.isArray(item.data?.sections) ? item.data.sections.length : 0;
+                const date = new Date(item.updatedAt || item.date || 0);
+                const dateLabel = Number.isNaN(date.getTime()) ? 'Date unavailable' : date.toLocaleString();
+                return `<label class="server-library-item ${selected ? 'selected' : ''}">
+                    <input type="checkbox" class="server-library-checkbox" data-server-id="${escapeHtml(id)}" ${selected ? 'checked' : ''}>
+                    <span class="server-library-item-main">
+                        <span class="server-library-item-title">${escapeHtml(item.title || 'Untitled Infographic')}</span>
+                        <span class="server-library-item-meta">ID ${escapeHtml(id)} · ${sectionCount} section${sectionCount === 1 ? '' : 's'} · ${escapeHtml(dateLabel)}</span>
+                    </span>
+                    <span class="server-library-item-category" style="background:${escapeHtml(chapter.color)}">${escapeHtml(chapter.name)}</span>
+                </label>`;
+            }).join('');
+        }
+        serverItemsContainer.querySelectorAll('.server-library-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const id = String(checkbox.dataset.serverId || '');
+                if (checkbox.checked) serverSelectedIds.add(id);
+                else serverSelectedIds.delete(id);
+                checkbox.closest('.server-library-item')?.classList.toggle('selected', checkbox.checked);
+                updateServerManagerActions();
+            });
+        });
+        updateServerManagerActions();
+    }
+
+    async function loadServerLibraryManager({ announce = false } = {}) {
+        if (!serverItemsContainer) return;
+        if (isCapacitorNativeApp()) {
+            setServerManagerStatus('Server management is available in the hosted or local web app.', 'error');
+            serverItems = [];
+            renderServerLibraryManager();
+            return;
+        }
+        setServerManagerStatus('Loading the current server catalogue…', 'loading');
+        if (refreshServerManagerBtn) refreshServerManagerBtn.disabled = true;
+        try {
+            if (isGitHubPages() && window.CommunitySubmissions?.listServerLibrary) {
+                serverItems = await window.CommunitySubmissions.listServerLibrary();
+            } else {
+                const response = await safeFetch('api/library/list');
+                const result = await response.json().catch(() => []);
+                if (!response.ok || !Array.isArray(result)) throw new Error(`Server returned ${response.status}`);
+                serverItems = result;
+            }
+            serverItems.sort((a, b) => new Date(b.updatedAt || b.date || 0) - new Date(a.updatedAt || a.date || 0));
+            const currentIds = new Set(serverItems.map(getServerItemId));
+            serverSelectedIds = new Set([...serverSelectedIds].filter(id => currentIds.has(id)));
+            renderServerLibraryManager();
+            setServerManagerStatus(`${serverItems.length} server infographic${serverItems.length === 1 ? '' : 's'} available. Select one to edit, or select several to delete.`, 'success');
+            if (announce) showToast('Server library refreshed.', 'success');
+        } catch (error) {
+            console.error('Server library manager load failed:', error);
+            serverItems = [];
+            renderServerLibraryManager();
+            setServerManagerStatus(`Could not load the server library: ${error.message}`, 'error');
+        } finally {
+            if (refreshServerManagerBtn) refreshServerManagerBtn.disabled = false;
+        }
+    }
+
+    function requestServerManagerPin() {
+        if (!isGitHubPages()) return '';
+        if (serverManagerPin && window.CommunitySubmissions?.verifyAdmin?.(serverManagerPin)) return serverManagerPin;
+        const pin = prompt('Enter the admin PIN to change the server library:');
+        if (!pin) return null;
+        if (!window.CommunitySubmissions?.verifyAdmin?.(pin)) {
+            alert('Invalid admin PIN. The server library was not changed.');
+            return null;
+        }
+        serverManagerPin = pin;
+        return pin;
+    }
+
+    function closeServerEditor() {
+        serverEditingItem = null;
+        if (serverEditForm) serverEditForm.hidden = true;
+        if (serverItemsContainer) serverItemsContainer.hidden = false;
+    }
+
+    function openServerEditor(item) {
+        if (!item || !serverEditForm || !serverEditTitle || !serverEditSummary || !serverEditChapter || !serverEditSections) return;
+        serverEditingItem = item;
+        serverEditTitle.value = item.title || item.data?.title || '';
+        serverEditSummary.value = item.summary || item.data?.summary || '';
+        const chapters = getChapters();
+        serverEditChapter.innerHTML = chapters.map(chapter => `<option value="${escapeHtml(chapter.id)}">${escapeHtml(chapter.name)}</option>`).join('');
+        serverEditChapter.value = item.chapterId || item.data?.chapterId || 'uncategorized';
+        const sections = Array.isArray(item.data?.sections) ? item.data.sections : [];
+        serverEditSections.innerHTML = sections.length
+            ? `<h4>Sections (${sections.length})</h4>${sections.map((section, index) => {
+                const structured = !(typeof section?.content === 'string' || (Array.isArray(section?.content) && section.content.every(value => typeof value === 'string')));
+                return `<div class="server-edit-section" data-section-index="${index}">
+                    <div class="server-edit-section-header"><span>Section ${index + 1}</span><span>${structured ? 'Structured table/chart content' : 'Text or list content'}</span></div>
+                    <label>Section title<input class="server-edit-section-title" type="text" value="${escapeHtml(section?.title || '')}" maxlength="240"></label>
+                    <label>Section content<textarea class="server-edit-section-content" rows="${structured ? 10 : 5}">${escapeHtml(formatServerSectionContent(section?.content))}</textarea></label>
+                </div>`;
+            }).join('')}`
+            : '<div class="server-library-empty"><p>This infographic has no editable sections.</p></div>';
+        serverItemsContainer.hidden = true;
+        serverEditForm.hidden = false;
+        serverEditTitle.focus();
+        serverEditForm.closest('.modal-body')?.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    async function updateLocalCopyFromServer(updatedItem) {
+        const id = getServerItemId(updatedItem);
+        const localLibrary = getLibraryCache();
+        const index = localLibrary.findIndex(item => getServerItemId(item) === id);
+        if (index === -1) return;
+        localLibrary[index] = {
+            ...localLibrary[index],
+            ...updatedItem,
+            data: updatedItem.data ? { ...updatedItem.data } : localLibrary[index].data
+        };
+        await saveLibraryToIDB(localLibrary);
+        renderLibraryList();
+    }
+
+    async function deleteServerItems(ids) {
+        if (isGitHubPages()) {
+            const pin = requestServerManagerPin();
+            if (pin === null) return null;
+            if (!window.CommunitySubmissions?.deleteFromServerLibrary) throw new Error('Server deletion module is unavailable. Refresh and try again.');
+            return window.CommunitySubmissions.deleteFromServerLibrary(ids, pin);
+        }
+        const response = await safeFetch('api/library/delete', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ids })
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.success) throw new Error(result.error || `Server returned ${response.status}`);
+        return result;
+    }
+
+    manageServerBtn?.addEventListener('click', async () => {
+        serverManagerModal?.classList.add('active');
+        closeServerEditor();
+        await loadServerLibraryManager();
+    });
+    closeServerManagerBtn?.addEventListener('click', () => serverManagerModal?.classList.remove('active'));
+    serverManagerModal?.addEventListener('click', event => {
+        if (event.target === serverManagerModal) serverManagerModal.classList.remove('active');
+    });
+    refreshServerManagerBtn?.addEventListener('click', () => loadServerLibraryManager({ announce: true }));
+    serverSearchInput?.addEventListener('input', () => {
+        serverSearchTerm = serverSearchInput.value;
+        renderServerLibraryManager();
+    });
+    selectAllServerBtn?.addEventListener('click', () => {
+        const visibleIds = getFilteredServerItems().map(getServerItemId).filter(Boolean);
+        const allSelected = visibleIds.length > 0 && visibleIds.every(id => serverSelectedIds.has(id));
+        visibleIds.forEach(id => allSelected ? serverSelectedIds.delete(id) : serverSelectedIds.add(id));
+        renderServerLibraryManager();
+    });
+    serverEditBtn?.addEventListener('click', () => {
+        if (serverSelectedIds.size !== 1) return;
+        const id = [...serverSelectedIds][0];
+        openServerEditor(serverItems.find(item => getServerItemId(item) === id));
+    });
+    cancelServerEditBtn?.addEventListener('click', closeServerEditor);
+    cancelServerEditFooterBtn?.addEventListener('click', closeServerEditor);
+    serverEditForm?.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (!serverEditingItem) return;
+        const pin = requestServerManagerPin();
+        if (pin === null) return;
+        const originalSections = Array.isArray(serverEditingItem.data?.sections) ? serverEditingItem.data.sections : [];
+        let updatedItem;
+        try {
+            updatedItem = JSON.parse(JSON.stringify(serverEditingItem));
+            updatedItem.title = serverEditTitle.value.trim();
+            if (!updatedItem.title) throw new Error('Title is required.');
+            updatedItem.summary = serverEditSummary.value.trim();
+            updatedItem.chapterId = serverEditChapter.value || 'uncategorized';
+            updatedItem.updatedAt = new Date().toISOString();
+            updatedItem.data = updatedItem.data || {};
+            updatedItem.data.title = updatedItem.title;
+            updatedItem.data.summary = updatedItem.summary;
+            updatedItem.data.chapterId = updatedItem.chapterId;
+            const sectionNodes = [...serverEditSections.querySelectorAll('.server-edit-section')];
+            sectionNodes.forEach((node, index) => {
+                if (!updatedItem.data.sections?.[index]) return;
+                const title = node.querySelector('.server-edit-section-title')?.value.trim() || `Section ${index + 1}`;
+                const text = node.querySelector('.server-edit-section-content')?.value || '';
+                updatedItem.data.sections[index].title = title;
+                updatedItem.data.sections[index].content = parseServerSectionContent(text, originalSections[index]?.content, title);
+            });
+        } catch (error) {
+            setServerManagerStatus(error.message, 'error');
+            return;
+        }
+
+        saveServerEditBtn.disabled = true;
+        setServerManagerStatus(`Saving “${updatedItem.title}” to the server…`, 'loading');
+        try {
+            let result;
+            if (isGitHubPages()) {
+                if (!window.CommunitySubmissions?.updateServerLibraryItems) throw new Error('Server editing module is unavailable. Refresh and try again.');
+                result = await window.CommunitySubmissions.updateServerLibraryItems([updatedItem], pin);
+            } else {
+                result = await uploadItemsToServerLibrary([updatedItem]);
+            }
+            if (!result?.success) throw new Error(result?.message || 'Server update failed.');
+            const savedItem = result.items?.[0] || updatedItem;
+            const savedId = getServerItemId(savedItem);
+            serverItems = serverItems.map(item => getServerItemId(item) === savedId ? savedItem : item);
+            await updateLocalCopyFromServer(savedItem);
+            closeServerEditor();
+            renderServerLibraryManager();
+            setServerManagerStatus(`“${savedItem.title}” was updated on the server.`, 'success');
+            showToast('Server infographic updated.', 'success');
+        } catch (error) {
+            console.error('Server infographic edit failed:', error);
+            setServerManagerStatus(`Could not update the server infographic: ${error.message}`, 'error');
+        } finally {
+            saveServerEditBtn.disabled = false;
+        }
+    });
+    serverDeleteBtn?.addEventListener('click', async () => {
+        const ids = [...serverSelectedIds];
+        if (!ids.length) return;
+        const selected = serverItems.filter(item => serverSelectedIds.has(getServerItemId(item)));
+        const sample = selected.slice(0, 3).map(item => `• ${item.title || 'Untitled Infographic'}`).join('\n');
+        const more = selected.length > 3 ? `\n…and ${selected.length - 3} more` : '';
+        if (!confirm(`Permanently delete ${selected.length} selected infographic${selected.length === 1 ? '' : 's'} from the server?\n\n${sample}${more}\n\nThis cannot be undone.`)) return;
+        serverDeleteBtn.disabled = true;
+        setServerManagerStatus(`Deleting ${selected.length} infographic${selected.length === 1 ? '' : 's'} from the server…`, 'loading');
+        try {
+            const result = await deleteServerItems(ids);
+            if (result === null) return;
+            if (!result?.success) throw new Error(result?.message || 'Server deletion failed.');
+            const idSet = new Set(ids.map(String));
+            serverItems = serverItems.filter(item => !idSet.has(getServerItemId(item)));
+            const localLibrary = getLibraryCache().filter(item => !idSet.has(getServerItemId(item)));
+            await saveLibraryToIDB(localLibrary);
+            serverSelectedIds.clear();
+            closeServerEditor();
+            renderServerLibraryManager();
+            renderLibraryList();
+            setServerManagerStatus(`${result.count ?? selected.length} infographic${(result.count ?? selected.length) === 1 ? '' : 's'} deleted from the server.`, 'success');
+            showToast('Selected server infographics deleted.', 'success');
+        } catch (error) {
+            console.error('Server infographic deletion failed:', error);
+            setServerManagerStatus(`Could not delete from the server: ${error.message}`, 'error');
+        } finally {
+            updateServerManagerActions();
+        }
+    });
 
     // Content-type filter definitions
     // Each filter scans section titles and content for matching keywords

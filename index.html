@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" />
-    <link rel="stylesheet" href="style.css?v=2026082001">
+    <link rel="stylesheet" href="style.css?v=2026082002">
     <link rel="stylesheet" href="mobile-iap.css?v=2026061701">
     <!-- Import map for ES modules - works on hosted servers -->
     <script type="importmap">
@@ -317,6 +317,9 @@
                     <button id="import-server-btn" class="icon-btn-ghost" title="Import from Server">
                         <span class="material-symbols-rounded">cloud_download</span>
                     </button>
+                    <button id="manage-server-library-btn" class="icon-btn-ghost" title="Select, edit or delete server infographics">
+                        <span class="material-symbols-rounded">cloud_sync</span>
+                    </button>
                     <button id="export-server-btn" class="icon-btn-ghost" title="Upload to Server Library or Community Hub"
                         style="display: none;">
                         <span class="material-symbols-rounded">cloud_upload</span>
@@ -346,6 +349,69 @@
                     <span class="material-symbols-rounded">folder_off</span>
                     <p>No saved infographics yet.</p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Server Library Manager Modal -->
+    <div id="server-library-manager-modal" class="modal-overlay">
+        <div class="modal-content modal-lg server-library-manager">
+            <div class="modal-header">
+                <div>
+                    <h2><span class="material-symbols-rounded">cloud_sync</span> Server Library <span id="server-library-count" class="count-badge">0</span></h2>
+                    <p class="server-library-subtitle">Select any server infographic to edit its details and sections, or permanently delete it.</p>
+                </div>
+                <button id="close-server-library-manager-btn" class="icon-btn-ghost" title="Close server library manager">
+                    <span class="material-symbols-rounded">close</span>
+                </button>
+            </div>
+            <div class="server-library-controls">
+                <div class="server-library-search-wrap">
+                    <span class="material-symbols-rounded">search</span>
+                    <input id="server-library-search" type="search" placeholder="Search server infographics by title…" autocomplete="off">
+                </div>
+                <button id="refresh-server-library-btn" class="btn-small" type="button">
+                    <span class="material-symbols-rounded">refresh</span> Refresh
+                </button>
+                <button id="select-all-server-library-btn" class="btn-small" type="button">
+                    <span class="material-symbols-rounded">select_all</span> Select visible
+                </button>
+            </div>
+            <div class="server-library-selection-bar">
+                <span id="server-library-selection-count">No infographics selected</span>
+                <div>
+                    <button id="edit-server-library-btn" class="btn-small server-library-edit-btn" type="button" disabled>
+                        <span class="material-symbols-rounded">edit</span> Edit selected
+                    </button>
+                    <button id="delete-server-library-btn" class="btn-small server-library-delete-btn" type="button" disabled>
+                        <span class="material-symbols-rounded">delete_forever</span> Delete selected
+                    </button>
+                </div>
+            </div>
+            <div id="server-library-status" class="server-library-status" role="status" aria-live="polite">Open the manager to load the current server catalogue.</div>
+            <div class="modal-body server-library-manager-body">
+                <div id="server-library-items" class="server-library-items"></div>
+                <form id="server-library-edit-form" class="server-library-edit-form" hidden>
+                    <div class="server-library-edit-heading">
+                        <div>
+                            <h3>Edit server infographic</h3>
+                            <p>Update the title, summary, category and section content. Sources and visual settings are preserved.</p>
+                        </div>
+                        <button id="cancel-server-library-edit-btn" type="button" class="icon-btn-ghost" title="Cancel editing">
+                            <span class="material-symbols-rounded">close</span>
+                        </button>
+                    </div>
+                    <label>Title<input id="server-edit-title" type="text" required maxlength="240"></label>
+                    <label>Summary<textarea id="server-edit-summary" rows="4" maxlength="3000"></textarea></label>
+                    <label>Category<select id="server-edit-chapter"></select></label>
+                    <div id="server-edit-sections" class="server-edit-sections"></div>
+                    <div class="server-library-edit-actions">
+                        <button id="cancel-server-library-edit-footer-btn" type="button" class="btn-small">Cancel</button>
+                        <button id="save-server-library-edit-btn" type="submit" class="btn-small server-library-edit-btn">
+                            <span class="material-symbols-rounded">save</span> Save to server
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -1079,7 +1145,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
     <script src="firebase-storage.js"></script>
-    <script src="community-submissions.js?v=2026081201"></script>
+    <script src="community-submissions.js?v=2026082002"></script>
     <script src="mobile-billing-config.js?v=2026061701"></script>
     <script src="mobile-iap.js?v=2026061701"></script>
     <!-- Load Google Generative AI as fallback for local file:// protocol -->
@@ -1088,8 +1154,8 @@
             console.warn('Running locally via file:// protocol. ES modules may not work. Please use a local server (e.g., npx serve) or access via GitHub Pages.');
         }
     </script>
-    <script type="module" src="script.js?v=2026082001"></script>
-    <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.08.20.01</div>
+    <script type="module" src="script.js?v=2026082002"></script>
+    <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.08.20.02</div>
 </body>
 
 </html>

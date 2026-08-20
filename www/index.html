@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" />
-    <link rel="stylesheet" href="style.css?v=2026081701">
+    <link rel="stylesheet" href="style.css?v=2026082001">
     <link rel="stylesheet" href="mobile-iap.css?v=2026061701">
     <!-- Import map for ES modules - works on hosted servers -->
     <script type="importmap">
@@ -130,12 +130,12 @@
             <div class="control-group" id="gemini-model-group">
                 <label>Gemini Model</label>
                 <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                    <div class="model-radio" aria-label="Gemini 3.6 Flash with stable fallback">
+                    <div class="model-radio" aria-label="Gemini 3.6 Flash with automatic capacity fallbacks">
                         <span class="material-symbols-rounded" style="font-size:1rem;">bolt</span>
                         Gemini 3.6 Flash
                     </div>
                 </div>
-                <small class="hint">Uses Google’s documented stable Gemini 3.6 Flash, with Gemini 3.5 Flash as an automatic model-quota fallback.</small>
+                <small class="hint">Uses Gemini 3.6 Flash, then automatically tries Gemini 3.5 Flash and Gemini 3.1 Flash-Lite when a model is temporarily busy or reaches its model quota.</small>
             </div>
 
             <div class="control-group">
@@ -1088,8 +1088,8 @@
             console.warn('Running locally via file:// protocol. ES modules may not work. Please use a local server (e.g., npx serve) or access via GitHub Pages.');
         }
     </script>
-    <script type="module" src="script.js?v=2026081903"></script>
-    <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.08.19.03</div>
+    <script type="module" src="script.js?v=2026082001"></script>
+    <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.08.20.01</div>
 </body>
 
 </html>

@@ -281,6 +281,15 @@ async function repoWriteFiles(files, message, { retryConflicts = true } = {}) {
                 const updates = [];
                 let retryAfter = 0;
                 for (const file of files) {
+                    const existing = treeEntries.find(entry => entry.path === file.path);
+                    if (file.delete === true) {
+                        // Git's Trees API deletes a path when its SHA is null.
+                        // Ignore already-absent paths so retries stay idempotent.
+                        if (existing) {
+                            updates.push({ path: file.path, mode: existing.mode || '100644', type: 'blob', sha: null });
+                        }
+                        continue;
+                    }
                     const blobRes = await fetchT(REPO_API_URL('git/blobs'), {
                         method: 'POST', headers: authHeaders,
                         body: JSON.stringify({ content: utf8ToBase64(file.content), encoding: 'base64' })
@@ -290,7 +299,6 @@ async function repoWriteFiles(files, message, { retryConflicts = true } = {}) {
                         if (failure.retry) { retryAfter = failure.delay; break; }
                         return failure.result;
                     }
-                    const existing = treeEntries.find(entry => entry.path === file.path);
                     updates.push({ path: file.path, mode: existing ? existing.mode : '100644', type: 'blob', sha: (await blobRes.json()).sha });
                 }
                 if (retryAfter) {
@@ -787,12 +795,16 @@ function normalizeServerLibraryItem(item) {
     return normalized;
 }
 
-/**
- * Upload directly to the established server library. This is intentionally
- * separate from Community Hub publishing: it writes the library files and its
- * index, so the normal server catalogue can load the new infographics.
- */
-async function uploadToServerLibrary(items) {
+async function listServerLibrary() {
+    try {
+        const items = JSON.parse(await repoReadFileAuthoritative(LIBRARY_INDEX_PATH));
+        return Array.isArray(items) ? items : [];
+    } catch (err) {
+        throw new Error(`Could not load the server library: ${err.message}`);
+    }
+}
+
+async function persistServerLibraryItems(items, commitLabel = 'upload') {
     if (!Array.isArray(items) || items.length === 0) {
         return { success: false, message: 'No infographics selected.' };
     }
@@ -807,27 +819,77 @@ async function uploadToServerLibrary(items) {
     for (let attempt = 0; attempt < COMMUNITY_COMMIT_RETRIES; attempt++) {
         let currentIndex;
         try {
-            currentIndex = JSON.parse(await repoReadFileAuthoritative(LIBRARY_INDEX_PATH));
-            if (!Array.isArray(currentIndex)) currentIndex = [];
+            currentIndex = await listServerLibrary();
         } catch (err) {
-            return { success: false, message: `Could not load the server library: ${err.message}` };
+            return { success: false, message: err.message };
         }
 
         const byId = new Map(currentIndex.map(entry => [String(entry.id), entry]));
-        libraryItems.forEach(item => byId.set(String(item.id), item));
+        const stalePaths = [];
+        libraryItems.forEach(item => {
+            const previous = byId.get(String(item.id));
+            if (previous) {
+                const previousPath = serverLibraryFilePath(previous);
+                const nextPath = serverLibraryFilePath(item);
+                if (previousPath !== nextPath) stalePaths.push(previousPath);
+            }
+            byId.set(String(item.id), item);
+        });
         const mergedIndex = Array.from(byId.values())
             .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
 
         const result = await repoWriteFiles([
+            ...[...new Set(stalePaths)].map(path => ({ path, delete: true })),
             ...libraryItems.map(item => ({ path: serverLibraryFilePath(item), content: JSON.stringify(item, null, 2) })),
             { path: LIBRARY_INDEX_PATH, content: JSON.stringify(mergedIndex, null, 2) }
-        ], `Server library upload: ${libraryItems.length} infographic${libraryItems.length === 1 ? '' : 's'}`, { retryConflicts: false });
+        ], `Server library ${commitLabel}: ${libraryItems.length} infographic${libraryItems.length === 1 ? '' : 's'}`, { retryConflicts: false });
 
-        if (result.success) return { success: true, count: libraryItems.length };
-        if (result.status !== 409) return { success: false, message: result.message || 'Server upload failed.' };
+        if (result.success) return { success: true, count: libraryItems.length, items: libraryItems };
+        if (result.status !== 409) return { success: false, message: result.message || 'Server library update failed.' };
         await wait(500 + Math.random() * 1000 + attempt * 900);
     }
 
+    return { success: false, message: 'The server library is updating. Please try again shortly.' };
+}
+
+/**
+ * Upload directly to the established server library. This is intentionally
+ * separate from Community Hub publishing: it writes the library files and its
+ * index, so the normal server catalogue can load the new infographics.
+ */
+async function uploadToServerLibrary(items) {
+    return persistServerLibraryItems(items, 'upload');
+}
+
+async function updateServerLibraryItems(items, pin) {
+    if (!verifyAdminPIN(pin)) return { success: false, message: 'Invalid admin PIN.' };
+    return persistServerLibraryItems(items, 'edit');
+}
+
+async function deleteFromServerLibrary(ids, pin) {
+    if (!verifyAdminPIN(pin)) return { success: false, message: 'Invalid admin PIN.' };
+    const requestedIds = new Set((Array.isArray(ids) ? ids : []).map(id => String(id)));
+    if (!requestedIds.size) return { success: false, message: 'No infographics selected.' };
+
+    for (let attempt = 0; attempt < COMMUNITY_COMMIT_RETRIES; attempt++) {
+        let currentIndex;
+        try {
+            currentIndex = await listServerLibrary();
+        } catch (err) {
+            return { success: false, message: err.message };
+        }
+        const targets = currentIndex.filter(item => requestedIds.has(String(item.id)));
+        if (!targets.length) return { success: true, count: 0 };
+        const remaining = currentIndex.filter(item => !requestedIds.has(String(item.id)));
+        const result = await repoWriteFiles([
+            ...targets.map(item => ({ path: serverLibraryFilePath(item), delete: true })),
+            { path: LIBRARY_INDEX_PATH, content: JSON.stringify(remaining, null, 2) }
+        ], `Server library delete: ${targets.length} infographic${targets.length === 1 ? '' : 's'}`, { retryConflicts: false });
+
+        if (result.success) return { success: true, count: targets.length };
+        if (result.status !== 409) return { success: false, message: result.message || 'Server library deletion failed.' };
+        await wait(500 + Math.random() * 1000 + attempt * 900);
+    }
     return { success: false, message: 'The server library is updating. Please try again shortly.' };
 }
 
@@ -1877,6 +1939,9 @@ window.CommunitySubmissions = {
     submit: submitToCommunity,
     submitMultiple: submitMultiple, // Batch submit
     uploadToServerLibrary: uploadToServerLibrary,
+    listServerLibrary: listServerLibrary,
+    updateServerLibraryItems: updateServerLibraryItems,
+    deleteFromServerLibrary: deleteFromServerLibrary,
     getPending: getPendingSubmissions,
     getApproved: getApprovedSubmissions,
     getAll: getAllSubmissions,

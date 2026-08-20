@@ -1680,6 +1680,187 @@ textarea:focus {
     accent-color: var(--primary-color);
 }
 
+/* --- SERVER LIBRARY MANAGER --- */
+.server-library-manager {
+    width: min(1040px, calc(100vw - 32px));
+    max-height: min(92vh, 920px);
+}
+
+.server-library-manager .modal-header > div:first-child { min-width: 0; }
+.server-library-manager .modal-header h2 { margin-bottom: 0.25rem; }
+.server-library-manager .modal-header h2 > .material-symbols-rounded { color: #2563eb; }
+
+.server-library-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.82rem;
+}
+
+.server-library-controls,
+.server-library-selection-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
+    background: #fff;
+}
+
+.server-library-search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 220px;
+}
+
+.server-library-search-wrap > .material-symbols-rounded {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.server-library-search-wrap input {
+    width: 100%;
+    padding: 0.65rem 0.8rem 0.65rem 2.35rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #fff;
+    color: #0f172a;
+    font: inherit;
+}
+
+.server-library-controls .btn-small,
+.server-library-selection-bar .btn-small,
+.server-library-edit-actions .btn-small {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    color: #334155;
+}
+
+.server-library-controls .material-symbols-rounded,
+.server-library-selection-bar .material-symbols-rounded,
+.server-library-edit-actions .material-symbols-rounded { font-size: 1rem; }
+
+.server-library-selection-bar {
+    justify-content: space-between;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 0.84rem;
+    font-weight: 600;
+}
+
+.server-library-selection-bar > div { display: flex; gap: 0.5rem; }
+
+.server-library-selection-bar .server-library-edit-btn,
+.server-library-edit-actions .server-library-edit-btn {
+    border-color: #93c5fd;
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.server-library-selection-bar .server-library-delete-btn {
+    border-color: #fecaca;
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.server-library-selection-bar button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.server-library-status {
+    padding: 0.55rem 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #64748b;
+    background: #fff;
+    font-size: 0.78rem;
+}
+
+.server-library-status[data-status="success"] { color: #047857; background: #f0fdf4; }
+.server-library-status[data-status="error"] { color: #b91c1c; background: #fef2f2; }
+.server-library-status[data-status="loading"] { color: #1d4ed8; background: #eff6ff; }
+
+.server-library-manager-body { position: relative; }
+.server-library-items { display: flex; flex-direction: column; }
+
+.server-library-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
+    background: #fff;
+}
+
+.server-library-item:hover { background: #f8fafc; }
+.server-library-item.selected { background: #eff6ff; box-shadow: inset 3px 0 #2563eb; }
+.server-library-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: #2563eb; }
+.server-library-item-main { min-width: 0; }
+.server-library-item-title { overflow: hidden; color: #0f172a; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.server-library-item-meta { margin-top: 0.25rem; color: #64748b; font-size: 0.75rem; }
+.server-library-item-category { padding: 0.25rem 0.55rem; border-radius: 999px; color: #fff; font-size: 0.68rem; font-weight: 700; white-space: nowrap; }
+.server-library-empty { padding: 4rem 1.5rem; color: #64748b; text-align: center; }
+
+.server-library-edit-form {
+    padding: 1.25rem;
+    background: #f8fafc;
+}
+
+.server-library-edit-form[hidden] { display: none; }
+.server-library-edit-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.server-library-edit-heading h3 { margin: 0 0 0.25rem; color: #0f172a; }
+.server-library-edit-heading p { margin: 0; color: #64748b; font-size: 0.8rem; }
+
+.server-library-edit-form > label,
+.server-edit-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 0.9rem;
+    color: #334155;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.server-library-edit-form input,
+.server-library-edit-form textarea,
+.server-library-edit-form select {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #fff;
+    color: #0f172a;
+    font: inherit;
+    font-weight: 400;
+}
+
+.server-library-edit-form textarea { resize: vertical; line-height: 1.45; }
+.server-edit-sections { margin-top: 1.15rem; }
+.server-edit-sections > h4 { margin: 0 0 0.75rem; color: #0f172a; }
+.server-edit-section { padding: 0.9rem; border: 1px solid #dbeafe; border-radius: 12px; background: #fff; }
+.server-edit-section-header { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+.server-edit-section-header span:last-child { color: #64748b; font-size: 0.68rem; font-weight: 600; }
+.server-library-edit-actions { display: flex; justify-content: flex-end; gap: 0.6rem; padding-top: 0.4rem; }
+
+@media (max-width: 760px) {
+    .server-library-controls { align-items: stretch; flex-wrap: wrap; }
+    .server-library-search-wrap { flex-basis: 100%; }
+    .server-library-selection-bar { align-items: stretch; flex-direction: column; }
+    .server-library-selection-bar > div { flex-wrap: wrap; }
+    .server-library-item { grid-template-columns: auto minmax(0, 1fr); }
+    .server-library-item-category { grid-column: 2; justify-self: start; }
+}
+
 .saved-title-row {
     display: flex;
     align-items: center;

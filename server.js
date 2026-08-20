@@ -171,7 +171,17 @@ if (!fs.existsSync(LIBRARY_DIR)) {
     fs.mkdirSync(LIBRARY_DIR, { recursive: true });
 }
 
-// Export library (save/upload) to files - UPSERT MODE (Does not delete existing)
+function sanitizeLibraryItemId(id) {
+    return String(id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+}
+
+function getLibraryFilePrefix(id) {
+    const safeId = sanitizeLibraryItemId(id);
+    return safeId ? `${safeId}_` : '';
+}
+
+// Export library (save/upload) to files - UPSERT MODE. If an edited title
+// changes the filename, remove stale files for the same stable item ID first.
 function exportLibraryToFiles(libraryData) {
     try {
         const library = JSON.parse(libraryData);
@@ -182,7 +192,14 @@ function exportLibraryToFiles(libraryData) {
         for (const item of items) {
             // Sanitize filename
             const safeTitle = (item.title || 'untitled').replace(/[^a-zA-Z0-9]/g, '_').substring(0, 50);
-            const filename = `${item.id}_${safeTitle}.json`;
+            const safeId = sanitizeLibraryItemId(item.id || Date.now());
+            const filename = `${safeId}_${safeTitle}.json`;
+            const prefix = getLibraryFilePrefix(safeId);
+            if (prefix) {
+                fs.readdirSync(LIBRARY_DIR)
+                    .filter(file => file.endsWith('.json') && file.startsWith(prefix) && file !== filename)
+                    .forEach(file => fs.unlinkSync(path.join(LIBRARY_DIR, file)));
+            }
             fs.writeFileSync(
                 path.join(LIBRARY_DIR, filename),
                 JSON.stringify(item, null, 2)
@@ -408,15 +425,13 @@ const server = http.createServer(async (req, res) => {
                 }
 
                 let deletedCount = 0;
-                const files = fs.readdirSync(LIBRARY_DIR);
-
                 for (const id of ids) {
-                    // Find file starting with id
-                    const fileToDelete = files.find(f => f.startsWith(`${id}_`));
-                    if (fileToDelete) {
-                        fs.unlinkSync(path.join(LIBRARY_DIR, fileToDelete));
-                        deletedCount++;
-                    }
+                    const prefix = getLibraryFilePrefix(id);
+                    if (!prefix) continue;
+                    const filesToDelete = fs.readdirSync(LIBRARY_DIR)
+                        .filter(file => file.endsWith('.json') && file.startsWith(prefix));
+                    filesToDelete.forEach(file => fs.unlinkSync(path.join(LIBRARY_DIR, file)));
+                    if (filesToDelete.length) deletedCount++;
                 }
 
                 res.writeHead(200, { 'Content-Type': 'application/json' });

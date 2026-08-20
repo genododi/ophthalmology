@@ -6825,7 +6825,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const initialLibrary = getLibraryCache();
     if (healSavedInfographicLibrary(initialLibrary)) {
         await saveLibraryToIDB(initialLibrary);
-        console.log('[Library Migration] Repaired legacy infographic symbols and display text.');
+        console.log('[Library Migration] Repaired malformed infographic content and obsolete web images.');
     }
     updateTodayInfographicBadge(initialLibrary);
     // Reconcile every saved local infographic when the app opens, and resume a
@@ -10049,6 +10049,101 @@ function stripDisplayMarkdown(value) {
         .trim();
 }
 
+const SAFE_SUMMARY_SVG_ELEMENTS = new Set([
+    'svg', 'g', 'path', 'circle', 'ellipse', 'rect', 'line', 'polyline', 'polygon',
+    'text', 'tspan', 'defs', 'lineargradient', 'radialgradient', 'stop', 'clippath',
+    'mask', 'filter', 'fedropshadow', 'fegaussianblur', 'feoffset', 'feblend',
+    'fecolormatrix', 'title', 'desc'
+]);
+const SAFE_SUMMARY_SVG_ATTRIBUTES = new Set([
+    'xmlns', 'viewbox', 'preserveaspectratio', 'width', 'height', 'x', 'y', 'x1',
+    'y1', 'x2', 'y2', 'cx', 'cy', 'r', 'rx', 'ry', 'd', 'points', 'fill',
+    'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin', 'stroke-dasharray',
+    'stroke-opacity', 'fill-opacity', 'opacity', 'transform', 'offset', 'stop-color',
+    'stop-opacity', 'gradientunits', 'gradienttransform', 'fx', 'fy', 'spreadmethod',
+    'text-anchor', 'dominant-baseline', 'font-size', 'font-family', 'font-weight',
+    'clip-path', 'mask', 'filter', 'id', 'class', 'role', 'aria-label', 'style',
+    'dx', 'dy', 'stddeviation', 'flood-color', 'flood-opacity', 'in', 'in2',
+    'result', 'type', 'values'
+]);
+const SAFE_SUMMARY_SVG_NUMERIC_ATTRIBUTES = new Set([
+    'width', 'height', 'x', 'y', 'x1', 'y1', 'x2', 'y2', 'cx', 'cy', 'r', 'rx',
+    'ry', 'stroke-width', 'stroke-opacity', 'fill-opacity', 'opacity', 'offset',
+    'font-size', 'dx', 'dy', 'stddeviation', 'flood-opacity', 'fx', 'fy'
+]);
+const SAFE_SUMMARY_SVG_STYLE_PROPERTIES = new Set([
+    'fill', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin',
+    'stroke-dasharray', 'stroke-opacity', 'fill-opacity', 'opacity', 'stop-color',
+    'stop-opacity', 'font-size', 'font-family', 'font-weight', 'text-anchor',
+    'dominant-baseline', 'filter'
+]);
+
+function isSafeSummarySvgAttributeValue(name, value) {
+    const text = String(value || '').trim();
+    if (!text || /(?:javascript:|data:|https?:|@import|expression\s*\(|<|>)/i.test(text)) return false;
+    if (/url\s*\(/i.test(text) && !/^url\(\s*#[A-Za-z_][\w:.-]*\s*\)$/i.test(text)) return false;
+    if (SAFE_SUMMARY_SVG_NUMERIC_ATTRIBUTES.has(name)) {
+        return /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?%?$/i.test(text);
+    }
+    if (name === 'viewbox') {
+        return text.split(/[\s,]+/).filter(Boolean).length === 4
+            && text.split(/[\s,]+/).filter(Boolean).every(part => Number.isFinite(Number(part)));
+    }
+    if (name === 'd') return /^[MmLlHhVvCcSsQqTtAaZz0-9eE+.,\s-]+$/.test(text);
+    if (name === 'points') return /^[0-9eE+.,\s-]+$/.test(text);
+    return true;
+}
+
+function sanitizeSummarySvgStyle(value) {
+    return String(value || '').split(';').map(declaration => declaration.trim()).filter(Boolean)
+        .map(declaration => {
+            const separator = declaration.indexOf(':');
+            if (separator <= 0) return '';
+            const property = declaration.slice(0, separator).trim().toLowerCase();
+            const propertyValue = declaration.slice(separator + 1).trim();
+            if (!SAFE_SUMMARY_SVG_STYLE_PROPERTIES.has(property)
+                || !isSafeSummarySvgAttributeValue(property, propertyValue)) return '';
+            return `${property}:${propertyValue}`;
+        }).filter(Boolean).join(';');
+}
+
+function sanitizeSummaryIllustrationSvg(markup) {
+    if (typeof markup !== 'string') return '';
+    const svgMatch = markup.trim().match(/<svg\b[\s\S]*?<\/svg>/i);
+    if (!svgMatch) return '';
+    const documentNode = new DOMParser().parseFromString(svgMatch[0], 'image/svg+xml');
+    if (documentNode.querySelector('parsererror')) return '';
+    const root = documentNode.documentElement;
+    if (String(root?.localName || '').toLowerCase() !== 'svg') return '';
+
+    [root, ...root.querySelectorAll('*')].forEach(element => {
+        const elementName = String(element.localName || '').toLowerCase();
+        if (!SAFE_SUMMARY_SVG_ELEMENTS.has(elementName)) {
+            element.remove();
+            return;
+        }
+        [...element.attributes].forEach(attribute => {
+            const name = attribute.name.toLowerCase();
+            if (!SAFE_SUMMARY_SVG_ATTRIBUTES.has(name)) {
+                element.removeAttribute(attribute.name);
+                return;
+            }
+            if (name === 'style') {
+                const safeStyle = sanitizeSummarySvgStyle(attribute.value);
+                if (safeStyle) element.setAttribute('style', safeStyle);
+                else element.removeAttribute(attribute.name);
+                return;
+            }
+            if (!isSafeSummarySvgAttributeValue(name, attribute.value)) {
+                element.removeAttribute(attribute.name);
+            }
+        });
+    });
+    if (!root.getAttribute('viewBox')) root.setAttribute('viewBox', '0 0 200 120');
+    root.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    return new XMLSerializer().serializeToString(root);
+}
+
 function healDisplayContent(value) {
     let changed = false;
     if (typeof value === 'string') return { value: stripDisplayMarkdown(value), changed: stripDisplayMarkdown(value) !== value };
@@ -10091,6 +10186,21 @@ function healInfographicData(data) {
             if (clean !== data[key]) { data[key] = clean; changed = true; }
         }
     });
+    if (data.summary_illustration !== undefined) {
+        const safeIllustration = sanitizeSummaryIllustrationSvg(data.summary_illustration);
+        if (safeIllustration !== data.summary_illustration) {
+            data.summary_illustration = safeIllustration;
+            changed = true;
+        }
+    }
+    if (Array.isArray(data.clinicalImages)) {
+        const stableImages = data.clinicalImages.filter(image => !image?.webSource
+            || (hasRenderableClinicalImageUrl(image) && isScientificClinicalOphthalmicImage(image)));
+        if (stableImages.length !== data.clinicalImages.length) {
+            data.clinicalImages = stableImages;
+            changed = true;
+        }
+    }
     if (!Array.isArray(data.sections)) return changed;
     if (normalizeInfographicTables(data)) changed = true;
     data.sections.forEach(section => {
@@ -13164,7 +13274,7 @@ function showToast(message, type) {
 let clinicalImages = [];
 
 const WEB_CLINICAL_IMAGE_LIMIT = 6;
-const WEB_PHOTO_SOURCE_PIPELINE_VERSION = 6;
+const WEB_PHOTO_SOURCE_PIPELINE_VERSION = 7;
 const WEB_PHOTO_EMPTY_MESSAGE = 'No strong licensed match yet after broadening the search. Use Retry photos to search again, or add a local image.';
 const webPhotoFetchInFlight = new WeakSet();
 const wikimediaClinicalSearchCache = new Map();
@@ -13179,6 +13289,28 @@ const TRUSTED_OPHTHALMIC_YOUTUBE_CHANNELS = Object.freeze([
     { id: 'UCnzk0O-y6yrJkTwi3N4QXLQ', name: 'University of Iowa EyeRounds' }
 ]);
 const TRUSTED_INSTITUTIONAL_MEDIA_PATTERN = /\b(National\s+Eye\s+Institute|National\s+Institutes\s+of\s+Health|NIH\s+Image\s+Gallery)\b/i;
+
+function isOpenverseThumbnailProxyUrl(value) {
+    try {
+        const url = new URL(String(value || ''), window.location.href);
+        return url.hostname.toLowerCase() === 'api.openverse.org'
+            && /^\/v1\/images\/[^/]+\/thumb\/?$/i.test(url.pathname);
+    } catch {
+        return false;
+    }
+}
+
+function getPreferredOpenverseImageUrl(item) {
+    const originalUrl = normalizeCitationUrl(item?.url);
+    if (originalUrl && !isOpenverseThumbnailProxyUrl(originalUrl)) return originalUrl;
+    const thumbnailUrl = normalizeCitationUrl(item?.thumbnail);
+    return thumbnailUrl && !isOpenverseThumbnailProxyUrl(thumbnailUrl) ? thumbnailUrl : '';
+}
+
+function hasRenderableClinicalImageUrl(image) {
+    return Boolean(image?.dataUrl) && !isOpenverseThumbnailProxyUrl(image.dataUrl);
+}
+
 const FLEXIBLE_CLINICAL_IMAGE_QUERY_RULES = Object.freeze([
     { pattern: /\b(cornea\w*|kerat\w*|endothelial|descemet|corneal\s+(?:edema|oedema|haze|ulcer))\b/i, queries: ['corneal edema slit lamp', 'corneal disease clinical eye'] },
     { pattern: /\b(retina\w*|fundus|macula\w*|fovea\w*|choroid\w*|vasculitis|horv|retinal\s+(?:hemorrhage|haemorrhage|detachment))\b/i, queries: ['retinal disease fundus', 'retinal hemorrhage fundus'] },
@@ -13270,6 +13402,8 @@ const NON_PHOTO_IMAGE_PATTERN = /\b(icon|logo|flag|map|diagram|chart|graph|plot|
 const NON_HUMAN_IMAGE_PATTERN = /\b(canine|dog|dogs|feline|cat|cats|horse|horses|cow|cattle|rabbit|rabbits|mouse|mice|rat|rats|bird|birds|fish|animal|animals|veterinary|zoolog\w*)\b/i;
 const GENERIC_EYE_NOISE_PATTERN = /\b(eye\s+of\s+(the\s+)?storm|eye\s+of\s+horus|evil\s+eye|makeup|mascara|eyelash|eyelashes|eyebrow|fashion|beauty|beautiful|portrait|selfie|stock\s+photo|cosplay|toy|doll|jewelry|jewellery)\b/i;
 const JOURNAL_CLINICAL_FIGURE_PATTERN = /\b(photograph|photo|image|imaging|fundus|fundoscopy|ophthalmoscop\w*|slit[ -]?lamp|optical\s+coherence\s+tomography|oct[ -]?a|\bOCT\b|angiograph\w*|fluorescein|fundus\s+autofluorescen\w*|\bFAF\b|microscop\w*|histolog\w*|ultrasound|ultrasonograph\w*|biomicroscop\w*|topograph\w*|tomograph\w*|visual\s+field|perimetr\w*|gonioscop\w*|surgery|surgical|procedure|examination|clinical\s+appearance|preoperative|postoperative)\b/i;
+const SCIENTIFIC_CLINICAL_VISUAL_PATTERN = /\b(slit[ -]?lamp|fundus|fundoscopy|ophthalmoscop\w*|optical\s+coherence\s+tomography|oct[ -]?a|\bOCT\b|angiograph\w*|fluorescein|autofluorescen\w*|\bFAF\b|ultrasound|ultrasonograph\w*|biomicroscop\w*|topograph\w*|tomograph\w*|visual\s+field|perimetr\w*|gonioscop\w*|histolog\w*|microscop\w*|patholog\w*|clinical\s+appearance|clinical\s+photograph|examination|preoperative|postoperative|intraoperative|operative\s+field|surgery|surgical\s+(?:field|procedure|technique)|lesion|ulcer|erosion|opacity|haze|edema|oedema|hemorrhage|haemorrhage|exudate|drusen|detachment|tear|rupture|laceration|infection|inflammation|hypopyon|hyphema|hyphaema|neovascular\w*|tumou?r|mass|proptosis|ptosis|strabismus|cataract|keratitis|retinopathy|uveitis|glaucoma)\b/i;
+const NON_CLINICAL_OPHTHALMOLOGY_CONTEXT_PATTERN = /\b(hospital|clinic\s+(?:building|entrance|staff)|ophthalmologist|doctor|physician|resident|team|training|simulator|conference|meeting|award|recognition|historical|marker|portrait|headshot|logo|equipment\s+display)\b/i;
 const THIRD_PARTY_FIGURE_RIGHTS_PATTERN = /\b(reproduced|adapted|reprinted|copyright(?:ed)?|all\s+rights\s+reserved|used\s+with\s+permission|courtesy\s+of)\b/i;
 const YOUTUBE_NON_VISUAL_PATTERN = /\b(podcast|interview|webinar|lecture|panel|conference|meeting|keynote|journal\s+club|question\s+and\s+answer|Q&A)\b/i;
 const CLINICAL_IMAGE_TOPIC_STOPWORDS = new Set([
@@ -13414,10 +13548,25 @@ function isRelevantOphthalmicImage(image, topic) {
     return scoreClinicalImageRelevance(image, topic).accepted;
 }
 
+function isScientificClinicalOphthalmicImage(image) {
+    const metadata = [
+        image?.alt, image?.description, image?.searchMetadata, image?.categories,
+        image?.source, image?.provider
+    ].map(cleanWebImageMetadata).filter(Boolean).join(' ');
+    const explicitClinicalVisual = SCIENTIFIC_CLINICAL_VISUAL_PATTERN.test(metadata)
+        || detectOphthalmicImagingModalities(metadata).length > 0;
+    if (!explicitClinicalVisual) return false;
+    if (NON_CLINICAL_OPHTHALMOLOGY_CONTEXT_PATTERN.test(metadata)
+        && !/\b(slit[ -]?lamp|fundus|ophthalmoscop\w*|examination|imaging|scan|tomograph\w*|angiograph\w*|histolog\w*|microscop\w*|patholog\w*|lesion|ulcer|edema|oedema|hemorrhage|haemorrhage|detachment|rupture|preoperative|postoperative|intraoperative|operative\s+field)\b/i.test(metadata)) {
+        return false;
+    }
+    return true;
+}
+
 function isRelevantOphthalmicStoredImage(image, data) {
     if (!image?.webSource) return true;
     const topic = [data?.title, image?.sectionTitle, image?.searchQuery].filter(Boolean).join(' ');
-    return isRelevantOphthalmicImage(image, topic);
+    return isScientificClinicalOphthalmicImage(image) && isRelevantOphthalmicImage(image, topic);
 }
 
 function isImageRelevantToSection(image, sectionTitle) {
@@ -13468,8 +13617,11 @@ async function searchOpenverseClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
         const sourceName = cleanWebImageMetadata(item?.source || item?.provider || 'open media');
         const image = {
             id: `openverse_${item?.id || item?.foreign_identifier || item?.thumbnail}`,
+            openverseId: String(item?.id || ''),
             alt: cleanWebImageMetadata(item?.title) || `Clinical ophthalmic image from ${sourceName}`,
-            dataUrl: normalizeCitationUrl(item?.thumbnail || item?.url),
+            // Openverse's /thumb proxy intermittently returns 500. Prefer the
+            // stable, licensed original asset exposed by the same API record.
+            dataUrl: getPreferredOpenverseImageUrl(item),
             sourceUrl: normalizeCitationUrl(item?.foreign_landing_url || item?.detail_url),
             source: `Openverse · ${sourceName}`,
             provider: 'Openverse open-license index',
@@ -13478,7 +13630,7 @@ async function searchOpenverseClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
             attribution: cleanWebImageMetadata(item?.creator),
             description,
             categories: tags.join(' '),
-            searchMetadata: [item?.title, description, tags.join(' '), sourceName, 'clinical ophthalmology image']
+            searchMetadata: [item?.title, description, tags.join(' '), sourceName]
                 .map(cleanWebImageMetadata).filter(Boolean).join(' '),
             width: Number(item?.width) || 0,
             height: Number(item?.height) || 0,
@@ -13496,6 +13648,7 @@ async function searchOpenverseClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
         if (!allowedLicenses.has(image.originalLicenseSlug) || !image.dataUrl || !image.sourceUrl) return false;
         const ratio = image.width && image.height ? image.width / image.height : 1;
         if ((image.width && image.height && Math.min(image.width, image.height) < 240) || ratio < 0.4 || ratio > 2.8) return false;
+        if (!isScientificClinicalOphthalmicImage(image)) return false;
         if (!isRelevantOphthalmicImage(image, topic)) return false;
         const key = image.sourceUrl || image.id;
         if (seen.has(key)) return false;
@@ -13590,6 +13743,7 @@ async function searchWikimediaClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_L
         const ratio = image.width && image.height ? image.width / image.height : 1;
         if (!image.dataUrl || !image.sourceUrl || !/^image\/(jpeg|png|webp)$/i.test(image.mimeType)) return false;
         if ((image.width && image.height && Math.min(image.width, image.height) < 240) || ratio < 0.4 || ratio > 2.8) return false;
+        if (!isScientificClinicalOphthalmicImage(image)) return false;
         if (!isRelevantOphthalmicImage(image, topic)) return false;
         if (seen.has(image.id)) return false;
         seen.add(image.id);
@@ -13654,6 +13808,7 @@ async function searchTrustedInstitutionalClinicalImages(topic, limit = WEB_CLINI
         if (!image?.dataUrl || !image?.sourceUrl || !/^image\/(jpeg|png|webp)$/i.test(image.mimeType)) return false;
         const ratio = image.width && image.height ? image.width / image.height : 1;
         if ((image.width && image.height && Math.min(image.width, image.height) < 240) || ratio < 0.4 || ratio > 2.8) return false;
+        if (!isScientificClinicalOphthalmicImage(image)) return false;
         if (!isRelevantOphthalmicImage(image, topic)) return false;
         if (seen.has(image.id)) return false;
         seen.add(image.id);
@@ -13889,7 +14044,7 @@ async function searchTrustedYouTubeClinicalImages(topic, limit = WEB_CLINICAL_IM
                 provider: 'Verified ophthalmic YouTube channel',
                 license: 'Linked video thumbnail',
                 attribution: channel.name,
-                searchMetadata: [title, snippet.description, channel.name, 'clinical ophthalmology video']
+                searchMetadata: [title, snippet.description, channel.name]
                     .map(cleanWebImageMetadata).filter(Boolean).join(' '),
                 verifiedChannelId: channel.id,
                 videoThumbnail: true,
@@ -13903,6 +14058,7 @@ async function searchTrustedYouTubeClinicalImages(topic, limit = WEB_CLINICAL_IM
             && image.sourceUrl
             && !YOUTUBE_NON_VISUAL_PATTERN.test(`${image.alt} ${image.searchMetadata}`)
             && JOURNAL_CLINICAL_FIGURE_PATTERN.test(`${image.alt} ${image.searchMetadata}`)
+            && isScientificClinicalOphthalmicImage(image)
             && isRelevantOphthalmicImage(image, topic));
     });
     const results = await Promise.allSettled(channelSearches);
@@ -13926,7 +14082,7 @@ async function searchCreditedClinicalImages(topic, limit = WEB_CLINICAL_IMAGE_LI
         if (key && !unique.has(key)) unique.set(key, image);
     });
     return [...unique.values()]
-        .filter(image => isRelevantOphthalmicImage(image, topic))
+        .filter(image => isScientificClinicalOphthalmicImage(image) && isRelevantOphthalmicImage(image, topic))
         .sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0))
         .slice(0, limit);
 }
@@ -13936,7 +14092,7 @@ function getSectionWebClinicalImages(data, sectionIndex) {
         && image.sectionIndex !== undefined
         && image.sectionIndex !== null
         && Number(image.sectionIndex) === sectionIndex
-        && image?.dataUrl
+        && hasRenderableClinicalImageUrl(image)
         && isRelevantOphthalmicStoredImage(image, data));
 }
 
@@ -13988,7 +14144,7 @@ function createWebPhotoConsentControl(data) {
         <label class="web-photo-consent-label" for="web-photo-consent-checkbox">
             <input type="checkbox" id="web-photo-consent-checkbox" ${data?.webPhotoConsent === true ? 'checked' : ''}>
             <span class="web-photo-consent-check"><span class="material-symbols-rounded">check</span></span>
-            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches Wikimedia Commons, NIH/NEI media, verified ophthalmology channels, and Openverse's openly licensed index. Local-server mode can also retrieve reusable open-access journal figures. Exact matches are preferred; a related ophthalmic image is used only when the section is general and the licence and clinical relevance checks pass.</small></span>
+            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches Wikimedia Commons, NIH/NEI media, verified ophthalmology channels, and Openverse's openly licensed index. Local-server mode can also retrieve reusable open-access journal figures. Only clinical findings, examination or imaging, pathology, and operative photos pass; general ophthalmology-related media is excluded.</small></span>
         </label>
         <div class="web-photo-consent-actions">
             <span id="web-photo-consent-status" class="web-photo-consent-status" data-status="info">${sectionPhotoCount ? `${sectionPhotoCount} credited section photo${sectionPhotoCount === 1 ? '' : 's'} attached.` : 'Photo fetching is off.'}</span>
@@ -14037,6 +14193,7 @@ function getSectionWebClinicalImagesCount(data) {
         && image.sectionIndex !== undefined
         && image.sectionIndex !== null
         && Number.isInteger(Number(image.sectionIndex))
+        && hasRenderableClinicalImageUrl(image)
         && isRelevantOphthalmicStoredImage(image, data)).length;
 }
 
@@ -14048,7 +14205,7 @@ function renderWebClinicalImages(data) {
     // photos are rendered inside the section they were fetched for.
     const images = (data?.clinicalImages || []).filter(image => image?.webSource
         && (image.sectionIndex === undefined || image.sectionIndex === null || !Number.isInteger(Number(image.sectionIndex)))
-        && image?.dataUrl
+        && hasRenderableClinicalImageUrl(image)
         && isRelevantOphthalmicStoredImage(image, data));
     if (!images.length) return;
 
@@ -14084,7 +14241,8 @@ async function attachRelevantWebClinicalImages(data, { force = false, onProgress
         // metadata gate. Non-web and user-imported clinical images are never
         // touched.
         const previousImages = data.clinicalImages || [];
-        data.clinicalImages = previousImages.filter(image => !image?.webSource || isRelevantOphthalmicStoredImage(image, data));
+        data.clinicalImages = previousImages.filter(image => !image?.webSource
+            || (hasRenderableClinicalImageUrl(image) && isRelevantOphthalmicStoredImage(image, data)));
         const prunedImageCount = previousImages.length - data.clinicalImages.length;
         const known = new Set(data.clinicalImages.flatMap(image => [image?.id, image?.sourceUrl]).filter(Boolean));
         const sourcePipelineUpgradeNeeded = Number(data.webPhotoSourcePipelineVersion || 0) < WEB_PHOTO_SOURCE_PIPELINE_VERSION;
@@ -14255,12 +14413,15 @@ function updateClinicalImagesGallery() {
     const gallery = document.getElementById('clinical-images-gallery');
     const count = document.getElementById('clinical-images-count');
     if (!gallery) return;
-    if (count) count.textContent = clinicalImages.length ? clinicalImages.length + ' image(s)' : '';
-    if (!clinicalImages.length) { gallery.innerHTML = '<span style="font-size:0.75rem;color:#94a3b8;">No images imported yet.</span>'; return; }
-    gallery.innerHTML = clinicalImages.map((img, i) =>
+    const renderableImages = clinicalImages
+        .map((img, originalIndex) => ({ img, originalIndex }))
+        .filter(({ img }) => hasRenderableClinicalImageUrl(img));
+    if (count) count.textContent = renderableImages.length ? renderableImages.length + ' image(s)' : '';
+    if (!renderableImages.length) { gallery.innerHTML = '<span style="font-size:0.75rem;color:#94a3b8;">No images imported yet.</span>'; return; }
+    gallery.innerHTML = renderableImages.map(({ img, originalIndex }) =>
         `<div style="position:relative;width:80px;height:80px;border-radius:6px;overflow:hidden;border:1px solid #e2e8f0;background:#fff;flex-shrink:0;">
             <img src="${img.dataUrl}" alt="${escapeHtml(img.alt)}" style="width:100%;height:100%;object-fit:cover;cursor:pointer;" title="${escapeHtml(img.alt)}">
-            <button data-idx="${i}" class="ci-del-btn" style="position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:50%;background:rgba(0,0,0,0.6);color:white;border:none;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>
+            <button data-idx="${originalIndex}" class="ci-del-btn" style="position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:50%;background:rgba(0,0,0,0.6);color:white;border:none;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>
         </div>`
     ).join('');
     gallery.querySelectorAll('.ci-del-btn').forEach(btn => {
@@ -15054,7 +15215,9 @@ function generateSlides() {
     });
 
     // Clinical image slides (max 4 images)
-    const ci = (data.clinicalImages || clinicalImages || []).slice(0, 6);
+    const ci = (data.clinicalImages || clinicalImages || [])
+        .filter(hasRenderableClinicalImageUrl)
+        .slice(0, 6);
     if (ci.length > 0) {
         slides.push({
             type: 'clinical_image',

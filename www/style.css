@@ -82,6 +82,33 @@ body {
     letter-spacing: -0.02em;
 }
 
+.project-copyright {
+    margin-top: auto;
+    padding: 1rem 0.25rem 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.project-copyright-tagline,
+.project-copyright-owner {
+    display: block;
+}
+
+.project-copyright-tagline {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-primary);
+}
+
+.project-copyright-owner {
+    margin-top: 0.3rem;
+    font-size: 0.67rem;
+    line-height: 1.4;
+}
+
 .control-group {
     display: flex;
     flex-direction: column;
@@ -1449,6 +1476,7 @@ textarea:focus {
 
     /* Hide Interface */
     .sidebar,
+    .project-copyright,
     .action-bar {
         display: none !important;
     }

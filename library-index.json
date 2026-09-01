@@ -170,6 +170,820 @@
     "seqId": 906
   },
   {
+    "id": 1788274432452,
+    "seqId": 906,
+    "title": "Fluconazole Ophthalmic Solution: Preparation & Clinical Utility",
+    "summary": "Fluconazole (Diflucan) is a potent triazole antifungal essential for treating fungal keratitis and endophthalmitis, particularly against Candida and certain Aspergillus species. This guide outlines the precise compounding protocol, clinical indications, and management algorithms for ocular fungal infections.",
+    "date": "2026-09-01T14:53:52.452Z",
+    "data": {
+      "title": "Fluconazole Ophthalmic Solution: Preparation & Clinical Utility",
+      "summary": "Fluconazole (Diflucan) is a potent triazole antifungal essential for treating fungal keratitis and endophthalmitis, particularly against Candida and certain Aspergillus species. This guide outlines the precise compounding protocol, clinical indications, and management algorithms for ocular fungal infections.",
+      "summary_illustration": "<svg width=\"100\" height=\"100\" viewBox=\"0 0 200 120\" xmlns=\"http://www.w3.org/2000/svg\"><circle xmlns=\"\" cx=\"50\" cy=\"50\" r=\"40\" fill=\"purple\"/><text xmlns=\"\" x=\"50\" y=\"55\" text-anchor=\"middle\" fill=\"white\">Fungi</text></svg>",
+      "sections": [
+        {
+          "title": "Clinical Indications",
+          "icon": "medication",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": [
+            "Fungal Keratitis: Particularly for Candida species.",
+            "Endophthalmitis: Prophylaxis and treatment for endogenous fungal involvement.",
+            "Alternative for patients intolerant to Natamycin or Voriconazole."
+          ],
+          "references": [
+            {
+              "citation": "Thomas PA. Fungal infections of the cornea. Eye. 2003.",
+              "url": "https://doi.org/10.1038/sj.eye.6700561",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Compounding Protocol (0.2% Solution)",
+          "icon": "science",
+          "type": "process",
+          "layout": "half_width",
+          "color_theme": "purple",
+          "content": [
+            "Step 1: Obtain sterile 2mg/mL Fluconazole intravenous injection solution.",
+            "Step 2: Utilize a laminar flow hood to maintain sterility.",
+            "Step 3: If necessary, dilute using artificial tears (preservative-free) to achieve the desired concentration.",
+            "Step 4: Dispense into a sterile, multi-dose ophthalmic dropper bottle.",
+            "Step 5: Label clearly with expiration (typically 7-14 days if refrigerated)."
+          ],
+          "references": [
+            {
+              "citation": "Maharana PK et al. Mycotic keratitis: epidemiology, diagnosis and management. Indian J Ophthalmol. 2016.",
+              "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5065757/",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Contraindications & Red Flags",
+          "icon": "warning",
+          "type": "red_flag",
+          "layout": "full_width",
+          "color_theme": "red",
+          "content": [
+            "Hypersensitivity to azole antifungal agents.",
+            "Do not use as monotherapy for filamentous fungi (Aspergillus, Fusarium) due to poor penetration and efficacy.",
+            "Monitor for signs of ocular surface toxicity with frequent dosing.",
+            "Significant liver enzyme elevation risk if systemic absorption occurs."
+          ],
+          "references": [
+            {
+              "citation": "AAO. BCSC Section 8: External Disease and Cornea. 2023.",
+              "url": "https://www.aao.org/education/bcsc",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Spectrum of Activity",
+          "icon": "bar_chart",
+          "type": "chart",
+          "layout": "half_width",
+          "color_theme": "green",
+          "content": {
+            "type": "bar",
+            "data": [
+              {
+                "label": "Candida albicans",
+                "value": 90
+              },
+              {
+                "label": "Cryptococcus",
+                "value": 85
+              },
+              {
+                "label": "Aspergillus spp",
+                "value": 20
+              },
+              {
+                "label": "Fusarium spp",
+                "value": 5
+              }
+            ]
+          },
+          "references": [
+            {
+              "citation": "Kanski JJ. Clinical Ophthalmology: A Systematic Approach. 9th Ed.",
+              "url": "https://www.elsevier.com/books/kanskis-clinical-ophthalmology/den-eynde/978-0-7020-7711-1",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Mnemonic for Fungal Keratitis",
+          "icon": "psychology",
+          "type": "remember",
+          "layout": "half_width",
+          "color_theme": "yellow",
+          "content": {
+            "mnemonic": "FUNGAL",
+            "explanation": "F: Feathery edges, U: Ulcer with satellite lesions, N: Necrotic base, G: Gray-white infiltrates, A: Agriculture trauma, L: Late presentation."
+          },
+          "references": [
+            {
+              "citation": "Dalmon C et al. Clinical management of fungal keratitis. J Fr Ophtalmol. 2012.",
+              "url": "https://doi.org/10.1016/j.jfo.2011.10.009",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Differential Diagnosis Table",
+          "icon": "list_alt",
+          "type": "table",
+          "layout": "full_width",
+          "color_theme": "blue",
+          "content": {
+            "headers": [
+              "Diagnosis",
+              "Key Distinguishing Feature"
+            ],
+            "rows": [
+              [
+                "Bacterial Keratitis",
+                "Sharp margins, purulent discharge"
+              ],
+              [
+                "Acanthamoeba",
+                "Severe pain disproportionate to findings"
+              ],
+              [
+                "HSV Keratitis",
+                "Dendritic ulcers, reduced sensation"
+              ],
+              [
+                "Nocardia",
+                "Cracked windshield appearance"
+              ]
+            ]
+          },
+          "references": [
+            {
+              "citation": "Bharathi MJ et al. Clinical features of mycotic keratitis. Cornea. 2003.",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/12840673/",
+              "isEvidenceSearch": false
+            }
+          ]
+        }
+      ],
+      "generationPrompt": "Diflucan eye drops preparation",
+      "webPhotoConsent": true,
+      "clinicalImages": [
+        {
+          "id": "wikimedia_3187529",
+          "alt": "Eye of patient with Coats' disease.jpg",
+          "dataUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Eye_of_patient_with_Coats%27_disease.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eye_of_patient_with_Coats%27_disease.jpg",
+          "source": "Wikimedia Commons",
+          "mimeType": "image/jpeg",
+          "license": "CC BY 2.0",
+          "attribution": "Fernandes BF et al.",
+          "searchMetadata": "Clinical photography of patient with Coats' disease. Conjunctival hyperemia, mild corneal edema, posterior synechiae and cataract. Eye of patient with Coats' disease Coats' disease|Pages using PMID magic links",
+          "width": 1050,
+          "height": 915,
+          "webSource": true,
+          "relevanceScore": 33,
+          "relevanceSignals": [
+            "corneal",
+            "eye"
+          ],
+          "relatedClinicalContext": true,
+          "flexibleSearchQuery": "corneal edema slit lamp",
+          "searchQuery": "diflucan eye drops preparation differential diagnosis",
+          "sectionIndex": 5,
+          "sectionTitle": "Differential Diagnosis Table"
+        }
+      ],
+      "chapterId": "uncategorized",
+      "categorySource": "auto",
+      "categoryLocked": false,
+      "webPhotoSourcePipelineVersion": 7
+    },
+    "chapterId": "uncategorized",
+    "categorySource": "auto",
+    "categoryLocked": false,
+    "kanskiMeta": [
+      {
+        "pageNum": 222,
+        "keywords": [
+          "preparation",
+          "keratitis",
+          "spectrum",
+          "activity",
+          "fungal"
+        ]
+      },
+      {
+        "pageNum": 582,
+        "keywords": [
+          "solution",
+          "utility",
+          "Macular OCT",
+          "Optic nerve OCT",
+          "OCT angiography"
+        ]
+      },
+      {
+        "pageNum": 224,
+        "keywords": [
+          "solution",
+          "preparation",
+          "keratitis",
+          "endophthalmitis",
+          "protocol"
+        ]
+      },
+      {
+        "pageNum": 632,
+        "keywords": [
+          "preparation",
+          "Fundus autofluorescence",
+          "erg",
+          "activity"
+        ]
+      },
+      {
+        "pageNum": 442,
+        "keywords": [
+          "solution",
+          "Macular OCT",
+          "Fundus autofluorescence",
+          "keratitis",
+          "activity"
+        ]
+      },
+      {
+        "pageNum": 605,
+        "keywords": [
+          "solution",
+          "OCT angiography",
+          "Fundus autofluorescence",
+          "spectrum"
+        ]
+      },
+      {
+        "pageNum": 195,
+        "keywords": [
+          "solution",
+          "preparation",
+          "table"
+        ]
+      },
+      {
+        "pageNum": 506,
+        "keywords": [
+          "solution",
+          "Macular OCT",
+          "Fundus autofluorescence",
+          "erg"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1787293193838,
+    "seqId": 905,
+    "title": "Streptococcus pneumoniae Endophthalmitis: Clinical Masterclass",
+    "summary": "Streptococcus pneumoniae endophthalmitis is a hyper-acute, fulminant intraocular infection characterized by severe pain, rapid vision loss, and massive intraocular inflammation. Due to potent virulence factors like pneumolysin, immediate diagnostic tap, intravitreal antibiotic administration, and early surgical intervention are vital to preserve globe integrity and visual function.",
+    "date": "2026-08-21T06:19:53.838Z",
+    "data": {
+      "title": "Streptococcus pneumoniae Endophthalmitis: Clinical Masterclass",
+      "summary": "Streptococcus pneumoniae endophthalmitis is a hyper-acute, fulminant intraocular infection characterized by severe pain, rapid vision loss, and massive intraocular inflammation. Due to potent virulence factors like pneumolysin, immediate diagnostic tap, intravitreal antibiotic administration, and early surgical intervention are vital to preserve globe integrity and visual function.",
+      "summary_illustration": "<svg viewBox=\"0 0 500 180\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"grad1\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:#ef4444;stop-opacity:0.8\"/><stop offset=\"100%\" style=\"stop-color:#7c3aed;stop-opacity:0.8\"/></linearGradient></defs><circle cx=\"120\" cy=\"90\" r=\"60\" fill=\"none\" stroke=\"#38bdf8\" stroke-width=\"4\"/><circle cx=\"120\" cy=\"90\" r=\"25\" fill=\"#ef4444\" opacity=\"0.6\"/><path d=\"M95 110 Q120 125 145 110\" fill=\"#fef08a\" opacity=\"0.9\"/><g transform=\"translate(260, 40)\"><ellipse cx=\"40\" cy=\"30\" rx=\"18\" ry=\"12\" fill=\"url(#grad1)\"/><ellipse cx=\"70\" cy=\"30\" rx=\"18\" ry=\"12\" fill=\"url(#grad1)\"/><circle cx=\"40\" cy=\"30\" r=\"4\" fill=\"#ffffff\"/><circle cx=\"70\" cy=\"30\" r=\"4\" fill=\"#ffffff\"/><text x=\"10\" y=\"85\" fill=\"#e2e8f0\" font-family=\"sans-serif\" font-size=\"14\" font-weight=\"bold\">Streptococcus pneumoniae</text><text x=\"10\" y=\"105\" fill=\"#94a3b8\" font-family=\"sans-serif\" font-size=\"12\">Lanceolate Diplococci &amp; Toxin Release</text></g></svg>",
+      "sections": [
+        {
+          "title": "Definition & Clinical Overview",
+          "icon": "visibility",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": [
+            "Acute, fulminant intraocular inflammation caused by Streptococcus pneumoniae (Gram-positive alpha-hemolytic lanceolate diplococci).",
+            "Presents with rapid-onset ocular pain, severe ciliary flush, dense hypopyon, and marked loss of visual acuity within 24 to 72 hours.",
+            "Clinical settings include post-cataract surgery, intravitreal anti-VEGF injections, post-trabeculectomy filtering bleb infections, and penetrating ocular trauma."
+          ],
+          "references": [
+            {
+              "citation": "Durand ML. Bacterial Endophthalmitis. N Engl J Med. 2017;377(14):1403-1404.",
+              "url": "https://doi.org/10.1056/NEJMra1608824",
+              "isEvidenceSearch": false
+            },
+            {
+              "citation": "Miller JJ, et al. Endophthalmitis caused by Streptococcus pneumoniae. Ophthalmology. 2004;111(8):1555-1559.",
+              "url": "https://doi.org/10.1016/j.ophtha.2004.04.033",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Etiologic Settings & Epidemiology",
+          "icon": "bar_chart",
+          "type": "chart",
+          "layout": "half_width",
+          "color_theme": "yellow",
+          "content": {
+            "type": "bar",
+            "data": [
+              {
+                "label": "Filtering Bleb-Associated (%)",
+                "value": 35
+              },
+              {
+                "label": "Post-IVT Injection (%)",
+                "value": 25
+              },
+              {
+                "label": "Post-Trauma (%)",
+                "value": 20
+              },
+              {
+                "label": "Post-Cataract Surgery (%)",
+                "value": 15
+              },
+              {
+                "label": "Endogenous Spread (%)",
+                "value": 5
+              }
+            ]
+          },
+          "references": [
+            {
+              "citation": "Wykoff CC, et al. Endophthalmitis caused by Streptococcus species. Ophthalmology. 2011;118(6):1140-1146.",
+              "url": "https://doi.org/10.1016/j.ophtha.2010.10.024",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Virulence Factors & Molecular Pathogenesis",
+          "icon": "hub",
+          "type": "mindmap",
+          "layout": "full_width",
+          "color_theme": "purple",
+          "content": {
+            "center": "S. pneumoniae Virulence",
+            "branches": [
+              "Polysaccharide Capsule: Prevents opsonophagocytosis by neutrophils and macrophages",
+              "Pneumolysin (PLY): Cytolytic pore-forming toxin inducing retinal ganglion cell lysis",
+              "Autolysin (LytA): Triggers bacterial self-lysis, releasing inflammatory cell wall products",
+              "IgA1 Protease & H2O2: Facilitates mucosal surface adherence and oxidative ocular damage"
+            ]
+          },
+          "references": [
+            {
+              "citation": "Ng EW, et al. Pneumolysin as a virulence factor in Streptococcus pneumoniae endophthalmitis. Curr Eye Res. 2002;24(4):282-288.",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/12214282/",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Pathophysiology & Host Immune Response",
+          "icon": "biotech",
+          "type": "plain_text",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": "Intraocular introduction of S. pneumoniae rapidly triggers massive recruitment of polymorphonuclear leukocytes (PMNs) into the vitreous cavity. Bacterial cell wall components (teichoic acid and peptidoglycan) activate Toll-like receptors (TLR2/TLR4), triggering a storm of pro-inflammatory cytokines (IL-1beta, TNF-alpha, IL-6). The combination of direct toxin toxicity (pneumolysin) and bystander damage from PMN degranulation induces rapid photoreceptor death and permanent visual impairment within 24–48 hours.",
+          "references": [
+            {
+              "citation": "Callegan MC, et al. Bacterial endophthalmitis: therapeutic challenges and host responses. Prog Retin Eye Res. 2007;26(2):189-203.",
+              "url": "https://doi.org/10.1016/j.preteyeres.2006.12.001",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Clinical Presentation & Symptoms",
+          "icon": "medical_services",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "red",
+          "content": [
+            "Rapid Onset: Symptoms typically begin 24-72 hours post-procedure or post-trauma.",
+            "Ocular Pain: Severe, deep throbbing periocular pain and pronounced photophobia.",
+            "Visual Loss: Rapid, profound drop in visual acuity to Light Perception (LP) or Hand Motion (HM).",
+            "External Signs: Eyelid edema, conjunctival hyperemia, and marked chemosis."
+          ],
+          "references": [
+            {
+              "citation": "Relhan N, et al. Endophthalmitis caused by Streptococcus pneumoniae: clinical features and outcomes. Am J Ophthalmol. 2018;192:38-47.",
+              "url": "https://doi.org/10.1016/j.ajo.2018.04.018",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Ocular Examination Findings",
+          "icon": "table_chart",
+          "type": "table",
+          "layout": "full_width",
+          "color_theme": "green",
+          "content": {
+            "headers": [
+              "Ocular Structure",
+              "Clinical Signs",
+              "Diagnostic Significance"
+            ],
+            "rows": [
+              [
+                "Anterior Segment & AC",
+                "Dense fibrinous exudate, hypopyon (>2 mm), ciliary flush",
+                "Indicates intense anterior chamber suppuration and capillary leak"
+              ],
+              [
+                "Cornea & Iris",
+                "Corneal edema, ring infiltrate, posterior synechiae",
+                "Reflects severe anterior segment toxicity and ischemic stress"
+              ],
+              [
+                "Vitreous Cavity",
+                "Dense vitreous opacification, loss of red reflex, vitritis",
+                "Requires urgent B-scan ultrasound to assess vitreoretinal state"
+              ],
+              [
+                "Fundus & Retina",
+                "Obscured view; retinal vasculitis/hemorrhages if visible",
+                "Direct target of pneumolysin toxicity and ischemia"
+              ]
+            ]
+          },
+          "references": [
+            {
+              "citation": "Kanski's Clinical Ophthalmology: A Systemic Approach, 9th Edition. Elsevier. 2020.",
+              "url": "https://www.elsevier.com/books/kanskis-clinical-ophthalmology/salmon/978-0-7020-7711-1",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Red Flag Warning Signs",
+          "icon": "warning",
+          "type": "red_flag",
+          "layout": "half_width",
+          "color_theme": "red",
+          "content": [
+            "Rapidly growing hypopyon with thick fibrin plug in anterior chamber",
+            "Complete loss of red reflex with visual acuity dropped to Light Perception",
+            "Bleb melting or focal purulent blebitis in post-trabeculectomy eyes",
+            "Afferent pupillary defect (APD) or drop to No Light Perception (NLP)",
+            "Scleral thinning, corneal ring ulcer, or progression toward panophthalmitis"
+          ],
+          "references": [
+            {
+              "citation": "Javitt JC, et al. National outcomes of cataract extraction: Endophthalmitis. Ophthalmology. 1991;98(6):899-906.",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/2062502/",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Diagnostic & Microbiological Workup",
+          "icon": "account_tree",
+          "type": "process",
+          "layout": "full_width",
+          "color_theme": "blue",
+          "content": [
+            "Step 1: Emergency Assessment - Record BCVA, pupillary reactions, IOP, and slit-lamp findings.",
+            "Step 2: Diagnostic B-Scan Ultrasonography - Evaluate vitreous opacity, choroidal detachment, or retinal detachment.",
+            "Step 3: Intraocular Sampling - Perform 0.1 mL anterior chamber tap and 0.2-0.5 mL vitreous tap or needle biopsy.",
+            "Step 4: Microbiological Staining - Immediate Gram stain (lanceolate Gram-positive diplococci) and KOH preparation.",
+            "Step 5: Culture & Sensitivity - Inoculate directly onto blood agar, chocolate agar, and liquid thioglycollate media.",
+            "Step 6: Molecular Diagnostics - PCR assay for fastidious organisms or pre-treated cases."
+          ],
+          "references": [
+            {
+              "citation": "Endophthalmitis Vitrectomy Study Group. Results of the Endophthalmitis Vitrectomy Study. Arch Ophthalmol. 1995;113(12):1479-1496.",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/7487618/",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Differential Diagnosis Spectrum",
+          "icon": "auto_awesome",
+          "type": "table",
+          "layout": "full_width",
+          "color_theme": "yellow",
+          "content": {
+            "headers": [
+              "Condition",
+              "Onset",
+              "Key Features",
+              "Distinguishing Factors"
+            ],
+            "rows": [
+              [
+                "Staphylococcus epidermidis",
+                "Subacute (3-7 days)",
+                "Mild pain, low-grade hypopyon",
+                "Coagulase-negative Gram-positive cocci; better visual prognosis"
+              ],
+              [
+                "Staphylococcus aureus",
+                "Acute (1-3 days)",
+                "Fulminant suppuration, severe pain",
+                "Gram-positive cocci in clusters; severe tissue necrosis"
+              ],
+              [
+                "Pseudomonas aeruginosa",
+                "Hyperacute (<24 hrs)",
+                "Greenish infiltrate, ring ulcer, melt",
+                "Gram-negative rod; rapidly destructive corneal necrosis"
+              ],
+              [
+                "Toxic Anterior Segment Syndrome",
+                "Immediate (12-24 hrs)",
+                "Limbus-to-limbus edema, sterile hypopyon",
+                "Non-infectious, poster segment spared, steroid responsive"
+              ]
+            ]
+          },
+          "references": [
+            {
+              "citation": "Lemley CA, Han DP. Endophthalmitis: a review of current treatment strategies. Curr Opin Ophthalmol. 2007;18(3):236-243.",
+              "url": "https://doi.org/10.1097/ICU.0b013e3281333734",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Management Protocol Mnemonic",
+          "icon": "psychology",
+          "type": "remember",
+          "layout": "half_width",
+          "color_theme": "green",
+          "content": {
+            "mnemonic": "PNEUMO",
+            "explanation": "P: Prompt vitreous tap & intravitreal injections; N: Native coverage with Vancomycin + Ceftazidime; E: Early Vitrectomy consideration due to high virulence; U: Urgent topical fortified antibiotics; M: Monitor IOP and ultrasonography; O: Outcome depends on immediate intervention."
+          },
+          "references": [
+            {
+              "citation": "AAO Basic and Clinical Science Course (BCSC), Section 09: Intraocular Inflammation and Uveitis. 2022-2023.",
+              "url": "https://www.aao.org/bcsc",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Medical & Intravitreal Treatment Protocol",
+          "icon": "medication",
+          "type": "process",
+          "layout": "full_width",
+          "color_theme": "purple",
+          "content": [
+            "Step 1: Intravitreal Antibiotic Injection - Vancomycin 1.0 mg in 0.1 mL PLUS Ceftazidime 2.25 mg in 0.1 mL.",
+            "Step 2: Adjunctive Corticosteroid - Intravitreal Dexamethasone 0.4 mg in 0.1 mL (to dampen pneumolysin-induced tissue damage).",
+            "Step 3: Topical Fortified Drops - Fortified Vancomycin (50 mg/mL) and Tobramycin (14 mg/mL) alternating every 1 hour.",
+            "Step 4: Topical Steroids & Cycloplegics - Prednisolone acetate 1% q1h (after 24 hrs) and Atropine 1% BID.",
+            "Step 5: Systemic Antibiotics - Oral Moxifloxacin 400 mg daily or IV Vancomycin in cases with systemic/scleral extension."
+          ],
+          "references": [
+            {
+              "citation": "Schoenberger JE, et al. Modern management of bacterial endophthalmitis. Surv Ophthalmol. 2017;62(5):680-689.",
+              "url": "https://doi.org/10.1016/j.survophthal.2017.03.004",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Surgical Indications & Vitrectomy (PPV)",
+          "icon": "medical_services",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "blue",
+          "content": [
+            "EVS vs Clinical Reality: While the EVS recommended vitrectomy mainly for Light Perception (LP) vision, pneumococcal endophthalmitis often mandates early Pars Plana Vitrectomy (PPV) even with better vision due to extreme bacterial virulence.",
+            "Surgical Goals: Immediate reduction of intraocular bacterial load, removal of toxic pneumolysin, clearing of dense vitreous debris, and improved antibiotic penetration.",
+            "Technique Pearls: Use complete 23-gauge or 25-gauge micro-incision vitrectomy system (MIVS); avoid aggressive posterior hyaloid peeling over necrotic retina to prevent iatrogenic retinal tears.",
+            "Post-Surgical Injections: Re-inject intravitreal Vancomycin (1.0 mg) and Ceftazidime (2.25 mg) at the conclusion of PPV."
+          ],
+          "references": [
+            {
+              "citation": "Kuhn F, Gini G. Vitrectomy for endophthalmitis. Ophthalmology. 2005;112(3):438-441.",
+              "url": "https://doi.org/10.1016/j.ophtha.2004.10.038",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Visual Prognosis & Outcomes",
+          "icon": "pie_chart",
+          "type": "chart",
+          "layout": "half_width",
+          "color_theme": "red",
+          "content": {
+            "type": "bar",
+            "data": [
+              {
+                "label": "20/40 or Better (%)",
+                "value": 15
+              },
+              {
+                "label": "20/50 to 20/400 (%)",
+                "value": 25
+              },
+              {
+                "label": "Count Fingers/HM (%)",
+                "value": 30
+              },
+              {
+                "label": "LP or NLP (%)",
+                "value": 30
+              }
+            ]
+          },
+          "references": [
+            {
+              "citation": "Miller JJ, et al. Endophthalmitis caused by Streptococcus pneumoniae. Ophthalmology. 2004;111(8):1555-1559.",
+              "url": "https://doi.org/10.1016/j.ophtha.2004.04.033",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Complications & Long-Term Sequelae",
+          "icon": "report_problem",
+          "type": "key_point",
+          "layout": "half_width",
+          "color_theme": "yellow",
+          "content": [
+            "Tractional & Rhegmatogenous Retinal Detachment (occurs in up to 30% of cases).",
+            "Phthisis Bulbi and Complete Hypotony/Ocular Atrophy.",
+            "Ischemic Maculopathy & Retinal Artery/Vein Occlusions.",
+            "Secondary Neovascular Glaucoma secondary to chronic ocular ischemia.",
+            "Panophthalmitis with extraocular extension and orbital cellulitis."
+          ],
+          "references": [
+            {
+              "citation": "Espinosa-Barveri F, et al. Complications and visual outcomes in streptococcal endophthalmitis. Eur J Ophthalmol. 2021;31(4):1892-1899.",
+              "url": "https://doi.org/10.1177/1120672120944031",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "High-Yield Clinical Pearls",
+          "icon": "auto_awesome",
+          "type": "key_point",
+          "layout": "full_width",
+          "color_theme": "green",
+          "content": [
+            "Pneumococcal endophthalmitis carries a significantly worse visual prognosis than Staphylococcus epidermidis or culture-negative cases.",
+            "Filtering bleb-associated infection by S. pneumoniae can occur months to years after trabeculectomy; patient education on 'bleb red flags' is essential.",
+            "Direct Gram stain showing lanceolate Gram-positive diplococci provides an immediate rationale for aggressive combined intravitreal and surgical management.",
+            "Adjunctive intravitreal corticosteroids (Dexamethasone) help reduce host-mediated inflammatory retinal damage triggered by bacterial autolysis."
+          ],
+          "references": [
+            {
+              "citation": "Relhan N, et al. Endophthalmitis caused by Streptococcus pneumoniae: clinical features and outcomes. Am J Ophthalmol. 2018;192:38-47.",
+              "url": "https://doi.org/10.1016/j.ajo.2018.04.018",
+              "isEvidenceSearch": false
+            }
+          ]
+        },
+        {
+          "title": "Recent Advances & Landmark Evidence",
+          "icon": "auto_awesome",
+          "type": "plain_text",
+          "layout": "full_width",
+          "color_theme": "purple",
+          "content": "Recent epidemiological studies highlight increasing fluoroquinolone and penicillin resistance among ocular S. pneumoniae isolates, re-affirming Vancomycin as the indispensable intravitreal empiric standard. Furthermore, contemporary retrospective series demonstrate that early pars plana vitrectomy performed within 24–48 hours of presentation yields superior visual preservation and lower rates of phthisis bulbi compared to delayed surgical intervention in streptococcal endophthalmitis.",
+          "references": [
+            {
+              "citation": "Asbell PA, et al. Antibiotic susceptibility trends in ocular pathogens: ARMOR study updates. JAMA Ophthalmol. 2020;138(5):525-533.",
+              "url": "https://doi.org/10.1001/jamaophthalmol.2020.0662",
+              "isEvidenceSearch": false
+            }
+          ]
+        }
+      ],
+      "generationPrompt": "strept pneumonie endohthalmitis",
+      "webPhotoConsent": true,
+      "clinicalImages": [
+        {
+          "id": "wikimedia_176803594",
+          "alt": "Iris atrophy.jpg",
+          "dataUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Iris_atrophy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iris_atrophy.jpg",
+          "source": "Wikimedia Commons",
+          "mimeType": "image/jpeg",
+          "license": "CC BY-SA 4.0",
+          "attribution": "Yedoct",
+          "searchMetadata": "A slit-lamp photograph showing diffuse iris stromal atrophy in a patient with Cytomegalovirus (CMV) anterior uveitis. Author: [ | Dr. Dilraj Sahota ] Iris atrophy Iris (eye)|Self-published work|Anterior uveitis",
+          "width": 831,
+          "height": 659,
+          "webSource": true,
+          "relevanceScore": 28,
+          "relevanceSignals": [
+            "uveiti",
+            "slit",
+            "lamp"
+          ],
+          "relatedClinicalContext": true,
+          "flexibleSearchQuery": "uveitis slit lamp",
+          "searchQuery": "strept pneumonie endohthalmitis definition",
+          "sectionIndex": 0,
+          "sectionTitle": "Definition & Clinical Overview"
+        }
+      ],
+      "webPhotoSourcePipelineVersion": 7,
+      "chapterId": "lens",
+      "categorySource": "auto",
+      "categoryLocked": false
+    },
+    "chapterId": "lens",
+    "categorySource": "auto",
+    "categoryLocked": false,
+    "kanskiMeta": [
+      {
+        "pageNum": 224,
+        "keywords": [
+          "endophthalmitis",
+          "lens",
+          "factors",
+          "pathogenesis",
+          "response"
+        ]
+      },
+      {
+        "pageNum": 336,
+        "keywords": [
+          "endophthalmitis",
+          "lens",
+          "virulence",
+          "pathogenesis",
+          "response"
+        ]
+      },
+      {
+        "pageNum": 334,
+        "keywords": [
+          "endophthalmitis",
+          "lens",
+          "factors",
+          "host",
+          "response"
+        ]
+      },
+      {
+        "pageNum": 489,
+        "keywords": [
+          "endophthalmitis",
+          "Fundus autofluorescence",
+          "factors",
+          "immune",
+          "response"
+        ]
+      },
+      {
+        "pageNum": 429,
+        "keywords": [
+          "endophthalmitis",
+          "lens",
+          "response",
+          "symptoms",
+          "signs"
+        ]
+      },
+      {
+        "pageNum": 929,
+        "keywords": [
+          "endophthalmitis",
+          "lens",
+          "factors",
+          "pathophysiology",
+          "ocular"
+        ]
+      },
+      {
+        "pageNum": 487,
+        "keywords": [
+          "endophthalmitis",
+          "factors",
+          "ocular",
+          "microbiological",
+          "spectrum"
+        ]
+      },
+      {
+        "pageNum": 321,
+        "keywords": [
+          "endophthalmitis",
+          "lens",
+          "factors",
+          "ocular",
+          "examination"
+        ]
+      }
+    ]
+  },
+  {
     "id": 1787205083088,
     "seqId": 905,
     "title": "Ultrasound Properties in Endophthalmitis: Comprehensive Clinical Echography Guide",

@@ -78,7 +78,10 @@ jobs:
         run: |
           git config user.name "ophthalmic-pulse-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add feeds/ophthalmic-pulse.json daily/ library/daily_* library-index.json
+          # The Pages artifact already contains the freshly generated index.
+          # Do not commit it: legacy items without stored dates can reorder
+          # between runners and create a very large no-content-change diff.
+          git add feeds/ophthalmic-pulse.json daily/ library/daily_*
           if git diff --cached --quiet; then
             echo "Daily content is already current."
           else

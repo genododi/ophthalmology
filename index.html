@@ -29,7 +29,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" />
-    <link rel="stylesheet" href="style.css?v=2026082101">
+    <link rel="stylesheet" href="style.css?v=2026090101">
+    <link rel="stylesheet" href="ophthalmic-pulse.css?v=2026090101">
     <link rel="stylesheet" href="mobile-iap.css?v=2026061701">
     <!-- Import map for ES modules - works on hosted servers -->
     <script type="importmap">
@@ -270,6 +271,10 @@
                     </button>
                     <button class="icon-btn" id="community-btn" title="Community Hub">
                         <span class="material-symbols-rounded">groups</span>
+                    </button>
+                    <button class="icon-btn pulse-launch-button" id="ophthalmic-pulse-btn" title="Ophthalmic Pulse: events, community and article access" aria-label="Open Ophthalmic Pulse">
+                        <span class="material-symbols-rounded">language</span>
+                        <span class="pulse-live-dot" aria-hidden="true"></span>
                     </button>
                     <a href="moderation.html" class="icon-btn" id="admin-btn" title="Admin Moderation Panel">
                         <span class="material-symbols-rounded">admin_panel_settings</span>
@@ -1155,14 +1160,15 @@
     <script src="community-submissions.js?v=2026082002"></script>
     <script src="mobile-billing-config.js?v=2026061701"></script>
     <script src="mobile-iap.js?v=2026061701"></script>
+    <script src="ophthalmic-pulse.js?v=2026090101"></script>
     <!-- Load Google Generative AI as fallback for local file:// protocol -->
     <script>
         if (window.location.protocol === 'file:') {
             console.warn('Running locally via file:// protocol. ES modules may not work. Please use a local server (e.g., npx serve) or access via GitHub Pages.');
         }
     </script>
-    <script type="module" src="script.js?v=2026082003"></script>
-    <div style="text-align:center;padding:8px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.08.20.03</div>
+    <script type="module" src="script.js?v=2026090101"></script>
+    <div style="text-align:center;padding:8px 8px 62px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.09.01.01</div>
 </body>
 
 </html>

@@ -4,15 +4,18 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # 04:30 Cairo (01:30 UTC while Egypt observes UTC+3)
+    - cron: "30 1 * * *"
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -23,9 +26,40 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Refresh ophthalmology events, research and community feed
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_ORGANIZATION_URNS: ${{ secrets.LINKEDIN_ORGANIZATION_URNS }}
+          LINKEDIN_VERSION: ${{ secrets.LINKEDIN_VERSION }}
+        run: node scripts/update-ophthalmic-pulse.mjs
+
+      - name: Generate and validate today's infographic
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: node scripts/generate-daily-infographic.mjs
 
       - name: Generate library index
         run: python3 sync_to_github.py --index
+
+      - name: Mirror validated infographic to configured server
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          DAILY_UPLOAD_URL: ${{ secrets.DAILY_UPLOAD_URL }}
+          DAILY_UPLOAD_TOKEN: ${{ secrets.DAILY_UPLOAD_TOKEN }}
+        run: |
+          if [ -z "$DAILY_UPLOAD_URL" ] || [ -z "$DAILY_UPLOAD_TOKEN" ]; then
+            echo "External daily upload is not configured; GitHub Pages remains the publication server."
+            exit 0
+          fi
+          curl --fail-with-body --silent --show-error \
+            --retry 2 \
+            --header "Authorization: Bearer $DAILY_UPLOAD_TOKEN" \
+            --header "Content-Type: application/json" \
+            --data-binary @daily/latest.json \
+            "$DAILY_UPLOAD_URL"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -38,3 +72,16 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Commit successfully deployed daily output
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "ophthalmic-pulse-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add feeds/ophthalmic-pulse.json daily/ library/daily_* library-index.json
+          if git diff --cached --quiet; then
+            echo "Daily content is already current."
+          else
+            git commit -m "Daily ophthalmology evidence pulse $(date -u +%F)"
+            git push origin HEAD:main
+          fi

@@ -7701,6 +7701,20 @@ function showGeneratedInfographic(data) {
     renderInfographic(data);
 }
 
+// Ophthalmic Pulse publishes a validated infographic as a regular library data
+// object. A DOM event keeps the standalone portal script decoupled from this
+// module while still opening the item in the full infographic workspace.
+document.addEventListener('ophthalmic:open-infographic', event => {
+    const data = event?.detail?.data;
+    if (!data || !Array.isArray(data.sections)) {
+        showToast('The daily infographic is incomplete. Please wait for the next successful refresh.', 'error');
+        return;
+    }
+    clinicalImages = Array.isArray(data.clinicalImages) ? data.clinicalImages : [];
+    showGeneratedInfographic(data);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 generateBtn.addEventListener('click', async () => {
     if (window.OphthalmicMobileBilling && !window.OphthalmicMobileBilling.requireAccess('generate')) {
         return;
@@ -13274,8 +13288,8 @@ function showToast(message, type) {
 let clinicalImages = [];
 
 const WEB_CLINICAL_IMAGE_LIMIT = 6;
-const WEB_PHOTO_SOURCE_PIPELINE_VERSION = 7;
-const WEB_PHOTO_EMPTY_MESSAGE = 'No strong licensed match yet after broadening the search. Use Retry photos to search again, or add a local image.';
+const WEB_PHOTO_SOURCE_PIPELINE_VERSION = 8;
+const WEB_PHOTO_EMPTY_MESSAGE = 'No strong licensed clinical or investigation match was found. Use Retry photos to broaden the modality-aware search, or add a local image.';
 const webPhotoFetchInFlight = new WeakSet();
 const wikimediaClinicalSearchCache = new Map();
 const institutionalClinicalSearchCache = new Map();
@@ -13374,6 +13388,69 @@ const OPHTHALMIC_IMAGING_MODALITIES = Object.freeze([
         suitability: /\b(autofluorescen\w*|faf|retinal dystroph\w*|retinitis pigmentosa|stargardt|best disease|pattern dystrophy|amd|armd|geographic atrophy|rpe|choroid\w*|white dot|uveitis|macula\w*)\b/i,
         detection: /\b(fundus autofluorescen\w*|blue[ -]?light autofluorescen\w*|faf\b)\b/i,
         query: '("fundus autofluorescence" OR FAF)'
+    },
+    {
+        id: 'slit-lamp',
+        label: 'Slit-lamp photograph',
+        suitability: /\b(cornea\w*|kerat\w*|conjunctiv\w*|scleri\w*|uveitis|anterior chamber|hypopyon|hyphema|hyphaema|cataract\w*|iris|pupil|pterygium|dry eye|ocular surface|contact lens)\b/i,
+        detection: /\b(slit[ -]?lamp|biomicroscop\w*|anterior segment photograph\w*)\b/i,
+        query: '("slit lamp" OR biomicroscopy OR "anterior segment photograph")'
+    },
+    {
+        id: 'fundus-photo',
+        label: 'Colour fundus photography',
+        suitability: /\b(retina\w*|fundus|macula\w*|optic disc|optic disk|papill\w*|glaucoma\w*|diabet\w*|vascular|occlusion|retinal dystroph\w*|uveitis|choroid\w*)\b/i,
+        detection: /\b(colou?r fundus photograph\w*|fundus photograph\w*|retinograph\w*|ophthalmoscop\w*)\b/i,
+        query: '("fundus photography" OR retinography OR ophthalmoscopy)'
+    },
+    {
+        id: 'icga',
+        label: 'Indocyanine green angiography',
+        suitability: /\b(choroid\w*|polypoidal|pcv|cnv|neovascular\w*|amd|armd|uveitis|white dot|posterior segment)\b/i,
+        detection: /\b(indocyanine green angiograph\w*|icg angiograph\w*|icga\b)\b/i,
+        query: '("indocyanine green angiography" OR ICGA)'
+    },
+    {
+        id: 'ocular-ultrasound',
+        label: 'B-scan ocular ultrasound',
+        suitability: /\b(b[ -]?scan|ultrasound|ultrasonograph\w*|opaque media|vitreous hemorrhage|haemorrhage|retinal detachment|choroidal detachment|posterior scleritis|tumou?r|mass|endophthalmitis|foreign body)\b/i,
+        detection: /\b(b[ -]?scan(?: ocular)? (?:ultrasound|ultrasonograph\w*)|ocular ultrasonograph\w*|ocular ultrasound|echograph\w*)\b/i,
+        query: '("ocular B-scan" OR "ocular ultrasound" OR echography)'
+    },
+    {
+        id: 'anterior-segment-imaging',
+        label: 'AS-OCT / UBM',
+        suitability: /\b(anterior segment|angle closure|gonioscop\w*|iris|ciliary body|cornea\w*|kerat\w*|glaucoma\w*|lens|sulcus|zonul\w*|ubm|as[ -]?oct)\b/i,
+        detection: /\b(anterior segment optical coherence tomography|as[ -]?oct|ultrasound biomicroscop\w*|ubm\b)\b/i,
+        query: '("anterior segment OCT" OR AS-OCT OR "ultrasound biomicroscopy" OR UBM)'
+    },
+    {
+        id: 'corneal-topography',
+        label: 'Corneal topography / tomography',
+        suitability: /\b(cornea\w*|keratoconus|ectasia|refractive|lasik|smile|prk|astigmatis\w*|pachymetr\w*|pellucid)\b/i,
+        detection: /\b(corneal (?:topograph\w*|tomograph\w*|pachymetr\w*)|scheimpflug|pentacam|keratograph\w*)\b/i,
+        query: '("corneal topography" OR "corneal tomography" OR Pentacam OR Scheimpflug)'
+    },
+    {
+        id: 'visual-field',
+        label: 'Visual field / perimetry',
+        suitability: /\b(glaucoma\w*|optic neuropath\w*|chiasm\w*|neuro[ -]?ophthalm\w*|visual field|perimetr\w*|hemianop\w*|scotoma\w*)\b/i,
+        detection: /\b(visual field|automated perimetr\w*|static perimetr\w*|kinetic perimetr\w*|humphrey field|goldmann field)\b/i,
+        query: '("visual field" OR perimetry OR "Humphrey field")'
+    },
+    {
+        id: 'orbital-neuroimaging',
+        label: 'Orbital CT / MRI',
+        suitability: /\b(orbit\w*|proptosis|optic nerve|optic neuritis|chiasm\w*|tumou?r|mass|trauma|fracture|thyroid eye|neuro[ -]?ophthalm\w*)\b/i,
+        detection: /\b(orbital (?:ct|mri|computed tomography|magnetic resonance)|ct (?:orbit|scan)|mri (?:orbit|brain)|neuroimaging)\b/i,
+        query: '("orbital CT" OR "orbital MRI" OR neuroimaging)'
+    },
+    {
+        id: 'histopathology',
+        label: 'Ophthalmic histopathology',
+        suitability: /\b(histolog\w*|patholog\w*|biopsy|tumou?r|neoplasm|melanoma|retinoblastoma|lymphoma|inflammation|infection|dystroph\w*)\b/i,
+        detection: /\b(histopatholog\w*|histolog\w*|micrograph\w*|hematoxylin|haematoxylin|h&e\b|immunohistochem\w*)\b/i,
+        query: '(histopathology OR histology OR micrograph)'
     }
 ]);
 
@@ -13395,14 +13472,14 @@ function getClinicalImageSearchTopic(data) {
 // Metadata gate for web photos. Search-engine rank alone is not sufficient:
 // words such as "globe", "disc", "lens", or "eye" frequently return maps,
 // book scans, animals, cosmetics, and unrelated artwork.
-const OPHTHALMIC_IMAGE_STRONG_PATTERN = /\b(ophthalm\w*|retina\w*|fundus|fundoscopy|macula\w*|fovea\w*|cornea\w*|sclera\w*|conjunctiv\w*|uvea\w*|uveitis|choroid\w*|vitre\w*|kerat\w*|cataract\w*|glaucoma\w*|retinopath\w*|optic\s+(disc|disk|nerve)|papill(edema|oedema|itis)|strabismus|amblyopia|nystagmus|anisocoria|hyphema|hyphaema|endophthalmitis|proptosis|exophthalmos|pterygium|chalazion|blepharitis|dacry\w*|ophthalmoplegia|open\s+globe|globe\s+rupture|ruptured\s+globe|intraocular|gonioscop\w*|tonometr\w*|slit[ -]?lamp|optical\s+coherence\s+tomography)\b/gi;
+const OPHTHALMIC_IMAGE_STRONG_PATTERN = /\b(ophthalm\w*|retina\w*|fundus|fundoscopy|macula\w*|fovea\w*|cornea\w*|sclera\w*|conjunctiv\w*|uvea\w*|uveitis|choroid\w*|vitre\w*|kerat\w*|cataract\w*|glaucoma\w*|retinopath\w*|optic\s+(disc|disk|nerve)|papill(edema|oedema|itis)|strabismus|amblyopia|nystagmus|anisocoria|hyphema|hyphaema|endophthalmitis|proptosis|exophthalmos|pterygium|chalazion|blepharitis|dacry\w*|ophthalmoplegia|open\s+globe|globe\s+rupture|ruptured\s+globe|intraocular|gonioscop\w*|tonometr\w*|slit[ -]?lamp|optical\s+coherence\s+tomography|ocular\s+(?:ultrasound|ultrasonograph\w*)|b[ -]?scan|fundus\s+autofluorescen\w*|indocyanine\s+green\s+angiograph\w*|corneal\s+(?:topograph\w*|tomograph\w*)|visual\s+field|perimetr\w*|orbital\s+(?:ct|mri)|ultrasound\s+biomicroscop\w*)\b/gi;
 const OPHTHALMIC_IMAGE_CONTEXT_PATTERN = /\b(eye|eyes|eyelid|eyelids|ocular|orbital|orbit|lacrimal|pupil|pupillary|iris|visual\s+field|vision)\b/gi;
 const CLINICAL_IMAGE_PATTERN = /\b(clinical|patient|disease|disorder|pathology|lesion|infection|inflammation|ulcer|trauma|injury|rupture|laceration|hemorrhage|haemorrhage|edema|oedema|detachment|surgery|surgical|procedure|examination|imaging|scan|radiograph|ultrasound|histology|microscopy|angiography)\b/gi;
 const NON_PHOTO_IMAGE_PATTERN = /\b(icon|logo|flag|map|diagram|chart|graph|plot|box[ -]?plot|box\s+represents\s+the\s+iqr|error\s+bar|algorithm|decision\s+tree|flowchart|flow\s+diagram|forest\s+plot|kaplan[ -]?meier|confusion\s+matrix|receiver\s+operating|schematic|illustration|drawing|painting|artwork|cartoon|anime|simulation|statue|sculpture|book|bookplate|book plate|page\s+\d+|plate\s+\d+|treatise|atlas|manuscript|poster|infographic|blausen)\b/i;
 const NON_HUMAN_IMAGE_PATTERN = /\b(canine|dog|dogs|feline|cat|cats|horse|horses|cow|cattle|rabbit|rabbits|mouse|mice|rat|rats|bird|birds|fish|animal|animals|veterinary|zoolog\w*)\b/i;
 const GENERIC_EYE_NOISE_PATTERN = /\b(eye\s+of\s+(the\s+)?storm|eye\s+of\s+horus|evil\s+eye|makeup|mascara|eyelash|eyelashes|eyebrow|fashion|beauty|beautiful|portrait|selfie|stock\s+photo|cosplay|toy|doll|jewelry|jewellery)\b/i;
-const JOURNAL_CLINICAL_FIGURE_PATTERN = /\b(photograph|photo|image|imaging|fundus|fundoscopy|ophthalmoscop\w*|slit[ -]?lamp|optical\s+coherence\s+tomography|oct[ -]?a|\bOCT\b|angiograph\w*|fluorescein|fundus\s+autofluorescen\w*|\bFAF\b|microscop\w*|histolog\w*|ultrasound|ultrasonograph\w*|biomicroscop\w*|topograph\w*|tomograph\w*|visual\s+field|perimetr\w*|gonioscop\w*|surgery|surgical|procedure|examination|clinical\s+appearance|preoperative|postoperative)\b/i;
-const SCIENTIFIC_CLINICAL_VISUAL_PATTERN = /\b(slit[ -]?lamp|fundus|fundoscopy|ophthalmoscop\w*|optical\s+coherence\s+tomography|oct[ -]?a|\bOCT\b|angiograph\w*|fluorescein|autofluorescen\w*|\bFAF\b|ultrasound|ultrasonograph\w*|biomicroscop\w*|topograph\w*|tomograph\w*|visual\s+field|perimetr\w*|gonioscop\w*|histolog\w*|microscop\w*|patholog\w*|clinical\s+appearance|clinical\s+photograph|examination|preoperative|postoperative|intraoperative|operative\s+field|surgery|surgical\s+(?:field|procedure|technique)|lesion|ulcer|erosion|opacity|haze|edema|oedema|hemorrhage|haemorrhage|exudate|drusen|detachment|tear|rupture|laceration|infection|inflammation|hypopyon|hyphema|hyphaema|neovascular\w*|tumou?r|mass|proptosis|ptosis|strabismus|cataract|keratitis|retinopathy|uveitis|glaucoma)\b/i;
+const JOURNAL_CLINICAL_FIGURE_PATTERN = /\b(photograph|photo|image|imaging|fundus|fundoscopy|ophthalmoscop\w*|slit[ -]?lamp|optical\s+coherence\s+tomography|oct[ -]?a|\bOCT\b|angiograph\w*|fluorescein|indocyanine|fundus\s+autofluorescen\w*|\bFAF\b|microscop\w*|histolog\w*|ultrasound|ultrasonograph\w*|echograph\w*|biomicroscop\w*|topograph\w*|tomograph\w*|pachymetr\w*|visual\s+field|perimetr\w*|gonioscop\w*|orbital\s+(?:ct|mri)|surgery|surgical|procedure|examination|clinical\s+appearance|preoperative|postoperative)\b/i;
+const SCIENTIFIC_CLINICAL_VISUAL_PATTERN = /\b(slit[ -]?lamp|fundus|fundoscopy|ophthalmoscop\w*|optical\s+coherence\s+tomography|oct[ -]?a|\bOCT\b|angiograph\w*|fluorescein|indocyanine|autofluorescen\w*|\bFAF\b|ultrasound|ultrasonograph\w*|echograph\w*|biomicroscop\w*|topograph\w*|tomograph\w*|pachymetr\w*|visual\s+field|perimetr\w*|gonioscop\w*|orbital\s+(?:ct|mri)|histolog\w*|microscop\w*|patholog\w*|clinical\s+appearance|clinical\s+photograph|examination|preoperative|postoperative|intraoperative|operative\s+field|surgery|surgical\s+(?:field|procedure|technique)|lesion|ulcer|erosion|opacity|haze|edema|oedema|hemorrhage|haemorrhage|exudate|drusen|detachment|tear|rupture|laceration|infection|inflammation|hypopyon|hyphema|hyphaema|neovascular\w*|tumou?r|mass|proptosis|ptosis|strabismus|cataract|keratitis|retinopathy|uveitis|glaucoma)\b/i;
 const NON_CLINICAL_OPHTHALMOLOGY_CONTEXT_PATTERN = /\b(hospital|clinic\s+(?:building|entrance|staff)|ophthalmologist|doctor|physician|resident|team|training|simulator|conference|meeting|award|recognition|historical|marker|portrait|headshot|logo|equipment\s+display)\b/i;
 const THIRD_PARTY_FIGURE_RIGHTS_PATTERN = /\b(reproduced|adapted|reprinted|copyright(?:ed)?|all\s+rights\s+reserved|used\s+with\s+permission|courtesy\s+of)\b/i;
 const YOUTUBE_NON_VISUAL_PATTERN = /\b(podcast|interview|webinar|lecture|panel|conference|meeting|keynote|journal\s+club|question\s+and\s+answer|Q&A)\b/i;
@@ -13445,6 +13522,66 @@ function getClinicalImageTopicTokens(topic) {
         .filter(token => token.length >= 3 && !CLINICAL_IMAGE_TOPIC_STOPWORDS.has(token))
         .map(stemClinicalImageToken)
         .filter(token => token.length >= 3))];
+}
+
+function flattenClinicalSectionContent(value, depth = 0) {
+    if (value == null || depth > 3) return [];
+    if (typeof value === 'string' || typeof value === 'number') return [String(value)];
+    if (Array.isArray(value)) return value.flatMap(item => flattenClinicalSectionContent(item, depth + 1));
+    if (typeof value === 'object') return Object.entries(value)
+        .filter(([key]) => !/^(references?|citation|url|source)$/i.test(key))
+        .flatMap(([key, item]) => [key, ...flattenClinicalSectionContent(item, depth + 1)]);
+    return [];
+}
+
+function getClinicalSectionVisualContext(section, baseTopic = '') {
+    const sectionText = cleanWebImageMetadata([
+        section?.title,
+        section?.type,
+        ...flattenClinicalSectionContent(section?.content)
+    ].filter(Boolean).join(' ')).slice(0, 1400);
+    const combined = `${baseTopic} ${sectionText}`.replace(/\s+/g, ' ').trim();
+    const explicitlyDetectedModalities = OPHTHALMIC_IMAGING_MODALITIES.filter(modality => modality.detection.test(sectionText));
+    const investigationIntent = /\b(investigat\w*|diagnos\w*|imaging|scan|work[ -]?up|interpret\w*|test|assessment)\b/i.test(sectionText)
+        || explicitlyDetectedModalities.length > 0;
+    const modalities = explicitlyDetectedModalities.length
+        ? explicitlyDetectedModalities
+        : (investigationIntent ? getSuitableOphthalmicImagingModalities(combined) : []);
+    const operativeIntent = /\b(surg\w*|operative|procedure|technique|intraoperative|postoperative|preoperative)\b/i.test(sectionText);
+    const pathologyIntent = /\b(histolog\w*|patholog\w*|biopsy|cytolog\w*|microscop\w*)\b/i.test(sectionText);
+    const clinicalPhotoIntent = /\b(signs?|presentation|appearance|examination|lesion|ulcer|opacity|edema|oedema|hemorrhage|haemorrhage|mass|proptosis|ptosis|strabismus)\b/i.test(sectionText);
+    const suffix = modalities.length
+        ? modalities.map(modality => modality.label).join(' ')
+        : pathologyIntent ? 'ophthalmic histopathology micrograph'
+            : operativeIntent ? 'ophthalmic surgery intraoperative clinical photograph'
+                : investigationIntent ? 'ophthalmic diagnostic investigation imaging scan'
+                    : clinicalPhotoIntent ? 'clinical ophthalmology photograph examination finding'
+                        : 'clinical ophthalmology photograph';
+    return {
+        text: sectionText,
+        query: `${baseTopic} ${sectionText} ${suffix}`.replace(/\s+/g, ' ').trim().slice(0, 320),
+        modalities,
+        investigationIntent,
+        operativeIntent,
+        pathologyIntent,
+        clinicalPhotoIntent
+    };
+}
+
+function isCandidateSuitableForSectionContext(image, context) {
+    if (!context) return true;
+    const metadata = [image?.alt, image?.description, image?.searchMetadata, image?.categories]
+        .map(cleanWebImageMetadata).filter(Boolean).join(' ');
+    const detected = new Set([...(image?.imagingModalities || []), ...detectOphthalmicImagingModalities(metadata)]);
+    const requested = context.modalities.map(modality => modality.label);
+    if (requested.length && !requested.some(modality => detected.has(modality))) return false;
+    if (context.pathologyIntent && !/\b(histopatholog\w*|histolog\w*|micrograph\w*|microscop\w*|immunohistochem\w*)\b/i.test(metadata)) return false;
+    if (context.operativeIntent && !requested.length
+        && !/\b(intraoperative|operative\s+field|surgical\s+(?:photograph|procedure|technique)|surgery)\b/i.test(metadata)) return false;
+    if (context.investigationIntent && !requested.length
+        && !detectOphthalmicImagingModalities(metadata).length
+        && !/\b(imaging|scan|angiograph\w*|ultrasound|topograph\w*|tomograph\w*|perimetr\w*|histolog\w*|gonioscop\w*)\b/i.test(metadata)) return false;
+    return true;
 }
 
 function getTrustedOphthalmicJournal(journalTitle) {
@@ -13684,10 +13821,11 @@ async function searchFlexibleClinicalImages(context, limit = 18) {
         .slice(0, limit);
 }
 
-function isFlexibleImageSuitableForSection(image, sectionTitle) {
-    if (isImageRelevantToSection(image, sectionTitle)) return true;
+function isFlexibleImageSuitableForSection(image, sectionTitle, visualContext = null) {
+    if (!isCandidateSuitableForSectionContext(image, visualContext)) return false;
+    if (isImageRelevantToSection(image, visualContext?.text || sectionTitle)) return true;
     if (!image?.relatedClinicalContext) return false;
-    const sectionTokens = getClinicalImageTopicTokens(sectionTitle || '');
+    const sectionTokens = getClinicalImageTopicTokens(visualContext?.text || sectionTitle || '');
     if (!sectionTokens.length) return true;
     const flexibleTokens = new Set(getClinicalImageTopicTokens(image.flexibleSearchQuery || ''));
     return sectionTokens.some(token => flexibleTokens.has(token));
@@ -14144,7 +14282,7 @@ function createWebPhotoConsentControl(data) {
         <label class="web-photo-consent-label" for="web-photo-consent-checkbox">
             <input type="checkbox" id="web-photo-consent-checkbox" ${data?.webPhotoConsent === true ? 'checked' : ''}>
             <span class="web-photo-consent-check"><span class="material-symbols-rounded">check</span></span>
-            <span><strong>Fetch relevant ophthalmic photos for each section</strong><small>Optional. Searches Wikimedia Commons, NIH/NEI media, verified ophthalmology channels, and Openverse's openly licensed index. Local-server mode can also retrieve reusable open-access journal figures. Only clinical findings, examination or imaging, pathology, and operative photos pass; general ophthalmology-related media is excluded.</small></span>
+            <span><strong>Fetch relevant ophthalmic photos and investigations for each section</strong><small>Optional. Modality-aware search covers clinical photographs, slit-lamp and fundus images, OCT/OCTA, FFA/ICGA, FAF, ocular ultrasound, AS-OCT/UBM, topography, visual fields, orbital imaging and histopathology. Searches Wikimedia Commons, NIH/NEI media, verified ophthalmology channels, and Openverse; local-server mode also retrieves reusable open-access journal figures. General ophthalmology media is excluded.</small></span>
         </label>
         <div class="web-photo-consent-actions">
             <span id="web-photo-consent-status" class="web-photo-consent-status" data-status="info">${sectionPhotoCount ? `${sectionPhotoCount} credited section photo${sectionPhotoCount === 1 ? '' : 's'} attached.` : 'Photo fetching is off.'}</span>
@@ -14215,7 +14353,7 @@ function renderWebClinicalImages(data) {
     section.innerHTML = `
         <div class="web-clinical-images-heading">
             <span class="material-symbols-rounded">photo_library</span>
-            <div><h2>Relevant ophthalmic photos</h2><p>Credited clinical media from institutional, Wikimedia, verified channel, Openverse, and reusable open-access journal sources.</p></div>
+            <div><h2>Relevant ophthalmic photos & investigations</h2><p>Credited, modality-matched clinical media from institutional, Wikimedia, verified channel, Openverse, and reusable open-access journal sources.</p></div>
         </div>
         <div class="web-clinical-images-grid">
             ${images.map(image => {
@@ -14246,11 +14384,15 @@ async function attachRelevantWebClinicalImages(data, { force = false, onProgress
         const prunedImageCount = previousImages.length - data.clinicalImages.length;
         const known = new Set(data.clinicalImages.flatMap(image => [image?.id, image?.sourceUrl]).filter(Boolean));
         const sourcePipelineUpgradeNeeded = Number(data.webPhotoSourcePipelineVersion || 0) < WEB_PHOTO_SOURCE_PIPELINE_VERSION;
-        const targets = data.sections.map((section, sectionIndex) => ({ section, sectionIndex }))
+        const targets = data.sections.map((section, sectionIndex) => ({
+            section,
+            sectionIndex,
+            visualContext: getClinicalSectionVisualContext(section, baseTopic)
+        }))
             .filter(({ sectionIndex }) => force
                 || sourcePipelineUpgradeNeeded
                 || !getSectionWebClinicalImages(data, sectionIndex).length);
-        const flexibleContext = [baseTopic, data.title, ...targets.map(({ section }) => section?.title)]
+        const flexibleContext = [baseTopic, data.title, ...targets.map(({ visualContext }) => visualContext?.query)]
             .filter(Boolean).join(' ');
         const flexibleCandidates = targets.length
             ? await searchFlexibleClinicalImages(flexibleContext, Math.min(24, Math.max(12, targets.length * 2))).catch(error => {
@@ -14262,24 +14404,31 @@ async function attachRelevantWebClinicalImages(data, { force = false, onProgress
         let completed = 0;
         for (let start = 0; start < targets.length; start += 3) {
             const batch = targets.slice(start, start + 3);
-            const results = await Promise.all(batch.map(async ({ section, sectionIndex }) => {
-                const sectionCore = buildCitationSearchQuery('', section?.title).split(/\s+/).slice(0, 4).join(' ');
-                const query = `${topicCore || baseTopic} ${sectionCore}`.replace(/\s+/g, ' ').trim().slice(0, 160);
+            const results = await Promise.all(batch.map(async ({ section, sectionIndex, visualContext }) => {
+                const sectionCore = getClinicalImageTopicTokens(visualContext?.text || section?.title).slice(0, 8).join(' ');
+                const modalityCore = (visualContext?.modalities || []).map(modality => modality.label).join(' ');
+                const query = `${topicCore || baseTopic} ${sectionCore} ${modalityCore}`.replace(/\s+/g, ' ').trim().slice(0, 240);
                 try {
                     let candidates = [...await searchCreditedClinicalImages(query, 12), ...flexibleCandidates];
                     let image = candidates.find(candidate => !known.has(candidate.id)
                         && !known.has(candidate.sourceUrl)
-                        && isFlexibleImageSuitableForSection(candidate, section?.title));
+                        && isFlexibleImageSuitableForSection(candidate, section?.title, visualContext));
                     if (!image && sectionCore) {
                         candidates = [...await searchCreditedClinicalImages(topicCore || baseTopic, 18), ...flexibleCandidates];
                         image = candidates.find(candidate => !known.has(candidate.id)
                             && !known.has(candidate.sourceUrl)
-                            && isFlexibleImageSuitableForSection(candidate, section?.title));
+                            && isFlexibleImageSuitableForSection(candidate, section?.title, visualContext));
                     }
                     if (!image) return null;
                     known.add(image.id);
                     known.add(image.sourceUrl);
-                    return { ...image, sectionIndex, sectionTitle: String(section?.title || ''), searchQuery: query };
+                    return {
+                        ...image,
+                        sectionIndex,
+                        sectionTitle: String(section?.title || ''),
+                        searchQuery: query,
+                        requestedModalities: (visualContext?.modalities || []).map(modality => modality.label)
+                    };
                 } catch (error) {
                     console.warn(`[ClinicalImages] Section lookup failed for "${section?.title || sectionIndex}":`, error?.message || error);
                     return null;

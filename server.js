@@ -9,6 +9,7 @@ const path = require('path');
 const { FtpSrv } = require('ftp-srv');
 const os = require('os');
 const https = require('https');
+const crypto = require('crypto');
 
 // Configuration
 const HTTP_PORT = Math.max(1, Math.min(65535, Number(process.env.OPHTHALMIC_HTTP_PORT) || 3000));
@@ -49,6 +50,10 @@ function getPublicIP() {
 
 // Library storage directory
 const LIBRARY_DIR = path.join(__dirname, 'library');
+const DAILY_DIR = path.join(__dirname, 'daily');
+const DAILY_ARCHIVE_DIR = path.join(DAILY_DIR, 'archive');
+const DAILY_LATEST_PATH = path.join(DAILY_DIR, 'latest.json');
+const DAILY_UPLOAD_MAX_BYTES = 5 * 1024 * 1024;
 const LOCAL_GEMINI_KEY_PATH = path.join(__dirname, 'config', 'gemini-api-key.local');
 const LEGACY_GEMINI_KEY_FINGERPRINT = 'AQ.Ab8:IxR9Q';
 const EUROPE_PMC_API_ORIGIN = 'https://www.ebi.ac.uk';
@@ -170,6 +175,7 @@ function proxyEuropePmcResource(requestUrl, res) {
 if (!fs.existsSync(LIBRARY_DIR)) {
     fs.mkdirSync(LIBRARY_DIR, { recursive: true });
 }
+fs.mkdirSync(DAILY_ARCHIVE_DIR, { recursive: true });
 
 function sanitizeLibraryItemId(id) {
     return String(id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
@@ -235,6 +241,87 @@ function getLibraryItems() {
         console.error('Error listing library:', err);
         return [];
     }
+}
+
+function constantTimeTokenMatches(candidate, expected) {
+    const left = Buffer.from(String(candidate || ''), 'utf8');
+    const right = Buffer.from(String(expected || ''), 'utf8');
+    return left.length === right.length && left.length > 0 && crypto.timingSafeEqual(left, right);
+}
+
+function isAuthorizedDailyUpload(req) {
+    const configuredToken = String(process.env.OPHTHALMIC_UPLOAD_TOKEN || '').trim();
+    if (!configuredToken) return isLoopbackAddress(req.socket?.remoteAddress);
+    const header = String(req.headers.authorization || '');
+    const suppliedToken = header.match(/^Bearer\s+(.+)$/i)?.[1]?.trim() || '';
+    return constantTimeTokenMatches(suppliedToken, configuredToken);
+}
+
+function readJsonRequest(req, maxBytes = DAILY_UPLOAD_MAX_BYTES) {
+    return new Promise((resolve, reject) => {
+        const chunks = [];
+        let total = 0;
+        let finished = false;
+        const fail = error => {
+            if (finished) return;
+            finished = true;
+            reject(error);
+        };
+        req.on('data', chunk => {
+            if (finished) return;
+            total += chunk.length;
+            if (total > maxBytes) {
+                fail(Object.assign(new Error('Request body is too large'), { statusCode: 413 }));
+                req.destroy();
+                return;
+            }
+            chunks.push(chunk);
+        });
+        req.on('end', () => {
+            if (finished) return;
+            finished = true;
+            try { resolve(JSON.parse(Buffer.concat(chunks).toString('utf8'))); }
+            catch { reject(Object.assign(new Error('Invalid JSON body'), { statusCode: 400 })); }
+        });
+        req.on('error', fail);
+    });
+}
+
+function validateDailyInfographicItem(payload) {
+    const item = payload?.data?.sections ? payload : null;
+    if (!item || typeof item !== 'object') throw Object.assign(new Error('Expected a library item with infographic data'), { statusCode: 400 });
+    if (!String(item.id || '').startsWith('daily_')) throw Object.assign(new Error('Daily infographic id must start with daily_'), { statusCode: 400 });
+    if (!String(item.title || '').trim() || !String(item.data?.title || '').trim()) throw Object.assign(new Error('Daily infographic title is required'), { statusCode: 400 });
+    if (!Array.isArray(item.data.sections) || item.data.sections.length < 3 || item.data.sections.length > 30) {
+        throw Object.assign(new Error('Daily infographic must contain 3 to 30 sections'), { statusCode: 400 });
+    }
+    item.data.sections.forEach((section, index) => {
+        if (!String(section?.title || '').trim() || section?.content == null) {
+            throw Object.assign(new Error(`Daily infographic section ${index + 1} is incomplete`), { statusCode: 400 });
+        }
+        const references = Array.isArray(section.references) ? section.references : [];
+        if (!references.length || references.some(reference => !String(reference?.citation || '').trim() || !/^https?:\/\//i.test(String(reference?.url || '')))) {
+            throw Object.assign(new Error(`Daily infographic section ${index + 1} requires valid evidence links`), { statusCode: 400 });
+        }
+    });
+    return item;
+}
+
+function writeJsonAtomic(targetPath, value) {
+    fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+    const tempPath = `${targetPath}.${process.pid}.tmp`;
+    fs.writeFileSync(tempPath, `${JSON.stringify(value, null, 2)}\n`, { encoding: 'utf8', mode: 0o644 });
+    fs.renameSync(tempPath, targetPath);
+}
+
+function publishDailyInfographic(item) {
+    const date = new Date(item.date || item.data?.generatedAt || Date.now());
+    if (Number.isNaN(date.getTime())) throw Object.assign(new Error('Daily infographic date is invalid'), { statusCode: 400 });
+    const day = date.toISOString().slice(0, 10);
+    writeJsonAtomic(DAILY_LATEST_PATH, item);
+    writeJsonAtomic(path.join(DAILY_ARCHIVE_DIR, `${day}.json`), item);
+    if (!exportLibraryToFiles(JSON.stringify(item))) throw new Error('Could not publish the daily infographic to the library');
+    return { id: item.id, day, latest: '/daily/latest.json' };
 }
 
 // Start FTP Server
@@ -322,7 +409,7 @@ const server = http.createServer(async (req, res) => {
     // CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
     if (req.method === 'OPTIONS') {
         res.writeHead(200);
@@ -365,6 +452,44 @@ const server = http.createServer(async (req, res) => {
             return;
         }
         await proxyEuropePmcResource(requestUrl, res);
+        return;
+    }
+
+    if (requestPath === '/api/daily-infographic') {
+        if (req.method === 'GET') {
+            try {
+                const content = fs.readFileSync(DAILY_LATEST_PATH);
+                res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
+                res.end(content);
+            } catch (error) {
+                res.writeHead(error.code === 'ENOENT' ? 404 : 500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: false, error: error.code === 'ENOENT' ? 'No daily infographic has been published yet' : 'Could not read the daily infographic' }));
+            }
+            return;
+        }
+        if (req.method !== 'POST') {
+            res.writeHead(405, { 'Content-Type': 'application/json', Allow: 'GET, POST', 'Cache-Control': 'no-store' });
+            res.end(JSON.stringify({ success: false, error: 'Method not allowed' }));
+            return;
+        }
+        if (!isAuthorizedDailyUpload(req)) {
+            res.writeHead(401, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+            res.end(JSON.stringify({ success: false, error: 'Daily upload authorization failed' }));
+            return;
+        }
+        try {
+            const item = validateDailyInfographicItem(await readJsonRequest(req));
+            const published = publishDailyInfographic(item);
+            res.writeHead(201, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+            res.end(JSON.stringify({ success: true, ...published }));
+        } catch (error) {
+            const statusCode = Number(error.statusCode) || 500;
+            console.error('Daily infographic upload failed:', error.message);
+            if (!res.destroyed && !res.writableEnded) {
+                res.writeHead(statusCode, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+                res.end(JSON.stringify({ success: false, error: error.message || 'Daily upload failed' }));
+            }
+        }
         return;
     }
 

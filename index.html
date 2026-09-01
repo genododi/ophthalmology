@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" />
-    <link rel="stylesheet" href="style.css?v=2026090101">
+    <link rel="stylesheet" href="style.css?v=2026090104">
     <link rel="stylesheet" href="ophthalmic-pulse.css?v=2026090101">
     <link rel="stylesheet" href="mobile-iap.css?v=2026061701">
     <!-- Import map for ES modules - works on hosted servers -->
@@ -89,16 +89,22 @@
                         OpenAI
                     </label>
                 </div>
-                <small class="hint" id="generation-source-hint">Default: EYE-Llama, the peer-reviewed ophthalmology LLM (iScience 2025), via Hugging Face Inference.</small>
+                <small class="hint" id="generation-source-hint">Default: keyless, on-device Hugging Face generation. The compact model downloads once and is cached by the browser.</small>
             </div>
 
-            <div class="control-group" id="hf-key-group">
-                <label for="hf-api-token">Hugging Face Token <span style="font-size: 0.75rem; color: #64748b; font-weight: 400;">(optional)</span></label>
-                <div class="input-wrapper">
-                    <span class="material-symbols-rounded input-icon">key</span>
-                    <input type="password" id="hf-api-token" placeholder="Paste your Hugging Face token (hf_...)">
+            <div class="control-group hf-auto-group" id="hf-auto-group" aria-live="polite">
+                <div class="hf-auto-heading">
+                    <span class="hf-auto-title"><span class="material-symbols-rounded">memory</span> HF Med Auto</span>
+                    <span class="hf-auto-badge" id="hf-auto-badge" data-state="starting">No key</span>
                 </div>
-                <small class="hint">Generates the complete infographic in-app with automatic medical-LLM fallbacks (OpenBioLLM, Meditron, BioMistral). No prompt copying or JSON pasting. Get a free token at <a href="https://huggingface.co/settings/tokens" target="_blank" rel="noopener" style="color:#3b82f6;">huggingface.co/settings/tokens</a>. Saved in this browser only.</small>
+                <div class="hf-auto-status-row">
+                    <span class="material-symbols-rounded hf-auto-status-icon" id="hf-auto-status-icon">progress_activity</span>
+                    <span id="hf-auto-status">Preparing automatic on-device model…</span>
+                </div>
+                <div class="hf-auto-progress" id="hf-auto-progress" role="progressbar" aria-label="HF Med model loading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <span id="hf-auto-progress-bar"></span>
+                </div>
+                <small class="hint">No Hugging Face account, API key or token is used. A public quantized model runs privately in this browser; an evidence-first clinical generator completes the infographic automatically if the device cannot run the model.</small>
             </div>
 
             <div class="control-group" id="gemini-key-group">
@@ -1167,8 +1173,8 @@
             console.warn('Running locally via file:// protocol. ES modules may not work. Please use a local server (e.g., npx serve) or access via GitHub Pages.');
         }
     </script>
-    <script type="module" src="script.js?v=2026090101"></script>
-    <div style="text-align:center;padding:8px 8px 62px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.09.01.01</div>
+    <script type="module" src="script.js?v=2026090103"></script>
+    <div style="text-align:center;padding:8px 8px 62px;font-size:11px;color:#94a3b8;opacity:0.6;">v2026.09.01.04</div>
 </body>
 
 </html>

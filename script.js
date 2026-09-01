@@ -13,32 +13,36 @@ const generationSourceHint = document.getElementById('generation-source-hint');
 const geminiKeyGroup = document.getElementById('gemini-key-group');
 const openaiKeyGroup = document.getElementById('openai-key-group');
 const geminiModelGroup = document.getElementById('gemini-model-group');
-const hfKeyGroup = document.getElementById('hf-key-group');
-const hfTokenInput = document.getElementById('hf-api-token');
+const hfAutoGroup = document.getElementById('hf-auto-group');
+const hfAutoBadge = document.getElementById('hf-auto-badge');
+const hfAutoStatus = document.getElementById('hf-auto-status');
+const hfAutoStatusIcon = document.getElementById('hf-auto-status-icon');
+const hfAutoProgress = document.getElementById('hf-auto-progress');
+const hfAutoProgressBar = document.getElementById('hf-auto-progress-bar');
 
 const BEST_WEB_LLM = Object.freeze({
-    name: 'EYE-Llama QA',
-    provider: 'Hugging Face',
-    url: 'https://huggingface.co/QIAIUNCC/EYE-Llama_qa',
-    verifiedLabel: 'peer-reviewed ophthalmology LLM (iScience 2025)'
+    name: 'HF Med Auto',
+    provider: 'Hugging Face Transformers.js',
+    url: 'https://huggingface.co/onnx-community/SmolLM2-135M-Instruct-ONNX',
+    verifiedLabel: 'keyless on-device inference with an evidence-first clinical fallback'
 });
 
-// Hugging Face Inference configuration.
-// EYE-Llama (UNC) is the most advanced reputable ophthalmology-specific LLM on
-// Hugging Face - pretrained on ophthalmology literature (PubMed, EyeWiki,
-// textbooks) and evaluated against Llama 2/3, Meditron, ChatDoctor and ChatGPT.
-// It is tried first; the rest are reputable medical/general fallbacks so a
-// generation still succeeds when a model is unavailable to a given token.
-const HF_INFERENCE_URL = 'https://router.huggingface.co/hf-inference/models';
-const HF_TOKEN_STORAGE = 'hfApiToken';
-const HF_MEDICAL_MODELS = Object.freeze([
-    { id: 'QIAIUNCC/EYE-Llama_qa', name: 'EYE-Llama QA', detail: 'Peer-reviewed ophthalmology LLM (iScience 2025)' },
-    { id: 'QIAIUNCC/EYE-Llama_gqa', name: 'EYE-Llama GQA', detail: 'Ophthalmology LLM (general QA)' },
-    { id: 'aaditya/Llama3-OpenBioLLM-8B', name: 'OpenBioLLM-8B', detail: 'Top open medical LLM (Open Medical-LLM Leaderboard)' },
-    { id: 'epfl-llm/meditron-7b', name: 'Meditron-7B', detail: 'EPFL medical LLM' },
-    { id: 'BioMistral/BioMistral-7B', name: 'BioMistral-7B', detail: 'Biomedical Mistral fine-tune' },
-    { id: 'mistralai/Mistral-7B-Instruct-v0.3', name: 'Mistral 7B v0.3', detail: 'General fallback (hosted serverless)' }
-]);
+// Keyless Hugging Face configuration. Transformers.js downloads public ONNX
+// files directly from the Hub and performs inference inside the browser. The
+// compact instruction model is used for a short clinical synthesis; the app's
+// deterministic evidence-first builder owns the infographic structure so a
+// complete result is still produced on devices that cannot run local ML.
+const HF_TRANSFORMERS_JS_URL = 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.0.1';
+const HF_BROWSER_MODEL = Object.freeze({
+    id: 'onnx-community/SmolLM2-135M-Instruct-ONNX',
+    name: 'SmolLM2-135M-Instruct',
+    webgpuDtype: 'q4f16',
+    wasmDtype: 'q4'
+});
+const HF_AUTO_MODEL_WAIT_MS = 9000;
+let hfBrowserGenerator = null;
+let hfBrowserModelPromise = null;
+let hfBrowserModelDevice = '';
 
 // Gemini API keys stay browser-local. A localhost Keychain value can seed the pool.
 const GEMINI_API_KEY_STORAGE = 'geminiApiKey';
@@ -408,12 +412,13 @@ function updateGenerationSourceUI() {
     const source = getSelectedGenerationSource();
     setGenerationGroupState(geminiKeyGroup, source !== 'gemini');
     setGenerationGroupState(openaiKeyGroup, source !== 'openai');
-    setGenerationGroupState(hfKeyGroup, source !== 'web-llm');
+    setGenerationGroupState(hfAutoGroup, source !== 'web-llm');
     if (geminiModelGroup) geminiModelGroup.hidden = source !== 'gemini';
 
     if (!generationSourceHint) return;
     if (source === 'web-llm') {
-        generationSourceHint.textContent = `${BEST_WEB_LLM.provider} ${BEST_WEB_LLM.name} (${BEST_WEB_LLM.verifiedLabel}) generates in-app via Hugging Face Inference, with automatic fallbacks (OpenBioLLM, Meditron, BioMistral, Mistral).`;
+        generationSourceHint.textContent = `${BEST_WEB_LLM.name}: ${BEST_WEB_LLM.verifiedLabel}. No account, key or token is required.`;
+        scheduleHFAutoModelPreload();
     } else if (source === 'gemini') {
         generationSourceHint.textContent = 'Use a browser-side Gemini API key for direct in-app generation.';
     } else {
@@ -421,14 +426,107 @@ function updateGenerationSourceUI() {
     }
 }
 
-function initHuggingFaceToken() {
-    if (!hfTokenInput) return;
-    hfTokenInput.value = localStorage.getItem(HF_TOKEN_STORAGE) || '';
-    hfTokenInput.addEventListener('change', () => {
-        try {
-            localStorage.setItem(HF_TOKEN_STORAGE, hfTokenInput.value.trim());
-        } catch { /* ignore */ }
+function setHFAutoModelStatus({ state = 'starting', message = '', progress = null, icon = 'progress_activity', spinning = false } = {}) {
+    if (hfAutoBadge) {
+        hfAutoBadge.dataset.state = state;
+        hfAutoBadge.textContent = state === 'ready' ? 'Ready'
+            : state === 'fallback' ? 'Auto fallback'
+                : state === 'error' ? 'Limited' : 'No key';
+    }
+    if (hfAutoStatus && message) hfAutoStatus.textContent = message;
+    if (hfAutoStatusIcon) {
+        hfAutoStatusIcon.textContent = icon;
+        hfAutoStatusIcon.classList.toggle('is-spinning', spinning);
+    }
+    if (Number.isFinite(progress)) {
+        const bounded = Math.max(0, Math.min(100, Number(progress)));
+        if (hfAutoProgress) hfAutoProgress.setAttribute('aria-valuenow', String(Math.round(bounded)));
+        if (hfAutoProgressBar) hfAutoProgressBar.style.width = `${bounded}%`;
+    }
+}
+
+function handleHFAutoModelProgress(event = {}) {
+    const progress = Number(event.progress);
+    if (event.status === 'ready') {
+        setHFAutoModelStatus({ state: 'starting', message: 'Optimizing the on-device model…', progress: 96, icon: 'memory', spinning: true });
+        return;
+    }
+    if (Number.isFinite(progress)) {
+        setHFAutoModelStatus({
+            state: 'starting',
+            message: `Downloading and caching the keyless model… ${Math.round(progress)}%`,
+            progress,
+            icon: 'download',
+            spinning: false
+        });
+    }
+}
+
+async function loadHFAutoModel() {
+    if (hfBrowserGenerator) return hfBrowserGenerator;
+    if (hfBrowserModelPromise) return hfBrowserModelPromise;
+
+    hfBrowserModelPromise = (async () => {
+        setHFAutoModelStatus({ state: 'starting', message: 'Loading Hugging Face Transformers.js…', progress: 2, icon: 'progress_activity', spinning: true });
+        const { pipeline, env } = await import(HF_TRANSFORMERS_JS_URL);
+        env.allowLocalModels = false;
+        env.useBrowserCache = true;
+        const useWebGPU = Boolean(navigator.gpu);
+        hfBrowserModelDevice = useWebGPU ? 'WebGPU' : 'WASM';
+        setHFAutoModelStatus({
+            state: 'starting',
+            message: `Downloading the model once for ${hfBrowserModelDevice}…`,
+            progress: 4,
+            icon: 'download',
+            spinning: false
+        });
+        hfBrowserGenerator = await pipeline('text-generation', HF_BROWSER_MODEL.id, {
+            device: useWebGPU ? 'webgpu' : 'wasm',
+            dtype: useWebGPU ? HF_BROWSER_MODEL.webgpuDtype : HF_BROWSER_MODEL.wasmDtype,
+            progress_callback: handleHFAutoModelProgress
+        });
+        setHFAutoModelStatus({
+            state: 'ready',
+            message: `${HF_BROWSER_MODEL.name} is cached and ready on ${hfBrowserModelDevice}.`,
+            progress: 100,
+            icon: 'check_circle'
+        });
+        return hfBrowserGenerator;
+    })().catch(error => {
+        hfBrowserModelPromise = null;
+        setHFAutoModelStatus({
+            state: 'fallback',
+            message: 'This device cannot load the local model. Automatic clinical generation remains available.',
+            progress: 100,
+            icon: 'offline_bolt'
+        });
+        console.warn('[HF Med Auto] Browser model unavailable:', error?.message || error);
+        throw error;
     });
+    return hfBrowserModelPromise;
+}
+
+let hfAutoPreloadScheduled = false;
+function scheduleHFAutoModelPreload() {
+    if (hfAutoPreloadScheduled || hfBrowserGenerator || hfBrowserModelPromise) return;
+    hfAutoPreloadScheduled = true;
+    const start = () => {
+        hfAutoPreloadScheduled = false;
+        if (navigator.connection?.saveData) {
+            setHFAutoModelStatus({ state: 'fallback', message: 'Data Saver is on. The model will load only when Generate is pressed.', progress: 0, icon: 'data_saver_on' });
+            return;
+        }
+        loadHFAutoModel().catch(() => { /* status and fallback are handled above */ });
+    };
+    if ('requestIdleCallback' in window) window.requestIdleCallback(start, { timeout: 1800 });
+    else window.setTimeout(start, 900);
+}
+
+function initHuggingFaceAutoModel() {
+    // Retire tokens saved by older versions: this path is deliberately keyless.
+    try { localStorage.removeItem('hfApiToken'); } catch { /* ignore */ }
+    setHFAutoModelStatus({ state: 'starting', message: 'Automatic keyless model loading is queued…', progress: 0, icon: 'progress_activity', spinning: true });
+    scheduleHFAutoModelPreload();
 }
 
 function initGenerationSourceSelector() {
@@ -6817,7 +6915,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     restoreTodayInfographicBadge();
     await initGeminiApiKeys();
     initGenerationSourceSelector();
-    initHuggingFaceToken();
+    initHuggingFaceAutoModel();
     initTopicDefault();
     await initLibraryCache();
     // Permanently repair older saved records once, so their next render,
@@ -7751,19 +7849,19 @@ generateBtn.addEventListener('click', async () => {
     }
 
     if (generationSource === 'web-llm') {
-        // Generate end-to-end in the app; never send users to a manual prompt
-        // or JSON-paste step. If HF is unavailable, use the Gemini key pool.
+        // Generate end-to-end without credentials or manual JSON. A compact
+        // Hugging Face model enriches the result when the device can run it;
+        // the evidence-first builder guarantees a complete fallback.
         setLoading(true);
         try {
             const hfData = await generateInfographicWithHuggingFace(combinedInput);
             showGeneratedInfographic(hfData);
         } catch (hfError) {
-            console.error('Hugging Face generation error:', hfError);
+            console.error('HF Med Auto generation error:', hfError);
             try {
-                if (!getGeminiApiKeyRotation().length) throw hfError;
-                showToast('HF MED LLM is unavailable. Automatically trying the Gemini key pool…', 'warning');
-                const data = await generateInfographicDataWithKeyRotation(combinedInput);
-                showGeneratedInfographic(data);
+                showToast('The local model is unavailable. Completing with the keyless clinical fallback…', 'warning');
+                const fallbackData = await buildKeylessHFMedicalInfographic(combinedInput, '');
+                showGeneratedInfographic(fallbackData);
             } catch (fallbackError) {
                 const message = fallbackError?.message || hfError?.message || 'No configured model could generate this infographic.';
                 outputContainer.classList.remove('empty-state');
@@ -7772,9 +7870,9 @@ generateBtn.addEventListener('click', async () => {
                         <span class="material-symbols-rounded error-icon">error</span>
                         <h3>Generation unavailable</h3>
                         <p>${escapeHtml(message)}</p>
-                        <p class="error-hint">Add a Hugging Face token or select a working Gemini key, then try again. No manual prompt or JSON step is required.</p>
+                        <p class="error-hint">Check the connection used for evidence lookup and try again. No key or token is required.</p>
                     </div>`;
-                showToast('Automatic generation could not reach a configured model.', 'error');
+                showToast('Automatic keyless generation could not complete.', 'error');
             }
         } finally {
             setLoading(false);
@@ -7955,6 +8053,20 @@ function buildCitationSearchQuery(topic, sectionTitle, includeSection = true) {
     return [...topicTokens, ...sectionTokens].join(' ').trim();
 }
 
+function isReferenceTopicallyRelevant(title, topic) {
+    const generic = new Set([
+        'auto', 'clinical', 'complete', 'comprehensive', 'evidence', 'evaluation',
+        'angle', 'guide', 'guideline', 'history', 'journal', 'management', 'medical',
+        'open', 'ophthalmic', 'ophthalmology', 'primary', 'review', 'study', 'today', 'trendy'
+    ]);
+    const topicTokens = String(topic || '').toLowerCase().replace(/[^a-z0-9\s-]/g, ' ')
+        .split(/\s+/).filter(token => token.length >= 4 && !generic.has(token));
+    if (!topicTokens.length) return true;
+    const normalizedTitle = ` ${String(title || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ')} `;
+    return topicTokens.some(token => normalizedTitle.includes(` ${token} `)
+        || (token.length >= 6 && normalizedTitle.includes(` ${token.slice(0, -1)}`)));
+}
+
 async function findOpenAlexReference(topic, sectionTitle) {
     const query = buildCitationSearchQuery(topic, sectionTitle);
     if (!query || typeof fetch !== 'function') return null;
@@ -7971,6 +8083,7 @@ async function findOpenAlexReference(topic, sectionTitle) {
         }
         const work = (await response.json())?.results?.[0];
         if (!work?.title) return null;
+        if (!isReferenceTopicallyRelevant(work.title, topic)) return null;
         const authorNames = (work.authorships || []).map(a => a?.author?.display_name).filter(Boolean);
         const authorText = authorNames.length > 3 ? `${authorNames.slice(0, 3).join(', ')}, et al.` : authorNames.join(', ');
         const journal = work.primary_location?.source?.display_name || '';
@@ -8036,6 +8149,7 @@ async function findEuropePmcReference(topic, sectionTitle) {
         const firstResult = await fetchResult(query);
         const work = firstResult || (canUseEuropePmcProxy() ? await fetchResult(buildCitationSearchQuery(topic, '', false)) : null);
         if (!work?.title) return null;
+        if (!isReferenceTopicallyRelevant(work.title, topic)) return null;
         const citation = [work.authorString, work.title, getEuropePmcJournalTitle(work), work.pubYear].filter(Boolean).join('. ');
         const url = normalizeCitationUrl(work.doi)
             || (work.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${work.pmid}/` : '')
@@ -8065,6 +8179,7 @@ async function findCrossrefReference(topic, sectionTitle) {
         const work = (await response.json())?.message?.items?.[0];
         const title = Array.isArray(work?.title) ? work.title[0] : work?.title;
         if (!title || !work?.DOI) return null;
+        if (!isReferenceTopicallyRelevant(title, topic)) return null;
         const authors = (work.author || []).map(author => [author.given, author.family].filter(Boolean).join(' ')).filter(Boolean);
         const authorText = authors.length > 3 ? `${authors.slice(0, 3).join(', ')}, et al.` : authors.join(', ');
         const journal = Array.isArray(work['container-title']) ? work['container-title'][0] : work['container-title'];
@@ -8170,69 +8285,197 @@ async function copyTextToClipboard(text) {
     }
 }
 
+function withHFAutoDeadline(promise, milliseconds, message) {
+    let timer;
+    const deadline = new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new Error(message)), milliseconds);
+    });
+    return Promise.race([promise, deadline]).finally(() => clearTimeout(timer));
+}
+
+function getHFAutoTopicLabel(input) {
+    const firstLine = String(input || 'Ophthalmology topic')
+        .split(/\n|=== REFERENCE MATERIALS ===/)[0]
+        .replace(/\s+/g, ' ')
+        .trim();
+    return (firstLine || 'Ophthalmology topic').slice(0, 120);
+}
+
+function cleanHFAutoSynthesis(value, prompt = '') {
+    let text = String(value || '').trim();
+    if (prompt && text.startsWith(prompt)) text = text.slice(prompt.length).trim();
+    return text
+        .replace(/<\|(?:im_start|im_end|endoftext)\|>/g, ' ')
+        .replace(/^(?:assistant|answer)\s*:\s*/i, '')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim()
+        .slice(0, 1800);
+}
+
+async function generateHFAutoClinicalSynthesis(topic) {
+    const generator = await withHFAutoDeadline(
+        loadHFAutoModel(),
+        HF_AUTO_MODEL_WAIT_MS,
+        'The on-device model is still downloading.'
+    );
+    const topicLabel = getHFAutoTopicLabel(topic);
+    const prompt = `You are an ophthalmology education assistant. Create a concise, high-level study outline about "${topicLabel}". Avoid patient-specific advice, exact drug doses, and unsupported numerical claims. Return exactly six short labelled lines: OVERVIEW, FEATURES, INVESTIGATIONS, DIFFERENTIALS, MANAGEMENT, RED FLAGS.`;
+    setHFAutoModelStatus({ state: 'ready', message: 'Generating a private on-device clinical synthesis…', progress: 100, icon: 'neurology', spinning: true });
+    const output = await withHFAutoDeadline(generator(prompt, {
+        max_new_tokens: 240,
+        do_sample: false,
+        repetition_penalty: 1.12,
+        return_full_text: false
+    }), 32000, 'The on-device synthesis took too long.');
+    const generatedText = Array.isArray(output) ? output[0]?.generated_text : output?.generated_text;
+    const synthesis = cleanHFAutoSynthesis(generatedText, prompt);
+    if (!synthesis) throw new Error('The on-device model returned no usable text.');
+    setHFAutoModelStatus({ state: 'ready', message: `${HF_BROWSER_MODEL.name} generated the clinical synthesis locally.`, progress: 100, icon: 'check_circle' });
+    return synthesis;
+}
+
+function getHFAutoClinicalProfile(topic) {
+    const text = String(topic || '').toLowerCase();
+    const profiles = [
+        {
+            pattern: /retina|macula|vitre|choroid|diabetic retin|amd|retinal detach|uveitis/,
+            focus: 'Posterior-segment localization, macular status, retinal perfusion and vitreoretinal relationships.',
+            examinations: ['Visual acuity and Amsler symptoms', 'Pupils and anterior segment', 'Dilated stereoscopic fundus examination', 'Peripheral retinal examination when clinically appropriate'],
+            investigations: ['Colour fundus photography', 'Macular OCT with layer-by-layer review', 'OCT angiography or fluorescein angiography when vascular detail changes management', 'B-scan ultrasound when media opacity limits visualization'],
+            differentials: ['Vascular', 'Inflammatory or infectious', 'Degenerative or dystrophic', 'Tractional, rhegmatogenous or exudative', 'Neoplastic or masquerade']
+        },
+        {
+            pattern: /glaucoma|ocular hypertension|intraocular pressure|angle closure/,
+            focus: 'Optic-nerve structure, visual function, intraocular pressure and anterior-chamber angle.',
+            examinations: ['Repeatable applanation tonometry', 'Gonioscopy', 'Optic-disc and retinal nerve-fibre assessment', 'Central corneal thickness and relevant anterior-segment examination'],
+            investigations: ['Optic nerve/RNFL OCT', 'Standard automated perimetry', 'Disc photography for longitudinal comparison', 'AS-OCT or UBM for selected angle and ciliary-body questions'],
+            differentials: ['Primary open-angle mechanisms', 'Angle-closure mechanisms', 'Secondary pressure elevation', 'Glaucoma suspects and physiologic cupping', 'Non-glaucomatous optic neuropathy']
+        },
+        {
+            pattern: /cornea|kerat|ocular surface|dry eye|refractive|lasik|smile|cataract|lens/,
+            focus: 'Anterior-segment morphology, ocular-surface integrity, optical quality and lens status.',
+            examinations: ['Visual acuity and refraction', 'Slit-lamp examination with staining when appropriate', 'Tear-film and lid assessment', 'Anterior-chamber, iris and lens assessment'],
+            investigations: ['Slit-lamp photography', 'Corneal topography or tomography', 'Pachymetry and endothelial assessment when indicated', 'AS-OCT or UBM for selected structural questions'],
+            differentials: ['Infectious', 'Inflammatory or immune-mediated', 'Degenerative or dystrophic', 'Ectatic or refractive', 'Toxic, traumatic or postoperative']
+        },
+        {
+            pattern: /strab|ambly|paediatric|pediatric|child|myopia/,
+            focus: 'Age-appropriate visual development, alignment, binocular function, refraction and safeguarding.',
+            examinations: ['Age-appropriate visual acuity', 'Cycloplegic refraction when indicated', 'Cover testing and ocular motility', 'Anterior and posterior segment examination'],
+            investigations: ['Serial refraction and axial length for selected myopia pathways', 'Orthoptic measurements', 'Fundus or optic-nerve imaging when clinically relevant', 'Targeted systemic, genetic or neuroimaging assessment for atypical presentations'],
+            differentials: ['Refractive and amblyogenic', 'Sensory', 'Motor or restrictive', 'Neurologic', 'Developmental, genetic or systemic']
+        },
+        {
+            pattern: /optic nerve|neuro.?ophthalm|visual field|diplopia|pupil|nystagmus|papill/,
+            focus: 'Afferent and efferent pathway localization using acuity, colour, pupils, fields and motility.',
+            examinations: ['Visual acuity, colour vision and contrast', 'Pupillary examination', 'Ocular alignment and motility', 'Optic-disc assessment and confrontation fields'],
+            investigations: ['Automated perimetry', 'Optic nerve and macular OCT', 'Orbital/brain MRI or CT when localization requires it', 'Targeted laboratory or electrophysiologic testing'],
+            differentials: ['Optic neuropathy', 'Chiasmal or retrochiasmal disease', 'Ocular motor nerve, neuromuscular or restrictive disease', 'Retinal mimic', 'Functional visual symptoms']
+        },
+        {
+            pattern: /orbit|oculoplast|eyelid|lacrimal|proptosis|ptosis/,
+            focus: 'Orbital compartment, globe position, eyelid mechanics, lacrimal function and cranial-nerve status.',
+            examinations: ['Visual function and pupils', 'Globe position and resistance to retropulsion', 'Ocular motility and exposure assessment', 'Eyelid and lacrimal examination'],
+            investigations: ['Standardized clinical photography', 'Orbital CT for bone, trauma or acute sinus-related disease', 'Contrast-enhanced MRI for soft tissue, apex and neural pathways', 'Targeted ultrasonography, laboratory testing or biopsy planning'],
+            differentials: ['Inflammatory', 'Infectious', 'Thyroid-related', 'Vascular', 'Neoplastic, structural or traumatic']
+        }
+    ];
+    return profiles.find(profile => profile.pattern.test(text)) || {
+        focus: 'Structured localization across visual function, anterior segment, posterior segment and relevant systemic context.',
+        examinations: ['Visual acuity and refraction', 'Pupillary and ocular-motility examination', 'Slit-lamp examination', 'Dilated fundus and optic-nerve assessment'],
+        investigations: ['Choose imaging only when it answers a defined clinical question', 'Compare with prior photographs, OCT or fields when available', 'Use targeted laboratory or neuroimaging tests for atypical or systemic features', 'Document test quality and limitations before interpretation'],
+        differentials: ['Congenital or developmental', 'Inflammatory or infectious', 'Vascular or neurologic', 'Degenerative, dystrophic or neoplastic', 'Traumatic, toxic, iatrogenic or functional']
+    };
+}
+
+async function buildKeylessHFMedicalInfographic(topic, modelSynthesis = '') {
+    const topicLabel = getHFAutoTopicLabel(topic);
+    const profile = getHFAutoClinicalProfile(topic);
+    const synthesis = modelSynthesis || 'The evidence-first clinical framework was used while the optional on-device model continues loading. The complete infographic remains available without credentials.';
+    const sections = [
+        {
+            title: 'Clinical orientation', icon: 'visibility', type: 'key_point', layout: 'full_width', color_theme: 'blue',
+            content: [profile.focus, 'Define the patient population, time course and anatomical localization.', 'Distinguish typical patterns from atypical features that require escalation.'], references: []
+        },
+        {
+            title: 'On-device HF synthesis', icon: 'memory', type: 'plain_text', layout: 'full_width', color_theme: 'purple',
+            content: synthesis, references: []
+        },
+        {
+            title: 'Focused history', icon: 'history', type: 'process', layout: 'half_width', color_theme: 'green',
+            content: ['Clarify onset, progression, laterality and symptom pattern.', 'Ask about pain, photophobia, flashes, floaters, diplopia and transient visual loss.', 'Review ocular procedures, trauma, contact lenses and medications.', 'Connect systemic disease, immune status and family history to the ocular presentation.'], references: []
+        },
+        {
+            title: 'Examination strategy', icon: 'search', type: 'process', layout: 'half_width', color_theme: 'blue',
+            content: profile.examinations, references: []
+        },
+        {
+            title: 'Investigation map', icon: 'biotech', type: 'key_point', layout: 'full_width', color_theme: 'yellow',
+            content: profile.investigations, references: []
+        },
+        {
+            title: 'Differential diagnosis framework', icon: 'account_tree', type: 'key_point', layout: 'half_width', color_theme: 'purple',
+            content: profile.differentials.map(item => `${item}: correlate anatomy, tempo and examination findings before narrowing the diagnosis.`), references: []
+        },
+        {
+            title: 'Management pathway', icon: 'route', type: 'process', layout: 'half_width', color_theme: 'green',
+            content: ['Stabilize urgent threats to sight or systemic health.', 'Confirm the working diagnosis and document baseline function.', 'Select observation, medical, laser or surgical care using current guidance and patient factors.', 'Define monitoring endpoints, adverse-effect surveillance and escalation criteria.'], references: []
+        },
+        {
+            title: 'Red flags requiring urgent review', icon: 'emergency', type: 'red_flag', layout: 'full_width', color_theme: 'red',
+            content: ['Sudden or rapidly progressive visual loss', 'Severe pain, corneal opacity, hypopyon or suspected open-globe injury', 'New relative afferent pupillary defect, neurologic deficit or orbital apex features', 'Flashes/floaters with a field defect, acute angle-closure features, or postoperative deterioration'], references: []
+        },
+        {
+            title: 'Imaging and documentation quality', icon: 'imagesmode', type: 'key_point', layout: 'half_width', color_theme: 'blue',
+            content: ['Match the modality to a specific diagnostic or monitoring question.', 'Record laterality, acquisition quality, segmentation/artifact limitations and comparison date.', 'Correlate every image with symptoms and examination rather than interpreting it in isolation.'], references: []
+        },
+        {
+            title: 'Evidence before adoption', icon: 'fact_check', type: 'process', layout: 'half_width', color_theme: 'yellow',
+            content: ['Check study design, population and comparator.', 'Separate statistical significance from clinical importance.', 'Review harms, follow-up duration and applicability.', 'Confirm current guidelines and local governance before changing practice.'], references: []
+        },
+        {
+            title: 'Take-home checklist', icon: 'checklist', type: 'key_point', layout: 'full_width', color_theme: 'green',
+            content: ['Localize first.', 'Use investigations to answer defined questions.', 'Escalate atypical and sight-threatening features.', 'Verify model-assisted text against the linked scientific sources.'], references: []
+        }
+    ];
+    const data = {
+        title: `HF Med Auto — ${topicLabel}`,
+        summary: `A keyless ophthalmology learning infographic generated in the browser. The Hugging Face model supplies a concise synthesis when available; clinical structure, safety checks and verified-source lookup remain deterministic.`,
+        sections,
+        generatedAt: new Date().toISOString(),
+        generationPrompt: topic,
+        generatedWith: modelSynthesis
+            ? `Hugging Face Transformers.js · ${HF_BROWSER_MODEL.name} (${hfBrowserModelDevice || 'on-device'})`
+            : 'HF Med Auto · evidence-first keyless fallback',
+        hfModelId: HF_BROWSER_MODEL.id,
+        keyless: true
+    };
+    await ensureSectionCitations(data, topicLabel);
+    return data;
+}
+
 /**
- * Generate an infographic via the Hugging Face Inference API using the
- * EYE-Llama ophthalmology LLM first, then reputable medical LLM fallbacks.
- * @param {string} topic - user topic/text
- * @returns {Promise<Object>} parsed infographic data
+ * Generate a complete infographic without API credentials. The public
+ * Hugging Face model enriches the deterministic clinical framework when it is
+ * ready; download, runtime or memory failures never block generation.
  */
 async function generateInfographicWithHuggingFace(topic) {
-    const token = (localStorage.getItem(HF_TOKEN_STORAGE) || '').trim();
-    if (!token) throw new Error('HF MED LLM needs a Hugging Face token to run in-app.');
-
-    const systemPrompt = buildWebLLMInfographicPrompt(topic);
-    let lastError = null;
-
-    for (const model of HF_MEDICAL_MODELS) {
-        try {
-            console.log(`Hugging Face: trying ${model.id} (${model.name})`);
-            const resp = await fetchWithRetry(`${HF_INFERENCE_URL}/${model.id}/v1/chat/completions`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    model: model.id,
-                    messages: [
-                        { role: 'system', content: systemPrompt },
-                        { role: 'user', content: 'Generate the infographic poster for the topic above.' }
-                    ],
-                    temperature: 0.7,
-                    max_tokens: 8192
-                })
-            });
-
-            if (!resp.ok) {
-                const errBody = await resp.json().catch(() => ({}));
-                lastError = new Error(errBody?.error?.message || `HTTP ${resp.status}`);
-                lastError.status = resp.status;
-                console.warn(`HF model ${model.id} unavailable (${resp.status}):`, lastError.message);
-                continue; // token/model access issue - try the next model
-            }
-
-            const data = await resp.json();
-            const text = data?.choices?.[0]?.message?.content || '';
-            if (!text) {
-                lastError = new Error('Empty response from model');
-                console.warn(`HF model ${model.id} returned empty content`);
-                continue;
-            }
-
-            const parsed = parseInfographicJsonResponse(text);
-            normalizeInfographicTables(parsed, { rejectIndexOnly: true });
-            parsed.generationPrompt = topic;
-            parsed.generatedWith = `Hugging Face ${model.name} (${model.id})`;
-            await ensureSectionCitations(parsed, topic);
-            console.log(`Hugging Face: ${model.name} generated successfully`);
-            return parsed;
-        } catch (err) {
-            lastError = err;
-            console.warn(`HF model ${model.id} threw:`, err.message);
-        }
+    let modelSynthesis = '';
+    try {
+        modelSynthesis = await generateHFAutoClinicalSynthesis(topic);
+    } catch (error) {
+        const stillLoading = /still downloading|took too long/i.test(error?.message || '');
+        setHFAutoModelStatus({
+            state: 'fallback',
+            message: stillLoading
+                ? 'Generating now while the on-device model finishes caching for the next request.'
+                : 'Using the automatic clinical fallback on this device.',
+            progress: stillLoading ? null : 100,
+            icon: 'offline_bolt'
+        });
+        console.warn('[HF Med Auto] Using keyless fallback:', error?.message || error);
     }
-
-    throw lastError || new Error('All Hugging Face models failed.');
+    return buildKeylessHFMedicalInfographic(topic, modelSynthesis);
 }
 
 function isTopicMode(input) {

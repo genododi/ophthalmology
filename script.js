@@ -17394,6 +17394,27 @@ function setupMusicPlayer() {
             url: 'https://media-ice.musicradio.com/ClassicFMMP3',
             fallback: 'https://stream.classicfm.com/classicfm.mp3'
         },
+        'heart-london': {
+            name: 'Heart London',
+            url: 'https://media-ice.musicradio.com/HeartLondonMP3',
+            fallback: 'https://icecast.thisisdax.com/HeartLondonMP3'
+        },
+        jazz: {
+            name: 'Jazz 24/7',
+            url: 'https://knkx-live-a.edge.audiocdn.com/6285_128k',
+            fallback: 'https://wrti-live.streamguys1.com/jazz-mp3'
+        },
+        'film-scores': {
+            name: 'Film Scores & Choirs',
+            // Classic FM Movies features orchestral film music, including fantasy scores.
+            url: 'https://media-ice.musicradio.com/ClassicFMMoviesMP3',
+            fallback: 'https://icecast.thisisdax.com/ClassicFMMoviesMP3'
+        },
+        'chill-london': {
+            name: 'Chill Out London',
+            url: 'https://media-ice.musicradio.com/SmoothChillMP3',
+            fallback: 'https://stream.chillout.de/chillout/stream/mp3'
+        },
         quran: {
             name: 'Quran - Al Minshawi',
             // Correct Quran radio stream - Mohammed Siddiq Al-Minshawi (Mujawwad)

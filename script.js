@@ -17400,12 +17400,12 @@ function setupMusicPlayer() {
             fallback: 'https://icecast.thisisdax.com/HeartLondonMP3'
         },
         jazz: {
-            name: 'Jazz 24/7',
-            url: 'https://knkx-live-a.edge.audiocdn.com/6285_128k',
-            fallback: 'https://wrti-live.streamguys1.com/jazz-mp3'
+            name: 'Jazz UK — JFSR',
+            url: 'https://s2.radio.co/s22ae5a8a6/listen',
+            fallback: 'https://s2.radio.co/s22ae5a8a6/low'
         },
         'film-scores': {
-            name: 'Film Scores & Choirs',
+            name: 'Classic FM Movies',
             // Classic FM Movies features orchestral film music, including fantasy scores.
             url: 'https://media-ice.musicradio.com/ClassicFMMoviesMP3',
             fallback: 'https://icecast.thisisdax.com/ClassicFMMoviesMP3'

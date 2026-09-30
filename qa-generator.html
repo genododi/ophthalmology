@@ -1010,11 +1010,11 @@ ${text.substring(0, 30000)}
 
 Return ONLY valid JSON array, no other text.`;
 
-            // Try models in order of preference (best free-tier options)
+            // Prefer Gemini 3.8 Flash, with capacity fallbacks.
             const models = [
-                'gemini-2.5-flash-preview-05-20',
-                'gemini-2.5-flash-lite-preview-06-17',
-                'gemini-2.0-flash'
+                'gemini-3.8-flash',
+                'gemini-3.5-flash',
+                'gemini-3.1-flash-lite'
             ];
             
             let lastError = null;
@@ -1028,7 +1028,6 @@ Return ONLY valid JSON array, no other text.`;
                         body: JSON.stringify({
                             contents: [{ parts: [{ text: prompt }] }],
                             generationConfig: {
-                                temperature: 0.7,
                                 maxOutputTokens: 8192
                             }
                         })

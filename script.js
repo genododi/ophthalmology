@@ -8530,7 +8530,7 @@ HOWEVER: You MAY supplement the user's text with additional medical/ophthalmolog
 
 // Quotas and service capacity are model-specific. Move quickly through the
 // full-size Flash models, then use Flash-Lite as a final capacity fallback.
-const GEMINI_FLASH_MODELS = Object.freeze(['gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-3.1-flash-lite']);
+const GEMINI_FLASH_MODELS = Object.freeze(['gemini-3.8-flash', 'gemini-3.5-flash', 'gemini-3.1-flash-lite']);
 const GEMINI_FLASH_MODEL = GEMINI_FLASH_MODELS[0];
 const GEMINI_MAX_OUTPUT_TOKENS = 65535;
 const INFOGRAPHIC_RESPONSE_JSON_SCHEMA = Object.freeze({

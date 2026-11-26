@@ -54,7 +54,9 @@ Serves the same app and provides the local Gemini-key bootstrap from macOS Keych
 - Write APIs (`/api/library/*`, `/api/ftp/*`) reject requests from other websites.
 - The local Gemini-key endpoint answers only same-origin requests from this machine.
 - FTP is read-only and limited to the `library/` folder.
-- GitHub Pages deploys only the public app files (see `.github/workflows/deploy.yml`).
+- GitHub Pages is built by the deploy workflow (Settings → Pages → Source: GitHub Actions), which
+  publishes only the public app files to `_site` after syntax checks and server tests pass
+  (see `.github/workflows/deploy.yml`). If that workflow fails, the live site keeps the last good build.
 
 No API key ships with the app: every user brings their own ([free Gemini key](https://aistudio.google.com/apikey)).
 Keys typed into the app stay in your browser (Gemini in `localStorage`, OpenAI for the session only).

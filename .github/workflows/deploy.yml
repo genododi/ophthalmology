@@ -69,7 +69,7 @@ jobs:
           node --check server.js
 
       - name: Run server tests
-        run: node --test tests/
+        run: node --test tests/*.test.js
 
       - name: Stage public site (never publish keys, servers or scripts)
         run: |

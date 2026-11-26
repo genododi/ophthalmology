@@ -10,3 +10,8 @@ node_modules/
 __pycache__/
 *.pyc
 .DS_Store
+
+# TLS material and local build output
+server.key
+*.pem
+_site/

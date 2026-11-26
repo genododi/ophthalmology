@@ -396,6 +396,8 @@ textarea:focus {
 .main-content {
     flex: 1;
     padding: 2rem;
+    /* Leave room for the absolutely-positioned toolbar so it never covers the poster title */
+    padding-top: 6rem;
     overflow-y: auto;
     position: relative;
     display: flex;

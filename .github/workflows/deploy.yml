@@ -61,13 +61,39 @@ jobs:
             --data-binary @daily/latest.json \
             "$DAILY_UPLOAD_URL"
 
+      - name: Validate JavaScript syntax
+        run: |
+          node --check script.js
+          node --check community-submissions.js
+          node --check firebase-storage.js
+          node --check server.js
+
+      - name: Run server tests
+        run: node --test tests/
+
+      - name: Stage public site (never publish keys, servers or scripts)
+        run: |
+          rm -rf _site && mkdir -p _site
+          rsync -a \
+            --exclude '.git' --exclude '.github' --exclude '.claude' --exclude '_site' \
+            --exclude 'node_modules' --exclude 'config' --exclude 'scripts' --exclude 'tests' \
+            --exclude 'android' --exclude 'ios' \
+            --exclude '*.key' --exclude '*.crt' --exclude '*.pem' --exclude '*.local' \
+            --exclude '*.py' --exclude '*.sh' --exclude 'server.js' \
+            --exclude 'package.json' --exclude 'package-lock.json' \
+            --exclude '*.code-workspace' --exclude '.DS_Store' --exclude '.env*' \
+            ./ _site/
+          test ! -e _site/server.key
+          test -f _site/index.html
+          touch _site/.nojekyll
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment

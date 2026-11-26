@@ -2152,6 +2152,14 @@ function getChapters() {
     return DEFAULT_CHAPTERS;
 }
 
+/** Timestamp for sorting library items; never NaN (missing/invalid dates sort as oldest). */
+function itemTime(item, preferCommunityDate = false) {
+    if (!item) return 0;
+    const raw = preferCommunityDate ? (item.communityDate || item.date) : item.date;
+    const t = new Date(raw).getTime();
+    return Number.isFinite(t) ? t : 0;
+}
+
 // Helper: Reassign Sequential IDs 
 // Newest item = HIGHEST number (library.length), Oldest = 1
 // Called after any addition or deletion to ensure no gaps or duplicates
@@ -2159,7 +2167,7 @@ function reassignSequentialIds(library) {
     if (!library || library.length === 0) return false;
 
     // Sort by date ASCENDING (oldest first gets #1)
-    const sortedByDate = [...library].sort((a, b) => new Date(a.date) - new Date(b.date));
+    const sortedByDate = [...library].sort((a, b) => itemTime(a) - itemTime(b));
 
     let modified = false;
     const totalCount = library.length;
@@ -3925,7 +3933,7 @@ function setupKnowledgeBase() {
 
                 if (addedCount > 0 || updatedCount > 0 || assignSequentialIds(localLibrary)) {
                     // Sort by date desc
-                    localLibrary.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    localLibrary.sort((a, b) => itemTime(b) - itemTime(a));
                     saveLibraryToIDB(localLibrary);
                     renderLibraryList();
                     // The Home badge is a day-wide count, not just this sync's
@@ -4412,13 +4420,15 @@ function setupKnowledgeBase() {
             let changedCount = 0;
             const changes = [];
 
+            const pendingAssignments = [];
+
             library.forEach(item => {
                 // Only auto-chapterize if currently uncategorized
                 if (item.chapterId === 'uncategorized' || !item.chapterId) {
                     const detectedChapter = autoDetectChapter(item.title);
                     if (detectedChapter !== 'uncategorized') {
-                        const oldChapter = item.chapterId || 'uncategorized';
-                        setInfographicCategory(item, detectedChapter, 'auto');
+                        // Defer the change until the user confirms (Cancel must leave the library untouched)
+                        pendingAssignments.push([item, detectedChapter]);
                         changedCount++;
 
                         // Get chapter name for display
@@ -4447,6 +4457,7 @@ function setupKnowledgeBase() {
             msg += '\n\nApply these changes?';
 
             if (confirm(msg)) {
+                pendingAssignments.forEach(([item, chapterId]) => setInfographicCategory(item, chapterId, 'auto'));
                 saveLibraryToIDB(library);
                 alert(`✅ ${changedCount} item(s) auto-chapterized!`);
                 renderLibraryList();
@@ -5096,13 +5107,13 @@ function setupKnowledgeBase() {
 
         // 3. Apply Sorting
         if (currentSortMode === 'date') {
-            filteredLibrary.sort((a, b) => new Date(b.communityDate || b.date) - new Date(a.communityDate || a.date));
+            filteredLibrary.sort((a, b) => itemTime(b, true) - itemTime(a, true));
         } else if (currentSortMode === 'read') {
             filteredLibrary.sort((a, b) => {
                 const aVal = a.read ? 1 : 0;
                 const bVal = b.read ? 1 : 0;
                 if (aVal !== bVal) return aVal - bVal; // Unread (0) before Read (1)
-                return new Date(b.communityDate || b.date) - new Date(a.communityDate || a.date);
+                return itemTime(b, true) - itemTime(a, true);
             });
         } else if (currentSortMode === 'name') {
             filteredLibrary.sort((a, b) => {
@@ -5117,14 +5128,14 @@ function setupKnowledgeBase() {
                 const idxB = chapterOrder.get(b.chapterId) ?? 999;
                 if (idxA !== idxB) return idxA - idxB;
                 // Secondary sort by date
-                return new Date(b.date) - new Date(a.date);
+                return itemTime(b) - itemTime(a);
             });
         } else if (currentSortMode === 'vip') {
             filteredLibrary.sort((a, b) => {
                 const aBookmarked = a.bookmarked ? 1 : 0;
                 const bBookmarked = b.bookmarked ? 1 : 0;
                 if (bBookmarked !== aBookmarked) return bBookmarked - aBookmarked;
-                return new Date(b.date) - new Date(a.date);
+                return itemTime(b) - itemTime(a);
             });
         }
 
@@ -6880,8 +6891,9 @@ function setupFTPServer() {
                     </div>
                     <p class="ftp-info">Connect with any FTP client using:</p>
                     <code>ftp://${result.host || 'your-ip'}:${result.port}</code>
-                    <p class="ftp-info">Username: <strong>ophthalmics</strong></p>
-                    <p class="ftp-info">Password: <strong>157108</strong></p>
+                    <p class="ftp-info">Username: <strong>${escapeHtml(result.username || '(see server console)')}</strong></p>
+                    <p class="ftp-info">Password: <strong>${escapeHtml(result.password || '(see server console)')}</strong></p>
+                    <p class="ftp-info">Access is read-only and limited to the library folder.</p>
                 `;
             } else {
                 statusEl.innerHTML = `
@@ -9185,7 +9197,7 @@ User Topic/Text: "${topic}"`;
 }
 
 async function generateInfographicDataOpenAI(apiKey, topic) {
-    const modelsToTry = ["gpt-4o", "gpt-4o-mini", "gpt-4-turbo", "gpt-3.5-turbo"];
+    const modelsToTry = ["gpt-4.1", "gpt-4o", "gpt-4.1-mini", "gpt-4o-mini"];
     let lastError = null;
     const topicMode = isTopicMode(topic);
 
@@ -9257,7 +9269,8 @@ ${topicMode ? 'Include epidemiological data as charts. Include at least one mnem
                         { role: 'user', content: `Create an ophthalmic infographic for the following topic/text:\n\n${topic}` }
                     ],
                     temperature: 0.7,
-                    max_tokens: 16000
+                    max_tokens: 16000,
+                    response_format: { type: 'json_object' }
                 })
             });
 
@@ -20554,3 +20567,71 @@ function syncNLMWithStickyNotes() {
 
     return { addedToNLM, addedToSticky, totalNLM: nlmNotes.length, totalSticky: stickyNotes.length };
 }
+
+/* ==========================================================================
+   UX & Accessibility enhancements
+   - Esc closes the top-most open modal
+   - Cmd/Ctrl+Enter in the topic box starts generation
+   - Icon-only buttons/links get an accessible name from their tooltip
+   ========================================================================== */
+(function initUxEnhancements() {
+    function labelIconControls(root) {
+        if (!root || !root.querySelectorAll) return;
+        root.querySelectorAll('button[title], a[title], [role="button"][title]').forEach((el) => {
+            if (!el.hasAttribute('aria-label')) {
+                el.setAttribute('aria-label', el.getAttribute('title'));
+            }
+        });
+        root.querySelectorAll('.material-symbols-rounded').forEach((icon) => {
+            // Icon ligature text ("download", "close") should not be read aloud.
+            if (!icon.hasAttribute('aria-hidden')) icon.setAttribute('aria-hidden', 'true');
+        });
+    }
+
+    function topOpenModal() {
+        const open = [...document.querySelectorAll('.modal-overlay.active')];
+        if (!open.length) return null;
+        return open.reduce((top, el) => {
+            const z = parseInt(getComputedStyle(el).zIndex, 10) || 0;
+            const topZ = parseInt(getComputedStyle(top).zIndex, 10) || 0;
+            return z >= topZ ? el : top;
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !e.defaultPrevented) {
+            if (document.getElementById('presentation-mode')) return; // presentation mode handles its own Esc
+            const modal = topOpenModal();
+            if (modal) {
+                // Only genuine close controls — never a generic toolbar button inside the modal.
+                const closeBtn = modal.querySelector('[id^="close-"], .close-btn, .modal-close, [aria-label="Close"], [title="Close"]')
+                    || [...modal.querySelectorAll('.modal-header button')].find(b => b.textContent.trim() === 'close');
+                if (closeBtn) closeBtn.click();
+                else modal.classList.remove('active');
+                e.preventDefault();
+            }
+        }
+
+        if (e.key === 'Enter' && (e.metaKey || e.ctrlKey) && document.activeElement === topicInput) {
+            e.preventDefault();
+            if (!generateBtn.disabled) generateBtn.click();
+        }
+    });
+
+    if (topicInput && !topicInput.getAttribute('title')) {
+        topicInput.setAttribute('title', 'Tip: press Ctrl/⌘ + Enter to generate');
+    }
+
+    labelIconControls(document);
+    // Debounced: large re-renders (library list, posters) trigger a single pass per frame.
+    let pending = false;
+    const observer = new MutationObserver(() => {
+        if (pending) return;
+        pending = true;
+        requestAnimationFrame(() => {
+            pending = false;
+            labelIconControls(document);
+        });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+})();

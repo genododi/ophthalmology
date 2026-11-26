@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simple HTTP server for serving the FRCS simulator locally.
+Simple HTTP server for serving the Ophthalmic Infographic Creator locally.
 This avoids CORS issues when loading local JavaScript files.
 
 Usage:
@@ -58,15 +58,36 @@ def read_gemini_key_from_keychain():
 class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     """HTTP request handler with CORS headers to prevent any cross-origin issues."""
     
+    # Paths that must never be served by the static file handler.
+    BLOCKED_NAMES = {
+        'server.py', 'server.js', 'server.key', 'server.crt', 'configure_router.py',
+        'sync_to_github.py', 'ophthalmics.py', 'push_to_github.sh', 'package.json', 'package-lock.json',
+    }
+    BLOCKED_DIRS = {'.git', '.github', '.claude', 'config', 'scripts', 'node_modules', '__pycache__'}
+    BLOCKED_EXTS = {'.key', '.pem', '.local', '.py', '.sh', '.env'}
+
     def end_headers(self):
-        # Add CORS headers
-        # Keep the localhost key response same-origin; otherwise an unrelated
-        # website could read it through this server's permissive CORS policy.
-        if self.path != '/local-dev/gemini-api-key':
+        # CORS for public static assets only; never for the local key endpoint
+        # (otherwise an unrelated website could read the key from localhost).
+        if not self.path.startswith('/local-dev/'):
             self.send_header('Access-Control-Allow-Origin', '*')
             self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
             self.send_header('Access-Control-Allow-Headers', '*')
         super().end_headers()
+
+    def _is_blocked_path(self):
+        """Resolve the request exactly like the static handler would, then deny secrets."""
+        try:
+            resolved = Path(self.translate_path(self.path)).resolve()
+            rel = resolved.relative_to(SCRIPT_DIR)
+        except (ValueError, OSError):
+            return True
+        parts = rel.parts
+        if any(p in self.BLOCKED_DIRS or (p.startswith('.') and p != '.well-known') for p in parts):
+            return True
+        if resolved.name in self.BLOCKED_NAMES or resolved.suffix.lower() in self.BLOCKED_EXTS:
+            return True
+        return False
 
     def do_OPTIONS(self):
         """Handle OPTIONS requests for CORS preflight."""
@@ -116,7 +137,7 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            response = '{"status": "ok", "service": "FRCS Simulator", "timestamp": "' + str(int(time.time())) + '"}'
+            response = '{"status": "ok", "service": "Ophthalmic Infographic Creator", "timestamp": "' + str(int(time.time())) + '"}'
             self.wfile.write(response.encode())
             return
         
@@ -135,7 +156,12 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         # Local dev only: Gemini key from Keychain password (account SMILE), never for public deploy
         if self.path == '/local-dev/gemini-api-key':
             client = self.client_address[0] if self.client_address else ''
-            if client not in ('127.0.0.1', '::1'):
+            host = (self.headers.get('Host') or '').rsplit(':', 1)[0]
+            fetch_site = self.headers.get('Sec-Fetch-Site')
+            # Loopback only, real localhost Host (blocks DNS rebinding), same-origin fetch only.
+            if (client not in ('127.0.0.1', '::1')
+                    or host not in ('localhost', '127.0.0.1', '[::1]')
+                    or (fetch_site and fetch_site not in ('same-origin', 'none'))):
                 self.send_error(403, 'Forbidden')
                 return
             key = read_gemini_key_from_keychain()
@@ -155,7 +181,7 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
 
         # Block serving secret config paths via static file handler
-        if self.path.startswith('/config/') or self.path.endswith('.local'):
+        if self._is_blocked_path():
             self.send_error(404)
             return
 
@@ -181,7 +207,7 @@ Disallow: /
             status_html = f"""<!DOCTYPE html>
 <html>
 <head>
-    <title>FRCS Simulator Server Status</title>
+    <title>Ophthalmic Infographic Server Status</title>
     <meta charset="UTF-8">
     <style>
         body {{ font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }}
@@ -197,7 +223,7 @@ Disallow: /
 </head>
 <body>
     <div class="container">
-        <h1>🏥 FRCS Simulator Server</h1>
+        <h1>👁️ Ophthalmic Infographic Server</h1>
         <div class="info">Status: <span class="status">✅ Running</span></div>
         <div class="info">Port: <strong>{current_port}</strong></div>
         <div class="info">Host: {HOST}</div>
@@ -205,16 +231,14 @@ Disallow: /
         <div class="info">Server Time: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</div>
         
         <div class="links">
-            <a href="/FRCS%20simulator.html">📄 Open FRCS Simulator</a>
+            <a href="/index.html">📄 Open App</a>
             <a href="/health">🏥 Health Check (JSON)</a>
         </div>
         
         <h3>📁 Available Files:</h3>
         <ul>
-            <li>📄 <a href="/FRCS%20simulator.html">FRCS simulator.html</a> - Main application</li>
-            <li>📁 <a href="/js/">js/</a> - JavaScript modules</li>
-            <li>📁 <a href="/css/">css/</a> - Stylesheets</li>
-            <li>🔧 <a href="/server.py">server.py</a> - This server script</li>
+            <li>📄 <a href="/index.html">index.html</a> - Main application</li>
+            <li>📁 <a href="/library/">library/</a> - Saved infographics</li>
         </ul>
         
         <div class="note">
@@ -292,7 +316,7 @@ def kill_existing_server(port):
 def show_help():
     """Show help message."""
     print("""
-🏥 FRCS Simulator Server
+👁️ Ophthalmic Infographic Server
 
 Usage:
     python3 server.py [PORT]
@@ -327,7 +351,7 @@ def main():
     script_dir = Path(__file__).parent
     os.chdir(script_dir)
     
-    print(f"🚀 Starting FRCS Simulator Server...")
+    print(f"🚀 Starting Ophthalmic Infographic Server...")
     print(f"📁 Serving files from: {script_dir}")
     
     # Check command line arguments for port
@@ -349,9 +373,10 @@ def main():
     while not server_started:
         try:
             # Create server
-            with socketserver.TCPServer((HOST, port_val), CORSHTTPRequestHandler) as httpd:
+            http.server.ThreadingHTTPServer.allow_reuse_address = True
+            with http.server.ThreadingHTTPServer((HOST, port_val), CORSHTTPRequestHandler) as httpd:
                 print(f"🌐 Server URL: http://{HOST}:{port_val}")
-                print(f"📄 Main App: http://{HOST}:{port_val}/FRCS%20simulator.html")
+                print(f"📄 Main App: http://{HOST}:{port_val}/index.html")
                 print(f"📊 Status Page: http://{HOST}:{port_val}/status")
                 print(f"🏥 Health Check: http://{HOST}:{port_val}/health")
                 print(f"⏹️  Press Ctrl+C to stop the server")
@@ -360,12 +385,13 @@ def main():
                 
                 # Try to open the browser automatically
                 try:
-                    url = f"http://{HOST}:{port_val}/FRCS%20simulator.html"
+                    url = f"http://{HOST}:{port_val}/index.html"
                     print(f"🔗 Opening browser to: {url}")
-                    webbrowser.open(url)
+                    if not os.environ.get("NO_BROWSER"):
+                        webbrowser.open(url)
                 except Exception as e:
                     print(f"⚠️  Could not open browser automatically: {e}")
-                    print(f"📝 Please manually open: http://{HOST}:{port_val}/FRCS%20simulator.html")
+                    print(f"📝 Please manually open: http://{HOST}:{port_val}/index.html")
                 
                 print(f"🔄 Server running... (use Ctrl+C to stop)")
                 server_started = True
